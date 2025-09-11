@@ -70,7 +70,9 @@ class Contract(object):
         'create_time': 'float',
         'funding_cap_ratio': 'str',
         'status': 'str',
-        'launch_time': 'int'
+        'launch_time': 'int',
+        'delisting_time': 'int',
+        'delisted_time': 'int'
     }
 
     attribute_map = {
@@ -111,11 +113,13 @@ class Contract(object):
         'create_time': 'create_time',
         'funding_cap_ratio': 'funding_cap_ratio',
         'status': 'status',
-        'launch_time': 'launch_time'
+        'launch_time': 'launch_time',
+        'delisting_time': 'delisting_time',
+        'delisted_time': 'delisted_time'
     }
 
-    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, int, int, str, str, str, int, int, int, int, float, bool, int, bool, bool, float, str, str, int, Configuration) -> None
+    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, int, int, str, str, str, int, int, int, int, float, bool, int, bool, bool, float, str, str, int, int, int, Configuration) -> None
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -159,6 +163,8 @@ class Contract(object):
         self._funding_cap_ratio = None
         self._status = None
         self._launch_time = None
+        self._delisting_time = None
+        self._delisted_time = None
         self.discriminator = None
 
         if name is not None:
@@ -237,6 +243,10 @@ class Contract(object):
             self.status = status
         if launch_time is not None:
             self.launch_time = launch_time
+        if delisting_time is not None:
+            self.delisting_time = delisting_time
+        if delisted_time is not None:
+            self.delisted_time = delisted_time
 
     @property
     def name(self):
@@ -1082,7 +1092,7 @@ class Contract(object):
     def status(self):
         """Gets the status of this Contract.  # noqa: E501
 
-        Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted)  # noqa: E501
+        Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted), circuit_breaker (circuit breaker)  # noqa: E501
 
         :return: The status of this Contract.  # noqa: E501
         :rtype: str
@@ -1093,7 +1103,7 @@ class Contract(object):
     def status(self, status):
         """Sets the status of this Contract.
 
-        Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted)  # noqa: E501
+        Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted), circuit_breaker (circuit breaker)  # noqa: E501
 
         :param status: The status of this Contract.  # noqa: E501
         :type: str
@@ -1123,6 +1133,52 @@ class Contract(object):
         """
 
         self._launch_time = launch_time
+
+    @property
+    def delisting_time(self):
+        """Gets the delisting_time of this Contract.  # noqa: E501
+
+        Timestamp when contract enters reduce-only state  # noqa: E501
+
+        :return: The delisting_time of this Contract.  # noqa: E501
+        :rtype: int
+        """
+        return self._delisting_time
+
+    @delisting_time.setter
+    def delisting_time(self, delisting_time):
+        """Sets the delisting_time of this Contract.
+
+        Timestamp when contract enters reduce-only state  # noqa: E501
+
+        :param delisting_time: The delisting_time of this Contract.  # noqa: E501
+        :type: int
+        """
+
+        self._delisting_time = delisting_time
+
+    @property
+    def delisted_time(self):
+        """Gets the delisted_time of this Contract.  # noqa: E501
+
+        Contract delisting time  # noqa: E501
+
+        :return: The delisted_time of this Contract.  # noqa: E501
+        :rtype: int
+        """
+        return self._delisted_time
+
+    @delisted_time.setter
+    def delisted_time(self, delisted_time):
+        """Sets the delisted_time of this Contract.
+
+        Contract delisting time  # noqa: E501
+
+        :param delisted_time: The delisted_time of this Contract.  # noqa: E501
+        :type: int
+        """
+
+        self._delisted_time = delisted_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

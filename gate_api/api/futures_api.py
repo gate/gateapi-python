@@ -595,6 +595,7 @@ class FuturesApi(object):
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
         :param int limit: Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
         :param str interval: Interval time between data points. Note that `1w` means natural week(Mon-Sun), while `7d` means every 7d since unix 0. 30d represents a natural month, not 30 days
+        :param str timezone: Time zone: all/utc0/utc8, default utc0
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -625,6 +626,7 @@ class FuturesApi(object):
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
         :param int limit: Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
         :param str interval: Interval time between data points. Note that `1w` means natural week(Mon-Sun), while `7d` means every 7d since unix 0. 30d represents a natural month, not 30 days
+        :param str timezone: Time zone: all/utc0/utc8, default utc0
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -647,7 +649,8 @@ class FuturesApi(object):
             '_from',
             'to',
             'limit',
-            'interval'
+            'interval',
+            'timezone'
         ]
         all_params.extend(
             [
@@ -694,6 +697,8 @@ class FuturesApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'interval' in local_var_params and local_var_params['interval'] is not None:  # noqa: E501
             query_params.append(('interval', local_var_params['interval']))  # noqa: E501
+        if 'timezone' in local_var_params and local_var_params['timezone'] is not None:  # noqa: E501
+            query_params.append(('timezone', local_var_params['timezone']))  # noqa: E501
 
         header_params = {}
 
@@ -1511,7 +1516,7 @@ class FuturesApi(object):
     def list_liquidated_orders(self, settle, **kwargs):  # noqa: E501
         """Query liquidation order history  # noqa: E501
 
-        The time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for detailsThe time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for interfaces, refer to field descriptions for details  # noqa: E501
+        The time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for details  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_liquidated_orders(settle, async_req=True)
@@ -1540,7 +1545,7 @@ class FuturesApi(object):
     def list_liquidated_orders_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Query liquidation order history  # noqa: E501
 
-        The time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for detailsThe time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for interfaces, refer to field descriptions for details  # noqa: E501
+        The time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for details  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_liquidated_orders_with_http_info(settle, async_req=True)
@@ -1649,7 +1654,7 @@ class FuturesApi(object):
     def list_futures_risk_limit_tiers(self, settle, **kwargs):  # noqa: E501
         """Query risk limit tiers  # noqa: E501
 
-        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.  # noqa: E501
+        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets. 'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_risk_limit_tiers(settle, async_req=True)
@@ -1677,7 +1682,7 @@ class FuturesApi(object):
     def list_futures_risk_limit_tiers_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Query risk limit tiers  # noqa: E501
 
-        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.  # noqa: E501
+        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets. 'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_risk_limit_tiers_with_http_info(settle, async_req=True)
@@ -1909,7 +1914,7 @@ class FuturesApi(object):
         :param int offset: List offset, starting from 0
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        :param str type: Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+        :param str type: Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1940,7 +1945,7 @@ class FuturesApi(object):
         :param int offset: List offset, starting from 0
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        :param str type: Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+        :param str type: Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2440,6 +2445,7 @@ class FuturesApi(object):
         :param str contract: Futures contract (required)
         :param str leverage: New position leverage (required)
         :param str cross_leverage_limit: Cross margin leverage (valid only when `leverage` is 0)
+        :param int pid: Product ID
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2467,6 +2473,7 @@ class FuturesApi(object):
         :param str contract: Futures contract (required)
         :param str leverage: New position leverage (required)
         :param str cross_leverage_limit: Cross margin leverage (valid only when `leverage` is 0)
+        :param int pid: Product ID
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2487,7 +2494,8 @@ class FuturesApi(object):
             'settle',
             'contract',
             'leverage',
-            'cross_leverage_limit'
+            'cross_leverage_limit',
+            'pid'
         ]
         all_params.extend(
             [
@@ -2532,6 +2540,8 @@ class FuturesApi(object):
             query_params.append(('leverage', local_var_params['leverage']))  # noqa: E501
         if 'cross_leverage_limit' in local_var_params and local_var_params['cross_leverage_limit'] is not None:  # noqa: E501
             query_params.append(('cross_leverage_limit', local_var_params['cross_leverage_limit']))  # noqa: E501
+        if 'pid' in local_var_params and local_var_params['pid'] is not None:  # noqa: E501
+            query_params.append(('pid', local_var_params['pid']))  # noqa: E501
 
         header_params = {}
 
@@ -3605,7 +3615,7 @@ class FuturesApi(object):
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3635,7 +3645,7 @@ class FuturesApi(object):
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3884,7 +3894,9 @@ class FuturesApi(object):
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
-        :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell orders
+        :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
+        :param bool exclude_reduce_only: Whether to exclude reduce-only orders
+        :param str text: Remark for order cancellation
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3912,7 +3924,9 @@ class FuturesApi(object):
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
-        :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell orders
+        :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
+        :param bool exclude_reduce_only: Whether to exclude reduce-only orders
+        :param str text: Remark for order cancellation
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3933,7 +3947,9 @@ class FuturesApi(object):
             'settle',
             'contract',
             'x_gate_exptime',
-            'side'
+            'side',
+            'exclude_reduce_only',
+            'text'
         ]
         all_params.extend(
             [
@@ -3972,6 +3988,10 @@ class FuturesApi(object):
             query_params.append(('contract', local_var_params['contract']))  # noqa: E501
         if 'side' in local_var_params and local_var_params['side'] is not None:  # noqa: E501
             query_params.append(('side', local_var_params['side']))  # noqa: E501
+        if 'exclude_reduce_only' in local_var_params and local_var_params['exclude_reduce_only'] is not None:  # noqa: E501
+            query_params.append(('exclude_reduce_only', local_var_params['exclude_reduce_only']))  # noqa: E501
+        if 'text' in local_var_params and local_var_params['text'] is not None:  # noqa: E501
+            query_params.append(('text', local_var_params['text']))  # noqa: E501
 
         header_params = {}
         if 'x_gate_exptime' in local_var_params:

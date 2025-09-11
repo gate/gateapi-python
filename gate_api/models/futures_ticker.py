@@ -53,7 +53,12 @@ class FuturesTicker(object):
         'lowest_ask': 'str',
         'lowest_size': 'str',
         'highest_bid': 'str',
-        'highest_size': 'str'
+        'highest_size': 'str',
+        'change_utc0': 'str',
+        'change_utc8': 'str',
+        'change_price': 'str',
+        'change_utc0_price': 'str',
+        'change_utc8_price': 'str'
     }
 
     attribute_map = {
@@ -77,11 +82,16 @@ class FuturesTicker(object):
         'lowest_ask': 'lowest_ask',
         'lowest_size': 'lowest_size',
         'highest_bid': 'highest_bid',
-        'highest_size': 'highest_size'
+        'highest_size': 'highest_size',
+        'change_utc0': 'change_utc0',
+        'change_utc8': 'change_utc8',
+        'change_price': 'change_price',
+        'change_utc0_price': 'change_utc0_price',
+        'change_utc8_price': 'change_utc8_price'
     }
 
-    def __init__(self, contract=None, last=None, change_percentage=None, total_size=None, low_24h=None, high_24h=None, volume_24h=None, volume_24h_btc=None, volume_24h_usd=None, volume_24h_base=None, volume_24h_quote=None, volume_24h_settle=None, mark_price=None, funding_rate=None, funding_rate_indicative=None, index_price=None, quanto_base_rate=None, lowest_ask=None, lowest_size=None, highest_bid=None, highest_size=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, contract=None, last=None, change_percentage=None, total_size=None, low_24h=None, high_24h=None, volume_24h=None, volume_24h_btc=None, volume_24h_usd=None, volume_24h_base=None, volume_24h_quote=None, volume_24h_settle=None, mark_price=None, funding_rate=None, funding_rate_indicative=None, index_price=None, quanto_base_rate=None, lowest_ask=None, lowest_size=None, highest_bid=None, highest_size=None, change_utc0=None, change_utc8=None, change_price=None, change_utc0_price=None, change_utc8_price=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """FuturesTicker - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,6 +118,11 @@ class FuturesTicker(object):
         self._lowest_size = None
         self._highest_bid = None
         self._highest_size = None
+        self._change_utc0 = None
+        self._change_utc8 = None
+        self._change_price = None
+        self._change_utc0_price = None
+        self._change_utc8_price = None
         self.discriminator = None
 
         if contract is not None:
@@ -152,6 +167,16 @@ class FuturesTicker(object):
             self.highest_bid = highest_bid
         if highest_size is not None:
             self.highest_size = highest_size
+        if change_utc0 is not None:
+            self.change_utc0 = change_utc0
+        if change_utc8 is not None:
+            self.change_utc8 = change_utc8
+        if change_price is not None:
+            self.change_price = change_price
+        if change_utc0_price is not None:
+            self.change_utc0_price = change_utc0_price
+        if change_utc8_price is not None:
+            self.change_utc8_price = change_utc8_price
 
     @property
     def contract(self):
@@ -635,6 +660,121 @@ class FuturesTicker(object):
         """
 
         self._highest_size = highest_size
+
+    @property
+    def change_utc0(self):
+        """Gets the change_utc0 of this FuturesTicker.  # noqa: E501
+
+        Percentage change at utc0. Negative values indicate a drop, e.g., -7.45%  # noqa: E501
+
+        :return: The change_utc0 of this FuturesTicker.  # noqa: E501
+        :rtype: str
+        """
+        return self._change_utc0
+
+    @change_utc0.setter
+    def change_utc0(self, change_utc0):
+        """Sets the change_utc0 of this FuturesTicker.
+
+        Percentage change at utc0. Negative values indicate a drop, e.g., -7.45%  # noqa: E501
+
+        :param change_utc0: The change_utc0 of this FuturesTicker.  # noqa: E501
+        :type: str
+        """
+
+        self._change_utc0 = change_utc0
+
+    @property
+    def change_utc8(self):
+        """Gets the change_utc8 of this FuturesTicker.  # noqa: E501
+
+        Percentage change at utc8. Negative values indicate a drop, e.g., -7.45%  # noqa: E501
+
+        :return: The change_utc8 of this FuturesTicker.  # noqa: E501
+        :rtype: str
+        """
+        return self._change_utc8
+
+    @change_utc8.setter
+    def change_utc8(self, change_utc8):
+        """Sets the change_utc8 of this FuturesTicker.
+
+        Percentage change at utc8. Negative values indicate a drop, e.g., -7.45%  # noqa: E501
+
+        :param change_utc8: The change_utc8 of this FuturesTicker.  # noqa: E501
+        :type: str
+        """
+
+        self._change_utc8 = change_utc8
+
+    @property
+    def change_price(self):
+        """Gets the change_price of this FuturesTicker.  # noqa: E501
+
+        24h change amount. Negative values indicate a drop, e.g., -7.45  # noqa: E501
+
+        :return: The change_price of this FuturesTicker.  # noqa: E501
+        :rtype: str
+        """
+        return self._change_price
+
+    @change_price.setter
+    def change_price(self, change_price):
+        """Sets the change_price of this FuturesTicker.
+
+        24h change amount. Negative values indicate a drop, e.g., -7.45  # noqa: E501
+
+        :param change_price: The change_price of this FuturesTicker.  # noqa: E501
+        :type: str
+        """
+
+        self._change_price = change_price
+
+    @property
+    def change_utc0_price(self):
+        """Gets the change_utc0_price of this FuturesTicker.  # noqa: E501
+
+        Change amount at utc0. Negative values indicate a drop, e.g., -7.45  # noqa: E501
+
+        :return: The change_utc0_price of this FuturesTicker.  # noqa: E501
+        :rtype: str
+        """
+        return self._change_utc0_price
+
+    @change_utc0_price.setter
+    def change_utc0_price(self, change_utc0_price):
+        """Sets the change_utc0_price of this FuturesTicker.
+
+        Change amount at utc0. Negative values indicate a drop, e.g., -7.45  # noqa: E501
+
+        :param change_utc0_price: The change_utc0_price of this FuturesTicker.  # noqa: E501
+        :type: str
+        """
+
+        self._change_utc0_price = change_utc0_price
+
+    @property
+    def change_utc8_price(self):
+        """Gets the change_utc8_price of this FuturesTicker.  # noqa: E501
+
+        Change amount at utc8. Negative values indicate a drop, e.g., -7.45  # noqa: E501
+
+        :return: The change_utc8_price of this FuturesTicker.  # noqa: E501
+        :rtype: str
+        """
+        return self._change_utc8_price
+
+    @change_utc8_price.setter
+    def change_utc8_price(self, change_utc8_price):
+        """Sets the change_utc8_price of this FuturesTicker.
+
+        Change amount at utc8. Negative values indicate a drop, e.g., -7.45  # noqa: E501
+
+        :param change_utc8_price: The change_utc8_price of this FuturesTicker.  # noqa: E501
+        :type: str
+        """
+
+        self._change_utc8_price = change_utc8_price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

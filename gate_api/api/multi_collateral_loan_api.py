@@ -48,7 +48,7 @@ class MultiCollateralLoanApi(object):
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
         :param str sort: Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
-        :param str order_type: Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
+        :param str order_type: Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -75,7 +75,7 @@ class MultiCollateralLoanApi(object):
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
         :param str sort: Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
-        :param str order_type: Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
+        :param str order_type: Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

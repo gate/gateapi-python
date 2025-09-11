@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **point** | **str** | Point card amount | [optional] 
 **currency** | **str** | Settlement currency | [optional] 
 **in_dual_mode** | **bool** | Whether dual mode is enabled | [optional] 
+**position_mode** | **str** | Position mode: single - one-way, dual - dual-side, split - sub-positions (in_dual_mode is deprecated) | [optional] 
 **enable_credit** | **bool** | Whether portfolio margin account mode is enabled | [optional] 
 **position_initial_margin** | **str** | Initial margin occupied by positions, applicable to unified account mode | [optional] 
 **maintenance_margin** | **str** | Maintenance margin occupied by positions, applicable to new classic account margin mode and unified account mode | [optional] 

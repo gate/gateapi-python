@@ -423,7 +423,7 @@ class DeliveryApi(object):
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
         :param int limit: Maximum number of records returned in a single list
-        :param str last_id: 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 `from` 和 `to` 字段来限定时间范围
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list.This field is no longer supported. For new requests, please use the fromand tofields to specify the time rang
         :param int _from: Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
         :param int to: Specify end time in Unix seconds, default to current time.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -452,7 +452,7 @@ class DeliveryApi(object):
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
         :param int limit: Maximum number of records returned in a single list
-        :param str last_id: 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 `from` 和 `to` 字段来限定时间范围
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list.This field is no longer supported. For new requests, please use the fromand tofields to specify the time rang
         :param int _from: Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
         :param int to: Specify end time in Unix seconds, default to current time.
         :param _return_http_data_only: response data without head status code
@@ -571,7 +571,7 @@ class DeliveryApi(object):
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
         :param int limit: Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        :param str interval: Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeTime interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time
+        :param str interval: Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial time
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -601,7 +601,7 @@ class DeliveryApi(object):
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
         :param int limit: Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        :param str interval: Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeTime interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time
+        :param str interval: Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial time
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1064,7 +1064,7 @@ class DeliveryApi(object):
         :param int limit: Maximum number of records returned in a single list
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        :param str type: Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+        :param str type: Change types: - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1092,7 +1092,7 @@ class DeliveryApi(object):
         :param int limit: Maximum number of records returned in a single list
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        :param str type: Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+        :param str type: Change types: - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1825,7 +1825,7 @@ class DeliveryApi(object):
         :param str contract: Futures contract
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param int count_total: Whether to return total number matched, defaults to 0 (no return)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1856,7 +1856,7 @@ class DeliveryApi(object):
         :param str contract: Futures contract
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param int count_total: Whether to return total number matched, defaults to 0 (no return)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2477,7 +2477,7 @@ class DeliveryApi(object):
         :param int order: Futures order ID, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param int count_total: Whether to return total number matched, defaults to 0 (no return)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2507,7 +2507,7 @@ class DeliveryApi(object):
         :param int order: Futures order ID, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param int count_total: Whether to return total number matched, defaults to 0 (no return)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3002,7 +3002,7 @@ class DeliveryApi(object):
     def list_delivery_risk_limit_tiers(self, settle, **kwargs):  # noqa: E501
         """Query risk limit tiers  # noqa: E501
 
-        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.  # noqa: E501
+        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets. 'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_delivery_risk_limit_tiers(settle, async_req=True)
@@ -3030,7 +3030,7 @@ class DeliveryApi(object):
     def list_delivery_risk_limit_tiers_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Query risk limit tiers  # noqa: E501
 
-        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.  # noqa: E501
+        When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets. 'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_delivery_risk_limit_tiers_with_http_info(settle, async_req=True)

@@ -548,7 +548,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **find_coin**
-> list[str] find_coin(find_coin)
+> object find_coin(find_coin)
 
 Staking coins
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list[str]**
+**object**
 
 ### Authorization
 

@@ -161,7 +161,7 @@ class FuturesAccountBook(object):
     def type(self):
         """Gets the type of this FuturesAccountBook.  # noqa: E501
 
-        Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction  # noqa: E501
+        Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction  # noqa: E501
 
         :return: The type of this FuturesAccountBook.  # noqa: E501
         :rtype: str
@@ -172,7 +172,7 @@ class FuturesAccountBook(object):
     def type(self, type):
         """Sets the type of this FuturesAccountBook.
 
-        Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction  # noqa: E501
+        Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction  # noqa: E501
 
         :param type: The type of this FuturesAccountBook.  # noqa: E501
         :type: str

@@ -726,7 +726,7 @@ class SpotApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Currency pair (required)
         :param int limit: Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param bool reverse: Whether to retrieve data less than `last_id`. Default returns records greater than `last_id`.  Set to `true` to trace back market trade records, `false` to get latest trades.  No effect when `last_id` is not set.
         :param int _from: Start timestamp for the query
         :param int to: End timestamp for the query, defaults to current time if not specified
@@ -757,7 +757,7 @@ class SpotApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Currency pair (required)
         :param int limit: Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
-        :param str last_id: Specify the currency name to query in batches, and support up to 100 pass parameters at a time
+        :param str last_id: Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         :param bool reverse: Whether to retrieve data less than `last_id`. Default returns records greater than `last_id`.  Set to `true` to trace back market trade records, `false` to get latest trades.  No effect when `last_id` is not set.
         :param int _from: Start timestamp for the query
         :param int to: End timestamp for the query, defaults to current time if not specified

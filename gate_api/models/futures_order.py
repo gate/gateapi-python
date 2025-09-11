@@ -36,6 +36,7 @@ class FuturesOrder(object):
         'id': 'int',
         'user': 'int',
         'create_time': 'float',
+        'update_time': 'float',
         'finish_time': 'float',
         'finish_as': 'str',
         'status': 'str',
@@ -58,13 +59,16 @@ class FuturesOrder(object):
         'auto_size': 'str',
         'stp_id': 'int',
         'stp_act': 'str',
-        'amend_text': 'str'
+        'amend_text': 'str',
+        'limit_vip': 'int',
+        'pid': 'int'
     }
 
     attribute_map = {
         'id': 'id',
         'user': 'user',
         'create_time': 'create_time',
+        'update_time': 'update_time',
         'finish_time': 'finish_time',
         'finish_as': 'finish_as',
         'status': 'status',
@@ -87,11 +91,13 @@ class FuturesOrder(object):
         'auto_size': 'auto_size',
         'stp_id': 'stp_id',
         'stp_act': 'stp_act',
-        'amend_text': 'amend_text'
+        'amend_text': 'amend_text',
+        'limit_vip': 'limit_vip',
+        'pid': 'pid'
     }
 
-    def __init__(self, id=None, user=None, create_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, float, float, str, str, str, int, int, str, bool, bool, bool, bool, bool, str, int, str, str, str, str, int, str, int, str, str, Configuration) -> None
+    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, limit_vip=None, pid=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, float, float, float, str, str, str, int, int, str, bool, bool, bool, bool, bool, str, int, str, str, str, str, int, str, int, str, str, int, int, Configuration) -> None
         """FuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -100,6 +106,7 @@ class FuturesOrder(object):
         self._id = None
         self._user = None
         self._create_time = None
+        self._update_time = None
         self._finish_time = None
         self._finish_as = None
         self._status = None
@@ -123,6 +130,8 @@ class FuturesOrder(object):
         self._stp_id = None
         self._stp_act = None
         self._amend_text = None
+        self._limit_vip = None
+        self._pid = None
         self.discriminator = None
 
         if id is not None:
@@ -131,6 +140,8 @@ class FuturesOrder(object):
             self.user = user
         if create_time is not None:
             self.create_time = create_time
+        if update_time is not None:
+            self.update_time = update_time
         if finish_time is not None:
             self.finish_time = finish_time
         if finish_as is not None:
@@ -175,6 +186,10 @@ class FuturesOrder(object):
             self.stp_act = stp_act
         if amend_text is not None:
             self.amend_text = amend_text
+        if limit_vip is not None:
+            self.limit_vip = limit_vip
+        if pid is not None:
+            self.pid = pid
 
     @property
     def id(self):
@@ -244,6 +259,29 @@ class FuturesOrder(object):
         """
 
         self._create_time = create_time
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this FuturesOrder.  # noqa: E501
+
+        OrderUpdateTime  # noqa: E501
+
+        :return: The update_time of this FuturesOrder.  # noqa: E501
+        :rtype: float
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this FuturesOrder.
+
+        OrderUpdateTime  # noqa: E501
+
+        :param update_time: The update_time of this FuturesOrder.  # noqa: E501
+        :type: float
+        """
+
+        self._update_time = update_time
 
     @property
     def finish_time(self):
@@ -807,6 +845,52 @@ class FuturesOrder(object):
         """
 
         self._amend_text = amend_text
+
+    @property
+    def limit_vip(self):
+        """Gets the limit_vip of this FuturesOrder.  # noqa: E501
+
+        Counterparty user's VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0  # noqa: E501
+
+        :return: The limit_vip of this FuturesOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit_vip
+
+    @limit_vip.setter
+    def limit_vip(self, limit_vip):
+        """Sets the limit_vip of this FuturesOrder.
+
+        Counterparty user's VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0  # noqa: E501
+
+        :param limit_vip: The limit_vip of this FuturesOrder.  # noqa: E501
+        :type: int
+        """
+
+        self._limit_vip = limit_vip
+
+    @property
+    def pid(self):
+        """Gets the pid of this FuturesOrder.  # noqa: E501
+
+        Position ID  # noqa: E501
+
+        :return: The pid of this FuturesOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._pid
+
+    @pid.setter
+    def pid(self, pid):
+        """Sets the pid of this FuturesOrder.
+
+        Position ID  # noqa: E501
+
+        :param pid: The pid of this FuturesOrder.  # noqa: E501
+        :type: int
+        """
+
+        self._pid = pid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

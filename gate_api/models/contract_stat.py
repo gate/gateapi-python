@@ -45,7 +45,8 @@ class ContractStat(object):
         'open_interest': 'int',
         'open_interest_usd': 'float',
         'top_lsr_account': 'float',
-        'top_lsr_size': 'float'
+        'top_lsr_size': 'float',
+        'mark_price': 'float'
     }
 
     attribute_map = {
@@ -61,11 +62,12 @@ class ContractStat(object):
         'open_interest': 'open_interest',
         'open_interest_usd': 'open_interest_usd',
         'top_lsr_account': 'top_lsr_account',
-        'top_lsr_size': 'top_lsr_size'
+        'top_lsr_size': 'top_lsr_size',
+        'mark_price': 'mark_price'
     }
 
-    def __init__(self, time=None, lsr_taker=None, lsr_account=None, long_liq_size=None, long_liq_amount=None, long_liq_usd=None, short_liq_size=None, short_liq_amount=None, short_liq_usd=None, open_interest=None, open_interest_usd=None, top_lsr_account=None, top_lsr_size=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, int, float, float, int, float, float, int, float, float, float, Configuration) -> None
+    def __init__(self, time=None, lsr_taker=None, lsr_account=None, long_liq_size=None, long_liq_amount=None, long_liq_usd=None, short_liq_size=None, short_liq_amount=None, short_liq_usd=None, open_interest=None, open_interest_usd=None, top_lsr_account=None, top_lsr_size=None, mark_price=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, float, float, int, float, float, int, float, float, int, float, float, float, float, Configuration) -> None
         """ContractStat - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class ContractStat(object):
         self._open_interest_usd = None
         self._top_lsr_account = None
         self._top_lsr_size = None
+        self._mark_price = None
         self.discriminator = None
 
         if time is not None:
@@ -112,6 +115,8 @@ class ContractStat(object):
             self.top_lsr_account = top_lsr_account
         if top_lsr_size is not None:
             self.top_lsr_size = top_lsr_size
+        if mark_price is not None:
+            self.mark_price = mark_price
 
     @property
     def time(self):
@@ -411,6 +416,29 @@ class ContractStat(object):
         """
 
         self._top_lsr_size = top_lsr_size
+
+    @property
+    def mark_price(self):
+        """Gets the mark_price of this ContractStat.  # noqa: E501
+
+        Mark price  # noqa: E501
+
+        :return: The mark_price of this ContractStat.  # noqa: E501
+        :rtype: float
+        """
+        return self._mark_price
+
+    @mark_price.setter
+    def mark_price(self, mark_price):
+        """Sets the mark_price of this ContractStat.
+
+        Mark price  # noqa: E501
+
+        :param mark_price: The mark_price of this ContractStat.  # noqa: E501
+        :type: float
+        """
+
+        self._mark_price = mark_price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

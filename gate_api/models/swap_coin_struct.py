@@ -242,7 +242,7 @@ class SwapCoinStruct(object):
     def subtype(self):
         """Gets the subtype of this SwapCoinStruct.  # noqa: E501
 
-        子类型  # noqa: E501
+        SubType  # noqa: E501
 
         :return: The subtype of this SwapCoinStruct.  # noqa: E501
         :rtype: str
@@ -253,7 +253,7 @@ class SwapCoinStruct(object):
     def subtype(self, subtype):
         """Sets the subtype of this SwapCoinStruct.
 
-        子类型  # noqa: E501
+        SubType  # noqa: E501
 
         :param subtype: The subtype of this SwapCoinStruct.  # noqa: E501
         :type: str
@@ -334,7 +334,7 @@ class SwapCoinStruct(object):
     def update_stamp(self):
         """Gets the update_stamp of this SwapCoinStruct.  # noqa: E501
 
-        更新时间戳  # noqa: E501
+        UpdateTimestamp  # noqa: E501
 
         :return: The update_stamp of this SwapCoinStruct.  # noqa: E501
         :rtype: int
@@ -345,7 +345,7 @@ class SwapCoinStruct(object):
     def update_stamp(self, update_stamp):
         """Sets the update_stamp of this SwapCoinStruct.
 
-        更新时间戳  # noqa: E501
+        UpdateTimestamp  # noqa: E501
 
         :param update_stamp: The update_stamp of this SwapCoinStruct.  # noqa: E501
         :type: int

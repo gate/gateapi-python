@@ -244,7 +244,7 @@ api_instance = gate_api.DeliveryApi(api_client)
 settle = 'usdt' # str | Settle currency
 contract = 'BTC_USDT_20200814' # str | Futures contract
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
-last_id = '12345' # str | 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 `from` 和 `to` 字段来限定时间范围 (optional)
+last_id = '12345' # str | Use the ID of the last record in the previous list as the starting point for the next list.This field is no longer supported. For new requests, please use the fromand tofields to specify the time rang (optional)
 _from = 1546905600 # int | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.  (optional)
 to = 1546935600 # int | Specify end time in Unix seconds, default to current time. (optional)
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
  **settle** | **str**| Settle currency | 
  **contract** | **str**| Futures contract | 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
- **last_id** | **str**| 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 &#x60;from&#x60; 和 &#x60;to&#x60; 字段来限定时间范围 | [optional] 
+ **last_id** | **str**| Use the ID of the last record in the previous list as the starting point for the next list.This field is no longer supported. For new requests, please use the fromand tofields to specify the time rang | [optional] 
  **_from** | **int**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional] 
  **to** | **int**| Specify end time in Unix seconds, default to current time. | [optional] 
 
@@ -316,7 +316,7 @@ contract = 'BTC_USDT_20200814' # str | Futures contract
 _from = 1546905600 # int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional)
 to = 1546935600 # int | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision (optional)
 limit = 100 # int | Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional) (default to 100)
-interval = '5m' # str | Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeTime interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time (optional) (default to '5m')
+interval = '5m' # str | Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial time (optional) (default to '5m')
 
 try:
     # Futures market K-line chart
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
  **_from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **int**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional] 
  **limit** | **int**| Maximum number of recent data points to return. &#x60;limit&#x60; conflicts with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **str**| Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeTime interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time | [optional] [default to &#39;5m&#39;]
+ **interval** | **str**| Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial time | [optional] [default to &#39;5m&#39;]
 
 ### Return type
 
@@ -579,7 +579,7 @@ settle = 'usdt' # str | Settle currency
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
 to = 1547706332 # int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-type = 'dnw' # str | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+type = 'dnw' # str | Change types: - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates (optional)
 
 try:
     # Query futures account change history
@@ -599,7 +599,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
- **type** | **str**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] 
+ **type** | **str**| Change types: - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates | [optional] 
 
 ### Return type
 
@@ -1006,7 +1006,7 @@ status = 'open' # str | Query order list based on status
 contract = 'BTC_USDT_20200814' # str | Futures contract (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
-last_id = '12345' # str | Specify the currency name to query in batches, and support up to 100 pass parameters at a time (optional)
+last_id = '12345' # str | Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used (optional)
 count_total = 0 # int | Whether to return total number matched, defaults to 0 (no return) (optional) (default to 0)
 
 try:
@@ -1028,7 +1028,7 @@ Name | Type | Description  | Notes
  **contract** | **str**| Futures contract | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **last_id** | **str**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time | [optional] 
+ **last_id** | **str**| Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used | [optional] 
  **count_total** | **int**| Whether to return total number matched, defaults to 0 (no return) | [optional] [default to 0]
 
 ### Return type
@@ -1369,7 +1369,7 @@ contract = 'BTC_USDT_20200814' # str | Futures contract (optional)
 order = 12345 # int | Futures order ID, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
-last_id = '12345' # str | Specify the currency name to query in batches, and support up to 100 pass parameters at a time (optional)
+last_id = '12345' # str | Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used (optional)
 count_total = 0 # int | Whether to return total number matched, defaults to 0 (no return) (optional) (default to 0)
 
 try:
@@ -1391,7 +1391,7 @@ Name | Type | Description  | Notes
  **order** | **int**| Futures order ID, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
- **last_id** | **str**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time | [optional] 
+ **last_id** | **str**| Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used | [optional] 
  **count_total** | **int**| Whether to return total number matched, defaults to 0 (no return) | [optional] [default to 0]
 
 ### Return type
@@ -1636,7 +1636,7 @@ Name | Type | Description  | Notes
 
 Query risk limit tiers
 
-When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.
+When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets. 'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.
 
 ### Example
 

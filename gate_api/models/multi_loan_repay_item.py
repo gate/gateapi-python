@@ -60,8 +60,7 @@ class MultiLoanRepayItem(object):
             self.currency = currency
         if amount is not None:
             self.amount = amount
-        if repaid_all is not None:
-            self.repaid_all = repaid_all
+        self.repaid_all = repaid_all
 
     @property
     def currency(self):
@@ -129,6 +128,8 @@ class MultiLoanRepayItem(object):
         :param repaid_all: The repaid_all of this MultiLoanRepayItem.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and repaid_all is None:  # noqa: E501
+            raise ValueError("Invalid value for `repaid_all`, must not be `None`")  # noqa: E501
 
         self._repaid_all = repaid_all
 

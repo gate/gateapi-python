@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**get_unified_mode**](UnifiedApi.md#get_unified_mode) | **GET** /unified/unified_mode | Query mode of the unified account
 [**set_unified_mode**](UnifiedApi.md#set_unified_mode) | **PUT** /unified/unified_mode | Set unified account mode
 [**get_unified_estimate_rate**](UnifiedApi.md#get_unified_estimate_rate) | **GET** /unified/estimate_rate | Query unified account estimated interest rate
-[**list_currency_discount_tiers**](UnifiedApi.md#list_currency_discount_tiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered discount
+[**list_currency_discount_tiers**](UnifiedApi.md#list_currency_discount_tiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered
 [**list_loan_margin_tiers**](UnifiedApi.md#list_loan_margin_tiers) | **GET** /unified/loan_margin_tiers | Query unified account tiered loan margin
 [**calculate_portfolio_margin**](UnifiedApi.md#calculate_portfolio_margin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
 [**get_user_leverage_currency_config**](UnifiedApi.md#get_user_leverage_currency_config) | **GET** /unified/leverage/user_currency_config | Maximum and minimum currency leverage that can be set
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 # **list_currency_discount_tiers**
 > list[UnifiedDiscount] list_currency_discount_tiers()
 
-Query unified account tiered discount
+Query unified account tiered
 
 ### Example
 
@@ -948,7 +948,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.UnifiedApi(api_client)
 
 try:
-    # Query unified account tiered discount
+    # Query unified account tiered
     api_response = api_instance.list_currency_discount_tiers()
     print(api_response)
 except GateApiException as ex:

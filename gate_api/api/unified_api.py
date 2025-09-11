@@ -1567,7 +1567,7 @@ class UnifiedApi(object):
             collection_formats=collection_formats)
 
     def list_currency_discount_tiers(self, **kwargs):  # noqa: E501
-        """Query unified account tiered discount  # noqa: E501
+        """Query unified account tiered  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1590,7 +1590,7 @@ class UnifiedApi(object):
         return self.list_currency_discount_tiers_with_http_info(**kwargs)  # noqa: E501
 
     def list_currency_discount_tiers_with_http_info(self, **kwargs):  # noqa: E501
-        """Query unified account tiered discount  # noqa: E501
+        """Query unified account tiered  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

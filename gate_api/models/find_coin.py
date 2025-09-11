@@ -33,59 +33,31 @@ class FindCoin(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'coin': 'str',
         'cointype': 'str'
     }
 
     attribute_map = {
-        'coin': 'coin',
         'cointype': 'cointype'
     }
 
-    def __init__(self, coin=None, cointype=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, cointype=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, Configuration) -> None
         """FindCoin - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._coin = None
         self._cointype = None
         self.discriminator = None
 
-        if coin is not None:
-            self.coin = coin
         if cointype is not None:
             self.cointype = cointype
-
-    @property
-    def coin(self):
-        """Gets the coin of this FindCoin.  # noqa: E501
-
-        Currency  # noqa: E501
-
-        :return: The coin of this FindCoin.  # noqa: E501
-        :rtype: str
-        """
-        return self._coin
-
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this FindCoin.
-
-        Currency  # noqa: E501
-
-        :param coin: The coin of this FindCoin.  # noqa: E501
-        :type: str
-        """
-
-        self._coin = coin
 
     @property
     def cointype(self):
         """Gets the cointype of this FindCoin.  # noqa: E501
 
-        Token Type: swap-Voucher, lock-Locked  # noqa: E501
+        Currency type: swap - voucher; lock - locked position; debt - US Treasury bond.  # noqa: E501
 
         :return: The cointype of this FindCoin.  # noqa: E501
         :rtype: str
@@ -96,7 +68,7 @@ class FindCoin(object):
     def cointype(self, cointype):
         """Sets the cointype of this FindCoin.
 
-        Token Type: swap-Voucher, lock-Locked  # noqa: E501
+        Currency type: swap - voucher; lock - locked position; debt - US Treasury bond.  # noqa: E501
 
         :param cointype: The cointype of this FindCoin.  # noqa: E501
         :type: str

@@ -40,8 +40,10 @@ Name | Type | Description | Notes
 **enable_credit** | **bool** | Whether portfolio margin account is enabled | [optional] 
 **create_time** | **float** | Created time of the contract | [optional] 
 **funding_cap_ratio** | **str** | The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio | [optional] 
-**status** | **str** | Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted) | [optional] 
+**status** | **str** | Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted), circuit_breaker (circuit breaker) | [optional] 
 **launch_time** | **int** | Contract expiry timestamp | [optional] 
+**delisting_time** | **int** | Timestamp when contract enters reduce-only state | [optional] 
+**delisted_time** | **int** | Contract delisting time | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

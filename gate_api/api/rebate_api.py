@@ -188,6 +188,7 @@ class RebateApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str currency: Specify the currency. If not specified, returns all currencies
+        :param int commission_type: Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate
         :param int user_id: User ID. If not specified, all user records will be returned
         :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
         :param int to: End timestamp for the query, defaults to current time if not specified
@@ -218,6 +219,7 @@ class RebateApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str currency: Specify the currency. If not specified, returns all currencies
+        :param int commission_type: Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate
         :param int user_id: User ID. If not specified, all user records will be returned
         :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
         :param int to: End timestamp for the query, defaults to current time if not specified
@@ -241,6 +243,7 @@ class RebateApi(object):
 
         all_params = [
             'currency',
+            'commission_type',
             'user_id',
             '_from',
             'to',
@@ -278,6 +281,8 @@ class RebateApi(object):
         query_params = []
         if 'currency' in local_var_params and local_var_params['currency'] is not None:  # noqa: E501
             query_params.append(('currency', local_var_params['currency']))  # noqa: E501
+        if 'commission_type' in local_var_params and local_var_params['commission_type'] is not None:  # noqa: E501
+            query_params.append(('commission_type', local_var_params['commission_type']))  # noqa: E501
         if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
             query_params.append(('user_id', local_var_params['user_id']))  # noqa: E501
         if '_from' in local_var_params and local_var_params['_from'] is not None:  # noqa: E501

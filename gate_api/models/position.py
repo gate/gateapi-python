@@ -65,7 +65,8 @@ class Position(object):
         'update_id': 'int',
         'open_time': 'int',
         'risk_limit_table': 'str',
-        'average_maintenance_rate': 'str'
+        'average_maintenance_rate': 'str',
+        'pid': 'int'
     }
 
     attribute_map = {
@@ -101,11 +102,12 @@ class Position(object):
         'update_id': 'update_id',
         'open_time': 'open_time',
         'risk_limit_table': 'risk_limit_table',
-        'average_maintenance_rate': 'average_maintenance_rate'
+        'average_maintenance_rate': 'average_maintenance_rate',
+        'pid': 'pid'
     }
 
-    def __init__(self, user=None, contract=None, size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, Configuration) -> None
+    def __init__(self, user=None, contract=None, size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, pid=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, Configuration) -> None
         """Position - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -144,6 +146,7 @@ class Position(object):
         self._open_time = None
         self._risk_limit_table = None
         self._average_maintenance_rate = None
+        self._pid = None
         self.discriminator = None
 
         if user is not None:
@@ -211,6 +214,8 @@ class Position(object):
             self.risk_limit_table = risk_limit_table
         if average_maintenance_rate is not None:
             self.average_maintenance_rate = average_maintenance_rate
+        if pid is not None:
+            self.pid = pid
 
     @property
     def user(self):
@@ -974,6 +979,29 @@ class Position(object):
         """
 
         self._average_maintenance_rate = average_maintenance_rate
+
+    @property
+    def pid(self):
+        """Gets the pid of this Position.  # noqa: E501
+
+        Sub-account position ID  # noqa: E501
+
+        :return: The pid of this Position.  # noqa: E501
+        :rtype: int
+        """
+        return self._pid
+
+    @pid.setter
+    def pid(self, pid):
+        """Sets the pid of this Position.
+
+        Sub-account position ID  # noqa: E501
+
+        :param pid: The pid of this Position.  # noqa: E501
+        :type: int
+        """
+
+        self._pid = pid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

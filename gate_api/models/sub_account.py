@@ -114,7 +114,7 @@ class SubAccount(object):
     def login_name(self):
         """Gets the login_name of this SubAccount.  # noqa: E501
 
-        子账户登陆名：仅支持字母、数字、下划线，不可包含其他非法字符。  # noqa: E501
+        Sub-account login name: Only letters, numbers and underscores are supported, cannot contain other invalid characters  # noqa: E501
 
         :return: The login_name of this SubAccount.  # noqa: E501
         :rtype: str
@@ -125,7 +125,7 @@ class SubAccount(object):
     def login_name(self, login_name):
         """Sets the login_name of this SubAccount.
 
-        子账户登陆名：仅支持字母、数字、下划线，不可包含其他非法字符。  # noqa: E501
+        Sub-account login name: Only letters, numbers and underscores are supported, cannot contain other invalid characters  # noqa: E501
 
         :param login_name: The login_name of this SubAccount.  # noqa: E501
         :type: str

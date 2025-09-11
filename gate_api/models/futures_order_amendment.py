@@ -35,17 +35,19 @@ class FuturesOrderAmendment(object):
     openapi_types = {
         'size': 'int',
         'price': 'str',
-        'amend_text': 'str'
+        'amend_text': 'str',
+        'text': 'str'
     }
 
     attribute_map = {
         'size': 'size',
         'price': 'price',
-        'amend_text': 'amend_text'
+        'amend_text': 'amend_text',
+        'text': 'text'
     }
 
-    def __init__(self, size=None, price=None, amend_text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, Configuration) -> None
+    def __init__(self, size=None, price=None, amend_text=None, text=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, Configuration) -> None
         """FuturesOrderAmendment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,6 +56,7 @@ class FuturesOrderAmendment(object):
         self._size = None
         self._price = None
         self._amend_text = None
+        self._text = None
         self.discriminator = None
 
         if size is not None:
@@ -62,6 +65,8 @@ class FuturesOrderAmendment(object):
             self.price = price
         if amend_text is not None:
             self.amend_text = amend_text
+        if text is not None:
+            self.text = text
 
     @property
     def size(self):
@@ -131,6 +136,29 @@ class FuturesOrderAmendment(object):
         """
 
         self._amend_text = amend_text
+
+    @property
+    def text(self):
+        """Gets the text of this FuturesOrderAmendment.  # noqa: E501
+
+        Internal users can modify information in the text field.  # noqa: E501
+
+        :return: The text of this FuturesOrderAmendment.  # noqa: E501
+        :rtype: str
+        """
+        return self._text
+
+    @text.setter
+    def text(self, text):
+        """Sets the text of this FuturesOrderAmendment.
+
+        Internal users can modify information in the text field.  # noqa: E501
+
+        :param text: The text of this FuturesOrderAmendment.  # noqa: E501
+        :type: str
+        """
+
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""
