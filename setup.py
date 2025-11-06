@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "gate-api"
-VERSION = "7.1.8"
+VERSION = "7.1.25"
 # To install the library, run the following
 #
 # python setup.py install
@@ -29,7 +29,7 @@ setup(
     description="Gate API",
     author="Gate API support",
     author_email="support@mail.gate.com",
-    url="https://github.com/gateio/gateapi-python",
+    url="https://github.com/gate/gateapi-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Gate API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

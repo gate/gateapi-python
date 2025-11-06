@@ -1593,7 +1593,7 @@ currency_pair = 'BTC_USDT' # str | Retrieve results with specified currency pair
 limit = 100 # int | Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000 (optional) (default to 100)
 page = 1 # int | Page number (optional) (default to 1)
 order_id = '12345' # str | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional)
-account = 'spot' # str | Specify query account (optional)
+account = 'spot' # str | The accountparameter has been deprecated. The interface supports querying all transaction records of the account. (optional)
 _from = 1627706330 # int | Start timestamp for the query (optional)
 to = 1635329650 # int | End timestamp for the query, defaults to current time if not specified (optional)
 
@@ -1615,7 +1615,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000 | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
  **order_id** | **str**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
- **account** | **str**| Specify query account | [optional] 
+ **account** | **str**| The accountparameter has been deprecated. The interface supports querying all transaction records of the account. | [optional] 
  **_from** | **int**| Start timestamp for the query | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **is_deposit_disabled** | **int** | Is deposit disabled. 0 means not disabled | [optional] 
 **is_withdraw_disabled** | **int** | Is withdrawal disabled. 0 means not disabled | [optional] 
 **decimal** | **str** | Withdrawal precision | [optional] 
+**is_tag** | **int** | Whether to Include Tag | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

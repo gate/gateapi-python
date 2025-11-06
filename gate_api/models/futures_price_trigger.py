@@ -66,10 +66,8 @@ class FuturesPriceTrigger(object):
             self.strategy_type = strategy_type
         if price_type is not None:
             self.price_type = price_type
-        if price is not None:
-            self.price = price
-        if rule is not None:
-            self.rule = rule
+        self.price = price
+        self.rule = rule
         if expiration is not None:
             self.expiration = expiration
 
@@ -151,6 +149,8 @@ class FuturesPriceTrigger(object):
         :param price: The price of this FuturesPriceTrigger.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
+            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
 
@@ -174,6 +174,8 @@ class FuturesPriceTrigger(object):
         :param rule: The rule of this FuturesPriceTrigger.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and rule is None:  # noqa: E501
+            raise ValueError("Invalid value for `rule`, must not be `None`")  # noqa: E501
         allowed_values = [1, 2]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and rule not in allowed_values:  # noqa: E501
             raise ValueError(

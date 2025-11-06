@@ -32,6 +32,8 @@ Method | HTTP request | Description
 
 Query chains supported for specified currency
 
+API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
+
 ### Example
 
 ```python
@@ -671,6 +673,8 @@ Name | Type | Description  | Notes
 > list[WithdrawStatus] list_withdraw_status(currency=currency)
 
 Query withdrawal status
+
+API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
 
 ### Example
 

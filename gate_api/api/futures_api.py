@@ -2955,7 +2955,7 @@ class FuturesApi(object):
     def set_dual_mode(self, settle, dual_mode, **kwargs):  # noqa: E501
         """Set position mode  # noqa: E501
 
-        The prerequisite for changing mode is that all positions have no holdings and no pending orders  # noqa: E501
+        The prerequisite for changing mode is that there are no open positions and no open orders  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_dual_mode(settle, dual_mode, async_req=True)
@@ -2963,7 +2963,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param bool dual_mode: Whether to enable dual mode (required)
+        :param bool dual_mode: Whether to enable Hedge Mode (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2981,7 +2981,7 @@ class FuturesApi(object):
     def set_dual_mode_with_http_info(self, settle, dual_mode, **kwargs):  # noqa: E501
         """Set position mode  # noqa: E501
 
-        The prerequisite for changing mode is that all positions have no holdings and no pending orders  # noqa: E501
+        The prerequisite for changing mode is that there are no open positions and no open orders  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_dual_mode_with_http_info(settle, dual_mode, async_req=True)
@@ -2989,7 +2989,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param bool dual_mode: Whether to enable dual mode (required)
+        :param bool dual_mode: Whether to enable Hedge Mode (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3076,7 +3076,7 @@ class FuturesApi(object):
             collection_formats=collection_formats)
 
     def get_dual_mode_position(self, settle, contract, **kwargs):  # noqa: E501
-        """Get position information in dual mode  # noqa: E501
+        """Get position information in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3101,7 +3101,7 @@ class FuturesApi(object):
         return self.get_dual_mode_position_with_http_info(settle, contract, **kwargs)  # noqa: E501
 
     def get_dual_mode_position_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
-        """Get position information in dual mode  # noqa: E501
+        """Get position information in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3197,7 +3197,7 @@ class FuturesApi(object):
             collection_formats=collection_formats)
 
     def update_dual_mode_position_margin(self, settle, contract, change, dual_side, **kwargs):  # noqa: E501
-        """Update position margin in dual mode  # noqa: E501
+        """Update position margin in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3224,7 +3224,7 @@ class FuturesApi(object):
         return self.update_dual_mode_position_margin_with_http_info(settle, contract, change, dual_side, **kwargs)  # noqa: E501
 
     def update_dual_mode_position_margin_with_http_info(self, settle, contract, change, dual_side, **kwargs):  # noqa: E501
-        """Update position margin in dual mode  # noqa: E501
+        """Update position margin in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3336,7 +3336,7 @@ class FuturesApi(object):
             collection_formats=collection_formats)
 
     def update_dual_mode_position_leverage(self, settle, contract, leverage, **kwargs):  # noqa: E501
-        """Update position leverage in dual mode  # noqa: E501
+        """Update position leverage in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3363,7 +3363,7 @@ class FuturesApi(object):
         return self.update_dual_mode_position_leverage_with_http_info(settle, contract, leverage, **kwargs)  # noqa: E501
 
     def update_dual_mode_position_leverage_with_http_info(self, settle, contract, leverage, **kwargs):  # noqa: E501
-        """Update position leverage in dual mode  # noqa: E501
+        """Update position leverage in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3471,7 +3471,7 @@ class FuturesApi(object):
             collection_formats=collection_formats)
 
     def update_dual_mode_position_risk_limit(self, settle, contract, risk_limit, **kwargs):  # noqa: E501
-        """Update position risk limit in dual mode  # noqa: E501
+        """Update position risk limit in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3497,7 +3497,7 @@ class FuturesApi(object):
         return self.update_dual_mode_position_risk_limit_with_http_info(settle, contract, risk_limit, **kwargs)  # noqa: E501
 
     def update_dual_mode_position_risk_limit_with_http_info(self, settle, contract, risk_limit, **kwargs):  # noqa: E501
-        """Update position risk limit in dual mode  # noqa: E501
+        """Update position risk limit in Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -6060,6 +6060,138 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_futures_bbo_order(self, settle, futures_bbo_order, **kwargs):  # noqa: E501
+        """Level-based BBO Contract Order Placement  # noqa: E501
+
+        Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the `level` and `direction` parameters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_futures_bbo_order(settle, futures_bbo_order, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param FuturesBBOOrder futures_bbo_order: (required)
+        :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FuturesOrder
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_futures_bbo_order_with_http_info(settle, futures_bbo_order, **kwargs)  # noqa: E501
+
+    def create_futures_bbo_order_with_http_info(self, settle, futures_bbo_order, **kwargs):  # noqa: E501
+        """Level-based BBO Contract Order Placement  # noqa: E501
+
+        Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the `level` and `direction` parameters.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_futures_bbo_order_with_http_info(settle, futures_bbo_order, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param FuturesBBOOrder futures_bbo_order: (required)
+        :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FuturesOrder, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'futures_bbo_order',
+            'x_gate_exptime'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_futures_bbo_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `create_futures_bbo_order`")  # noqa: E501
+        # verify the required parameter 'futures_bbo_order' is set
+        if self.api_client.client_side_validation and ('futures_bbo_order' not in local_var_params or  # noqa: E501
+                                                        local_var_params['futures_bbo_order'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `futures_bbo_order` when calling `create_futures_bbo_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'x_gate_exptime' in local_var_params:
+            header_params['x-gate-exptime'] = local_var_params['x_gate_exptime']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'futures_bbo_order' in local_var_params:
+            body_params = local_var_params['futures_bbo_order']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/bbo_orders', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FuturesOrder',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_price_triggered_orders(self, settle, status, **kwargs):  # noqa: E501
         """Query auto order list  # noqa: E501
 
@@ -6558,6 +6690,140 @@ class FuturesApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='FuturesPriceTriggeredOrder',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_price_triggered_order(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
+        """Modify a Single Auto Order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_price_triggered_order(settle, order_id, futures_update_price_triggered_order, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str order_id: ID returned when order is successfully created (required)
+        :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.TriggerOrderResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_price_triggered_order_with_http_info(settle, order_id, futures_update_price_triggered_order, **kwargs)  # noqa: E501
+
+    def update_price_triggered_order_with_http_info(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
+        """Modify a Single Auto Order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_price_triggered_order_with_http_info(settle, order_id, futures_update_price_triggered_order, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str order_id: ID returned when order is successfully created (required)
+        :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.TriggerOrderResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'order_id',
+            'futures_update_price_triggered_order'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_price_triggered_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `update_price_triggered_order`")  # noqa: E501
+        # verify the required parameter 'order_id' is set
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_id` when calling `update_price_triggered_order`")  # noqa: E501
+        # verify the required parameter 'futures_update_price_triggered_order' is set
+        if self.api_client.client_side_validation and ('futures_update_price_triggered_order' not in local_var_params or  # noqa: E501
+                                                        local_var_params['futures_update_price_triggered_order'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `futures_update_price_triggered_order` when calling `update_price_triggered_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+        if 'order_id' in local_var_params:
+            path_params['order_id'] = local_var_params['order_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'futures_update_price_triggered_order' in local_var_params:
+            body_params = local_var_params['futures_update_price_triggered_order']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/price_orders/{order_id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='TriggerOrderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

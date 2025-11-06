@@ -4,8 +4,8 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**swap_eth2**](EarnApi.md#swap_eth2) | **POST** /earn/staking/eth2/swap | ETH2 swap
-[**rate_list_eth2**](EarnApi.md#rate_list_eth2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical return rate query
+[**swap_eth2**](EarnApi.md#swap_eth2) | **POST** /earn/staking/eth2/swap | ETH swap
+[**rate_list_eth2**](EarnApi.md#rate_list_eth2) | **GET** /earn/staking/eth2/rate_records | GTETH historical return rate query
 [**list_dual_investment_plans**](EarnApi.md#list_dual_investment_plans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 [**list_dual_orders**](EarnApi.md#list_dual_orders) | **GET** /earn/dual/orders | Dual Investment order list
 [**place_dual_order**](EarnApi.md#place_dual_order) | **POST** /earn/dual/orders | Place Dual Investment order
@@ -14,12 +14,15 @@ Method | HTTP request | Description
 [**place_structured_order**](EarnApi.md#place_structured_order) | **POST** /earn/structured/orders | Place Structured Product Order
 [**find_coin**](EarnApi.md#find_coin) | **GET** /earn/staking/coins | Staking coins
 [**swap_staking_coin**](EarnApi.md#swap_staking_coin) | **POST** /earn/staking/swap | On-chain token swap for earned coins
+[**order_list**](EarnApi.md#order_list) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
+[**award_list**](EarnApi.md#award_list) | **GET** /earn/staking/award_list | On-chain coin-earning dividend records
+[**asset_list**](EarnApi.md#asset_list) | **GET** /earn/staking/assets | On-chain coin-earning assets
 
 
 # **swap_eth2**
 > swap_eth2(eth2_swap)
 
-ETH2 swap
+ETH swap
 
 ### Example
 
@@ -48,7 +51,7 @@ api_instance = gate_api.EarnApi(api_client)
 eth2_swap = gate_api.Eth2Swap() # Eth2Swap | 
 
 try:
-    # ETH2 swap
+    # ETH swap
     api_instance.swap_eth2(eth2_swap)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -85,7 +88,7 @@ void (empty response body)
 # **rate_list_eth2**
 > list[Eth2RateList] rate_list_eth2()
 
-ETH2 historical return rate query
+GTETH historical return rate query
 
 Query ETH earnings rate records for the last 31 days
 
@@ -115,7 +118,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.EarnApi(api_client)
 
 try:
-    # ETH2 historical return rate query
+    # GTETH historical return rate query
     api_response = api_instance.rate_list_eth2()
     print(api_response)
 except GateApiException as ex:
@@ -548,7 +551,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **find_coin**
-> object find_coin(find_coin)
+> list[object] find_coin(find_coin)
 
 Staking coins
 
@@ -596,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**list[object]**
 
 ### Authorization
 
@@ -678,6 +681,217 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Swap successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **order_list**
+> OrderListStruct order_list(pid=pid, coin=coin, type=type, page=page)
+
+List of on-chain coin-earning orders
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+pid = 7 # int | Product ID (optional)
+coin = 'ETH' # str | Currency name (optional)
+type = 0 # int | Type 0-staking 1-redemption (optional)
+page = 1 # int | Page number (optional) (default to 1)
+
+try:
+    # List of on-chain coin-earning orders
+    api_response = api_instance.order_list(pid=pid, coin=coin, type=type, page=page)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->order_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pid** | **int**| Product ID | [optional] 
+ **coin** | **str**| Currency name | [optional] 
+ **type** | **int**| Type 0-staking 1-redemption | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+
+### Return type
+
+[**OrderListStruct**](OrderListStruct.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **award_list**
+> AwardListStruct award_list(pid=pid, coin=coin, page=page)
+
+On-chain coin-earning dividend records
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+pid = 7 # int | Product ID (optional)
+coin = 'ETH' # str | Currency name (optional)
+page = 1 # int | Page number (optional) (default to 1)
+
+try:
+    # On-chain coin-earning dividend records
+    api_response = api_instance.award_list(pid=pid, coin=coin, page=page)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->award_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pid** | **int**| Product ID | [optional] 
+ **coin** | **str**| Currency name | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+
+### Return type
+
+[**AwardListStruct**](AwardListStruct.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **asset_list**
+> list[object] asset_list(coin=coin)
+
+On-chain coin-earning assets
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+coin = 'ETH' # str | Currency name (optional)
+
+try:
+    # On-chain coin-earning assets
+    api_response = api_instance.asset_list(coin=coin)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->asset_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coin** | **str**| Currency name | [optional] 
+
+### Return type
+
+**list[object]**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

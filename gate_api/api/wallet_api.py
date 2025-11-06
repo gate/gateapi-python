@@ -39,6 +39,7 @@ class WalletApi(object):
     def list_currency_chains(self, currency, **kwargs):  # noqa: E501
         """Query chains supported for specified currency  # noqa: E501
 
+        API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_currency_chains(currency, async_req=True)
@@ -63,6 +64,7 @@ class WalletApi(object):
     def list_currency_chains_with_http_info(self, currency, **kwargs):  # noqa: E501
         """Query chains supported for specified currency  # noqa: E501
 
+        API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_currency_chains_with_http_info(currency, async_req=True)
@@ -1155,6 +1157,7 @@ class WalletApi(object):
     def list_withdraw_status(self, **kwargs):  # noqa: E501
         """Query withdrawal status  # noqa: E501
 
+        API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_withdraw_status(async_req=True)
@@ -1179,6 +1182,7 @@ class WalletApi(object):
     def list_withdraw_status_with_http_info(self, **kwargs):  # noqa: E501
         """Query withdrawal status  # noqa: E501
 
+        API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_withdraw_status_with_http_info(async_req=True)

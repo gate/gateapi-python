@@ -2800,7 +2800,7 @@ class SpotApi(object):
         :param int limit: Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
         :param int page: Page number
         :param str order_id: Filter trades with specified order ID. `currency_pair` is also required if this field is present
-        :param str account: Specify query account
+        :param str account: The accountparameter has been deprecated. The interface supports querying all transaction records of the account.
         :param int _from: Start timestamp for the query
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2831,7 +2831,7 @@ class SpotApi(object):
         :param int limit: Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
         :param int page: Page number
         :param str order_id: Filter trades with specified order ID. `currency_pair` is also required if this field is present
-        :param str account: Specify query account
+        :param str account: The accountparameter has been deprecated. The interface supports querying all transaction records of the account.
         :param int _from: Start timestamp for the query
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param _return_http_data_only: response data without head status code

@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_withdrawal**
-> LedgerRecord cancel_withdrawal(withdrawal_id)
+> WithdrawalsDel cancel_withdrawal(withdrawal_id)
 
 Cancel withdrawal with specified ID
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LedgerRecord**](LedgerRecord.md)
+[**WithdrawalsDel**](WithdrawalsDel.md)
 
 ### Authorization
 

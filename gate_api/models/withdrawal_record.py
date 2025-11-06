@@ -42,6 +42,7 @@ class WithdrawalRecord(object):
         'fee': 'str',
         'currency': 'str',
         'address': 'str',
+        'type': 'str',
         'fail_reason': 'str',
         'timestamp2': 'str',
         'memo': 'str',
@@ -59,6 +60,7 @@ class WithdrawalRecord(object):
         'fee': 'fee',
         'currency': 'currency',
         'address': 'address',
+        'type': 'type',
         'fail_reason': 'fail_reason',
         'timestamp2': 'timestamp2',
         'memo': 'memo',
@@ -66,8 +68,8 @@ class WithdrawalRecord(object):
         'chain': 'chain'
     }
 
-    def __init__(self, id=None, txid=None, block_number=None, withdraw_order_id=None, timestamp=None, amount=None, fee=None, currency=None, address=None, fail_reason=None, timestamp2=None, memo=None, status=None, chain=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, id=None, txid=None, block_number=None, withdraw_order_id=None, timestamp=None, amount=None, fee=None, currency=None, address=None, type=None, fail_reason=None, timestamp2=None, memo=None, status=None, chain=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """WithdrawalRecord - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +84,7 @@ class WithdrawalRecord(object):
         self._fee = None
         self._currency = None
         self._address = None
+        self._type = None
         self._fail_reason = None
         self._timestamp2 = None
         self._memo = None
@@ -105,6 +108,8 @@ class WithdrawalRecord(object):
         self.currency = currency
         if address is not None:
             self.address = address
+        if type is not None:
+            self.type = type
         if fail_reason is not None:
             self.fail_reason = fail_reason
         if timestamp2 is not None:
@@ -327,6 +332,29 @@ class WithdrawalRecord(object):
         self._address = address
 
     @property
+    def type(self):
+        """Gets the type of this WithdrawalRecord.  # noqa: E501
+
+        Business Type  # noqa: E501
+
+        :return: The type of this WithdrawalRecord.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this WithdrawalRecord.
+
+        Business Type  # noqa: E501
+
+        :param type: The type of this WithdrawalRecord.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
+
+    @property
     def fail_reason(self):
         """Gets the fail_reason of this WithdrawalRecord.  # noqa: E501
 
@@ -399,7 +427,7 @@ class WithdrawalRecord(object):
     def status(self):
         """Gets the status of this WithdrawalRecord.  # noqa: E501
 
-        Transaction status  - DONE: Completed (block_number > 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - REVIEW: Under review  # noqa: E501
+        Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed (Only considered truly on-chain when block_number > 0) - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review   # noqa: E501
 
         :return: The status of this WithdrawalRecord.  # noqa: E501
         :rtype: str
@@ -410,7 +438,7 @@ class WithdrawalRecord(object):
     def status(self, status):
         """Sets the status of this WithdrawalRecord.
 
-        Transaction status  - DONE: Completed (block_number > 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - REVIEW: Under review  # noqa: E501
+        Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed (Only considered truly on-chain when block_number > 0) - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review   # noqa: E501
 
         :param status: The status of this WithdrawalRecord.  # noqa: E501
         :type: str

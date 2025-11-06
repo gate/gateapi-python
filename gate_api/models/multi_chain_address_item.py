@@ -37,7 +37,8 @@ class MultiChainAddressItem(object):
         'address': 'str',
         'payment_id': 'str',
         'payment_name': 'str',
-        'obtain_failed': 'int'
+        'obtain_failed': 'int',
+        'min_confirms': 'int'
     }
 
     attribute_map = {
@@ -45,11 +46,12 @@ class MultiChainAddressItem(object):
         'address': 'address',
         'payment_id': 'payment_id',
         'payment_name': 'payment_name',
-        'obtain_failed': 'obtain_failed'
+        'obtain_failed': 'obtain_failed',
+        'min_confirms': 'min_confirms'
     }
 
-    def __init__(self, chain=None, address=None, payment_id=None, payment_name=None, obtain_failed=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, int, Configuration) -> None
+    def __init__(self, chain=None, address=None, payment_id=None, payment_name=None, obtain_failed=None, min_confirms=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, int, int, Configuration) -> None
         """MultiChainAddressItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class MultiChainAddressItem(object):
         self._payment_id = None
         self._payment_name = None
         self._obtain_failed = None
+        self._min_confirms = None
         self.discriminator = None
 
         if chain is not None:
@@ -72,6 +75,8 @@ class MultiChainAddressItem(object):
             self.payment_name = payment_name
         if obtain_failed is not None:
             self.obtain_failed = obtain_failed
+        if min_confirms is not None:
+            self.min_confirms = min_confirms
 
     @property
     def chain(self):
@@ -187,6 +192,29 @@ class MultiChainAddressItem(object):
         """
 
         self._obtain_failed = obtain_failed
+
+    @property
+    def min_confirms(self):
+        """Gets the min_confirms of this MultiChainAddressItem.  # noqa: E501
+
+        Minimum Confirmation Count  # noqa: E501
+
+        :return: The min_confirms of this MultiChainAddressItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._min_confirms
+
+    @min_confirms.setter
+    def min_confirms(self, min_confirms):
+        """Sets the min_confirms of this MultiChainAddressItem.
+
+        Minimum Confirmation Count  # noqa: E501
+
+        :param min_confirms: The min_confirms of this MultiChainAddressItem.  # noqa: E501
+        :type: int
+        """
+
+        self._min_confirms = min_confirms
 
     def to_dict(self):
         """Returns the model properties as a dict"""

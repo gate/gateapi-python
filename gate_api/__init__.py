@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.1.8"
+__version__ = "7.1.25"
 
 # import apis into sdk package
 from gate_api.api.earn_uni_api import EarnUniApi
@@ -53,6 +53,8 @@ from gate_api.models.agency_commission_history import AgencyCommissionHistory
 from gate_api.models.agency_transaction import AgencyTransaction
 from gate_api.models.agency_transaction_history import AgencyTransactionHistory
 from gate_api.models.auto_repay_setting import AutoRepaySetting
+from gate_api.models.award_list_struct import AwardListStruct
+from gate_api.models.award_list_struct_list import AwardListStructList
 from gate_api.models.batch_amend_item import BatchAmendItem
 from gate_api.models.batch_amend_order_req import BatchAmendOrderReq
 from gate_api.models.batch_futures_order import BatchFuturesOrder
@@ -118,6 +120,7 @@ from gate_api.models.futures_account import FuturesAccount
 from gate_api.models.futures_account_book import FuturesAccountBook
 from gate_api.models.futures_account_history import FuturesAccountHistory
 from gate_api.models.futures_auto_deleverage import FuturesAutoDeleverage
+from gate_api.models.futures_bbo_order import FuturesBBOOrder
 from gate_api.models.futures_batch_amend_order_request import FuturesBatchAmendOrderRequest
 from gate_api.models.futures_candlestick import FuturesCandlestick
 from gate_api.models.futures_fee import FuturesFee
@@ -137,11 +140,14 @@ from gate_api.models.futures_price_triggered_order import FuturesPriceTriggeredO
 from gate_api.models.futures_risk_limit_tier import FuturesRiskLimitTier
 from gate_api.models.futures_ticker import FuturesTicker
 from gate_api.models.futures_trade import FuturesTrade
+from gate_api.models.futures_update_price_triggered_order import FuturesUpdatePriceTriggeredOrder
 from gate_api.models.index_constituent import IndexConstituent
 from gate_api.models.inline_object import InlineObject
 from gate_api.models.inline_response200 import InlineResponse200
 from gate_api.models.inline_response2001 import InlineResponse2001
 from gate_api.models.insurance_record import InsuranceRecord
+from gate_api.models.key import Key
+from gate_api.models.key_perms import KeyPerms
 from gate_api.models.ledger_record import LedgerRecord
 from gate_api.models.liquidate_order import LiquidateOrder
 from gate_api.models.margin_account import MarginAccount
@@ -192,6 +198,8 @@ from gate_api.models.options_underlying_ticker import OptionsUnderlyingTicker
 from gate_api.models.order import Order
 from gate_api.models.order_book import OrderBook
 from gate_api.models.order_cancel import OrderCancel
+from gate_api.models.order_list_struct import OrderListStruct
+from gate_api.models.order_list_struct_list import OrderListStructList
 from gate_api.models.order_patch import OrderPatch
 from gate_api.models.order_resp import OrderResp
 from gate_api.models.partner_commission_history import PartnerCommissionHistory
@@ -298,4 +306,5 @@ from gate_api.models.user_sub_relation import UserSubRelation
 from gate_api.models.user_total_amount import UserTotalAmount
 from gate_api.models.withdraw_status import WithdrawStatus
 from gate_api.models.withdrawal_record import WithdrawalRecord
+from gate_api.models.withdrawals_del import WithdrawalsDel
 

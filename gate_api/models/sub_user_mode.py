@@ -113,7 +113,7 @@ class SubUserMode(object):
     def mode(self):
         """Gets the mode of this SubUserMode.  # noqa: E501
 
-        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode  # noqa: E501
+        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Cross-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single-currency margin mode  # noqa: E501
 
         :return: The mode of this SubUserMode.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class SubUserMode(object):
     def mode(self, mode):
         """Sets the mode of this SubUserMode.
 
-        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode  # noqa: E501
+        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Cross-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single-currency margin mode  # noqa: E501
 
         :param mode: The mode of this SubUserMode.  # noqa: E501
         :type: str

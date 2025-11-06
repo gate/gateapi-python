@@ -35,17 +35,19 @@ class DepositAddress(object):
     openapi_types = {
         'currency': 'str',
         'address': 'str',
+        'min_deposit_amount': 'str',
         'multichain_addresses': 'list[MultiChainAddressItem]'
     }
 
     attribute_map = {
         'currency': 'currency',
         'address': 'address',
+        'min_deposit_amount': 'min_deposit_amount',
         'multichain_addresses': 'multichain_addresses'
     }
 
-    def __init__(self, currency=None, address=None, multichain_addresses=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, list[MultiChainAddressItem], Configuration) -> None
+    def __init__(self, currency=None, address=None, min_deposit_amount=None, multichain_addresses=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, list[MultiChainAddressItem], Configuration) -> None
         """DepositAddress - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,11 +55,14 @@ class DepositAddress(object):
 
         self._currency = None
         self._address = None
+        self._min_deposit_amount = None
         self._multichain_addresses = None
         self.discriminator = None
 
         self.currency = currency
         self.address = address
+        if min_deposit_amount is not None:
+            self.min_deposit_amount = min_deposit_amount
         if multichain_addresses is not None:
             self.multichain_addresses = multichain_addresses
 
@@ -110,6 +115,29 @@ class DepositAddress(object):
             raise ValueError("Invalid value for `address`, must not be `None`")  # noqa: E501
 
         self._address = address
+
+    @property
+    def min_deposit_amount(self):
+        """Gets the min_deposit_amount of this DepositAddress.  # noqa: E501
+
+        Minimum Deposit Amount  # noqa: E501
+
+        :return: The min_deposit_amount of this DepositAddress.  # noqa: E501
+        :rtype: str
+        """
+        return self._min_deposit_amount
+
+    @min_deposit_amount.setter
+    def min_deposit_amount(self, min_deposit_amount):
+        """Sets the min_deposit_amount of this DepositAddress.
+
+        Minimum Deposit Amount  # noqa: E501
+
+        :param min_deposit_amount: The min_deposit_amount of this DepositAddress.  # noqa: E501
+        :type: str
+        """
+
+        self._min_deposit_amount = min_deposit_amount
 
     @property
     def multichain_addresses(self):

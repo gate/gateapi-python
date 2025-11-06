@@ -173,7 +173,7 @@ class FuturesInitialOrder(object):
     def close(self):
         """Gets the close of this FuturesInitialOrder.  # noqa: E501
 
-        When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close=false  # noqa: E501
+        In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close=false  # noqa: E501
 
         :return: The close of this FuturesInitialOrder.  # noqa: E501
         :rtype: bool
@@ -184,7 +184,7 @@ class FuturesInitialOrder(object):
     def close(self, close):
         """Sets the close of this FuturesInitialOrder.
 
-        When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close=false  # noqa: E501
+        In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close=false  # noqa: E501
 
         :param close: The close of this FuturesInitialOrder.  # noqa: E501
         :type: bool
@@ -271,7 +271,7 @@ class FuturesInitialOrder(object):
     def auto_size(self):
         """Gets the auto_size of this FuturesInitialOrder.  # noqa: E501
 
-        Single position mode: auto_size is not required Dual position mode full closing (size=0): auto_size must be set, close_long for closing long positions, close_short for closing short positions Dual position mode partial closing (size≠0): auto_size is not required  # noqa: E501
+        One-way Mode: auto_size is not required Hedge Mode full closing (size=0): auto_size must be set, close_long for closing long positions, close_short for closing short positions Hedge Mode partial closing (size≠0): auto_size is not required  # noqa: E501
 
         :return: The auto_size of this FuturesInitialOrder.  # noqa: E501
         :rtype: str
@@ -282,7 +282,7 @@ class FuturesInitialOrder(object):
     def auto_size(self, auto_size):
         """Sets the auto_size of this FuturesInitialOrder.
 
-        Single position mode: auto_size is not required Dual position mode full closing (size=0): auto_size must be set, close_long for closing long positions, close_short for closing short positions Dual position mode partial closing (size≠0): auto_size is not required  # noqa: E501
+        One-way Mode: auto_size is not required Hedge Mode full closing (size=0): auto_size must be set, close_long for closing long positions, close_short for closing short positions Hedge Mode partial closing (size≠0): auto_size is not required  # noqa: E501
 
         :param auto_size: The auto_size of this FuturesInitialOrder.  # noqa: E501
         :type: str

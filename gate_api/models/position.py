@@ -817,7 +817,7 @@ class Position(object):
     def mode(self):
         """Gets the mode of this Position.  # noqa: E501
 
-        Position mode, including:  - `single`: Single position mode - `dual_long`: Long position in dual position mode - `dual_short`: Short position in dual position mode  # noqa: E501
+        Position mode, including:  - `single`: One-way Mode - `dual_long`: Long position in Hedge Mode - `dual_short`: Short position in Hedge Mode  # noqa: E501
 
         :return: The mode of this Position.  # noqa: E501
         :rtype: str
@@ -828,7 +828,7 @@ class Position(object):
     def mode(self, mode):
         """Sets the mode of this Position.
 
-        Position mode, including:  - `single`: Single position mode - `dual_long`: Long position in dual position mode - `dual_short`: Short position in dual position mode  # noqa: E501
+        Position mode, including:  - `single`: One-way Mode - `dual_long`: Long position in Hedge Mode - `dual_short`: Short position in Hedge Mode  # noqa: E501
 
         :param mode: The mode of this Position.  # noqa: E501
         :type: str

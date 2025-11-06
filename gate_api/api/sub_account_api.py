@@ -1196,7 +1196,7 @@ class SubAccountApi(object):
     def list_unified_mode(self, **kwargs):  # noqa: E501
         """Get sub-account mode  # noqa: E501
 
-        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode  # noqa: E501
+        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Cross-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single-currency margin mode  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_unified_mode(async_req=True)
@@ -1220,7 +1220,7 @@ class SubAccountApi(object):
     def list_unified_mode_with_http_info(self, **kwargs):  # noqa: E501
         """Get sub-account mode  # noqa: E501
 
-        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode  # noqa: E501
+        Unified account mode: - `classic`: Classic account mode - `multi_currency`: Cross-currency margin mode - `portfolio`: Portfolio margin mode - `single_currency`: Single-currency margin mode  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_unified_mode_with_http_info(async_req=True)

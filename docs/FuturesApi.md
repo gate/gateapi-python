@@ -27,10 +27,10 @@ Method | HTTP request | Description
 [**update_dual_comp_position_cross_mode**](FuturesApi.md#update_dual_comp_position_cross_mode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | Switch Between Cross and Isolated Margin Modes Under Hedge Mode
 [**update_position_risk_limit**](FuturesApi.md#update_position_risk_limit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
 [**set_dual_mode**](FuturesApi.md#set_dual_mode) | **POST** /futures/{settle}/dual_mode | Set position mode
-[**get_dual_mode_position**](FuturesApi.md#get_dual_mode_position) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Get position information in dual mode
-[**update_dual_mode_position_margin**](FuturesApi.md#update_dual_mode_position_margin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in dual mode
-[**update_dual_mode_position_leverage**](FuturesApi.md#update_dual_mode_position_leverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in dual mode
-[**update_dual_mode_position_risk_limit**](FuturesApi.md#update_dual_mode_position_risk_limit) | **POST** /futures/{settle}/dual_comp/positions/{contract}/risk_limit | Update position risk limit in dual mode
+[**get_dual_mode_position**](FuturesApi.md#get_dual_mode_position) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Get position information in Hedge Mode
+[**update_dual_mode_position_margin**](FuturesApi.md#update_dual_mode_position_margin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in Hedge Mode
+[**update_dual_mode_position_leverage**](FuturesApi.md#update_dual_mode_position_leverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in Hedge Mode
+[**update_dual_mode_position_risk_limit**](FuturesApi.md#update_dual_mode_position_risk_limit) | **POST** /futures/{settle}/dual_comp/positions/{contract}/risk_limit | Update position risk limit in Hedge Mode
 [**list_futures_orders**](FuturesApi.md#list_futures_orders) | **GET** /futures/{settle}/orders | Query futures order list
 [**create_futures_order**](FuturesApi.md#create_futures_order) | **POST** /futures/{settle}/orders | Place futures order
 [**cancel_futures_orders**](FuturesApi.md#cancel_futures_orders) | **DELETE** /futures/{settle}/orders | Cancel all orders with &#39;open&#39; status
@@ -49,10 +49,12 @@ Method | HTTP request | Description
 [**cancel_batch_future_orders**](FuturesApi.md#cancel_batch_future_orders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel batch orders by specified ID list
 [**amend_batch_future_orders**](FuturesApi.md#amend_batch_future_orders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders by specified IDs
 [**get_futures_risk_limit_table**](FuturesApi.md#get_futures_risk_limit_table) | **GET** /futures/{settle}/risk_limit_table | Query risk limit table by table_id
+[**create_futures_bbo_order**](FuturesApi.md#create_futures_bbo_order) | **POST** /futures/{settle}/bbo_orders | Level-based BBO Contract Order Placement
 [**list_price_triggered_orders**](FuturesApi.md#list_price_triggered_orders) | **GET** /futures/{settle}/price_orders | Query auto order list
 [**create_price_triggered_order**](FuturesApi.md#create_price_triggered_order) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 [**cancel_price_triggered_order_list**](FuturesApi.md#cancel_price_triggered_order_list) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**get_price_triggered_order**](FuturesApi.md#get_price_triggered_order) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
+[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/{order_id} | Modify a Single Auto Order
 [**cancel_price_triggered_order**](FuturesApi.md#cancel_price_triggered_order) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
 
 
@@ -1554,7 +1556,7 @@ Name | Type | Description  | Notes
 
 Set position mode
 
-The prerequisite for changing mode is that all positions have no holdings and no pending orders
+The prerequisite for changing mode is that there are no open positions and no open orders
 
 ### Example
 
@@ -1581,7 +1583,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-dual_mode = true # bool | Whether to enable dual mode
+dual_mode = true # bool | Whether to enable Hedge Mode
 
 try:
     # Set position mode
@@ -1598,7 +1600,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **dual_mode** | **bool**| Whether to enable dual mode | 
+ **dual_mode** | **bool**| Whether to enable Hedge Mode | 
 
 ### Return type
 
@@ -1623,7 +1625,7 @@ Name | Type | Description  | Notes
 # **get_dual_mode_position**
 > list[Position] get_dual_mode_position(settle, contract)
 
-Get position information in dual mode
+Get position information in Hedge Mode
 
 ### Example
 
@@ -1653,7 +1655,7 @@ settle = 'usdt' # str | Settle currency
 contract = 'BTC_USDT' # str | Futures contract
 
 try:
-    # Get position information in dual mode
+    # Get position information in Hedge Mode
     api_response = api_instance.get_dual_mode_position(settle, contract)
     print(api_response)
 except GateApiException as ex:
@@ -1692,7 +1694,7 @@ Name | Type | Description  | Notes
 # **update_dual_mode_position_margin**
 > list[Position] update_dual_mode_position_margin(settle, contract, change, dual_side)
 
-Update position margin in dual mode
+Update position margin in Hedge Mode
 
 ### Example
 
@@ -1724,7 +1726,7 @@ change = '0.01' # str | Margin change amount, positive number increases, negativ
 dual_side = 'dual_long' # str | Long or short position
 
 try:
-    # Update position margin in dual mode
+    # Update position margin in Hedge Mode
     api_response = api_instance.update_dual_mode_position_margin(settle, contract, change, dual_side)
     print(api_response)
 except GateApiException as ex:
@@ -1765,7 +1767,7 @@ Name | Type | Description  | Notes
 # **update_dual_mode_position_leverage**
 > list[Position] update_dual_mode_position_leverage(settle, contract, leverage, cross_leverage_limit=cross_leverage_limit)
 
-Update position leverage in dual mode
+Update position leverage in Hedge Mode
 
 ### Example
 
@@ -1797,7 +1799,7 @@ leverage = '10' # str | New position leverage
 cross_leverage_limit = '10' # str | Cross margin leverage (valid only when `leverage` is 0) (optional)
 
 try:
-    # Update position leverage in dual mode
+    # Update position leverage in Hedge Mode
     api_response = api_instance.update_dual_mode_position_leverage(settle, contract, leverage, cross_leverage_limit=cross_leverage_limit)
     print(api_response)
 except GateApiException as ex:
@@ -1838,7 +1840,7 @@ Name | Type | Description  | Notes
 # **update_dual_mode_position_risk_limit**
 > list[Position] update_dual_mode_position_risk_limit(settle, contract, risk_limit)
 
-Update position risk limit in dual mode
+Update position risk limit in Hedge Mode
 
 ### Example
 
@@ -1869,7 +1871,7 @@ contract = 'BTC_USDT' # str | Futures contract
 risk_limit = '1000000' # str | New risk limit value
 
 try:
-    # Update position risk limit in dual mode
+    # Update position risk limit in Hedge Mode
     api_response = api_instance.update_dual_mode_position_risk_limit(settle, contract, risk_limit)
     print(api_response)
 except GateApiException as ex:
@@ -3247,6 +3249,79 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_futures_bbo_order**
+> FuturesOrder create_futures_bbo_order(settle, futures_bbo_order, x_gate_exptime=x_gate_exptime)
+
+Level-based BBO Contract Order Placement
+
+Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the `level` and `direction` parameters.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+futures_bbo_order = gate_api.FuturesBBOOrder() # FuturesBBOOrder | 
+x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+
+try:
+    # Level-based BBO Contract Order Placement
+    api_response = api_instance.create_futures_bbo_order(settle, futures_bbo_order, x_gate_exptime=x_gate_exptime)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->create_futures_bbo_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **futures_bbo_order** | [**FuturesBBOOrder**](FuturesBBOOrder.md)|  | 
+ **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+
+### Return type
+
+[**FuturesOrder**](FuturesOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Order details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_price_triggered_orders**
 > list[FuturesPriceTriggeredOrder] list_price_triggered_orders(settle, status, contract=contract, limit=limit, offset=offset)
 
@@ -3526,6 +3601,77 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Auto order details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_price_triggered_order**
+> TriggerOrderResponse update_price_triggered_order(settle, order_id, futures_update_price_triggered_order)
+
+Modify a Single Auto Order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+order_id = 'order_id_example' # str | ID returned when order is successfully created
+futures_update_price_triggered_order = gate_api.FuturesUpdatePriceTriggeredOrder() # FuturesUpdatePriceTriggeredOrder | 
+
+try:
+    # Modify a Single Auto Order
+    api_response = api_instance.update_price_triggered_order(settle, order_id, futures_update_price_triggered_order)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->update_price_triggered_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **order_id** | **str**| ID returned when order is successfully created | 
+ **futures_update_price_triggered_order** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  | 
+
+### Return type
+
+[**TriggerOrderResponse**](TriggerOrderResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order created successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

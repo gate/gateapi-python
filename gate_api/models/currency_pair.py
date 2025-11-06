@@ -262,7 +262,7 @@ class CurrencyPair(object):
     def fee(self):
         """Gets the fee of this CurrencyPair.  # noqa: E501
 
-        Trading fee rate  # noqa: E501
+        Trading fee rate(deprecated)  # noqa: E501
 
         :return: The fee of this CurrencyPair.  # noqa: E501
         :rtype: str
@@ -273,7 +273,7 @@ class CurrencyPair(object):
     def fee(self, fee):
         """Sets the fee of this CurrencyPair.
 
-        Trading fee rate  # noqa: E501
+        Trading fee rate(deprecated)  # noqa: E501
 
         :param fee: The fee of this CurrencyPair.  # noqa: E501
         :type: str

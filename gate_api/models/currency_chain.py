@@ -40,7 +40,8 @@ class CurrencyChain(object):
         'is_disabled': 'int',
         'is_deposit_disabled': 'int',
         'is_withdraw_disabled': 'int',
-        'decimal': 'str'
+        'decimal': 'str',
+        'is_tag': 'int'
     }
 
     attribute_map = {
@@ -51,11 +52,12 @@ class CurrencyChain(object):
         'is_disabled': 'is_disabled',
         'is_deposit_disabled': 'is_deposit_disabled',
         'is_withdraw_disabled': 'is_withdraw_disabled',
-        'decimal': 'decimal'
+        'decimal': 'decimal',
+        'is_tag': 'is_tag'
     }
 
-    def __init__(self, chain=None, name_cn=None, name_en=None, contract_address=None, is_disabled=None, is_deposit_disabled=None, is_withdraw_disabled=None, decimal=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, int, int, int, str, Configuration) -> None
+    def __init__(self, chain=None, name_cn=None, name_en=None, contract_address=None, is_disabled=None, is_deposit_disabled=None, is_withdraw_disabled=None, decimal=None, is_tag=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, int, int, int, str, int, Configuration) -> None
         """CurrencyChain - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class CurrencyChain(object):
         self._is_deposit_disabled = None
         self._is_withdraw_disabled = None
         self._decimal = None
+        self._is_tag = None
         self.discriminator = None
 
         if chain is not None:
@@ -87,6 +90,8 @@ class CurrencyChain(object):
             self.is_withdraw_disabled = is_withdraw_disabled
         if decimal is not None:
             self.decimal = decimal
+        if is_tag is not None:
+            self.is_tag = is_tag
 
     @property
     def chain(self):
@@ -271,6 +276,29 @@ class CurrencyChain(object):
         """
 
         self._decimal = decimal
+
+    @property
+    def is_tag(self):
+        """Gets the is_tag of this CurrencyChain.  # noqa: E501
+
+        Whether to Include Tag  # noqa: E501
+
+        :return: The is_tag of this CurrencyChain.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_tag
+
+    @is_tag.setter
+    def is_tag(self, is_tag):
+        """Sets the is_tag of this CurrencyChain.
+
+        Whether to Include Tag  # noqa: E501
+
+        :param is_tag: The is_tag of this CurrencyChain.  # noqa: E501
+        :type: int
+        """
+
+        self._is_tag = is_tag
 
     def to_dict(self):
         """Returns the model properties as a dict"""
