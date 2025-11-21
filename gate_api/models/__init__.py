@@ -17,8 +17,6 @@ from __future__ import absolute_import
 from gate_api.models.account_balance import AccountBalance
 from gate_api.models.account_detail import AccountDetail
 from gate_api.models.account_detail_key import AccountDetailKey
-from gate_api.models.account_key_info import AccountKeyInfo
-from gate_api.models.account_key_info_perms import AccountKeyInfoPerms
 from gate_api.models.account_rate_limit import AccountRateLimit
 from gate_api.models.agency_commission import AgencyCommission
 from gate_api.models.agency_commission_history import AgencyCommissionHistory
@@ -118,6 +116,8 @@ from gate_api.models.inline_object import InlineObject
 from gate_api.models.inline_response200 import InlineResponse200
 from gate_api.models.inline_response2001 import InlineResponse2001
 from gate_api.models.insurance_record import InsuranceRecord
+from gate_api.models.key import Key
+from gate_api.models.key_perms import KeyPerms
 from gate_api.models.ledger_record import LedgerRecord
 from gate_api.models.liquidate_order import LiquidateOrder
 from gate_api.models.margin_account import MarginAccount

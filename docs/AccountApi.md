@@ -80,7 +80,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account_main_keys**
-> AccountKeyInfo get_account_main_keys()
+> Key get_account_main_keys()
 
 Query All Main Account Key Information
 
@@ -124,7 +124,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AccountKeyInfo**](AccountKeyInfo.md)
+[**Key**](Key.md)
 
 ### Authorization
 

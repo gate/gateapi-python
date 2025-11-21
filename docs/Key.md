@@ -1,4 +1,4 @@
-# AccountKeyInfo
+# Key
 
 Main Account API Key Information
 ## Properties
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **currency_pairs** | **list[str]** | Trading Pair Whitelist, Maximum 30 Pairs | [optional] 
 **user_id** | **int** | User ID | [optional] 
 **ip_whitelist** | **list[str]** | IP Whitelist | [optional] 
-**perms** | [**list[AccountKeyInfoPerms]**](AccountKeyInfoPerms.md) |  | [optional] 
+**perms** | [**list[KeyPerms]**](KeyPerms.md) |  | [optional] 
 **key** | [**AccountDetailKey**](AccountDetailKey.md) |  | [optional] 
 **created_at** | **str** | Created time | [optional] [readonly] 
 **updated_at** | **str** | Last Update Time | [optional] [readonly] 
