@@ -1,4 +1,4 @@
-# KeyPerms
+# AccountKeyInfoPerms
 
 ## Properties
 Name | Type | Description | Notes
