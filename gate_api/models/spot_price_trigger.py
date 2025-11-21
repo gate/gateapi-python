@@ -89,7 +89,7 @@ class SpotPriceTrigger(object):
     def rule(self):
         """Gets the rule of this SpotPriceTrigger.  # noqa: E501
 
-        价格条件类型 - 大于等于 (>=): 表示市场价格大于等于 price 时触发 - 小于等于 (<=): 表示市场价格小于等于 price 时触发  # noqa: E501
+        价格条件类型 - 大于等于: 表示市场价格大于等于 price 时触发 - 小于等于: 表示市场价格小于等于 price 时触发  # noqa: E501
 
         :return: The rule of this SpotPriceTrigger.  # noqa: E501
         :rtype: str
@@ -100,7 +100,7 @@ class SpotPriceTrigger(object):
     def rule(self, rule):
         """Sets the rule of this SpotPriceTrigger.
 
-        价格条件类型 - 大于等于 (>=): 表示市场价格大于等于 price 时触发 - 小于等于 (<=): 表示市场价格小于等于 price 时触发  # noqa: E501
+        价格条件类型 - 大于等于: 表示市场价格大于等于 price 时触发 - 小于等于: 表示市场价格小于等于 price 时触发  # noqa: E501
 
         :param rule: The rule of this SpotPriceTrigger.  # noqa: E501
         :type: str
