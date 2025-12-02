@@ -36,6 +36,7 @@ class TradeFee(object):
         'user_id': 'int',
         'taker_fee': 'str',
         'maker_fee': 'str',
+        'rpi_maker_fee': 'str',
         'gt_discount': 'bool',
         'gt_taker_fee': 'str',
         'gt_maker_fee': 'str',
@@ -43,15 +44,18 @@ class TradeFee(object):
         'point_type': 'str',
         'futures_taker_fee': 'str',
         'futures_maker_fee': 'str',
+        'futures_rpi_maker_fee': 'str',
         'delivery_taker_fee': 'str',
         'delivery_maker_fee': 'str',
-        'debit_fee': 'int'
+        'debit_fee': 'int',
+        'rpi_mm': 'int'
     }
 
     attribute_map = {
         'user_id': 'user_id',
         'taker_fee': 'taker_fee',
         'maker_fee': 'maker_fee',
+        'rpi_maker_fee': 'rpi_maker_fee',
         'gt_discount': 'gt_discount',
         'gt_taker_fee': 'gt_taker_fee',
         'gt_maker_fee': 'gt_maker_fee',
@@ -59,13 +63,15 @@ class TradeFee(object):
         'point_type': 'point_type',
         'futures_taker_fee': 'futures_taker_fee',
         'futures_maker_fee': 'futures_maker_fee',
+        'futures_rpi_maker_fee': 'futures_rpi_maker_fee',
         'delivery_taker_fee': 'delivery_taker_fee',
         'delivery_maker_fee': 'delivery_maker_fee',
-        'debit_fee': 'debit_fee'
+        'debit_fee': 'debit_fee',
+        'rpi_mm': 'rpi_mm'
     }
 
-    def __init__(self, user_id=None, taker_fee=None, maker_fee=None, gt_discount=None, gt_taker_fee=None, gt_maker_fee=None, loan_fee=None, point_type=None, futures_taker_fee=None, futures_maker_fee=None, delivery_taker_fee=None, delivery_maker_fee=None, debit_fee=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, bool, str, str, str, str, str, str, str, str, int, Configuration) -> None
+    def __init__(self, user_id=None, taker_fee=None, maker_fee=None, rpi_maker_fee=None, gt_discount=None, gt_taker_fee=None, gt_maker_fee=None, loan_fee=None, point_type=None, futures_taker_fee=None, futures_maker_fee=None, futures_rpi_maker_fee=None, delivery_taker_fee=None, delivery_maker_fee=None, debit_fee=None, rpi_mm=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, bool, str, str, str, str, str, str, str, str, str, int, int, Configuration) -> None
         """TradeFee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +80,7 @@ class TradeFee(object):
         self._user_id = None
         self._taker_fee = None
         self._maker_fee = None
+        self._rpi_maker_fee = None
         self._gt_discount = None
         self._gt_taker_fee = None
         self._gt_maker_fee = None
@@ -81,9 +88,11 @@ class TradeFee(object):
         self._point_type = None
         self._futures_taker_fee = None
         self._futures_maker_fee = None
+        self._futures_rpi_maker_fee = None
         self._delivery_taker_fee = None
         self._delivery_maker_fee = None
         self._debit_fee = None
+        self._rpi_mm = None
         self.discriminator = None
 
         if user_id is not None:
@@ -92,6 +101,8 @@ class TradeFee(object):
             self.taker_fee = taker_fee
         if maker_fee is not None:
             self.maker_fee = maker_fee
+        if rpi_maker_fee is not None:
+            self.rpi_maker_fee = rpi_maker_fee
         if gt_discount is not None:
             self.gt_discount = gt_discount
         if gt_taker_fee is not None:
@@ -106,12 +117,16 @@ class TradeFee(object):
             self.futures_taker_fee = futures_taker_fee
         if futures_maker_fee is not None:
             self.futures_maker_fee = futures_maker_fee
+        if futures_rpi_maker_fee is not None:
+            self.futures_rpi_maker_fee = futures_rpi_maker_fee
         if delivery_taker_fee is not None:
             self.delivery_taker_fee = delivery_taker_fee
         if delivery_maker_fee is not None:
             self.delivery_maker_fee = delivery_maker_fee
         if debit_fee is not None:
             self.debit_fee = debit_fee
+        if rpi_mm is not None:
+            self.rpi_mm = rpi_mm
 
     @property
     def user_id(self):
@@ -140,7 +155,7 @@ class TradeFee(object):
     def taker_fee(self):
         """Gets the taker_fee of this TradeFee.  # noqa: E501
 
-        taker fee rate  # noqa: E501
+        spot taker fee rate  # noqa: E501
 
         :return: The taker_fee of this TradeFee.  # noqa: E501
         :rtype: str
@@ -151,7 +166,7 @@ class TradeFee(object):
     def taker_fee(self, taker_fee):
         """Sets the taker_fee of this TradeFee.
 
-        taker fee rate  # noqa: E501
+        spot taker fee rate  # noqa: E501
 
         :param taker_fee: The taker_fee of this TradeFee.  # noqa: E501
         :type: str
@@ -163,7 +178,7 @@ class TradeFee(object):
     def maker_fee(self):
         """Gets the maker_fee of this TradeFee.  # noqa: E501
 
-        maker fee rate  # noqa: E501
+        spot maker fee rate  # noqa: E501
 
         :return: The maker_fee of this TradeFee.  # noqa: E501
         :rtype: str
@@ -174,13 +189,36 @@ class TradeFee(object):
     def maker_fee(self, maker_fee):
         """Sets the maker_fee of this TradeFee.
 
-        maker fee rate  # noqa: E501
+        spot maker fee rate  # noqa: E501
 
         :param maker_fee: The maker_fee of this TradeFee.  # noqa: E501
         :type: str
         """
 
         self._maker_fee = maker_fee
+
+    @property
+    def rpi_maker_fee(self):
+        """Gets the rpi_maker_fee of this TradeFee.  # noqa: E501
+
+        spot RPI MM maker fee rate  # noqa: E501
+
+        :return: The rpi_maker_fee of this TradeFee.  # noqa: E501
+        :rtype: str
+        """
+        return self._rpi_maker_fee
+
+    @rpi_maker_fee.setter
+    def rpi_maker_fee(self, rpi_maker_fee):
+        """Sets the rpi_maker_fee of this TradeFee.
+
+        spot RPI MM maker fee rate  # noqa: E501
+
+        :param rpi_maker_fee: The rpi_maker_fee of this TradeFee.  # noqa: E501
+        :type: str
+        """
+
+        self._rpi_maker_fee = rpi_maker_fee
 
     @property
     def gt_discount(self):
@@ -344,6 +382,29 @@ class TradeFee(object):
         self._futures_maker_fee = futures_maker_fee
 
     @property
+    def futures_rpi_maker_fee(self):
+        """Gets the futures_rpi_maker_fee of this TradeFee.  # noqa: E501
+
+        contract RPI MM maker fee rate  # noqa: E501
+
+        :return: The futures_rpi_maker_fee of this TradeFee.  # noqa: E501
+        :rtype: str
+        """
+        return self._futures_rpi_maker_fee
+
+    @futures_rpi_maker_fee.setter
+    def futures_rpi_maker_fee(self, futures_rpi_maker_fee):
+        """Sets the futures_rpi_maker_fee of this TradeFee.
+
+        contract RPI MM maker fee rate  # noqa: E501
+
+        :param futures_rpi_maker_fee: The futures_rpi_maker_fee of this TradeFee.  # noqa: E501
+        :type: str
+        """
+
+        self._futures_rpi_maker_fee = futures_rpi_maker_fee
+
+    @property
     def delivery_taker_fee(self):
         """Gets the delivery_taker_fee of this TradeFee.  # noqa: E501
 
@@ -411,6 +472,29 @@ class TradeFee(object):
         """
 
         self._debit_fee = debit_fee
+
+    @property
+    def rpi_mm(self):
+        """Gets the rpi_mm of this TradeFee.  # noqa: E501
+
+        RPI MM Level  # noqa: E501
+
+        :return: The rpi_mm of this TradeFee.  # noqa: E501
+        :rtype: int
+        """
+        return self._rpi_mm
+
+    @rpi_mm.setter
+    def rpi_mm(self, rpi_mm):
+        """Sets the rpi_mm of this TradeFee.
+
+        RPI MM Level  # noqa: E501
+
+        :param rpi_mm: The rpi_mm of this TradeFee.  # noqa: E501
+        :type: int
+        """
+
+        self._rpi_mm = rpi_mm
 
     def to_dict(self):
         """Returns the model properties as a dict"""

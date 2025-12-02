@@ -34,7 +34,7 @@ class FuturesCandlestick(object):
     """
     openapi_types = {
         't': 'float',
-        'v': 'int',
+        'v': 'str',
         'c': 'str',
         'h': 'str',
         'l': 'str',
@@ -53,7 +53,7 @@ class FuturesCandlestick(object):
     }
 
     def __init__(self, t=None, v=None, c=None, h=None, l=None, o=None, sum=None, local_vars_configuration=None):  # noqa: E501
-        # type: (float, int, str, str, str, str, str, Configuration) -> None
+        # type: (float, str, str, str, str, str, str, Configuration) -> None
         """FuturesCandlestick - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -113,7 +113,7 @@ class FuturesCandlestick(object):
         size volume (contract size). Only returned if `contract` is not prefixed  # noqa: E501
 
         :return: The v of this FuturesCandlestick.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._v
 
@@ -124,7 +124,7 @@ class FuturesCandlestick(object):
         size volume (contract size). Only returned if `contract` is not prefixed  # noqa: E501
 
         :param v: The v of this FuturesCandlestick.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._v = v

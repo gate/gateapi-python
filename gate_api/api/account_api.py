@@ -576,7 +576,7 @@ class AccountApi(object):
     def list_stp_groups_users(self, stp_id, **kwargs):  # noqa: E501
         """Query users in the STP user group  # noqa: E501
 
-        Only the main account that created this STP group can query the account ID list in the current STP group  # noqa: E501
+        Only the main account that created this STP group can query the account ID list of the current STP group  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_stp_groups_users(stp_id, async_req=True)
@@ -601,7 +601,7 @@ class AccountApi(object):
     def list_stp_groups_users_with_http_info(self, stp_id, **kwargs):  # noqa: E501
         """Query users in the STP user group  # noqa: E501
 
-        Only the main account that created this STP group can query the account ID list in the current STP group  # noqa: E501
+        Only the main account that created this STP group can query the account ID list of the current STP group  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_stp_groups_users_with_http_info(stp_id, async_req=True)

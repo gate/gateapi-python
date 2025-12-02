@@ -53,15 +53,15 @@ class Contract(object):
         'risk_limit_base': 'str',
         'risk_limit_step': 'str',
         'risk_limit_max': 'str',
-        'order_size_min': 'int',
-        'order_size_max': 'int',
+        'order_size_min': 'str',
+        'order_size_max': 'str',
         'order_price_deviate': 'str',
         'ref_discount_rate': 'str',
         'ref_rebate_rate': 'str',
         'orderbook_id': 'int',
         'trade_id': 'int',
-        'trade_size': 'int',
-        'position_size': 'int',
+        'trade_size': 'str',
+        'position_size': 'str',
         'config_change_time': 'float',
         'in_delisting': 'bool',
         'orders_limit': 'int',
@@ -119,7 +119,7 @@ class Contract(object):
     }
 
     def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, int, int, str, str, str, int, int, int, int, float, bool, int, bool, bool, float, str, str, int, int, int, Configuration) -> None
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, Configuration) -> None
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -727,7 +727,7 @@ class Contract(object):
         Minimum order size allowed by the contract  # noqa: E501
 
         :return: The order_size_min of this Contract.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._order_size_min
 
@@ -738,7 +738,7 @@ class Contract(object):
         Minimum order size allowed by the contract  # noqa: E501
 
         :param order_size_min: The order_size_min of this Contract.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._order_size_min = order_size_min
@@ -750,7 +750,7 @@ class Contract(object):
         Maximum order size allowed by the contract  # noqa: E501
 
         :return: The order_size_max of this Contract.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._order_size_max
 
@@ -761,7 +761,7 @@ class Contract(object):
         Maximum order size allowed by the contract  # noqa: E501
 
         :param order_size_max: The order_size_max of this Contract.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._order_size_max = order_size_max
@@ -888,7 +888,7 @@ class Contract(object):
         Historical cumulative trading volume  # noqa: E501
 
         :return: The trade_size of this Contract.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._trade_size
 
@@ -899,7 +899,7 @@ class Contract(object):
         Historical cumulative trading volume  # noqa: E501
 
         :param trade_size: The trade_size of this Contract.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._trade_size = trade_size
@@ -911,7 +911,7 @@ class Contract(object):
         Current total long position size  # noqa: E501
 
         :return: The position_size of this Contract.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._position_size
 
@@ -922,7 +922,7 @@ class Contract(object):
         Current total long position size  # noqa: E501
 
         :param position_size: The position_size of this Contract.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._position_size = position_size

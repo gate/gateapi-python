@@ -36,7 +36,7 @@ class FuturesLiquidate(object):
         'time': 'int',
         'contract': 'str',
         'leverage': 'str',
-        'size': 'int',
+        'size': 'str',
         'margin': 'str',
         'entry_price': 'str',
         'liq_price': 'str',
@@ -44,7 +44,7 @@ class FuturesLiquidate(object):
         'order_id': 'int',
         'order_price': 'str',
         'fill_price': 'str',
-        'left': 'int'
+        'left': 'str'
     }
 
     attribute_map = {
@@ -63,7 +63,7 @@ class FuturesLiquidate(object):
     }
 
     def __init__(self, time=None, contract=None, leverage=None, size=None, margin=None, entry_price=None, liq_price=None, mark_price=None, order_id=None, order_price=None, fill_price=None, left=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, int, str, str, str, str, int, str, str, int, Configuration) -> None
+        # type: (int, str, str, str, str, str, str, str, int, str, str, str, Configuration) -> None
         """FuturesLiquidate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -184,7 +184,7 @@ class FuturesLiquidate(object):
         Position size  # noqa: E501
 
         :return: The size of this FuturesLiquidate.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -195,7 +195,7 @@ class FuturesLiquidate(object):
         Position size  # noqa: E501
 
         :param size: The size of this FuturesLiquidate.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size
@@ -368,7 +368,7 @@ class FuturesLiquidate(object):
         Liquidation order maker size  # noqa: E501
 
         :return: The left of this FuturesLiquidate.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._left
 
@@ -379,7 +379,7 @@ class FuturesLiquidate(object):
         Liquidation order maker size  # noqa: E501
 
         :param left: The left of this FuturesLiquidate.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._left = left

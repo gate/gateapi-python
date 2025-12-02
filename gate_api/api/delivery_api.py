@@ -291,7 +291,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.FuturesOrderBook
+        :rtype: gate_api.DeliveryOrderBook
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -322,7 +322,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.FuturesOrderBook, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryOrderBook, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -403,7 +403,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FuturesOrderBook',  # noqa: E501
+            response_type='DeliveryOrderBook',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -433,7 +433,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.FuturesTrade]
+        :rtype: list[gate_api.DeliveryTrade]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -464,7 +464,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.FuturesTrade], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryTrade], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -548,7 +548,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[FuturesTrade]',  # noqa: E501
+            response_type='list[DeliveryTrade]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -956,7 +956,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.FuturesAccount
+        :rtype: gate_api.DeliveryAccount
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -982,7 +982,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.FuturesAccount, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryAccount, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1043,7 +1043,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FuturesAccount',  # noqa: E501
+            response_type='DeliveryAccount',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1072,7 +1072,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.FuturesAccountBook]
+        :rtype: list[gate_api.DeliveryAccountBook]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1102,7 +1102,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.FuturesAccountBook], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryAccountBook], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1179,7 +1179,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[FuturesAccountBook]',  # noqa: E501
+            response_type='list[DeliveryAccountBook]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1204,7 +1204,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.Position]
+        :rtype: list[gate_api.DeliveryPosition]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1230,7 +1230,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.Position], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryPosition], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1291,7 +1291,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Position]',  # noqa: E501
+            response_type='list[DeliveryPosition]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1317,7 +1317,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.Position
+        :rtype: gate_api.DeliveryPosition
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1344,7 +1344,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.Position, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryPosition, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1412,7 +1412,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Position',  # noqa: E501
+            response_type='DeliveryPosition',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1439,7 +1439,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.Position
+        :rtype: gate_api.DeliveryPosition
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1467,7 +1467,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.Position, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryPosition, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1542,7 +1542,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Position',  # noqa: E501
+            response_type='DeliveryPosition',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1569,7 +1569,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.Position
+        :rtype: gate_api.DeliveryPosition
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1597,7 +1597,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.Position, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryPosition, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1672,7 +1672,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Position',  # noqa: E501
+            response_type='DeliveryPosition',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1699,7 +1699,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.Position
+        :rtype: gate_api.DeliveryPosition
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1727,7 +1727,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.Position, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryPosition, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1802,7 +1802,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Position',  # noqa: E501
+            response_type='DeliveryPosition',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1834,7 +1834,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.FuturesOrder]
+        :rtype: list[gate_api.DeliveryOrder]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1867,7 +1867,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.FuturesOrder], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryOrder], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1956,7 +1956,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[FuturesOrder]',  # noqa: E501
+            response_type='list[DeliveryOrder]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1964,18 +1964,18 @@ class DeliveryApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_delivery_order(self, settle, futures_order, **kwargs):  # noqa: E501
+    def create_delivery_order(self, settle, delivery_order, **kwargs):  # noqa: E501
         """Place futures order  # noqa: E501
 
         Zero-fill orders cannot be retrieved 10 minutes after order cancellation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_delivery_order(settle, futures_order, async_req=True)
+        >>> thread = api.create_delivery_order(settle, delivery_order, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param FuturesOrder futures_order: (required)
+        :param DeliveryOrder delivery_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1983,25 +1983,25 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.FuturesOrder
+        :rtype: gate_api.DeliveryOrder
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_delivery_order_with_http_info(settle, futures_order, **kwargs)  # noqa: E501
+        return self.create_delivery_order_with_http_info(settle, delivery_order, **kwargs)  # noqa: E501
 
-    def create_delivery_order_with_http_info(self, settle, futures_order, **kwargs):  # noqa: E501
+    def create_delivery_order_with_http_info(self, settle, delivery_order, **kwargs):  # noqa: E501
         """Place futures order  # noqa: E501
 
         Zero-fill orders cannot be retrieved 10 minutes after order cancellation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_delivery_order_with_http_info(settle, futures_order, async_req=True)
+        >>> thread = api.create_delivery_order_with_http_info(settle, delivery_order, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param FuturesOrder futures_order: (required)
+        :param DeliveryOrder delivery_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2011,7 +2011,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.FuturesOrder, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryOrder, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2020,7 +2020,7 @@ class DeliveryApi(object):
 
         all_params = [
             'settle',
-            'futures_order'
+            'delivery_order'
         ]
         all_params.extend(
             [
@@ -2043,10 +2043,10 @@ class DeliveryApi(object):
         if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
                                                         local_var_params['settle'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `settle` when calling `create_delivery_order`")  # noqa: E501
-        # verify the required parameter 'futures_order' is set
-        if self.api_client.client_side_validation and ('futures_order' not in local_var_params or  # noqa: E501
-                                                        local_var_params['futures_order'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `futures_order` when calling `create_delivery_order`")  # noqa: E501
+        # verify the required parameter 'delivery_order' is set
+        if self.api_client.client_side_validation and ('delivery_order' not in local_var_params or  # noqa: E501
+                                                        local_var_params['delivery_order'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `delivery_order` when calling `create_delivery_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2062,8 +2062,8 @@ class DeliveryApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'futures_order' in local_var_params:
-            body_params = local_var_params['futures_order']
+        if 'delivery_order' in local_var_params:
+            body_params = local_var_params['delivery_order']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -2083,7 +2083,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FuturesOrder',  # noqa: E501
+            response_type='DeliveryOrder',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2111,7 +2111,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.FuturesOrder]
+        :rtype: list[gate_api.DeliveryOrder]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2140,7 +2140,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.FuturesOrder], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryOrder], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2211,7 +2211,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[FuturesOrder]',  # noqa: E501
+            response_type='list[DeliveryOrder]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2238,7 +2238,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.FuturesOrder
+        :rtype: gate_api.DeliveryOrder
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2266,7 +2266,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.FuturesOrder, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryOrder, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2334,7 +2334,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FuturesOrder',  # noqa: E501
+            response_type='DeliveryOrder',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2360,7 +2360,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.FuturesOrder
+        :rtype: gate_api.DeliveryOrder
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2387,7 +2387,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.FuturesOrder, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.DeliveryOrder, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2455,7 +2455,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='FuturesOrder',  # noqa: E501
+            response_type='DeliveryOrder',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2486,7 +2486,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.MyFuturesTrade]
+        :rtype: list[gate_api.DeliveryMyTrade]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2518,7 +2518,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.MyFuturesTrade], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryMyTrade], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2603,7 +2603,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[MyFuturesTrade]',  # noqa: E501
+            response_type='list[DeliveryMyTrade]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2630,7 +2630,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.PositionClose]
+        :rtype: list[gate_api.DeliveryPositionClose]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2658,7 +2658,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.PositionClose], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryPositionClose], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2729,7 +2729,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[PositionClose]',  # noqa: E501
+            response_type='list[DeliveryPositionClose]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2757,7 +2757,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.FuturesLiquidate]
+        :rtype: list[gate_api.DeliveryLiquidate]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2786,7 +2786,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.FuturesLiquidate], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryLiquidate], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2860,7 +2860,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[FuturesLiquidate]',  # noqa: E501
+            response_type='list[DeliveryLiquidate]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3020,7 +3020,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.FuturesLimitRiskTiers]
+        :rtype: list[gate_api.DeliveryLimitRiskTiers]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3050,7 +3050,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.FuturesLimitRiskTiers], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.DeliveryLimitRiskTiers], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3126,7 +3126,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[FuturesLimitRiskTiers]',  # noqa: E501
+            response_type='list[DeliveryLimitRiskTiers]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

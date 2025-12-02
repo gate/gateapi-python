@@ -47,7 +47,7 @@ class MultiCollateralLoanApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
-        :param str sort: Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
+        :param str sort: Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio
         :param str order_type: Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -74,7 +74,7 @@ class MultiCollateralLoanApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
-        :param str sort: Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
+        :param str sort: Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio
         :param str order_type: Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -912,7 +912,7 @@ class MultiCollateralLoanApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str type: Currency type: collateral - Collateral currency, borrow - Borrowing currency (required)
-        :param str currency: When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. (required)
+        :param str currency: When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -937,7 +937,7 @@ class MultiCollateralLoanApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str type: Currency type: collateral - Collateral currency, borrow - Borrowing currency (required)
-        :param str currency: When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. (required)
+        :param str currency: When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1337,7 +1337,7 @@ class MultiCollateralLoanApi(object):
     def get_multi_collateral_current_rate(self, currencies, **kwargs):  # noqa: E501
         """Query currency's current interest rate  # noqa: E501
 
-        Query currency's current interest rate for the previous hour, current interest rate updates hourly  # noqa: E501
+        Query the current interest rate of the currency in the previous hour, the current interest rate is updated every hour  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multi_collateral_current_rate(currencies, async_req=True)
@@ -1363,7 +1363,7 @@ class MultiCollateralLoanApi(object):
     def get_multi_collateral_current_rate_with_http_info(self, currencies, **kwargs):  # noqa: E501
         """Query currency's current interest rate  # noqa: E501
 
-        Query currency's current interest rate for the previous hour, current interest rate updates hourly  # noqa: E501
+        Query the current interest rate of the currency in the previous hour, the current interest rate is updated every hour  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_multi_collateral_current_rate_with_http_info(currencies, async_req=True)

@@ -35,7 +35,7 @@ class BatchAmendOrderReq(object):
     openapi_types = {
         'order_id': 'int',
         'text': 'str',
-        'size': 'int',
+        'size': 'str',
         'price': 'str',
         'amend_text': 'str'
     }
@@ -49,7 +49,7 @@ class BatchAmendOrderReq(object):
     }
 
     def __init__(self, order_id=None, text=None, size=None, price=None, amend_text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, str, str, Configuration) -> None
+        # type: (int, str, str, str, str, Configuration) -> None
         """BatchAmendOrderReq - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -126,7 +126,7 @@ class BatchAmendOrderReq(object):
         New order size, including filled size. - If less than or equal to the filled quantity, the order will be cancelled. - The new order side must be identical to the original one. - Close order size cannot be modified. - For reduce-only orders, increasing the size may cancel other reduce-only orders. - If the price is not modified, decreasing the size will not affect the depth queue, while increasing the size will place it at the end of the current price level.  # noqa: E501
 
         :return: The size of this BatchAmendOrderReq.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -137,7 +137,7 @@ class BatchAmendOrderReq(object):
         New order size, including filled size. - If less than or equal to the filled quantity, the order will be cancelled. - The new order side must be identical to the original one. - Close order size cannot be modified. - For reduce-only orders, increasing the size may cancel other reduce-only orders. - If the price is not modified, decreasing the size will not affect the depth queue, while increasing the size will place it at the end of the current price level.  # noqa: E501
 
         :param size: The size of this BatchAmendOrderReq.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size

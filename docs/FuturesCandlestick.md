@@ -5,7 +5,7 @@ data point in every timestamp
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **t** | **float** | Unix timestamp in seconds | [optional] 
-**v** | **int** | size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed | [optional] 
+**v** | **str** | size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed | [optional] 
 **c** | **str** | Close price (quote currency) | [optional] 
 **h** | **str** | Highest price (quote currency) | [optional] 
 **l** | **str** | Lowest price (quote currency) | [optional] 

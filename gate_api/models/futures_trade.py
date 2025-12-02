@@ -37,7 +37,7 @@ class FuturesTrade(object):
         'create_time': 'float',
         'create_time_ms': 'float',
         'contract': 'str',
-        'size': 'int',
+        'size': 'str',
         'price': 'str',
         'is_internal': 'bool'
     }
@@ -53,7 +53,7 @@ class FuturesTrade(object):
     }
 
     def __init__(self, id=None, create_time=None, create_time_ms=None, contract=None, size=None, price=None, is_internal=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, str, int, str, bool, Configuration) -> None
+        # type: (int, float, float, str, str, str, bool, Configuration) -> None
         """FuturesTrade - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -182,7 +182,7 @@ class FuturesTrade(object):
         Trading size  # noqa: E501
 
         :return: The size of this FuturesTrade.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -193,7 +193,7 @@ class FuturesTrade(object):
         Trading size  # noqa: E501
 
         :param size: The size of this FuturesTrade.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size

@@ -43,8 +43,8 @@ class BatchFuturesOrder(object):
         'finish_as': 'str',
         'status': 'str',
         'contract': 'str',
-        'size': 'int',
-        'iceberg': 'int',
+        'size': 'str',
+        'iceberg': 'str',
         'price': 'str',
         'close': 'bool',
         'is_close': 'bool',
@@ -52,7 +52,7 @@ class BatchFuturesOrder(object):
         'is_reduce_only': 'bool',
         'is_liq': 'bool',
         'tif': 'str',
-        'left': 'int',
+        'left': 'str',
         'fill_price': 'str',
         'text': 'str',
         'tkfr': 'str',
@@ -95,7 +95,7 @@ class BatchFuturesOrder(object):
     }
 
     def __init__(self, succeeded=None, label=None, detail=None, id=None, user=None, create_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_act=None, stp_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (bool, str, str, int, int, float, float, str, str, str, int, int, str, bool, bool, bool, bool, bool, str, int, str, str, str, str, int, str, str, int, Configuration) -> None
+        # type: (bool, str, str, int, int, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, str, int, Configuration) -> None
         """BatchFuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -437,7 +437,7 @@ class BatchFuturesOrder(object):
         Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.  # noqa: E501
 
         :return: The size of this BatchFuturesOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -448,7 +448,7 @@ class BatchFuturesOrder(object):
         Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.  # noqa: E501
 
         :param size: The size of this BatchFuturesOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size
@@ -460,7 +460,7 @@ class BatchFuturesOrder(object):
         Display size for iceberg orders. 0 for non-iceberg orders. Note that hidden portions are charged taker fees.  # noqa: E501
 
         :return: The iceberg of this BatchFuturesOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._iceberg
 
@@ -471,7 +471,7 @@ class BatchFuturesOrder(object):
         Display size for iceberg orders. 0 for non-iceberg orders. Note that hidden portions are charged taker fees.  # noqa: E501
 
         :param iceberg: The iceberg of this BatchFuturesOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._iceberg = iceberg
@@ -650,7 +650,7 @@ class BatchFuturesOrder(object):
         Unfilled quantity  # noqa: E501
 
         :return: The left of this BatchFuturesOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._left
 
@@ -661,7 +661,7 @@ class BatchFuturesOrder(object):
         Unfilled quantity  # noqa: E501
 
         :param left: The left of this BatchFuturesOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._left = left

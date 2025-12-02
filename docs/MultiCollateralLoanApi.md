@@ -49,7 +49,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.MultiCollateralLoanApi(api_client)
 page = 1 # int | Page number (optional) (default to 1)
 limit = 10 # int | Maximum number of records returned in a single list (optional) (default to 10)
-sort = 'ltv_asc' # str | Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending. (optional)
+sort = 'ltv_asc' # str | Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio (optional)
 order_type = 'current' # str | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)
 
 try:
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 10]
- **sort** | **str**| Sort type: &#x60;time_desc&#x60; - Created time descending (default), &#x60;ltv_asc&#x60; - Collateral ratio ascending, &#x60;ltv_desc&#x60; - Collateral ratio descending. | [optional] 
+ **sort** | **str**| Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio | [optional] 
  **order_type** | **str**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional] 
 
 ### Return type
@@ -541,7 +541,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.MultiCollateralLoanApi(api_client)
 type = 'collateral' # str | Currency type: collateral - Collateral currency, borrow - Borrowing currency
-currency = 'BTC' # str | When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided.
+currency = 'BTC' # str | When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed
 
 try:
     # Query user's collateral and borrowing currency quota information
@@ -558,7 +558,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **str**| Currency type: collateral - Collateral currency, borrow - Borrowing currency | 
- **currency** | **str**| When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. | 
+ **currency** | **str**| When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed | 
 
 ### Return type
 
@@ -749,7 +749,7 @@ No authorization required
 
 Query currency's current interest rate
 
-Query currency's current interest rate for the previous hour, current interest rate updates hourly
+Query the current interest rate of the currency in the previous hour, the current interest rate is updated every hour
 
 ### Example
 

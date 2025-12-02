@@ -33,7 +33,7 @@ class FuturesOrderAmendment(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'size': 'int',
+        'size': 'str',
         'price': 'str',
         'amend_text': 'str',
         'text': 'str'
@@ -47,7 +47,7 @@ class FuturesOrderAmendment(object):
     }
 
     def __init__(self, size=None, price=None, amend_text=None, text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, Configuration) -> None
+        # type: (str, str, str, str, Configuration) -> None
         """FuturesOrderAmendment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,7 +75,7 @@ class FuturesOrderAmendment(object):
         New order size, including filled part.  - If new size is less than or equal to filled size, the order will be cancelled. - Order side must be identical to the original one. - Close order size cannot be changed. - For reduce only orders, increasing size may leads to other reduce only orders being cancelled. - If price is not changed, decreasing size will not change its precedence in order book, while increasing will move it to the last at current price.  # noqa: E501
 
         :return: The size of this FuturesOrderAmendment.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -86,7 +86,7 @@ class FuturesOrderAmendment(object):
         New order size, including filled part.  - If new size is less than or equal to filled size, the order will be cancelled. - Order side must be identical to the original one. - Close order size cannot be changed. - For reduce only orders, increasing size may leads to other reduce only orders being cancelled. - If price is not changed, decreasing size will not change its precedence in order book, while increasing will move it to the last at current price.  # noqa: E501
 
         :param size: The size of this FuturesOrderAmendment.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size

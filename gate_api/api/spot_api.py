@@ -586,7 +586,7 @@ class SpotApi(object):
     def list_order_book(self, currency_pair, **kwargs):  # noqa: E501
         """Get market depth information  # noqa: E501
 
-        Market depth buy orders are sorted by price from high to low, sell orders are sorted from low to high  # noqa: E501
+        Market depth buy orders are sorted by price from high to low, sell orders are reversed  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_order_book(currency_pair, async_req=True)
@@ -614,7 +614,7 @@ class SpotApi(object):
     def list_order_book_with_http_info(self, currency_pair, **kwargs):  # noqa: E501
         """Get market depth information  # noqa: E501
 
-        Market depth buy orders are sorted by price from high to low, sell orders are sorted from low to high  # noqa: E501
+        Market depth buy orders are sorted by price from high to low, sell orders are reversed  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_order_book_with_http_info(currency_pair, async_req=True)

@@ -41,8 +41,8 @@ class FuturesOrder(object):
         'finish_as': 'str',
         'status': 'str',
         'contract': 'str',
-        'size': 'int',
-        'iceberg': 'int',
+        'size': 'str',
+        'iceberg': 'str',
         'price': 'str',
         'close': 'bool',
         'is_close': 'bool',
@@ -50,7 +50,7 @@ class FuturesOrder(object):
         'is_reduce_only': 'bool',
         'is_liq': 'bool',
         'tif': 'str',
-        'left': 'int',
+        'left': 'str',
         'fill_price': 'str',
         'text': 'str',
         'tkfr': 'str',
@@ -61,7 +61,9 @@ class FuturesOrder(object):
         'stp_act': 'str',
         'amend_text': 'str',
         'limit_vip': 'int',
-        'pid': 'int'
+        'pid': 'int',
+        'order_value': 'str',
+        'trade_value': 'str'
     }
 
     attribute_map = {
@@ -93,11 +95,13 @@ class FuturesOrder(object):
         'stp_act': 'stp_act',
         'amend_text': 'amend_text',
         'limit_vip': 'limit_vip',
-        'pid': 'pid'
+        'pid': 'pid',
+        'order_value': 'order_value',
+        'trade_value': 'trade_value'
     }
 
-    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, limit_vip=None, pid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, float, float, float, str, str, str, int, int, str, bool, bool, bool, bool, bool, str, int, str, str, str, str, int, str, int, str, str, int, int, Configuration) -> None
+    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, limit_vip=None, pid=None, order_value=None, trade_value=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, int, str, str, Configuration) -> None
         """FuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -132,6 +136,8 @@ class FuturesOrder(object):
         self._amend_text = None
         self._limit_vip = None
         self._pid = None
+        self._order_value = None
+        self._trade_value = None
         self.discriminator = None
 
         if id is not None:
@@ -152,8 +158,7 @@ class FuturesOrder(object):
         self.size = size
         if iceberg is not None:
             self.iceberg = iceberg
-        if price is not None:
-            self.price = price
+        self.price = price
         if close is not None:
             self.close = close
         if is_close is not None:
@@ -190,6 +195,10 @@ class FuturesOrder(object):
             self.limit_vip = limit_vip
         if pid is not None:
             self.pid = pid
+        if order_value is not None:
+            self.order_value = order_value
+        if trade_value is not None:
+            self.trade_value = trade_value
 
     @property
     def id(self):
@@ -396,7 +405,7 @@ class FuturesOrder(object):
         Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.  # noqa: E501
 
         :return: The size of this FuturesOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -407,7 +416,7 @@ class FuturesOrder(object):
         Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.  # noqa: E501
 
         :param size: The size of this FuturesOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self.local_vars_configuration.client_side_validation and size is None:  # noqa: E501
             raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
@@ -421,7 +430,7 @@ class FuturesOrder(object):
         Display size for iceberg orders. 0 for non-iceberg orders. Note that hidden portions are charged taker fees.  # noqa: E501
 
         :return: The iceberg of this FuturesOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._iceberg
 
@@ -432,7 +441,7 @@ class FuturesOrder(object):
         Display size for iceberg orders. 0 for non-iceberg orders. Note that hidden portions are charged taker fees.  # noqa: E501
 
         :param iceberg: The iceberg of this FuturesOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._iceberg = iceberg
@@ -441,7 +450,7 @@ class FuturesOrder(object):
     def price(self):
         """Gets the price of this FuturesOrder.  # noqa: E501
 
-        Order price. Price of 0 with `tif` set to `ioc` represents a market order.  # noqa: E501
+        Required. Order Price; a price of 0 with `tif` as `ioc` represents a market order.  # noqa: E501
 
         :return: The price of this FuturesOrder.  # noqa: E501
         :rtype: str
@@ -452,11 +461,13 @@ class FuturesOrder(object):
     def price(self, price):
         """Sets the price of this FuturesOrder.
 
-        Order price. Price of 0 with `tif` set to `ioc` represents a market order.  # noqa: E501
+        Required. Order Price; a price of 0 with `tif` as `ioc` represents a market order.  # noqa: E501
 
         :param price: The price of this FuturesOrder.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
+            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
 
@@ -611,7 +622,7 @@ class FuturesOrder(object):
         Unfilled quantity  # noqa: E501
 
         :return: The left of this FuturesOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._left
 
@@ -622,7 +633,7 @@ class FuturesOrder(object):
         Unfilled quantity  # noqa: E501
 
         :param left: The left of this FuturesOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._left = left
@@ -891,6 +902,52 @@ class FuturesOrder(object):
         """
 
         self._pid = pid
+
+    @property
+    def order_value(self):
+        """Gets the order_value of this FuturesOrder.  # noqa: E501
+
+        order's value  # noqa: E501
+
+        :return: The order_value of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_value
+
+    @order_value.setter
+    def order_value(self, order_value):
+        """Sets the order_value of this FuturesOrder.
+
+        order's value  # noqa: E501
+
+        :param order_value: The order_value of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._order_value = order_value
+
+    @property
+    def trade_value(self):
+        """Gets the trade_value of this FuturesOrder.  # noqa: E501
+
+        trade value  # noqa: E501
+
+        :return: The trade_value of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_value
+
+    @trade_value.setter
+    def trade_value(self, trade_value):
+        """Sets the trade_value of this FuturesOrder.
+
+        trade value  # noqa: E501
+
+        :param trade_value: The trade_value of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._trade_value = trade_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

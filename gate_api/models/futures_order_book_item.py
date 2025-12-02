@@ -34,7 +34,7 @@ class FuturesOrderBookItem(object):
     """
     openapi_types = {
         'p': 'str',
-        's': 'int'
+        's': 'str'
     }
 
     attribute_map = {
@@ -43,7 +43,7 @@ class FuturesOrderBookItem(object):
     }
 
     def __init__(self, p=None, s=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, Configuration) -> None
+        # type: (str, str, Configuration) -> None
         """FuturesOrderBookItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -88,7 +88,7 @@ class FuturesOrderBookItem(object):
         Size  # noqa: E501
 
         :return: The s of this FuturesOrderBookItem.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._s
 
@@ -99,7 +99,7 @@ class FuturesOrderBookItem(object):
         Size  # noqa: E501
 
         :param s: The s of this FuturesOrderBookItem.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._s = s

@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.1.30"
+__version__ = "7.2.0"
 
 # import apis into sdk package
 from gate_api.api.earn_uni_api import EarnUniApi
@@ -99,10 +99,20 @@ from gate_api.models.currency_chain import CurrencyChain
 from gate_api.models.currency_pair import CurrencyPair
 from gate_api.models.currency_quota import CurrencyQuota
 from gate_api.models.debit_fee import DebitFee
+from gate_api.models.delivery_account import DeliveryAccount
+from gate_api.models.delivery_account_book import DeliveryAccountBook
 from gate_api.models.delivery_candlestick import DeliveryCandlestick
 from gate_api.models.delivery_contract import DeliveryContract
+from gate_api.models.delivery_limit_risk_tiers import DeliveryLimitRiskTiers
+from gate_api.models.delivery_liquidate import DeliveryLiquidate
+from gate_api.models.delivery_my_trade import DeliveryMyTrade
+from gate_api.models.delivery_order import DeliveryOrder
+from gate_api.models.delivery_order_book import DeliveryOrderBook
+from gate_api.models.delivery_position import DeliveryPosition
+from gate_api.models.delivery_position_close import DeliveryPositionClose
 from gate_api.models.delivery_settlement import DeliverySettlement
 from gate_api.models.delivery_ticker import DeliveryTicker
+from gate_api.models.delivery_trade import DeliveryTrade
 from gate_api.models.deposit_address import DepositAddress
 from gate_api.models.deposit_record import DepositRecord
 from gate_api.models.dual_get_orders import DualGetOrders
@@ -135,6 +145,7 @@ from gate_api.models.futures_order import FuturesOrder
 from gate_api.models.futures_order_amendment import FuturesOrderAmendment
 from gate_api.models.futures_order_book import FuturesOrderBook
 from gate_api.models.futures_order_book_item import FuturesOrderBookItem
+from gate_api.models.futures_order_book_item1 import FuturesOrderBookItem1
 from gate_api.models.futures_position_cross_mode import FuturesPositionCrossMode
 from gate_api.models.futures_premium_index import FuturesPremiumIndex
 from gate_api.models.futures_price_trigger import FuturesPriceTrigger

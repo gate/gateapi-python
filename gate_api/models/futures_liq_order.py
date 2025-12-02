@@ -35,11 +35,11 @@ class FuturesLiqOrder(object):
     openapi_types = {
         'time': 'int',
         'contract': 'str',
-        'size': 'int',
-        'order_size': 'int',
+        'size': 'str',
+        'order_size': 'str',
         'order_price': 'str',
         'fill_price': 'str',
-        'left': 'int'
+        'left': 'str'
     }
 
     attribute_map = {
@@ -53,7 +53,7 @@ class FuturesLiqOrder(object):
     }
 
     def __init__(self, time=None, contract=None, size=None, order_size=None, order_price=None, fill_price=None, left=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, int, str, str, int, Configuration) -> None
+        # type: (int, str, str, str, str, str, str, Configuration) -> None
         """FuturesLiqOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -136,7 +136,7 @@ class FuturesLiqOrder(object):
         User position size  # noqa: E501
 
         :return: The size of this FuturesLiqOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -147,7 +147,7 @@ class FuturesLiqOrder(object):
         User position size  # noqa: E501
 
         :param size: The size of this FuturesLiqOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size
@@ -159,7 +159,7 @@ class FuturesLiqOrder(object):
         Number of forced liquidation orders  # noqa: E501
 
         :return: The order_size of this FuturesLiqOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._order_size
 
@@ -170,7 +170,7 @@ class FuturesLiqOrder(object):
         Number of forced liquidation orders  # noqa: E501
 
         :param order_size: The order_size of this FuturesLiqOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._order_size = order_size
@@ -228,7 +228,7 @@ class FuturesLiqOrder(object):
         System liquidation order maker size  # noqa: E501
 
         :return: The left of this FuturesLiqOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._left
 
@@ -239,7 +239,7 @@ class FuturesLiqOrder(object):
         System liquidation order maker size  # noqa: E501
 
         :param left: The left of this FuturesLiqOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._left = left

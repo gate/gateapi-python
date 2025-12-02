@@ -36,30 +36,34 @@ class SpotFee(object):
         'user_id': 'int',
         'taker_fee': 'str',
         'maker_fee': 'str',
+        'rpi_maker_fee': 'str',
         'gt_discount': 'bool',
         'gt_taker_fee': 'str',
         'gt_maker_fee': 'str',
         'loan_fee': 'str',
         'point_type': 'str',
         'currency_pair': 'str',
-        'debit_fee': 'int'
+        'debit_fee': 'int',
+        'rpi_mm': 'int'
     }
 
     attribute_map = {
         'user_id': 'user_id',
         'taker_fee': 'taker_fee',
         'maker_fee': 'maker_fee',
+        'rpi_maker_fee': 'rpi_maker_fee',
         'gt_discount': 'gt_discount',
         'gt_taker_fee': 'gt_taker_fee',
         'gt_maker_fee': 'gt_maker_fee',
         'loan_fee': 'loan_fee',
         'point_type': 'point_type',
         'currency_pair': 'currency_pair',
-        'debit_fee': 'debit_fee'
+        'debit_fee': 'debit_fee',
+        'rpi_mm': 'rpi_mm'
     }
 
-    def __init__(self, user_id=None, taker_fee=None, maker_fee=None, gt_discount=None, gt_taker_fee=None, gt_maker_fee=None, loan_fee=None, point_type=None, currency_pair=None, debit_fee=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, bool, str, str, str, str, str, int, Configuration) -> None
+    def __init__(self, user_id=None, taker_fee=None, maker_fee=None, rpi_maker_fee=None, gt_discount=None, gt_taker_fee=None, gt_maker_fee=None, loan_fee=None, point_type=None, currency_pair=None, debit_fee=None, rpi_mm=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, bool, str, str, str, str, str, int, int, Configuration) -> None
         """SpotFee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +72,7 @@ class SpotFee(object):
         self._user_id = None
         self._taker_fee = None
         self._maker_fee = None
+        self._rpi_maker_fee = None
         self._gt_discount = None
         self._gt_taker_fee = None
         self._gt_maker_fee = None
@@ -75,6 +80,7 @@ class SpotFee(object):
         self._point_type = None
         self._currency_pair = None
         self._debit_fee = None
+        self._rpi_mm = None
         self.discriminator = None
 
         if user_id is not None:
@@ -83,6 +89,8 @@ class SpotFee(object):
             self.taker_fee = taker_fee
         if maker_fee is not None:
             self.maker_fee = maker_fee
+        if rpi_maker_fee is not None:
+            self.rpi_maker_fee = rpi_maker_fee
         if gt_discount is not None:
             self.gt_discount = gt_discount
         if gt_taker_fee is not None:
@@ -97,6 +105,8 @@ class SpotFee(object):
             self.currency_pair = currency_pair
         if debit_fee is not None:
             self.debit_fee = debit_fee
+        if rpi_mm is not None:
+            self.rpi_mm = rpi_mm
 
     @property
     def user_id(self):
@@ -166,6 +176,29 @@ class SpotFee(object):
         """
 
         self._maker_fee = maker_fee
+
+    @property
+    def rpi_maker_fee(self):
+        """Gets the rpi_maker_fee of this SpotFee.  # noqa: E501
+
+        RPI MM maker fee rate  # noqa: E501
+
+        :return: The rpi_maker_fee of this SpotFee.  # noqa: E501
+        :rtype: str
+        """
+        return self._rpi_maker_fee
+
+    @rpi_maker_fee.setter
+    def rpi_maker_fee(self, rpi_maker_fee):
+        """Sets the rpi_maker_fee of this SpotFee.
+
+        RPI MM maker fee rate  # noqa: E501
+
+        :param rpi_maker_fee: The rpi_maker_fee of this SpotFee.  # noqa: E501
+        :type: str
+        """
+
+        self._rpi_maker_fee = rpi_maker_fee
 
     @property
     def gt_discount(self):
@@ -327,6 +360,29 @@ class SpotFee(object):
         """
 
         self._debit_fee = debit_fee
+
+    @property
+    def rpi_mm(self):
+        """Gets the rpi_mm of this SpotFee.  # noqa: E501
+
+        RPI MM Level  # noqa: E501
+
+        :return: The rpi_mm of this SpotFee.  # noqa: E501
+        :rtype: int
+        """
+        return self._rpi_mm
+
+    @rpi_mm.setter
+    def rpi_mm(self, rpi_mm):
+        """Sets the rpi_mm of this SpotFee.
+
+        RPI MM Level  # noqa: E501
+
+        :param rpi_mm: The rpi_mm of this SpotFee.  # noqa: E501
+        :type: int
+        """
+
+        self._rpi_mm = rpi_mm
 
     def to_dict(self):
         """Returns the model properties as a dict"""

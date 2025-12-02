@@ -37,8 +37,8 @@ class MyFuturesTradeTimeRange(object):
         'create_time': 'float',
         'contract': 'str',
         'order_id': 'str',
-        'size': 'int',
-        'close_size': 'int',
+        'size': 'str',
+        'close_size': 'str',
         'price': 'str',
         'role': 'str',
         'text': 'str',
@@ -61,7 +61,7 @@ class MyFuturesTradeTimeRange(object):
     }
 
     def __init__(self, trade_id=None, create_time=None, contract=None, order_id=None, size=None, close_size=None, price=None, role=None, text=None, fee=None, point_fee=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, float, str, str, int, int, str, str, str, str, str, Configuration) -> None
+        # type: (str, float, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """MyFuturesTradeTimeRange - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -202,7 +202,7 @@ class MyFuturesTradeTimeRange(object):
         Trading size  # noqa: E501
 
         :return: The size of this MyFuturesTradeTimeRange.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -213,7 +213,7 @@ class MyFuturesTradeTimeRange(object):
         Trading size  # noqa: E501
 
         :param size: The size of this MyFuturesTradeTimeRange.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size
@@ -225,7 +225,7 @@ class MyFuturesTradeTimeRange(object):
         Number of closed positions:  close_size=0 && size＞0 Open long position close_size=0 && size＜0 Open short position close_size>0 && size>0 && size <= close_size Close short position close_size>0 && size>0 && size > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long position close_size<0 && size<0 && size < close_size Close long position and open short position  # noqa: E501
 
         :return: The close_size of this MyFuturesTradeTimeRange.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._close_size
 
@@ -236,7 +236,7 @@ class MyFuturesTradeTimeRange(object):
         Number of closed positions:  close_size=0 && size＞0 Open long position close_size=0 && size＜0 Open short position close_size>0 && size>0 && size <= close_size Close short position close_size>0 && size>0 && size > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long position close_size<0 && size<0 && size < close_size Close long position and open short position  # noqa: E501
 
         :param close_size: The close_size of this MyFuturesTradeTimeRange.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._close_size = close_size

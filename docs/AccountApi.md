@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 Query users in the STP user group
 
-Only the main account that created this STP group can query the account ID list in the current STP group
+Only the main account that created this STP group can query the account ID list of the current STP group
 
 ### Example
 

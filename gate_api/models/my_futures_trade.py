@@ -37,13 +37,14 @@ class MyFuturesTrade(object):
         'create_time': 'float',
         'contract': 'str',
         'order_id': 'str',
-        'size': 'int',
-        'close_size': 'int',
+        'size': 'str',
+        'close_size': 'str',
         'price': 'str',
         'role': 'str',
         'text': 'str',
         'fee': 'str',
-        'point_fee': 'str'
+        'point_fee': 'str',
+        'trade_value': 'str'
     }
 
     attribute_map = {
@@ -57,11 +58,12 @@ class MyFuturesTrade(object):
         'role': 'role',
         'text': 'text',
         'fee': 'fee',
-        'point_fee': 'point_fee'
+        'point_fee': 'point_fee',
+        'trade_value': 'trade_value'
     }
 
-    def __init__(self, id=None, create_time=None, contract=None, order_id=None, size=None, close_size=None, price=None, role=None, text=None, fee=None, point_fee=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, str, str, int, int, str, str, str, str, str, Configuration) -> None
+    def __init__(self, id=None, create_time=None, contract=None, order_id=None, size=None, close_size=None, price=None, role=None, text=None, fee=None, point_fee=None, trade_value=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, float, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """MyFuturesTrade - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +80,7 @@ class MyFuturesTrade(object):
         self._text = None
         self._fee = None
         self._point_fee = None
+        self._trade_value = None
         self.discriminator = None
 
         if id is not None:
@@ -102,6 +105,8 @@ class MyFuturesTrade(object):
             self.fee = fee
         if point_fee is not None:
             self.point_fee = point_fee
+        if trade_value is not None:
+            self.trade_value = trade_value
 
     @property
     def id(self):
@@ -202,7 +207,7 @@ class MyFuturesTrade(object):
         Trading size  # noqa: E501
 
         :return: The size of this MyFuturesTrade.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -213,7 +218,7 @@ class MyFuturesTrade(object):
         Trading size  # noqa: E501
 
         :param size: The size of this MyFuturesTrade.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size
@@ -225,7 +230,7 @@ class MyFuturesTrade(object):
         Number of closed positions:  close_size=0 && size＞0 Open long position close_size=0 && size＜0 Open short position close_size>0 && size>0 && size <= close_size Close short position close_size>0 && size>0 && size > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long position close_size<0 && size<0 && size < close_size Close long position and open short position  # noqa: E501
 
         :return: The close_size of this MyFuturesTrade.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._close_size
 
@@ -236,7 +241,7 @@ class MyFuturesTrade(object):
         Number of closed positions:  close_size=0 && size＞0 Open long position close_size=0 && size＜0 Open short position close_size>0 && size>0 && size <= close_size Close short position close_size>0 && size>0 && size > close_size Close short position and open long position close_size<0 && size<0 && size >= close_size Close long position close_size<0 && size<0 && size < close_size Close long position and open short position  # noqa: E501
 
         :param close_size: The close_size of this MyFuturesTrade.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._close_size = close_size
@@ -361,6 +366,29 @@ class MyFuturesTrade(object):
         """
 
         self._point_fee = point_fee
+
+    @property
+    def trade_value(self):
+        """Gets the trade_value of this MyFuturesTrade.  # noqa: E501
+
+        trade value  # noqa: E501
+
+        :return: The trade_value of this MyFuturesTrade.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_value
+
+    @trade_value.setter
+    def trade_value(self, trade_value):
+        """Sets the trade_value of this MyFuturesTrade.
+
+        trade value  # noqa: E501
+
+        :param trade_value: The trade_value of this MyFuturesTrade.  # noqa: E501
+        :type: str
+        """
+
+        self._trade_value = trade_value
 
     def to_dict(self):
         """Returns the model properties as a dict"""

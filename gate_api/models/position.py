@@ -35,7 +35,7 @@ class Position(object):
     openapi_types = {
         'user': 'int',
         'contract': 'str',
-        'size': 'int',
+        'size': 'str',
         'leverage': 'str',
         'risk_limit': 'str',
         'leverage_max': 'str',
@@ -107,7 +107,7 @@ class Position(object):
     }
 
     def __init__(self, user=None, contract=None, size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, pid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, Configuration) -> None
+        # type: (int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, Configuration) -> None
         """Position - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -270,7 +270,7 @@ class Position(object):
         Position size  # noqa: E501
 
         :return: The size of this Position.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._size
 
@@ -281,7 +281,7 @@ class Position(object):
         Position size  # noqa: E501
 
         :param size: The size of this Position.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._size = size

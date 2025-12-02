@@ -195,7 +195,7 @@ class AccountDetail(object):
     def copy_trading_role(self):
         """Gets the copy_trading_role of this AccountDetail.  # noqa: E501
 
-        User role: 0 - Normal user, 1 - Copy trading leader, 2 - Follower, 3 - Both leader and follower  # noqa: E501
+        User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower  # noqa: E501
 
         :return: The copy_trading_role of this AccountDetail.  # noqa: E501
         :rtype: int
@@ -206,7 +206,7 @@ class AccountDetail(object):
     def copy_trading_role(self, copy_trading_role):
         """Sets the copy_trading_role of this AccountDetail.
 
-        User role: 0 - Normal user, 1 - Copy trading leader, 2 - Follower, 3 - Both leader and follower  # noqa: E501
+        User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower  # noqa: E501
 
         :param copy_trading_role: The copy_trading_role of this AccountDetail.  # noqa: E501
         :type: int

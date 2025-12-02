@@ -978,7 +978,7 @@ Name | Type | Description  | Notes
 
 Query futures account change history
 
-If the contract field is passed, only records containing this field after 2023-10-30 can be filtered.
+If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。
 
 ### Example
 
@@ -1272,6 +1272,8 @@ Name | Type | Description  | Notes
 
 Update position leverage
 
+⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage = 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage=10 - Set cross margin with 10x leverage: leverage=0&cross_leverage_limit=10 - leverage=5&cross_leverage_limit=10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
+
 ### Example
 
 * Api Key Authentication (apiv4):
@@ -1556,7 +1558,7 @@ Name | Type | Description  | Notes
 
 Set position mode
 
-The prerequisite for changing mode is that there are no open positions and no open orders
+The prerequisite for changing mode is that all positions have no holdings and no pending orders
 
 ### Example
 
@@ -2061,7 +2063,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_futures_orders**
-> list[FuturesOrder] cancel_futures_orders(settle, contract, x_gate_exptime=x_gate_exptime, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
+> list[FuturesOrder] cancel_futures_orders(settle, x_gate_exptime=x_gate_exptime, contract=contract, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
 
 Cancel all orders with 'open' status
 
@@ -2092,15 +2094,15 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-contract = 'BTC_USDT' # str | Futures contract
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+contract = 'BTC_USDT' # str | Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
 side = 'ask' # str | Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
 exclude_reduce_only = False # bool | Whether to exclude reduce-only orders (optional) (default to False)
 text = 'cancel by user' # str | Remark for order cancellation (optional)
 
 try:
     # Cancel all orders with 'open' status
-    api_response = api_instance.cancel_futures_orders(settle, contract, x_gate_exptime=x_gate_exptime, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
+    api_response = api_instance.cancel_futures_orders(settle, x_gate_exptime=x_gate_exptime, contract=contract, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -2113,8 +2115,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **contract** | **str**| Futures contract | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **contract** | **str**| Contract Identifier; if specified, only cancel pending orders related to this contract | [optional] 
  **side** | **str**| Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders | [optional] 
  **exclude_reduce_only** | **bool**| Whether to exclude reduce-only orders | [optional] [default to False]
  **text** | **str**| Remark for order cancellation | [optional] 
@@ -3046,7 +3048,7 @@ Name | Type | Description  | Notes
 
 Cancel batch orders by specified ID list
 
-Multiple different order IDs can be specified, maximum 20 records per request
+Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
 
 ### Example
 
@@ -3119,7 +3121,7 @@ Name | Type | Description  | Notes
 
 Batch modify orders by specified IDs
 
-Multiple different order IDs can be specified, maximum 10 orders per request
+Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
 
 ### Example
 

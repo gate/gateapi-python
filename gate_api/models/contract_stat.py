@@ -36,16 +36,16 @@ class ContractStat(object):
         'time': 'int',
         'lsr_taker': 'float',
         'lsr_account': 'float',
-        'long_liq_size': 'int',
+        'long_liq_size': 'str',
         'long_liq_amount': 'float',
         'long_liq_usd': 'float',
-        'short_liq_size': 'int',
+        'short_liq_size': 'str',
         'short_liq_amount': 'float',
         'short_liq_usd': 'float',
-        'open_interest': 'int',
+        'open_interest': 'str',
         'open_interest_usd': 'float',
         'top_lsr_account': 'float',
-        'top_lsr_size': 'float',
+        'top_lsr_size': 'str',
         'mark_price': 'float'
     }
 
@@ -67,7 +67,7 @@ class ContractStat(object):
     }
 
     def __init__(self, time=None, lsr_taker=None, lsr_account=None, long_liq_size=None, long_liq_amount=None, long_liq_usd=None, short_liq_size=None, short_liq_amount=None, short_liq_usd=None, open_interest=None, open_interest_usd=None, top_lsr_account=None, top_lsr_size=None, mark_price=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, int, float, float, int, float, float, int, float, float, float, float, Configuration) -> None
+        # type: (int, float, float, str, float, float, str, float, float, str, float, float, str, float, Configuration) -> None
         """ContractStat - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -194,7 +194,7 @@ class ContractStat(object):
         Long liquidation size (contracts)  # noqa: E501
 
         :return: The long_liq_size of this ContractStat.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._long_liq_size
 
@@ -205,7 +205,7 @@ class ContractStat(object):
         Long liquidation size (contracts)  # noqa: E501
 
         :param long_liq_size: The long_liq_size of this ContractStat.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._long_liq_size = long_liq_size
@@ -263,7 +263,7 @@ class ContractStat(object):
         Short liquidation size (contracts)  # noqa: E501
 
         :return: The short_liq_size of this ContractStat.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._short_liq_size
 
@@ -274,7 +274,7 @@ class ContractStat(object):
         Short liquidation size (contracts)  # noqa: E501
 
         :param short_liq_size: The short_liq_size of this ContractStat.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._short_liq_size = short_liq_size
@@ -332,7 +332,7 @@ class ContractStat(object):
         Total open interest size (contracts)  # noqa: E501
 
         :return: The open_interest of this ContractStat.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._open_interest
 
@@ -343,7 +343,7 @@ class ContractStat(object):
         Total open interest size (contracts)  # noqa: E501
 
         :param open_interest: The open_interest of this ContractStat.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._open_interest = open_interest
@@ -401,7 +401,7 @@ class ContractStat(object):
         Top trader long/short position ratio  # noqa: E501
 
         :return: The top_lsr_size of this ContractStat.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._top_lsr_size
 
@@ -412,7 +412,7 @@ class ContractStat(object):
         Top trader long/short position ratio  # noqa: E501
 
         :param top_lsr_size: The top_lsr_size of this ContractStat.  # noqa: E501
-        :type: float
+        :type: str
         """
 
         self._top_lsr_size = top_lsr_size

@@ -154,7 +154,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_order_book**
-> FuturesOrderBook list_delivery_order_book(settle, contract, interval=interval, limit=limit, with_id=with_id)
+> DeliveryOrderBook list_delivery_order_book(settle, contract, interval=interval, limit=limit, with_id=with_id)
 
 Query futures market depth information
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrderBook**](FuturesOrderBook.md)
+[**DeliveryOrderBook**](DeliveryOrderBook.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_trades**
-> list[FuturesTrade] list_delivery_trades(settle, contract, limit=limit, last_id=last_id, _from=_from, to=to)
+> list[DeliveryTrade] list_delivery_trades(settle, contract, limit=limit, last_id=last_id, _from=_from, to=to)
 
 Futures market transaction records
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesTrade]**](FuturesTrade.md)
+[**list[DeliveryTrade]**](DeliveryTrade.md)
 
 ### Authorization
 
@@ -480,7 +480,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_accounts**
-> FuturesAccount list_delivery_accounts(settle)
+> DeliveryAccount list_delivery_accounts(settle)
 
 Get futures account
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesAccount**](FuturesAccount.md)
+[**DeliveryAccount**](DeliveryAccount.md)
 
 ### Authorization
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_account_book**
-> list[FuturesAccountBook] list_delivery_account_book(settle, limit=limit, _from=_from, to=to, type=type)
+> list[DeliveryAccountBook] list_delivery_account_book(settle, limit=limit, _from=_from, to=to, type=type)
 
 Query futures account change history
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesAccountBook]**](FuturesAccountBook.md)
+[**list[DeliveryAccountBook]**](DeliveryAccountBook.md)
 
 ### Authorization
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_positions**
-> list[Position] list_delivery_positions(settle)
+> list[DeliveryPosition] list_delivery_positions(settle)
 
 Get user position list
 
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Position]**](Position.md)
+[**list[DeliveryPosition]**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -689,7 +689,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_delivery_position**
-> Position get_delivery_position(settle, contract)
+> DeliveryPosition get_delivery_position(settle, contract)
 
 Get single position information
 
@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -758,7 +758,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_delivery_position_margin**
-> Position update_delivery_position_margin(settle, contract, change)
+> DeliveryPosition update_delivery_position_margin(settle, contract, change)
 
 Update position margin
 
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -829,7 +829,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_delivery_position_leverage**
-> Position update_delivery_position_leverage(settle, contract, leverage)
+> DeliveryPosition update_delivery_position_leverage(settle, contract, leverage)
 
 Update position leverage
 
@@ -881,7 +881,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -900,7 +900,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_delivery_position_risk_limit**
-> Position update_delivery_position_risk_limit(settle, contract, risk_limit)
+> DeliveryPosition update_delivery_position_risk_limit(settle, contract, risk_limit)
 
 Update position risk limit
 
@@ -952,7 +952,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -971,7 +971,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_orders**
-> list[FuturesOrder] list_delivery_orders(settle, status, contract=contract, limit=limit, offset=offset, last_id=last_id, count_total=count_total)
+> list[DeliveryOrder] list_delivery_orders(settle, status, contract=contract, limit=limit, offset=offset, last_id=last_id, count_total=count_total)
 
 Query futures order list
 
@@ -1033,7 +1033,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesOrder]**](FuturesOrder.md)
+[**list[DeliveryOrder]**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1052,7 +1052,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_delivery_order**
-> FuturesOrder create_delivery_order(settle, futures_order)
+> DeliveryOrder create_delivery_order(settle, delivery_order)
 
 Place futures order
 
@@ -1083,11 +1083,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.DeliveryApi(api_client)
 settle = 'usdt' # str | Settle currency
-futures_order = gate_api.FuturesOrder() # FuturesOrder | 
+delivery_order = gate_api.DeliveryOrder() # DeliveryOrder | 
 
 try:
     # Place futures order
-    api_response = api_instance.create_delivery_order(settle, futures_order)
+    api_response = api_instance.create_delivery_order(settle, delivery_order)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1100,11 +1100,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **futures_order** | [**FuturesOrder**](FuturesOrder.md)|  | 
+ **delivery_order** | [**DeliveryOrder**](DeliveryOrder.md)|  | 
 
 ### Return type
 
-[**FuturesOrder**](FuturesOrder.md)
+[**DeliveryOrder**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_delivery_orders**
-> list[FuturesOrder] cancel_delivery_orders(settle, contract, side=side)
+> list[DeliveryOrder] cancel_delivery_orders(settle, contract, side=side)
 
 Cancel all orders with 'open' status
 
@@ -1177,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesOrder]**](FuturesOrder.md)
+[**list[DeliveryOrder]**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_delivery_order**
-> FuturesOrder get_delivery_order(settle, order_id)
+> DeliveryOrder get_delivery_order(settle, order_id)
 
 Query single order details
 
@@ -1248,7 +1248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrder**](FuturesOrder.md)
+[**DeliveryOrder**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_delivery_order**
-> FuturesOrder cancel_delivery_order(settle, order_id)
+> DeliveryOrder cancel_delivery_order(settle, order_id)
 
 Cancel single order
 
@@ -1317,7 +1317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrder**](FuturesOrder.md)
+[**DeliveryOrder**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_my_delivery_trades**
-> list[MyFuturesTrade] get_my_delivery_trades(settle, contract=contract, order=order, limit=limit, offset=offset, last_id=last_id, count_total=count_total)
+> list[DeliveryMyTrade] get_my_delivery_trades(settle, contract=contract, order=order, limit=limit, offset=offset, last_id=last_id, count_total=count_total)
 
 Query personal trading records
 
@@ -1396,7 +1396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[MyFuturesTrade]**](MyFuturesTrade.md)
+[**list[DeliveryMyTrade]**](DeliveryMyTrade.md)
 
 ### Authorization
 
@@ -1415,7 +1415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_position_close**
-> list[PositionClose] list_delivery_position_close(settle, contract=contract, limit=limit)
+> list[DeliveryPositionClose] list_delivery_position_close(settle, contract=contract, limit=limit)
 
 Query position close history
 
@@ -1467,7 +1467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[PositionClose]**](PositionClose.md)
+[**list[DeliveryPositionClose]**](DeliveryPositionClose.md)
 
 ### Authorization
 
@@ -1486,7 +1486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_liquidates**
-> list[FuturesLiquidate] list_delivery_liquidates(settle, contract=contract, limit=limit, at=at)
+> list[DeliveryLiquidate] list_delivery_liquidates(settle, contract=contract, limit=limit, at=at)
 
 Query liquidation history
 
@@ -1540,7 +1540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesLiquidate]**](FuturesLiquidate.md)
+[**list[DeliveryLiquidate]**](DeliveryLiquidate.md)
 
 ### Authorization
 
@@ -1632,7 +1632,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_delivery_risk_limit_tiers**
-> list[FuturesLimitRiskTiers] list_delivery_risk_limit_tiers(settle, contract=contract, limit=limit, offset=offset)
+> list[DeliveryLimitRiskTiers] list_delivery_risk_limit_tiers(settle, contract=contract, limit=limit, offset=offset)
 
 Query risk limit tiers
 
@@ -1679,7 +1679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesLimitRiskTiers]**](FuturesLimitRiskTiers.md)
+[**list[DeliveryLimitRiskTiers]**](DeliveryLimitRiskTiers.md)
 
 ### Authorization
 

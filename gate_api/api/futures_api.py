@@ -1901,7 +1901,7 @@ class FuturesApi(object):
     def list_futures_account_book(self, settle, **kwargs):  # noqa: E501
         """Query futures account change history  # noqa: E501
 
-        If the contract field is passed, only records containing this field after 2023-10-30 can be filtered.  # noqa: E501
+        If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_account_book(settle, async_req=True)
@@ -1932,7 +1932,7 @@ class FuturesApi(object):
     def list_futures_account_book_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Query futures account change history  # noqa: E501
 
-        If the contract field is passed, only records containing this field after 2023-10-30 can be filtered.  # noqa: E501
+        If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_account_book_with_http_info(settle, async_req=True)
@@ -2435,6 +2435,7 @@ class FuturesApi(object):
     def update_position_leverage(self, settle, contract, leverage, **kwargs):  # noqa: E501
         """Update position leverage  # noqa: E501
 
+        ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage = 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage=10 - Set cross margin with 10x leverage: leverage=0&cross_leverage_limit=10 - leverage=5&cross_leverage_limit=10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_position_leverage(settle, contract, leverage, async_req=True)
@@ -2463,6 +2464,7 @@ class FuturesApi(object):
     def update_position_leverage_with_http_info(self, settle, contract, leverage, **kwargs):  # noqa: E501
         """Update position leverage  # noqa: E501
 
+        ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage = 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage=10 - Set cross margin with 10x leverage: leverage=0&cross_leverage_limit=10 - leverage=5&cross_leverage_limit=10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_position_leverage_with_http_info(settle, contract, leverage, async_req=True)
@@ -2955,7 +2957,7 @@ class FuturesApi(object):
     def set_dual_mode(self, settle, dual_mode, **kwargs):  # noqa: E501
         """Set position mode  # noqa: E501
 
-        The prerequisite for changing mode is that there are no open positions and no open orders  # noqa: E501
+        The prerequisite for changing mode is that all positions have no holdings and no pending orders  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_dual_mode(settle, dual_mode, async_req=True)
@@ -2981,7 +2983,7 @@ class FuturesApi(object):
     def set_dual_mode_with_http_info(self, settle, dual_mode, **kwargs):  # noqa: E501
         """Set position mode  # noqa: E501
 
-        The prerequisite for changing mode is that there are no open positions and no open orders  # noqa: E501
+        The prerequisite for changing mode is that all positions have no holdings and no pending orders  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_dual_mode_with_http_info(settle, dual_mode, async_req=True)
@@ -3881,19 +3883,19 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cancel_futures_orders(self, settle, contract, **kwargs):  # noqa: E501
+    def cancel_futures_orders(self, settle, **kwargs):  # noqa: E501
         """Cancel all orders with 'open' status  # noqa: E501
 
         Zero-fill orders cannot be retrieved 10 minutes after order cancellation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_futures_orders(settle, contract, async_req=True)
+        >>> thread = api.cancel_futures_orders(settle, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param str contract: Futures contract (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        :param str contract: Contract Identifier; if specified, only cancel pending orders related to this contract
         :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
         :param bool exclude_reduce_only: Whether to exclude reduce-only orders
         :param str text: Remark for order cancellation
@@ -3909,21 +3911,21 @@ class FuturesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.cancel_futures_orders_with_http_info(settle, contract, **kwargs)  # noqa: E501
+        return self.cancel_futures_orders_with_http_info(settle, **kwargs)  # noqa: E501
 
-    def cancel_futures_orders_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
+    def cancel_futures_orders_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Cancel all orders with 'open' status  # noqa: E501
 
         Zero-fill orders cannot be retrieved 10 minutes after order cancellation  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_futures_orders_with_http_info(settle, contract, async_req=True)
+        >>> thread = api.cancel_futures_orders_with_http_info(settle, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param str contract: Futures contract (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        :param str contract: Contract Identifier; if specified, only cancel pending orders related to this contract
         :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
         :param bool exclude_reduce_only: Whether to exclude reduce-only orders
         :param str text: Remark for order cancellation
@@ -3945,8 +3947,8 @@ class FuturesApi(object):
 
         all_params = [
             'settle',
-            'contract',
             'x_gate_exptime',
+            'contract',
             'side',
             'exclude_reduce_only',
             'text'
@@ -3972,10 +3974,6 @@ class FuturesApi(object):
         if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
                                                         local_var_params['settle'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `settle` when calling `cancel_futures_orders`")  # noqa: E501
-        # verify the required parameter 'contract' is set
-        if self.api_client.client_side_validation and ('contract' not in local_var_params or  # noqa: E501
-                                                        local_var_params['contract'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `contract` when calling `cancel_futures_orders`")  # noqa: E501
 
         collection_formats = {}
 
@@ -5676,7 +5674,7 @@ class FuturesApi(object):
     def cancel_batch_future_orders(self, settle, request_body, **kwargs):  # noqa: E501
         """Cancel batch orders by specified ID list  # noqa: E501
 
-        Multiple different order IDs can be specified, maximum 20 records per request  # noqa: E501
+        Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cancel_batch_future_orders(settle, request_body, async_req=True)
@@ -5703,7 +5701,7 @@ class FuturesApi(object):
     def cancel_batch_future_orders_with_http_info(self, settle, request_body, **kwargs):  # noqa: E501
         """Cancel batch orders by specified ID list  # noqa: E501
 
-        Multiple different order IDs can be specified, maximum 20 records per request  # noqa: E501
+        Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cancel_batch_future_orders_with_http_info(settle, request_body, async_req=True)
@@ -5808,7 +5806,7 @@ class FuturesApi(object):
     def amend_batch_future_orders(self, settle, batch_amend_order_req, **kwargs):  # noqa: E501
         """Batch modify orders by specified IDs  # noqa: E501
 
-        Multiple different order IDs can be specified, maximum 10 orders per request  # noqa: E501
+        Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.amend_batch_future_orders(settle, batch_amend_order_req, async_req=True)
@@ -5835,7 +5833,7 @@ class FuturesApi(object):
     def amend_batch_future_orders_with_http_info(self, settle, batch_amend_order_req, **kwargs):  # noqa: E501
         """Batch modify orders by specified IDs  # noqa: E501
 
-        Multiple different order IDs can be specified, maximum 10 orders per request  # noqa: E501
+        Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.amend_batch_future_orders_with_http_info(settle, batch_amend_order_req, async_req=True)
