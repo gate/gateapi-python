@@ -202,7 +202,7 @@ class UniLoanInterestRecord(object):
     def type(self):
         """Gets the type of this UniLoanInterestRecord.  # noqa: E501
 
-        Type: platform - Platform borrowing, margin - Margin borrowing  # noqa: E501
+        Loan Type margin: margin borrowing  # noqa: E501
 
         :return: The type of this UniLoanInterestRecord.  # noqa: E501
         :rtype: str
@@ -213,7 +213,7 @@ class UniLoanInterestRecord(object):
     def type(self, type):
         """Sets the type of this UniLoanInterestRecord.
 
-        Type: platform - Platform borrowing, margin - Margin borrowing  # noqa: E501
+        Loan Type margin: margin borrowing  # noqa: E501
 
         :param type: The type of this UniLoanInterestRecord.  # noqa: E501
         :type: str

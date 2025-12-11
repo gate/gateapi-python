@@ -200,7 +200,7 @@ class OptionsContract(object):
     def tag(self):
         """Gets the tag of this OptionsContract.  # noqa: E501
 
-        Tag  # noqa: E501
+        Expiry periods include day, week, and month.  # noqa: E501
 
         :return: The tag of this OptionsContract.  # noqa: E501
         :rtype: str
@@ -211,7 +211,7 @@ class OptionsContract(object):
     def tag(self, tag):
         """Sets the tag of this OptionsContract.
 
-        Tag  # noqa: E501
+        Expiry periods include day, week, and month.  # noqa: E501
 
         :param tag: The tag of this OptionsContract.  # noqa: E501
         :type: str
@@ -292,7 +292,7 @@ class OptionsContract(object):
     def multiplier(self):
         """Gets the multiplier of this OptionsContract.  # noqa: E501
 
-        Multiplier used in converting from invoicing to settlement currency  # noqa: E501
+        The option contract multiplier indicates how many units of the underlying asset the face value of one contract represents.  # noqa: E501
 
         :return: The multiplier of this OptionsContract.  # noqa: E501
         :rtype: str
@@ -303,7 +303,7 @@ class OptionsContract(object):
     def multiplier(self, multiplier):
         """Sets the multiplier of this OptionsContract.
 
-        Multiplier used in converting from invoicing to settlement currency  # noqa: E501
+        The option contract multiplier indicates how many units of the underlying asset the face value of one contract represents.  # noqa: E501
 
         :param multiplier: The multiplier of this OptionsContract.  # noqa: E501
         :type: str
@@ -338,7 +338,7 @@ class OptionsContract(object):
     def underlying_price(self):
         """Gets the underlying_price of this OptionsContract.  # noqa: E501
 
-        Underlying price (quote currency)  # noqa: E501
+        The forward futures price corresponding to the delivery date  # noqa: E501
 
         :return: The underlying_price of this OptionsContract.  # noqa: E501
         :rtype: str
@@ -349,7 +349,7 @@ class OptionsContract(object):
     def underlying_price(self, underlying_price):
         """Sets the underlying_price of this OptionsContract.
 
-        Underlying price (quote currency)  # noqa: E501
+        The forward futures price corresponding to the delivery date  # noqa: E501
 
         :param underlying_price: The underlying_price of this OptionsContract.  # noqa: E501
         :type: str
@@ -568,7 +568,7 @@ class OptionsContract(object):
     def order_price_deviate(self):
         """Gets the order_price_deviate of this OptionsContract.  # noqa: E501
 
-        The positive and negative offset allowed between the order price and the current mark price, that `order_price` must meet the following conditions:  order_price is within the range of mark_price +/- order_price_deviate * underlying_price and does not distinguish between buy and sell orders  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The order_price_deviate of this OptionsContract.  # noqa: E501
         :rtype: str
@@ -579,7 +579,7 @@ class OptionsContract(object):
     def order_price_deviate(self, order_price_deviate):
         """Sets the order_price_deviate of this OptionsContract.
 
-        The positive and negative offset allowed between the order price and the current mark price, that `order_price` must meet the following conditions:  order_price is within the range of mark_price +/- order_price_deviate * underlying_price and does not distinguish between buy and sell orders  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param order_price_deviate: The order_price_deviate of this OptionsContract.  # noqa: E501
         :type: str
@@ -660,7 +660,7 @@ class OptionsContract(object):
     def trade_id(self):
         """Gets the trade_id of this OptionsContract.  # noqa: E501
 
-        Current trade ID  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The trade_id of this OptionsContract.  # noqa: E501
         :rtype: int
@@ -671,7 +671,7 @@ class OptionsContract(object):
     def trade_id(self, trade_id):
         """Sets the trade_id of this OptionsContract.
 
-        Current trade ID  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param trade_id: The trade_id of this OptionsContract.  # noqa: E501
         :type: int
@@ -729,7 +729,7 @@ class OptionsContract(object):
     def orders_limit(self):
         """Gets the orders_limit of this OptionsContract.  # noqa: E501
 
-        Maximum number of pending orders  # noqa: E501
+        The maximum number of open orders each user can place in this order book.  # noqa: E501
 
         :return: The orders_limit of this OptionsContract.  # noqa: E501
         :rtype: int
@@ -740,7 +740,7 @@ class OptionsContract(object):
     def orders_limit(self, orders_limit):
         """Sets the orders_limit of this OptionsContract.
 
-        Maximum number of pending orders  # noqa: E501
+        The maximum number of open orders each user can place in this order book.  # noqa: E501
 
         :param orders_limit: The orders_limit of this OptionsContract.  # noqa: E501
         :type: int

@@ -72,7 +72,8 @@ class Contract(object):
         'status': 'str',
         'launch_time': 'int',
         'delisting_time': 'int',
-        'delisted_time': 'int'
+        'delisted_time': 'int',
+        'funding_rate_limit': 'str'
     }
 
     attribute_map = {
@@ -115,11 +116,12 @@ class Contract(object):
         'status': 'status',
         'launch_time': 'launch_time',
         'delisting_time': 'delisting_time',
-        'delisted_time': 'delisted_time'
+        'delisted_time': 'delisted_time',
+        'funding_rate_limit': 'funding_rate_limit'
     }
 
-    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, Configuration) -> None
+    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, funding_rate_limit=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, Configuration) -> None
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -165,6 +167,7 @@ class Contract(object):
         self._launch_time = None
         self._delisting_time = None
         self._delisted_time = None
+        self._funding_rate_limit = None
         self.discriminator = None
 
         if name is not None:
@@ -247,6 +250,8 @@ class Contract(object):
             self.delisting_time = delisting_time
         if delisted_time is not None:
             self.delisted_time = delisted_time
+        if funding_rate_limit is not None:
+            self.funding_rate_limit = funding_rate_limit
 
     @property
     def name(self):
@@ -304,7 +309,7 @@ class Contract(object):
     def quanto_multiplier(self):
         """Gets the quanto_multiplier of this Contract.  # noqa: E501
 
-        Multiplier used in converting from invoicing to settlement currency  # noqa: E501
+        The contract multiplier indicates how many units of the underlying asset the face value of one contract represents.  # noqa: E501
 
         :return: The quanto_multiplier of this Contract.  # noqa: E501
         :rtype: str
@@ -315,7 +320,7 @@ class Contract(object):
     def quanto_multiplier(self, quanto_multiplier):
         """Sets the quanto_multiplier of this Contract.
 
-        Multiplier used in converting from invoicing to settlement currency  # noqa: E501
+        The contract multiplier indicates how many units of the underlying asset the face value of one contract represents.  # noqa: E501
 
         :param quanto_multiplier: The quanto_multiplier of this Contract.  # noqa: E501
         :type: str
@@ -373,7 +378,7 @@ class Contract(object):
     def maintenance_rate(self):
         """Gets the maintenance_rate of this Contract.  # noqa: E501
 
-        Maintenance rate of margin  # noqa: E501
+        The maintenance margin rate of the first tier of risk limit sheet  # noqa: E501
 
         :return: The maintenance_rate of this Contract.  # noqa: E501
         :rtype: str
@@ -384,7 +389,7 @@ class Contract(object):
     def maintenance_rate(self, maintenance_rate):
         """Sets the maintenance_rate of this Contract.
 
-        Maintenance rate of margin  # noqa: E501
+        The maintenance margin rate of the first tier of risk limit sheet  # noqa: E501
 
         :param maintenance_rate: The maintenance_rate of this Contract.  # noqa: E501
         :type: str
@@ -396,7 +401,7 @@ class Contract(object):
     def mark_type(self):
         """Gets the mark_type of this Contract.  # noqa: E501
 
-        Mark price type: internal - internal trading price, index - external index price  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The mark_type of this Contract.  # noqa: E501
         :rtype: str
@@ -407,7 +412,7 @@ class Contract(object):
     def mark_type(self, mark_type):
         """Sets the mark_type of this Contract.
 
-        Mark price type: internal - internal trading price, index - external index price  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param mark_type: The mark_type of this Contract.  # noqa: E501
         :type: str
@@ -1069,7 +1074,7 @@ class Contract(object):
     def funding_cap_ratio(self):
         """Gets the funding_cap_ratio of this Contract.  # noqa: E501
 
-        The factor for the maximum of the funding rate. Maximum of funding rate = (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The funding_cap_ratio of this Contract.  # noqa: E501
         :rtype: str
@@ -1080,7 +1085,7 @@ class Contract(object):
     def funding_cap_ratio(self, funding_cap_ratio):
         """Sets the funding_cap_ratio of this Contract.
 
-        The factor for the maximum of the funding rate. Maximum of funding rate = (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param funding_cap_ratio: The funding_cap_ratio of this Contract.  # noqa: E501
         :type: str
@@ -1179,6 +1184,29 @@ class Contract(object):
         """
 
         self._delisted_time = delisted_time
+
+    @property
+    def funding_rate_limit(self):
+        """Gets the funding_rate_limit of this Contract.  # noqa: E501
+
+        Upper and lower limits of funding rate  # noqa: E501
+
+        :return: The funding_rate_limit of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._funding_rate_limit
+
+    @funding_rate_limit.setter
+    def funding_rate_limit(self, funding_rate_limit):
+        """Sets the funding_rate_limit of this Contract.
+
+        Upper and lower limits of funding rate  # noqa: E501
+
+        :param funding_rate_limit: The funding_rate_limit of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._funding_rate_limit = funding_rate_limit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

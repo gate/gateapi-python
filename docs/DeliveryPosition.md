@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **leverage** | **str** | Position leverage. 0 means cross margin; positive number means isolated margin | [optional] 
 **risk_limit** | **str** | Position risk limit | [optional] 
 **leverage_max** | **str** | Maximum leverage under current risk limit | [optional] [readonly] 
-**maintenance_rate** | **str** | Maintenance rate under current risk limit | [optional] [readonly] 
+**maintenance_rate** | **str** | The maintenance margin rate of the first tier of risk limit sheet | [optional] [readonly] 
 **value** | **str** | Position value calculated in settlement currency | [optional] [readonly] 
 **margin** | **str** | Position margin | [optional] 
 **entry_price** | **str** | Entry price | [optional] [readonly] 

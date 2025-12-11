@@ -733,6 +733,7 @@ class SubAccountApi(object):
     def update_sub_account_keys(self, user_id, key, sub_account_key, **kwargs):  # noqa: E501
         """Update sub-account API key pair  # noqa: E501
 
+        Modify Sub-account API Key Pair (Note: This interface cannot modify the mode account type attribute)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_sub_account_keys(user_id, key, sub_account_key, async_req=True)
@@ -759,6 +760,7 @@ class SubAccountApi(object):
     def update_sub_account_keys_with_http_info(self, user_id, key, sub_account_key, **kwargs):  # noqa: E501
         """Update sub-account API key pair  # noqa: E501
 
+        Modify Sub-account API Key Pair (Note: This interface cannot modify the mode account type attribute)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_sub_account_keys_with_http_info(user_id, key, sub_account_key, async_req=True)

@@ -733,6 +733,7 @@ class MarginApi(object):
     def get_user_margin_tier(self, currency_pair, **kwargs):  # noqa: E501
         """Query user's own leverage lending tiers in current market  # noqa: E501
 
+        Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_margin_tier(currency_pair, async_req=True)
@@ -757,6 +758,7 @@ class MarginApi(object):
     def get_user_margin_tier_with_http_info(self, currency_pair, **kwargs):  # noqa: E501
         """Query user's own leverage lending tiers in current market  # noqa: E501
 
+        Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_margin_tier_with_http_info(currency_pair, async_req=True)
@@ -845,6 +847,7 @@ class MarginApi(object):
     def get_market_margin_tier(self, currency_pair, **kwargs):  # noqa: E501
         """Query current market leverage lending tiers  # noqa: E501
 
+        Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_market_margin_tier(currency_pair, async_req=True)
@@ -869,6 +872,7 @@ class MarginApi(object):
     def get_market_margin_tier_with_http_info(self, currency_pair, **kwargs):  # noqa: E501
         """Query current market leverage lending tiers  # noqa: E501
 
+        Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_market_margin_tier_with_http_info(currency_pair, async_req=True)

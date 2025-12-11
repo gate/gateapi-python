@@ -170,7 +170,7 @@ class OptionsAccount(object):
     def total(self):
         """Gets the total of this OptionsAccount.  # noqa: E501
 
-        Account Balance  # noqa: E501
+        Account balance, invalid for unified account  # noqa: E501
 
         :return: The total of this OptionsAccount.  # noqa: E501
         :rtype: str
@@ -181,7 +181,7 @@ class OptionsAccount(object):
     def total(self, total):
         """Sets the total of this OptionsAccount.
 
-        Account Balance  # noqa: E501
+        Account balance, invalid for unified account  # noqa: E501
 
         :param total: The total of this OptionsAccount.  # noqa: E501
         :type: str
@@ -216,7 +216,7 @@ class OptionsAccount(object):
     def equity(self):
         """Gets the equity of this OptionsAccount.  # noqa: E501
 
-        Account equity, the sum of account balance and position value  # noqa: E501
+        Account equity = balance + option position value, invalid for unified account  # noqa: E501
 
         :return: The equity of this OptionsAccount.  # noqa: E501
         :rtype: str
@@ -227,7 +227,7 @@ class OptionsAccount(object):
     def equity(self, equity):
         """Sets the equity of this OptionsAccount.
 
-        Account equity, the sum of account balance and position value  # noqa: E501
+        Account equity = balance + option position value, invalid for unified account  # noqa: E501
 
         :param equity: The equity of this OptionsAccount.  # noqa: E501
         :type: str
@@ -285,7 +285,7 @@ class OptionsAccount(object):
     def liq_triggered(self):
         """Gets the liq_triggered of this OptionsAccount.  # noqa: E501
 
-        Whether to trigger position liquidation  # noqa: E501
+        Whether the account is in a liquidation state  # noqa: E501
 
         :return: The liq_triggered of this OptionsAccount.  # noqa: E501
         :rtype: bool
@@ -296,7 +296,7 @@ class OptionsAccount(object):
     def liq_triggered(self, liq_triggered):
         """Sets the liq_triggered of this OptionsAccount.
 
-        Whether to trigger position liquidation  # noqa: E501
+        Whether the account is in a liquidation state  # noqa: E501
 
         :param liq_triggered: The liq_triggered of this OptionsAccount.  # noqa: E501
         :type: bool
@@ -308,7 +308,7 @@ class OptionsAccount(object):
     def margin_mode(self):
         """Gets the margin_mode of this OptionsAccount.  # noqa: E501
 
-        ｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式  # noqa: E501
+        此字段表示统一账户所使用的保证金模式：  - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式 - 3: 表示为单币种保证金模式  # noqa: E501
 
         :return: The margin_mode of this OptionsAccount.  # noqa: E501
         :rtype: int
@@ -319,12 +319,12 @@ class OptionsAccount(object):
     def margin_mode(self, margin_mode):
         """Sets the margin_mode of this OptionsAccount.
 
-        ｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式  # noqa: E501
+        此字段表示统一账户所使用的保证金模式：  - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式 - 3: 表示为单币种保证金模式  # noqa: E501
 
         :param margin_mode: The margin_mode of this OptionsAccount.  # noqa: E501
         :type: int
         """
-        allowed_values = [0, 1, 2]  # noqa: E501
+        allowed_values = [0, 1, 2, 3]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and margin_mode not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `margin_mode` ({0}), must be one of {1}"  # noqa: E501
@@ -337,7 +337,7 @@ class OptionsAccount(object):
     def unrealised_pnl(self):
         """Gets the unrealised_pnl of this OptionsAccount.  # noqa: E501
 
-        Unrealized PNL  # noqa: E501
+        Unrealised PnL = (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.  # noqa: E501
 
         :return: The unrealised_pnl of this OptionsAccount.  # noqa: E501
         :rtype: str
@@ -348,7 +348,7 @@ class OptionsAccount(object):
     def unrealised_pnl(self, unrealised_pnl):
         """Sets the unrealised_pnl of this OptionsAccount.
 
-        Unrealized PNL  # noqa: E501
+        Unrealised PnL = (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.  # noqa: E501
 
         :param unrealised_pnl: The unrealised_pnl of this OptionsAccount.  # noqa: E501
         :type: str

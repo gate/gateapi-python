@@ -225,7 +225,7 @@ class DeliveryTrade(object):
     def is_internal(self):
         """Gets the is_internal of this DeliveryTrade.  # noqa: E501
 
-        Whether it is an internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the trade price may deviate from the market, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The is_internal of this DeliveryTrade.  # noqa: E501
         :rtype: bool
@@ -236,7 +236,7 @@ class DeliveryTrade(object):
     def is_internal(self, is_internal):
         """Sets the is_internal of this DeliveryTrade.
 
-        Whether it is an internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the trade price may deviate from the market, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param is_internal: The is_internal of this DeliveryTrade.  # noqa: E501
         :type: bool

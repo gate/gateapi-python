@@ -428,6 +428,8 @@ Name | Type | Description  | Notes
 
 Update sub-account API key pair
 
+Modify Sub-account API Key Pair (Note: This interface cannot modify the mode account type attribute)
+
 ### Example
 
 * Api Key Authentication (apiv4):

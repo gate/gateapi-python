@@ -51,7 +51,9 @@ class CurrencyPair(object):
         'delisting_time': 'int',
         'type': 'str',
         'trade_url': 'str',
-        'st_tag': 'bool'
+        'st_tag': 'bool',
+        'up_rate': 'str',
+        'down_rate': 'str'
     }
 
     attribute_map = {
@@ -73,11 +75,13 @@ class CurrencyPair(object):
         'delisting_time': 'delisting_time',
         'type': 'type',
         'trade_url': 'trade_url',
-        'st_tag': 'st_tag'
+        'st_tag': 'st_tag',
+        'up_rate': 'up_rate',
+        'down_rate': 'down_rate'
     }
 
-    def __init__(self, id=None, base=None, base_name=None, quote=None, quote_name=None, fee=None, min_base_amount=None, min_quote_amount=None, max_base_amount=None, max_quote_amount=None, amount_precision=None, precision=None, trade_status=None, sell_start=None, buy_start=None, delisting_time=None, type=None, trade_url=None, st_tag=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, int, int, str, int, int, int, str, str, bool, Configuration) -> None
+    def __init__(self, id=None, base=None, base_name=None, quote=None, quote_name=None, fee=None, min_base_amount=None, min_quote_amount=None, max_base_amount=None, max_quote_amount=None, amount_precision=None, precision=None, trade_status=None, sell_start=None, buy_start=None, delisting_time=None, type=None, trade_url=None, st_tag=None, up_rate=None, down_rate=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, int, int, str, int, int, int, str, str, bool, str, str, Configuration) -> None
         """CurrencyPair - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -102,6 +106,8 @@ class CurrencyPair(object):
         self._type = None
         self._trade_url = None
         self._st_tag = None
+        self._up_rate = None
+        self._down_rate = None
         self.discriminator = None
 
         if id is not None:
@@ -142,6 +148,10 @@ class CurrencyPair(object):
             self.trade_url = trade_url
         if st_tag is not None:
             self.st_tag = st_tag
+        if up_rate is not None:
+            self.up_rate = up_rate
+        if down_rate is not None:
+            self.down_rate = down_rate
 
     @property
     def id(self):
@@ -585,6 +595,52 @@ class CurrencyPair(object):
         """
 
         self._st_tag = st_tag
+
+    @property
+    def up_rate(self):
+        """Gets the up_rate of this CurrencyPair.  # noqa: E501
+
+        Maximum Quote Rise Percentage  # noqa: E501
+
+        :return: The up_rate of this CurrencyPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._up_rate
+
+    @up_rate.setter
+    def up_rate(self, up_rate):
+        """Sets the up_rate of this CurrencyPair.
+
+        Maximum Quote Rise Percentage  # noqa: E501
+
+        :param up_rate: The up_rate of this CurrencyPair.  # noqa: E501
+        :type: str
+        """
+
+        self._up_rate = up_rate
+
+    @property
+    def down_rate(self):
+        """Gets the down_rate of this CurrencyPair.  # noqa: E501
+
+        Maximum Quote Decline Percentage  # noqa: E501
+
+        :return: The down_rate of this CurrencyPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._down_rate
+
+    @down_rate.setter
+    def down_rate(self, down_rate):
+        """Sets the down_rate of this CurrencyPair.
+
+        Maximum Quote Decline Percentage  # noqa: E501
+
+        :param down_rate: The down_rate of this CurrencyPair.  # noqa: E501
+        :type: str
+        """
+
+        self._down_rate = down_rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

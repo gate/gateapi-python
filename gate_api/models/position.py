@@ -290,7 +290,7 @@ class Position(object):
     def leverage(self):
         """Gets the leverage of this Position.  # noqa: E501
 
-        Position leverage. 0 means cross margin; positive number means isolated margin  # noqa: E501
+         leverage for isolated margin. 0 means cross margin. For leverage of cross margin, please refer to `cross_leverage_limit`.  # noqa: E501
 
         :return: The leverage of this Position.  # noqa: E501
         :rtype: str
@@ -301,7 +301,7 @@ class Position(object):
     def leverage(self, leverage):
         """Sets the leverage of this Position.
 
-        Position leverage. 0 means cross margin; positive number means isolated margin  # noqa: E501
+         leverage for isolated margin. 0 means cross margin. For leverage of cross margin, please refer to `cross_leverage_limit`.  # noqa: E501
 
         :param leverage: The leverage of this Position.  # noqa: E501
         :type: str
@@ -336,7 +336,7 @@ class Position(object):
     def leverage_max(self):
         """Gets the leverage_max of this Position.  # noqa: E501
 
-        Maximum leverage under current risk limit  # noqa: E501
+        the maximum permissible leverage given to the current positon value: the higher positon value, the lower maximum permissible leverage  # noqa: E501
 
         :return: The leverage_max of this Position.  # noqa: E501
         :rtype: str
@@ -347,7 +347,7 @@ class Position(object):
     def leverage_max(self, leverage_max):
         """Sets the leverage_max of this Position.
 
-        Maximum leverage under current risk limit  # noqa: E501
+        the maximum permissible leverage given to the current positon value: the higher positon value, the lower maximum permissible leverage  # noqa: E501
 
         :param leverage_max: The leverage_max of this Position.  # noqa: E501
         :type: str
@@ -359,7 +359,7 @@ class Position(object):
     def maintenance_rate(self):
         """Gets the maintenance_rate of this Position.  # noqa: E501
 
-        Maintenance rate under current risk limit  # noqa: E501
+        The maintenance margin requirement for the risk limit at which the current position size is located.Since the maintenance margin for the position has been calculated using a tiered system, the actual maintenance margin rate required for this position is based on `average_maintenance_rate`.  # noqa: E501
 
         :return: The maintenance_rate of this Position.  # noqa: E501
         :rtype: str
@@ -370,7 +370,7 @@ class Position(object):
     def maintenance_rate(self, maintenance_rate):
         """Sets the maintenance_rate of this Position.
 
-        Maintenance rate under current risk limit  # noqa: E501
+        The maintenance margin requirement for the risk limit at which the current position size is located.Since the maintenance margin for the position has been calculated using a tiered system, the actual maintenance margin rate required for this position is based on `average_maintenance_rate`.  # noqa: E501
 
         :param maintenance_rate: The maintenance_rate of this Position.  # noqa: E501
         :type: str
@@ -451,7 +451,7 @@ class Position(object):
     def liq_price(self):
         """Gets the liq_price of this Position.  # noqa: E501
 
-        Liquidation price  # noqa: E501
+        Estimated liquidation price, for reference only. The actual liquidation trigger is based on the position mmr or the account maintenance margin level.  # noqa: E501
 
         :return: The liq_price of this Position.  # noqa: E501
         :rtype: str
@@ -462,7 +462,7 @@ class Position(object):
     def liq_price(self, liq_price):
         """Sets the liq_price of this Position.
 
-        Liquidation price  # noqa: E501
+        Estimated liquidation price, for reference only. The actual liquidation trigger is based on the position mmr or the account maintenance margin level.  # noqa: E501
 
         :param liq_price: The liq_price of this Position.  # noqa: E501
         :type: str
@@ -497,7 +497,7 @@ class Position(object):
     def initial_margin(self):
         """Gets the initial_margin of this Position.  # noqa: E501
 
-        The initial margin occupied by the position, applicable to the portfolio margin account  # noqa: E501
+        Initial margin of postions  # noqa: E501
 
         :return: The initial_margin of this Position.  # noqa: E501
         :rtype: str
@@ -508,7 +508,7 @@ class Position(object):
     def initial_margin(self, initial_margin):
         """Sets the initial_margin of this Position.
 
-        The initial margin occupied by the position, applicable to the portfolio margin account  # noqa: E501
+        Initial margin of postions  # noqa: E501
 
         :param initial_margin: The initial_margin of this Position.  # noqa: E501
         :type: str
@@ -520,7 +520,7 @@ class Position(object):
     def maintenance_margin(self):
         """Gets the maintenance_margin of this Position.  # noqa: E501
 
-        Maintenance margin required for the position, applicable to portfolio margin account  # noqa: E501
+        Maintencance margin of postions  # noqa: E501
 
         :return: The maintenance_margin of this Position.  # noqa: E501
         :rtype: str
@@ -531,7 +531,7 @@ class Position(object):
     def maintenance_margin(self, maintenance_margin):
         """Sets the maintenance_margin of this Position.
 
-        Maintenance margin required for the position, applicable to portfolio margin account  # noqa: E501
+        Maintencance margin of postions  # noqa: E501
 
         :param maintenance_margin: The maintenance_margin of this Position.  # noqa: E501
         :type: str
@@ -566,7 +566,7 @@ class Position(object):
     def realised_pnl(self):
         """Gets the realised_pnl of this Position.  # noqa: E501
 
-        Realized PnL  # noqa: E501
+        Realised PnL, the sum of all cash flows generated by this position, including settlement of closing positions, settlement of funding fees, and transaction fee expenses.  # noqa: E501
 
         :return: The realised_pnl of this Position.  # noqa: E501
         :rtype: str
@@ -577,7 +577,7 @@ class Position(object):
     def realised_pnl(self, realised_pnl):
         """Sets the realised_pnl of this Position.
 
-        Realized PnL  # noqa: E501
+        Realised PnL, the sum of all cash flows generated by this position, including settlement of closing positions, settlement of funding fees, and transaction fee expenses.  # noqa: E501
 
         :param realised_pnl: The realised_pnl of this Position.  # noqa: E501
         :type: str
@@ -589,7 +589,7 @@ class Position(object):
     def pnl_pnl(self):
         """Gets the pnl_pnl of this Position.  # noqa: E501
 
-        Realized PNL - Position P/L  # noqa: E501
+        settled pnl when closing postion  # noqa: E501
 
         :return: The pnl_pnl of this Position.  # noqa: E501
         :rtype: str
@@ -600,7 +600,7 @@ class Position(object):
     def pnl_pnl(self, pnl_pnl):
         """Sets the pnl_pnl of this Position.
 
-        Realized PNL - Position P/L  # noqa: E501
+        settled pnl when closing postion  # noqa: E501
 
         :param pnl_pnl: The pnl_pnl of this Position.  # noqa: E501
         :type: str
@@ -612,7 +612,7 @@ class Position(object):
     def pnl_fund(self):
         """Gets the pnl_fund of this Position.  # noqa: E501
 
-        Realized PNL - Funding Fees  # noqa: E501
+        funding fees  # noqa: E501
 
         :return: The pnl_fund of this Position.  # noqa: E501
         :rtype: str
@@ -623,7 +623,7 @@ class Position(object):
     def pnl_fund(self, pnl_fund):
         """Sets the pnl_fund of this Position.
 
-        Realized PNL - Funding Fees  # noqa: E501
+        funding fees  # noqa: E501
 
         :param pnl_fund: The pnl_fund of this Position.  # noqa: E501
         :type: str
@@ -635,7 +635,7 @@ class Position(object):
     def pnl_fee(self):
         """Gets the pnl_fee of this Position.  # noqa: E501
 
-        Realized PNL - Transaction Fees  # noqa: E501
+        trading fees  # noqa: E501
 
         :return: The pnl_fee of this Position.  # noqa: E501
         :rtype: str
@@ -646,7 +646,7 @@ class Position(object):
     def pnl_fee(self, pnl_fee):
         """Sets the pnl_fee of this Position.
 
-        Realized PNL - Transaction Fees  # noqa: E501
+        trading fees  # noqa: E501
 
         :param pnl_fee: The pnl_fee of this Position.  # noqa: E501
         :type: str
@@ -846,7 +846,7 @@ class Position(object):
     def cross_leverage_limit(self):
         """Gets the cross_leverage_limit of this Position.  # noqa: E501
 
-        Cross margin leverage (valid only when `leverage` is 0)  # noqa: E501
+        leverage for cross margin  # noqa: E501
 
         :return: The cross_leverage_limit of this Position.  # noqa: E501
         :rtype: str
@@ -857,7 +857,7 @@ class Position(object):
     def cross_leverage_limit(self, cross_leverage_limit):
         """Sets the cross_leverage_limit of this Position.
 
-        Cross margin leverage (valid only when `leverage` is 0)  # noqa: E501
+        leverage for cross margin  # noqa: E501
 
         :param cross_leverage_limit: The cross_leverage_limit of this Position.  # noqa: E501
         :type: str

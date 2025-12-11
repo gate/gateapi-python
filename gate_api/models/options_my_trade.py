@@ -230,7 +230,7 @@ class OptionsMyTrade(object):
     def underlying_price(self):
         """Gets the underlying_price of this OptionsMyTrade.  # noqa: E501
 
-        Underlying price (quote currency)  # noqa: E501
+        The forward futures price corresponding to the delivery date  # noqa: E501
 
         :return: The underlying_price of this OptionsMyTrade.  # noqa: E501
         :rtype: str
@@ -241,7 +241,7 @@ class OptionsMyTrade(object):
     def underlying_price(self, underlying_price):
         """Sets the underlying_price of this OptionsMyTrade.
 
-        Underlying price (quote currency)  # noqa: E501
+        The forward futures price corresponding to the delivery date  # noqa: E501
 
         :param underlying_price: The underlying_price of this OptionsMyTrade.  # noqa: E501
         :type: str

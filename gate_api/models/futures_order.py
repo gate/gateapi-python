@@ -60,7 +60,6 @@ class FuturesOrder(object):
         'stp_id': 'int',
         'stp_act': 'str',
         'amend_text': 'str',
-        'limit_vip': 'int',
         'pid': 'int',
         'order_value': 'str',
         'trade_value': 'str'
@@ -94,14 +93,13 @@ class FuturesOrder(object):
         'stp_id': 'stp_id',
         'stp_act': 'stp_act',
         'amend_text': 'amend_text',
-        'limit_vip': 'limit_vip',
         'pid': 'pid',
         'order_value': 'order_value',
         'trade_value': 'trade_value'
     }
 
-    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, limit_vip=None, pid=None, order_value=None, trade_value=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, int, str, str, Configuration) -> None
+    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, order_value=None, trade_value=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, Configuration) -> None
         """FuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -134,7 +132,6 @@ class FuturesOrder(object):
         self._stp_id = None
         self._stp_act = None
         self._amend_text = None
-        self._limit_vip = None
         self._pid = None
         self._order_value = None
         self._trade_value = None
@@ -191,8 +188,6 @@ class FuturesOrder(object):
             self.stp_act = stp_act
         if amend_text is not None:
             self.amend_text = amend_text
-        if limit_vip is not None:
-            self.limit_vip = limit_vip
         if pid is not None:
             self.pid = pid
         if order_value is not None:
@@ -665,7 +660,7 @@ class FuturesOrder(object):
     def text(self):
         """Gets the text of this FuturesOrder.  # noqa: E501
 
-        Custom order information. If not empty, must follow the rules below:  1. Prefixed with `t-` 2. No longer than 28 bytes without `t-` prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance  # noqa: E501
+        Custom order information. If not empty, must follow the rules below:  1. Prefixed with `t-` 2. No longer than 28 bytes without `t-` prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance - clear: Contract delisting withdrawal  # noqa: E501
 
         :return: The text of this FuturesOrder.  # noqa: E501
         :rtype: str
@@ -676,7 +671,7 @@ class FuturesOrder(object):
     def text(self, text):
         """Sets the text of this FuturesOrder.
 
-        Custom order information. If not empty, must follow the rules below:  1. Prefixed with `t-` 2. No longer than 28 bytes without `t-` prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance  # noqa: E501
+        Custom order information. If not empty, must follow the rules below:  1. Prefixed with `t-` 2. No longer than 28 bytes without `t-` prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance - clear: Contract delisting withdrawal  # noqa: E501
 
         :param text: The text of this FuturesOrder.  # noqa: E501
         :type: str
@@ -856,29 +851,6 @@ class FuturesOrder(object):
         """
 
         self._amend_text = amend_text
-
-    @property
-    def limit_vip(self):
-        """Gets the limit_vip of this FuturesOrder.  # noqa: E501
-
-        Counterparty user's VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0  # noqa: E501
-
-        :return: The limit_vip of this FuturesOrder.  # noqa: E501
-        :rtype: int
-        """
-        return self._limit_vip
-
-    @limit_vip.setter
-    def limit_vip(self, limit_vip):
-        """Sets the limit_vip of this FuturesOrder.
-
-        Counterparty user's VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0  # noqa: E501
-
-        :param limit_vip: The limit_vip of this FuturesOrder.  # noqa: E501
-        :type: int
-        """
-
-        self._limit_vip = limit_vip
 
     @property
     def pid(self):

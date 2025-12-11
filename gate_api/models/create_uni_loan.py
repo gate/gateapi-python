@@ -98,7 +98,7 @@ class CreateUniLoan(object):
     def type(self):
         """Gets the type of this CreateUniLoan.  # noqa: E501
 
-        Type: `borrow` - borrow, `repay` - repay  # noqa: E501
+        Loan Type margin: margin borrowing  # noqa: E501
 
         :return: The type of this CreateUniLoan.  # noqa: E501
         :rtype: str
@@ -109,7 +109,7 @@ class CreateUniLoan(object):
     def type(self, type):
         """Sets the type of this CreateUniLoan.
 
-        Type: `borrow` - borrow, `repay` - repay  # noqa: E501
+        Loan Type margin: margin borrowing  # noqa: E501
 
         :param type: The type of this CreateUniLoan.  # noqa: E501
         :type: str

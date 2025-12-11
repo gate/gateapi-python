@@ -1662,6 +1662,7 @@ class OptionsApi(object):
     def list_options_account(self, **kwargs):  # noqa: E501
         """Query account information  # noqa: E501
 
+        Query account information for classic option account and unified account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_options_account(async_req=True)
@@ -1685,6 +1686,7 @@ class OptionsApi(object):
     def list_options_account_with_http_info(self, **kwargs):  # noqa: E501
         """Query account information  # noqa: E501
 
+        Query account information for classic option account and unified account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_options_account_with_http_info(async_req=True)

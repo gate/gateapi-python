@@ -5,11 +5,11 @@ Margin account information for a trading pair. `base` corresponds to base curren
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_pair** | **str** | Currency pair | [optional] 
-**account_type** | **str** | Account type: risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated | [optional] 
+**account_type** | **str** | Account Type  mmr: maintenance margin rate account;inactive: market not activated | [optional] 
 **leverage** | **str** | User&#39;s current market leverage multiplier | [optional] 
 **locked** | **bool** | Whether the account is locked | [optional] 
-**risk** | **str** | Current risk rate of the margin account (returned when the account is a risk rate account) | [optional] 
-**mmr** | **str** | Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account) | [optional] 
+**risk** | **str** | Deprecated | [optional] 
+**mmr** | **str** | Current Maintenance Margin Rate of the account | [optional] 
 **base** | [**MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 **quote** | [**MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 

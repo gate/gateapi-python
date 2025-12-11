@@ -83,7 +83,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/7.2.0/python'
+        self.user_agent = 'OpenAPI-Generator/7.2.4/python'
         # Set default X-Gate-Size-Decimal header for futures API
         self.default_headers['X-Gate-Size-Decimal'] = '1'
         self.client_side_validation = configuration.client_side_validation

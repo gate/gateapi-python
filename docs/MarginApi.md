@@ -437,6 +437,8 @@ Name | Type | Description  | Notes
 
 Query user's own leverage lending tiers in current market
 
+Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
+
 ### Example
 
 * Api Key Authentication (apiv4):
@@ -503,6 +505,8 @@ Name | Type | Description  | Notes
 > list[MarginLeverageTier] get_market_margin_tier(currency_pair)
 
 Query current market leverage lending tiers
+
+Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
 
 ### Example
 

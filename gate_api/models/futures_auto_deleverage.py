@@ -194,7 +194,7 @@ class FuturesAutoDeleverage(object):
     def leverage(self):
         """Gets the leverage of this FuturesAutoDeleverage.  # noqa: E501
 
-        Position leverage  # noqa: E501
+         leverage for isolated margin. 0 means cross margin. For leverage of cross margin, please refer to `cross_leverage_limit`.  # noqa: E501
 
         :return: The leverage of this FuturesAutoDeleverage.  # noqa: E501
         :rtype: str
@@ -205,7 +205,7 @@ class FuturesAutoDeleverage(object):
     def leverage(self, leverage):
         """Sets the leverage of this FuturesAutoDeleverage.
 
-        Position leverage  # noqa: E501
+         leverage for isolated margin. 0 means cross margin. For leverage of cross margin, please refer to `cross_leverage_limit`.  # noqa: E501
 
         :param leverage: The leverage of this FuturesAutoDeleverage.  # noqa: E501
         :type: str
@@ -217,7 +217,7 @@ class FuturesAutoDeleverage(object):
     def cross_leverage_limit(self):
         """Gets the cross_leverage_limit of this FuturesAutoDeleverage.  # noqa: E501
 
-        Cross margin leverage (valid only when `leverage` is 0)  # noqa: E501
+        leverage for cross margin  # noqa: E501
 
         :return: The cross_leverage_limit of this FuturesAutoDeleverage.  # noqa: E501
         :rtype: str
@@ -228,7 +228,7 @@ class FuturesAutoDeleverage(object):
     def cross_leverage_limit(self, cross_leverage_limit):
         """Sets the cross_leverage_limit of this FuturesAutoDeleverage.
 
-        Cross margin leverage (valid only when `leverage` is 0)  # noqa: E501
+        leverage for cross margin  # noqa: E501
 
         :param cross_leverage_limit: The cross_leverage_limit of this FuturesAutoDeleverage.  # noqa: E501
         :type: str

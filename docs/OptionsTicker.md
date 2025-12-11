@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **mark_iv** | **str** | Implied volatility | [optional] 
 **bid_iv** | **str** | Bid side implied volatility | [optional] 
 **ask_iv** | **str** | Ask side implied volatility | [optional] 
-**leverage** | **str** | Current leverage. Formula: underlying_price / mark_price * delta | [optional] 
+**leverage** | **str** | Leverage &#x3D; underlying_price / (mark_price * delta). This value is for reference only. | [optional] 
 **delta** | **str** | Greek letter delta | [optional] 
 **gamma** | **str** | Greek letter gamma | [optional] 
 **vega** | **str** | Greek letter vega | [optional] 

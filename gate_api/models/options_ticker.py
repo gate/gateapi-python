@@ -418,7 +418,7 @@ class OptionsTicker(object):
     def leverage(self):
         """Gets the leverage of this OptionsTicker.  # noqa: E501
 
-        Current leverage. Formula: underlying_price / mark_price * delta  # noqa: E501
+        Leverage = underlying_price / (mark_price * delta). This value is for reference only.  # noqa: E501
 
         :return: The leverage of this OptionsTicker.  # noqa: E501
         :rtype: str
@@ -429,7 +429,7 @@ class OptionsTicker(object):
     def leverage(self, leverage):
         """Sets the leverage of this OptionsTicker.
 
-        Current leverage. Formula: underlying_price / mark_price * delta  # noqa: E501
+        Leverage = underlying_price / (mark_price * delta). This value is for reference only.  # noqa: E501
 
         :param leverage: The leverage of this OptionsTicker.  # noqa: E501
         :type: str

@@ -1789,6 +1789,7 @@ class FuturesApi(object):
     def list_futures_accounts(self, settle, **kwargs):  # noqa: E501
         """Get futures account  # noqa: E501
 
+        Query account information for classic future account and unified account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_accounts(settle, async_req=True)
@@ -1813,6 +1814,7 @@ class FuturesApi(object):
     def list_futures_accounts_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Get futures account  # noqa: E501
 
+        Query account information for classic future account and unified account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_accounts_with_http_info(settle, async_req=True)
@@ -2184,6 +2186,7 @@ class FuturesApi(object):
     def get_position(self, settle, contract, **kwargs):  # noqa: E501
         """Get single position information  # noqa: E501
 
+        Get single position information from a contract. If you hold two postions in one contract market, please use this API: /futures/{settle}/dual_comp/positions/{contract}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_position(settle, contract, async_req=True)
@@ -2209,6 +2212,7 @@ class FuturesApi(object):
     def get_position_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
         """Get single position information  # noqa: E501
 
+        Get single position information from a contract. If you hold two postions in one contract market, please use this API: /futures/{settle}/dual_comp/positions/{contract}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_position_with_http_info(settle, contract, async_req=True)
@@ -2305,6 +2309,7 @@ class FuturesApi(object):
     def update_position_margin(self, settle, contract, change, **kwargs):  # noqa: E501
         """Update position margin  # noqa: E501
 
+        Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_position_margin(settle, contract, change, async_req=True)
@@ -2331,6 +2336,7 @@ class FuturesApi(object):
     def update_position_margin_with_http_info(self, settle, contract, change, **kwargs):  # noqa: E501
         """Update position margin  # noqa: E501
 
+        Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_position_margin_with_http_info(settle, contract, change, async_req=True)
@@ -2444,8 +2450,8 @@ class FuturesApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str leverage: New position leverage (required)
-        :param str cross_leverage_limit: Cross margin leverage (valid only when `leverage` is 0)
+        :param str leverage: Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty. (required)
+        :param str cross_leverage_limit: Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0.
         :param int pid: Product ID
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2473,8 +2479,8 @@ class FuturesApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str leverage: New position leverage (required)
-        :param str cross_leverage_limit: Cross margin leverage (valid only when `leverage` is 0)
+        :param str leverage: Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty. (required)
+        :param str cross_leverage_limit: Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0.
         :param int pid: Product ID
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2827,6 +2833,7 @@ class FuturesApi(object):
     def update_position_risk_limit(self, settle, contract, risk_limit, **kwargs):  # noqa: E501
         """Update position risk limit  # noqa: E501
 
+        Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_position_risk_limit(settle, contract, risk_limit, async_req=True)
@@ -2853,6 +2860,7 @@ class FuturesApi(object):
     def update_position_risk_limit_with_http_info(self, settle, contract, risk_limit, **kwargs):  # noqa: E501
         """Update position risk limit  # noqa: E501
 
+        Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_position_risk_limit_with_http_info(settle, contract, risk_limit, async_req=True)
@@ -3475,6 +3483,7 @@ class FuturesApi(object):
     def update_dual_mode_position_risk_limit(self, settle, contract, risk_limit, **kwargs):  # noqa: E501
         """Update position risk limit in Hedge Mode  # noqa: E501
 
+        Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_dual_mode_position_risk_limit(settle, contract, risk_limit, async_req=True)
@@ -3501,6 +3510,7 @@ class FuturesApi(object):
     def update_dual_mode_position_risk_limit_with_http_info(self, settle, contract, risk_limit, **kwargs):  # noqa: E501
         """Update position risk limit in Hedge Mode  # noqa: E501
 
+        Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_dual_mode_position_risk_limit_with_http_info(settle, contract, risk_limit, async_req=True)

@@ -177,7 +177,7 @@ class OptionsPosition(object):
     def underlying_price(self):
         """Gets the underlying_price of this OptionsPosition.  # noqa: E501
 
-        Underlying price (quote currency)  # noqa: E501
+        The forward futures price corresponding to the delivery date  # noqa: E501
 
         :return: The underlying_price of this OptionsPosition.  # noqa: E501
         :rtype: str
@@ -188,7 +188,7 @@ class OptionsPosition(object):
     def underlying_price(self, underlying_price):
         """Sets the underlying_price of this OptionsPosition.
 
-        Underlying price (quote currency)  # noqa: E501
+        The forward futures price corresponding to the delivery date  # noqa: E501
 
         :param underlying_price: The underlying_price of this OptionsPosition.  # noqa: E501
         :type: str
@@ -338,7 +338,7 @@ class OptionsPosition(object):
     def unrealised_pnl(self):
         """Gets the unrealised_pnl of this OptionsPosition.  # noqa: E501
 
-        Unrealized PNL  # noqa: E501
+        Unrealised PnL = (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.  # noqa: E501
 
         :return: The unrealised_pnl of this OptionsPosition.  # noqa: E501
         :rtype: str
@@ -349,7 +349,7 @@ class OptionsPosition(object):
     def unrealised_pnl(self, unrealised_pnl):
         """Sets the unrealised_pnl of this OptionsPosition.
 
-        Unrealized PNL  # noqa: E501
+        Unrealised PnL = (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.  # noqa: E501
 
         :param unrealised_pnl: The unrealised_pnl of this OptionsPosition.  # noqa: E501
         :type: str

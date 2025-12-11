@@ -151,7 +151,7 @@ class FuturesRiskLimitTier(object):
     def maintenance_rate(self):
         """Gets the maintenance_rate of this FuturesRiskLimitTier.  # noqa: E501
 
-        Maintenance margin rate  # noqa: E501
+        The maintenance margin rate of the first tier of risk limit sheet  # noqa: E501
 
         :return: The maintenance_rate of this FuturesRiskLimitTier.  # noqa: E501
         :rtype: str
@@ -162,7 +162,7 @@ class FuturesRiskLimitTier(object):
     def maintenance_rate(self, maintenance_rate):
         """Sets the maintenance_rate of this FuturesRiskLimitTier.
 
-        Maintenance margin rate  # noqa: E501
+        The maintenance margin rate of the first tier of risk limit sheet  # noqa: E501
 
         :param maintenance_rate: The maintenance_rate of this FuturesRiskLimitTier.  # noqa: E501
         :type: str

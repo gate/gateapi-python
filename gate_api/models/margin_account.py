@@ -115,7 +115,7 @@ class MarginAccount(object):
     def account_type(self):
         """Gets the account_type of this MarginAccount.  # noqa: E501
 
-        Account type: risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated  # noqa: E501
+        Account Type  mmr: maintenance margin rate account;inactive: market not activated  # noqa: E501
 
         :return: The account_type of this MarginAccount.  # noqa: E501
         :rtype: str
@@ -126,7 +126,7 @@ class MarginAccount(object):
     def account_type(self, account_type):
         """Sets the account_type of this MarginAccount.
 
-        Account type: risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated  # noqa: E501
+        Account Type  mmr: maintenance margin rate account;inactive: market not activated  # noqa: E501
 
         :param account_type: The account_type of this MarginAccount.  # noqa: E501
         :type: str
@@ -184,7 +184,7 @@ class MarginAccount(object):
     def risk(self):
         """Gets the risk of this MarginAccount.  # noqa: E501
 
-        Current risk rate of the margin account (returned when the account is a risk rate account)  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The risk of this MarginAccount.  # noqa: E501
         :rtype: str
@@ -195,7 +195,7 @@ class MarginAccount(object):
     def risk(self, risk):
         """Sets the risk of this MarginAccount.
 
-        Current risk rate of the margin account (returned when the account is a risk rate account)  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param risk: The risk of this MarginAccount.  # noqa: E501
         :type: str
@@ -207,7 +207,7 @@ class MarginAccount(object):
     def mmr(self):
         """Gets the mmr of this MarginAccount.  # noqa: E501
 
-        Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)  # noqa: E501
+        Current Maintenance Margin Rate of the account  # noqa: E501
 
         :return: The mmr of this MarginAccount.  # noqa: E501
         :rtype: str
@@ -218,7 +218,7 @@ class MarginAccount(object):
     def mmr(self, mmr):
         """Sets the mmr of this MarginAccount.
 
-        Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)  # noqa: E501
+        Current Maintenance Margin Rate of the account  # noqa: E501
 
         :param mmr: The mmr of this MarginAccount.  # noqa: E501
         :type: str

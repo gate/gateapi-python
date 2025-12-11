@@ -346,7 +346,7 @@ class DeliveryContract(object):
     def quanto_multiplier(self):
         """Gets the quanto_multiplier of this DeliveryContract.  # noqa: E501
 
-        Multiplier used in converting from invoicing to settlement currency  # noqa: E501
+        The contract multiplier indicates how many units of the underlying asset the face value of one contract represents.  # noqa: E501
 
         :return: The quanto_multiplier of this DeliveryContract.  # noqa: E501
         :rtype: str
@@ -357,7 +357,7 @@ class DeliveryContract(object):
     def quanto_multiplier(self, quanto_multiplier):
         """Sets the quanto_multiplier of this DeliveryContract.
 
-        Multiplier used in converting from invoicing to settlement currency  # noqa: E501
+        The contract multiplier indicates how many units of the underlying asset the face value of one contract represents.  # noqa: E501
 
         :param quanto_multiplier: The quanto_multiplier of this DeliveryContract.  # noqa: E501
         :type: str
@@ -415,7 +415,7 @@ class DeliveryContract(object):
     def maintenance_rate(self):
         """Gets the maintenance_rate of this DeliveryContract.  # noqa: E501
 
-        Maintenance rate of margin  # noqa: E501
+        The maintenance margin rate of the first tier of risk limit sheet  # noqa: E501
 
         :return: The maintenance_rate of this DeliveryContract.  # noqa: E501
         :rtype: str
@@ -426,7 +426,7 @@ class DeliveryContract(object):
     def maintenance_rate(self, maintenance_rate):
         """Sets the maintenance_rate of this DeliveryContract.
 
-        Maintenance rate of margin  # noqa: E501
+        The maintenance margin rate of the first tier of risk limit sheet  # noqa: E501
 
         :param maintenance_rate: The maintenance_rate of this DeliveryContract.  # noqa: E501
         :type: str
@@ -438,7 +438,7 @@ class DeliveryContract(object):
     def mark_type(self):
         """Gets the mark_type of this DeliveryContract.  # noqa: E501
 
-        Mark price type: internal - internal trading price, index - external index price  # noqa: E501
+        Deprecated  # noqa: E501
 
         :return: The mark_type of this DeliveryContract.  # noqa: E501
         :rtype: str
@@ -449,7 +449,7 @@ class DeliveryContract(object):
     def mark_type(self, mark_type):
         """Sets the mark_type of this DeliveryContract.
 
-        Mark price type: internal - internal trading price, index - external index price  # noqa: E501
+        Deprecated  # noqa: E501
 
         :param mark_type: The mark_type of this DeliveryContract.  # noqa: E501
         :type: str

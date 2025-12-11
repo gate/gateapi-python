@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**convert_small_balance**](WalletApi.md#convert_small_balance) | **POST** /wallet/small_balance | Convert small balance currency
 [**list_small_balance_history**](WalletApi.md#list_small_balance_history) | **GET** /wallet/small_balance_history | Get convertible small balance currency history
 [**list_push_orders**](WalletApi.md#list_push_orders) | **GET** /wallet/push | Get UID transfer history
+[**get_low_cap_exchange_list**](WalletApi.md#get_low_cap_exchange_list) | **GET** /wallet/getLowCapExchangeList | Retrieve the list of low-liquidity or low-cap tokens
 
 
 # **list_currency_chains**
@@ -1493,6 +1494,69 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_low_cap_exchange_list**
+> list[str] get_low_cap_exchange_list()
+
+Retrieve the list of low-liquidity or low-cap tokens
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.WalletApi(api_client)
+
+try:
+    # Retrieve the list of low-liquidity or low-cap tokens
+    api_response = api_instance.get_low_cap_exchange_list()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling WalletApi->get_low_cap_exchange_list: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**list[str]**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns a string array on success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
