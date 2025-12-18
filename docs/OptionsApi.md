@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_options_order_book**
-> FuturesOrderBook list_options_order_book(contract, interval=interval, limit=limit, with_id=with_id)
+> OptionsOrderBook list_options_order_book(contract, interval=interval, limit=limit, with_id=with_id)
 
 Query options contract order book
 
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrderBook**](FuturesOrderBook.md)
+[**OptionsOrderBook**](OptionsOrderBook.md)
 
 ### Authorization
 
@@ -718,7 +718,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_options_underlying_candlesticks**
-> list[FuturesCandlestick] list_options_underlying_candlesticks(underlying, limit=limit, _from=_from, to=to, interval=interval)
+> list[OptionsCandlestick] list_options_underlying_candlesticks(underlying, limit=limit, _from=_from, to=to, interval=interval)
 
 Underlying index price candlestick chart
 
@@ -765,7 +765,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesCandlestick]**](FuturesCandlestick.md)
+[**list[OptionsCandlestick]**](OptionsCandlestick.md)
 
 ### Authorization
 
@@ -784,7 +784,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_options_trades**
-> list[FuturesTrade] list_options_trades(contract=contract, type=type, limit=limit, offset=offset, _from=_from, to=to)
+> list[OptionsTrade] list_options_trades(contract=contract, type=type, limit=limit, offset=offset, _from=_from, to=to)
 
 Market trade records
 
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FuturesTrade]**](FuturesTrade.md)
+[**list[OptionsTrade]**](OptionsTrade.md)
 
 ### Authorization
 

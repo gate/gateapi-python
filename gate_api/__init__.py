@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.4"
+__version__ = "7.2.6"
 
 # import apis into sdk package
 from gate_api.api.earn_uni_api import EarnUniApi
@@ -199,11 +199,13 @@ from gate_api.models.options_mmp_reset import OptionsMMPReset
 from gate_api.models.options_my_settlements import OptionsMySettlements
 from gate_api.models.options_my_trade import OptionsMyTrade
 from gate_api.models.options_order import OptionsOrder
+from gate_api.models.options_order_book import OptionsOrderBook
 from gate_api.models.options_position import OptionsPosition
 from gate_api.models.options_position_close import OptionsPositionClose
 from gate_api.models.options_position_close_order import OptionsPositionCloseOrder
 from gate_api.models.options_settlement import OptionsSettlement
 from gate_api.models.options_ticker import OptionsTicker
+from gate_api.models.options_trade import OptionsTrade
 from gate_api.models.options_underlying import OptionsUnderlying
 from gate_api.models.options_underlying_ticker import OptionsUnderlyingTicker
 from gate_api.models.order import Order
