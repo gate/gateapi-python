@@ -60,7 +60,8 @@ class BatchFuturesOrder(object):
         'refu': 'int',
         'auto_size': 'str',
         'stp_act': 'str',
-        'stp_id': 'int'
+        'stp_id': 'int',
+        'market_order_slip_ratio': 'str'
     }
 
     attribute_map = {
@@ -91,11 +92,12 @@ class BatchFuturesOrder(object):
         'refu': 'refu',
         'auto_size': 'auto_size',
         'stp_act': 'stp_act',
-        'stp_id': 'stp_id'
+        'stp_id': 'stp_id',
+        'market_order_slip_ratio': 'market_order_slip_ratio'
     }
 
-    def __init__(self, succeeded=None, label=None, detail=None, id=None, user=None, create_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_act=None, stp_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (bool, str, str, int, int, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, str, int, Configuration) -> None
+    def __init__(self, succeeded=None, label=None, detail=None, id=None, user=None, create_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_act=None, stp_id=None, market_order_slip_ratio=None, local_vars_configuration=None):  # noqa: E501
+        # type: (bool, str, str, int, int, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, str, int, str, Configuration) -> None
         """BatchFuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -129,6 +131,7 @@ class BatchFuturesOrder(object):
         self._auto_size = None
         self._stp_act = None
         self._stp_id = None
+        self._market_order_slip_ratio = None
         self.discriminator = None
 
         if succeeded is not None:
@@ -187,6 +190,8 @@ class BatchFuturesOrder(object):
             self.stp_act = stp_act
         if stp_id is not None:
             self.stp_id = stp_id
+        if market_order_slip_ratio is not None:
+            self.market_order_slip_ratio = market_order_slip_ratio
 
     @property
     def succeeded(self):
@@ -861,6 +866,29 @@ class BatchFuturesOrder(object):
         """
 
         self._stp_id = stp_id
+
+    @property
+    def market_order_slip_ratio(self):
+        """Gets the market_order_slip_ratio of this BatchFuturesOrder.  # noqa: E501
+
+        The maximum slippage ratio  # noqa: E501
+
+        :return: The market_order_slip_ratio of this BatchFuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_order_slip_ratio
+
+    @market_order_slip_ratio.setter
+    def market_order_slip_ratio(self, market_order_slip_ratio):
+        """Sets the market_order_slip_ratio of this BatchFuturesOrder.
+
+        The maximum slippage ratio  # noqa: E501
+
+        :param market_order_slip_ratio: The market_order_slip_ratio of this BatchFuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._market_order_slip_ratio = market_order_slip_ratio
 
     def to_dict(self):
         """Returns the model properties as a dict"""

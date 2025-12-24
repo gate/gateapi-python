@@ -169,7 +169,7 @@ class OptionsTrade(object):
     def price(self):
         """Gets the price of this OptionsTrade.  # noqa: E501
 
-        成交价格 (计价货币, 单位:标的对应的期权价格)  # noqa: E501
+        Transaction Price (Quoted Currency, Unit: Underlying Option Price)  # noqa: E501
 
         :return: The price of this OptionsTrade.  # noqa: E501
         :rtype: str
@@ -180,7 +180,7 @@ class OptionsTrade(object):
     def price(self, price):
         """Sets the price of this OptionsTrade.
 
-        成交价格 (计价货币, 单位:标的对应的期权价格)  # noqa: E501
+        Transaction Price (Quoted Currency, Unit: Underlying Option Price)  # noqa: E501
 
         :param price: The price of this OptionsTrade.  # noqa: E501
         :type: str

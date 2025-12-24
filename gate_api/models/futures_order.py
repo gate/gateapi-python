@@ -62,7 +62,8 @@ class FuturesOrder(object):
         'amend_text': 'str',
         'pid': 'int',
         'order_value': 'str',
-        'trade_value': 'str'
+        'trade_value': 'str',
+        'market_order_slip_ratio': 'str'
     }
 
     attribute_map = {
@@ -95,11 +96,12 @@ class FuturesOrder(object):
         'amend_text': 'amend_text',
         'pid': 'pid',
         'order_value': 'order_value',
-        'trade_value': 'trade_value'
+        'trade_value': 'trade_value',
+        'market_order_slip_ratio': 'market_order_slip_ratio'
     }
 
-    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, order_value=None, trade_value=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, Configuration) -> None
+    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, order_value=None, trade_value=None, market_order_slip_ratio=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, str, Configuration) -> None
         """FuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,6 +137,7 @@ class FuturesOrder(object):
         self._pid = None
         self._order_value = None
         self._trade_value = None
+        self._market_order_slip_ratio = None
         self.discriminator = None
 
         if id is not None:
@@ -194,6 +197,8 @@ class FuturesOrder(object):
             self.order_value = order_value
         if trade_value is not None:
             self.trade_value = trade_value
+        if market_order_slip_ratio is not None:
+            self.market_order_slip_ratio = market_order_slip_ratio
 
     @property
     def id(self):
@@ -920,6 +925,29 @@ class FuturesOrder(object):
         """
 
         self._trade_value = trade_value
+
+    @property
+    def market_order_slip_ratio(self):
+        """Gets the market_order_slip_ratio of this FuturesOrder.  # noqa: E501
+
+        Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used  # noqa: E501
+
+        :return: The market_order_slip_ratio of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_order_slip_ratio
+
+    @market_order_slip_ratio.setter
+    def market_order_slip_ratio(self, market_order_slip_ratio):
+        """Sets the market_order_slip_ratio of this FuturesOrder.
+
+        Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used  # noqa: E501
+
+        :param market_order_slip_ratio: The market_order_slip_ratio of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._market_order_slip_ratio = market_order_slip_ratio
 
     def to_dict(self):
         """Returns the model properties as a dict"""

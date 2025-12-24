@@ -575,7 +575,7 @@ class UnifiedApi(object):
         query_params = []
         if 'currencies' in local_var_params and local_var_params['currencies'] is not None:  # noqa: E501
             query_params.append(('currencies', local_var_params['currencies']))  # noqa: E501
-            collection_formats['currencies'] = 'multi'  # noqa: E501
+            collection_formats['currencies'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -1535,7 +1535,7 @@ class UnifiedApi(object):
         query_params = []
         if 'currencies' in local_var_params and local_var_params['currencies'] is not None:  # noqa: E501
             query_params.append(('currencies', local_var_params['currencies']))  # noqa: E501
-            collection_formats['currencies'] = 'multi'  # noqa: E501
+            collection_formats['currencies'] = 'csv'  # noqa: E501
 
         header_params = {}
 

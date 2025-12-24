@@ -73,6 +73,8 @@ class Contract(object):
         'launch_time': 'int',
         'delisting_time': 'int',
         'delisted_time': 'int',
+        'market_order_slip_ratio': 'str',
+        'market_order_size_max': 'str',
         'funding_rate_limit': 'str'
     }
 
@@ -117,11 +119,13 @@ class Contract(object):
         'launch_time': 'launch_time',
         'delisting_time': 'delisting_time',
         'delisted_time': 'delisted_time',
+        'market_order_slip_ratio': 'market_order_slip_ratio',
+        'market_order_size_max': 'market_order_size_max',
         'funding_rate_limit': 'funding_rate_limit'
     }
 
-    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, funding_rate_limit=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, Configuration) -> None
+    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, market_order_slip_ratio=None, market_order_size_max=None, funding_rate_limit=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, str, str, Configuration) -> None
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -167,6 +171,8 @@ class Contract(object):
         self._launch_time = None
         self._delisting_time = None
         self._delisted_time = None
+        self._market_order_slip_ratio = None
+        self._market_order_size_max = None
         self._funding_rate_limit = None
         self.discriminator = None
 
@@ -250,6 +256,10 @@ class Contract(object):
             self.delisting_time = delisting_time
         if delisted_time is not None:
             self.delisted_time = delisted_time
+        if market_order_slip_ratio is not None:
+            self.market_order_slip_ratio = market_order_slip_ratio
+        if market_order_size_max is not None:
+            self.market_order_size_max = market_order_size_max
         if funding_rate_limit is not None:
             self.funding_rate_limit = funding_rate_limit
 
@@ -1184,6 +1194,52 @@ class Contract(object):
         """
 
         self._delisted_time = delisted_time
+
+    @property
+    def market_order_slip_ratio(self):
+        """Gets the market_order_slip_ratio of this Contract.  # noqa: E501
+
+        The maximum slippage allowed for market orders, with the slippage rate calculated based on the latest market price  # noqa: E501
+
+        :return: The market_order_slip_ratio of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_order_slip_ratio
+
+    @market_order_slip_ratio.setter
+    def market_order_slip_ratio(self, market_order_slip_ratio):
+        """Sets the market_order_slip_ratio of this Contract.
+
+        The maximum slippage allowed for market orders, with the slippage rate calculated based on the latest market price  # noqa: E501
+
+        :param market_order_slip_ratio: The market_order_slip_ratio of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._market_order_slip_ratio = market_order_slip_ratio
+
+    @property
+    def market_order_size_max(self):
+        """Gets the market_order_size_max of this Contract.  # noqa: E501
+
+        The maximum number of contracts supported for market orders, with a default value of 0. When the default value is used, the maximum number of contracts is limited by the `order_size_max` field  # noqa: E501
+
+        :return: The market_order_size_max of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_order_size_max
+
+    @market_order_size_max.setter
+    def market_order_size_max(self, market_order_size_max):
+        """Sets the market_order_size_max of this Contract.
+
+        The maximum number of contracts supported for market orders, with a default value of 0. When the default value is used, the maximum number of contracts is limited by the `order_size_max` field  # noqa: E501
+
+        :param market_order_size_max: The market_order_size_max of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._market_order_size_max = market_order_size_max
 
     @property
     def funding_rate_limit(self):

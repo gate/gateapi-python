@@ -1427,7 +1427,7 @@ class MultiCollateralLoanApi(object):
         query_params = []
         if 'currencies' in local_var_params and local_var_params['currencies'] is not None:  # noqa: E501
             query_params.append(('currencies', local_var_params['currencies']))  # noqa: E501
-            collection_formats['currencies'] = 'multi'  # noqa: E501
+            collection_formats['currencies'] = 'csv'  # noqa: E501
         if 'vip_level' in local_var_params and local_var_params['vip_level'] is not None:  # noqa: E501
             query_params.append(('vip_level', local_var_params['vip_level']))  # noqa: E501
 
