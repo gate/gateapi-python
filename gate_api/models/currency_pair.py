@@ -53,7 +53,10 @@ class CurrencyPair(object):
         'trade_url': 'str',
         'st_tag': 'bool',
         'up_rate': 'str',
-        'down_rate': 'str'
+        'down_rate': 'str',
+        'slippage': 'str',
+        'market_order_max_stock': 'str',
+        'market_order_max_money': 'str'
     }
 
     attribute_map = {
@@ -77,11 +80,14 @@ class CurrencyPair(object):
         'trade_url': 'trade_url',
         'st_tag': 'st_tag',
         'up_rate': 'up_rate',
-        'down_rate': 'down_rate'
+        'down_rate': 'down_rate',
+        'slippage': 'slippage',
+        'market_order_max_stock': 'market_order_max_stock',
+        'market_order_max_money': 'market_order_max_money'
     }
 
-    def __init__(self, id=None, base=None, base_name=None, quote=None, quote_name=None, fee=None, min_base_amount=None, min_quote_amount=None, max_base_amount=None, max_quote_amount=None, amount_precision=None, precision=None, trade_status=None, sell_start=None, buy_start=None, delisting_time=None, type=None, trade_url=None, st_tag=None, up_rate=None, down_rate=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, int, int, str, int, int, int, str, str, bool, str, str, Configuration) -> None
+    def __init__(self, id=None, base=None, base_name=None, quote=None, quote_name=None, fee=None, min_base_amount=None, min_quote_amount=None, max_base_amount=None, max_quote_amount=None, amount_precision=None, precision=None, trade_status=None, sell_start=None, buy_start=None, delisting_time=None, type=None, trade_url=None, st_tag=None, up_rate=None, down_rate=None, slippage=None, market_order_max_stock=None, market_order_max_money=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, int, int, str, int, int, int, str, str, bool, str, str, str, str, str, Configuration) -> None
         """CurrencyPair - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,6 +114,9 @@ class CurrencyPair(object):
         self._st_tag = None
         self._up_rate = None
         self._down_rate = None
+        self._slippage = None
+        self._market_order_max_stock = None
+        self._market_order_max_money = None
         self.discriminator = None
 
         if id is not None:
@@ -152,6 +161,12 @@ class CurrencyPair(object):
             self.up_rate = up_rate
         if down_rate is not None:
             self.down_rate = down_rate
+        if slippage is not None:
+            self.slippage = slippage
+        if market_order_max_stock is not None:
+            self.market_order_max_stock = market_order_max_stock
+        if market_order_max_money is not None:
+            self.market_order_max_money = market_order_max_money
 
     @property
     def id(self):
@@ -641,6 +656,75 @@ class CurrencyPair(object):
         """
 
         self._down_rate = down_rate
+
+    @property
+    def slippage(self):
+        """Gets the slippage of this CurrencyPair.  # noqa: E501
+
+        Currency Slippage  # noqa: E501
+
+        :return: The slippage of this CurrencyPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._slippage
+
+    @slippage.setter
+    def slippage(self, slippage):
+        """Sets the slippage of this CurrencyPair.
+
+        Currency Slippage  # noqa: E501
+
+        :param slippage: The slippage of this CurrencyPair.  # noqa: E501
+        :type: str
+        """
+
+        self._slippage = slippage
+
+    @property
+    def market_order_max_stock(self):
+        """Gets the market_order_max_stock of this CurrencyPair.  # noqa: E501
+
+        Maximum Market Order Quantity  # noqa: E501
+
+        :return: The market_order_max_stock of this CurrencyPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_order_max_stock
+
+    @market_order_max_stock.setter
+    def market_order_max_stock(self, market_order_max_stock):
+        """Sets the market_order_max_stock of this CurrencyPair.
+
+        Maximum Market Order Quantity  # noqa: E501
+
+        :param market_order_max_stock: The market_order_max_stock of this CurrencyPair.  # noqa: E501
+        :type: str
+        """
+
+        self._market_order_max_stock = market_order_max_stock
+
+    @property
+    def market_order_max_money(self):
+        """Gets the market_order_max_money of this CurrencyPair.  # noqa: E501
+
+        Maximum Market Order Amount  # noqa: E501
+
+        :return: The market_order_max_money of this CurrencyPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_order_max_money
+
+    @market_order_max_money.setter
+    def market_order_max_money(self, market_order_max_money):
+        """Sets the market_order_max_money of this CurrencyPair.
+
+        Maximum Market Order Amount  # noqa: E501
+
+        :param market_order_max_money: The market_order_max_money of this CurrencyPair.  # noqa: E501
+        :type: str
+        """
+
+        self._market_order_max_money = market_order_max_money
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -69,7 +69,8 @@ class BatchOrder(object):
         'rebated_fee_currency': 'str',
         'stp_id': 'int',
         'stp_act': 'str',
-        'finish_as': 'str'
+        'finish_as': 'str',
+        'slippage': 'str'
     }
 
     attribute_map = {
@@ -109,11 +110,12 @@ class BatchOrder(object):
         'rebated_fee_currency': 'rebated_fee_currency',
         'stp_id': 'stp_id',
         'stp_act': 'stp_act',
-        'finish_as': 'finish_as'
+        'finish_as': 'finish_as',
+        'slippage': 'slippage'
     }
 
-    def __init__(self, order_id=None, amend_text=None, text=None, succeeded=None, label=None, message=None, id=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, bool, str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, Configuration) -> None
+    def __init__(self, order_id=None, amend_text=None, text=None, succeeded=None, label=None, message=None, id=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, slippage=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, bool, str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, Configuration) -> None
         """BatchOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -156,6 +158,7 @@ class BatchOrder(object):
         self._stp_id = None
         self._stp_act = None
         self._finish_as = None
+        self._slippage = None
         self.discriminator = None
 
         if order_id is not None:
@@ -232,6 +235,8 @@ class BatchOrder(object):
             self.stp_act = stp_act
         if finish_as is not None:
             self.finish_as = finish_as
+        if slippage is not None:
+            self.slippage = slippage
 
     @property
     def order_id(self):
@@ -1125,6 +1130,29 @@ class BatchOrder(object):
             )
 
         self._finish_as = finish_as
+
+    @property
+    def slippage(self):
+        """Gets the slippage of this BatchOrder.  # noqa: E501
+
+        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+
+        :return: The slippage of this BatchOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._slippage
+
+    @slippage.setter
+    def slippage(self, slippage):
+        """Sets the slippage of this BatchOrder.
+
+        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+
+        :param slippage: The slippage of this BatchOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._slippage = slippage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

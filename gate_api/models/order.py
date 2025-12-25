@@ -68,7 +68,8 @@ class Order(object):
         'stp_id': 'int',
         'stp_act': 'str',
         'finish_as': 'str',
-        'action_mode': 'str'
+        'action_mode': 'str',
+        'slippage': 'str'
     }
 
     attribute_map = {
@@ -107,11 +108,12 @@ class Order(object):
         'stp_id': 'stp_id',
         'stp_act': 'stp_act',
         'finish_as': 'finish_as',
-        'action_mode': 'action_mode'
+        'action_mode': 'action_mode',
+        'slippage': 'slippage'
     }
 
-    def __init__(self, id=None, text=None, amend_text=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_maker_fee=None, gt_taker_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, action_mode=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, Configuration) -> None
+    def __init__(self, id=None, text=None, amend_text=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_maker_fee=None, gt_taker_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, action_mode=None, slippage=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, str, Configuration) -> None
         """Order - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -153,6 +155,7 @@ class Order(object):
         self._stp_act = None
         self._finish_as = None
         self._action_mode = None
+        self._slippage = None
         self.discriminator = None
 
         if id is not None:
@@ -224,6 +227,8 @@ class Order(object):
             self.finish_as = finish_as
         if action_mode is not None:
             self.action_mode = action_mode
+        if slippage is not None:
+            self.slippage = slippage
 
     @property
     def id(self):
@@ -1094,6 +1099,29 @@ class Order(object):
         """
 
         self._action_mode = action_mode
+
+    @property
+    def slippage(self):
+        """Gets the slippage of this Order.  # noqa: E501
+
+        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+
+        :return: The slippage of this Order.  # noqa: E501
+        :rtype: str
+        """
+        return self._slippage
+
+    @slippage.setter
+    def slippage(self, slippage):
+        """Sets the slippage of this Order.
+
+        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+
+        :param slippage: The slippage of this Order.  # noqa: E501
+        :type: str
+        """
+
+        self._slippage = slippage
 
     def to_dict(self):
         """Returns the model properties as a dict"""
