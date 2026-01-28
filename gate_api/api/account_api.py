@@ -245,6 +245,7 @@ class AccountApi(object):
     def get_account_rate_limit(self, **kwargs):  # noqa: E501
         """Get user transaction rate limit information  # noqa: E501
 
+        This interface is not yet open for use  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_account_rate_limit(async_req=True)
@@ -268,6 +269,7 @@ class AccountApi(object):
     def get_account_rate_limit_with_http_info(self, **kwargs):  # noqa: E501
         """Get user transaction rate limit information  # noqa: E501
 
+        This interface is not yet open for use  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_account_rate_limit_with_http_info(async_req=True)

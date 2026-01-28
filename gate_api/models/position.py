@@ -66,7 +66,9 @@ class Position(object):
         'open_time': 'int',
         'risk_limit_table': 'str',
         'average_maintenance_rate': 'str',
-        'pid': 'int'
+        'pid': 'int',
+        'pos_margin_mode': 'str',
+        'lever': 'str'
     }
 
     attribute_map = {
@@ -103,11 +105,13 @@ class Position(object):
         'open_time': 'open_time',
         'risk_limit_table': 'risk_limit_table',
         'average_maintenance_rate': 'average_maintenance_rate',
-        'pid': 'pid'
+        'pid': 'pid',
+        'pos_margin_mode': 'pos_margin_mode',
+        'lever': 'lever'
     }
 
-    def __init__(self, user=None, contract=None, size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, pid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, Configuration) -> None
+    def __init__(self, user=None, contract=None, size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, pid=None, pos_margin_mode=None, lever=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, str, str, Configuration) -> None
         """Position - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -147,6 +151,8 @@ class Position(object):
         self._risk_limit_table = None
         self._average_maintenance_rate = None
         self._pid = None
+        self._pos_margin_mode = None
+        self._lever = None
         self.discriminator = None
 
         if user is not None:
@@ -216,6 +222,10 @@ class Position(object):
             self.average_maintenance_rate = average_maintenance_rate
         if pid is not None:
             self.pid = pid
+        if pos_margin_mode is not None:
+            self.pos_margin_mode = pos_margin_mode
+        if lever is not None:
+            self.lever = lever
 
     @property
     def user(self):
@@ -1002,6 +1012,52 @@ class Position(object):
         """
 
         self._pid = pid
+
+    @property
+    def pos_margin_mode(self):
+        """Gets the pos_margin_mode of this Position.  # noqa: E501
+
+        Position Margin Mode isolated - Isolated Margin, cross - Cross Margin  # noqa: E501
+
+        :return: The pos_margin_mode of this Position.  # noqa: E501
+        :rtype: str
+        """
+        return self._pos_margin_mode
+
+    @pos_margin_mode.setter
+    def pos_margin_mode(self, pos_margin_mode):
+        """Sets the pos_margin_mode of this Position.
+
+        Position Margin Mode isolated - Isolated Margin, cross - Cross Margin  # noqa: E501
+
+        :param pos_margin_mode: The pos_margin_mode of this Position.  # noqa: E501
+        :type: str
+        """
+
+        self._pos_margin_mode = pos_margin_mode
+
+    @property
+    def lever(self):
+        """Gets the lever of this Position.  # noqa: E501
+
+        Indicates the current leverage of the position, applicable to both isolated and cross margin, gradually replacing the current leverage and cross_leverage_limit  # noqa: E501
+
+        :return: The lever of this Position.  # noqa: E501
+        :rtype: str
+        """
+        return self._lever
+
+    @lever.setter
+    def lever(self, lever):
+        """Sets the lever of this Position.
+
+        Indicates the current leverage of the position, applicable to both isolated and cross margin, gradually replacing the current leverage and cross_leverage_limit  # noqa: E501
+
+        :param lever: The lever of this Position.  # noqa: E501
+        :type: str
+        """
+
+        self._lever = lever
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,7 +5,7 @@ Spot order details
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Order ID | [optional] [readonly] 
-**text** | **str** | User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4  | [optional] 
+**text** | **str** | User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 | [optional] 
 **amend_text** | **str** | The custom data that the user remarked when amending the order | [optional] [readonly] 
 **succeeded** | **bool** | Request execution result | [optional] 
 **label** | **str** | Error label, if any, otherwise an empty string | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **update_time** | **str** | Last modification time of order | [optional] [readonly] 
 **create_time_ms** | **int** | Creation time of order (in milliseconds) | [optional] [readonly] 
 **update_time_ms** | **int** | Last modification time of order (in milliseconds) | [optional] [readonly] 
-**status** | **str** | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled | [optional] [readonly] 
+**status** | **str** | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled | [optional] [readonly] 
 **currency_pair** | **str** | Currency pair | 
 **type** | **str** | Order Type   - limit : Limit Order - market : Market Order | [optional] [default to 'limit']
 **account** | **str** | Account type, spot - spot account, margin - leveraged account, unified - unified account | [optional] [default to 'spot']

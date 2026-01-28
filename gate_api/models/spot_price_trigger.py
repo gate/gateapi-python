@@ -58,7 +58,8 @@ class SpotPriceTrigger(object):
 
         self.price = price
         self.rule = rule
-        self.expiration = expiration
+        if expiration is not None:
+            self.expiration = expiration
 
     @property
     def price(self):
@@ -136,8 +137,6 @@ class SpotPriceTrigger(object):
         :param expiration: The expiration of this SpotPriceTrigger.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and expiration is None:  # noqa: E501
-            raise ValueError("Invalid value for `expiration`, must not be `None`")  # noqa: E501
 
         self._expiration = expiration
 

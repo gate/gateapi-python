@@ -267,7 +267,7 @@ class OrderCancel(object):
     def text(self):
         """Gets the text of this OrderCancel.  # noqa: E501
 
-        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4   # noqa: E501
+        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4  # noqa: E501
 
         :return: The text of this OrderCancel.  # noqa: E501
         :rtype: str
@@ -278,7 +278,7 @@ class OrderCancel(object):
     def text(self, text):
         """Sets the text of this OrderCancel.
 
-        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4   # noqa: E501
+        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4  # noqa: E501
 
         :param text: The text of this OrderCancel.  # noqa: E501
         :type: str
@@ -474,7 +474,7 @@ class OrderCancel(object):
     def status(self):
         """Gets the status of this OrderCancel.  # noqa: E501
 
-        Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled  # noqa: E501
+        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
 
         :return: The status of this OrderCancel.  # noqa: E501
         :rtype: str
@@ -485,7 +485,7 @@ class OrderCancel(object):
     def status(self, status):
         """Sets the status of this OrderCancel.
 
-        Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled  # noqa: E501
+        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
 
         :param status: The status of this OrderCancel.  # noqa: E501
         :type: str

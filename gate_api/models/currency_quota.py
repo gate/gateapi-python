@@ -37,7 +37,9 @@ class CurrencyQuota(object):
         'index_price': 'str',
         'min_quota': 'str',
         'left_quota': 'str',
-        'left_quote_usdt': 'str'
+        'left_quote_usdt': 'str',
+        'left_quota_fixed': 'str',
+        'left_quote_usdt_fixed': 'str'
     }
 
     attribute_map = {
@@ -45,11 +47,13 @@ class CurrencyQuota(object):
         'index_price': 'index_price',
         'min_quota': 'min_quota',
         'left_quota': 'left_quota',
-        'left_quote_usdt': 'left_quote_usdt'
+        'left_quote_usdt': 'left_quote_usdt',
+        'left_quota_fixed': 'left_quota_fixed',
+        'left_quote_usdt_fixed': 'left_quote_usdt_fixed'
     }
 
-    def __init__(self, currency=None, index_price=None, min_quota=None, left_quota=None, left_quote_usdt=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, Configuration) -> None
+    def __init__(self, currency=None, index_price=None, min_quota=None, left_quota=None, left_quote_usdt=None, left_quota_fixed=None, left_quote_usdt_fixed=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, Configuration) -> None
         """CurrencyQuota - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +64,8 @@ class CurrencyQuota(object):
         self._min_quota = None
         self._left_quota = None
         self._left_quote_usdt = None
+        self._left_quota_fixed = None
+        self._left_quote_usdt_fixed = None
         self.discriminator = None
 
         if currency is not None:
@@ -72,6 +78,10 @@ class CurrencyQuota(object):
             self.left_quota = left_quota
         if left_quote_usdt is not None:
             self.left_quote_usdt = left_quote_usdt
+        if left_quota_fixed is not None:
+            self.left_quota_fixed = left_quota_fixed
+        if left_quote_usdt_fixed is not None:
+            self.left_quote_usdt_fixed = left_quote_usdt_fixed
 
     @property
     def currency(self):
@@ -146,7 +156,7 @@ class CurrencyQuota(object):
     def left_quota(self):
         """Gets the left_quota of this CurrencyQuota.  # noqa: E501
 
-        Remaining borrowing/collateral quota for the currency  # noqa: E501
+        Remaining currency limit for `borrow/collateral` (when input parameter `type` is `borrow`, represents current currency)  # noqa: E501
 
         :return: The left_quota of this CurrencyQuota.  # noqa: E501
         :rtype: str
@@ -157,7 +167,7 @@ class CurrencyQuota(object):
     def left_quota(self, left_quota):
         """Sets the left_quota of this CurrencyQuota.
 
-        Remaining borrowing/collateral quota for the currency  # noqa: E501
+        Remaining currency limit for `borrow/collateral` (when input parameter `type` is `borrow`, represents current currency)  # noqa: E501
 
         :param left_quota: The left_quota of this CurrencyQuota.  # noqa: E501
         :type: str
@@ -169,7 +179,7 @@ class CurrencyQuota(object):
     def left_quote_usdt(self):
         """Gets the left_quote_usdt of this CurrencyQuota.  # noqa: E501
 
-        Remaining currency limit converted to USDT  # noqa: E501
+        Remaining currency limit converted to USDT (when input parameter `type` is `borrow`, represents current currency)  # noqa: E501
 
         :return: The left_quote_usdt of this CurrencyQuota.  # noqa: E501
         :rtype: str
@@ -180,13 +190,59 @@ class CurrencyQuota(object):
     def left_quote_usdt(self, left_quote_usdt):
         """Sets the left_quote_usdt of this CurrencyQuota.
 
-        Remaining currency limit converted to USDT  # noqa: E501
+        Remaining currency limit converted to USDT (when input parameter `type` is `borrow`, represents current currency)  # noqa: E501
 
         :param left_quote_usdt: The left_quote_usdt of this CurrencyQuota.  # noqa: E501
         :type: str
         """
 
         self._left_quote_usdt = left_quote_usdt
+
+    @property
+    def left_quota_fixed(self):
+        """Gets the left_quota_fixed of this CurrencyQuota.  # noqa: E501
+
+        Remaining `borrow/collateral` limit for fixed-term currency  # noqa: E501
+
+        :return: The left_quota_fixed of this CurrencyQuota.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_quota_fixed
+
+    @left_quota_fixed.setter
+    def left_quota_fixed(self, left_quota_fixed):
+        """Sets the left_quota_fixed of this CurrencyQuota.
+
+        Remaining `borrow/collateral` limit for fixed-term currency  # noqa: E501
+
+        :param left_quota_fixed: The left_quota_fixed of this CurrencyQuota.  # noqa: E501
+        :type: str
+        """
+
+        self._left_quota_fixed = left_quota_fixed
+
+    @property
+    def left_quote_usdt_fixed(self):
+        """Gets the left_quote_usdt_fixed of this CurrencyQuota.  # noqa: E501
+
+        Remaining currency limit for fixed-term currency converted to USDT  # noqa: E501
+
+        :return: The left_quote_usdt_fixed of this CurrencyQuota.  # noqa: E501
+        :rtype: str
+        """
+        return self._left_quote_usdt_fixed
+
+    @left_quote_usdt_fixed.setter
+    def left_quote_usdt_fixed(self, left_quote_usdt_fixed):
+        """Sets the left_quote_usdt_fixed of this CurrencyQuota.
+
+        Remaining currency limit for fixed-term currency converted to USDT  # noqa: E501
+
+        :param left_quote_usdt_fixed: The left_quote_usdt_fixed of this CurrencyQuota.  # noqa: E501
+        :type: str
+        """
+
+        self._left_quote_usdt_fixed = left_quote_usdt_fixed
 
     def to_dict(self):
         """Returns the model properties as a dict"""

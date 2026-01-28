@@ -5,13 +5,13 @@ Modify Price Order Details
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **settle** | **str** | Settlement Currency (e.g., USDT, BTC) | [optional] [readonly] 
-**order_id** | **int** | ID of the Pending Take-Profit/Stop-Loss Trigger Order | [optional] [readonly] 
-**contact** | **str** | The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body. | [optional] 
+**order_id** | **str** | The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body. | 
 **size** | **int** | Modified Contract Quantity. Full Close: 0; Partial Close: Positive/Negative values indicate direction (consistent with the creation interface logic). | [optional] 
 **price** | **str** | Represents the modified trading price. A value of 0 indicates a market order. | [optional] 
 **trigger_price** | **str** | Modified Trigger Price | [optional] 
 **price_type** | **int** | Reference price type. 0 - Latest trade price, 1 - Mark price, 2 - Index price | [optional] 
 **auto_size** | **str** | One-way Mode: auto_size is not required Hedge Mode partial closing (size≠0): auto_size is not required Hedge Mode full closing (size&#x3D;0): auto_size must be set, close_long for closing long positions, close_short for closing short positions | [optional] 
+**close** | **bool** | In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close&#x3D;false | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

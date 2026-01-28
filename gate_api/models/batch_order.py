@@ -495,7 +495,7 @@ class BatchOrder(object):
     def status(self):
         """Gets the status of this BatchOrder.  # noqa: E501
 
-        Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled  # noqa: E501
+        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
 
         :return: The status of this BatchOrder.  # noqa: E501
         :rtype: str
@@ -506,7 +506,7 @@ class BatchOrder(object):
     def status(self, status):
         """Sets the status of this BatchOrder.
 
-        Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled  # noqa: E501
+        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
 
         :param status: The status of this BatchOrder.  # noqa: E501
         :type: str
@@ -1135,7 +1135,7 @@ class BatchOrder(object):
     def slippage(self):
         """Gets the slippage of this BatchOrder.  # noqa: E501
 
-        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+        Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)  # noqa: E501
 
         :return: The slippage of this BatchOrder.  # noqa: E501
         :rtype: str
@@ -1146,7 +1146,7 @@ class BatchOrder(object):
     def slippage(self, slippage):
         """Sets the slippage of this BatchOrder.
 
-        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+        Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)  # noqa: E501
 
         :param slippage: The slippage of this BatchOrder.  # noqa: E501
         :type: str

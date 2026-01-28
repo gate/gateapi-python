@@ -2306,6 +2306,139 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_leverage(self, settle, contract, **kwargs):  # noqa: E501
+        """Get Leverage Information for Specified Mode  # noqa: E501
+
+        Get Leverage Information for Specified Mode  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_leverage(settle, contract, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str contract: Futures contract (required)
+        :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross.
+        :param str dual_side: dual_long - Long, dual_short - Short
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FuturesLeverage
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_leverage_with_http_info(settle, contract, **kwargs)  # noqa: E501
+
+    def get_leverage_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
+        """Get Leverage Information for Specified Mode  # noqa: E501
+
+        Get Leverage Information for Specified Mode  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_leverage_with_http_info(settle, contract, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str contract: Futures contract (required)
+        :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross.
+        :param str dual_side: dual_long - Long, dual_short - Short
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FuturesLeverage, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'contract',
+            'pos_margin_mode',
+            'dual_side'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_leverage" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `get_leverage`")  # noqa: E501
+        # verify the required parameter 'contract' is set
+        if self.api_client.client_side_validation and ('contract' not in local_var_params or  # noqa: E501
+                                                        local_var_params['contract'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `contract` when calling `get_leverage`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+        if 'contract' in local_var_params:
+            path_params['contract'] = local_var_params['contract']  # noqa: E501
+
+        query_params = []
+        if 'pos_margin_mode' in local_var_params and local_var_params['pos_margin_mode'] is not None:  # noqa: E501
+            query_params.append(('pos_margin_mode', local_var_params['pos_margin_mode']))  # noqa: E501
+        if 'dual_side' in local_var_params and local_var_params['dual_side'] is not None:  # noqa: E501
+            query_params.append(('dual_side', local_var_params['dual_side']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/get_leverage/{contract}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FuturesLeverage',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_position_margin(self, settle, contract, change, **kwargs):  # noqa: E501
         """Update position margin  # noqa: E501
 
@@ -2566,6 +2699,152 @@ class FuturesApi(object):
 
         return self.api_client.call_api(
             '/futures/{settle}/positions/{contract}/leverage', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Position',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_contract_position_leverage(self, settle, contract, leverage, margin_mode, **kwargs):  # noqa: E501
+        """Update Leverage for Specified Mode  # noqa: E501
+
+        To simplify the complex logic of the leverage interface, added a new interface for modifying leverage  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_contract_position_leverage(settle, contract, leverage, margin_mode, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str contract: Futures contract (required)
+        :param str leverage: Position Leverage Multiple (required)
+        :param str margin_mode: Margin Mode isolated/cross (required)
+        :param str dual_side: dual_long - Long, dual_short - Short
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.Position
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_contract_position_leverage_with_http_info(settle, contract, leverage, margin_mode, **kwargs)  # noqa: E501
+
+    def update_contract_position_leverage_with_http_info(self, settle, contract, leverage, margin_mode, **kwargs):  # noqa: E501
+        """Update Leverage for Specified Mode  # noqa: E501
+
+        To simplify the complex logic of the leverage interface, added a new interface for modifying leverage  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_contract_position_leverage_with_http_info(settle, contract, leverage, margin_mode, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str contract: Futures contract (required)
+        :param str leverage: Position Leverage Multiple (required)
+        :param str margin_mode: Margin Mode isolated/cross (required)
+        :param str dual_side: dual_long - Long, dual_short - Short
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.Position, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'contract',
+            'leverage',
+            'margin_mode',
+            'dual_side'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_contract_position_leverage" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `update_contract_position_leverage`")  # noqa: E501
+        # verify the required parameter 'contract' is set
+        if self.api_client.client_side_validation and ('contract' not in local_var_params or  # noqa: E501
+                                                        local_var_params['contract'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `contract` when calling `update_contract_position_leverage`")  # noqa: E501
+        # verify the required parameter 'leverage' is set
+        if self.api_client.client_side_validation and ('leverage' not in local_var_params or  # noqa: E501
+                                                        local_var_params['leverage'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `leverage` when calling `update_contract_position_leverage`")  # noqa: E501
+        # verify the required parameter 'margin_mode' is set
+        if self.api_client.client_side_validation and ('margin_mode' not in local_var_params or  # noqa: E501
+                                                        local_var_params['margin_mode'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `margin_mode` when calling `update_contract_position_leverage`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+        if 'contract' in local_var_params:
+            path_params['contract'] = local_var_params['contract']  # noqa: E501
+
+        query_params = []
+        if 'leverage' in local_var_params and local_var_params['leverage'] is not None:  # noqa: E501
+            query_params.append(('leverage', local_var_params['leverage']))  # noqa: E501
+        if 'margin_mode' in local_var_params and local_var_params['margin_mode'] is not None:  # noqa: E501
+            query_params.append(('margin_mode', local_var_params['margin_mode']))  # noqa: E501
+        if 'dual_side' in local_var_params and local_var_params['dual_side'] is not None:  # noqa: E501
+            query_params.append(('dual_side', local_var_params['dual_side']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/positions/{contract}/set_leverage', 'POST',
             path_params,
             query_params,
             header_params,
@@ -3071,6 +3350,129 @@ class FuturesApi(object):
 
         return self.api_client.call_api(
             '/futures/{settle}/dual_mode', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FuturesAccount',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def set_position_mode(self, settle, position_mode, **kwargs):  # noqa: E501
+        """Set Position Holding Mode, replacing the dual_mode interface  # noqa: E501
+
+        The prerequisite for changing mode is that all positions have no holdings and no pending orders  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_position_mode(settle, position_mode, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str position_mode: Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FuturesAccount
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_position_mode_with_http_info(settle, position_mode, **kwargs)  # noqa: E501
+
+    def set_position_mode_with_http_info(self, settle, position_mode, **kwargs):  # noqa: E501
+        """Set Position Holding Mode, replacing the dual_mode interface  # noqa: E501
+
+        The prerequisite for changing mode is that all positions have no holdings and no pending orders  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_position_mode_with_http_info(settle, position_mode, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str position_mode: Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FuturesAccount, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'position_mode'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_position_mode" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `set_position_mode`")  # noqa: E501
+        # verify the required parameter 'position_mode' is set
+        if self.api_client.client_side_validation and ('position_mode' not in local_var_params or  # noqa: E501
+                                                        local_var_params['position_mode'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `position_mode` when calling `set_position_mode`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+        if 'position_mode' in local_var_params and local_var_params['position_mode'] is not None:  # noqa: E501
+            query_params.append(('position_mode', local_var_params['position_mode']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/set_position_mode', 'POST',
             path_params,
             query_params,
             header_params,

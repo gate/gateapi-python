@@ -494,7 +494,7 @@ class Trade(object):
     def text(self):
         """Gets the text of this Trade.  # noqa: E501
 
-        User-defined information, not returned in public endpoints  # noqa: E501
+        订单的自定义信息，公共接口无此字段返回 pm_liquidate、comb_margin_liquidate、scm_liquidate 这三种场景代表全仓强平订单 liquidate 代表逐仓强平订单  # noqa: E501
 
         :return: The text of this Trade.  # noqa: E501
         :rtype: str
@@ -505,7 +505,7 @@ class Trade(object):
     def text(self, text):
         """Sets the text of this Trade.
 
-        User-defined information, not returned in public endpoints  # noqa: E501
+        订单的自定义信息，公共接口无此字段返回 pm_liquidate、comb_margin_liquidate、scm_liquidate 这三种场景代表全仓强平订单 liquidate 代表逐仓强平订单  # noqa: E501
 
         :param text: The text of this Trade.  # noqa: E501
         :type: str

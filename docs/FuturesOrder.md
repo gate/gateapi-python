@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **order_value** | **str** | order&#39;s value | [optional] 
 **trade_value** | **str** | trade value | [optional] 
 **market_order_slip_ratio** | **str** | Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used | [optional] 
+**pos_margin_mode** | **str** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin, only passed in simple split position mode | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

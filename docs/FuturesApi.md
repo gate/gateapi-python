@@ -21,12 +21,15 @@ Method | HTTP request | Description
 [**list_futures_account_book**](FuturesApi.md#list_futures_account_book) | **GET** /futures/{settle}/account_book | Query futures account change history
 [**list_positions**](FuturesApi.md#list_positions) | **GET** /futures/{settle}/positions | Get user position list
 [**get_position**](FuturesApi.md#get_position) | **GET** /futures/{settle}/positions/{contract} | Get single position information
+[**get_leverage**](FuturesApi.md#get_leverage) | **GET** /futures/{settle}/get_leverage/{contract} | Get Leverage Information for Specified Mode
 [**update_position_margin**](FuturesApi.md#update_position_margin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin
 [**update_position_leverage**](FuturesApi.md#update_position_leverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage
+[**update_contract_position_leverage**](FuturesApi.md#update_contract_position_leverage) | **POST** /futures/{settle}/positions/{contract}/set_leverage | Update Leverage for Specified Mode
 [**update_position_cross_mode**](FuturesApi.md#update_position_cross_mode) | **POST** /futures/{settle}/positions/cross_mode | Switch Position Margin Mode
 [**update_dual_comp_position_cross_mode**](FuturesApi.md#update_dual_comp_position_cross_mode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | Switch Between Cross and Isolated Margin Modes Under Hedge Mode
 [**update_position_risk_limit**](FuturesApi.md#update_position_risk_limit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
 [**set_dual_mode**](FuturesApi.md#set_dual_mode) | **POST** /futures/{settle}/dual_mode | Set position mode
+[**set_position_mode**](FuturesApi.md#set_position_mode) | **POST** /futures/{settle}/set_position_mode | Set Position Holding Mode, replacing the dual_mode interface
 [**get_dual_mode_position**](FuturesApi.md#get_dual_mode_position) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Get position information in Hedge Mode
 [**update_dual_mode_position_margin**](FuturesApi.md#update_dual_mode_position_margin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in Hedge Mode
 [**update_dual_mode_position_leverage**](FuturesApi.md#update_dual_mode_position_leverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in Hedge Mode
@@ -1200,6 +1203,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_leverage**
+> FuturesLeverage get_leverage(settle, contract, pos_margin_mode=pos_margin_mode, dual_side=dual_side)
+
+Get Leverage Information for Specified Mode
+
+Get Leverage Information for Specified Mode
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+contract = 'BTC_USDT' # str | Futures contract
+pos_margin_mode = 'isolated' # str | Position Margin Mode, required for split position mode, values: isolated/cross. (optional)
+dual_side = 'dual_long' # str | dual_long - Long, dual_short - Short (optional)
+
+try:
+    # Get Leverage Information for Specified Mode
+    api_response = api_instance.get_leverage(settle, contract, pos_margin_mode=pos_margin_mode, dual_side=dual_side)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->get_leverage: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **contract** | **str**| Futures contract | 
+ **pos_margin_mode** | **str**| Position Margin Mode, required for split position mode, values: isolated/cross. | [optional] 
+ **dual_side** | **str**| dual_long - Long, dual_short - Short | [optional] 
+
+### Return type
+
+[**FuturesLeverage**](FuturesLeverage.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | query leverage success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_position_margin**
 > Position update_position_margin(settle, contract, change)
 
@@ -1329,6 +1407,83 @@ Name | Type | Description  | Notes
  **leverage** | **str**| Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. | 
  **cross_leverage_limit** | **str**| Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. | [optional] 
  **pid** | **int**| Product ID | [optional] 
+
+### Return type
+
+[**Position**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Position information |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_contract_position_leverage**
+> Position update_contract_position_leverage(settle, contract, leverage, margin_mode, dual_side=dual_side)
+
+Update Leverage for Specified Mode
+
+To simplify the complex logic of the leverage interface, added a new interface for modifying leverage
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+contract = 'BTC_USDT' # str | Futures contract
+leverage = '10' # str | Position Leverage Multiple
+margin_mode = 'cross' # str | Margin Mode isolated/cross
+dual_side = 'dual_long' # str | dual_long - Long, dual_short - Short (optional)
+
+try:
+    # Update Leverage for Specified Mode
+    api_response = api_instance.update_contract_position_leverage(settle, contract, leverage, margin_mode, dual_side=dual_side)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->update_contract_position_leverage: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **contract** | **str**| Futures contract | 
+ **leverage** | **str**| Position Leverage Multiple | 
+ **margin_mode** | **str**| Margin Mode isolated/cross | 
+ **dual_side** | **str**| dual_long - Long, dual_short - Short | [optional] 
 
 ### Return type
 
@@ -1611,6 +1766,77 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
  **dual_mode** | **bool**| Whether to enable Hedge Mode | 
+
+### Return type
+
+[**FuturesAccount**](FuturesAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_position_mode**
+> FuturesAccount set_position_mode(settle, position_mode)
+
+Set Position Holding Mode, replacing the dual_mode interface
+
+The prerequisite for changing mode is that all positions have no holdings and no pending orders
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+position_mode = 'dual_plus' # str | Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively
+
+try:
+    # Set Position Holding Mode, replacing the dual_mode interface
+    api_response = api_instance.set_position_mode(settle, position_mode)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->set_position_mode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **position_mode** | **str**| Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively | 
 
 ### Return type
 

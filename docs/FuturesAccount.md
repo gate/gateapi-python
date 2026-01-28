@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **point** | **str** | Point card amount | [optional] 
 **currency** | **str** | Settlement currency | [optional] 
 **in_dual_mode** | **bool** | Whether Hedge Mode is enabled | [optional] 
-**position_mode** | **str** | Position mode: single - one-way, dual - dual-side, split - sub-positions (in_dual_mode is deprecated) | [optional] 
 **enable_credit** | **bool** | Whether portfolio margin account mode is enabled | [optional] 
 **position_initial_margin** | **str** | Initial margin occupied by positions, applicable to unified account mode | [optional] 
 **maintenance_margin** | **str** | Maintenance margin occupied by positions, applicable to new classic account margin mode and unified account mode | [optional] 
@@ -29,6 +28,8 @@ Name | Type | Description | Notes
 **enable_new_dual_mode** | **bool** | Deprecated | [optional] 
 **margin_mode** | **int** | Margin mode of the account 0: classic future account or Classic Spot Margin Mode of unified account; 1:  Multi-Currency Margin Mode; 2:  Portoforlio Margin Mode; 3:  Single-Currency Margin Mode | [optional] 
 **enable_tiered_mm** | **bool** | Whether to enable tiered maintenance margin calculation | [optional] 
+**enable_dual_plus** | **bool** | Whether to Support Split Position Mode | [optional] 
+**position_mode** | **str** | Position Holding Mode single - Single Direction Position, dual - Dual Direction Position, dual_plus - Split Position | [optional] 
 **history** | [**FuturesAccountHistory**](FuturesAccountHistory.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

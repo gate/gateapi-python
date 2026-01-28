@@ -38,6 +38,8 @@ Name | Type | Description | Notes
 **risk_limit_table** | **str** | Risk limit table ID | [optional] [readonly] 
 **average_maintenance_rate** | **str** | Average maintenance margin rate | [optional] [readonly] 
 **pid** | **int** | Sub-account position ID | [optional] [readonly] 
+**pos_margin_mode** | **str** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin | [optional] 
+**lever** | **str** | Indicates the current leverage of the position, applicable to both isolated and cross margin, gradually replacing the current leverage and cross_leverage_limit | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

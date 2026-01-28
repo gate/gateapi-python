@@ -1040,9 +1040,9 @@ class WalletApi(object):
             collection_formats=collection_formats)
 
     def get_transfer_order_status(self, **kwargs):  # noqa: E501
-        """Transfer status query  # noqa: E501
+        """Main-Sub Account Transfer Status Query  # noqa: E501
 
-        Supports querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface  # noqa: E501
+        Supports querying Main-Sub Account Transfer Status based on user-defined client_order_id or tx_id returned by the transfer interface  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_transfer_order_status(async_req=True)
@@ -1066,9 +1066,9 @@ class WalletApi(object):
         return self.get_transfer_order_status_with_http_info(**kwargs)  # noqa: E501
 
     def get_transfer_order_status_with_http_info(self, **kwargs):  # noqa: E501
-        """Transfer status query  # noqa: E501
+        """Main-Sub Account Transfer Status Query  # noqa: E501
 
-        Supports querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface  # noqa: E501
+        Supports querying Main-Sub Account Transfer Status based on user-defined client_order_id or tx_id returned by the transfer interface  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_transfer_order_status_with_http_info(async_req=True)

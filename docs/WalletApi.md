@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**list_sub_account_transfers**](WalletApi.md#list_sub_account_transfers) | **GET** /wallet/sub_account_transfers | Get transfer records between main and sub accounts
 [**transfer_with_sub_account**](WalletApi.md#transfer_with_sub_account) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**sub_account_to_sub_account**](WalletApi.md#sub_account_to_sub_account) | **POST** /wallet/sub_account_to_sub_account | Transfer between sub-accounts
-[**get_transfer_order_status**](WalletApi.md#get_transfer_order_status) | **GET** /wallet/order_status | Transfer status query
+[**get_transfer_order_status**](WalletApi.md#get_transfer_order_status) | **GET** /wallet/order_status | Main-Sub Account Transfer Status Query
 [**list_withdraw_status**](WalletApi.md#list_withdraw_status) | **GET** /wallet/withdraw_status | Query withdrawal status
 [**list_sub_account_balances**](WalletApi.md#list_sub_account_balances) | **GET** /wallet/sub_account_balances | Query sub-account balance information
 [**list_sub_account_margin_balances**](WalletApi.md#list_sub_account_margin_balances) | **GET** /wallet/sub_account_margin_balances | Query sub-account isolated margin account balance information
@@ -602,9 +602,9 @@ Name | Type | Description  | Notes
 # **get_transfer_order_status**
 > TransferOrderStatus get_transfer_order_status(client_order_id=client_order_id, tx_id=tx_id)
 
-Transfer status query
+Main-Sub Account Transfer Status Query
 
-Supports querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+Supports querying Main-Sub Account Transfer Status based on user-defined client_order_id or tx_id returned by the transfer interface
 
 ### Example
 
@@ -634,7 +634,7 @@ client_order_id = 'da3ce7a088c8b0372b741419c7829033' # str | Customer-defined ID
 tx_id = '59636381286' # str | Transfer operation number, cannot be empty at the same time as client_order_id (optional)
 
 try:
-    # Transfer status query
+    # Main-Sub Account Transfer Status Query
     api_response = api_instance.get_transfer_order_status(client_order_id=client_order_id, tx_id=tx_id)
     print(api_response)
 except GateApiException as ex:
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Transfer status retrieved successfully |  -  |
+**200** | Main-Sub Account Transfer Status Retrieval Successful |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

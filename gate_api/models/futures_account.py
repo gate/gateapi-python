@@ -41,7 +41,6 @@ class FuturesAccount(object):
         'point': 'str',
         'currency': 'str',
         'in_dual_mode': 'bool',
-        'position_mode': 'str',
         'enable_credit': 'bool',
         'position_initial_margin': 'str',
         'maintenance_margin': 'str',
@@ -59,6 +58,8 @@ class FuturesAccount(object):
         'enable_new_dual_mode': 'bool',
         'margin_mode': 'int',
         'enable_tiered_mm': 'bool',
+        'enable_dual_plus': 'bool',
+        'position_mode': 'str',
         'history': 'FuturesAccountHistory'
     }
 
@@ -71,7 +72,6 @@ class FuturesAccount(object):
         'point': 'point',
         'currency': 'currency',
         'in_dual_mode': 'in_dual_mode',
-        'position_mode': 'position_mode',
         'enable_credit': 'enable_credit',
         'position_initial_margin': 'position_initial_margin',
         'maintenance_margin': 'maintenance_margin',
@@ -89,11 +89,13 @@ class FuturesAccount(object):
         'enable_new_dual_mode': 'enable_new_dual_mode',
         'margin_mode': 'margin_mode',
         'enable_tiered_mm': 'enable_tiered_mm',
+        'enable_dual_plus': 'enable_dual_plus',
+        'position_mode': 'position_mode',
         'history': 'history'
     }
 
-    def __init__(self, total=None, unrealised_pnl=None, position_margin=None, order_margin=None, available=None, point=None, currency=None, in_dual_mode=None, position_mode=None, enable_credit=None, position_initial_margin=None, maintenance_margin=None, bonus=None, enable_evolved_classic=None, cross_order_margin=None, cross_initial_margin=None, cross_maintenance_margin=None, cross_unrealised_pnl=None, cross_available=None, cross_margin_balance=None, cross_mmr=None, cross_imr=None, isolated_position_margin=None, enable_new_dual_mode=None, margin_mode=None, enable_tiered_mm=None, history=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, bool, str, bool, str, str, str, bool, str, str, str, str, str, str, str, str, str, bool, int, bool, FuturesAccountHistory, Configuration) -> None
+    def __init__(self, total=None, unrealised_pnl=None, position_margin=None, order_margin=None, available=None, point=None, currency=None, in_dual_mode=None, enable_credit=None, position_initial_margin=None, maintenance_margin=None, bonus=None, enable_evolved_classic=None, cross_order_margin=None, cross_initial_margin=None, cross_maintenance_margin=None, cross_unrealised_pnl=None, cross_available=None, cross_margin_balance=None, cross_mmr=None, cross_imr=None, isolated_position_margin=None, enable_new_dual_mode=None, margin_mode=None, enable_tiered_mm=None, enable_dual_plus=None, position_mode=None, history=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, bool, bool, str, str, str, bool, str, str, str, str, str, str, str, str, str, bool, int, bool, bool, str, FuturesAccountHistory, Configuration) -> None
         """FuturesAccount - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,7 +109,6 @@ class FuturesAccount(object):
         self._point = None
         self._currency = None
         self._in_dual_mode = None
-        self._position_mode = None
         self._enable_credit = None
         self._position_initial_margin = None
         self._maintenance_margin = None
@@ -125,6 +126,8 @@ class FuturesAccount(object):
         self._enable_new_dual_mode = None
         self._margin_mode = None
         self._enable_tiered_mm = None
+        self._enable_dual_plus = None
+        self._position_mode = None
         self._history = None
         self.discriminator = None
 
@@ -144,8 +147,6 @@ class FuturesAccount(object):
             self.currency = currency
         if in_dual_mode is not None:
             self.in_dual_mode = in_dual_mode
-        if position_mode is not None:
-            self.position_mode = position_mode
         if enable_credit is not None:
             self.enable_credit = enable_credit
         if position_initial_margin is not None:
@@ -180,6 +181,10 @@ class FuturesAccount(object):
             self.margin_mode = margin_mode
         if enable_tiered_mm is not None:
             self.enable_tiered_mm = enable_tiered_mm
+        if enable_dual_plus is not None:
+            self.enable_dual_plus = enable_dual_plus
+        if position_mode is not None:
+            self.position_mode = position_mode
         if history is not None:
             self.history = history
 
@@ -366,29 +371,6 @@ class FuturesAccount(object):
         """
 
         self._in_dual_mode = in_dual_mode
-
-    @property
-    def position_mode(self):
-        """Gets the position_mode of this FuturesAccount.  # noqa: E501
-
-        Position mode: single - one-way, dual - dual-side, split - sub-positions (in_dual_mode is deprecated)  # noqa: E501
-
-        :return: The position_mode of this FuturesAccount.  # noqa: E501
-        :rtype: str
-        """
-        return self._position_mode
-
-    @position_mode.setter
-    def position_mode(self, position_mode):
-        """Sets the position_mode of this FuturesAccount.
-
-        Position mode: single - one-way, dual - dual-side, split - sub-positions (in_dual_mode is deprecated)  # noqa: E501
-
-        :param position_mode: The position_mode of this FuturesAccount.  # noqa: E501
-        :type: str
-        """
-
-        self._position_mode = position_mode
 
     @property
     def enable_credit(self):
@@ -780,6 +762,52 @@ class FuturesAccount(object):
         """
 
         self._enable_tiered_mm = enable_tiered_mm
+
+    @property
+    def enable_dual_plus(self):
+        """Gets the enable_dual_plus of this FuturesAccount.  # noqa: E501
+
+        Whether to Support Split Position Mode  # noqa: E501
+
+        :return: The enable_dual_plus of this FuturesAccount.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_dual_plus
+
+    @enable_dual_plus.setter
+    def enable_dual_plus(self, enable_dual_plus):
+        """Sets the enable_dual_plus of this FuturesAccount.
+
+        Whether to Support Split Position Mode  # noqa: E501
+
+        :param enable_dual_plus: The enable_dual_plus of this FuturesAccount.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_dual_plus = enable_dual_plus
+
+    @property
+    def position_mode(self):
+        """Gets the position_mode of this FuturesAccount.  # noqa: E501
+
+        Position Holding Mode single - Single Direction Position, dual - Dual Direction Position, dual_plus - Split Position  # noqa: E501
+
+        :return: The position_mode of this FuturesAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._position_mode
+
+    @position_mode.setter
+    def position_mode(self, position_mode):
+        """Sets the position_mode of this FuturesAccount.
+
+        Position Holding Mode single - Single Direction Position, dual - Dual Direction Position, dual_plus - Split Position  # noqa: E501
+
+        :param position_mode: The position_mode of this FuturesAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._position_mode = position_mode
 
     @property
     def history(self):

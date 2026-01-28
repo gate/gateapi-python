@@ -34,28 +34,28 @@ class FuturesUpdatePriceTriggeredOrder(object):
     """
     openapi_types = {
         'settle': 'str',
-        'order_id': 'int',
-        'contact': 'str',
+        'order_id': 'str',
         'size': 'int',
         'price': 'str',
         'trigger_price': 'str',
         'price_type': 'int',
-        'auto_size': 'str'
+        'auto_size': 'str',
+        'close': 'bool'
     }
 
     attribute_map = {
         'settle': 'settle',
         'order_id': 'order_id',
-        'contact': 'contact',
         'size': 'size',
         'price': 'price',
         'trigger_price': 'trigger_price',
         'price_type': 'price_type',
-        'auto_size': 'auto_size'
+        'auto_size': 'auto_size',
+        'close': 'close'
     }
 
-    def __init__(self, settle=None, order_id=None, contact=None, size=None, price=None, trigger_price=None, price_type=None, auto_size=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, str, int, str, str, int, str, Configuration) -> None
+    def __init__(self, settle=None, order_id=None, size=None, price=None, trigger_price=None, price_type=None, auto_size=None, close=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, int, str, str, int, str, bool, Configuration) -> None
         """FuturesUpdatePriceTriggeredOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,20 +63,17 @@ class FuturesUpdatePriceTriggeredOrder(object):
 
         self._settle = None
         self._order_id = None
-        self._contact = None
         self._size = None
         self._price = None
         self._trigger_price = None
         self._price_type = None
         self._auto_size = None
+        self._close = None
         self.discriminator = None
 
         if settle is not None:
             self.settle = settle
-        if order_id is not None:
-            self.order_id = order_id
-        if contact is not None:
-            self.contact = contact
+        self.order_id = order_id
         if size is not None:
             self.size = size
         if price is not None:
@@ -87,6 +84,8 @@ class FuturesUpdatePriceTriggeredOrder(object):
             self.price_type = price_type
         if auto_size is not None:
             self.auto_size = auto_size
+        if close is not None:
+            self.close = close
 
     @property
     def settle(self):
@@ -115,10 +114,10 @@ class FuturesUpdatePriceTriggeredOrder(object):
     def order_id(self):
         """Gets the order_id of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
 
-        ID of the Pending Take-Profit/Stop-Loss Trigger Order  # noqa: E501
+        The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.  # noqa: E501
 
         :return: The order_id of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._order_id
 
@@ -126,36 +125,15 @@ class FuturesUpdatePriceTriggeredOrder(object):
     def order_id(self, order_id):
         """Sets the order_id of this FuturesUpdatePriceTriggeredOrder.
 
-        ID of the Pending Take-Profit/Stop-Loss Trigger Order  # noqa: E501
+        The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.  # noqa: E501
 
         :param order_id: The order_id of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
-        :type: int
-        """
-
-        self._order_id = order_id
-
-    @property
-    def contact(self):
-        """Gets the contact of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
-
-        The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.  # noqa: E501
-
-        :return: The contact of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
-        :rtype: str
-        """
-        return self._contact
-
-    @contact.setter
-    def contact(self, contact):
-        """Sets the contact of this FuturesUpdatePriceTriggeredOrder.
-
-        The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.  # noqa: E501
-
-        :param contact: The contact of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._contact = contact
+        self._order_id = order_id
 
     @property
     def size(self):
@@ -277,6 +255,29 @@ class FuturesUpdatePriceTriggeredOrder(object):
         """
 
         self._auto_size = auto_size
+
+    @property
+    def close(self):
+        """Gets the close of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
+
+        In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close=false  # noqa: E501
+
+        :return: The close of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
+        :rtype: bool
+        """
+        return self._close
+
+    @close.setter
+    def close(self, close):
+        """Sets the close of this FuturesUpdatePriceTriggeredOrder.
+
+        In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close=false  # noqa: E501
+
+        :param close: The close of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
+        :type: bool
+        """
+
+        self._close = close
 
     def to_dict(self):
         """Returns the model properties as a dict"""

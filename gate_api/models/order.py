@@ -257,7 +257,7 @@ class Order(object):
     def text(self):
         """Gets the text of this Order.  # noqa: E501
 
-        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4   # noqa: E501
+        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 pm_liquidate, comb_margin_liquidate, and scm_liquidate represent cross-margin liquidation orders liquidate represents isolated-margin liquidation orders  # noqa: E501
 
         :return: The text of this Order.  # noqa: E501
         :rtype: str
@@ -268,7 +268,7 @@ class Order(object):
     def text(self, text):
         """Sets the text of this Order.
 
-        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4   # noqa: E501
+        User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 28 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 pm_liquidate, comb_margin_liquidate, and scm_liquidate represent cross-margin liquidation orders liquidate represents isolated-margin liquidation orders  # noqa: E501
 
         :param text: The text of this Order.  # noqa: E501
         :type: str
@@ -395,7 +395,7 @@ class Order(object):
     def status(self):
         """Gets the status of this Order.  # noqa: E501
 
-        Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled  # noqa: E501
+        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
 
         :return: The status of this Order.  # noqa: E501
         :rtype: str
@@ -406,7 +406,7 @@ class Order(object):
     def status(self, status):
         """Sets the status of this Order.
 
-        Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled  # noqa: E501
+        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
 
         :param status: The status of this Order.  # noqa: E501
         :type: str
@@ -1104,7 +1104,7 @@ class Order(object):
     def slippage(self):
         """Gets the slippage of this Order.  # noqa: E501
 
-        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+        Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)  # noqa: E501
 
         :return: The slippage of this Order.  # noqa: E501
         :rtype: str
@@ -1115,7 +1115,7 @@ class Order(object):
     def slippage(self, slippage):
         """Sets the slippage of this Order.
 
-        Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions  # noqa: E501
+        Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)  # noqa: E501
 
         :param slippage: The slippage of this Order.  # noqa: E501
         :type: str

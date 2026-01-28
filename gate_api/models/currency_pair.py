@@ -661,7 +661,7 @@ class CurrencyPair(object):
     def slippage(self):
         """Gets the slippage of this CurrencyPair.  # noqa: E501
 
-        Currency Slippage  # noqa: E501
+        Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)  # noqa: E501
 
         :return: The slippage of this CurrencyPair.  # noqa: E501
         :rtype: str
@@ -672,7 +672,7 @@ class CurrencyPair(object):
     def slippage(self, slippage):
         """Sets the slippage of this CurrencyPair.
 
-        Currency Slippage  # noqa: E501
+        Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)  # noqa: E501
 
         :param slippage: The slippage of this CurrencyPair.  # noqa: E501
         :type: str
