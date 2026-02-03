@@ -33,128 +33,74 @@ class InlineResponse2005(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'code': 'int',
-        'message': 'str',
-        'data': 'InlineResponse2005Data',
-        'timestamp': 'int'
+        'currency': 'str',
+        'est_rate': 'str'
     }
 
     attribute_map = {
-        'code': 'code',
-        'message': 'message',
-        'data': 'data',
-        'timestamp': 'timestamp'
+        'currency': 'currency',
+        'est_rate': 'est_rate'
     }
 
-    def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, InlineResponse2005Data, int, Configuration) -> None
+    def __init__(self, currency=None, est_rate=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineResponse2005 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._code = None
-        self._message = None
-        self._data = None
-        self._timestamp = None
+        self._currency = None
+        self._est_rate = None
         self.discriminator = None
 
-        self.code = code
-        self.message = message
-        self.data = data
-        self.timestamp = timestamp
+        if currency is not None:
+            self.currency = currency
+        if est_rate is not None:
+            self.est_rate = est_rate
 
     @property
-    def code(self):
-        """Gets the code of this InlineResponse2005.  # noqa: E501
+    def currency(self):
+        """Gets the currency of this InlineResponse2005.  # noqa: E501
 
 
-        :return: The code of this InlineResponse2005.  # noqa: E501
-        :rtype: int
-        """
-        return self._code
-
-    @code.setter
-    def code(self, code):
-        """Sets the code of this InlineResponse2005.
-
-
-        :param code: The code of this InlineResponse2005.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
-
-        self._code = code
-
-    @property
-    def message(self):
-        """Gets the message of this InlineResponse2005.  # noqa: E501
-
-
-        :return: The message of this InlineResponse2005.  # noqa: E501
+        :return: The currency of this InlineResponse2005.  # noqa: E501
         :rtype: str
         """
-        return self._message
+        return self._currency
 
-    @message.setter
-    def message(self, message):
-        """Sets the message of this InlineResponse2005.
+    @currency.setter
+    def currency(self, currency):
+        """Sets the currency of this InlineResponse2005.
 
 
-        :param message: The message of this InlineResponse2005.  # noqa: E501
+        :param currency: The currency of this InlineResponse2005.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
-        self._message = message
+        self._currency = currency
 
     @property
-    def data(self):
-        """Gets the data of this InlineResponse2005.  # noqa: E501
+    def est_rate(self):
+        """Gets the est_rate of this InlineResponse2005.  # noqa: E501
 
+        Estimated Annualized Rate, e.g., `est_rate`: `0.8014` represents an annualized rate of 80.14%  # noqa: E501
 
-        :return: The data of this InlineResponse2005.  # noqa: E501
-        :rtype: InlineResponse2005Data
+        :return: The est_rate of this InlineResponse2005.  # noqa: E501
+        :rtype: str
         """
-        return self._data
+        return self._est_rate
 
-    @data.setter
-    def data(self, data):
-        """Sets the data of this InlineResponse2005.
+    @est_rate.setter
+    def est_rate(self, est_rate):
+        """Sets the est_rate of this InlineResponse2005.
 
+        Estimated Annualized Rate, e.g., `est_rate`: `0.8014` represents an annualized rate of 80.14%  # noqa: E501
 
-        :param data: The data of this InlineResponse2005.  # noqa: E501
-        :type: InlineResponse2005Data
+        :param est_rate: The est_rate of this InlineResponse2005.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
-        self._data = data
-
-    @property
-    def timestamp(self):
-        """Gets the timestamp of this InlineResponse2005.  # noqa: E501
-
-
-        :return: The timestamp of this InlineResponse2005.  # noqa: E501
-        :rtype: int
-        """
-        return self._timestamp
-
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this InlineResponse2005.
-
-
-        :param timestamp: The timestamp of this InlineResponse2005.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
-
-        self._timestamp = timestamp
+        self._est_rate = est_rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

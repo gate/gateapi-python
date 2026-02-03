@@ -33,49 +33,49 @@ class InlineResponse20018Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'srvtm': 'int'
+        'status': 'int'
     }
 
     attribute_map = {
-        'srvtm': 'SRVTM'
+        'status': 'status'
     }
 
-    def __init__(self, srvtm=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, local_vars_configuration=None):  # noqa: E501
         # type: (int, Configuration) -> None
         """InlineResponse20018Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._srvtm = None
+        self._status = None
         self.discriminator = None
 
-        self.srvtm = srvtm
+        self.status = status
 
     @property
-    def srvtm(self):
-        """Gets the srvtm of this InlineResponse20018Data.  # noqa: E501
+    def status(self):
+        """Gets the status of this InlineResponse20018Data.  # noqa: E501
 
-        Timestamp when message was successfully sent (current timestamp)  # noqa: E501
+        Ad status after successful update  # noqa: E501
 
-        :return: The srvtm of this InlineResponse20018Data.  # noqa: E501
+        :return: The status of this InlineResponse20018Data.  # noqa: E501
         :rtype: int
         """
-        return self._srvtm
+        return self._status
 
-    @srvtm.setter
-    def srvtm(self, srvtm):
-        """Sets the srvtm of this InlineResponse20018Data.
+    @status.setter
+    def status(self, status):
+        """Sets the status of this InlineResponse20018Data.
 
-        Timestamp when message was successfully sent (current timestamp)  # noqa: E501
+        Ad status after successful update  # noqa: E501
 
-        :param srvtm: The srvtm of this InlineResponse20018Data.  # noqa: E501
+        :param status: The status of this InlineResponse20018Data.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and srvtm is None:  # noqa: E501
-            raise ValueError("Invalid value for `srvtm`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
-        self._srvtm = srvtm
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,109 +33,132 @@ class InlineResponse20011Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'pay_type': 'str',
-        'pay_name': 'str',
-        'ids': 'list[int]',
-        'list': 'list[InlineResponse20011List]'
+        'total': 'int',
+        'page_size': 'int',
+        'page_number': 'int',
+        'total_page': 'int',
+        'list': 'list[InlineResponse20011DataList]'
     }
 
     attribute_map = {
-        'pay_type': 'pay_type',
-        'pay_name': 'pay_name',
-        'ids': 'ids',
+        'total': 'total',
+        'page_size': 'page_size',
+        'page_number': 'page_number',
+        'total_page': 'total_page',
         'list': 'list'
     }
 
-    def __init__(self, pay_type=None, pay_name=None, ids=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, list[int], list[InlineResponse20011List], Configuration) -> None
+    def __init__(self, total=None, page_size=None, page_number=None, total_page=None, list=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, int, int, list[InlineResponse20011DataList], Configuration) -> None
         """InlineResponse20011Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._pay_type = None
-        self._pay_name = None
-        self._ids = None
+        self._total = None
+        self._page_size = None
+        self._page_number = None
+        self._total_page = None
         self._list = None
         self.discriminator = None
 
-        if pay_type is not None:
-            self.pay_type = pay_type
-        if pay_name is not None:
-            self.pay_name = pay_name
-        if ids is not None:
-            self.ids = ids
-        if list is not None:
-            self.list = list
+        self.total = total
+        self.page_size = page_size
+        self.page_number = page_number
+        self.total_page = total_page
+        self.list = list
 
     @property
-    def pay_type(self):
-        """Gets the pay_type of this InlineResponse20011Data.  # noqa: E501
+    def total(self):
+        """Gets the total of this InlineResponse20011Data.  # noqa: E501
 
-        Payment method type  # noqa: E501
 
-        :return: The pay_type of this InlineResponse20011Data.  # noqa: E501
-        :rtype: str
+        :return: The total of this InlineResponse20011Data.  # noqa: E501
+        :rtype: int
         """
-        return self._pay_type
+        return self._total
 
-    @pay_type.setter
-    def pay_type(self, pay_type):
-        """Sets the pay_type of this InlineResponse20011Data.
+    @total.setter
+    def total(self, total):
+        """Sets the total of this InlineResponse20011Data.
 
-        Payment method type  # noqa: E501
 
-        :param pay_type: The pay_type of this InlineResponse20011Data.  # noqa: E501
-        :type: str
+        :param total: The total of this InlineResponse20011Data.  # noqa: E501
+        :type: int
         """
+        if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
+            raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
 
-        self._pay_type = pay_type
+        self._total = total
 
     @property
-    def pay_name(self):
-        """Gets the pay_name of this InlineResponse20011Data.  # noqa: E501
+    def page_size(self):
+        """Gets the page_size of this InlineResponse20011Data.  # noqa: E501
 
-        Payment method name  # noqa: E501
 
-        :return: The pay_name of this InlineResponse20011Data.  # noqa: E501
-        :rtype: str
+        :return: The page_size of this InlineResponse20011Data.  # noqa: E501
+        :rtype: int
         """
-        return self._pay_name
+        return self._page_size
 
-    @pay_name.setter
-    def pay_name(self, pay_name):
-        """Sets the pay_name of this InlineResponse20011Data.
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this InlineResponse20011Data.
 
-        Payment method name  # noqa: E501
 
-        :param pay_name: The pay_name of this InlineResponse20011Data.  # noqa: E501
-        :type: str
+        :param page_size: The page_size of this InlineResponse20011Data.  # noqa: E501
+        :type: int
         """
+        if self.local_vars_configuration.client_side_validation and page_size is None:  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
 
-        self._pay_name = pay_name
+        self._page_size = page_size
 
     @property
-    def ids(self):
-        """Gets the ids of this InlineResponse20011Data.  # noqa: E501
+    def page_number(self):
+        """Gets the page_number of this InlineResponse20011Data.  # noqa: E501
 
-        User's currently bound payment method (primary key ID)  # noqa: E501
 
-        :return: The ids of this InlineResponse20011Data.  # noqa: E501
-        :rtype: list[int]
+        :return: The page_number of this InlineResponse20011Data.  # noqa: E501
+        :rtype: int
         """
-        return self._ids
+        return self._page_number
 
-    @ids.setter
-    def ids(self, ids):
-        """Sets the ids of this InlineResponse20011Data.
+    @page_number.setter
+    def page_number(self, page_number):
+        """Sets the page_number of this InlineResponse20011Data.
 
-        User's currently bound payment method (primary key ID)  # noqa: E501
 
-        :param ids: The ids of this InlineResponse20011Data.  # noqa: E501
-        :type: list[int]
+        :param page_number: The page_number of this InlineResponse20011Data.  # noqa: E501
+        :type: int
         """
+        if self.local_vars_configuration.client_side_validation and page_number is None:  # noqa: E501
+            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
 
-        self._ids = ids
+        self._page_number = page_number
+
+    @property
+    def total_page(self):
+        """Gets the total_page of this InlineResponse20011Data.  # noqa: E501
+
+
+        :return: The total_page of this InlineResponse20011Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_page
+
+    @total_page.setter
+    def total_page(self, total_page):
+        """Sets the total_page of this InlineResponse20011Data.
+
+
+        :param total_page: The total_page of this InlineResponse20011Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and total_page is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_page`, must not be `None`")  # noqa: E501
+
+        self._total_page = total_page
 
     @property
     def list(self):
@@ -143,7 +166,7 @@ class InlineResponse20011Data(object):
 
 
         :return: The list of this InlineResponse20011Data.  # noqa: E501
-        :rtype: list[InlineResponse20011List]
+        :rtype: list[InlineResponse20011DataList]
         """
         return self._list
 
@@ -153,8 +176,10 @@ class InlineResponse20011Data(object):
 
 
         :param list: The list of this InlineResponse20011Data.  # noqa: E501
-        :type: list[InlineResponse20011List]
+        :type: list[InlineResponse20011DataList]
         """
+        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
+            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 

@@ -3,10 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pay_type** | **str** | Payment method type | [optional] 
-**pay_name** | **str** | Payment method name | [optional] 
-**ids** | **list[int]** | User&#39;s currently bound payment method (primary key ID) | [optional] 
-**list** | [**list[InlineResponse20011List]**](InlineResponse20011List.md) |  | [optional] 
+**total** | **int** |  | 
+**page_size** | **int** |  | 
+**page_number** | **int** |  | 
+**total_page** | **int** |  | 
+**list** | [**list[InlineResponse20011DataList]**](InlineResponse20011DataList.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

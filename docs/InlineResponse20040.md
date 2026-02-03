@@ -3,15 +3,26 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Account Change Record ID | 
-**user_id** | **str** | User ID | 
-**business_id** | **str** | Business ID | 
-**type** | **str** | 变更类型| &#x60;TRANSACTION&#x60; 成交 &#x60;TRADING_FEE&#x60; 手续费 &#x60;FUNDING_FEE&#x60; 合约资金费 &#x60;LIQUIDATION_FEE&#x60; 强平费 &#x60;TRANSFER_IN&#x60; 资金转入 &#x60;TRANSFER_OUT&#x60; 资金转出 &#x60;BANKRUPT_COMPENSATION&#x60; 穿仓补贴 &#x60;AUTO_REPAY&#x60; 杠杆仓位自动还负债 | 
-**exchange_type** | **str** | Exchange | 
-**coin** | **str** | Currency | 
-**change** | **str** | Change amount (positive indicates transfer in; negative indicates transfer out) | 
-**balance** | **str** | Balance after change | 
-**create_time** | **str** | Created time | 
+**position_id** | **str** | Position ID | [optional] 
+**user_id** | **str** | User ID | [optional] 
+**symbol** | **str** | Currency pair | [optional] 
+**closed_type** | **str** | Position close type (PARTIAL_CLOSED: partially closed; COMPLETE_CLOSED: fully closed) | [optional] 
+**closed_pnl** | **str** | Close Position P&amp;L | [optional] 
+**closed_pnl_rate** | **str** | Close Position P&amp;L Ratio | [optional] 
+**open_avg_price** | **str** | Average Opening Price | [optional] 
+**closed_avg_price** | **str** | Average Close Price | [optional] 
+**max_position_qty** | **str** | Max Trade Size | [optional] 
+**closed_qty** | **str** | Close Position Quantity | [optional] 
+**closed_value** | **str** | Close Position Value | [optional] 
+**fee** | **str** | Position Accumulated Fees | [optional] 
+**liq_fee** | **str** | Liquidation Fee | [optional] 
+**funding_fee** | **str** | Funding Fee | [optional] 
+**position_side** | **str** | Position Direction Before Close | [optional] 
+**position_mode** | **str** | Position Mode at Close | [optional] 
+**leverage** | **str** | Leverage at Close | [optional] 
+**business_type** | **str** | Business Type | 
+**create_time** | **str** | Created time | [optional] 
+**update_time** | **str** | Update time | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

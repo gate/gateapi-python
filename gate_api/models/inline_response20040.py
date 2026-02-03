@@ -33,81 +33,142 @@ class InlineResponse20040(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'str',
+        'position_id': 'str',
         'user_id': 'str',
-        'business_id': 'str',
-        'type': 'str',
-        'exchange_type': 'str',
-        'coin': 'str',
-        'change': 'str',
-        'balance': 'str',
-        'create_time': 'str'
+        'symbol': 'str',
+        'closed_type': 'str',
+        'closed_pnl': 'str',
+        'closed_pnl_rate': 'str',
+        'open_avg_price': 'str',
+        'closed_avg_price': 'str',
+        'max_position_qty': 'str',
+        'closed_qty': 'str',
+        'closed_value': 'str',
+        'fee': 'str',
+        'liq_fee': 'str',
+        'funding_fee': 'str',
+        'position_side': 'str',
+        'position_mode': 'str',
+        'leverage': 'str',
+        'business_type': 'str',
+        'create_time': 'str',
+        'update_time': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
+        'position_id': 'position_id',
         'user_id': 'user_id',
-        'business_id': 'business_id',
-        'type': 'type',
-        'exchange_type': 'exchange_type',
-        'coin': 'coin',
-        'change': 'change',
-        'balance': 'balance',
-        'create_time': 'create_time'
+        'symbol': 'symbol',
+        'closed_type': 'closed_type',
+        'closed_pnl': 'closed_pnl',
+        'closed_pnl_rate': 'closed_pnl_rate',
+        'open_avg_price': 'open_avg_price',
+        'closed_avg_price': 'closed_avg_price',
+        'max_position_qty': 'max_position_qty',
+        'closed_qty': 'closed_qty',
+        'closed_value': 'closed_value',
+        'fee': 'fee',
+        'liq_fee': 'liq_fee',
+        'funding_fee': 'funding_fee',
+        'position_side': 'position_side',
+        'position_mode': 'position_mode',
+        'leverage': 'leverage',
+        'business_type': 'business_type',
+        'create_time': 'create_time',
+        'update_time': 'update_time'
     }
 
-    def __init__(self, id=None, user_id=None, business_id=None, type=None, exchange_type=None, coin=None, change=None, balance=None, create_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, position_id=None, user_id=None, symbol=None, closed_type=None, closed_pnl=None, closed_pnl_rate=None, open_avg_price=None, closed_avg_price=None, max_position_qty=None, closed_qty=None, closed_value=None, fee=None, liq_fee=None, funding_fee=None, position_side=None, position_mode=None, leverage=None, business_type=None, create_time=None, update_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineResponse20040 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
+        self._position_id = None
         self._user_id = None
-        self._business_id = None
-        self._type = None
-        self._exchange_type = None
-        self._coin = None
-        self._change = None
-        self._balance = None
+        self._symbol = None
+        self._closed_type = None
+        self._closed_pnl = None
+        self._closed_pnl_rate = None
+        self._open_avg_price = None
+        self._closed_avg_price = None
+        self._max_position_qty = None
+        self._closed_qty = None
+        self._closed_value = None
+        self._fee = None
+        self._liq_fee = None
+        self._funding_fee = None
+        self._position_side = None
+        self._position_mode = None
+        self._leverage = None
+        self._business_type = None
         self._create_time = None
+        self._update_time = None
         self.discriminator = None
 
-        self.id = id
-        self.user_id = user_id
-        self.business_id = business_id
-        self.type = type
-        self.exchange_type = exchange_type
-        self.coin = coin
-        self.change = change
-        self.balance = balance
-        self.create_time = create_time
+        if position_id is not None:
+            self.position_id = position_id
+        if user_id is not None:
+            self.user_id = user_id
+        if symbol is not None:
+            self.symbol = symbol
+        if closed_type is not None:
+            self.closed_type = closed_type
+        if closed_pnl is not None:
+            self.closed_pnl = closed_pnl
+        if closed_pnl_rate is not None:
+            self.closed_pnl_rate = closed_pnl_rate
+        if open_avg_price is not None:
+            self.open_avg_price = open_avg_price
+        if closed_avg_price is not None:
+            self.closed_avg_price = closed_avg_price
+        if max_position_qty is not None:
+            self.max_position_qty = max_position_qty
+        if closed_qty is not None:
+            self.closed_qty = closed_qty
+        if closed_value is not None:
+            self.closed_value = closed_value
+        if fee is not None:
+            self.fee = fee
+        if liq_fee is not None:
+            self.liq_fee = liq_fee
+        if funding_fee is not None:
+            self.funding_fee = funding_fee
+        if position_side is not None:
+            self.position_side = position_side
+        if position_mode is not None:
+            self.position_mode = position_mode
+        if leverage is not None:
+            self.leverage = leverage
+        self.business_type = business_type
+        if create_time is not None:
+            self.create_time = create_time
+        if update_time is not None:
+            self.update_time = update_time
 
     @property
-    def id(self):
-        """Gets the id of this InlineResponse20040.  # noqa: E501
+    def position_id(self):
+        """Gets the position_id of this InlineResponse20040.  # noqa: E501
 
-        Account Change Record ID  # noqa: E501
+        Position ID  # noqa: E501
 
-        :return: The id of this InlineResponse20040.  # noqa: E501
+        :return: The position_id of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._position_id
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse20040.
+    @position_id.setter
+    def position_id(self, position_id):
+        """Sets the position_id of this InlineResponse20040.
 
-        Account Change Record ID  # noqa: E501
+        Position ID  # noqa: E501
 
-        :param id: The id of this InlineResponse20040.  # noqa: E501
+        :param position_id: The position_id of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._position_id = position_id
 
     @property
     def user_id(self):
@@ -129,160 +190,378 @@ class InlineResponse20040(object):
         :param user_id: The user_id of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 
     @property
-    def business_id(self):
-        """Gets the business_id of this InlineResponse20040.  # noqa: E501
+    def symbol(self):
+        """Gets the symbol of this InlineResponse20040.  # noqa: E501
 
-        Business ID  # noqa: E501
+        Currency pair  # noqa: E501
 
-        :return: The business_id of this InlineResponse20040.  # noqa: E501
+        :return: The symbol of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._business_id
+        return self._symbol
 
-    @business_id.setter
-    def business_id(self, business_id):
-        """Sets the business_id of this InlineResponse20040.
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineResponse20040.
 
-        Business ID  # noqa: E501
+        Currency pair  # noqa: E501
 
-        :param business_id: The business_id of this InlineResponse20040.  # noqa: E501
+        :param symbol: The symbol of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and business_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `business_id`, must not be `None`")  # noqa: E501
 
-        self._business_id = business_id
+        self._symbol = symbol
 
     @property
-    def type(self):
-        """Gets the type of this InlineResponse20040.  # noqa: E501
+    def closed_type(self):
+        """Gets the closed_type of this InlineResponse20040.  # noqa: E501
 
-        变更类型| `TRANSACTION` 成交 `TRADING_FEE` 手续费 `FUNDING_FEE` 合约资金费 `LIQUIDATION_FEE` 强平费 `TRANSFER_IN` 资金转入 `TRANSFER_OUT` 资金转出 `BANKRUPT_COMPENSATION` 穿仓补贴 `AUTO_REPAY` 杠杆仓位自动还负债  # noqa: E501
+        Position close type (PARTIAL_CLOSED: partially closed; COMPLETE_CLOSED: fully closed)  # noqa: E501
 
-        :return: The type of this InlineResponse20040.  # noqa: E501
+        :return: The closed_type of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._type
+        return self._closed_type
 
-    @type.setter
-    def type(self, type):
-        """Sets the type of this InlineResponse20040.
+    @closed_type.setter
+    def closed_type(self, closed_type):
+        """Sets the closed_type of this InlineResponse20040.
 
-        变更类型| `TRANSACTION` 成交 `TRADING_FEE` 手续费 `FUNDING_FEE` 合约资金费 `LIQUIDATION_FEE` 强平费 `TRANSFER_IN` 资金转入 `TRANSFER_OUT` 资金转出 `BANKRUPT_COMPENSATION` 穿仓补贴 `AUTO_REPAY` 杠杆仓位自动还负债  # noqa: E501
+        Position close type (PARTIAL_CLOSED: partially closed; COMPLETE_CLOSED: fully closed)  # noqa: E501
 
-        :param type: The type of this InlineResponse20040.  # noqa: E501
+        :param closed_type: The closed_type of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
-        self._type = type
+        self._closed_type = closed_type
 
     @property
-    def exchange_type(self):
-        """Gets the exchange_type of this InlineResponse20040.  # noqa: E501
+    def closed_pnl(self):
+        """Gets the closed_pnl of this InlineResponse20040.  # noqa: E501
 
-        Exchange  # noqa: E501
+        Close Position P&L  # noqa: E501
 
-        :return: The exchange_type of this InlineResponse20040.  # noqa: E501
+        :return: The closed_pnl of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._exchange_type
+        return self._closed_pnl
 
-    @exchange_type.setter
-    def exchange_type(self, exchange_type):
-        """Sets the exchange_type of this InlineResponse20040.
+    @closed_pnl.setter
+    def closed_pnl(self, closed_pnl):
+        """Sets the closed_pnl of this InlineResponse20040.
 
-        Exchange  # noqa: E501
+        Close Position P&L  # noqa: E501
 
-        :param exchange_type: The exchange_type of this InlineResponse20040.  # noqa: E501
+        :param closed_pnl: The closed_pnl of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
 
-        self._exchange_type = exchange_type
+        self._closed_pnl = closed_pnl
 
     @property
-    def coin(self):
-        """Gets the coin of this InlineResponse20040.  # noqa: E501
+    def closed_pnl_rate(self):
+        """Gets the closed_pnl_rate of this InlineResponse20040.  # noqa: E501
 
-        Currency  # noqa: E501
+        Close Position P&L Ratio  # noqa: E501
 
-        :return: The coin of this InlineResponse20040.  # noqa: E501
+        :return: The closed_pnl_rate of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._coin
+        return self._closed_pnl_rate
 
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineResponse20040.
+    @closed_pnl_rate.setter
+    def closed_pnl_rate(self, closed_pnl_rate):
+        """Sets the closed_pnl_rate of this InlineResponse20040.
 
-        Currency  # noqa: E501
+        Close Position P&L Ratio  # noqa: E501
 
-        :param coin: The coin of this InlineResponse20040.  # noqa: E501
+        :param closed_pnl_rate: The closed_pnl_rate of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
 
-        self._coin = coin
+        self._closed_pnl_rate = closed_pnl_rate
 
     @property
-    def change(self):
-        """Gets the change of this InlineResponse20040.  # noqa: E501
+    def open_avg_price(self):
+        """Gets the open_avg_price of this InlineResponse20040.  # noqa: E501
 
-        Change amount (positive indicates transfer in; negative indicates transfer out)  # noqa: E501
+        Average Opening Price  # noqa: E501
 
-        :return: The change of this InlineResponse20040.  # noqa: E501
+        :return: The open_avg_price of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._change
+        return self._open_avg_price
 
-    @change.setter
-    def change(self, change):
-        """Sets the change of this InlineResponse20040.
+    @open_avg_price.setter
+    def open_avg_price(self, open_avg_price):
+        """Sets the open_avg_price of this InlineResponse20040.
 
-        Change amount (positive indicates transfer in; negative indicates transfer out)  # noqa: E501
+        Average Opening Price  # noqa: E501
 
-        :param change: The change of this InlineResponse20040.  # noqa: E501
+        :param open_avg_price: The open_avg_price of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and change is None:  # noqa: E501
-            raise ValueError("Invalid value for `change`, must not be `None`")  # noqa: E501
 
-        self._change = change
+        self._open_avg_price = open_avg_price
 
     @property
-    def balance(self):
-        """Gets the balance of this InlineResponse20040.  # noqa: E501
+    def closed_avg_price(self):
+        """Gets the closed_avg_price of this InlineResponse20040.  # noqa: E501
 
-        Balance after change  # noqa: E501
+        Average Close Price  # noqa: E501
 
-        :return: The balance of this InlineResponse20040.  # noqa: E501
+        :return: The closed_avg_price of this InlineResponse20040.  # noqa: E501
         :rtype: str
         """
-        return self._balance
+        return self._closed_avg_price
 
-    @balance.setter
-    def balance(self, balance):
-        """Sets the balance of this InlineResponse20040.
+    @closed_avg_price.setter
+    def closed_avg_price(self, closed_avg_price):
+        """Sets the closed_avg_price of this InlineResponse20040.
 
-        Balance after change  # noqa: E501
+        Average Close Price  # noqa: E501
 
-        :param balance: The balance of this InlineResponse20040.  # noqa: E501
+        :param closed_avg_price: The closed_avg_price of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and balance is None:  # noqa: E501
-            raise ValueError("Invalid value for `balance`, must not be `None`")  # noqa: E501
 
-        self._balance = balance
+        self._closed_avg_price = closed_avg_price
+
+    @property
+    def max_position_qty(self):
+        """Gets the max_position_qty of this InlineResponse20040.  # noqa: E501
+
+        Max Trade Size  # noqa: E501
+
+        :return: The max_position_qty of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._max_position_qty
+
+    @max_position_qty.setter
+    def max_position_qty(self, max_position_qty):
+        """Sets the max_position_qty of this InlineResponse20040.
+
+        Max Trade Size  # noqa: E501
+
+        :param max_position_qty: The max_position_qty of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._max_position_qty = max_position_qty
+
+    @property
+    def closed_qty(self):
+        """Gets the closed_qty of this InlineResponse20040.  # noqa: E501
+
+        Close Position Quantity  # noqa: E501
+
+        :return: The closed_qty of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._closed_qty
+
+    @closed_qty.setter
+    def closed_qty(self, closed_qty):
+        """Sets the closed_qty of this InlineResponse20040.
+
+        Close Position Quantity  # noqa: E501
+
+        :param closed_qty: The closed_qty of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._closed_qty = closed_qty
+
+    @property
+    def closed_value(self):
+        """Gets the closed_value of this InlineResponse20040.  # noqa: E501
+
+        Close Position Value  # noqa: E501
+
+        :return: The closed_value of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._closed_value
+
+    @closed_value.setter
+    def closed_value(self, closed_value):
+        """Sets the closed_value of this InlineResponse20040.
+
+        Close Position Value  # noqa: E501
+
+        :param closed_value: The closed_value of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._closed_value = closed_value
+
+    @property
+    def fee(self):
+        """Gets the fee of this InlineResponse20040.  # noqa: E501
+
+        Position Accumulated Fees  # noqa: E501
+
+        :return: The fee of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._fee
+
+    @fee.setter
+    def fee(self, fee):
+        """Sets the fee of this InlineResponse20040.
+
+        Position Accumulated Fees  # noqa: E501
+
+        :param fee: The fee of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._fee = fee
+
+    @property
+    def liq_fee(self):
+        """Gets the liq_fee of this InlineResponse20040.  # noqa: E501
+
+        Liquidation Fee  # noqa: E501
+
+        :return: The liq_fee of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._liq_fee
+
+    @liq_fee.setter
+    def liq_fee(self, liq_fee):
+        """Sets the liq_fee of this InlineResponse20040.
+
+        Liquidation Fee  # noqa: E501
+
+        :param liq_fee: The liq_fee of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._liq_fee = liq_fee
+
+    @property
+    def funding_fee(self):
+        """Gets the funding_fee of this InlineResponse20040.  # noqa: E501
+
+        Funding Fee  # noqa: E501
+
+        :return: The funding_fee of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._funding_fee
+
+    @funding_fee.setter
+    def funding_fee(self, funding_fee):
+        """Sets the funding_fee of this InlineResponse20040.
+
+        Funding Fee  # noqa: E501
+
+        :param funding_fee: The funding_fee of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._funding_fee = funding_fee
+
+    @property
+    def position_side(self):
+        """Gets the position_side of this InlineResponse20040.  # noqa: E501
+
+        Position Direction Before Close  # noqa: E501
+
+        :return: The position_side of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._position_side
+
+    @position_side.setter
+    def position_side(self, position_side):
+        """Sets the position_side of this InlineResponse20040.
+
+        Position Direction Before Close  # noqa: E501
+
+        :param position_side: The position_side of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._position_side = position_side
+
+    @property
+    def position_mode(self):
+        """Gets the position_mode of this InlineResponse20040.  # noqa: E501
+
+        Position Mode at Close  # noqa: E501
+
+        :return: The position_mode of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._position_mode
+
+    @position_mode.setter
+    def position_mode(self, position_mode):
+        """Sets the position_mode of this InlineResponse20040.
+
+        Position Mode at Close  # noqa: E501
+
+        :param position_mode: The position_mode of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._position_mode = position_mode
+
+    @property
+    def leverage(self):
+        """Gets the leverage of this InlineResponse20040.  # noqa: E501
+
+        Leverage at Close  # noqa: E501
+
+        :return: The leverage of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._leverage
+
+    @leverage.setter
+    def leverage(self, leverage):
+        """Sets the leverage of this InlineResponse20040.
+
+        Leverage at Close  # noqa: E501
+
+        :param leverage: The leverage of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._leverage = leverage
+
+    @property
+    def business_type(self):
+        """Gets the business_type of this InlineResponse20040.  # noqa: E501
+
+        Business Type  # noqa: E501
+
+        :return: The business_type of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_type
+
+    @business_type.setter
+    def business_type(self, business_type):
+        """Sets the business_type of this InlineResponse20040.
+
+        Business Type  # noqa: E501
+
+        :param business_type: The business_type of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and business_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `business_type`, must not be `None`")  # noqa: E501
+
+        self._business_type = business_type
 
     @property
     def create_time(self):
@@ -304,10 +583,31 @@ class InlineResponse20040(object):
         :param create_time: The create_time of this InlineResponse20040.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and create_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
 
         self._create_time = create_time
+
+    @property
+    def update_time(self):
+        """Gets the update_time of this InlineResponse20040.  # noqa: E501
+
+        Update time  # noqa: E501
+
+        :return: The update_time of this InlineResponse20040.  # noqa: E501
+        :rtype: str
+        """
+        return self._update_time
+
+    @update_time.setter
+    def update_time(self, update_time):
+        """Sets the update_time of this InlineResponse20040.
+
+        Update time  # noqa: E501
+
+        :param update_time: The update_time of this InlineResponse20040.  # noqa: E501
+        :type: str
+        """
+
+        self._update_time = update_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

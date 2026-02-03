@@ -33,163 +33,223 @@ class InlineResponse20031(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'spot_maker_fee': 'str',
-        'spot_taker_fee': 'str',
-        'future_maker_fee': 'str',
-        'future_taker_fee': 'str',
-        'special_fee_list': 'list[InlineResponse20031SpecialFeeList]'
+        'quote_id': 'str',
+        'valid_ms': 'str',
+        'from_coin': 'str',
+        'to_coin': 'str',
+        'from_amount': 'str',
+        'to_amount': 'str',
+        'price': 'str'
     }
 
     attribute_map = {
-        'spot_maker_fee': 'spot_maker_fee',
-        'spot_taker_fee': 'spot_taker_fee',
-        'future_maker_fee': 'future_maker_fee',
-        'future_taker_fee': 'future_taker_fee',
-        'special_fee_list': 'special_fee_list'
+        'quote_id': 'quote_id',
+        'valid_ms': 'valid_ms',
+        'from_coin': 'from_coin',
+        'to_coin': 'to_coin',
+        'from_amount': 'from_amount',
+        'to_amount': 'to_amount',
+        'price': 'price'
     }
 
-    def __init__(self, spot_maker_fee=None, spot_taker_fee=None, future_maker_fee=None, future_taker_fee=None, special_fee_list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, list[InlineResponse20031SpecialFeeList], Configuration) -> None
+    def __init__(self, quote_id=None, valid_ms=None, from_coin=None, to_coin=None, from_amount=None, to_amount=None, price=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, Configuration) -> None
         """InlineResponse20031 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._spot_maker_fee = None
-        self._spot_taker_fee = None
-        self._future_maker_fee = None
-        self._future_taker_fee = None
-        self._special_fee_list = None
+        self._quote_id = None
+        self._valid_ms = None
+        self._from_coin = None
+        self._to_coin = None
+        self._from_amount = None
+        self._to_amount = None
+        self._price = None
         self.discriminator = None
 
-        self.spot_maker_fee = spot_maker_fee
-        self.spot_taker_fee = spot_taker_fee
-        self.future_maker_fee = future_maker_fee
-        self.future_taker_fee = future_taker_fee
-        self.special_fee_list = special_fee_list
+        self.quote_id = quote_id
+        self.valid_ms = valid_ms
+        self.from_coin = from_coin
+        self.to_coin = to_coin
+        self.from_amount = from_amount
+        self.to_amount = to_amount
+        self.price = price
 
     @property
-    def spot_maker_fee(self):
-        """Gets the spot_maker_fee of this InlineResponse20031.  # noqa: E501
+    def quote_id(self):
+        """Gets the quote_id of this InlineResponse20031.  # noqa: E501
 
-        spotMakerfee rate  # noqa: E501
+        Quote ID  # noqa: E501
 
-        :return: The spot_maker_fee of this InlineResponse20031.  # noqa: E501
+        :return: The quote_id of this InlineResponse20031.  # noqa: E501
         :rtype: str
         """
-        return self._spot_maker_fee
+        return self._quote_id
 
-    @spot_maker_fee.setter
-    def spot_maker_fee(self, spot_maker_fee):
-        """Sets the spot_maker_fee of this InlineResponse20031.
+    @quote_id.setter
+    def quote_id(self, quote_id):
+        """Sets the quote_id of this InlineResponse20031.
 
-        spotMakerfee rate  # noqa: E501
+        Quote ID  # noqa: E501
 
-        :param spot_maker_fee: The spot_maker_fee of this InlineResponse20031.  # noqa: E501
+        :param quote_id: The quote_id of this InlineResponse20031.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and spot_maker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `spot_maker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and quote_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `quote_id`, must not be `None`")  # noqa: E501
 
-        self._spot_maker_fee = spot_maker_fee
+        self._quote_id = quote_id
 
     @property
-    def spot_taker_fee(self):
-        """Gets the spot_taker_fee of this InlineResponse20031.  # noqa: E501
+    def valid_ms(self):
+        """Gets the valid_ms of this InlineResponse20031.  # noqa: E501
 
-        spotTakerfee rate  # noqa: E501
+        Valid time (milliseconds timestamp)  # noqa: E501
 
-        :return: The spot_taker_fee of this InlineResponse20031.  # noqa: E501
+        :return: The valid_ms of this InlineResponse20031.  # noqa: E501
         :rtype: str
         """
-        return self._spot_taker_fee
+        return self._valid_ms
 
-    @spot_taker_fee.setter
-    def spot_taker_fee(self, spot_taker_fee):
-        """Sets the spot_taker_fee of this InlineResponse20031.
+    @valid_ms.setter
+    def valid_ms(self, valid_ms):
+        """Sets the valid_ms of this InlineResponse20031.
 
-        spotTakerfee rate  # noqa: E501
+        Valid time (milliseconds timestamp)  # noqa: E501
 
-        :param spot_taker_fee: The spot_taker_fee of this InlineResponse20031.  # noqa: E501
+        :param valid_ms: The valid_ms of this InlineResponse20031.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and spot_taker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `spot_taker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and valid_ms is None:  # noqa: E501
+            raise ValueError("Invalid value for `valid_ms`, must not be `None`")  # noqa: E501
 
-        self._spot_taker_fee = spot_taker_fee
+        self._valid_ms = valid_ms
 
     @property
-    def future_maker_fee(self):
-        """Gets the future_maker_fee of this InlineResponse20031.  # noqa: E501
+    def from_coin(self):
+        """Gets the from_coin of this InlineResponse20031.  # noqa: E501
 
-        contractMakerfee rate  # noqa: E501
+        Asset Sold  # noqa: E501
 
-        :return: The future_maker_fee of this InlineResponse20031.  # noqa: E501
+        :return: The from_coin of this InlineResponse20031.  # noqa: E501
         :rtype: str
         """
-        return self._future_maker_fee
+        return self._from_coin
 
-    @future_maker_fee.setter
-    def future_maker_fee(self, future_maker_fee):
-        """Sets the future_maker_fee of this InlineResponse20031.
+    @from_coin.setter
+    def from_coin(self, from_coin):
+        """Sets the from_coin of this InlineResponse20031.
 
-        contractMakerfee rate  # noqa: E501
+        Asset Sold  # noqa: E501
 
-        :param future_maker_fee: The future_maker_fee of this InlineResponse20031.  # noqa: E501
+        :param from_coin: The from_coin of this InlineResponse20031.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and future_maker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `future_maker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and from_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `from_coin`, must not be `None`")  # noqa: E501
 
-        self._future_maker_fee = future_maker_fee
+        self._from_coin = from_coin
 
     @property
-    def future_taker_fee(self):
-        """Gets the future_taker_fee of this InlineResponse20031.  # noqa: E501
+    def to_coin(self):
+        """Gets the to_coin of this InlineResponse20031.  # noqa: E501
 
-        contractTakerfee rate  # noqa: E501
+        Asset Bought  # noqa: E501
 
-        :return: The future_taker_fee of this InlineResponse20031.  # noqa: E501
+        :return: The to_coin of this InlineResponse20031.  # noqa: E501
         :rtype: str
         """
-        return self._future_taker_fee
+        return self._to_coin
 
-    @future_taker_fee.setter
-    def future_taker_fee(self, future_taker_fee):
-        """Sets the future_taker_fee of this InlineResponse20031.
+    @to_coin.setter
+    def to_coin(self, to_coin):
+        """Sets the to_coin of this InlineResponse20031.
 
-        contractTakerfee rate  # noqa: E501
+        Asset Bought  # noqa: E501
 
-        :param future_taker_fee: The future_taker_fee of this InlineResponse20031.  # noqa: E501
+        :param to_coin: The to_coin of this InlineResponse20031.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and future_taker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `future_taker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and to_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `to_coin`, must not be `None`")  # noqa: E501
 
-        self._future_taker_fee = future_taker_fee
+        self._to_coin = to_coin
 
     @property
-    def special_fee_list(self):
-        """Gets the special_fee_list of this InlineResponse20031.  # noqa: E501
+    def from_amount(self):
+        """Gets the from_amount of this InlineResponse20031.  # noqa: E501
 
+        Amount to sell  # noqa: E501
 
-        :return: The special_fee_list of this InlineResponse20031.  # noqa: E501
-        :rtype: list[InlineResponse20031SpecialFeeList]
+        :return: The from_amount of this InlineResponse20031.  # noqa: E501
+        :rtype: str
         """
-        return self._special_fee_list
+        return self._from_amount
 
-    @special_fee_list.setter
-    def special_fee_list(self, special_fee_list):
-        """Sets the special_fee_list of this InlineResponse20031.
+    @from_amount.setter
+    def from_amount(self, from_amount):
+        """Sets the from_amount of this InlineResponse20031.
 
+        Amount to sell  # noqa: E501
 
-        :param special_fee_list: The special_fee_list of this InlineResponse20031.  # noqa: E501
-        :type: list[InlineResponse20031SpecialFeeList]
+        :param from_amount: The from_amount of this InlineResponse20031.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and special_fee_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `special_fee_list`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and from_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `from_amount`, must not be `None`")  # noqa: E501
 
-        self._special_fee_list = special_fee_list
+        self._from_amount = from_amount
+
+    @property
+    def to_amount(self):
+        """Gets the to_amount of this InlineResponse20031.  # noqa: E501
+
+        Amount to buy  # noqa: E501
+
+        :return: The to_amount of this InlineResponse20031.  # noqa: E501
+        :rtype: str
+        """
+        return self._to_amount
+
+    @to_amount.setter
+    def to_amount(self, to_amount):
+        """Sets the to_amount of this InlineResponse20031.
+
+        Amount to buy  # noqa: E501
+
+        :param to_amount: The to_amount of this InlineResponse20031.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and to_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `to_amount`, must not be `None`")  # noqa: E501
+
+        self._to_amount = to_amount
+
+    @property
+    def price(self):
+        """Gets the price of this InlineResponse20031.  # noqa: E501
+
+        Price  # noqa: E501
+
+        :return: The price of this InlineResponse20031.  # noqa: E501
+        :rtype: str
+        """
+        return self._price
+
+    @price.setter
+    def price(self, price):
+        """Sets the price of this InlineResponse20031.
+
+        Price  # noqa: E501
+
+        :param price: The price of this InlineResponse20031.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
+            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
+
+        self._price = price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

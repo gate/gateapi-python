@@ -33,165 +33,182 @@ class InlineResponse20021(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'coin': 'str',
-        'min_trans_amount': 'float',
-        'est_fee': 'float',
-        'precision': 'int',
-        'is_disabled': 'int'
+        'timestamp': 'float',
+        'method': 'str',
+        'code': 'int',
+        'message': 'str',
+        'data': 'InlineResponse20021Data',
+        'version': 'str'
     }
 
     attribute_map = {
-        'coin': 'coin',
-        'min_trans_amount': 'min_trans_amount',
-        'est_fee': 'est_fee',
-        'precision': 'precision',
-        'is_disabled': 'is_disabled'
+        'timestamp': 'timestamp',
+        'method': 'method',
+        'code': 'code',
+        'message': 'message',
+        'data': 'data',
+        'version': 'version'
     }
 
-    def __init__(self, coin=None, min_trans_amount=None, est_fee=None, precision=None, is_disabled=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, float, float, int, int, Configuration) -> None
+    def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
+        # type: (float, str, int, str, InlineResponse20021Data, str, Configuration) -> None
         """InlineResponse20021 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._coin = None
-        self._min_trans_amount = None
-        self._est_fee = None
-        self._precision = None
-        self._is_disabled = None
+        self._timestamp = None
+        self._method = None
+        self._code = None
+        self._message = None
+        self._data = None
+        self._version = None
         self.discriminator = None
 
-        self.coin = coin
-        self.min_trans_amount = min_trans_amount
-        self.est_fee = est_fee
-        self.precision = precision
-        self.is_disabled = is_disabled
+        self.timestamp = timestamp
+        self.method = method
+        self.code = code
+        self.message = message
+        self.data = data
+        self.version = version
 
     @property
-    def coin(self):
-        """Gets the coin of this InlineResponse20021.  # noqa: E501
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20021.  # noqa: E501
 
-        Currency  # noqa: E501
 
-        :return: The coin of this InlineResponse20021.  # noqa: E501
+        :return: The timestamp of this InlineResponse20021.  # noqa: E501
+        :rtype: float
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20021.
+
+
+        :param timestamp: The timestamp of this InlineResponse20021.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
+
+        self._timestamp = timestamp
+
+    @property
+    def method(self):
+        """Gets the method of this InlineResponse20021.  # noqa: E501
+
+
+        :return: The method of this InlineResponse20021.  # noqa: E501
         :rtype: str
         """
-        return self._coin
+        return self._method
 
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineResponse20021.
+    @method.setter
+    def method(self, method):
+        """Sets the method of this InlineResponse20021.
 
-        Currency  # noqa: E501
 
-        :param coin: The coin of this InlineResponse20021.  # noqa: E501
+        :param method: The method of this InlineResponse20021.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
+            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
 
-        self._coin = coin
-
-    @property
-    def min_trans_amount(self):
-        """Gets the min_trans_amount of this InlineResponse20021.  # noqa: E501
-
-        Minimum Transfer Quantity (including estimated fees)  # noqa: E501
-
-        :return: The min_trans_amount of this InlineResponse20021.  # noqa: E501
-        :rtype: float
-        """
-        return self._min_trans_amount
-
-    @min_trans_amount.setter
-    def min_trans_amount(self, min_trans_amount):
-        """Sets the min_trans_amount of this InlineResponse20021.
-
-        Minimum Transfer Quantity (including estimated fees)  # noqa: E501
-
-        :param min_trans_amount: The min_trans_amount of this InlineResponse20021.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and min_trans_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_trans_amount`, must not be `None`")  # noqa: E501
-
-        self._min_trans_amount = min_trans_amount
+        self._method = method
 
     @property
-    def est_fee(self):
-        """Gets the est_fee of this InlineResponse20021.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse20021.  # noqa: E501
 
-        Estimated Fee  # noqa: E501
 
-        :return: The est_fee of this InlineResponse20021.  # noqa: E501
-        :rtype: float
-        """
-        return self._est_fee
-
-    @est_fee.setter
-    def est_fee(self, est_fee):
-        """Sets the est_fee of this InlineResponse20021.
-
-        Estimated Fee  # noqa: E501
-
-        :param est_fee: The est_fee of this InlineResponse20021.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and est_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `est_fee`, must not be `None`")  # noqa: E501
-
-        self._est_fee = est_fee
-
-    @property
-    def precision(self):
-        """Gets the precision of this InlineResponse20021.  # noqa: E501
-
-        Precision  # noqa: E501
-
-        :return: The precision of this InlineResponse20021.  # noqa: E501
+        :return: The code of this InlineResponse20021.  # noqa: E501
         :rtype: int
         """
-        return self._precision
+        return self._code
 
-    @precision.setter
-    def precision(self, precision):
-        """Sets the precision of this InlineResponse20021.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse20021.
 
-        Precision  # noqa: E501
 
-        :param precision: The precision of this InlineResponse20021.  # noqa: E501
+        :param code: The code of this InlineResponse20021.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and precision is None:  # noqa: E501
-            raise ValueError("Invalid value for `precision`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
-        self._precision = precision
+        self._code = code
 
     @property
-    def is_disabled(self):
-        """Gets the is_disabled of this InlineResponse20021.  # noqa: E501
+    def message(self):
+        """Gets the message of this InlineResponse20021.  # noqa: E501
 
-        If it is disabled. 0 means NOT being disabled  # noqa: E501
 
-        :return: The is_disabled of this InlineResponse20021.  # noqa: E501
-        :rtype: int
+        :return: The message of this InlineResponse20021.  # noqa: E501
+        :rtype: str
         """
-        return self._is_disabled
+        return self._message
 
-    @is_disabled.setter
-    def is_disabled(self, is_disabled):
-        """Sets the is_disabled of this InlineResponse20021.
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse20021.
 
-        If it is disabled. 0 means NOT being disabled  # noqa: E501
 
-        :param is_disabled: The is_disabled of this InlineResponse20021.  # noqa: E501
-        :type: int
+        :param message: The message of this InlineResponse20021.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and is_disabled is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_disabled`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
-        self._is_disabled = is_disabled
+        self._message = message
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse20021.  # noqa: E501
+
+
+        :return: The data of this InlineResponse20021.  # noqa: E501
+        :rtype: InlineResponse20021Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse20021.
+
+
+        :param data: The data of this InlineResponse20021.  # noqa: E501
+        :type: InlineResponse20021Data
+        """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
+
+        self._data = data
+
+    @property
+    def version(self):
+        """Gets the version of this InlineResponse20021.  # noqa: E501
+
+
+        :return: The version of this InlineResponse20021.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this InlineResponse20021.
+
+
+        :param version: The version of this InlineResponse20021.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

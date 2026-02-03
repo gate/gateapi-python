@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **risk_limit_step** | **str** | Risk limit adjustment step (deprecated) | [optional] 
 **risk_limit_max** | **str** | Maximum risk limit allowed by the contract (deprecated). It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits | [optional] 
 **order_size_min** | **str** | Minimum order size allowed by the contract | [optional] 
+**enable_decimal** | **bool** | Whether decimal string type is supported for contract lot size. When this field is set to &#x60;true&#x60;, it indicates that the contract supports decimal lot sizes (i.e., the &#x60;size&#x60; field can use a decimal string type); when set to &#x60;false&#x60;, it indicates that the contract does not support decimal lot sizes (i.e., the &#x60;size&#x60; field can only use an integer type). | [optional] 
 **order_size_max** | **str** | Maximum order size allowed by the contract | [optional] 
 **order_price_deviate** | **str** | Maximum allowed deviation between order price and current mark price. The order price &#x60;order_price&#x60; must satisfy the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate | [optional] 
 **ref_discount_rate** | **str** | Trading fee discount for referred users | [optional] 

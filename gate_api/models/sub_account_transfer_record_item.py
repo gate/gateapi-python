@@ -217,7 +217,7 @@ class SubAccountTransferRecordItem(object):
     def amount(self):
         """Gets the amount of this SubAccountTransferRecordItem.  # noqa: E501
 
-        Transfer amount  # noqa: E501
+        Transfer Amount  # noqa: E501
 
         :return: The amount of this SubAccountTransferRecordItem.  # noqa: E501
         :rtype: str
@@ -228,7 +228,7 @@ class SubAccountTransferRecordItem(object):
     def amount(self, amount):
         """Sets the amount of this SubAccountTransferRecordItem.
 
-        Transfer amount  # noqa: E501
+        Transfer Amount  # noqa: E501
 
         :param amount: The amount of this SubAccountTransferRecordItem.  # noqa: E501
         :type: str

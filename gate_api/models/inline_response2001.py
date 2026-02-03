@@ -33,74 +33,46 @@ class InlineResponse2001(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'currency': 'str',
-        'est_rate': 'str'
+        'orders': 'list[TrailOrder]'
     }
 
     attribute_map = {
-        'currency': 'currency',
-        'est_rate': 'est_rate'
+        'orders': 'orders'
     }
 
-    def __init__(self, currency=None, est_rate=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, orders=None, local_vars_configuration=None):  # noqa: E501
+        # type: (list[TrailOrder], Configuration) -> None
         """InlineResponse2001 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._currency = None
-        self._est_rate = None
+        self._orders = None
         self.discriminator = None
 
-        if currency is not None:
-            self.currency = currency
-        if est_rate is not None:
-            self.est_rate = est_rate
+        if orders is not None:
+            self.orders = orders
 
     @property
-    def currency(self):
-        """Gets the currency of this InlineResponse2001.  # noqa: E501
+    def orders(self):
+        """Gets the orders of this InlineResponse2001.  # noqa: E501
 
 
-        :return: The currency of this InlineResponse2001.  # noqa: E501
-        :rtype: str
+        :return: The orders of this InlineResponse2001.  # noqa: E501
+        :rtype: list[TrailOrder]
         """
-        return self._currency
+        return self._orders
 
-    @currency.setter
-    def currency(self, currency):
-        """Sets the currency of this InlineResponse2001.
+    @orders.setter
+    def orders(self, orders):
+        """Sets the orders of this InlineResponse2001.
 
 
-        :param currency: The currency of this InlineResponse2001.  # noqa: E501
-        :type: str
-        """
-
-        self._currency = currency
-
-    @property
-    def est_rate(self):
-        """Gets the est_rate of this InlineResponse2001.  # noqa: E501
-
-        Estimated Annualized Rate, e.g., `est_rate`: `0.8014` represents an annualized rate of 80.14%  # noqa: E501
-
-        :return: The est_rate of this InlineResponse2001.  # noqa: E501
-        :rtype: str
-        """
-        return self._est_rate
-
-    @est_rate.setter
-    def est_rate(self, est_rate):
-        """Sets the est_rate of this InlineResponse2001.
-
-        Estimated Annualized Rate, e.g., `est_rate`: `0.8014` represents an annualized rate of 80.14%  # noqa: E501
-
-        :param est_rate: The est_rate of this InlineResponse2001.  # noqa: E501
-        :type: str
+        :param orders: The orders of this InlineResponse2001.  # noqa: E501
+        :type: list[TrailOrder]
         """
 
-        self._est_rate = est_rate
+        self._orders = orders
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,335 +33,182 @@ class InlineResponse20022(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'str',
-        'text': 'str',
-        'from_account_type': 'str',
-        'to_account_type': 'str',
-        'coin': 'str',
-        'amount': 'str',
-        'actual_receive': 'str',
-        'status': 'str',
-        'fail_reason': 'str',
-        'create_time': 'int',
-        'update_time': 'int'
+        'timestamp': 'float',
+        'method': 'str',
+        'code': 'int',
+        'message': 'str',
+        'data': 'InlineResponse20022Data',
+        'version': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
-        'text': 'text',
-        'from_account_type': 'from_account_type',
-        'to_account_type': 'to_account_type',
-        'coin': 'coin',
-        'amount': 'amount',
-        'actual_receive': 'actual_receive',
-        'status': 'status',
-        'fail_reason': 'fail_reason',
-        'create_time': 'create_time',
-        'update_time': 'update_time'
+        'timestamp': 'timestamp',
+        'method': 'method',
+        'code': 'code',
+        'message': 'message',
+        'data': 'data',
+        'version': 'version'
     }
 
-    def __init__(self, id=None, text=None, from_account_type=None, to_account_type=None, coin=None, amount=None, actual_receive=None, status=None, fail_reason=None, create_time=None, update_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, int, int, Configuration) -> None
+    def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
+        # type: (float, str, int, str, InlineResponse20022Data, str, Configuration) -> None
         """InlineResponse20022 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
-        self._text = None
-        self._from_account_type = None
-        self._to_account_type = None
-        self._coin = None
-        self._amount = None
-        self._actual_receive = None
-        self._status = None
-        self._fail_reason = None
-        self._create_time = None
-        self._update_time = None
+        self._timestamp = None
+        self._method = None
+        self._code = None
+        self._message = None
+        self._data = None
+        self._version = None
         self.discriminator = None
 
-        self.id = id
-        self.text = text
-        self.from_account_type = from_account_type
-        self.to_account_type = to_account_type
-        self.coin = coin
-        self.amount = amount
-        if actual_receive is not None:
-            self.actual_receive = actual_receive
-        self.status = status
-        if fail_reason is not None:
-            self.fail_reason = fail_reason
-        self.create_time = create_time
-        self.update_time = update_time
+        self.timestamp = timestamp
+        self.method = method
+        self.code = code
+        self.message = message
+        self.data = data
+        self.version = version
 
     @property
-    def id(self):
-        """Gets the id of this InlineResponse20022.  # noqa: E501
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20022.  # noqa: E501
 
-        Order ID  # noqa: E501
 
-        :return: The id of this InlineResponse20022.  # noqa: E501
+        :return: The timestamp of this InlineResponse20022.  # noqa: E501
+        :rtype: float
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20022.
+
+
+        :param timestamp: The timestamp of this InlineResponse20022.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
+
+        self._timestamp = timestamp
+
+    @property
+    def method(self):
+        """Gets the method of this InlineResponse20022.  # noqa: E501
+
+
+        :return: The method of this InlineResponse20022.  # noqa: E501
         :rtype: str
         """
-        return self._id
+        return self._method
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse20022.
+    @method.setter
+    def method(self, method):
+        """Sets the method of this InlineResponse20022.
 
-        Order ID  # noqa: E501
 
-        :param id: The id of this InlineResponse20022.  # noqa: E501
+        :param method: The method of this InlineResponse20022.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
+            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
 
-        self._id = id
-
-    @property
-    def text(self):
-        """Gets the text of this InlineResponse20022.  # noqa: E501
-
-        Client Custom ID  # noqa: E501
-
-        :return: The text of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._text
-
-    @text.setter
-    def text(self, text):
-        """Sets the text of this InlineResponse20022.
-
-        Client Custom ID  # noqa: E501
-
-        :param text: The text of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
-
-        self._text = text
+        self._method = method
 
     @property
-    def from_account_type(self):
-        """Gets the from_account_type of this InlineResponse20022.  # noqa: E501
-
-        Source `from` account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)  # noqa: E501
-
-        :return: The from_account_type of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._from_account_type
-
-    @from_account_type.setter
-    def from_account_type(self, from_account_type):
-        """Sets the from_account_type of this InlineResponse20022.
-
-        Source `from` account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)  # noqa: E501
-
-        :param from_account_type: The from_account_type of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and from_account_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `from_account_type`, must not be `None`")  # noqa: E501
-
-        self._from_account_type = from_account_type
-
-    @property
-    def to_account_type(self):
-        """Gets the to_account_type of this InlineResponse20022.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse20022.  # noqa: E501
 
 
-        :return: The to_account_type of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._to_account_type
-
-    @to_account_type.setter
-    def to_account_type(self, to_account_type):
-        """Sets the to_account_type of this InlineResponse20022.
-
-
-        :param to_account_type: The to_account_type of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and to_account_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `to_account_type`, must not be `None`")  # noqa: E501
-
-        self._to_account_type = to_account_type
-
-    @property
-    def coin(self):
-        """Gets the coin of this InlineResponse20022.  # noqa: E501
-
-        Currency  # noqa: E501
-
-        :return: The coin of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._coin
-
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineResponse20022.
-
-        Currency  # noqa: E501
-
-        :param coin: The coin of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
-
-        self._coin = coin
-
-    @property
-    def amount(self):
-        """Gets the amount of this InlineResponse20022.  # noqa: E501
-
-        Transfer amount, the amount requested for the transfer  # noqa: E501
-
-        :return: The amount of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._amount
-
-    @amount.setter
-    def amount(self, amount):
-        """Sets the amount of this InlineResponse20022.
-
-        Transfer amount, the amount requested for the transfer  # noqa: E501
-
-        :param amount: The amount of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
-
-        self._amount = amount
-
-    @property
-    def actual_receive(self):
-        """Gets the actual_receive of this InlineResponse20022.  # noqa: E501
-
-        Actual credited amount (has a value when status = SUCCESS; empty for other statuses)  # noqa: E501
-
-        :return: The actual_receive of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._actual_receive
-
-    @actual_receive.setter
-    def actual_receive(self, actual_receive):
-        """Sets the actual_receive of this InlineResponse20022.
-
-        Actual credited amount (has a value when status = SUCCESS; empty for other statuses)  # noqa: E501
-
-        :param actual_receive: The actual_receive of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-
-        self._actual_receive = actual_receive
-
-    @property
-    def status(self):
-        """Gets the status of this InlineResponse20022.  # noqa: E501
-
-        Transfer Status - `FAIL`: Failed - `SUCCESS`: Successful - `PENDING`: Transfer in Progress  # noqa: E501
-
-        :return: The status of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this InlineResponse20022.
-
-        Transfer Status - `FAIL`: Failed - `SUCCESS`: Successful - `PENDING`: Transfer in Progress  # noqa: E501
-
-        :param status: The status of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-
-        self._status = status
-
-    @property
-    def fail_reason(self):
-        """Gets the fail_reason of this InlineResponse20022.  # noqa: E501
-
-        Failure reason (has a value when status = FAIL; empty for other statuses)  # noqa: E501
-
-        :return: The fail_reason of this InlineResponse20022.  # noqa: E501
-        :rtype: str
-        """
-        return self._fail_reason
-
-    @fail_reason.setter
-    def fail_reason(self, fail_reason):
-        """Sets the fail_reason of this InlineResponse20022.
-
-        Failure reason (has a value when status = FAIL; empty for other statuses)  # noqa: E501
-
-        :param fail_reason: The fail_reason of this InlineResponse20022.  # noqa: E501
-        :type: str
-        """
-
-        self._fail_reason = fail_reason
-
-    @property
-    def create_time(self):
-        """Gets the create_time of this InlineResponse20022.  # noqa: E501
-
-        Creation time of order  # noqa: E501
-
-        :return: The create_time of this InlineResponse20022.  # noqa: E501
+        :return: The code of this InlineResponse20022.  # noqa: E501
         :rtype: int
         """
-        return self._create_time
+        return self._code
 
-    @create_time.setter
-    def create_time(self, create_time):
-        """Sets the create_time of this InlineResponse20022.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse20022.
 
-        Creation time of order  # noqa: E501
 
-        :param create_time: The create_time of this InlineResponse20022.  # noqa: E501
+        :param code: The code of this InlineResponse20022.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and create_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
-        self._create_time = create_time
+        self._code = code
 
     @property
-    def update_time(self):
-        """Gets the update_time of this InlineResponse20022.  # noqa: E501
+    def message(self):
+        """Gets the message of this InlineResponse20022.  # noqa: E501
 
-        OrderUpdateTime  # noqa: E501
 
-        :return: The update_time of this InlineResponse20022.  # noqa: E501
-        :rtype: int
+        :return: The message of this InlineResponse20022.  # noqa: E501
+        :rtype: str
         """
-        return self._update_time
+        return self._message
 
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this InlineResponse20022.
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse20022.
 
-        OrderUpdateTime  # noqa: E501
 
-        :param update_time: The update_time of this InlineResponse20022.  # noqa: E501
-        :type: int
+        :param message: The message of this InlineResponse20022.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and update_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `update_time`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
-        self._update_time = update_time
+        self._message = message
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse20022.  # noqa: E501
+
+
+        :return: The data of this InlineResponse20022.  # noqa: E501
+        :rtype: InlineResponse20022Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse20022.
+
+
+        :param data: The data of this InlineResponse20022.  # noqa: E501
+        :type: InlineResponse20022Data
+        """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
+
+        self._data = data
+
+    @property
+    def version(self):
+        """Gets the version of this InlineResponse20022.  # noqa: E501
+
+
+        :return: The version of this InlineResponse20022.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this InlineResponse20022.
+
+
+        :param version: The version of this InlineResponse20022.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

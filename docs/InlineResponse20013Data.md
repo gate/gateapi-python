@@ -3,78 +3,37 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**is_sell** | **int** | Whether sell order | 
-**txid** | **int** | Order ID | 
-**orderid** | **int** | Order ID | 
-**timest** | **int** | Order creation timestamp | 
-**last_pay_time** | **int** | Payment deadline | 
-**remain_pay_time** | **int** | Remaining payment time | 
-**currency_type** | **str** | Cryptocurrency type | 
-**want_type** | **str** | Fiat currency type | 
-**rate** | **str** | Price | 
-**amount** | **str** | Size | 
-**total** | **str** | Fiat amount | 
-**status** | **str** | Order Status | 
-**reason_id** | **str** | Cancellation reason ID | 
-**reason_desc** | **str** | Cancellation reason | 
-**toast_id** | **int** | Popup ID | 
-**cancel_time** | **str** | Cancellation time | 
-**seller_confirm** | **int** | Whether seller confirmed the reason | 
-**in_appeal** | **int** | Whether in dispute | 
-**dispute_time** | **int** | Appeal time limit | 
-**cancelable** | **int** | Whether order cancellation is allowed | 
-**hide_payment** | **int** | Whether to hide payment method | 
-**trade_tips** | **str** | Trading terms | 
-**show_bank** | **str** | Whether to display bank | 
-**bankname** | **str** | Bank name | 
-**bankbranch** | **str** | Bank branch name | 
-**bankid** | **str** | Bank ID | 
-**bank_holder_realname** | **str** | Bank cardholder name | 
-**show_ali** | **str** | Whether to display Alipay | 
-**aliname** | **str** | Alipay account name | 
-**is_alicode** | **int** | Whether Alipay QR code exists | 
-**show_wechat** | **str** | Whether to display WeChat | 
-**wename** | **str** | WeChat account name | 
-**show_others** | **str** | Whether to display other payment methods | 
-**pay_others** | **list[str]** | Other payment methods | 
-**sel_paytype** | **str** | Payment type | 
-**its_uid** | **str** | Counterparty UID | 
-**its_is_blue_vip** | **int** | Whether counterparty is Blue V | 
-**its_tier** | **int** | Counterparty VIP tier | 
-**its_avatar** | **str** | Counterparty avatar | 
-**its_nickname** | **str** | Counterparty nickname | 
-**its_realname** | **str** | Counterparty username | 
-**is_follow** | **int** | Whether following | 
+**is_self** | **bool** | Whether self | 
+**user_timest** | **str** | User registration time (formatted string) | 
+**counterparties_num** | **int** | Number of counterparties | 
+**email_verified** | **str** | Whether email is verified | 
+**verified** | **str** | Whether KYC verification is completed | 
+**has_phone** | **str** | Whether phone is bound | 
+**user_name** | **str** | Username | 
+**user_note** | **str** | User note information | 
+**complete_transactions** | **str** | Total completed orders | 
+**paid_transactions** | **str** | Number of completed buy orders | 
+**accepted_transactions** | **str** | Number of completed sell orders | 
+**transactions_used_time** | **str** | Average time to confirm receipt | 
+**cancelled_used_time_month** | **str** | Cancellation time in last 30 days | 
+**complete_transactions_month** | **str** | Number of completed orders in last 30 days | 
+**complete_rate_month** | **int** | Completion rate in last 30 days | 
+**orders_buy_rate_month** | **int** | Buy order ratio in last 30 days | 
 **is_black** | **int** | Whether blocked | 
-**have_traded** | **int** | Whether traded before | 
-**appeal_unread** | **int** | Unread appeals | 
-**appeal_allow_cancel** | **int** | Whether appeal cancellation is allowed | 
-**appeal_verdict_has_open** | **str** | Appeal result (including pending appeals) | 
-**im_unread** | **int** | IM unread | 
-**message** | **str** | Review content | 
-**score** | **str** | Rating | 
-**payment_voucher_url** | **list[str]** | Payment voucher | 
-**complete_number** | **int** | Counterparty transaction volume | 
-**complete_rate_month** | **str** | Counterparty completion rate | 
-**check_journal_account** | **bool** | Whether transaction record is verified | 
-**show_journal_account** | **bool** | Whether to display transaction records | 
-**is_freeze_guarantee** | **int** | Whether margin is frozen | 
-**usdt_left_guarantee** | **str** | Remaining USDT margin | 
-**guarantee_curr_type** | **str** | Margin currency type | 
-**timest_paid** | **int** | Payment time | 
-**state** | **str** | Order Status | 
-**release_coin_switch** | **int** | Coin release switch configuration | 
-**own_realname** | **str** | Username | 
-**confirmation_use_time_month** | **int** | Average confirmation time in last 30 days | 
-**is_risk_user** | **int** | Whether risk user | 
-**is_xt** | **int** | Whether XT order | 
-**order_type** | **int** | Order Type | 
-**symbol** | **str** | Fiat currency symbol | 
-**is_show_receive** | **int** | Whether to show confirm receipt during appeal | 
-**is_taker** | **int** | Whether regular user | 
-**is_online** | **int** | Merchant online status | 
-**show_seller_contact_info** | **bool** | Whether to display seller contact information | 
-**supported_pay_types** | **list[str]** | Payment methods supported by current order | 
+**is_follow** | **int** | Whether following | 
+**have_traded** | **int** | Whether traded with self | 
+**biz_uid** | **str** | Encrypted UID | 
+**blue_vip** | **int** | Blue V Crown Shield | 
+**work_status** | **int** | Merchant work status | 
+**registration_days** | **int** | Registration days | 
+**first_trade_days** | **int** | Days since first trade | 
+**need_replenish** | **int** | Whether margin replenishment is needed | 
+**merchant_info** | [**InlineResponse20013DataMerchantInfo**](InlineResponse20013DataMerchantInfo.md) |  | 
+**online_status** | **int** | Merchant online status | 
+**work_hours** | [**object**](.md) | Merchant online status details | 
+**transactions_month** | **int** | 30-day transaction volume | 
+**transactions_all** | **int** | Total transaction volume | 
+**trade_versatile** | **bool** | Single user or composite user | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

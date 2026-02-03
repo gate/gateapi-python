@@ -146,7 +146,7 @@ class MarginTiers(object):
     def upper_limit(self):
         """Gets the upper_limit of this MarginTiers.  # noqa: E501
 
-        Upper limit, \"\" indicates greater than (the last tier)  # noqa: E501
+        Upper limit, `` indicates greater than (the last tier)  # noqa: E501
 
         :return: The upper_limit of this MarginTiers.  # noqa: E501
         :rtype: str
@@ -157,7 +157,7 @@ class MarginTiers(object):
     def upper_limit(self, upper_limit):
         """Sets the upper_limit of this MarginTiers.
 
-        Upper limit, \"\" indicates greater than (the last tier)  # noqa: E501
+        Upper limit, `` indicates greater than (the last tier)  # noqa: E501
 
         :param upper_limit: The upper_limit of this MarginTiers.  # noqa: E501
         :type: str

@@ -4,16 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_id** | **str** | User ID | 
-**symbol** | **str** | Trading Pair | 
-**interest_id** | **str** | Interest Deduction ID | 
-**liability_id** | **str** | Debt Source ID, can be Order ID or Position ID | 
-**liability** | **str** | Debt Quantity | 
-**liability_coin** | **str** | Debt Currency | 
-**interest** | **str** | Interest | 
-**interest_rate** | **str** | interest rate | 
-**interest_type** | **str** | Interest deduction type (&#x60;PERIODIC_POSITION&#x60;: periodic position interest; &#x60;PERIODIC_OPEN_ORDER&#x60;: periodic open-order interest; &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged on order opening) | 
-**create_time** | **str** | Created time | 
-**exchange_type** | **str** | Exchange | 
+**symbol** | **str** | Currency pair | 
+**crossex_adl_rank** | **str** | CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher) | 
+**exchange_adl_rank** | **str** | Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -42,7 +42,8 @@ class FuturesAccountHistory(object):
         'point_fee': 'str',
         'point_refr': 'str',
         'bonus_dnw': 'str',
-        'bonus_offset': 'str'
+        'bonus_offset': 'str',
+        'cross_settle': 'str'
     }
 
     attribute_map = {
@@ -55,11 +56,12 @@ class FuturesAccountHistory(object):
         'point_fee': 'point_fee',
         'point_refr': 'point_refr',
         'bonus_dnw': 'bonus_dnw',
-        'bonus_offset': 'bonus_offset'
+        'bonus_offset': 'bonus_offset',
+        'cross_settle': 'cross_settle'
     }
 
-    def __init__(self, dnw=None, pnl=None, fee=None, refr=None, fund=None, point_dnw=None, point_fee=None, point_refr=None, bonus_dnw=None, bonus_offset=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, dnw=None, pnl=None, fee=None, refr=None, fund=None, point_dnw=None, point_fee=None, point_refr=None, bonus_dnw=None, bonus_offset=None, cross_settle=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """FuturesAccountHistory - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class FuturesAccountHistory(object):
         self._point_refr = None
         self._bonus_dnw = None
         self._bonus_offset = None
+        self._cross_settle = None
         self.discriminator = None
 
         if dnw is not None:
@@ -97,6 +100,8 @@ class FuturesAccountHistory(object):
             self.bonus_dnw = bonus_dnw
         if bonus_offset is not None:
             self.bonus_offset = bonus_offset
+        if cross_settle is not None:
+            self.cross_settle = cross_settle
 
     @property
     def dnw(self):
@@ -327,6 +332,29 @@ class FuturesAccountHistory(object):
         """
 
         self._bonus_offset = bonus_offset
+
+    @property
+    def cross_settle(self):
+        """Gets the cross_settle of this FuturesAccountHistory.  # noqa: E501
+
+        Represents the value of profit settlement from the futures account to the spot account under Unified Account Mode. Negative values indicate settlement from futures to spot, while positive values indicate settlement from spot to futures. This value is cumulative.  # noqa: E501
+
+        :return: The cross_settle of this FuturesAccountHistory.  # noqa: E501
+        :rtype: str
+        """
+        return self._cross_settle
+
+    @cross_settle.setter
+    def cross_settle(self, cross_settle):
+        """Sets the cross_settle of this FuturesAccountHistory.
+
+        Represents the value of profit settlement from the futures account to the spot account under Unified Account Mode. Negative values indicate settlement from futures to spot, while positive values indicate settlement from spot to futures. This value is cumulative.  # noqa: E501
+
+        :param cross_settle: The cross_settle of this FuturesAccountHistory.  # noqa: E501
+        :type: str
+        """
+
+        self._cross_settle = cross_settle
 
     def to_dict(self):
         """Returns the model properties as a dict"""

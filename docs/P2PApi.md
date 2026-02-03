@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **p2p_merchant_account_get_user_info**
-> InlineResponse2009 p2p_merchant_account_get_user_info()
+> InlineResponse20013 p2p_merchant_account_get_user_info()
 
 Get account information
 
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_counterparty_user_info**
-> InlineResponse20010 p2p_merchant_account_get_counterparty_user_info(biz_uid)
+> InlineResponse20014 p2p_merchant_account_get_counterparty_user_info(biz_uid)
 
 Get counterparty information
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_myself_payment**
-> InlineResponse20011 p2p_merchant_account_get_myself_payment(fiat=fiat)
+> InlineResponse20015 p2p_merchant_account_get_myself_payment(fiat=fiat)
 
 Get payment method list
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_pending_transaction_list**
-> InlineResponse20012 p2p_merchant_transaction_get_pending_transaction_list(crypto_currency, fiat_currency, order_tab=order_tab, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time)
+> InlineResponse20016 p2p_merchant_transaction_get_pending_transaction_list(crypto_currency, fiat_currency, order_tab=order_tab, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time)
 
 Get pending orders
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_completed_transaction_list**
-> InlineResponse20012 p2p_merchant_transaction_get_completed_transaction_list(crypto_currency, fiat_currency, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time, query_dispute=query_dispute, page=page, per_page=per_page)
+> InlineResponse20016 p2p_merchant_transaction_get_completed_transaction_list(crypto_currency, fiat_currency, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time, query_dispute=query_dispute, page=page, per_page=per_page)
 
 Get all/historical orders
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -341,7 +341,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_transaction_details**
-> InlineResponse20013 p2p_merchant_transaction_get_transaction_details(txid, channel=channel)
+> InlineResponse20017 p2p_merchant_transaction_get_transaction_details(txid, channel=channel)
 
 Query order details
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_confirm_payment**
-> InlineResponse2003 p2p_merchant_transaction_confirm_payment(inline_object10=inline_object10)
+> InlineResponse2007 p2p_merchant_transaction_confirm_payment(inline_object10=inline_object10)
 
 Confirm payment
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -459,7 +459,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_confirm_receipt**
-> InlineResponse2003 p2p_merchant_transaction_confirm_receipt(inline_object11=inline_object11)
+> InlineResponse2007 p2p_merchant_transaction_confirm_receipt(inline_object11=inline_object11)
 
 Confirm receipt
 
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -517,7 +517,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_cancel**
-> InlineResponse2003 p2p_merchant_transaction_cancel(inline_object12=inline_object12)
+> InlineResponse2007 p2p_merchant_transaction_cancel(inline_object12=inline_object12)
 
 Cancel order
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -685,7 +685,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_update_status**
-> InlineResponse20014 p2p_merchant_books_ads_update_status(adv_no, adv_status, trade_type=trade_type)
+> InlineResponse20018 p2p_merchant_books_ads_update_status(adv_no, adv_status, trade_type=trade_type)
 
 Update ad status
 
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -747,7 +747,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_detail**
-> InlineResponse20015 p2p_merchant_books_ads_detail(adv_no, =)
+> InlineResponse20019 p2p_merchant_books_ads_detail(adv_no, =)
 
 Query ad details
 
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -807,7 +807,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_my_ads_list**
-> InlineResponse20016 p2p_merchant_books_my_ads_list(asset=asset, fiat_unit=fiat_unit, trade_type=trade_type)
+> InlineResponse20020 p2p_merchant_books_my_ads_list(asset=asset, fiat_unit=fiat_unit, trade_type=trade_type)
 
 Get my ad list
 
@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -869,7 +869,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_get_chats_list**
-> InlineResponse20017 p2p_merchant_chat_get_chats_list(txid, lastreceived=lastreceived, firstreceived=firstreceived)
+> InlineResponse20021 p2p_merchant_chat_get_chats_list(txid, lastreceived=lastreceived, firstreceived=firstreceived)
 
 Get chat history
 
@@ -912,7 +912,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -931,7 +931,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_send_chat_message**
-> InlineResponse20018 p2p_merchant_chat_send_chat_message(txid, message, type=type)
+> InlineResponse20022 p2p_merchant_chat_send_chat_message(txid, message, type=type)
 
 Send text message
 
@@ -974,7 +974,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -993,7 +993,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_upload_chat_file**
-> InlineResponse20019 p2p_merchant_chat_upload_chat_file(image_content_type, base64_img)
+> InlineResponse20023 p2p_merchant_chat_upload_chat_file(image_content_type, base64_img)
 
 Upload chat file
 
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 

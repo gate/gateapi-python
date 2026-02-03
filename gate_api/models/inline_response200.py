@@ -33,72 +33,46 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'time': 'int',
-        'value': 'str'
+        'order': 'TrailOrder'
     }
 
     attribute_map = {
-        'time': 'time',
-        'value': 'value'
+        'order': 'order'
     }
 
-    def __init__(self, time=None, value=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, Configuration) -> None
+    def __init__(self, order=None, local_vars_configuration=None):  # noqa: E501
+        # type: (TrailOrder, Configuration) -> None
         """InlineResponse200 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._time = None
-        self._value = None
+        self._order = None
         self.discriminator = None
 
-        if time is not None:
-            self.time = time
-        if value is not None:
-            self.value = value
+        if order is not None:
+            self.order = order
 
     @property
-    def time(self):
-        """Gets the time of this InlineResponse200.  # noqa: E501
+    def order(self):
+        """Gets the order of this InlineResponse200.  # noqa: E501
 
 
-        :return: The time of this InlineResponse200.  # noqa: E501
-        :rtype: int
+        :return: The order of this InlineResponse200.  # noqa: E501
+        :rtype: TrailOrder
         """
-        return self._time
+        return self._order
 
-    @time.setter
-    def time(self, time):
-        """Sets the time of this InlineResponse200.
-
-
-        :param time: The time of this InlineResponse200.  # noqa: E501
-        :type: int
-        """
-
-        self._time = time
-
-    @property
-    def value(self):
-        """Gets the value of this InlineResponse200.  # noqa: E501
+    @order.setter
+    def order(self, order):
+        """Sets the order of this InlineResponse200.
 
 
-        :return: The value of this InlineResponse200.  # noqa: E501
-        :rtype: str
-        """
-        return self._value
-
-    @value.setter
-    def value(self, value):
-        """Sets the value of this InlineResponse200.
-
-
-        :param value: The value of this InlineResponse200.  # noqa: E501
-        :type: str
+        :param order: The order of this InlineResponse200.  # noqa: E501
+        :type: TrailOrder
         """
 
-        self._value = value
+        self._order = order
 
     def to_dict(self):
         """Returns the model properties as a dict"""

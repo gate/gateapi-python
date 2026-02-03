@@ -34,124 +34,78 @@ class InlineResponse20032(object):
     """
     openapi_types = {
         'user_id': 'str',
-        'position_id': 'str',
-        'symbol': 'str',
-        'position_side': 'str',
+        'available_margin': 'str',
+        'margin_balance': 'str',
         'initial_margin': 'str',
         'maintenance_margin': 'str',
-        'position_qty': 'str',
-        'position_value': 'str',
-        'upnl': 'str',
-        'upnl_rate': 'str',
-        'entry_price': 'str',
-        'mark_price': 'str',
-        'leverage': 'str',
-        'max_leverage': 'str',
-        'risk_limit': 'str',
-        'fee': 'str',
-        'funding_fee': 'str',
-        'funding_time': 'str',
+        'initial_margin_rate': 'str',
+        'maintenance_margin_rate': 'str',
+        'position_mode': 'str',
+        'account_limit': 'str',
         'create_time': 'str',
         'update_time': 'str',
-        'closed_pnl': 'str'
+        'account_mode': 'str',
+        'exchange_type': 'str',
+        'assets': 'list[InlineResponse20032Assets]'
     }
 
     attribute_map = {
         'user_id': 'user_id',
-        'position_id': 'position_id',
-        'symbol': 'symbol',
-        'position_side': 'position_side',
+        'available_margin': 'available_margin',
+        'margin_balance': 'margin_balance',
         'initial_margin': 'initial_margin',
         'maintenance_margin': 'maintenance_margin',
-        'position_qty': 'position_qty',
-        'position_value': 'position_value',
-        'upnl': 'upnl',
-        'upnl_rate': 'upnl_rate',
-        'entry_price': 'entry_price',
-        'mark_price': 'mark_price',
-        'leverage': 'leverage',
-        'max_leverage': 'max_leverage',
-        'risk_limit': 'risk_limit',
-        'fee': 'fee',
-        'funding_fee': 'funding_fee',
-        'funding_time': 'funding_time',
+        'initial_margin_rate': 'initial_margin_rate',
+        'maintenance_margin_rate': 'maintenance_margin_rate',
+        'position_mode': 'position_mode',
+        'account_limit': 'account_limit',
         'create_time': 'create_time',
         'update_time': 'update_time',
-        'closed_pnl': 'closed_pnl'
+        'account_mode': 'account_mode',
+        'exchange_type': 'exchange_type',
+        'assets': 'assets'
     }
 
-    def __init__(self, user_id=None, position_id=None, symbol=None, position_side=None, initial_margin=None, maintenance_margin=None, position_qty=None, position_value=None, upnl=None, upnl_rate=None, entry_price=None, mark_price=None, leverage=None, max_leverage=None, risk_limit=None, fee=None, funding_fee=None, funding_time=None, create_time=None, update_time=None, closed_pnl=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, user_id=None, available_margin=None, margin_balance=None, initial_margin=None, maintenance_margin=None, initial_margin_rate=None, maintenance_margin_rate=None, position_mode=None, account_limit=None, create_time=None, update_time=None, account_mode=None, exchange_type=None, assets=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, list[InlineResponse20032Assets], Configuration) -> None
         """InlineResponse20032 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._user_id = None
-        self._position_id = None
-        self._symbol = None
-        self._position_side = None
+        self._available_margin = None
+        self._margin_balance = None
         self._initial_margin = None
         self._maintenance_margin = None
-        self._position_qty = None
-        self._position_value = None
-        self._upnl = None
-        self._upnl_rate = None
-        self._entry_price = None
-        self._mark_price = None
-        self._leverage = None
-        self._max_leverage = None
-        self._risk_limit = None
-        self._fee = None
-        self._funding_fee = None
-        self._funding_time = None
+        self._initial_margin_rate = None
+        self._maintenance_margin_rate = None
+        self._position_mode = None
+        self._account_limit = None
         self._create_time = None
         self._update_time = None
-        self._closed_pnl = None
+        self._account_mode = None
+        self._exchange_type = None
+        self._assets = None
         self.discriminator = None
 
-        if user_id is not None:
-            self.user_id = user_id
-        if position_id is not None:
-            self.position_id = position_id
-        if symbol is not None:
-            self.symbol = symbol
-        if position_side is not None:
-            self.position_side = position_side
-        if initial_margin is not None:
-            self.initial_margin = initial_margin
-        if maintenance_margin is not None:
-            self.maintenance_margin = maintenance_margin
-        if position_qty is not None:
-            self.position_qty = position_qty
-        if position_value is not None:
-            self.position_value = position_value
-        if upnl is not None:
-            self.upnl = upnl
-        if upnl_rate is not None:
-            self.upnl_rate = upnl_rate
-        if entry_price is not None:
-            self.entry_price = entry_price
-        if mark_price is not None:
-            self.mark_price = mark_price
-        if leverage is not None:
-            self.leverage = leverage
-        if max_leverage is not None:
-            self.max_leverage = max_leverage
-        if risk_limit is not None:
-            self.risk_limit = risk_limit
-        if fee is not None:
-            self.fee = fee
-        if funding_fee is not None:
-            self.funding_fee = funding_fee
-        if funding_time is not None:
-            self.funding_time = funding_time
-        if create_time is not None:
-            self.create_time = create_time
-        if update_time is not None:
-            self.update_time = update_time
-        if closed_pnl is not None:
-            self.closed_pnl = closed_pnl
+        self.user_id = user_id
+        self.available_margin = available_margin
+        self.margin_balance = margin_balance
+        self.initial_margin = initial_margin
+        self.maintenance_margin = maintenance_margin
+        self.initial_margin_rate = initial_margin_rate
+        self.maintenance_margin_rate = maintenance_margin_rate
+        self.position_mode = position_mode
+        if account_limit is not None:
+            self.account_limit = account_limit
+        self.create_time = create_time
+        self.update_time = update_time
+        if account_mode is not None:
+            self.account_mode = account_mode
+        if exchange_type is not None:
+            self.exchange_type = exchange_type
+        self.assets = assets
 
     @property
     def user_id(self):
@@ -173,77 +127,60 @@ class InlineResponse20032(object):
         :param user_id: The user_id of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 
     @property
-    def position_id(self):
-        """Gets the position_id of this InlineResponse20032.  # noqa: E501
+    def available_margin(self):
+        """Gets the available_margin of this InlineResponse20032.  # noqa: E501
 
-        Position ID  # noqa: E501
+        Available Margin  # noqa: E501
 
-        :return: The position_id of this InlineResponse20032.  # noqa: E501
+        :return: The available_margin of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._position_id
+        return self._available_margin
 
-    @position_id.setter
-    def position_id(self, position_id):
-        """Sets the position_id of this InlineResponse20032.
+    @available_margin.setter
+    def available_margin(self, available_margin):
+        """Sets the available_margin of this InlineResponse20032.
 
-        Position ID  # noqa: E501
+        Available Margin  # noqa: E501
 
-        :param position_id: The position_id of this InlineResponse20032.  # noqa: E501
+        :param available_margin: The available_margin of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and available_margin is None:  # noqa: E501
+            raise ValueError("Invalid value for `available_margin`, must not be `None`")  # noqa: E501
 
-        self._position_id = position_id
+        self._available_margin = available_margin
 
     @property
-    def symbol(self):
-        """Gets the symbol of this InlineResponse20032.  # noqa: E501
+    def margin_balance(self):
+        """Gets the margin_balance of this InlineResponse20032.  # noqa: E501
 
-        Currency pair  # noqa: E501
+        marginbalance  # noqa: E501
 
-        :return: The symbol of this InlineResponse20032.  # noqa: E501
+        :return: The margin_balance of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._symbol
+        return self._margin_balance
 
-    @symbol.setter
-    def symbol(self, symbol):
-        """Sets the symbol of this InlineResponse20032.
+    @margin_balance.setter
+    def margin_balance(self, margin_balance):
+        """Sets the margin_balance of this InlineResponse20032.
 
-        Currency pair  # noqa: E501
+        marginbalance  # noqa: E501
 
-        :param symbol: The symbol of this InlineResponse20032.  # noqa: E501
+        :param margin_balance: The margin_balance of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and margin_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `margin_balance`, must not be `None`")  # noqa: E501
 
-        self._symbol = symbol
-
-    @property
-    def position_side(self):
-        """Gets the position_side of this InlineResponse20032.  # noqa: E501
-
-        Position Direction  # noqa: E501
-
-        :return: The position_side of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._position_side
-
-    @position_side.setter
-    def position_side(self, position_side):
-        """Sets the position_side of this InlineResponse20032.
-
-        Position Direction  # noqa: E501
-
-        :param position_side: The position_side of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._position_side = position_side
+        self._margin_balance = margin_balance
 
     @property
     def initial_margin(self):
@@ -265,6 +202,8 @@ class InlineResponse20032(object):
         :param initial_margin: The initial_margin of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and initial_margin is None:  # noqa: E501
+            raise ValueError("Invalid value for `initial_margin`, must not be `None`")  # noqa: E501
 
         self._initial_margin = initial_margin
 
@@ -288,290 +227,114 @@ class InlineResponse20032(object):
         :param maintenance_margin: The maintenance_margin of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and maintenance_margin is None:  # noqa: E501
+            raise ValueError("Invalid value for `maintenance_margin`, must not be `None`")  # noqa: E501
 
         self._maintenance_margin = maintenance_margin
 
     @property
-    def position_qty(self):
-        """Gets the position_qty of this InlineResponse20032.  # noqa: E501
+    def initial_margin_rate(self):
+        """Gets the initial_margin_rate of this InlineResponse20032.  # noqa: E501
 
-        Position Quantity  # noqa: E501
+        Initial margin rate  # noqa: E501
 
-        :return: The position_qty of this InlineResponse20032.  # noqa: E501
+        :return: The initial_margin_rate of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._position_qty
+        return self._initial_margin_rate
 
-    @position_qty.setter
-    def position_qty(self, position_qty):
-        """Sets the position_qty of this InlineResponse20032.
+    @initial_margin_rate.setter
+    def initial_margin_rate(self, initial_margin_rate):
+        """Sets the initial_margin_rate of this InlineResponse20032.
 
-        Position Quantity  # noqa: E501
+        Initial margin rate  # noqa: E501
 
-        :param position_qty: The position_qty of this InlineResponse20032.  # noqa: E501
+        :param initial_margin_rate: The initial_margin_rate of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and initial_margin_rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `initial_margin_rate`, must not be `None`")  # noqa: E501
 
-        self._position_qty = position_qty
+        self._initial_margin_rate = initial_margin_rate
 
     @property
-    def position_value(self):
-        """Gets the position_value of this InlineResponse20032.  # noqa: E501
+    def maintenance_margin_rate(self):
+        """Gets the maintenance_margin_rate of this InlineResponse20032.  # noqa: E501
 
-        Position Value  # noqa: E501
+        Maintenance margin rate  # noqa: E501
 
-        :return: The position_value of this InlineResponse20032.  # noqa: E501
+        :return: The maintenance_margin_rate of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._position_value
+        return self._maintenance_margin_rate
 
-    @position_value.setter
-    def position_value(self, position_value):
-        """Sets the position_value of this InlineResponse20032.
+    @maintenance_margin_rate.setter
+    def maintenance_margin_rate(self, maintenance_margin_rate):
+        """Sets the maintenance_margin_rate of this InlineResponse20032.
 
-        Position Value  # noqa: E501
+        Maintenance margin rate  # noqa: E501
 
-        :param position_value: The position_value of this InlineResponse20032.  # noqa: E501
+        :param maintenance_margin_rate: The maintenance_margin_rate of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and maintenance_margin_rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `maintenance_margin_rate`, must not be `None`")  # noqa: E501
 
-        self._position_value = position_value
+        self._maintenance_margin_rate = maintenance_margin_rate
 
     @property
-    def upnl(self):
-        """Gets the upnl of this InlineResponse20032.  # noqa: E501
+    def position_mode(self):
+        """Gets the position_mode of this InlineResponse20032.  # noqa: E501
 
-        Unrealized P&L  # noqa: E501
+        Contract Position Mode  # noqa: E501
 
-        :return: The upnl of this InlineResponse20032.  # noqa: E501
+        :return: The position_mode of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._upnl
+        return self._position_mode
 
-    @upnl.setter
-    def upnl(self, upnl):
-        """Sets the upnl of this InlineResponse20032.
+    @position_mode.setter
+    def position_mode(self, position_mode):
+        """Sets the position_mode of this InlineResponse20032.
 
-        Unrealized P&L  # noqa: E501
+        Contract Position Mode  # noqa: E501
 
-        :param upnl: The upnl of this InlineResponse20032.  # noqa: E501
+        :param position_mode: The position_mode of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and position_mode is None:  # noqa: E501
+            raise ValueError("Invalid value for `position_mode`, must not be `None`")  # noqa: E501
 
-        self._upnl = upnl
+        self._position_mode = position_mode
 
     @property
-    def upnl_rate(self):
-        """Gets the upnl_rate of this InlineResponse20032.  # noqa: E501
+    def account_limit(self):
+        """Gets the account_limit of this InlineResponse20032.  # noqa: E501
 
-        Unrealized P&L Ratio  # noqa: E501
+        Account limit  # noqa: E501
 
-        :return: The upnl_rate of this InlineResponse20032.  # noqa: E501
+        :return: The account_limit of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._upnl_rate
+        return self._account_limit
 
-    @upnl_rate.setter
-    def upnl_rate(self, upnl_rate):
-        """Sets the upnl_rate of this InlineResponse20032.
+    @account_limit.setter
+    def account_limit(self, account_limit):
+        """Sets the account_limit of this InlineResponse20032.
 
-        Unrealized P&L Ratio  # noqa: E501
+        Account limit  # noqa: E501
 
-        :param upnl_rate: The upnl_rate of this InlineResponse20032.  # noqa: E501
+        :param account_limit: The account_limit of this InlineResponse20032.  # noqa: E501
         :type: str
         """
 
-        self._upnl_rate = upnl_rate
-
-    @property
-    def entry_price(self):
-        """Gets the entry_price of this InlineResponse20032.  # noqa: E501
-
-        Position Average Entry Price  # noqa: E501
-
-        :return: The entry_price of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._entry_price
-
-    @entry_price.setter
-    def entry_price(self, entry_price):
-        """Sets the entry_price of this InlineResponse20032.
-
-        Position Average Entry Price  # noqa: E501
-
-        :param entry_price: The entry_price of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._entry_price = entry_price
-
-    @property
-    def mark_price(self):
-        """Gets the mark_price of this InlineResponse20032.  # noqa: E501
-
-        Mark price  # noqa: E501
-
-        :return: The mark_price of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._mark_price
-
-    @mark_price.setter
-    def mark_price(self, mark_price):
-        """Sets the mark_price of this InlineResponse20032.
-
-        Mark price  # noqa: E501
-
-        :param mark_price: The mark_price of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._mark_price = mark_price
-
-    @property
-    def leverage(self):
-        """Gets the leverage of this InlineResponse20032.  # noqa: E501
-
-        Position Leverage  # noqa: E501
-
-        :return: The leverage of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._leverage
-
-    @leverage.setter
-    def leverage(self, leverage):
-        """Sets the leverage of this InlineResponse20032.
-
-        Position Leverage  # noqa: E501
-
-        :param leverage: The leverage of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._leverage = leverage
-
-    @property
-    def max_leverage(self):
-        """Gets the max_leverage of this InlineResponse20032.  # noqa: E501
-
-        Maximum leverage  # noqa: E501
-
-        :return: The max_leverage of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._max_leverage
-
-    @max_leverage.setter
-    def max_leverage(self, max_leverage):
-        """Sets the max_leverage of this InlineResponse20032.
-
-        Maximum leverage  # noqa: E501
-
-        :param max_leverage: The max_leverage of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._max_leverage = max_leverage
-
-    @property
-    def risk_limit(self):
-        """Gets the risk_limit of this InlineResponse20032.  # noqa: E501
-
-        Position risk limit  # noqa: E501
-
-        :return: The risk_limit of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._risk_limit
-
-    @risk_limit.setter
-    def risk_limit(self, risk_limit):
-        """Sets the risk_limit of this InlineResponse20032.
-
-        Position risk limit  # noqa: E501
-
-        :param risk_limit: The risk_limit of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._risk_limit = risk_limit
-
-    @property
-    def fee(self):
-        """Gets the fee of this InlineResponse20032.  # noqa: E501
-
-        Position Fee  # noqa: E501
-
-        :return: The fee of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._fee
-
-    @fee.setter
-    def fee(self, fee):
-        """Sets the fee of this InlineResponse20032.
-
-        Position Fee  # noqa: E501
-
-        :param fee: The fee of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._fee = fee
-
-    @property
-    def funding_fee(self):
-        """Gets the funding_fee of this InlineResponse20032.  # noqa: E501
-
-        Position Funding Fee  # noqa: E501
-
-        :return: The funding_fee of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._funding_fee
-
-    @funding_fee.setter
-    def funding_fee(self, funding_fee):
-        """Sets the funding_fee of this InlineResponse20032.
-
-        Position Funding Fee  # noqa: E501
-
-        :param funding_fee: The funding_fee of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._funding_fee = funding_fee
-
-    @property
-    def funding_time(self):
-        """Gets the funding_time of this InlineResponse20032.  # noqa: E501
-
-        Position funding fee collection time (0 indicates it has not been collected yet)  # noqa: E501
-
-        :return: The funding_time of this InlineResponse20032.  # noqa: E501
-        :rtype: str
-        """
-        return self._funding_time
-
-    @funding_time.setter
-    def funding_time(self, funding_time):
-        """Sets the funding_time of this InlineResponse20032.
-
-        Position funding fee collection time (0 indicates it has not been collected yet)  # noqa: E501
-
-        :param funding_time: The funding_time of this InlineResponse20032.  # noqa: E501
-        :type: str
-        """
-
-        self._funding_time = funding_time
+        self._account_limit = account_limit
 
     @property
     def create_time(self):
         """Gets the create_time of this InlineResponse20032.  # noqa: E501
 
-        Position Creation Time  # noqa: E501
+        Created time  # noqa: E501
 
         :return: The create_time of this InlineResponse20032.  # noqa: E501
         :rtype: str
@@ -582,11 +345,13 @@ class InlineResponse20032(object):
     def create_time(self, create_time):
         """Sets the create_time of this InlineResponse20032.
 
-        Position Creation Time  # noqa: E501
+        Created time  # noqa: E501
 
         :param create_time: The create_time of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and create_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
 
         self._create_time = create_time
 
@@ -594,7 +359,7 @@ class InlineResponse20032(object):
     def update_time(self):
         """Gets the update_time of this InlineResponse20032.  # noqa: E501
 
-        Position Update Time  # noqa: E501
+        Update time  # noqa: E501
 
         :return: The update_time of this InlineResponse20032.  # noqa: E501
         :rtype: str
@@ -605,36 +370,84 @@ class InlineResponse20032(object):
     def update_time(self, update_time):
         """Sets the update_time of this InlineResponse20032.
 
-        Position Update Time  # noqa: E501
+        Update time  # noqa: E501
 
         :param update_time: The update_time of this InlineResponse20032.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and update_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `update_time`, must not be `None`")  # noqa: E501
 
         self._update_time = update_time
 
     @property
-    def closed_pnl(self):
-        """Gets the closed_pnl of this InlineResponse20032.  # noqa: E501
+    def account_mode(self):
+        """Gets the account_mode of this InlineResponse20032.  # noqa: E501
 
-        Realized PnL  # noqa: E501
+        Account mode. CROSS_EXCHANGE: cross-exchange mode. ISOLATED_EXCHANGE: isolated exchange mode  # noqa: E501
 
-        :return: The closed_pnl of this InlineResponse20032.  # noqa: E501
+        :return: The account_mode of this InlineResponse20032.  # noqa: E501
         :rtype: str
         """
-        return self._closed_pnl
+        return self._account_mode
 
-    @closed_pnl.setter
-    def closed_pnl(self, closed_pnl):
-        """Sets the closed_pnl of this InlineResponse20032.
+    @account_mode.setter
+    def account_mode(self, account_mode):
+        """Sets the account_mode of this InlineResponse20032.
 
-        Realized PnL  # noqa: E501
+        Account mode. CROSS_EXCHANGE: cross-exchange mode. ISOLATED_EXCHANGE: isolated exchange mode  # noqa: E501
 
-        :param closed_pnl: The closed_pnl of this InlineResponse20032.  # noqa: E501
+        :param account_mode: The account_mode of this InlineResponse20032.  # noqa: E501
         :type: str
         """
 
-        self._closed_pnl = closed_pnl
+        self._account_mode = account_mode
+
+    @property
+    def exchange_type(self):
+        """Gets the exchange_type of this InlineResponse20032.  # noqa: E501
+
+        Exchange type. When account_mode is CROSS_EXCHANGE, this must be CROSSEX; otherwise, it represents a specific exchange  # noqa: E501
+
+        :return: The exchange_type of this InlineResponse20032.  # noqa: E501
+        :rtype: str
+        """
+        return self._exchange_type
+
+    @exchange_type.setter
+    def exchange_type(self, exchange_type):
+        """Sets the exchange_type of this InlineResponse20032.
+
+        Exchange type. When account_mode is CROSS_EXCHANGE, this must be CROSSEX; otherwise, it represents a specific exchange  # noqa: E501
+
+        :param exchange_type: The exchange_type of this InlineResponse20032.  # noqa: E501
+        :type: str
+        """
+
+        self._exchange_type = exchange_type
+
+    @property
+    def assets(self):
+        """Gets the assets of this InlineResponse20032.  # noqa: E501
+
+
+        :return: The assets of this InlineResponse20032.  # noqa: E501
+        :rtype: list[InlineResponse20032Assets]
+        """
+        return self._assets
+
+    @assets.setter
+    def assets(self, assets):
+        """Sets the assets of this InlineResponse20032.
+
+
+        :param assets: The assets of this InlineResponse20032.  # noqa: E501
+        :type: list[InlineResponse20032Assets]
+        """
+        if self.local_vars_configuration.client_side_validation and assets is None:  # noqa: E501
+            raise ValueError("Invalid value for `assets`, must not be `None`")  # noqa: E501
+
+        self._assets = assets
 
     def to_dict(self):
         """Returns the model properties as a dict"""

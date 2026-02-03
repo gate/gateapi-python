@@ -33,421 +33,78 @@ class InlineResponse20028(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'user_id': 'str',
-        'available_margin': 'str',
-        'margin_balance': 'str',
-        'initial_margin': 'str',
-        'maintenance_margin': 'str',
-        'initial_margin_rate': 'str',
-        'maintenance_margin_rate': 'str',
-        'position_mode': 'str',
-        'account_limit': 'str',
-        'create_time': 'str',
-        'update_time': 'str',
-        'account_mode': 'str',
-        'exchange_type': 'str',
-        'assets': 'list[InlineResponse20028Assets]'
+        'order_id': 'str',
+        'text': 'str'
     }
 
     attribute_map = {
-        'user_id': 'user_id',
-        'available_margin': 'available_margin',
-        'margin_balance': 'margin_balance',
-        'initial_margin': 'initial_margin',
-        'maintenance_margin': 'maintenance_margin',
-        'initial_margin_rate': 'initial_margin_rate',
-        'maintenance_margin_rate': 'maintenance_margin_rate',
-        'position_mode': 'position_mode',
-        'account_limit': 'account_limit',
-        'create_time': 'create_time',
-        'update_time': 'update_time',
-        'account_mode': 'account_mode',
-        'exchange_type': 'exchange_type',
-        'assets': 'assets'
+        'order_id': 'order_id',
+        'text': 'text'
     }
 
-    def __init__(self, user_id=None, available_margin=None, margin_balance=None, initial_margin=None, maintenance_margin=None, initial_margin_rate=None, maintenance_margin_rate=None, position_mode=None, account_limit=None, create_time=None, update_time=None, account_mode=None, exchange_type=None, assets=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, list[InlineResponse20028Assets], Configuration) -> None
+    def __init__(self, order_id=None, text=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineResponse20028 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._user_id = None
-        self._available_margin = None
-        self._margin_balance = None
-        self._initial_margin = None
-        self._maintenance_margin = None
-        self._initial_margin_rate = None
-        self._maintenance_margin_rate = None
-        self._position_mode = None
-        self._account_limit = None
-        self._create_time = None
-        self._update_time = None
-        self._account_mode = None
-        self._exchange_type = None
-        self._assets = None
+        self._order_id = None
+        self._text = None
         self.discriminator = None
 
-        self.user_id = user_id
-        self.available_margin = available_margin
-        self.margin_balance = margin_balance
-        self.initial_margin = initial_margin
-        self.maintenance_margin = maintenance_margin
-        self.initial_margin_rate = initial_margin_rate
-        self.maintenance_margin_rate = maintenance_margin_rate
-        self.position_mode = position_mode
-        if account_limit is not None:
-            self.account_limit = account_limit
-        self.create_time = create_time
-        self.update_time = update_time
-        if account_mode is not None:
-            self.account_mode = account_mode
-        if exchange_type is not None:
-            self.exchange_type = exchange_type
-        self.assets = assets
+        self.order_id = order_id
+        self.text = text
 
     @property
-    def user_id(self):
-        """Gets the user_id of this InlineResponse20028.  # noqa: E501
+    def order_id(self):
+        """Gets the order_id of this InlineResponse20028.  # noqa: E501
 
-        User ID  # noqa: E501
+        Order ID  # noqa: E501
 
-        :return: The user_id of this InlineResponse20028.  # noqa: E501
+        :return: The order_id of this InlineResponse20028.  # noqa: E501
         :rtype: str
         """
-        return self._user_id
+        return self._order_id
 
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this InlineResponse20028.
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineResponse20028.
 
-        User ID  # noqa: E501
+        Order ID  # noqa: E501
 
-        :param user_id: The user_id of this InlineResponse20028.  # noqa: E501
+        :param order_id: The order_id of this InlineResponse20028.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._user_id = user_id
+        self._order_id = order_id
 
     @property
-    def available_margin(self):
-        """Gets the available_margin of this InlineResponse20028.  # noqa: E501
+    def text(self):
+        """Gets the text of this InlineResponse20028.  # noqa: E501
 
-        Available Margin  # noqa: E501
+        User-defined Order ID  # noqa: E501
 
-        :return: The available_margin of this InlineResponse20028.  # noqa: E501
+        :return: The text of this InlineResponse20028.  # noqa: E501
         :rtype: str
         """
-        return self._available_margin
+        return self._text
 
-    @available_margin.setter
-    def available_margin(self, available_margin):
-        """Sets the available_margin of this InlineResponse20028.
+    @text.setter
+    def text(self, text):
+        """Sets the text of this InlineResponse20028.
 
-        Available Margin  # noqa: E501
+        User-defined Order ID  # noqa: E501
 
-        :param available_margin: The available_margin of this InlineResponse20028.  # noqa: E501
+        :param text: The text of this InlineResponse20028.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and available_margin is None:  # noqa: E501
-            raise ValueError("Invalid value for `available_margin`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
+            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
-        self._available_margin = available_margin
-
-    @property
-    def margin_balance(self):
-        """Gets the margin_balance of this InlineResponse20028.  # noqa: E501
-
-        marginbalance  # noqa: E501
-
-        :return: The margin_balance of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._margin_balance
-
-    @margin_balance.setter
-    def margin_balance(self, margin_balance):
-        """Sets the margin_balance of this InlineResponse20028.
-
-        marginbalance  # noqa: E501
-
-        :param margin_balance: The margin_balance of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and margin_balance is None:  # noqa: E501
-            raise ValueError("Invalid value for `margin_balance`, must not be `None`")  # noqa: E501
-
-        self._margin_balance = margin_balance
-
-    @property
-    def initial_margin(self):
-        """Gets the initial_margin of this InlineResponse20028.  # noqa: E501
-
-        Initial Margin  # noqa: E501
-
-        :return: The initial_margin of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._initial_margin
-
-    @initial_margin.setter
-    def initial_margin(self, initial_margin):
-        """Sets the initial_margin of this InlineResponse20028.
-
-        Initial Margin  # noqa: E501
-
-        :param initial_margin: The initial_margin of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and initial_margin is None:  # noqa: E501
-            raise ValueError("Invalid value for `initial_margin`, must not be `None`")  # noqa: E501
-
-        self._initial_margin = initial_margin
-
-    @property
-    def maintenance_margin(self):
-        """Gets the maintenance_margin of this InlineResponse20028.  # noqa: E501
-
-        Maintenance margin  # noqa: E501
-
-        :return: The maintenance_margin of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._maintenance_margin
-
-    @maintenance_margin.setter
-    def maintenance_margin(self, maintenance_margin):
-        """Sets the maintenance_margin of this InlineResponse20028.
-
-        Maintenance margin  # noqa: E501
-
-        :param maintenance_margin: The maintenance_margin of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and maintenance_margin is None:  # noqa: E501
-            raise ValueError("Invalid value for `maintenance_margin`, must not be `None`")  # noqa: E501
-
-        self._maintenance_margin = maintenance_margin
-
-    @property
-    def initial_margin_rate(self):
-        """Gets the initial_margin_rate of this InlineResponse20028.  # noqa: E501
-
-        Initial margin rate  # noqa: E501
-
-        :return: The initial_margin_rate of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._initial_margin_rate
-
-    @initial_margin_rate.setter
-    def initial_margin_rate(self, initial_margin_rate):
-        """Sets the initial_margin_rate of this InlineResponse20028.
-
-        Initial margin rate  # noqa: E501
-
-        :param initial_margin_rate: The initial_margin_rate of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and initial_margin_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `initial_margin_rate`, must not be `None`")  # noqa: E501
-
-        self._initial_margin_rate = initial_margin_rate
-
-    @property
-    def maintenance_margin_rate(self):
-        """Gets the maintenance_margin_rate of this InlineResponse20028.  # noqa: E501
-
-        Maintenance margin rate  # noqa: E501
-
-        :return: The maintenance_margin_rate of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._maintenance_margin_rate
-
-    @maintenance_margin_rate.setter
-    def maintenance_margin_rate(self, maintenance_margin_rate):
-        """Sets the maintenance_margin_rate of this InlineResponse20028.
-
-        Maintenance margin rate  # noqa: E501
-
-        :param maintenance_margin_rate: The maintenance_margin_rate of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and maintenance_margin_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `maintenance_margin_rate`, must not be `None`")  # noqa: E501
-
-        self._maintenance_margin_rate = maintenance_margin_rate
-
-    @property
-    def position_mode(self):
-        """Gets the position_mode of this InlineResponse20028.  # noqa: E501
-
-        Contract Position Mode  # noqa: E501
-
-        :return: The position_mode of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._position_mode
-
-    @position_mode.setter
-    def position_mode(self, position_mode):
-        """Sets the position_mode of this InlineResponse20028.
-
-        Contract Position Mode  # noqa: E501
-
-        :param position_mode: The position_mode of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and position_mode is None:  # noqa: E501
-            raise ValueError("Invalid value for `position_mode`, must not be `None`")  # noqa: E501
-
-        self._position_mode = position_mode
-
-    @property
-    def account_limit(self):
-        """Gets the account_limit of this InlineResponse20028.  # noqa: E501
-
-        Account limit  # noqa: E501
-
-        :return: The account_limit of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._account_limit
-
-    @account_limit.setter
-    def account_limit(self, account_limit):
-        """Sets the account_limit of this InlineResponse20028.
-
-        Account limit  # noqa: E501
-
-        :param account_limit: The account_limit of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-
-        self._account_limit = account_limit
-
-    @property
-    def create_time(self):
-        """Gets the create_time of this InlineResponse20028.  # noqa: E501
-
-        Created time  # noqa: E501
-
-        :return: The create_time of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._create_time
-
-    @create_time.setter
-    def create_time(self, create_time):
-        """Sets the create_time of this InlineResponse20028.
-
-        Created time  # noqa: E501
-
-        :param create_time: The create_time of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and create_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
-
-        self._create_time = create_time
-
-    @property
-    def update_time(self):
-        """Gets the update_time of this InlineResponse20028.  # noqa: E501
-
-        Update time  # noqa: E501
-
-        :return: The update_time of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._update_time
-
-    @update_time.setter
-    def update_time(self, update_time):
-        """Sets the update_time of this InlineResponse20028.
-
-        Update time  # noqa: E501
-
-        :param update_time: The update_time of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and update_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `update_time`, must not be `None`")  # noqa: E501
-
-        self._update_time = update_time
-
-    @property
-    def account_mode(self):
-        """Gets the account_mode of this InlineResponse20028.  # noqa: E501
-
-        Account mode. CROSS_EXCHANGE: cross-exchange mode. ISOLATED_EXCHANGE: isolated exchange mode  # noqa: E501
-
-        :return: The account_mode of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._account_mode
-
-    @account_mode.setter
-    def account_mode(self, account_mode):
-        """Sets the account_mode of this InlineResponse20028.
-
-        Account mode. CROSS_EXCHANGE: cross-exchange mode. ISOLATED_EXCHANGE: isolated exchange mode  # noqa: E501
-
-        :param account_mode: The account_mode of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-
-        self._account_mode = account_mode
-
-    @property
-    def exchange_type(self):
-        """Gets the exchange_type of this InlineResponse20028.  # noqa: E501
-
-        Exchange type. When account_mode is CROSS_EXCHANGE, this must be CROSSEX; otherwise, it represents a specific exchange  # noqa: E501
-
-        :return: The exchange_type of this InlineResponse20028.  # noqa: E501
-        :rtype: str
-        """
-        return self._exchange_type
-
-    @exchange_type.setter
-    def exchange_type(self, exchange_type):
-        """Sets the exchange_type of this InlineResponse20028.
-
-        Exchange type. When account_mode is CROSS_EXCHANGE, this must be CROSSEX; otherwise, it represents a specific exchange  # noqa: E501
-
-        :param exchange_type: The exchange_type of this InlineResponse20028.  # noqa: E501
-        :type: str
-        """
-
-        self._exchange_type = exchange_type
-
-    @property
-    def assets(self):
-        """Gets the assets of this InlineResponse20028.  # noqa: E501
-
-
-        :return: The assets of this InlineResponse20028.  # noqa: E501
-        :rtype: list[InlineResponse20028Assets]
-        """
-        return self._assets
-
-    @assets.setter
-    def assets(self, assets):
-        """Sets the assets of this InlineResponse20028.
-
-
-        :param assets: The assets of this InlineResponse20028.  # noqa: E501
-        :type: list[InlineResponse20028Assets]
-        """
-        if self.local_vars_configuration.client_side_validation and assets is None:  # noqa: E501
-            raise ValueError("Invalid value for `assets`, must not be `None`")  # noqa: E501
-
-        self._assets = assets
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

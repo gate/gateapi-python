@@ -58,7 +58,7 @@ class DeliveryAccount(object):
         'enable_new_dual_mode': 'bool',
         'margin_mode': 'int',
         'enable_tiered_mm': 'bool',
-        'history': 'FuturesAccountHistory'
+        'history': 'DeliveryAccountHistory'
     }
 
     attribute_map = {
@@ -91,7 +91,7 @@ class DeliveryAccount(object):
     }
 
     def __init__(self, total=None, unrealised_pnl=None, position_margin=None, order_margin=None, available=None, point=None, currency=None, in_dual_mode=None, enable_credit=None, position_initial_margin=None, maintenance_margin=None, bonus=None, enable_evolved_classic=None, cross_order_margin=None, cross_initial_margin=None, cross_maintenance_margin=None, cross_unrealised_pnl=None, cross_available=None, cross_margin_balance=None, cross_mmr=None, cross_imr=None, isolated_position_margin=None, enable_new_dual_mode=None, margin_mode=None, enable_tiered_mm=None, history=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, bool, bool, str, str, str, bool, str, str, str, str, str, str, str, str, str, bool, int, bool, FuturesAccountHistory, Configuration) -> None
+        # type: (str, str, str, str, str, str, str, bool, bool, str, str, str, bool, str, str, str, str, str, str, str, str, str, bool, int, bool, DeliveryAccountHistory, Configuration) -> None
         """DeliveryAccount - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -759,7 +759,7 @@ class DeliveryAccount(object):
 
 
         :return: The history of this DeliveryAccount.  # noqa: E501
-        :rtype: FuturesAccountHistory
+        :rtype: DeliveryAccountHistory
         """
         return self._history
 
@@ -769,7 +769,7 @@ class DeliveryAccount(object):
 
 
         :param history: The history of this DeliveryAccount.  # noqa: E501
-        :type: FuturesAccountHistory
+        :type: DeliveryAccountHistory
         """
 
         self._history = history

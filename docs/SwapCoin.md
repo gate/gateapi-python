@@ -5,7 +5,7 @@ Blockchain Mining
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **coin** | **str** | Currency | 
-**side** | **str** | 0 - Stake 1 - Redeem | 
+**side** | **int** | 0 - Stake 1 - Redeem | 
 **amount** | **str** | Size | 
 **pid** | **int** | DeFi-type Mining Protocol Identifier | [optional] 
 

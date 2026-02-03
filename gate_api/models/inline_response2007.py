@@ -35,17 +35,17 @@ class InlineResponse2007(object):
     openapi_types = {
         'code': 'int',
         'message': 'str',
-        'data': 'InlineResponse2007Data'
+        'timestamp': 'int'
     }
 
     attribute_map = {
         'code': 'code',
         'message': 'message',
-        'data': 'data'
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, code=None, message=None, data=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, InlineResponse2007Data, Configuration) -> None
+    def __init__(self, code=None, message=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, int, Configuration) -> None
         """InlineResponse2007 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +53,12 @@ class InlineResponse2007(object):
 
         self._code = None
         self._message = None
-        self._data = None
+        self._timestamp = None
         self.discriminator = None
 
         self.code = code
         self.message = message
-        self.data = data
+        self.timestamp = timestamp
 
     @property
     def code(self):
@@ -107,27 +107,27 @@ class InlineResponse2007(object):
         self._message = message
 
     @property
-    def data(self):
-        """Gets the data of this InlineResponse2007.  # noqa: E501
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse2007.  # noqa: E501
 
 
-        :return: The data of this InlineResponse2007.  # noqa: E501
-        :rtype: InlineResponse2007Data
+        :return: The timestamp of this InlineResponse2007.  # noqa: E501
+        :rtype: int
         """
-        return self._data
+        return self._timestamp
 
-    @data.setter
-    def data(self, data):
-        """Sets the data of this InlineResponse2007.
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse2007.
 
 
-        :param data: The data of this InlineResponse2007.  # noqa: E501
-        :type: InlineResponse2007Data
+        :param timestamp: The timestamp of this InlineResponse2007.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
-        self._data = data
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

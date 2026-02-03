@@ -33,136 +33,136 @@ class InlineResponse20034(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'user_id': 'str',
-        'symbol': 'str',
-        'crossex_adl_rank': 'str',
-        'exchange_adl_rank': 'str'
+        'coin': 'str',
+        'exchange_type': 'str',
+        'hour_interest_rate': 'str',
+        'time': 'str'
     }
 
     attribute_map = {
-        'user_id': 'user_id',
-        'symbol': 'symbol',
-        'crossex_adl_rank': 'crossex_adl_rank',
-        'exchange_adl_rank': 'exchange_adl_rank'
+        'coin': 'coin',
+        'exchange_type': 'exchange_type',
+        'hour_interest_rate': 'hour_interest_rate',
+        'time': 'time'
     }
 
-    def __init__(self, user_id=None, symbol=None, crossex_adl_rank=None, exchange_adl_rank=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, coin=None, exchange_type=None, hour_interest_rate=None, time=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, str, str, Configuration) -> None
         """InlineResponse20034 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._user_id = None
-        self._symbol = None
-        self._crossex_adl_rank = None
-        self._exchange_adl_rank = None
+        self._coin = None
+        self._exchange_type = None
+        self._hour_interest_rate = None
+        self._time = None
         self.discriminator = None
 
-        self.user_id = user_id
-        self.symbol = symbol
-        self.crossex_adl_rank = crossex_adl_rank
-        self.exchange_adl_rank = exchange_adl_rank
+        self.coin = coin
+        self.exchange_type = exchange_type
+        self.hour_interest_rate = hour_interest_rate
+        self.time = time
 
     @property
-    def user_id(self):
-        """Gets the user_id of this InlineResponse20034.  # noqa: E501
+    def coin(self):
+        """Gets the coin of this InlineResponse20034.  # noqa: E501
 
-        User ID  # noqa: E501
+        Currency  # noqa: E501
 
-        :return: The user_id of this InlineResponse20034.  # noqa: E501
+        :return: The coin of this InlineResponse20034.  # noqa: E501
         :rtype: str
         """
-        return self._user_id
+        return self._coin
 
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this InlineResponse20034.
+    @coin.setter
+    def coin(self, coin):
+        """Sets the coin of this InlineResponse20034.
 
-        User ID  # noqa: E501
+        Currency  # noqa: E501
 
-        :param user_id: The user_id of this InlineResponse20034.  # noqa: E501
+        :param coin: The coin of this InlineResponse20034.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
 
-        self._user_id = user_id
+        self._coin = coin
 
     @property
-    def symbol(self):
-        """Gets the symbol of this InlineResponse20034.  # noqa: E501
+    def exchange_type(self):
+        """Gets the exchange_type of this InlineResponse20034.  # noqa: E501
 
-        Currency pair  # noqa: E501
+        Exchange  # noqa: E501
 
-        :return: The symbol of this InlineResponse20034.  # noqa: E501
+        :return: The exchange_type of this InlineResponse20034.  # noqa: E501
         :rtype: str
         """
-        return self._symbol
+        return self._exchange_type
 
-    @symbol.setter
-    def symbol(self, symbol):
-        """Sets the symbol of this InlineResponse20034.
+    @exchange_type.setter
+    def exchange_type(self, exchange_type):
+        """Sets the exchange_type of this InlineResponse20034.
 
-        Currency pair  # noqa: E501
+        Exchange  # noqa: E501
 
-        :param symbol: The symbol of this InlineResponse20034.  # noqa: E501
+        :param exchange_type: The exchange_type of this InlineResponse20034.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
 
-        self._symbol = symbol
+        self._exchange_type = exchange_type
 
     @property
-    def crossex_adl_rank(self):
-        """Gets the crossex_adl_rank of this InlineResponse20034.  # noqa: E501
+    def hour_interest_rate(self):
+        """Gets the hour_interest_rate of this InlineResponse20034.  # noqa: E501
 
-        CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher)  # noqa: E501
+        Hourly Interest Rate  # noqa: E501
 
-        :return: The crossex_adl_rank of this InlineResponse20034.  # noqa: E501
+        :return: The hour_interest_rate of this InlineResponse20034.  # noqa: E501
         :rtype: str
         """
-        return self._crossex_adl_rank
+        return self._hour_interest_rate
 
-    @crossex_adl_rank.setter
-    def crossex_adl_rank(self, crossex_adl_rank):
-        """Sets the crossex_adl_rank of this InlineResponse20034.
+    @hour_interest_rate.setter
+    def hour_interest_rate(self, hour_interest_rate):
+        """Sets the hour_interest_rate of this InlineResponse20034.
 
-        CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher)  # noqa: E501
+        Hourly Interest Rate  # noqa: E501
 
-        :param crossex_adl_rank: The crossex_adl_rank of this InlineResponse20034.  # noqa: E501
+        :param hour_interest_rate: The hour_interest_rate of this InlineResponse20034.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and crossex_adl_rank is None:  # noqa: E501
-            raise ValueError("Invalid value for `crossex_adl_rank`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and hour_interest_rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `hour_interest_rate`, must not be `None`")  # noqa: E501
 
-        self._crossex_adl_rank = crossex_adl_rank
+        self._hour_interest_rate = hour_interest_rate
 
     @property
-    def exchange_adl_rank(self):
-        """Gets the exchange_adl_rank of this InlineResponse20034.  # noqa: E501
+    def time(self):
+        """Gets the time of this InlineResponse20034.  # noqa: E501
 
-        Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)  # noqa: E501
+        Millisecond Timestamp  # noqa: E501
 
-        :return: The exchange_adl_rank of this InlineResponse20034.  # noqa: E501
+        :return: The time of this InlineResponse20034.  # noqa: E501
         :rtype: str
         """
-        return self._exchange_adl_rank
+        return self._time
 
-    @exchange_adl_rank.setter
-    def exchange_adl_rank(self, exchange_adl_rank):
-        """Sets the exchange_adl_rank of this InlineResponse20034.
+    @time.setter
+    def time(self, time):
+        """Sets the time of this InlineResponse20034.
 
-        Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)  # noqa: E501
+        Millisecond Timestamp  # noqa: E501
 
-        :param exchange_adl_rank: The exchange_adl_rank of this InlineResponse20034.  # noqa: E501
+        :param time: The time of this InlineResponse20034.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and exchange_adl_rank is None:  # noqa: E501
-            raise ValueError("Invalid value for `exchange_adl_rank`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
+            raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
 
-        self._exchange_adl_rank = exchange_adl_rank
+        self._time = time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

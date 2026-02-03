@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **currency** | **str** | Transfer currency name. For contract accounts, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; (points) or supported settlement currencies (e.g., &#x60;BTC&#x60;, &#x60;USDT&#x60;) | 
 **_from** | **str** | Account to transfer from | 
 **to** | **str** | Account to transfer to | 
-**amount** | **str** | Transfer amount | 
+**amount** | **str** | Transfer Amount, supports up to 8 decimal places, must be greater than 0 | 
 **currency_pair** | **str** | Margin trading pair. Required when transferring to or from margin account | [optional] 
 **settle** | **str** | Contract settlement currency. Required when transferring to or from contract account | [optional] 
 

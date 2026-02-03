@@ -33,136 +33,74 @@ class InlineResponse20030(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'coin': 'str',
-        'exchange_type': 'str',
-        'hour_interest_rate': 'str',
-        'time': 'str'
+        'order_id': 'float',
+        'text': 'str'
     }
 
     attribute_map = {
-        'coin': 'coin',
-        'exchange_type': 'exchange_type',
-        'hour_interest_rate': 'hour_interest_rate',
-        'time': 'time'
+        'order_id': 'order_id',
+        'text': 'text'
     }
 
-    def __init__(self, coin=None, exchange_type=None, hour_interest_rate=None, time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, Configuration) -> None
+    def __init__(self, order_id=None, text=None, local_vars_configuration=None):  # noqa: E501
+        # type: (float, str, Configuration) -> None
         """InlineResponse20030 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._coin = None
-        self._exchange_type = None
-        self._hour_interest_rate = None
-        self._time = None
+        self._order_id = None
+        self._text = None
         self.discriminator = None
 
-        self.coin = coin
-        self.exchange_type = exchange_type
-        self.hour_interest_rate = hour_interest_rate
-        self.time = time
+        self.order_id = order_id
+        self.text = text
 
     @property
-    def coin(self):
-        """Gets the coin of this InlineResponse20030.  # noqa: E501
+    def order_id(self):
+        """Gets the order_id of this InlineResponse20030.  # noqa: E501
 
-        Currency  # noqa: E501
 
-        :return: The coin of this InlineResponse20030.  # noqa: E501
-        :rtype: str
+        :return: The order_id of this InlineResponse20030.  # noqa: E501
+        :rtype: float
         """
-        return self._coin
+        return self._order_id
 
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineResponse20030.
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineResponse20030.
 
-        Currency  # noqa: E501
 
-        :param coin: The coin of this InlineResponse20030.  # noqa: E501
-        :type: str
+        :param order_id: The order_id of this InlineResponse20030.  # noqa: E501
+        :type: float
         """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._coin = coin
+        self._order_id = order_id
 
     @property
-    def exchange_type(self):
-        """Gets the exchange_type of this InlineResponse20030.  # noqa: E501
+    def text(self):
+        """Gets the text of this InlineResponse20030.  # noqa: E501
 
-        Exchange  # noqa: E501
 
-        :return: The exchange_type of this InlineResponse20030.  # noqa: E501
+        :return: The text of this InlineResponse20030.  # noqa: E501
         :rtype: str
         """
-        return self._exchange_type
+        return self._text
 
-    @exchange_type.setter
-    def exchange_type(self, exchange_type):
-        """Sets the exchange_type of this InlineResponse20030.
+    @text.setter
+    def text(self, text):
+        """Sets the text of this InlineResponse20030.
 
-        Exchange  # noqa: E501
 
-        :param exchange_type: The exchange_type of this InlineResponse20030.  # noqa: E501
+        :param text: The text of this InlineResponse20030.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
+            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
-        self._exchange_type = exchange_type
-
-    @property
-    def hour_interest_rate(self):
-        """Gets the hour_interest_rate of this InlineResponse20030.  # noqa: E501
-
-        Hourly Interest Rate  # noqa: E501
-
-        :return: The hour_interest_rate of this InlineResponse20030.  # noqa: E501
-        :rtype: str
-        """
-        return self._hour_interest_rate
-
-    @hour_interest_rate.setter
-    def hour_interest_rate(self, hour_interest_rate):
-        """Sets the hour_interest_rate of this InlineResponse20030.
-
-        Hourly Interest Rate  # noqa: E501
-
-        :param hour_interest_rate: The hour_interest_rate of this InlineResponse20030.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and hour_interest_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `hour_interest_rate`, must not be `None`")  # noqa: E501
-
-        self._hour_interest_rate = hour_interest_rate
-
-    @property
-    def time(self):
-        """Gets the time of this InlineResponse20030.  # noqa: E501
-
-        Millisecond Timestamp  # noqa: E501
-
-        :return: The time of this InlineResponse20030.  # noqa: E501
-        :rtype: str
-        """
-        return self._time
-
-    @time.setter
-    def time(self, time):
-        """Sets the time of this InlineResponse20030.
-
-        Millisecond Timestamp  # noqa: E501
-
-        :param time: The time of this InlineResponse20030.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
-            raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
-
-        self._time = time
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

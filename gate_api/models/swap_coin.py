@@ -34,7 +34,7 @@ class SwapCoin(object):
     """
     openapi_types = {
         'coin': 'str',
-        'side': 'str',
+        'side': 'int',
         'amount': 'str',
         'pid': 'int'
     }
@@ -47,7 +47,7 @@ class SwapCoin(object):
     }
 
     def __init__(self, coin=None, side=None, amount=None, pid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, int, Configuration) -> None
+        # type: (str, int, str, int, Configuration) -> None
         """SwapCoin - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -97,7 +97,7 @@ class SwapCoin(object):
         0 - Stake 1 - Redeem  # noqa: E501
 
         :return: The side of this SwapCoin.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._side
 
@@ -108,7 +108,7 @@ class SwapCoin(object):
         0 - Stake 1 - Redeem  # noqa: E501
 
         :param side: The side of this SwapCoin.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
             raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501

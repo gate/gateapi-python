@@ -151,7 +151,7 @@ class SubAccountTransfer(object):
     def amount(self):
         """Gets the amount of this SubAccountTransfer.  # noqa: E501
 
-        Transfer amount  # noqa: E501
+        Transfer Amount, supports up to 8 decimal places, must be greater than 0  # noqa: E501
 
         :return: The amount of this SubAccountTransfer.  # noqa: E501
         :rtype: str
@@ -162,7 +162,7 @@ class SubAccountTransfer(object):
     def amount(self, amount):
         """Sets the amount of this SubAccountTransfer.
 
-        Transfer amount  # noqa: E501
+        Transfer Amount, supports up to 8 decimal places, must be greater than 0  # noqa: E501
 
         :param amount: The amount of this SubAccountTransfer.  # noqa: E501
         :type: str

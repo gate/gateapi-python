@@ -33,78 +33,72 @@ class InlineResponse20024(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'order_id': 'str',
-        'text': 'str'
+        'symbol': 'str',
+        'tiers': 'list[RuleRiskLimitsTiers]'
     }
 
     attribute_map = {
-        'order_id': 'order_id',
-        'text': 'text'
+        'symbol': 'symbol',
+        'tiers': 'tiers'
     }
 
-    def __init__(self, order_id=None, text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, symbol=None, tiers=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, list[RuleRiskLimitsTiers], Configuration) -> None
         """InlineResponse20024 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._order_id = None
-        self._text = None
+        self._symbol = None
+        self._tiers = None
         self.discriminator = None
 
-        self.order_id = order_id
-        self.text = text
+        if symbol is not None:
+            self.symbol = symbol
+        if tiers is not None:
+            self.tiers = tiers
 
     @property
-    def order_id(self):
-        """Gets the order_id of this InlineResponse20024.  # noqa: E501
+    def symbol(self):
+        """Gets the symbol of this InlineResponse20024.  # noqa: E501
 
-        Order ID  # noqa: E501
 
-        :return: The order_id of this InlineResponse20024.  # noqa: E501
+        :return: The symbol of this InlineResponse20024.  # noqa: E501
         :rtype: str
         """
-        return self._order_id
+        return self._symbol
 
-    @order_id.setter
-    def order_id(self, order_id):
-        """Sets the order_id of this InlineResponse20024.
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineResponse20024.
 
-        Order ID  # noqa: E501
 
-        :param order_id: The order_id of this InlineResponse20024.  # noqa: E501
+        :param symbol: The symbol of this InlineResponse20024.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._order_id = order_id
+        self._symbol = symbol
 
     @property
-    def text(self):
-        """Gets the text of this InlineResponse20024.  # noqa: E501
+    def tiers(self):
+        """Gets the tiers of this InlineResponse20024.  # noqa: E501
 
-        User-defined Order ID  # noqa: E501
 
-        :return: The text of this InlineResponse20024.  # noqa: E501
-        :rtype: str
+        :return: The tiers of this InlineResponse20024.  # noqa: E501
+        :rtype: list[RuleRiskLimitsTiers]
         """
-        return self._text
+        return self._tiers
 
-    @text.setter
-    def text(self, text):
-        """Sets the text of this InlineResponse20024.
+    @tiers.setter
+    def tiers(self, tiers):
+        """Sets the tiers of this InlineResponse20024.
 
-        User-defined Order ID  # noqa: E501
 
-        :param text: The text of this InlineResponse20024.  # noqa: E501
-        :type: str
+        :param tiers: The tiers of this InlineResponse20024.  # noqa: E501
+        :type: list[RuleRiskLimitsTiers]
         """
-        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
-        self._text = text
+        self._tiers = tiers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

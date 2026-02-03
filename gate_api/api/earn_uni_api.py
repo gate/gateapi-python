@@ -1119,7 +1119,7 @@ class EarnUniApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse200]
+        :rtype: list[gate_api.InlineResponse2004]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1147,7 +1147,7 @@ class EarnUniApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse200], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse2004], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1222,7 +1222,7 @@ class EarnUniApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse200]',  # noqa: E501
+            response_type='list[InlineResponse2004]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1246,7 +1246,7 @@ class EarnUniApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse2001]
+        :rtype: list[gate_api.InlineResponse2005]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1271,7 +1271,7 @@ class EarnUniApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse2001], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse2005], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1325,7 +1325,7 @@ class EarnUniApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse2001]',  # noqa: E501
+            response_type='list[InlineResponse2005]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

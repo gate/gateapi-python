@@ -3,8 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **str** |  | [optional] 
-**tiers** | [**list[RuleRiskLimitsTiers]**](RuleRiskLimitsTiers.md) |  | [optional] 
+**timestamp** | **float** |  | 
+**method** | **str** |  | 
+**code** | **int** |  | 
+**message** | **str** |  | 
+**data** | [**InlineResponse20020Data**](InlineResponse20020Data.md) |  | 
+**version** | **str** | Version number | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

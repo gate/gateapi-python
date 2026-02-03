@@ -33,134 +33,482 @@ class InlineResponse20012Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'list': 'list[InlineResponse20012DataList]',
-        'trans_time': 'list[InlineResponse20012DataTransTime]',
-        'count': 'int',
-        'exported_num': 'int'
+        'order_id': 'str',
+        'uid': 'str',
+        'type': 'str',
+        'fiat_currency': 'str',
+        'fiat_amount': 'str',
+        'crypto_currency': 'str',
+        'crypto_amount': 'str',
+        'rate': 'str',
+        'transfer_remark': 'str',
+        'status': 'str',
+        'db_status': 'str',
+        'create_time': 'str',
+        'memo': 'str',
+        'side': 'str',
+        'promotion_code': 'str',
+        'trade_no': 'str'
     }
 
     attribute_map = {
-        'list': 'list',
-        'trans_time': 'trans_time',
-        'count': 'count',
-        'exported_num': 'exported_num'
+        'order_id': 'order_id',
+        'uid': 'uid',
+        'type': 'type',
+        'fiat_currency': 'fiat_currency',
+        'fiat_amount': 'fiat_amount',
+        'crypto_currency': 'crypto_currency',
+        'crypto_amount': 'crypto_amount',
+        'rate': 'rate',
+        'transfer_remark': 'transfer_remark',
+        'status': 'status',
+        'db_status': 'db_status',
+        'create_time': 'create_time',
+        'memo': 'memo',
+        'side': 'side',
+        'promotion_code': 'promotion_code',
+        'trade_no': 'trade_no'
     }
 
-    def __init__(self, list=None, trans_time=None, count=None, exported_num=None, local_vars_configuration=None):  # noqa: E501
-        # type: (list[InlineResponse20012DataList], list[InlineResponse20012DataTransTime], int, int, Configuration) -> None
+    def __init__(self, order_id=None, uid=None, type=None, fiat_currency=None, fiat_amount=None, crypto_currency=None, crypto_amount=None, rate=None, transfer_remark=None, status=None, db_status=None, create_time=None, memo=None, side=None, promotion_code=None, trade_no=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineResponse20012Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._list = None
-        self._trans_time = None
-        self._count = None
-        self._exported_num = None
+        self._order_id = None
+        self._uid = None
+        self._type = None
+        self._fiat_currency = None
+        self._fiat_amount = None
+        self._crypto_currency = None
+        self._crypto_amount = None
+        self._rate = None
+        self._transfer_remark = None
+        self._status = None
+        self._db_status = None
+        self._create_time = None
+        self._memo = None
+        self._side = None
+        self._promotion_code = None
+        self._trade_no = None
         self.discriminator = None
 
-        self.list = list
-        self.trans_time = trans_time
-        self.count = count
-        self.exported_num = exported_num
+        self.order_id = order_id
+        self.uid = uid
+        self.type = type
+        self.fiat_currency = fiat_currency
+        self.fiat_amount = fiat_amount
+        self.crypto_currency = crypto_currency
+        self.crypto_amount = crypto_amount
+        self.rate = rate
+        self.transfer_remark = transfer_remark
+        self.status = status
+        self.db_status = db_status
+        self.create_time = create_time
+        self.memo = memo
+        self.side = side
+        self.promotion_code = promotion_code
+        self.trade_no = trade_no
 
     @property
-    def list(self):
-        """Gets the list of this InlineResponse20012Data.  # noqa: E501
+    def order_id(self):
+        """Gets the order_id of this InlineResponse20012Data.  # noqa: E501
 
+        Order ID  # noqa: E501
 
-        :return: The list of this InlineResponse20012Data.  # noqa: E501
-        :rtype: list[InlineResponse20012DataList]
+        :return: The order_id of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
         """
-        return self._list
+        return self._order_id
 
-    @list.setter
-    def list(self, list):
-        """Sets the list of this InlineResponse20012Data.
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineResponse20012Data.
 
+        Order ID  # noqa: E501
 
-        :param list: The list of this InlineResponse20012Data.  # noqa: E501
-        :type: list[InlineResponse20012DataList]
+        :param order_id: The order_id of this InlineResponse20012Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._list = list
+        self._order_id = order_id
 
     @property
-    def trans_time(self):
-        """Gets the trans_time of this InlineResponse20012Data.  # noqa: E501
+    def uid(self):
+        """Gets the uid of this InlineResponse20012Data.  # noqa: E501
 
-        Countdown time  # noqa: E501
+        User ID  # noqa: E501
 
-        :return: The trans_time of this InlineResponse20012Data.  # noqa: E501
-        :rtype: list[InlineResponse20012DataTransTime]
+        :return: The uid of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
         """
-        return self._trans_time
+        return self._uid
 
-    @trans_time.setter
-    def trans_time(self, trans_time):
-        """Sets the trans_time of this InlineResponse20012Data.
+    @uid.setter
+    def uid(self, uid):
+        """Sets the uid of this InlineResponse20012Data.
 
-        Countdown time  # noqa: E501
+        User ID  # noqa: E501
 
-        :param trans_time: The trans_time of this InlineResponse20012Data.  # noqa: E501
-        :type: list[InlineResponse20012DataTransTime]
+        :param uid: The uid of this InlineResponse20012Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and trans_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `trans_time`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
+            raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
-        self._trans_time = trans_time
+        self._uid = uid
 
     @property
-    def count(self):
-        """Gets the count of this InlineResponse20012Data.  # noqa: E501
+    def type(self):
+        """Gets the type of this InlineResponse20012Data.  # noqa: E501
 
-        Number of orders  # noqa: E501
+        Order Type  # noqa: E501
 
-        :return: The count of this InlineResponse20012Data.  # noqa: E501
-        :rtype: int
+        :return: The type of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
         """
-        return self._count
+        return self._type
 
-    @count.setter
-    def count(self, count):
-        """Sets the count of this InlineResponse20012Data.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineResponse20012Data.
 
-        Number of orders  # noqa: E501
+        Order Type  # noqa: E501
 
-        :param count: The count of this InlineResponse20012Data.  # noqa: E501
-        :type: int
+        :param type: The type of this InlineResponse20012Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
-        self._count = count
+        self._type = type
 
     @property
-    def exported_num(self):
-        """Gets the exported_num of this InlineResponse20012Data.  # noqa: E501
+    def fiat_currency(self):
+        """Gets the fiat_currency of this InlineResponse20012Data.  # noqa: E501
 
-        Export count  # noqa: E501
+        Fiat type  # noqa: E501
 
-        :return: The exported_num of this InlineResponse20012Data.  # noqa: E501
-        :rtype: int
+        :return: The fiat_currency of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
         """
-        return self._exported_num
+        return self._fiat_currency
 
-    @exported_num.setter
-    def exported_num(self, exported_num):
-        """Sets the exported_num of this InlineResponse20012Data.
+    @fiat_currency.setter
+    def fiat_currency(self, fiat_currency):
+        """Sets the fiat_currency of this InlineResponse20012Data.
 
-        Export count  # noqa: E501
+        Fiat type  # noqa: E501
 
-        :param exported_num: The exported_num of this InlineResponse20012Data.  # noqa: E501
-        :type: int
+        :param fiat_currency: The fiat_currency of this InlineResponse20012Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and exported_num is None:  # noqa: E501
-            raise ValueError("Invalid value for `exported_num`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and fiat_currency is None:  # noqa: E501
+            raise ValueError("Invalid value for `fiat_currency`, must not be `None`")  # noqa: E501
 
-        self._exported_num = exported_num
+        self._fiat_currency = fiat_currency
+
+    @property
+    def fiat_amount(self):
+        """Gets the fiat_amount of this InlineResponse20012Data.  # noqa: E501
+
+        Fiat amount  # noqa: E501
+
+        :return: The fiat_amount of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_amount
+
+    @fiat_amount.setter
+    def fiat_amount(self, fiat_amount):
+        """Sets the fiat_amount of this InlineResponse20012Data.
+
+        Fiat amount  # noqa: E501
+
+        :param fiat_amount: The fiat_amount of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and fiat_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `fiat_amount`, must not be `None`")  # noqa: E501
+
+        self._fiat_amount = fiat_amount
+
+    @property
+    def crypto_currency(self):
+        """Gets the crypto_currency of this InlineResponse20012Data.  # noqa: E501
+
+        Stablecoin  # noqa: E501
+
+        :return: The crypto_currency of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._crypto_currency
+
+    @crypto_currency.setter
+    def crypto_currency(self, crypto_currency):
+        """Sets the crypto_currency of this InlineResponse20012Data.
+
+        Stablecoin  # noqa: E501
+
+        :param crypto_currency: The crypto_currency of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and crypto_currency is None:  # noqa: E501
+            raise ValueError("Invalid value for `crypto_currency`, must not be `None`")  # noqa: E501
+
+        self._crypto_currency = crypto_currency
+
+    @property
+    def crypto_amount(self):
+        """Gets the crypto_amount of this InlineResponse20012Data.  # noqa: E501
+
+        Stablecoin amount  # noqa: E501
+
+        :return: The crypto_amount of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._crypto_amount
+
+    @crypto_amount.setter
+    def crypto_amount(self, crypto_amount):
+        """Sets the crypto_amount of this InlineResponse20012Data.
+
+        Stablecoin amount  # noqa: E501
+
+        :param crypto_amount: The crypto_amount of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and crypto_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `crypto_amount`, must not be `None`")  # noqa: E501
+
+        self._crypto_amount = crypto_amount
+
+    @property
+    def rate(self):
+        """Gets the rate of this InlineResponse20012Data.  # noqa: E501
+
+        Exchange rate  # noqa: E501
+
+        :return: The rate of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._rate
+
+    @rate.setter
+    def rate(self, rate):
+        """Sets the rate of this InlineResponse20012Data.
+
+        Exchange rate  # noqa: E501
+
+        :param rate: The rate of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate`, must not be `None`")  # noqa: E501
+
+        self._rate = rate
+
+    @property
+    def transfer_remark(self):
+        """Gets the transfer_remark of this InlineResponse20012Data.  # noqa: E501
+
+        Remark  # noqa: E501
+
+        :return: The transfer_remark of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._transfer_remark
+
+    @transfer_remark.setter
+    def transfer_remark(self, transfer_remark):
+        """Sets the transfer_remark of this InlineResponse20012Data.
+
+        Remark  # noqa: E501
+
+        :param transfer_remark: The transfer_remark of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and transfer_remark is None:  # noqa: E501
+            raise ValueError("Invalid value for `transfer_remark`, must not be `None`")  # noqa: E501
+
+        self._transfer_remark = transfer_remark
+
+    @property
+    def status(self):
+        """Gets the status of this InlineResponse20012Data.  # noqa: E501
+
+        Status  # noqa: E501
+
+        :return: The status of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this InlineResponse20012Data.
+
+        Status  # noqa: E501
+
+        :param status: The status of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+
+        self._status = status
+
+    @property
+    def db_status(self):
+        """Gets the db_status of this InlineResponse20012Data.  # noqa: E501
+
+
+        :return: The db_status of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._db_status
+
+    @db_status.setter
+    def db_status(self, db_status):
+        """Sets the db_status of this InlineResponse20012Data.
+
+
+        :param db_status: The db_status of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and db_status is None:  # noqa: E501
+            raise ValueError("Invalid value for `db_status`, must not be `None`")  # noqa: E501
+
+        self._db_status = db_status
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this InlineResponse20012Data.  # noqa: E501
+
+        Created time  # noqa: E501
+
+        :return: The create_time of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this InlineResponse20012Data.
+
+        Created time  # noqa: E501
+
+        :param create_time: The create_time of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and create_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
+
+        self._create_time = create_time
+
+    @property
+    def memo(self):
+        """Gets the memo of this InlineResponse20012Data.  # noqa: E501
+
+        Cancellation or rejection reason  # noqa: E501
+
+        :return: The memo of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._memo
+
+    @memo.setter
+    def memo(self, memo):
+        """Sets the memo of this InlineResponse20012Data.
+
+        Cancellation or rejection reason  # noqa: E501
+
+        :param memo: The memo of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and memo is None:  # noqa: E501
+            raise ValueError("Invalid value for `memo`, must not be `None`")  # noqa: E501
+
+        self._memo = memo
+
+    @property
+    def side(self):
+        """Gets the side of this InlineResponse20012Data.  # noqa: E501
+
+        Quote direction  # noqa: E501
+
+        :return: The side of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._side
+
+    @side.setter
+    def side(self, side):
+        """Sets the side of this InlineResponse20012Data.
+
+        Quote direction  # noqa: E501
+
+        :param side: The side of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
+
+        self._side = side
+
+    @property
+    def promotion_code(self):
+        """Gets the promotion_code of this InlineResponse20012Data.  # noqa: E501
+
+        Promotion code  # noqa: E501
+
+        :return: The promotion_code of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._promotion_code
+
+    @promotion_code.setter
+    def promotion_code(self, promotion_code):
+        """Sets the promotion_code of this InlineResponse20012Data.
+
+        Promotion code  # noqa: E501
+
+        :param promotion_code: The promotion_code of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and promotion_code is None:  # noqa: E501
+            raise ValueError("Invalid value for `promotion_code`, must not be `None`")  # noqa: E501
+
+        self._promotion_code = promotion_code
+
+    @property
+    def trade_no(self):
+        """Gets the trade_no of this InlineResponse20012Data.  # noqa: E501
+
+        Trade number  # noqa: E501
+
+        :return: The trade_no of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_no
+
+    @trade_no.setter
+    def trade_no(self, trade_no):
+        """Sets the trade_no of this InlineResponse20012Data.
+
+        Trade number  # noqa: E501
+
+        :param trade_no: The trade_no of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and trade_no is None:  # noqa: E501
+            raise ValueError("Invalid value for `trade_no`, must not be `None`")  # noqa: E501
+
+        self._trade_no = trade_no
 
     def to_dict(self):
         """Returns the model properties as a dict"""

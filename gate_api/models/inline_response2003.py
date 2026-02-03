@@ -33,101 +33,46 @@ class InlineResponse2003(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'code': 'int',
-        'message': 'str',
-        'timestamp': 'int'
+        'change_log': 'list[TrailChangeLog]'
     }
 
     attribute_map = {
-        'code': 'code',
-        'message': 'message',
-        'timestamp': 'timestamp'
+        'change_log': 'change_log'
     }
 
-    def __init__(self, code=None, message=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, Configuration) -> None
+    def __init__(self, change_log=None, local_vars_configuration=None):  # noqa: E501
+        # type: (list[TrailChangeLog], Configuration) -> None
         """InlineResponse2003 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._code = None
-        self._message = None
-        self._timestamp = None
+        self._change_log = None
         self.discriminator = None
 
-        self.code = code
-        self.message = message
-        self.timestamp = timestamp
+        if change_log is not None:
+            self.change_log = change_log
 
     @property
-    def code(self):
-        """Gets the code of this InlineResponse2003.  # noqa: E501
+    def change_log(self):
+        """Gets the change_log of this InlineResponse2003.  # noqa: E501
 
 
-        :return: The code of this InlineResponse2003.  # noqa: E501
-        :rtype: int
+        :return: The change_log of this InlineResponse2003.  # noqa: E501
+        :rtype: list[TrailChangeLog]
         """
-        return self._code
+        return self._change_log
 
-    @code.setter
-    def code(self, code):
-        """Sets the code of this InlineResponse2003.
+    @change_log.setter
+    def change_log(self, change_log):
+        """Sets the change_log of this InlineResponse2003.
 
 
-        :param code: The code of this InlineResponse2003.  # noqa: E501
-        :type: int
+        :param change_log: The change_log of this InlineResponse2003.  # noqa: E501
+        :type: list[TrailChangeLog]
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
-        self._code = code
-
-    @property
-    def message(self):
-        """Gets the message of this InlineResponse2003.  # noqa: E501
-
-
-        :return: The message of this InlineResponse2003.  # noqa: E501
-        :rtype: str
-        """
-        return self._message
-
-    @message.setter
-    def message(self, message):
-        """Sets the message of this InlineResponse2003.
-
-
-        :param message: The message of this InlineResponse2003.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
-
-        self._message = message
-
-    @property
-    def timestamp(self):
-        """Gets the timestamp of this InlineResponse2003.  # noqa: E501
-
-
-        :return: The timestamp of this InlineResponse2003.  # noqa: E501
-        :rtype: int
-        """
-        return self._timestamp
-
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this InlineResponse2003.
-
-
-        :param timestamp: The timestamp of this InlineResponse2003.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
-
-        self._timestamp = timestamp
+        self._change_log = change_log
 
     def to_dict(self):
         """Returns the model properties as a dict"""

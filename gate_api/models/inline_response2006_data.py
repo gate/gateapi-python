@@ -33,155 +33,339 @@ class InlineResponse2006Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'pn': 'int',
-        'ps': 'int',
-        'total_pn': 'int',
-        'count': 'int',
-        'list': 'list[InlineResponse2006DataList]'
+        'type': 'str',
+        'pay_coin': 'str',
+        'get_coin': 'str',
+        'pay_amount': 'str',
+        'get_amount': 'str',
+        'rate': 'str',
+        'rate_reci': 'str',
+        'promotion_code': 'str',
+        'side': 'str',
+        'order_type': 'str',
+        'quote_token': 'str'
     }
 
     attribute_map = {
-        'pn': 'pn',
-        'ps': 'ps',
-        'total_pn': 'total_pn',
-        'count': 'count',
-        'list': 'list'
+        'type': 'type',
+        'pay_coin': 'pay_coin',
+        'get_coin': 'get_coin',
+        'pay_amount': 'pay_amount',
+        'get_amount': 'get_amount',
+        'rate': 'rate',
+        'rate_reci': 'rate_reci',
+        'promotion_code': 'promotion_code',
+        'side': 'side',
+        'order_type': 'order_type',
+        'quote_token': 'quote_token'
     }
 
-    def __init__(self, pn=None, ps=None, total_pn=None, count=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, int, list[InlineResponse2006DataList], Configuration) -> None
+    def __init__(self, type=None, pay_coin=None, get_coin=None, pay_amount=None, get_amount=None, rate=None, rate_reci=None, promotion_code=None, side=None, order_type=None, quote_token=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineResponse2006Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._pn = None
-        self._ps = None
-        self._total_pn = None
-        self._count = None
-        self._list = None
+        self._type = None
+        self._pay_coin = None
+        self._get_coin = None
+        self._pay_amount = None
+        self._get_amount = None
+        self._rate = None
+        self._rate_reci = None
+        self._promotion_code = None
+        self._side = None
+        self._order_type = None
+        self._quote_token = None
         self.discriminator = None
 
-        self.pn = pn
-        self.ps = ps
-        self.total_pn = total_pn
-        self.count = count
-        self.list = list
+        self.type = type
+        self.pay_coin = pay_coin
+        self.get_coin = get_coin
+        self.pay_amount = pay_amount
+        self.get_amount = get_amount
+        self.rate = rate
+        self.rate_reci = rate_reci
+        self.promotion_code = promotion_code
+        self.side = side
+        self.order_type = order_type
+        self.quote_token = quote_token
 
     @property
-    def pn(self):
-        """Gets the pn of this InlineResponse2006Data.  # noqa: E501
+    def type(self):
+        """Gets the type of this InlineResponse2006Data.  # noqa: E501
 
+        BUY (on-ramp) or SELL (off-ramp)  # noqa: E501
 
-        :return: The pn of this InlineResponse2006Data.  # noqa: E501
-        :rtype: int
+        :return: The type of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
         """
-        return self._pn
+        return self._type
 
-    @pn.setter
-    def pn(self, pn):
-        """Sets the pn of this InlineResponse2006Data.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineResponse2006Data.
 
+        BUY (on-ramp) or SELL (off-ramp)  # noqa: E501
 
-        :param pn: The pn of this InlineResponse2006Data.  # noqa: E501
-        :type: int
+        :param type: The type of this InlineResponse2006Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and pn is None:  # noqa: E501
-            raise ValueError("Invalid value for `pn`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
-        self._pn = pn
+        self._type = type
 
     @property
-    def ps(self):
-        """Gets the ps of this InlineResponse2006Data.  # noqa: E501
+    def pay_coin(self):
+        """Gets the pay_coin of this InlineResponse2006Data.  # noqa: E501
 
+        Payment currency  # noqa: E501
 
-        :return: The ps of this InlineResponse2006Data.  # noqa: E501
-        :rtype: int
+        :return: The pay_coin of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
         """
-        return self._ps
+        return self._pay_coin
 
-    @ps.setter
-    def ps(self, ps):
-        """Sets the ps of this InlineResponse2006Data.
+    @pay_coin.setter
+    def pay_coin(self, pay_coin):
+        """Sets the pay_coin of this InlineResponse2006Data.
 
+        Payment currency  # noqa: E501
 
-        :param ps: The ps of this InlineResponse2006Data.  # noqa: E501
-        :type: int
+        :param pay_coin: The pay_coin of this InlineResponse2006Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and ps is None:  # noqa: E501
-            raise ValueError("Invalid value for `ps`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and pay_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_coin`, must not be `None`")  # noqa: E501
 
-        self._ps = ps
+        self._pay_coin = pay_coin
 
     @property
-    def total_pn(self):
-        """Gets the total_pn of this InlineResponse2006Data.  # noqa: E501
+    def get_coin(self):
+        """Gets the get_coin of this InlineResponse2006Data.  # noqa: E501
 
+        Currency  # noqa: E501
 
-        :return: The total_pn of this InlineResponse2006Data.  # noqa: E501
-        :rtype: int
+        :return: The get_coin of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
         """
-        return self._total_pn
+        return self._get_coin
 
-    @total_pn.setter
-    def total_pn(self, total_pn):
-        """Sets the total_pn of this InlineResponse2006Data.
+    @get_coin.setter
+    def get_coin(self, get_coin):
+        """Sets the get_coin of this InlineResponse2006Data.
 
+        Currency  # noqa: E501
 
-        :param total_pn: The total_pn of this InlineResponse2006Data.  # noqa: E501
-        :type: int
+        :param get_coin: The get_coin of this InlineResponse2006Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and total_pn is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_pn`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and get_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `get_coin`, must not be `None`")  # noqa: E501
 
-        self._total_pn = total_pn
+        self._get_coin = get_coin
 
     @property
-    def count(self):
-        """Gets the count of this InlineResponse2006Data.  # noqa: E501
+    def pay_amount(self):
+        """Gets the pay_amount of this InlineResponse2006Data.  # noqa: E501
 
+        Payment amount  # noqa: E501
 
-        :return: The count of this InlineResponse2006Data.  # noqa: E501
-        :rtype: int
+        :return: The pay_amount of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
         """
-        return self._count
+        return self._pay_amount
 
-    @count.setter
-    def count(self, count):
-        """Sets the count of this InlineResponse2006Data.
+    @pay_amount.setter
+    def pay_amount(self, pay_amount):
+        """Sets the pay_amount of this InlineResponse2006Data.
 
+        Payment amount  # noqa: E501
 
-        :param count: The count of this InlineResponse2006Data.  # noqa: E501
-        :type: int
+        :param pay_amount: The pay_amount of this InlineResponse2006Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and pay_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_amount`, must not be `None`")  # noqa: E501
 
-        self._count = count
+        self._pay_amount = pay_amount
 
     @property
-    def list(self):
-        """Gets the list of this InlineResponse2006Data.  # noqa: E501
+    def get_amount(self):
+        """Gets the get_amount of this InlineResponse2006Data.  # noqa: E501
 
+        Redemption Amount  # noqa: E501
 
-        :return: The list of this InlineResponse2006Data.  # noqa: E501
-        :rtype: list[InlineResponse2006DataList]
+        :return: The get_amount of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
         """
-        return self._list
+        return self._get_amount
 
-    @list.setter
-    def list(self, list):
-        """Sets the list of this InlineResponse2006Data.
+    @get_amount.setter
+    def get_amount(self, get_amount):
+        """Sets the get_amount of this InlineResponse2006Data.
 
+        Redemption Amount  # noqa: E501
 
-        :param list: The list of this InlineResponse2006Data.  # noqa: E501
-        :type: list[InlineResponse2006DataList]
+        :param get_amount: The get_amount of this InlineResponse2006Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and get_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `get_amount`, must not be `None`")  # noqa: E501
 
-        self._list = list
+        self._get_amount = get_amount
+
+    @property
+    def rate(self):
+        """Gets the rate of this InlineResponse2006Data.  # noqa: E501
+
+        Exchange rate  # noqa: E501
+
+        :return: The rate of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._rate
+
+    @rate.setter
+    def rate(self, rate):
+        """Sets the rate of this InlineResponse2006Data.
+
+        Exchange rate  # noqa: E501
+
+        :param rate: The rate of this InlineResponse2006Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate`, must not be `None`")  # noqa: E501
+
+        self._rate = rate
+
+    @property
+    def rate_reci(self):
+        """Gets the rate_reci of this InlineResponse2006Data.  # noqa: E501
+
+        Reciprocal of the exchange rate  # noqa: E501
+
+        :return: The rate_reci of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._rate_reci
+
+    @rate_reci.setter
+    def rate_reci(self, rate_reci):
+        """Sets the rate_reci of this InlineResponse2006Data.
+
+        Reciprocal of the exchange rate  # noqa: E501
+
+        :param rate_reci: The rate_reci of this InlineResponse2006Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and rate_reci is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate_reci`, must not be `None`")  # noqa: E501
+
+        self._rate_reci = rate_reci
+
+    @property
+    def promotion_code(self):
+        """Gets the promotion_code of this InlineResponse2006Data.  # noqa: E501
+
+        Promotion code  # noqa: E501
+
+        :return: The promotion_code of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._promotion_code
+
+    @promotion_code.setter
+    def promotion_code(self, promotion_code):
+        """Sets the promotion_code of this InlineResponse2006Data.
+
+        Promotion code  # noqa: E501
+
+        :param promotion_code: The promotion_code of this InlineResponse2006Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and promotion_code is None:  # noqa: E501
+            raise ValueError("Invalid value for `promotion_code`, must not be `None`")  # noqa: E501
+
+        self._promotion_code = promotion_code
+
+    @property
+    def side(self):
+        """Gets the side of this InlineResponse2006Data.  # noqa: E501
+
+        Quote method  # noqa: E501
+
+        :return: The side of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._side
+
+    @side.setter
+    def side(self, side):
+        """Sets the side of this InlineResponse2006Data.
+
+        Quote method  # noqa: E501
+
+        :param side: The side of this InlineResponse2006Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
+
+        self._side = side
+
+    @property
+    def order_type(self):
+        """Gets the order_type of this InlineResponse2006Data.  # noqa: E501
+
+        Order type: FIAT (fiat) / STABLE (stablecoin)  # noqa: E501
+
+        :return: The order_type of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_type
+
+    @order_type.setter
+    def order_type(self, order_type):
+        """Sets the order_type of this InlineResponse2006Data.
+
+        Order type: FIAT (fiat) / STABLE (stablecoin)  # noqa: E501
+
+        :param order_type: The order_type of this InlineResponse2006Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and order_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_type`, must not be `None`")  # noqa: E501
+
+        self._order_type = order_type
+
+    @property
+    def quote_token(self):
+        """Gets the quote_token of this InlineResponse2006Data.  # noqa: E501
+
+        Quote token required when placing an order  # noqa: E501
+
+        :return: The quote_token of this InlineResponse2006Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._quote_token
+
+    @quote_token.setter
+    def quote_token(self, quote_token):
+        """Sets the quote_token of this InlineResponse2006Data.
+
+        Quote token required when placing an order  # noqa: E501
+
+        :param quote_token: The quote_token of this InlineResponse2006Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and quote_token is None:  # noqa: E501
+            raise ValueError("Invalid value for `quote_token`, must not be `None`")  # noqa: E501
+
+        self._quote_token = quote_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

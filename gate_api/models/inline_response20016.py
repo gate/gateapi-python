@@ -191,7 +191,6 @@ class InlineResponse20016(object):
     def version(self):
         """Gets the version of this InlineResponse20016.  # noqa: E501
 
-        Version number  # noqa: E501
 
         :return: The version of this InlineResponse20016.  # noqa: E501
         :rtype: str
@@ -202,7 +201,6 @@ class InlineResponse20016(object):
     def version(self, version):
         """Sets the version of this InlineResponse20016.
 
-        Version number  # noqa: E501
 
         :param version: The version of this InlineResponse20016.  # noqa: E501
         :type: str
