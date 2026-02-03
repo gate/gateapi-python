@@ -1554,7 +1554,6 @@ class P2PApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str adv_no: (required)
-        :param int : Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1579,7 +1578,6 @@ class P2PApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str adv_no: (required)
-        :param int : Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1597,8 +1595,7 @@ class P2PApi(object):
         local_var_params = locals()
 
         all_params = [
-            'adv_no',
-            ''
+            'adv_no'
         ]
         all_params.extend(
             [
@@ -1627,8 +1624,6 @@ class P2PApi(object):
         path_params = {}
 
         query_params = []
-        if '' in local_var_params and local_var_params[''] is not None:  # noqa: E501
-            query_params.append(('&#x3D;', local_var_params['']))  # noqa: E501
 
         header_params = {}
 

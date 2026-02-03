@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.22"
+__version__ = "7.2.23"
 
 # import apis into sdk package
 from gate_api.api.cross_ex_api import CrossExApi
