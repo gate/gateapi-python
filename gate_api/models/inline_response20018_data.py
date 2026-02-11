@@ -33,33 +33,592 @@ class InlineResponse20018Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'status': 'int'
+        'is_sell': 'int',
+        'txid': 'int',
+        'orderid': 'int',
+        'timest': 'int',
+        'last_pay_time': 'int',
+        'remain_pay_time': 'int',
+        'currency_type': 'str',
+        'want_type': 'str',
+        'rate': 'str',
+        'amount': 'str',
+        'total': 'str',
+        'status': 'str',
+        'reason_id': 'str',
+        'reason_desc': 'str',
+        'toast_id': 'int',
+        'cancel_time': 'str',
+        'seller_confirm': 'int',
+        'in_appeal': 'int',
+        'dispute_time': 'int',
+        'cancelable': 'int',
+        'hide_payment': 'int',
+        'trade_tips': 'str',
+        'show_bank': 'str',
+        'bankname': 'str',
+        'bankbranch': 'str',
+        'bankid': 'str',
+        'bank_holder_realname': 'str',
+        'show_ali': 'str',
+        'aliname': 'str',
+        'is_alicode': 'int',
+        'show_wechat': 'str',
+        'wename': 'str',
+        'show_others': 'str',
+        'pay_others': 'list[str]',
+        'sel_paytype': 'str',
+        'its_uid': 'str',
+        'its_is_blue_vip': 'int',
+        'its_tier': 'int',
+        'its_avatar': 'str',
+        'its_nickname': 'str',
+        'its_realname': 'str',
+        'is_follow': 'int',
+        'is_black': 'int',
+        'have_traded': 'int',
+        'appeal_unread': 'int',
+        'appeal_allow_cancel': 'int',
+        'appeal_verdict_has_open': 'str',
+        'im_unread': 'int',
+        'message': 'str',
+        'score': 'str',
+        'payment_voucher_url': 'list[str]',
+        'complete_number': 'int',
+        'complete_rate_month': 'str',
+        'check_journal_account': 'bool',
+        'show_journal_account': 'bool',
+        'is_freeze_guarantee': 'int',
+        'usdt_left_guarantee': 'str',
+        'guarantee_curr_type': 'str',
+        'timest_paid': 'int',
+        'state': 'str',
+        'release_coin_switch': 'int',
+        'own_realname': 'str',
+        'confirmation_use_time_month': 'int',
+        'is_risk_user': 'int',
+        'is_xt': 'int',
+        'order_type': 'int',
+        'symbol': 'str',
+        'is_show_receive': 'int',
+        'is_taker': 'int',
+        'is_online': 'int',
+        'show_seller_contact_info': 'bool',
+        'supported_pay_types': 'list[str]'
     }
 
     attribute_map = {
-        'status': 'status'
+        'is_sell': 'is_sell',
+        'txid': 'txid',
+        'orderid': 'orderid',
+        'timest': 'timest',
+        'last_pay_time': 'last_pay_time',
+        'remain_pay_time': 'remain_pay_time',
+        'currency_type': 'currencyType',
+        'want_type': 'want_type',
+        'rate': 'rate',
+        'amount': 'amount',
+        'total': 'total',
+        'status': 'status',
+        'reason_id': 'reason_id',
+        'reason_desc': 'reason_desc',
+        'toast_id': 'toast_id',
+        'cancel_time': 'cancel_time',
+        'seller_confirm': 'seller_confirm',
+        'in_appeal': 'in_appeal',
+        'dispute_time': 'dispute_time',
+        'cancelable': 'cancelable',
+        'hide_payment': 'hide_payment',
+        'trade_tips': 'trade_tips',
+        'show_bank': 'show_bank',
+        'bankname': 'bankname',
+        'bankbranch': 'bankbranch',
+        'bankid': 'bankid',
+        'bank_holder_realname': 'bank_holder_realname',
+        'show_ali': 'show_ali',
+        'aliname': 'aliname',
+        'is_alicode': 'is_alicode',
+        'show_wechat': 'show_wechat',
+        'wename': 'wename',
+        'show_others': 'show_others',
+        'pay_others': 'pay_others',
+        'sel_paytype': 'sel_paytype',
+        'its_uid': 'its_uid',
+        'its_is_blue_vip': 'its_is_blue_vip',
+        'its_tier': 'its_tier',
+        'its_avatar': 'its_avatar',
+        'its_nickname': 'its_nickname',
+        'its_realname': 'its_realname',
+        'is_follow': 'is_follow',
+        'is_black': 'is_black',
+        'have_traded': 'have_traded',
+        'appeal_unread': 'appeal_unread',
+        'appeal_allow_cancel': 'appeal_allow_cancel',
+        'appeal_verdict_has_open': 'appeal_verdict_has_open',
+        'im_unread': 'im_unread',
+        'message': 'message',
+        'score': 'score',
+        'payment_voucher_url': 'payment_voucher_url',
+        'complete_number': 'complete_number',
+        'complete_rate_month': 'complete_rate_month',
+        'check_journal_account': 'check_journal_account',
+        'show_journal_account': 'show_journal_account',
+        'is_freeze_guarantee': 'is_freeze_guarantee',
+        'usdt_left_guarantee': 'usdt_left_guarantee',
+        'guarantee_curr_type': 'guarantee_curr_type',
+        'timest_paid': 'timest_paid',
+        'state': 'state',
+        'release_coin_switch': 'release_coin_switch',
+        'own_realname': 'own_realname',
+        'confirmation_use_time_month': 'confirmation_use_time_month',
+        'is_risk_user': 'is_risk_user',
+        'is_xt': 'is_xt',
+        'order_type': 'order_type',
+        'symbol': 'symbol',
+        'is_show_receive': 'is_show_receive',
+        'is_taker': 'is_taker',
+        'is_online': 'is_online',
+        'show_seller_contact_info': 'show_seller_contact_info',
+        'supported_pay_types': 'supported_pay_types'
     }
 
-    def __init__(self, status=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, Configuration) -> None
+    def __init__(self, is_sell=None, txid=None, orderid=None, timest=None, last_pay_time=None, remain_pay_time=None, currency_type=None, want_type=None, rate=None, amount=None, total=None, status=None, reason_id=None, reason_desc=None, toast_id=None, cancel_time=None, seller_confirm=None, in_appeal=None, dispute_time=None, cancelable=None, hide_payment=None, trade_tips=None, show_bank=None, bankname=None, bankbranch=None, bankid=None, bank_holder_realname=None, show_ali=None, aliname=None, is_alicode=None, show_wechat=None, wename=None, show_others=None, pay_others=None, sel_paytype=None, its_uid=None, its_is_blue_vip=None, its_tier=None, its_avatar=None, its_nickname=None, its_realname=None, is_follow=None, is_black=None, have_traded=None, appeal_unread=None, appeal_allow_cancel=None, appeal_verdict_has_open=None, im_unread=None, message=None, score=None, payment_voucher_url=None, complete_number=None, complete_rate_month=None, check_journal_account=None, show_journal_account=None, is_freeze_guarantee=None, usdt_left_guarantee=None, guarantee_curr_type=None, timest_paid=None, state=None, release_coin_switch=None, own_realname=None, confirmation_use_time_month=None, is_risk_user=None, is_xt=None, order_type=None, symbol=None, is_show_receive=None, is_taker=None, is_online=None, show_seller_contact_info=None, supported_pay_types=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, int, int, int, int, str, str, str, str, str, str, str, str, int, str, int, int, int, int, int, str, str, str, str, str, str, str, str, int, str, str, str, list[str], str, str, int, int, str, str, str, int, int, int, int, int, str, int, str, str, list[str], int, str, bool, bool, int, str, str, int, str, int, str, int, int, int, int, str, int, int, int, bool, list[str], Configuration) -> None
         """InlineResponse20018Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._is_sell = None
+        self._txid = None
+        self._orderid = None
+        self._timest = None
+        self._last_pay_time = None
+        self._remain_pay_time = None
+        self._currency_type = None
+        self._want_type = None
+        self._rate = None
+        self._amount = None
+        self._total = None
         self._status = None
+        self._reason_id = None
+        self._reason_desc = None
+        self._toast_id = None
+        self._cancel_time = None
+        self._seller_confirm = None
+        self._in_appeal = None
+        self._dispute_time = None
+        self._cancelable = None
+        self._hide_payment = None
+        self._trade_tips = None
+        self._show_bank = None
+        self._bankname = None
+        self._bankbranch = None
+        self._bankid = None
+        self._bank_holder_realname = None
+        self._show_ali = None
+        self._aliname = None
+        self._is_alicode = None
+        self._show_wechat = None
+        self._wename = None
+        self._show_others = None
+        self._pay_others = None
+        self._sel_paytype = None
+        self._its_uid = None
+        self._its_is_blue_vip = None
+        self._its_tier = None
+        self._its_avatar = None
+        self._its_nickname = None
+        self._its_realname = None
+        self._is_follow = None
+        self._is_black = None
+        self._have_traded = None
+        self._appeal_unread = None
+        self._appeal_allow_cancel = None
+        self._appeal_verdict_has_open = None
+        self._im_unread = None
+        self._message = None
+        self._score = None
+        self._payment_voucher_url = None
+        self._complete_number = None
+        self._complete_rate_month = None
+        self._check_journal_account = None
+        self._show_journal_account = None
+        self._is_freeze_guarantee = None
+        self._usdt_left_guarantee = None
+        self._guarantee_curr_type = None
+        self._timest_paid = None
+        self._state = None
+        self._release_coin_switch = None
+        self._own_realname = None
+        self._confirmation_use_time_month = None
+        self._is_risk_user = None
+        self._is_xt = None
+        self._order_type = None
+        self._symbol = None
+        self._is_show_receive = None
+        self._is_taker = None
+        self._is_online = None
+        self._show_seller_contact_info = None
+        self._supported_pay_types = None
         self.discriminator = None
 
+        self.is_sell = is_sell
+        self.txid = txid
+        self.orderid = orderid
+        self.timest = timest
+        self.last_pay_time = last_pay_time
+        self.remain_pay_time = remain_pay_time
+        self.currency_type = currency_type
+        self.want_type = want_type
+        self.rate = rate
+        self.amount = amount
+        self.total = total
         self.status = status
+        self.reason_id = reason_id
+        self.reason_desc = reason_desc
+        self.toast_id = toast_id
+        self.cancel_time = cancel_time
+        self.seller_confirm = seller_confirm
+        self.in_appeal = in_appeal
+        self.dispute_time = dispute_time
+        self.cancelable = cancelable
+        self.hide_payment = hide_payment
+        self.trade_tips = trade_tips
+        self.show_bank = show_bank
+        self.bankname = bankname
+        self.bankbranch = bankbranch
+        self.bankid = bankid
+        self.bank_holder_realname = bank_holder_realname
+        self.show_ali = show_ali
+        self.aliname = aliname
+        self.is_alicode = is_alicode
+        self.show_wechat = show_wechat
+        self.wename = wename
+        self.show_others = show_others
+        self.pay_others = pay_others
+        self.sel_paytype = sel_paytype
+        self.its_uid = its_uid
+        self.its_is_blue_vip = its_is_blue_vip
+        self.its_tier = its_tier
+        self.its_avatar = its_avatar
+        self.its_nickname = its_nickname
+        self.its_realname = its_realname
+        self.is_follow = is_follow
+        self.is_black = is_black
+        self.have_traded = have_traded
+        self.appeal_unread = appeal_unread
+        self.appeal_allow_cancel = appeal_allow_cancel
+        self.appeal_verdict_has_open = appeal_verdict_has_open
+        self.im_unread = im_unread
+        self.message = message
+        self.score = score
+        self.payment_voucher_url = payment_voucher_url
+        self.complete_number = complete_number
+        self.complete_rate_month = complete_rate_month
+        self.check_journal_account = check_journal_account
+        self.show_journal_account = show_journal_account
+        self.is_freeze_guarantee = is_freeze_guarantee
+        self.usdt_left_guarantee = usdt_left_guarantee
+        self.guarantee_curr_type = guarantee_curr_type
+        self.timest_paid = timest_paid
+        self.state = state
+        self.release_coin_switch = release_coin_switch
+        self.own_realname = own_realname
+        self.confirmation_use_time_month = confirmation_use_time_month
+        self.is_risk_user = is_risk_user
+        self.is_xt = is_xt
+        self.order_type = order_type
+        self.symbol = symbol
+        self.is_show_receive = is_show_receive
+        self.is_taker = is_taker
+        self.is_online = is_online
+        self.show_seller_contact_info = show_seller_contact_info
+        self.supported_pay_types = supported_pay_types
+
+    @property
+    def is_sell(self):
+        """Gets the is_sell of this InlineResponse20018Data.  # noqa: E501
+
+        Whether sell order  # noqa: E501
+
+        :return: The is_sell of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_sell
+
+    @is_sell.setter
+    def is_sell(self, is_sell):
+        """Sets the is_sell of this InlineResponse20018Data.
+
+        Whether sell order  # noqa: E501
+
+        :param is_sell: The is_sell of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_sell is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_sell`, must not be `None`")  # noqa: E501
+
+        self._is_sell = is_sell
+
+    @property
+    def txid(self):
+        """Gets the txid of this InlineResponse20018Data.  # noqa: E501
+
+        Order ID  # noqa: E501
+
+        :return: The txid of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._txid
+
+    @txid.setter
+    def txid(self, txid):
+        """Sets the txid of this InlineResponse20018Data.
+
+        Order ID  # noqa: E501
+
+        :param txid: The txid of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
+            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
+
+        self._txid = txid
+
+    @property
+    def orderid(self):
+        """Gets the orderid of this InlineResponse20018Data.  # noqa: E501
+
+        Order ID  # noqa: E501
+
+        :return: The orderid of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._orderid
+
+    @orderid.setter
+    def orderid(self, orderid):
+        """Sets the orderid of this InlineResponse20018Data.
+
+        Order ID  # noqa: E501
+
+        :param orderid: The orderid of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and orderid is None:  # noqa: E501
+            raise ValueError("Invalid value for `orderid`, must not be `None`")  # noqa: E501
+
+        self._orderid = orderid
+
+    @property
+    def timest(self):
+        """Gets the timest of this InlineResponse20018Data.  # noqa: E501
+
+        Order creation timestamp  # noqa: E501
+
+        :return: The timest of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._timest
+
+    @timest.setter
+    def timest(self, timest):
+        """Sets the timest of this InlineResponse20018Data.
+
+        Order creation timestamp  # noqa: E501
+
+        :param timest: The timest of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and timest is None:  # noqa: E501
+            raise ValueError("Invalid value for `timest`, must not be `None`")  # noqa: E501
+
+        self._timest = timest
+
+    @property
+    def last_pay_time(self):
+        """Gets the last_pay_time of this InlineResponse20018Data.  # noqa: E501
+
+        Payment deadline  # noqa: E501
+
+        :return: The last_pay_time of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._last_pay_time
+
+    @last_pay_time.setter
+    def last_pay_time(self, last_pay_time):
+        """Sets the last_pay_time of this InlineResponse20018Data.
+
+        Payment deadline  # noqa: E501
+
+        :param last_pay_time: The last_pay_time of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and last_pay_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `last_pay_time`, must not be `None`")  # noqa: E501
+
+        self._last_pay_time = last_pay_time
+
+    @property
+    def remain_pay_time(self):
+        """Gets the remain_pay_time of this InlineResponse20018Data.  # noqa: E501
+
+        Remaining payment time  # noqa: E501
+
+        :return: The remain_pay_time of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._remain_pay_time
+
+    @remain_pay_time.setter
+    def remain_pay_time(self, remain_pay_time):
+        """Sets the remain_pay_time of this InlineResponse20018Data.
+
+        Remaining payment time  # noqa: E501
+
+        :param remain_pay_time: The remain_pay_time of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and remain_pay_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `remain_pay_time`, must not be `None`")  # noqa: E501
+
+        self._remain_pay_time = remain_pay_time
+
+    @property
+    def currency_type(self):
+        """Gets the currency_type of this InlineResponse20018Data.  # noqa: E501
+
+        Cryptocurrency type  # noqa: E501
+
+        :return: The currency_type of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_type
+
+    @currency_type.setter
+    def currency_type(self, currency_type):
+        """Sets the currency_type of this InlineResponse20018Data.
+
+        Cryptocurrency type  # noqa: E501
+
+        :param currency_type: The currency_type of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and currency_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `currency_type`, must not be `None`")  # noqa: E501
+
+        self._currency_type = currency_type
+
+    @property
+    def want_type(self):
+        """Gets the want_type of this InlineResponse20018Data.  # noqa: E501
+
+        Fiat currency type  # noqa: E501
+
+        :return: The want_type of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._want_type
+
+    @want_type.setter
+    def want_type(self, want_type):
+        """Sets the want_type of this InlineResponse20018Data.
+
+        Fiat currency type  # noqa: E501
+
+        :param want_type: The want_type of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and want_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `want_type`, must not be `None`")  # noqa: E501
+
+        self._want_type = want_type
+
+    @property
+    def rate(self):
+        """Gets the rate of this InlineResponse20018Data.  # noqa: E501
+
+        Price  # noqa: E501
+
+        :return: The rate of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._rate
+
+    @rate.setter
+    def rate(self, rate):
+        """Sets the rate of this InlineResponse20018Data.
+
+        Price  # noqa: E501
+
+        :param rate: The rate of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate`, must not be `None`")  # noqa: E501
+
+        self._rate = rate
+
+    @property
+    def amount(self):
+        """Gets the amount of this InlineResponse20018Data.  # noqa: E501
+
+        Size  # noqa: E501
+
+        :return: The amount of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this InlineResponse20018Data.
+
+        Size  # noqa: E501
+
+        :param amount: The amount of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+
+        self._amount = amount
+
+    @property
+    def total(self):
+        """Gets the total of this InlineResponse20018Data.  # noqa: E501
+
+        Fiat amount  # noqa: E501
+
+        :return: The total of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this InlineResponse20018Data.
+
+        Fiat amount  # noqa: E501
+
+        :param total: The total of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
+            raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
+
+        self._total = total
 
     @property
     def status(self):
         """Gets the status of this InlineResponse20018Data.  # noqa: E501
 
-        Ad status after successful update  # noqa: E501
+        Order Status  # noqa: E501
 
         :return: The status of this InlineResponse20018Data.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._status
 
@@ -67,15 +626,1515 @@ class InlineResponse20018Data(object):
     def status(self, status):
         """Sets the status of this InlineResponse20018Data.
 
-        Ad status after successful update  # noqa: E501
+        Order Status  # noqa: E501
 
         :param status: The status of this InlineResponse20018Data.  # noqa: E501
-        :type: int
+        :type: str
         """
         if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def reason_id(self):
+        """Gets the reason_id of this InlineResponse20018Data.  # noqa: E501
+
+        Cancellation reason ID  # noqa: E501
+
+        :return: The reason_id of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason_id
+
+    @reason_id.setter
+    def reason_id(self, reason_id):
+        """Sets the reason_id of this InlineResponse20018Data.
+
+        Cancellation reason ID  # noqa: E501
+
+        :param reason_id: The reason_id of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and reason_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `reason_id`, must not be `None`")  # noqa: E501
+
+        self._reason_id = reason_id
+
+    @property
+    def reason_desc(self):
+        """Gets the reason_desc of this InlineResponse20018Data.  # noqa: E501
+
+        Cancellation reason  # noqa: E501
+
+        :return: The reason_desc of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason_desc
+
+    @reason_desc.setter
+    def reason_desc(self, reason_desc):
+        """Sets the reason_desc of this InlineResponse20018Data.
+
+        Cancellation reason  # noqa: E501
+
+        :param reason_desc: The reason_desc of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and reason_desc is None:  # noqa: E501
+            raise ValueError("Invalid value for `reason_desc`, must not be `None`")  # noqa: E501
+
+        self._reason_desc = reason_desc
+
+    @property
+    def toast_id(self):
+        """Gets the toast_id of this InlineResponse20018Data.  # noqa: E501
+
+        Popup ID  # noqa: E501
+
+        :return: The toast_id of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._toast_id
+
+    @toast_id.setter
+    def toast_id(self, toast_id):
+        """Sets the toast_id of this InlineResponse20018Data.
+
+        Popup ID  # noqa: E501
+
+        :param toast_id: The toast_id of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and toast_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `toast_id`, must not be `None`")  # noqa: E501
+
+        self._toast_id = toast_id
+
+    @property
+    def cancel_time(self):
+        """Gets the cancel_time of this InlineResponse20018Data.  # noqa: E501
+
+        Cancellation time  # noqa: E501
+
+        :return: The cancel_time of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._cancel_time
+
+    @cancel_time.setter
+    def cancel_time(self, cancel_time):
+        """Sets the cancel_time of this InlineResponse20018Data.
+
+        Cancellation time  # noqa: E501
+
+        :param cancel_time: The cancel_time of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and cancel_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `cancel_time`, must not be `None`")  # noqa: E501
+
+        self._cancel_time = cancel_time
+
+    @property
+    def seller_confirm(self):
+        """Gets the seller_confirm of this InlineResponse20018Data.  # noqa: E501
+
+        Whether seller confirmed the reason  # noqa: E501
+
+        :return: The seller_confirm of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._seller_confirm
+
+    @seller_confirm.setter
+    def seller_confirm(self, seller_confirm):
+        """Sets the seller_confirm of this InlineResponse20018Data.
+
+        Whether seller confirmed the reason  # noqa: E501
+
+        :param seller_confirm: The seller_confirm of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and seller_confirm is None:  # noqa: E501
+            raise ValueError("Invalid value for `seller_confirm`, must not be `None`")  # noqa: E501
+
+        self._seller_confirm = seller_confirm
+
+    @property
+    def in_appeal(self):
+        """Gets the in_appeal of this InlineResponse20018Data.  # noqa: E501
+
+        Whether in dispute  # noqa: E501
+
+        :return: The in_appeal of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._in_appeal
+
+    @in_appeal.setter
+    def in_appeal(self, in_appeal):
+        """Sets the in_appeal of this InlineResponse20018Data.
+
+        Whether in dispute  # noqa: E501
+
+        :param in_appeal: The in_appeal of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and in_appeal is None:  # noqa: E501
+            raise ValueError("Invalid value for `in_appeal`, must not be `None`")  # noqa: E501
+
+        self._in_appeal = in_appeal
+
+    @property
+    def dispute_time(self):
+        """Gets the dispute_time of this InlineResponse20018Data.  # noqa: E501
+
+        Appeal time limit  # noqa: E501
+
+        :return: The dispute_time of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._dispute_time
+
+    @dispute_time.setter
+    def dispute_time(self, dispute_time):
+        """Sets the dispute_time of this InlineResponse20018Data.
+
+        Appeal time limit  # noqa: E501
+
+        :param dispute_time: The dispute_time of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and dispute_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `dispute_time`, must not be `None`")  # noqa: E501
+
+        self._dispute_time = dispute_time
+
+    @property
+    def cancelable(self):
+        """Gets the cancelable of this InlineResponse20018Data.  # noqa: E501
+
+        Whether order cancellation is allowed  # noqa: E501
+
+        :return: The cancelable of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._cancelable
+
+    @cancelable.setter
+    def cancelable(self, cancelable):
+        """Sets the cancelable of this InlineResponse20018Data.
+
+        Whether order cancellation is allowed  # noqa: E501
+
+        :param cancelable: The cancelable of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and cancelable is None:  # noqa: E501
+            raise ValueError("Invalid value for `cancelable`, must not be `None`")  # noqa: E501
+
+        self._cancelable = cancelable
+
+    @property
+    def hide_payment(self):
+        """Gets the hide_payment of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to hide payment method  # noqa: E501
+
+        :return: The hide_payment of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._hide_payment
+
+    @hide_payment.setter
+    def hide_payment(self, hide_payment):
+        """Sets the hide_payment of this InlineResponse20018Data.
+
+        Whether to hide payment method  # noqa: E501
+
+        :param hide_payment: The hide_payment of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and hide_payment is None:  # noqa: E501
+            raise ValueError("Invalid value for `hide_payment`, must not be `None`")  # noqa: E501
+
+        self._hide_payment = hide_payment
+
+    @property
+    def trade_tips(self):
+        """Gets the trade_tips of this InlineResponse20018Data.  # noqa: E501
+
+        Trading terms  # noqa: E501
+
+        :return: The trade_tips of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_tips
+
+    @trade_tips.setter
+    def trade_tips(self, trade_tips):
+        """Sets the trade_tips of this InlineResponse20018Data.
+
+        Trading terms  # noqa: E501
+
+        :param trade_tips: The trade_tips of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and trade_tips is None:  # noqa: E501
+            raise ValueError("Invalid value for `trade_tips`, must not be `None`")  # noqa: E501
+
+        self._trade_tips = trade_tips
+
+    @property
+    def show_bank(self):
+        """Gets the show_bank of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to display bank  # noqa: E501
+
+        :return: The show_bank of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._show_bank
+
+    @show_bank.setter
+    def show_bank(self, show_bank):
+        """Sets the show_bank of this InlineResponse20018Data.
+
+        Whether to display bank  # noqa: E501
+
+        :param show_bank: The show_bank of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and show_bank is None:  # noqa: E501
+            raise ValueError("Invalid value for `show_bank`, must not be `None`")  # noqa: E501
+
+        self._show_bank = show_bank
+
+    @property
+    def bankname(self):
+        """Gets the bankname of this InlineResponse20018Data.  # noqa: E501
+
+        Bank name  # noqa: E501
+
+        :return: The bankname of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._bankname
+
+    @bankname.setter
+    def bankname(self, bankname):
+        """Sets the bankname of this InlineResponse20018Data.
+
+        Bank name  # noqa: E501
+
+        :param bankname: The bankname of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and bankname is None:  # noqa: E501
+            raise ValueError("Invalid value for `bankname`, must not be `None`")  # noqa: E501
+
+        self._bankname = bankname
+
+    @property
+    def bankbranch(self):
+        """Gets the bankbranch of this InlineResponse20018Data.  # noqa: E501
+
+        Bank branch name  # noqa: E501
+
+        :return: The bankbranch of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._bankbranch
+
+    @bankbranch.setter
+    def bankbranch(self, bankbranch):
+        """Sets the bankbranch of this InlineResponse20018Data.
+
+        Bank branch name  # noqa: E501
+
+        :param bankbranch: The bankbranch of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and bankbranch is None:  # noqa: E501
+            raise ValueError("Invalid value for `bankbranch`, must not be `None`")  # noqa: E501
+
+        self._bankbranch = bankbranch
+
+    @property
+    def bankid(self):
+        """Gets the bankid of this InlineResponse20018Data.  # noqa: E501
+
+        Bank ID  # noqa: E501
+
+        :return: The bankid of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._bankid
+
+    @bankid.setter
+    def bankid(self, bankid):
+        """Sets the bankid of this InlineResponse20018Data.
+
+        Bank ID  # noqa: E501
+
+        :param bankid: The bankid of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and bankid is None:  # noqa: E501
+            raise ValueError("Invalid value for `bankid`, must not be `None`")  # noqa: E501
+
+        self._bankid = bankid
+
+    @property
+    def bank_holder_realname(self):
+        """Gets the bank_holder_realname of this InlineResponse20018Data.  # noqa: E501
+
+        Bank cardholder name  # noqa: E501
+
+        :return: The bank_holder_realname of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_holder_realname
+
+    @bank_holder_realname.setter
+    def bank_holder_realname(self, bank_holder_realname):
+        """Sets the bank_holder_realname of this InlineResponse20018Data.
+
+        Bank cardholder name  # noqa: E501
+
+        :param bank_holder_realname: The bank_holder_realname of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and bank_holder_realname is None:  # noqa: E501
+            raise ValueError("Invalid value for `bank_holder_realname`, must not be `None`")  # noqa: E501
+
+        self._bank_holder_realname = bank_holder_realname
+
+    @property
+    def show_ali(self):
+        """Gets the show_ali of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to display Alipay  # noqa: E501
+
+        :return: The show_ali of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._show_ali
+
+    @show_ali.setter
+    def show_ali(self, show_ali):
+        """Sets the show_ali of this InlineResponse20018Data.
+
+        Whether to display Alipay  # noqa: E501
+
+        :param show_ali: The show_ali of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and show_ali is None:  # noqa: E501
+            raise ValueError("Invalid value for `show_ali`, must not be `None`")  # noqa: E501
+
+        self._show_ali = show_ali
+
+    @property
+    def aliname(self):
+        """Gets the aliname of this InlineResponse20018Data.  # noqa: E501
+
+        Alipay account name  # noqa: E501
+
+        :return: The aliname of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._aliname
+
+    @aliname.setter
+    def aliname(self, aliname):
+        """Sets the aliname of this InlineResponse20018Data.
+
+        Alipay account name  # noqa: E501
+
+        :param aliname: The aliname of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and aliname is None:  # noqa: E501
+            raise ValueError("Invalid value for `aliname`, must not be `None`")  # noqa: E501
+
+        self._aliname = aliname
+
+    @property
+    def is_alicode(self):
+        """Gets the is_alicode of this InlineResponse20018Data.  # noqa: E501
+
+        Whether Alipay QR code exists  # noqa: E501
+
+        :return: The is_alicode of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_alicode
+
+    @is_alicode.setter
+    def is_alicode(self, is_alicode):
+        """Sets the is_alicode of this InlineResponse20018Data.
+
+        Whether Alipay QR code exists  # noqa: E501
+
+        :param is_alicode: The is_alicode of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_alicode is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_alicode`, must not be `None`")  # noqa: E501
+
+        self._is_alicode = is_alicode
+
+    @property
+    def show_wechat(self):
+        """Gets the show_wechat of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to display WeChat  # noqa: E501
+
+        :return: The show_wechat of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._show_wechat
+
+    @show_wechat.setter
+    def show_wechat(self, show_wechat):
+        """Sets the show_wechat of this InlineResponse20018Data.
+
+        Whether to display WeChat  # noqa: E501
+
+        :param show_wechat: The show_wechat of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and show_wechat is None:  # noqa: E501
+            raise ValueError("Invalid value for `show_wechat`, must not be `None`")  # noqa: E501
+
+        self._show_wechat = show_wechat
+
+    @property
+    def wename(self):
+        """Gets the wename of this InlineResponse20018Data.  # noqa: E501
+
+        WeChat account name  # noqa: E501
+
+        :return: The wename of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._wename
+
+    @wename.setter
+    def wename(self, wename):
+        """Sets the wename of this InlineResponse20018Data.
+
+        WeChat account name  # noqa: E501
+
+        :param wename: The wename of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and wename is None:  # noqa: E501
+            raise ValueError("Invalid value for `wename`, must not be `None`")  # noqa: E501
+
+        self._wename = wename
+
+    @property
+    def show_others(self):
+        """Gets the show_others of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to display other payment methods  # noqa: E501
+
+        :return: The show_others of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._show_others
+
+    @show_others.setter
+    def show_others(self, show_others):
+        """Sets the show_others of this InlineResponse20018Data.
+
+        Whether to display other payment methods  # noqa: E501
+
+        :param show_others: The show_others of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and show_others is None:  # noqa: E501
+            raise ValueError("Invalid value for `show_others`, must not be `None`")  # noqa: E501
+
+        self._show_others = show_others
+
+    @property
+    def pay_others(self):
+        """Gets the pay_others of this InlineResponse20018Data.  # noqa: E501
+
+        Other payment methods  # noqa: E501
+
+        :return: The pay_others of this InlineResponse20018Data.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._pay_others
+
+    @pay_others.setter
+    def pay_others(self, pay_others):
+        """Sets the pay_others of this InlineResponse20018Data.
+
+        Other payment methods  # noqa: E501
+
+        :param pay_others: The pay_others of this InlineResponse20018Data.  # noqa: E501
+        :type: list[str]
+        """
+        if self.local_vars_configuration.client_side_validation and pay_others is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_others`, must not be `None`")  # noqa: E501
+
+        self._pay_others = pay_others
+
+    @property
+    def sel_paytype(self):
+        """Gets the sel_paytype of this InlineResponse20018Data.  # noqa: E501
+
+        Payment type  # noqa: E501
+
+        :return: The sel_paytype of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._sel_paytype
+
+    @sel_paytype.setter
+    def sel_paytype(self, sel_paytype):
+        """Sets the sel_paytype of this InlineResponse20018Data.
+
+        Payment type  # noqa: E501
+
+        :param sel_paytype: The sel_paytype of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and sel_paytype is None:  # noqa: E501
+            raise ValueError("Invalid value for `sel_paytype`, must not be `None`")  # noqa: E501
+
+        self._sel_paytype = sel_paytype
+
+    @property
+    def its_uid(self):
+        """Gets the its_uid of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty UID  # noqa: E501
+
+        :return: The its_uid of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._its_uid
+
+    @its_uid.setter
+    def its_uid(self, its_uid):
+        """Sets the its_uid of this InlineResponse20018Data.
+
+        Counterparty UID  # noqa: E501
+
+        :param its_uid: The its_uid of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and its_uid is None:  # noqa: E501
+            raise ValueError("Invalid value for `its_uid`, must not be `None`")  # noqa: E501
+
+        self._its_uid = its_uid
+
+    @property
+    def its_is_blue_vip(self):
+        """Gets the its_is_blue_vip of this InlineResponse20018Data.  # noqa: E501
+
+        Whether counterparty is Blue V  # noqa: E501
+
+        :return: The its_is_blue_vip of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._its_is_blue_vip
+
+    @its_is_blue_vip.setter
+    def its_is_blue_vip(self, its_is_blue_vip):
+        """Sets the its_is_blue_vip of this InlineResponse20018Data.
+
+        Whether counterparty is Blue V  # noqa: E501
+
+        :param its_is_blue_vip: The its_is_blue_vip of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and its_is_blue_vip is None:  # noqa: E501
+            raise ValueError("Invalid value for `its_is_blue_vip`, must not be `None`")  # noqa: E501
+
+        self._its_is_blue_vip = its_is_blue_vip
+
+    @property
+    def its_tier(self):
+        """Gets the its_tier of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty VIP tier  # noqa: E501
+
+        :return: The its_tier of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._its_tier
+
+    @its_tier.setter
+    def its_tier(self, its_tier):
+        """Sets the its_tier of this InlineResponse20018Data.
+
+        Counterparty VIP tier  # noqa: E501
+
+        :param its_tier: The its_tier of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and its_tier is None:  # noqa: E501
+            raise ValueError("Invalid value for `its_tier`, must not be `None`")  # noqa: E501
+
+        self._its_tier = its_tier
+
+    @property
+    def its_avatar(self):
+        """Gets the its_avatar of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty avatar  # noqa: E501
+
+        :return: The its_avatar of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._its_avatar
+
+    @its_avatar.setter
+    def its_avatar(self, its_avatar):
+        """Sets the its_avatar of this InlineResponse20018Data.
+
+        Counterparty avatar  # noqa: E501
+
+        :param its_avatar: The its_avatar of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and its_avatar is None:  # noqa: E501
+            raise ValueError("Invalid value for `its_avatar`, must not be `None`")  # noqa: E501
+
+        self._its_avatar = its_avatar
+
+    @property
+    def its_nickname(self):
+        """Gets the its_nickname of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty nickname  # noqa: E501
+
+        :return: The its_nickname of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._its_nickname
+
+    @its_nickname.setter
+    def its_nickname(self, its_nickname):
+        """Sets the its_nickname of this InlineResponse20018Data.
+
+        Counterparty nickname  # noqa: E501
+
+        :param its_nickname: The its_nickname of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and its_nickname is None:  # noqa: E501
+            raise ValueError("Invalid value for `its_nickname`, must not be `None`")  # noqa: E501
+
+        self._its_nickname = its_nickname
+
+    @property
+    def its_realname(self):
+        """Gets the its_realname of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty username  # noqa: E501
+
+        :return: The its_realname of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._its_realname
+
+    @its_realname.setter
+    def its_realname(self, its_realname):
+        """Sets the its_realname of this InlineResponse20018Data.
+
+        Counterparty username  # noqa: E501
+
+        :param its_realname: The its_realname of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and its_realname is None:  # noqa: E501
+            raise ValueError("Invalid value for `its_realname`, must not be `None`")  # noqa: E501
+
+        self._its_realname = its_realname
+
+    @property
+    def is_follow(self):
+        """Gets the is_follow of this InlineResponse20018Data.  # noqa: E501
+
+        Whether following  # noqa: E501
+
+        :return: The is_follow of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_follow
+
+    @is_follow.setter
+    def is_follow(self, is_follow):
+        """Sets the is_follow of this InlineResponse20018Data.
+
+        Whether following  # noqa: E501
+
+        :param is_follow: The is_follow of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_follow is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_follow`, must not be `None`")  # noqa: E501
+
+        self._is_follow = is_follow
+
+    @property
+    def is_black(self):
+        """Gets the is_black of this InlineResponse20018Data.  # noqa: E501
+
+        Whether blocked  # noqa: E501
+
+        :return: The is_black of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_black
+
+    @is_black.setter
+    def is_black(self, is_black):
+        """Sets the is_black of this InlineResponse20018Data.
+
+        Whether blocked  # noqa: E501
+
+        :param is_black: The is_black of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_black is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_black`, must not be `None`")  # noqa: E501
+
+        self._is_black = is_black
+
+    @property
+    def have_traded(self):
+        """Gets the have_traded of this InlineResponse20018Data.  # noqa: E501
+
+        Whether traded before  # noqa: E501
+
+        :return: The have_traded of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._have_traded
+
+    @have_traded.setter
+    def have_traded(self, have_traded):
+        """Sets the have_traded of this InlineResponse20018Data.
+
+        Whether traded before  # noqa: E501
+
+        :param have_traded: The have_traded of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and have_traded is None:  # noqa: E501
+            raise ValueError("Invalid value for `have_traded`, must not be `None`")  # noqa: E501
+
+        self._have_traded = have_traded
+
+    @property
+    def appeal_unread(self):
+        """Gets the appeal_unread of this InlineResponse20018Data.  # noqa: E501
+
+        Unread appeals  # noqa: E501
+
+        :return: The appeal_unread of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._appeal_unread
+
+    @appeal_unread.setter
+    def appeal_unread(self, appeal_unread):
+        """Sets the appeal_unread of this InlineResponse20018Data.
+
+        Unread appeals  # noqa: E501
+
+        :param appeal_unread: The appeal_unread of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and appeal_unread is None:  # noqa: E501
+            raise ValueError("Invalid value for `appeal_unread`, must not be `None`")  # noqa: E501
+
+        self._appeal_unread = appeal_unread
+
+    @property
+    def appeal_allow_cancel(self):
+        """Gets the appeal_allow_cancel of this InlineResponse20018Data.  # noqa: E501
+
+        Whether appeal cancellation is allowed  # noqa: E501
+
+        :return: The appeal_allow_cancel of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._appeal_allow_cancel
+
+    @appeal_allow_cancel.setter
+    def appeal_allow_cancel(self, appeal_allow_cancel):
+        """Sets the appeal_allow_cancel of this InlineResponse20018Data.
+
+        Whether appeal cancellation is allowed  # noqa: E501
+
+        :param appeal_allow_cancel: The appeal_allow_cancel of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and appeal_allow_cancel is None:  # noqa: E501
+            raise ValueError("Invalid value for `appeal_allow_cancel`, must not be `None`")  # noqa: E501
+
+        self._appeal_allow_cancel = appeal_allow_cancel
+
+    @property
+    def appeal_verdict_has_open(self):
+        """Gets the appeal_verdict_has_open of this InlineResponse20018Data.  # noqa: E501
+
+        Appeal result (including pending appeals)  # noqa: E501
+
+        :return: The appeal_verdict_has_open of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._appeal_verdict_has_open
+
+    @appeal_verdict_has_open.setter
+    def appeal_verdict_has_open(self, appeal_verdict_has_open):
+        """Sets the appeal_verdict_has_open of this InlineResponse20018Data.
+
+        Appeal result (including pending appeals)  # noqa: E501
+
+        :param appeal_verdict_has_open: The appeal_verdict_has_open of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and appeal_verdict_has_open is None:  # noqa: E501
+            raise ValueError("Invalid value for `appeal_verdict_has_open`, must not be `None`")  # noqa: E501
+
+        self._appeal_verdict_has_open = appeal_verdict_has_open
+
+    @property
+    def im_unread(self):
+        """Gets the im_unread of this InlineResponse20018Data.  # noqa: E501
+
+        IM unread  # noqa: E501
+
+        :return: The im_unread of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._im_unread
+
+    @im_unread.setter
+    def im_unread(self, im_unread):
+        """Sets the im_unread of this InlineResponse20018Data.
+
+        IM unread  # noqa: E501
+
+        :param im_unread: The im_unread of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and im_unread is None:  # noqa: E501
+            raise ValueError("Invalid value for `im_unread`, must not be `None`")  # noqa: E501
+
+        self._im_unread = im_unread
+
+    @property
+    def message(self):
+        """Gets the message of this InlineResponse20018Data.  # noqa: E501
+
+        Review content  # noqa: E501
+
+        :return: The message of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse20018Data.
+
+        Review content  # noqa: E501
+
+        :param message: The message of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
+
+        self._message = message
+
+    @property
+    def score(self):
+        """Gets the score of this InlineResponse20018Data.  # noqa: E501
+
+        Rating  # noqa: E501
+
+        :return: The score of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this InlineResponse20018Data.
+
+        Rating  # noqa: E501
+
+        :param score: The score of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and score is None:  # noqa: E501
+            raise ValueError("Invalid value for `score`, must not be `None`")  # noqa: E501
+
+        self._score = score
+
+    @property
+    def payment_voucher_url(self):
+        """Gets the payment_voucher_url of this InlineResponse20018Data.  # noqa: E501
+
+        Payment voucher  # noqa: E501
+
+        :return: The payment_voucher_url of this InlineResponse20018Data.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._payment_voucher_url
+
+    @payment_voucher_url.setter
+    def payment_voucher_url(self, payment_voucher_url):
+        """Sets the payment_voucher_url of this InlineResponse20018Data.
+
+        Payment voucher  # noqa: E501
+
+        :param payment_voucher_url: The payment_voucher_url of this InlineResponse20018Data.  # noqa: E501
+        :type: list[str]
+        """
+        if self.local_vars_configuration.client_side_validation and payment_voucher_url is None:  # noqa: E501
+            raise ValueError("Invalid value for `payment_voucher_url`, must not be `None`")  # noqa: E501
+
+        self._payment_voucher_url = payment_voucher_url
+
+    @property
+    def complete_number(self):
+        """Gets the complete_number of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty transaction volume  # noqa: E501
+
+        :return: The complete_number of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._complete_number
+
+    @complete_number.setter
+    def complete_number(self, complete_number):
+        """Sets the complete_number of this InlineResponse20018Data.
+
+        Counterparty transaction volume  # noqa: E501
+
+        :param complete_number: The complete_number of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and complete_number is None:  # noqa: E501
+            raise ValueError("Invalid value for `complete_number`, must not be `None`")  # noqa: E501
+
+        self._complete_number = complete_number
+
+    @property
+    def complete_rate_month(self):
+        """Gets the complete_rate_month of this InlineResponse20018Data.  # noqa: E501
+
+        Counterparty completion rate  # noqa: E501
+
+        :return: The complete_rate_month of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._complete_rate_month
+
+    @complete_rate_month.setter
+    def complete_rate_month(self, complete_rate_month):
+        """Sets the complete_rate_month of this InlineResponse20018Data.
+
+        Counterparty completion rate  # noqa: E501
+
+        :param complete_rate_month: The complete_rate_month of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and complete_rate_month is None:  # noqa: E501
+            raise ValueError("Invalid value for `complete_rate_month`, must not be `None`")  # noqa: E501
+
+        self._complete_rate_month = complete_rate_month
+
+    @property
+    def check_journal_account(self):
+        """Gets the check_journal_account of this InlineResponse20018Data.  # noqa: E501
+
+        Whether transaction record is verified  # noqa: E501
+
+        :return: The check_journal_account of this InlineResponse20018Data.  # noqa: E501
+        :rtype: bool
+        """
+        return self._check_journal_account
+
+    @check_journal_account.setter
+    def check_journal_account(self, check_journal_account):
+        """Sets the check_journal_account of this InlineResponse20018Data.
+
+        Whether transaction record is verified  # noqa: E501
+
+        :param check_journal_account: The check_journal_account of this InlineResponse20018Data.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and check_journal_account is None:  # noqa: E501
+            raise ValueError("Invalid value for `check_journal_account`, must not be `None`")  # noqa: E501
+
+        self._check_journal_account = check_journal_account
+
+    @property
+    def show_journal_account(self):
+        """Gets the show_journal_account of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to display transaction records  # noqa: E501
+
+        :return: The show_journal_account of this InlineResponse20018Data.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_journal_account
+
+    @show_journal_account.setter
+    def show_journal_account(self, show_journal_account):
+        """Sets the show_journal_account of this InlineResponse20018Data.
+
+        Whether to display transaction records  # noqa: E501
+
+        :param show_journal_account: The show_journal_account of this InlineResponse20018Data.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and show_journal_account is None:  # noqa: E501
+            raise ValueError("Invalid value for `show_journal_account`, must not be `None`")  # noqa: E501
+
+        self._show_journal_account = show_journal_account
+
+    @property
+    def is_freeze_guarantee(self):
+        """Gets the is_freeze_guarantee of this InlineResponse20018Data.  # noqa: E501
+
+        Whether margin is frozen  # noqa: E501
+
+        :return: The is_freeze_guarantee of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_freeze_guarantee
+
+    @is_freeze_guarantee.setter
+    def is_freeze_guarantee(self, is_freeze_guarantee):
+        """Sets the is_freeze_guarantee of this InlineResponse20018Data.
+
+        Whether margin is frozen  # noqa: E501
+
+        :param is_freeze_guarantee: The is_freeze_guarantee of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_freeze_guarantee is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_freeze_guarantee`, must not be `None`")  # noqa: E501
+
+        self._is_freeze_guarantee = is_freeze_guarantee
+
+    @property
+    def usdt_left_guarantee(self):
+        """Gets the usdt_left_guarantee of this InlineResponse20018Data.  # noqa: E501
+
+        Remaining USDT margin  # noqa: E501
+
+        :return: The usdt_left_guarantee of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._usdt_left_guarantee
+
+    @usdt_left_guarantee.setter
+    def usdt_left_guarantee(self, usdt_left_guarantee):
+        """Sets the usdt_left_guarantee of this InlineResponse20018Data.
+
+        Remaining USDT margin  # noqa: E501
+
+        :param usdt_left_guarantee: The usdt_left_guarantee of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and usdt_left_guarantee is None:  # noqa: E501
+            raise ValueError("Invalid value for `usdt_left_guarantee`, must not be `None`")  # noqa: E501
+
+        self._usdt_left_guarantee = usdt_left_guarantee
+
+    @property
+    def guarantee_curr_type(self):
+        """Gets the guarantee_curr_type of this InlineResponse20018Data.  # noqa: E501
+
+        Margin currency type  # noqa: E501
+
+        :return: The guarantee_curr_type of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._guarantee_curr_type
+
+    @guarantee_curr_type.setter
+    def guarantee_curr_type(self, guarantee_curr_type):
+        """Sets the guarantee_curr_type of this InlineResponse20018Data.
+
+        Margin currency type  # noqa: E501
+
+        :param guarantee_curr_type: The guarantee_curr_type of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and guarantee_curr_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `guarantee_curr_type`, must not be `None`")  # noqa: E501
+
+        self._guarantee_curr_type = guarantee_curr_type
+
+    @property
+    def timest_paid(self):
+        """Gets the timest_paid of this InlineResponse20018Data.  # noqa: E501
+
+        Payment time  # noqa: E501
+
+        :return: The timest_paid of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._timest_paid
+
+    @timest_paid.setter
+    def timest_paid(self, timest_paid):
+        """Sets the timest_paid of this InlineResponse20018Data.
+
+        Payment time  # noqa: E501
+
+        :param timest_paid: The timest_paid of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and timest_paid is None:  # noqa: E501
+            raise ValueError("Invalid value for `timest_paid`, must not be `None`")  # noqa: E501
+
+        self._timest_paid = timest_paid
+
+    @property
+    def state(self):
+        """Gets the state of this InlineResponse20018Data.  # noqa: E501
+
+        Order Status  # noqa: E501
+
+        :return: The state of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this InlineResponse20018Data.
+
+        Order Status  # noqa: E501
+
+        :param state: The state of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
+            raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
+
+        self._state = state
+
+    @property
+    def release_coin_switch(self):
+        """Gets the release_coin_switch of this InlineResponse20018Data.  # noqa: E501
+
+        Coin release switch configuration  # noqa: E501
+
+        :return: The release_coin_switch of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._release_coin_switch
+
+    @release_coin_switch.setter
+    def release_coin_switch(self, release_coin_switch):
+        """Sets the release_coin_switch of this InlineResponse20018Data.
+
+        Coin release switch configuration  # noqa: E501
+
+        :param release_coin_switch: The release_coin_switch of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and release_coin_switch is None:  # noqa: E501
+            raise ValueError("Invalid value for `release_coin_switch`, must not be `None`")  # noqa: E501
+
+        self._release_coin_switch = release_coin_switch
+
+    @property
+    def own_realname(self):
+        """Gets the own_realname of this InlineResponse20018Data.  # noqa: E501
+
+        Username  # noqa: E501
+
+        :return: The own_realname of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._own_realname
+
+    @own_realname.setter
+    def own_realname(self, own_realname):
+        """Sets the own_realname of this InlineResponse20018Data.
+
+        Username  # noqa: E501
+
+        :param own_realname: The own_realname of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and own_realname is None:  # noqa: E501
+            raise ValueError("Invalid value for `own_realname`, must not be `None`")  # noqa: E501
+
+        self._own_realname = own_realname
+
+    @property
+    def confirmation_use_time_month(self):
+        """Gets the confirmation_use_time_month of this InlineResponse20018Data.  # noqa: E501
+
+        Average confirmation time in last 30 days  # noqa: E501
+
+        :return: The confirmation_use_time_month of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._confirmation_use_time_month
+
+    @confirmation_use_time_month.setter
+    def confirmation_use_time_month(self, confirmation_use_time_month):
+        """Sets the confirmation_use_time_month of this InlineResponse20018Data.
+
+        Average confirmation time in last 30 days  # noqa: E501
+
+        :param confirmation_use_time_month: The confirmation_use_time_month of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and confirmation_use_time_month is None:  # noqa: E501
+            raise ValueError("Invalid value for `confirmation_use_time_month`, must not be `None`")  # noqa: E501
+
+        self._confirmation_use_time_month = confirmation_use_time_month
+
+    @property
+    def is_risk_user(self):
+        """Gets the is_risk_user of this InlineResponse20018Data.  # noqa: E501
+
+        Whether risk user  # noqa: E501
+
+        :return: The is_risk_user of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_risk_user
+
+    @is_risk_user.setter
+    def is_risk_user(self, is_risk_user):
+        """Sets the is_risk_user of this InlineResponse20018Data.
+
+        Whether risk user  # noqa: E501
+
+        :param is_risk_user: The is_risk_user of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_risk_user is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_risk_user`, must not be `None`")  # noqa: E501
+
+        self._is_risk_user = is_risk_user
+
+    @property
+    def is_xt(self):
+        """Gets the is_xt of this InlineResponse20018Data.  # noqa: E501
+
+        Whether XT order  # noqa: E501
+
+        :return: The is_xt of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_xt
+
+    @is_xt.setter
+    def is_xt(self, is_xt):
+        """Sets the is_xt of this InlineResponse20018Data.
+
+        Whether XT order  # noqa: E501
+
+        :param is_xt: The is_xt of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_xt is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_xt`, must not be `None`")  # noqa: E501
+
+        self._is_xt = is_xt
+
+    @property
+    def order_type(self):
+        """Gets the order_type of this InlineResponse20018Data.  # noqa: E501
+
+        Order Type  # noqa: E501
+
+        :return: The order_type of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._order_type
+
+    @order_type.setter
+    def order_type(self, order_type):
+        """Sets the order_type of this InlineResponse20018Data.
+
+        Order Type  # noqa: E501
+
+        :param order_type: The order_type of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and order_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_type`, must not be `None`")  # noqa: E501
+
+        self._order_type = order_type
+
+    @property
+    def symbol(self):
+        """Gets the symbol of this InlineResponse20018Data.  # noqa: E501
+
+        Fiat currency symbol  # noqa: E501
+
+        :return: The symbol of this InlineResponse20018Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._symbol
+
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineResponse20018Data.
+
+        Fiat currency symbol  # noqa: E501
+
+        :param symbol: The symbol of this InlineResponse20018Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
+
+        self._symbol = symbol
+
+    @property
+    def is_show_receive(self):
+        """Gets the is_show_receive of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to show confirm receipt during appeal  # noqa: E501
+
+        :return: The is_show_receive of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_show_receive
+
+    @is_show_receive.setter
+    def is_show_receive(self, is_show_receive):
+        """Sets the is_show_receive of this InlineResponse20018Data.
+
+        Whether to show confirm receipt during appeal  # noqa: E501
+
+        :param is_show_receive: The is_show_receive of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_show_receive is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_show_receive`, must not be `None`")  # noqa: E501
+
+        self._is_show_receive = is_show_receive
+
+    @property
+    def is_taker(self):
+        """Gets the is_taker of this InlineResponse20018Data.  # noqa: E501
+
+        Whether regular user  # noqa: E501
+
+        :return: The is_taker of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_taker
+
+    @is_taker.setter
+    def is_taker(self, is_taker):
+        """Sets the is_taker of this InlineResponse20018Data.
+
+        Whether regular user  # noqa: E501
+
+        :param is_taker: The is_taker of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_taker is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_taker`, must not be `None`")  # noqa: E501
+
+        self._is_taker = is_taker
+
+    @property
+    def is_online(self):
+        """Gets the is_online of this InlineResponse20018Data.  # noqa: E501
+
+        Merchant online status  # noqa: E501
+
+        :return: The is_online of this InlineResponse20018Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_online
+
+    @is_online.setter
+    def is_online(self, is_online):
+        """Sets the is_online of this InlineResponse20018Data.
+
+        Merchant online status  # noqa: E501
+
+        :param is_online: The is_online of this InlineResponse20018Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_online is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_online`, must not be `None`")  # noqa: E501
+
+        self._is_online = is_online
+
+    @property
+    def show_seller_contact_info(self):
+        """Gets the show_seller_contact_info of this InlineResponse20018Data.  # noqa: E501
+
+        Whether to display seller contact information  # noqa: E501
+
+        :return: The show_seller_contact_info of this InlineResponse20018Data.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_seller_contact_info
+
+    @show_seller_contact_info.setter
+    def show_seller_contact_info(self, show_seller_contact_info):
+        """Sets the show_seller_contact_info of this InlineResponse20018Data.
+
+        Whether to display seller contact information  # noqa: E501
+
+        :param show_seller_contact_info: The show_seller_contact_info of this InlineResponse20018Data.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and show_seller_contact_info is None:  # noqa: E501
+            raise ValueError("Invalid value for `show_seller_contact_info`, must not be `None`")  # noqa: E501
+
+        self._show_seller_contact_info = show_seller_contact_info
+
+    @property
+    def supported_pay_types(self):
+        """Gets the supported_pay_types of this InlineResponse20018Data.  # noqa: E501
+
+        Payment methods supported by current order  # noqa: E501
+
+        :return: The supported_pay_types of this InlineResponse20018Data.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._supported_pay_types
+
+    @supported_pay_types.setter
+    def supported_pay_types(self, supported_pay_types):
+        """Sets the supported_pay_types of this InlineResponse20018Data.
+
+        Payment methods supported by current order  # noqa: E501
+
+        :param supported_pay_types: The supported_pay_types of this InlineResponse20018Data.  # noqa: E501
+        :type: list[str]
+        """
+        if self.local_vars_configuration.client_side_validation and supported_pay_types is None:  # noqa: E501
+            raise ValueError("Invalid value for `supported_pay_types`, must not be `None`")  # noqa: E501
+
+        self._supported_pay_types = supported_pay_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""

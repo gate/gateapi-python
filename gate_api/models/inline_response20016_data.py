@@ -33,36 +33,109 @@ class InlineResponse20016Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'list': 'list[InlineResponse20016DataList]',
-        'trans_time': 'list[InlineResponse20016DataTransTime]',
-        'count': 'int',
-        'exported_num': 'int'
+        'pay_type': 'str',
+        'pay_name': 'str',
+        'ids': 'list[int]',
+        'list': 'list[InlineResponse20016List]'
     }
 
     attribute_map = {
-        'list': 'list',
-        'trans_time': 'trans_time',
-        'count': 'count',
-        'exported_num': 'exported_num'
+        'pay_type': 'pay_type',
+        'pay_name': 'pay_name',
+        'ids': 'ids',
+        'list': 'list'
     }
 
-    def __init__(self, list=None, trans_time=None, count=None, exported_num=None, local_vars_configuration=None):  # noqa: E501
-        # type: (list[InlineResponse20016DataList], list[InlineResponse20016DataTransTime], int, int, Configuration) -> None
+    def __init__(self, pay_type=None, pay_name=None, ids=None, list=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, list[int], list[InlineResponse20016List], Configuration) -> None
         """InlineResponse20016Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._pay_type = None
+        self._pay_name = None
+        self._ids = None
         self._list = None
-        self._trans_time = None
-        self._count = None
-        self._exported_num = None
         self.discriminator = None
 
-        self.list = list
-        self.trans_time = trans_time
-        self.count = count
-        self.exported_num = exported_num
+        if pay_type is not None:
+            self.pay_type = pay_type
+        if pay_name is not None:
+            self.pay_name = pay_name
+        if ids is not None:
+            self.ids = ids
+        if list is not None:
+            self.list = list
+
+    @property
+    def pay_type(self):
+        """Gets the pay_type of this InlineResponse20016Data.  # noqa: E501
+
+        Payment method type  # noqa: E501
+
+        :return: The pay_type of this InlineResponse20016Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._pay_type
+
+    @pay_type.setter
+    def pay_type(self, pay_type):
+        """Sets the pay_type of this InlineResponse20016Data.
+
+        Payment method type  # noqa: E501
+
+        :param pay_type: The pay_type of this InlineResponse20016Data.  # noqa: E501
+        :type: str
+        """
+
+        self._pay_type = pay_type
+
+    @property
+    def pay_name(self):
+        """Gets the pay_name of this InlineResponse20016Data.  # noqa: E501
+
+        Payment method name  # noqa: E501
+
+        :return: The pay_name of this InlineResponse20016Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._pay_name
+
+    @pay_name.setter
+    def pay_name(self, pay_name):
+        """Sets the pay_name of this InlineResponse20016Data.
+
+        Payment method name  # noqa: E501
+
+        :param pay_name: The pay_name of this InlineResponse20016Data.  # noqa: E501
+        :type: str
+        """
+
+        self._pay_name = pay_name
+
+    @property
+    def ids(self):
+        """Gets the ids of this InlineResponse20016Data.  # noqa: E501
+
+        User's currently bound payment method (primary key ID)  # noqa: E501
+
+        :return: The ids of this InlineResponse20016Data.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._ids
+
+    @ids.setter
+    def ids(self, ids):
+        """Sets the ids of this InlineResponse20016Data.
+
+        User's currently bound payment method (primary key ID)  # noqa: E501
+
+        :param ids: The ids of this InlineResponse20016Data.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._ids = ids
 
     @property
     def list(self):
@@ -70,7 +143,7 @@ class InlineResponse20016Data(object):
 
 
         :return: The list of this InlineResponse20016Data.  # noqa: E501
-        :rtype: list[InlineResponse20016DataList]
+        :rtype: list[InlineResponse20016List]
         """
         return self._list
 
@@ -80,87 +153,10 @@ class InlineResponse20016Data(object):
 
 
         :param list: The list of this InlineResponse20016Data.  # noqa: E501
-        :type: list[InlineResponse20016DataList]
+        :type: list[InlineResponse20016List]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
-
-    @property
-    def trans_time(self):
-        """Gets the trans_time of this InlineResponse20016Data.  # noqa: E501
-
-        Countdown time  # noqa: E501
-
-        :return: The trans_time of this InlineResponse20016Data.  # noqa: E501
-        :rtype: list[InlineResponse20016DataTransTime]
-        """
-        return self._trans_time
-
-    @trans_time.setter
-    def trans_time(self, trans_time):
-        """Sets the trans_time of this InlineResponse20016Data.
-
-        Countdown time  # noqa: E501
-
-        :param trans_time: The trans_time of this InlineResponse20016Data.  # noqa: E501
-        :type: list[InlineResponse20016DataTransTime]
-        """
-        if self.local_vars_configuration.client_side_validation and trans_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `trans_time`, must not be `None`")  # noqa: E501
-
-        self._trans_time = trans_time
-
-    @property
-    def count(self):
-        """Gets the count of this InlineResponse20016Data.  # noqa: E501
-
-        Number of orders  # noqa: E501
-
-        :return: The count of this InlineResponse20016Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._count
-
-    @count.setter
-    def count(self, count):
-        """Sets the count of this InlineResponse20016Data.
-
-        Number of orders  # noqa: E501
-
-        :param count: The count of this InlineResponse20016Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
-
-        self._count = count
-
-    @property
-    def exported_num(self):
-        """Gets the exported_num of this InlineResponse20016Data.  # noqa: E501
-
-        Export count  # noqa: E501
-
-        :return: The exported_num of this InlineResponse20016Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._exported_num
-
-    @exported_num.setter
-    def exported_num(self, exported_num):
-        """Sets the exported_num of this InlineResponse20016Data.
-
-        Export count  # noqa: E501
-
-        :param exported_num: The exported_num of this InlineResponse20016Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and exported_num is None:  # noqa: E501
-            raise ValueError("Invalid value for `exported_num`, must not be `None`")  # noqa: E501
-
-        self._exported_num = exported_num
 
     def to_dict(self):
         """Returns the model properties as a dict"""

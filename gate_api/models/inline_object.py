@@ -60,7 +60,7 @@ class InlineObject(object):
     def mode(self):
         """Gets the mode of this InlineObject.  # noqa: E501
 
-        Cross margin or isolated margin mode. ISOLATED - isolated margin mode, CROSS - cross margin mode  # noqa: E501
+        Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin  # noqa: E501
 
         :return: The mode of this InlineObject.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class InlineObject(object):
     def mode(self, mode):
         """Sets the mode of this InlineObject.
 
-        Cross margin or isolated margin mode. ISOLATED - isolated margin mode, CROSS - cross margin mode  # noqa: E501
+        Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin  # noqa: E501
 
         :param mode: The mode of this InlineObject.  # noqa: E501
         :type: str

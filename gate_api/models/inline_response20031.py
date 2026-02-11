@@ -33,223 +33,74 @@ class InlineResponse20031(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'quote_id': 'str',
-        'valid_ms': 'str',
-        'from_coin': 'str',
-        'to_coin': 'str',
-        'from_amount': 'str',
-        'to_amount': 'str',
-        'price': 'str'
+        'order_id': 'float',
+        'text': 'str'
     }
 
     attribute_map = {
-        'quote_id': 'quote_id',
-        'valid_ms': 'valid_ms',
-        'from_coin': 'from_coin',
-        'to_coin': 'to_coin',
-        'from_amount': 'from_amount',
-        'to_amount': 'to_amount',
-        'price': 'price'
+        'order_id': 'order_id',
+        'text': 'text'
     }
 
-    def __init__(self, quote_id=None, valid_ms=None, from_coin=None, to_coin=None, from_amount=None, to_amount=None, price=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, order_id=None, text=None, local_vars_configuration=None):  # noqa: E501
+        # type: (float, str, Configuration) -> None
         """InlineResponse20031 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._quote_id = None
-        self._valid_ms = None
-        self._from_coin = None
-        self._to_coin = None
-        self._from_amount = None
-        self._to_amount = None
-        self._price = None
+        self._order_id = None
+        self._text = None
         self.discriminator = None
 
-        self.quote_id = quote_id
-        self.valid_ms = valid_ms
-        self.from_coin = from_coin
-        self.to_coin = to_coin
-        self.from_amount = from_amount
-        self.to_amount = to_amount
-        self.price = price
+        self.order_id = order_id
+        self.text = text
 
     @property
-    def quote_id(self):
-        """Gets the quote_id of this InlineResponse20031.  # noqa: E501
+    def order_id(self):
+        """Gets the order_id of this InlineResponse20031.  # noqa: E501
 
-        Quote ID  # noqa: E501
 
-        :return: The quote_id of this InlineResponse20031.  # noqa: E501
-        :rtype: str
+        :return: The order_id of this InlineResponse20031.  # noqa: E501
+        :rtype: float
         """
-        return self._quote_id
+        return self._order_id
 
-    @quote_id.setter
-    def quote_id(self, quote_id):
-        """Sets the quote_id of this InlineResponse20031.
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineResponse20031.
 
-        Quote ID  # noqa: E501
 
-        :param quote_id: The quote_id of this InlineResponse20031.  # noqa: E501
-        :type: str
+        :param order_id: The order_id of this InlineResponse20031.  # noqa: E501
+        :type: float
         """
-        if self.local_vars_configuration.client_side_validation and quote_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `quote_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._quote_id = quote_id
+        self._order_id = order_id
 
     @property
-    def valid_ms(self):
-        """Gets the valid_ms of this InlineResponse20031.  # noqa: E501
+    def text(self):
+        """Gets the text of this InlineResponse20031.  # noqa: E501
 
-        Valid time (milliseconds timestamp)  # noqa: E501
 
-        :return: The valid_ms of this InlineResponse20031.  # noqa: E501
+        :return: The text of this InlineResponse20031.  # noqa: E501
         :rtype: str
         """
-        return self._valid_ms
+        return self._text
 
-    @valid_ms.setter
-    def valid_ms(self, valid_ms):
-        """Sets the valid_ms of this InlineResponse20031.
+    @text.setter
+    def text(self, text):
+        """Sets the text of this InlineResponse20031.
 
-        Valid time (milliseconds timestamp)  # noqa: E501
 
-        :param valid_ms: The valid_ms of this InlineResponse20031.  # noqa: E501
+        :param text: The text of this InlineResponse20031.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and valid_ms is None:  # noqa: E501
-            raise ValueError("Invalid value for `valid_ms`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
+            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
-        self._valid_ms = valid_ms
-
-    @property
-    def from_coin(self):
-        """Gets the from_coin of this InlineResponse20031.  # noqa: E501
-
-        Asset Sold  # noqa: E501
-
-        :return: The from_coin of this InlineResponse20031.  # noqa: E501
-        :rtype: str
-        """
-        return self._from_coin
-
-    @from_coin.setter
-    def from_coin(self, from_coin):
-        """Sets the from_coin of this InlineResponse20031.
-
-        Asset Sold  # noqa: E501
-
-        :param from_coin: The from_coin of this InlineResponse20031.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and from_coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `from_coin`, must not be `None`")  # noqa: E501
-
-        self._from_coin = from_coin
-
-    @property
-    def to_coin(self):
-        """Gets the to_coin of this InlineResponse20031.  # noqa: E501
-
-        Asset Bought  # noqa: E501
-
-        :return: The to_coin of this InlineResponse20031.  # noqa: E501
-        :rtype: str
-        """
-        return self._to_coin
-
-    @to_coin.setter
-    def to_coin(self, to_coin):
-        """Sets the to_coin of this InlineResponse20031.
-
-        Asset Bought  # noqa: E501
-
-        :param to_coin: The to_coin of this InlineResponse20031.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and to_coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `to_coin`, must not be `None`")  # noqa: E501
-
-        self._to_coin = to_coin
-
-    @property
-    def from_amount(self):
-        """Gets the from_amount of this InlineResponse20031.  # noqa: E501
-
-        Amount to sell  # noqa: E501
-
-        :return: The from_amount of this InlineResponse20031.  # noqa: E501
-        :rtype: str
-        """
-        return self._from_amount
-
-    @from_amount.setter
-    def from_amount(self, from_amount):
-        """Sets the from_amount of this InlineResponse20031.
-
-        Amount to sell  # noqa: E501
-
-        :param from_amount: The from_amount of this InlineResponse20031.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and from_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `from_amount`, must not be `None`")  # noqa: E501
-
-        self._from_amount = from_amount
-
-    @property
-    def to_amount(self):
-        """Gets the to_amount of this InlineResponse20031.  # noqa: E501
-
-        Amount to buy  # noqa: E501
-
-        :return: The to_amount of this InlineResponse20031.  # noqa: E501
-        :rtype: str
-        """
-        return self._to_amount
-
-    @to_amount.setter
-    def to_amount(self, to_amount):
-        """Sets the to_amount of this InlineResponse20031.
-
-        Amount to buy  # noqa: E501
-
-        :param to_amount: The to_amount of this InlineResponse20031.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and to_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `to_amount`, must not be `None`")  # noqa: E501
-
-        self._to_amount = to_amount
-
-    @property
-    def price(self):
-        """Gets the price of this InlineResponse20031.  # noqa: E501
-
-        Price  # noqa: E501
-
-        :return: The price of this InlineResponse20031.  # noqa: E501
-        :rtype: str
-        """
-        return self._price
-
-    @price.setter
-    def price(self, price):
-        """Sets the price of this InlineResponse20031.
-
-        Price  # noqa: E501
-
-        :param price: The price of this InlineResponse20031.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
-            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
-
-        self._price = price
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

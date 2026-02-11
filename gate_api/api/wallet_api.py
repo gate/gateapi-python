@@ -276,7 +276,7 @@ class WalletApi(object):
         :param str withdraw_id: Withdrawal record ID starts with 'w', such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled
         :param str asset_class: Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone
         :param str withdraw_order_id: User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -308,7 +308,7 @@ class WalletApi(object):
         :param str withdraw_id: Withdrawal record ID starts with 'w', such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled
         :param str asset_class: Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone
         :param str withdraw_order_id: User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -424,7 +424,7 @@ class WalletApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str currency: Specify the currency. If not specified, returns all currencies
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of entries returned in the list, limited to 500 transactions
         :param int offset: List offset, starting from 0
@@ -453,7 +453,7 @@ class WalletApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str currency: Specify the currency. If not specified, returns all currencies
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of entries returned in the list, limited to 500 transactions
         :param int offset: List offset, starting from 0
@@ -678,7 +678,7 @@ class WalletApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str sub_uid: Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -707,7 +707,7 @@ class WalletApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str sub_uid: Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0

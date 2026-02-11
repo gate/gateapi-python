@@ -33,136 +33,78 @@ class InlineResponse20034(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'coin': 'str',
-        'exchange_type': 'str',
-        'hour_interest_rate': 'str',
-        'time': 'str'
+        'symbol': 'str',
+        'leverage': 'str'
     }
 
     attribute_map = {
-        'coin': 'coin',
-        'exchange_type': 'exchange_type',
-        'hour_interest_rate': 'hour_interest_rate',
-        'time': 'time'
+        'symbol': 'symbol',
+        'leverage': 'leverage'
     }
 
-    def __init__(self, coin=None, exchange_type=None, hour_interest_rate=None, time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, Configuration) -> None
+    def __init__(self, symbol=None, leverage=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineResponse20034 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._coin = None
-        self._exchange_type = None
-        self._hour_interest_rate = None
-        self._time = None
+        self._symbol = None
+        self._leverage = None
         self.discriminator = None
 
-        self.coin = coin
-        self.exchange_type = exchange_type
-        self.hour_interest_rate = hour_interest_rate
-        self.time = time
+        self.symbol = symbol
+        self.leverage = leverage
 
     @property
-    def coin(self):
-        """Gets the coin of this InlineResponse20034.  # noqa: E501
+    def symbol(self):
+        """Gets the symbol of this InlineResponse20034.  # noqa: E501
 
-        Currency  # noqa: E501
+        Currency pair  # noqa: E501
 
-        :return: The coin of this InlineResponse20034.  # noqa: E501
+        :return: The symbol of this InlineResponse20034.  # noqa: E501
         :rtype: str
         """
-        return self._coin
+        return self._symbol
 
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineResponse20034.
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineResponse20034.
 
-        Currency  # noqa: E501
+        Currency pair  # noqa: E501
 
-        :param coin: The coin of this InlineResponse20034.  # noqa: E501
+        :param symbol: The symbol of this InlineResponse20034.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
 
-        self._coin = coin
+        self._symbol = symbol
 
     @property
-    def exchange_type(self):
-        """Gets the exchange_type of this InlineResponse20034.  # noqa: E501
+    def leverage(self):
+        """Gets the leverage of this InlineResponse20034.  # noqa: E501
 
-        Exchange  # noqa: E501
+        leverage  # noqa: E501
 
-        :return: The exchange_type of this InlineResponse20034.  # noqa: E501
+        :return: The leverage of this InlineResponse20034.  # noqa: E501
         :rtype: str
         """
-        return self._exchange_type
+        return self._leverage
 
-    @exchange_type.setter
-    def exchange_type(self, exchange_type):
-        """Sets the exchange_type of this InlineResponse20034.
+    @leverage.setter
+    def leverage(self, leverage):
+        """Sets the leverage of this InlineResponse20034.
 
-        Exchange  # noqa: E501
+        leverage  # noqa: E501
 
-        :param exchange_type: The exchange_type of this InlineResponse20034.  # noqa: E501
+        :param leverage: The leverage of this InlineResponse20034.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and leverage is None:  # noqa: E501
+            raise ValueError("Invalid value for `leverage`, must not be `None`")  # noqa: E501
 
-        self._exchange_type = exchange_type
-
-    @property
-    def hour_interest_rate(self):
-        """Gets the hour_interest_rate of this InlineResponse20034.  # noqa: E501
-
-        Hourly Interest Rate  # noqa: E501
-
-        :return: The hour_interest_rate of this InlineResponse20034.  # noqa: E501
-        :rtype: str
-        """
-        return self._hour_interest_rate
-
-    @hour_interest_rate.setter
-    def hour_interest_rate(self, hour_interest_rate):
-        """Sets the hour_interest_rate of this InlineResponse20034.
-
-        Hourly Interest Rate  # noqa: E501
-
-        :param hour_interest_rate: The hour_interest_rate of this InlineResponse20034.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and hour_interest_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `hour_interest_rate`, must not be `None`")  # noqa: E501
-
-        self._hour_interest_rate = hour_interest_rate
-
-    @property
-    def time(self):
-        """Gets the time of this InlineResponse20034.  # noqa: E501
-
-        Millisecond Timestamp  # noqa: E501
-
-        :return: The time of this InlineResponse20034.  # noqa: E501
-        :rtype: str
-        """
-        return self._time
-
-    @time.setter
-    def time(self, time):
-        """Sets the time of this InlineResponse20034.
-
-        Millisecond Timestamp  # noqa: E501
-
-        :param time: The time of this InlineResponse20034.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
-            raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
-
-        self._time = time
+        self._leverage = leverage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

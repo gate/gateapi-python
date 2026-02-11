@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **trigger_price** | **str** | Modified Trigger Price | [optional] 
 **price_type** | **int** | Reference price type. 0 - Latest trade price, 1 - Mark price, 2 - Index price | [optional] 
 **auto_size** | **str** | One-way Mode: auto_size is not required Hedge Mode partial closing (size≠0): auto_size is not required Hedge Mode full closing (size&#x3D;0): auto_size must be set, close_long for closing long positions, close_short for closing short positions | [optional] 
-**close** | **bool** | In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close&#x3D;false | [optional] 
+**close** | **bool** | When fully closing a position in single-position mode, close must be set to true to execute the close operation. When partially closing a position in single-position mode or in dual-position mode, close can be left unset or set to false. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

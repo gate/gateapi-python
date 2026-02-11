@@ -495,6 +495,111 @@ class OTCApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_bank_list(self, **kwargs):  # noqa: E501
+        """Get user bank card list  # noqa: E501
+
+        Get user bank card list for selecting bank card when placing orders  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_bank_list(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse20010
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_bank_list_with_http_info(**kwargs)  # noqa: E501
+
+    def get_bank_list_with_http_info(self, **kwargs):  # noqa: E501
+        """Get user bank card list  # noqa: E501
+
+        Get user bank card list for selecting bank card when placing orders  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_bank_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_bank_list" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank_list', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20010',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def mark_otc_order_paid(self, inline_object4, **kwargs):  # noqa: E501
         """Mark fiat order as paid  # noqa: E501
 
@@ -742,7 +847,7 @@ class OTCApi(object):
         :param str crypto_currency: Digital currency
         :param str start_time: starttime   for example : 2025-09-09
         :param str end_time: endtime  for example :2025-09-09
-        :param str status: DONE ：完成 CANCEL  ：取消 PROCESSING ：进行中
+        :param str status: DONE: Completed CANCEL: Canceled PROCESSING: In Progress
         :param str pn: Page number
         :param str ps: Number of items per page
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -752,7 +857,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20010
+        :rtype: gate_api.InlineResponse20011
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -774,7 +879,7 @@ class OTCApi(object):
         :param str crypto_currency: Digital currency
         :param str start_time: starttime   for example : 2025-09-09
         :param str end_time: endtime  for example :2025-09-09
-        :param str status: DONE ：完成 CANCEL  ：取消 PROCESSING ：进行中
+        :param str status: DONE: Completed CANCEL: Canceled PROCESSING: In Progress
         :param str pn: Page number
         :param str ps: Number of items per page
         :param _return_http_data_only: response data without head status code
@@ -786,7 +891,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -864,7 +969,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -895,7 +1000,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20011
+        :rtype: gate_api.InlineResponse20012
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -927,7 +1032,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -999,7 +1104,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1025,7 +1130,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20012
+        :rtype: gate_api.InlineResponse20013
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1052,7 +1157,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1113,7 +1218,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

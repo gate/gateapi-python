@@ -173,7 +173,7 @@ class FuturesInitialOrder(object):
     def close(self):
         """Gets the close of this FuturesInitialOrder.  # noqa: E501
 
-        In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close=false  # noqa: E501
+        When fully closing a position in single-position mode, close must be set to true to execute the close operation. When partially closing a position in single-position mode or in dual-position mode, close can be left unset or set to false.  # noqa: E501
 
         :return: The close of this FuturesInitialOrder.  # noqa: E501
         :rtype: bool
@@ -184,7 +184,7 @@ class FuturesInitialOrder(object):
     def close(self, close):
         """Sets the close of this FuturesInitialOrder.
 
-        In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close=false  # noqa: E501
+        When fully closing a position in single-position mode, close must be set to true to execute the close operation. When partially closing a position in single-position mode or in dual-position mode, close can be left unset or set to false.  # noqa: E501
 
         :param close: The close of this FuturesInitialOrder.  # noqa: E501
         :type: bool

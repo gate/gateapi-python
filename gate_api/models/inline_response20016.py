@@ -37,7 +37,7 @@ class InlineResponse20016(object):
         'method': 'str',
         'code': 'int',
         'message': 'str',
-        'data': 'InlineResponse20016Data',
+        'data': 'list[InlineResponse20016Data]',
         'version': 'str'
     }
 
@@ -51,7 +51,7 @@ class InlineResponse20016(object):
     }
 
     def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
-        # type: (float, str, int, str, InlineResponse20016Data, str, Configuration) -> None
+        # type: (float, str, int, str, list[InlineResponse20016Data], str, Configuration) -> None
         """InlineResponse20016 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -170,7 +170,7 @@ class InlineResponse20016(object):
 
 
         :return: The data of this InlineResponse20016.  # noqa: E501
-        :rtype: InlineResponse20016Data
+        :rtype: list[InlineResponse20016Data]
         """
         return self._data
 
@@ -180,7 +180,7 @@ class InlineResponse20016(object):
 
 
         :param data: The data of this InlineResponse20016.  # noqa: E501
-        :type: InlineResponse20016Data
+        :type: list[InlineResponse20016Data]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

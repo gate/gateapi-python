@@ -490,16 +490,16 @@ class EarnApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def place_dual_order(self, place_dual_investment_order, **kwargs):  # noqa: E501
+    def place_dual_order(self, place_dual_investment_order_params, **kwargs):  # noqa: E501
         """Place Dual Investment order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.place_dual_order(place_dual_investment_order, async_req=True)
+        >>> thread = api.place_dual_order(place_dual_investment_order_params, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param PlaceDualInvestmentOrder place_dual_investment_order: (required)
+        :param PlaceDualInvestmentOrderParams place_dual_investment_order_params: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -507,23 +507,23 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: None
+        :rtype: gate_api.PlaceDualInvestmentOrder
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.place_dual_order_with_http_info(place_dual_investment_order, **kwargs)  # noqa: E501
+        return self.place_dual_order_with_http_info(place_dual_investment_order_params, **kwargs)  # noqa: E501
 
-    def place_dual_order_with_http_info(self, place_dual_investment_order, **kwargs):  # noqa: E501
+    def place_dual_order_with_http_info(self, place_dual_investment_order_params, **kwargs):  # noqa: E501
         """Place Dual Investment order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.place_dual_order_with_http_info(place_dual_investment_order, async_req=True)
+        >>> thread = api.place_dual_order_with_http_info(place_dual_investment_order_params, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param PlaceDualInvestmentOrder place_dual_investment_order: (required)
+        :param PlaceDualInvestmentOrderParams place_dual_investment_order_params: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -533,7 +533,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: None
+        :rtype: tuple(gate_api.PlaceDualInvestmentOrder, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -541,7 +541,7 @@ class EarnApi(object):
         local_var_params = locals()
 
         all_params = [
-            'place_dual_investment_order'
+            'place_dual_investment_order_params'
         ]
         all_params.extend(
             [
@@ -560,10 +560,10 @@ class EarnApi(object):
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
-        # verify the required parameter 'place_dual_investment_order' is set
-        if self.api_client.client_side_validation and ('place_dual_investment_order' not in local_var_params or  # noqa: E501
-                                                        local_var_params['place_dual_investment_order'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `place_dual_investment_order` when calling `place_dual_order`")  # noqa: E501
+        # verify the required parameter 'place_dual_investment_order_params' is set
+        if self.api_client.client_side_validation and ('place_dual_investment_order_params' not in local_var_params or  # noqa: E501
+                                                        local_var_params['place_dual_investment_order_params'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `place_dual_investment_order_params` when calling `place_dual_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -577,8 +577,12 @@ class EarnApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'place_dual_investment_order' in local_var_params:
-            body_params = local_var_params['place_dual_investment_order']
+        if 'place_dual_investment_order_params' in local_var_params:
+            body_params = local_var_params['place_dual_investment_order_params']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -594,7 +598,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='PlaceDualInvestmentOrder',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

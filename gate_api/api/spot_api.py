@@ -594,7 +594,7 @@ class SpotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Currency pair (required)
-        :param str interval: Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
         :param bool with_id: Return order book update ID
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -622,7 +622,7 @@ class SpotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Currency pair (required)
-        :param str interval: Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
         :param bool with_id: Return order book update ID
         :param _return_http_data_only: response data without head status code
@@ -867,7 +867,7 @@ class SpotApi(object):
     def list_candlesticks(self, currency_pair, **kwargs):  # noqa: E501
         """Market K-line chart  # noqa: E501
 
-        Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval  # noqa: E501
+        K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_candlesticks(currency_pair, async_req=True)
@@ -896,7 +896,7 @@ class SpotApi(object):
     def list_candlesticks_with_http_info(self, currency_pair, **kwargs):  # noqa: E501
         """Market K-line chart  # noqa: E501
 
-        Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval  # noqa: E501
+        K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_candlesticks_with_http_info(currency_pair, async_req=True)

@@ -216,7 +216,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
 contract = 'BTC_USDT' # str | Futures contract
-interval = '0' # str | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional) (default to '0')
+interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
 limit = 10 # int | Number of depth levels (optional) (default to 10)
 with_id = False # bool | Whether to return depth update ID. This ID increments by 1 each time the depth changes (optional) (default to False)
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
  **contract** | **str**| Futures contract | 
- **interval** | **str**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
+ **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Number of depth levels | [optional] [default to 10]
  **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to False]
 
@@ -357,7 +357,7 @@ contract = 'BTC_USDT' # str | Futures contract
 _from = 1546905600 # int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional)
 to = 1546935600 # int | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision (optional)
 limit = 100 # int | Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional) (default to 100)
-interval = '5m' # str | Interval time between data points. Note that `1w` means natural week(Mon-Sun), while `7d` means every 7d since unix 0. 30d represents a natural month, not 30 days (optional) (default to '5m')
+interval = '5m' # str | Time interval for data points. Note: 1w represents a natural week, 7d is aligned with Unix epoch time, 30d represents a natural month (optional) (default to '5m')
 timezone = 'utc0' # str | Time zone: all/utc0/utc8, default utc0 (optional) (default to 'utc0')
 
 try:
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
  **_from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **int**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional] 
  **limit** | **int**| Maximum number of recent data points to return. &#x60;limit&#x60; conflicts with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **str**| Interval time between data points. Note that &#x60;1w&#x60; means natural week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 30d represents a natural month, not 30 days | [optional] [default to &#39;5m&#39;]
+ **interval** | **str**| Time interval for data points. Note: 1w represents a natural week, 7d is aligned with Unix epoch time, 30d represents a natural month | [optional] [default to &#39;5m&#39;]
  **timezone** | **str**| Time zone: all/utc0/utc8, default utc0 | [optional] [default to &#39;utc0&#39;]
 
 ### Return type
@@ -407,7 +407,7 @@ No authorization required
 
 Premium Index K-line chart
 
-Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive
 
 ### Example
 
@@ -2893,7 +2893,7 @@ Name | Type | Description  | Notes
 
 Query personal trading records
 
-By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/my_trades_timerange`.
+By default, only supports querying data within 6 months. For older data, use `GET /futures/{settle}/my_trades_timerange`
 
 ### Example
 
@@ -4424,7 +4424,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

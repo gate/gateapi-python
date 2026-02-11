@@ -48,7 +48,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.RebateApi(api_client)
 currency_pair = 'BTC_USDT' # str | Specify the trading pair. If not specified, returns all trading pairs (optional)
 user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **str**| Specify the trading pair. If not specified, returns all trading pairs | [optional] 
  **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -128,7 +128,7 @@ api_instance = gate_api.RebateApi(api_client)
 currency = 'BTC' # str | Specify the currency. If not specified, returns all currencies (optional)
 commission_type = 1 # int | Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate (optional)
 user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
  **currency** | **str**| Specify the currency. If not specified, returns all currencies | [optional] 
  **commission_type** | **int**| Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate | [optional] 
  **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -208,7 +208,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.RebateApi(api_client)
 currency_pair = 'BTC_USDT' # str | Specify the trading pair. If not specified, returns all trading pairs (optional)
 user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **str**| Specify the trading pair. If not specified, returns all trading pairs | [optional] 
  **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -287,7 +287,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.RebateApi(api_client)
 currency = 'BTC' # str | Specify the currency. If not specified, returns all currencies (optional)
 user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **str**| Specify the currency. If not specified, returns all currencies | [optional] 
  **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]

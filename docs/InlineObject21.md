@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **text** | **str** | Client-defined Order ID, supports letters (a-z), numbers (0-9), symbols (-, _) only | [optional] 
-**symbol** | **str** | 唯一标识 Exchange_Business_Base_Counter  示例：  如果您想在币安交易所上为ADA/USDT交易对下现货订单，您可以使用这样的唯一标识符：&#x60;BINANCE_SPOT_ADA_USDT&#x60;;   如果您想在欧易交易所上为ADA/USDT交易对下U本位永续合约订单，您可以使用这样的唯一标识符：&#x60;OKX_FUTURE_ADA_USDT&#x60;;   如果您想在Gate交易所上为ADA/USDT交易对下现货杠杆订单，您可以使用这样的唯一标识符：&#x60;GATE_MARGIN_ADA_USDT&#x60;;   目前支持三种订单：现货订单、U本位永续合约订单和现货杠杆订单 | 
+**symbol** | **str** | Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier &#x60;BINANCE_SPOT_ADA_USDT&#x60;; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier &#x60;OKX_FUTURE_ADA_USDT&#x60;; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier &#x60;GATE_MARGIN_ADA_USDT&#x60;; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders | 
 **side** | **str** | BUY, SELL | 
 **type** | **str** | Order type (default: &#x60;LIMIT&#x60;; supported types: &#x60;LIMIT&#x60;, &#x60;MARKET&#x60;) | [optional] [default to 'LIMIT']
 **time_in_force** | **str** | Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly | [optional] [default to 'GTC']

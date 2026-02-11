@@ -1,9 +1,9 @@
-# InlineResponse20016DataTransTime
+# InlineResponse20024Data
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**od_time** | **int** |  | [optional] 
+**file_key** | **str** | File key | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

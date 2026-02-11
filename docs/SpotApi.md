@@ -349,7 +349,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.SpotApi(api_client)
 currency_pair = 'BTC_USDT' # str | Currency pair
-interval = '0' # str | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional) (default to '0')
+interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
 limit = 10 # int | Number of depth levels (optional) (default to 10)
 with_id = False # bool | Return order book update ID (optional) (default to False)
 
@@ -368,7 +368,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency_pair** | **str**| Currency pair | 
- **interval** | **str**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
+ **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Number of depth levels | [optional] [default to 10]
  **with_id** | **bool**| Return order book update ID | [optional] [default to False]
 
@@ -469,7 +469,7 @@ No authorization required
 
 Market K-line chart
 
-Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive
 
 ### Example
 
@@ -1256,7 +1256,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2108,7 +2108,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

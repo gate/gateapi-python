@@ -177,7 +177,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.DeliveryApi(api_client)
 settle = 'usdt' # str | Settle currency
 contract = 'BTC_USDT_20200814' # str | Futures contract
-interval = '0' # str | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional) (default to '0')
+interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
 limit = 10 # int | Number of depth levels (optional) (default to 10)
 with_id = False # bool | Whether to return depth update ID. This ID increments by 1 each time the depth changes (optional) (default to False)
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
  **contract** | **str**| Futures contract | 
- **interval** | **str**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
+ **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Number of depth levels | [optional] [default to 10]
  **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to False]
 
@@ -1906,7 +1906,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

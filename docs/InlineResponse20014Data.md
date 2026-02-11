@@ -3,7 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**is_self** | **bool** | Whether self | 
 **user_timest** | **str** | User registration time (formatted string) | 
+**counterparties_num** | **int** | Number of counterparties | 
 **email_verified** | **str** | Whether email is verified | 
 **verified** | **str** | Whether KYC verification is completed | 
 **has_phone** | **str** | Whether phone is bound | 
@@ -16,11 +18,21 @@ Name | Type | Description | Notes
 **cancelled_used_time_month** | **str** | Cancellation time in last 30 days | 
 **complete_transactions_month** | **str** | Number of completed orders in last 30 days | 
 **complete_rate_month** | **int** | Completion rate in last 30 days | 
+**orders_buy_rate_month** | **int** | Buy order ratio in last 30 days | 
+**is_black** | **int** | Whether blocked | 
 **is_follow** | **int** | Whether following | 
 **have_traded** | **int** | Whether traded with self | 
 **biz_uid** | **str** | Encrypted UID | 
+**blue_vip** | **int** | Blue V Crown Shield | 
+**work_status** | **int** | Merchant work status | 
 **registration_days** | **int** | Registration days | 
 **first_trade_days** | **int** | Days since first trade | 
+**need_replenish** | **int** | Whether margin replenishment is needed | 
+**merchant_info** | [**InlineResponse20014DataMerchantInfo**](InlineResponse20014DataMerchantInfo.md) |  | 
+**online_status** | **int** | Merchant online status | 
+**work_hours** | [**object**](.md) | Merchant online status details | 
+**transactions_month** | **int** | 30-day transaction volume | 
+**transactions_all** | **int** | Total transaction volume | 
 **trade_versatile** | **bool** | Single user or composite user | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -33,104 +33,180 @@ class InlineResponse20011DataList(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
+        'time': 'str',
+        'timestamp': 'int',
+        'order_id': 'str',
         'trade_no': 'str',
-        'pay_coin': 'str',
-        'pay_amount': 'str',
-        'get_coin': 'str',
-        'get_amount': 'str',
-        'rate': 'str',
-        'rate_reci': 'str',
+        'type': 'str',
         'status': 'str',
-        'create_timest': 'int',
-        'create_time': 'str'
+        'db_status': 'str',
+        'fiat_currency': 'str',
+        'fiat_currency_info': 'InlineResponse20011DataFiatCurrencyInfo',
+        'fiat_amount': 'str',
+        'crypto_currency': 'str',
+        'crypto_currency_info': 'InlineResponse20011DataCryptoCurrencyInfo',
+        'crypto_amount': 'str',
+        'rate': 'str',
+        'transfer_remark': 'str',
+        'gate_bank_account_iban': 'str',
+        'promotion_code': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
+        'time': 'time',
+        'timestamp': 'timestamp',
+        'order_id': 'order_id',
         'trade_no': 'trade_no',
-        'pay_coin': 'pay_coin',
-        'pay_amount': 'pay_amount',
-        'get_coin': 'get_coin',
-        'get_amount': 'get_amount',
-        'rate': 'rate',
-        'rate_reci': 'rate_reci',
+        'type': 'type',
         'status': 'status',
-        'create_timest': 'create_timest',
-        'create_time': 'create_time'
+        'db_status': 'db_status',
+        'fiat_currency': 'fiat_currency',
+        'fiat_currency_info': 'fiat_currency_info',
+        'fiat_amount': 'fiat_amount',
+        'crypto_currency': 'crypto_currency',
+        'crypto_currency_info': 'crypto_currency_info',
+        'crypto_amount': 'crypto_amount',
+        'rate': 'rate',
+        'transfer_remark': 'transfer_remark',
+        'gate_bank_account_iban': 'gate_bank_account_iban',
+        'promotion_code': 'promotion_code'
     }
 
-    def __init__(self, id=None, trade_no=None, pay_coin=None, pay_amount=None, get_coin=None, get_amount=None, rate=None, rate_reci=None, status=None, create_timest=None, create_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
+    def __init__(self, time=None, timestamp=None, order_id=None, trade_no=None, type=None, status=None, db_status=None, fiat_currency=None, fiat_currency_info=None, fiat_amount=None, crypto_currency=None, crypto_currency_info=None, crypto_amount=None, rate=None, transfer_remark=None, gate_bank_account_iban=None, promotion_code=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, str, str, str, str, str, str, InlineResponse20011DataFiatCurrencyInfo, str, str, InlineResponse20011DataCryptoCurrencyInfo, str, str, str, str, str, Configuration) -> None
         """InlineResponse20011DataList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
+        self._time = None
+        self._timestamp = None
+        self._order_id = None
         self._trade_no = None
-        self._pay_coin = None
-        self._pay_amount = None
-        self._get_coin = None
-        self._get_amount = None
-        self._rate = None
-        self._rate_reci = None
+        self._type = None
         self._status = None
-        self._create_timest = None
-        self._create_time = None
+        self._db_status = None
+        self._fiat_currency = None
+        self._fiat_currency_info = None
+        self._fiat_amount = None
+        self._crypto_currency = None
+        self._crypto_currency_info = None
+        self._crypto_amount = None
+        self._rate = None
+        self._transfer_remark = None
+        self._gate_bank_account_iban = None
+        self._promotion_code = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
+        if time is not None:
+            self.time = time
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if order_id is not None:
+            self.order_id = order_id
         if trade_no is not None:
             self.trade_no = trade_no
-        if pay_coin is not None:
-            self.pay_coin = pay_coin
-        if pay_amount is not None:
-            self.pay_amount = pay_amount
-        if get_coin is not None:
-            self.get_coin = get_coin
-        if get_amount is not None:
-            self.get_amount = get_amount
-        if rate is not None:
-            self.rate = rate
-        if rate_reci is not None:
-            self.rate_reci = rate_reci
+        if type is not None:
+            self.type = type
         if status is not None:
             self.status = status
-        if create_timest is not None:
-            self.create_timest = create_timest
-        if create_time is not None:
-            self.create_time = create_time
+        if db_status is not None:
+            self.db_status = db_status
+        if fiat_currency is not None:
+            self.fiat_currency = fiat_currency
+        if fiat_currency_info is not None:
+            self.fiat_currency_info = fiat_currency_info
+        if fiat_amount is not None:
+            self.fiat_amount = fiat_amount
+        if crypto_currency is not None:
+            self.crypto_currency = crypto_currency
+        if crypto_currency_info is not None:
+            self.crypto_currency_info = crypto_currency_info
+        if crypto_amount is not None:
+            self.crypto_amount = crypto_amount
+        if rate is not None:
+            self.rate = rate
+        if transfer_remark is not None:
+            self.transfer_remark = transfer_remark
+        if gate_bank_account_iban is not None:
+            self.gate_bank_account_iban = gate_bank_account_iban
+        if promotion_code is not None:
+            self.promotion_code = promotion_code
 
     @property
-    def id(self):
-        """Gets the id of this InlineResponse20011DataList.  # noqa: E501
+    def time(self):
+        """Gets the time of this InlineResponse20011DataList.  # noqa: E501
 
-        Order ID  # noqa: E501
+        Current time  # noqa: E501
 
-        :return: The id of this InlineResponse20011DataList.  # noqa: E501
+        :return: The time of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._time
+
+    @time.setter
+    def time(self, time):
+        """Sets the time of this InlineResponse20011DataList.
+
+        Current time  # noqa: E501
+
+        :param time: The time of this InlineResponse20011DataList.  # noqa: E501
+        :type: str
+        """
+
+        self._time = time
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20011DataList.  # noqa: E501
+
+        Current timestamp  # noqa: E501
+
+        :return: The timestamp of this InlineResponse20011DataList.  # noqa: E501
         :rtype: int
         """
-        return self._id
+        return self._timestamp
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse20011DataList.
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20011DataList.
 
-        Order ID  # noqa: E501
+        Current timestamp  # noqa: E501
 
-        :param id: The id of this InlineResponse20011DataList.  # noqa: E501
+        :param timestamp: The timestamp of this InlineResponse20011DataList.  # noqa: E501
         :type: int
         """
 
-        self._id = id
+        self._timestamp = timestamp
+
+    @property
+    def order_id(self):
+        """Gets the order_id of this InlineResponse20011DataList.  # noqa: E501
+
+        orderId  # noqa: E501
+
+        :return: The order_id of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._order_id
+
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineResponse20011DataList.
+
+        orderId  # noqa: E501
+
+        :param order_id: The order_id of this InlineResponse20011DataList.  # noqa: E501
+        :type: str
+        """
+
+        self._order_id = order_id
 
     @property
     def trade_no(self):
         """Gets the trade_no of this InlineResponse20011DataList.  # noqa: E501
 
-        Transaction reference number  # noqa: E501
+        Trade number  # noqa: E501
 
         :return: The trade_no of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
@@ -141,7 +217,7 @@ class InlineResponse20011DataList(object):
     def trade_no(self, trade_no):
         """Sets the trade_no of this InlineResponse20011DataList.
 
-        Transaction reference number  # noqa: E501
+        Trade number  # noqa: E501
 
         :param trade_no: The trade_no of this InlineResponse20011DataList.  # noqa: E501
         :type: str
@@ -150,96 +226,205 @@ class InlineResponse20011DataList(object):
         self._trade_no = trade_no
 
     @property
-    def pay_coin(self):
-        """Gets the pay_coin of this InlineResponse20011DataList.  # noqa: E501
+    def type(self):
+        """Gets the type of this InlineResponse20011DataList.  # noqa: E501
 
-        Payment currency  # noqa: E501
+        Quote direction buy/sell/all  # noqa: E501
 
-        :return: The pay_coin of this InlineResponse20011DataList.  # noqa: E501
+        :return: The type of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._pay_coin
+        return self._type
 
-    @pay_coin.setter
-    def pay_coin(self, pay_coin):
-        """Sets the pay_coin of this InlineResponse20011DataList.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineResponse20011DataList.
 
-        Payment currency  # noqa: E501
+        Quote direction buy/sell/all  # noqa: E501
 
-        :param pay_coin: The pay_coin of this InlineResponse20011DataList.  # noqa: E501
+        :param type: The type of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._pay_coin = pay_coin
+        self._type = type
 
     @property
-    def pay_amount(self):
-        """Gets the pay_amount of this InlineResponse20011DataList.  # noqa: E501
+    def status(self):
+        """Gets the status of this InlineResponse20011DataList.  # noqa: E501
 
-        Payment amount  # noqa: E501
+        Order Status  # noqa: E501
 
-        :return: The pay_amount of this InlineResponse20011DataList.  # noqa: E501
+        :return: The status of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._pay_amount
+        return self._status
 
-    @pay_amount.setter
-    def pay_amount(self, pay_amount):
-        """Sets the pay_amount of this InlineResponse20011DataList.
+    @status.setter
+    def status(self, status):
+        """Sets the status of this InlineResponse20011DataList.
 
-        Payment amount  # noqa: E501
+        Order Status  # noqa: E501
 
-        :param pay_amount: The pay_amount of this InlineResponse20011DataList.  # noqa: E501
+        :param status: The status of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._pay_amount = pay_amount
+        self._status = status
 
     @property
-    def get_coin(self):
-        """Gets the get_coin of this InlineResponse20011DataList.  # noqa: E501
+    def db_status(self):
+        """Gets the db_status of this InlineResponse20011DataList.  # noqa: E501
 
-        Received currency  # noqa: E501
 
-        :return: The get_coin of this InlineResponse20011DataList.  # noqa: E501
+        :return: The db_status of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._get_coin
+        return self._db_status
 
-    @get_coin.setter
-    def get_coin(self, get_coin):
-        """Sets the get_coin of this InlineResponse20011DataList.
+    @db_status.setter
+    def db_status(self, db_status):
+        """Sets the db_status of this InlineResponse20011DataList.
 
-        Received currency  # noqa: E501
 
-        :param get_coin: The get_coin of this InlineResponse20011DataList.  # noqa: E501
+        :param db_status: The db_status of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._get_coin = get_coin
+        self._db_status = db_status
 
     @property
-    def get_amount(self):
-        """Gets the get_amount of this InlineResponse20011DataList.  # noqa: E501
+    def fiat_currency(self):
+        """Gets the fiat_currency of this InlineResponse20011DataList.  # noqa: E501
 
-        Received amount  # noqa: E501
+        Fiat type  # noqa: E501
 
-        :return: The get_amount of this InlineResponse20011DataList.  # noqa: E501
+        :return: The fiat_currency of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._get_amount
+        return self._fiat_currency
 
-    @get_amount.setter
-    def get_amount(self, get_amount):
-        """Sets the get_amount of this InlineResponse20011DataList.
+    @fiat_currency.setter
+    def fiat_currency(self, fiat_currency):
+        """Sets the fiat_currency of this InlineResponse20011DataList.
 
-        Received amount  # noqa: E501
+        Fiat type  # noqa: E501
 
-        :param get_amount: The get_amount of this InlineResponse20011DataList.  # noqa: E501
+        :param fiat_currency: The fiat_currency of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._get_amount = get_amount
+        self._fiat_currency = fiat_currency
+
+    @property
+    def fiat_currency_info(self):
+        """Gets the fiat_currency_info of this InlineResponse20011DataList.  # noqa: E501
+
+
+        :return: The fiat_currency_info of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: InlineResponse20011DataFiatCurrencyInfo
+        """
+        return self._fiat_currency_info
+
+    @fiat_currency_info.setter
+    def fiat_currency_info(self, fiat_currency_info):
+        """Sets the fiat_currency_info of this InlineResponse20011DataList.
+
+
+        :param fiat_currency_info: The fiat_currency_info of this InlineResponse20011DataList.  # noqa: E501
+        :type: InlineResponse20011DataFiatCurrencyInfo
+        """
+
+        self._fiat_currency_info = fiat_currency_info
+
+    @property
+    def fiat_amount(self):
+        """Gets the fiat_amount of this InlineResponse20011DataList.  # noqa: E501
+
+        Fiat amount  # noqa: E501
+
+        :return: The fiat_amount of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_amount
+
+    @fiat_amount.setter
+    def fiat_amount(self, fiat_amount):
+        """Sets the fiat_amount of this InlineResponse20011DataList.
+
+        Fiat amount  # noqa: E501
+
+        :param fiat_amount: The fiat_amount of this InlineResponse20011DataList.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_amount = fiat_amount
+
+    @property
+    def crypto_currency(self):
+        """Gets the crypto_currency of this InlineResponse20011DataList.  # noqa: E501
+
+        Stablecoin  # noqa: E501
+
+        :return: The crypto_currency of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._crypto_currency
+
+    @crypto_currency.setter
+    def crypto_currency(self, crypto_currency):
+        """Sets the crypto_currency of this InlineResponse20011DataList.
+
+        Stablecoin  # noqa: E501
+
+        :param crypto_currency: The crypto_currency of this InlineResponse20011DataList.  # noqa: E501
+        :type: str
+        """
+
+        self._crypto_currency = crypto_currency
+
+    @property
+    def crypto_currency_info(self):
+        """Gets the crypto_currency_info of this InlineResponse20011DataList.  # noqa: E501
+
+
+        :return: The crypto_currency_info of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: InlineResponse20011DataCryptoCurrencyInfo
+        """
+        return self._crypto_currency_info
+
+    @crypto_currency_info.setter
+    def crypto_currency_info(self, crypto_currency_info):
+        """Sets the crypto_currency_info of this InlineResponse20011DataList.
+
+
+        :param crypto_currency_info: The crypto_currency_info of this InlineResponse20011DataList.  # noqa: E501
+        :type: InlineResponse20011DataCryptoCurrencyInfo
+        """
+
+        self._crypto_currency_info = crypto_currency_info
+
+    @property
+    def crypto_amount(self):
+        """Gets the crypto_amount of this InlineResponse20011DataList.  # noqa: E501
+
+        Stablecoin amount  # noqa: E501
+
+        :return: The crypto_amount of this InlineResponse20011DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._crypto_amount
+
+    @crypto_amount.setter
+    def crypto_amount(self, crypto_amount):
+        """Sets the crypto_amount of this InlineResponse20011DataList.
+
+        Stablecoin amount  # noqa: E501
+
+        :param crypto_amount: The crypto_amount of this InlineResponse20011DataList.  # noqa: E501
+        :type: str
+        """
+
+        self._crypto_amount = crypto_amount
 
     @property
     def rate(self):
@@ -265,96 +450,73 @@ class InlineResponse20011DataList(object):
         self._rate = rate
 
     @property
-    def rate_reci(self):
-        """Gets the rate_reci of this InlineResponse20011DataList.  # noqa: E501
+    def transfer_remark(self):
+        """Gets the transfer_remark of this InlineResponse20011DataList.  # noqa: E501
 
-        Reciprocal of the exchange rate  # noqa: E501
+        Remark  # noqa: E501
 
-        :return: The rate_reci of this InlineResponse20011DataList.  # noqa: E501
+        :return: The transfer_remark of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._rate_reci
+        return self._transfer_remark
 
-    @rate_reci.setter
-    def rate_reci(self, rate_reci):
-        """Sets the rate_reci of this InlineResponse20011DataList.
+    @transfer_remark.setter
+    def transfer_remark(self, transfer_remark):
+        """Sets the transfer_remark of this InlineResponse20011DataList.
 
-        Reciprocal of the exchange rate  # noqa: E501
+        Remark  # noqa: E501
 
-        :param rate_reci: The rate_reci of this InlineResponse20011DataList.  # noqa: E501
+        :param transfer_remark: The transfer_remark of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._rate_reci = rate_reci
+        self._transfer_remark = transfer_remark
 
     @property
-    def status(self):
-        """Gets the status of this InlineResponse20011DataList.  # noqa: E501
+    def gate_bank_account_iban(self):
+        """Gets the gate_bank_account_iban of this InlineResponse20011DataList.  # noqa: E501
 
-        PROCESSING: in progress / DONE: completed / FAILED: failed  # noqa: E501
+        Bank account  # noqa: E501
 
-        :return: The status of this InlineResponse20011DataList.  # noqa: E501
+        :return: The gate_bank_account_iban of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._status
+        return self._gate_bank_account_iban
 
-    @status.setter
-    def status(self, status):
-        """Sets the status of this InlineResponse20011DataList.
+    @gate_bank_account_iban.setter
+    def gate_bank_account_iban(self, gate_bank_account_iban):
+        """Sets the gate_bank_account_iban of this InlineResponse20011DataList.
 
-        PROCESSING: in progress / DONE: completed / FAILED: failed  # noqa: E501
+        Bank account  # noqa: E501
 
-        :param status: The status of this InlineResponse20011DataList.  # noqa: E501
+        :param gate_bank_account_iban: The gate_bank_account_iban of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._status = status
+        self._gate_bank_account_iban = gate_bank_account_iban
 
     @property
-    def create_timest(self):
-        """Gets the create_timest of this InlineResponse20011DataList.  # noqa: E501
+    def promotion_code(self):
+        """Gets the promotion_code of this InlineResponse20011DataList.  # noqa: E501
 
-        timetimestamp  # noqa: E501
+        Promotion code  # noqa: E501
 
-        :return: The create_timest of this InlineResponse20011DataList.  # noqa: E501
-        :rtype: int
-        """
-        return self._create_timest
-
-    @create_timest.setter
-    def create_timest(self, create_timest):
-        """Sets the create_timest of this InlineResponse20011DataList.
-
-        timetimestamp  # noqa: E501
-
-        :param create_timest: The create_timest of this InlineResponse20011DataList.  # noqa: E501
-        :type: int
-        """
-
-        self._create_timest = create_timest
-
-    @property
-    def create_time(self):
-        """Gets the create_time of this InlineResponse20011DataList.  # noqa: E501
-
-        Created time  # noqa: E501
-
-        :return: The create_time of this InlineResponse20011DataList.  # noqa: E501
+        :return: The promotion_code of this InlineResponse20011DataList.  # noqa: E501
         :rtype: str
         """
-        return self._create_time
+        return self._promotion_code
 
-    @create_time.setter
-    def create_time(self, create_time):
-        """Sets the create_time of this InlineResponse20011DataList.
+    @promotion_code.setter
+    def promotion_code(self, promotion_code):
+        """Sets the promotion_code of this InlineResponse20011DataList.
 
-        Created time  # noqa: E501
+        Promotion code  # noqa: E501
 
-        :param create_time: The create_time of this InlineResponse20011DataList.  # noqa: E501
+        :param promotion_code: The promotion_code of this InlineResponse20011DataList.  # noqa: E501
         :type: str
         """
 
-        self._create_time = create_time
+        self._promotion_code = promotion_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

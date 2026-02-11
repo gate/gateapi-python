@@ -33,47 +33,1209 @@ class InlineResponse20020Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'lists': 'list[InlineResponse20020DataLists]'
+        'rate': 'str',
+        'type': 'str',
+        'amount': 'str',
+        'min_amount': 'str',
+        'max_amount': 'str',
+        'total': 'str',
+        'pay_ali': 'int',
+        'pay_bank': 'int',
+        'pay_paypal': 'int',
+        'pay_wechat': 'int',
+        'pay_type_num': 'str',
+        'pay_type_json': 'str',
+        'locked_amount': 'str',
+        'orderid': 'int',
+        'timestamp': 'int',
+        'currency_type': 'str',
+        'want_type': 'str',
+        'hide_rate': 'str',
+        'trade_tips': 'str',
+        'auto_reply': 'str',
+        'new_hand': 'str',
+        'rate_ref_id': 'int',
+        'rate_offset': 'float',
+        'status': 'str',
+        'rate_fixed': 'int',
+        'float_trend': 'int',
+        'expire_min': 'int',
+        'tier_limit': 'int',
+        'reg_time_limit': 'int',
+        'advertisers_limit': 'int',
+        'verified_limit': 'int',
+        'min_completed_limit': 'int',
+        'max_completed_limit': 'int',
+        'user_orders_limit': 'int',
+        'completed_rate_limit': 'int',
+        'user_country_limit': 'int',
+        'limit_country_cn': 'str',
+        'limit_country_en': 'str',
+        'is_hedge': 'int',
+        'hide_payment': 'int',
+        'fee': 'int'
     }
 
     attribute_map = {
-        'lists': 'lists'
+        'rate': 'rate',
+        'type': 'type',
+        'amount': 'amount',
+        'min_amount': 'min_amount',
+        'max_amount': 'max_amount',
+        'total': 'total',
+        'pay_ali': 'pay_ali',
+        'pay_bank': 'pay_bank',
+        'pay_paypal': 'pay_paypal',
+        'pay_wechat': 'pay_wechat',
+        'pay_type_num': 'pay_type_num',
+        'pay_type_json': 'pay_type_json',
+        'locked_amount': 'locked_amount',
+        'orderid': 'orderid',
+        'timestamp': 'timestamp',
+        'currency_type': 'currencyType',
+        'want_type': 'want_type',
+        'hide_rate': 'hide_rate',
+        'trade_tips': 'trade_tips',
+        'auto_reply': 'auto_reply',
+        'new_hand': 'new_hand',
+        'rate_ref_id': 'rate_ref_id',
+        'rate_offset': 'rate_offset',
+        'status': 'status',
+        'rate_fixed': 'rate_fixed',
+        'float_trend': 'float_trend',
+        'expire_min': 'expire_min',
+        'tier_limit': 'tier_limit',
+        'reg_time_limit': 'reg_time_limit',
+        'advertisers_limit': 'advertisers_limit',
+        'verified_limit': 'verified_limit',
+        'min_completed_limit': 'min_completed_limit',
+        'max_completed_limit': 'max_completed_limit',
+        'user_orders_limit': 'user_orders_limit',
+        'completed_rate_limit': 'completed_rate_limit',
+        'user_country_limit': 'user_country_limit',
+        'limit_country_cn': 'limit_country_cn',
+        'limit_country_en': 'limit_country_en',
+        'is_hedge': 'is_hedge',
+        'hide_payment': 'hide_payment',
+        'fee': 'fee'
     }
 
-    def __init__(self, lists=None, local_vars_configuration=None):  # noqa: E501
-        # type: (list[InlineResponse20020DataLists], Configuration) -> None
+    def __init__(self, rate=None, type=None, amount=None, min_amount=None, max_amount=None, total=None, pay_ali=None, pay_bank=None, pay_paypal=None, pay_wechat=None, pay_type_num=None, pay_type_json=None, locked_amount=None, orderid=None, timestamp=None, currency_type=None, want_type=None, hide_rate=None, trade_tips=None, auto_reply=None, new_hand=None, rate_ref_id=None, rate_offset=None, status=None, rate_fixed=None, float_trend=None, expire_min=None, tier_limit=None, reg_time_limit=None, advertisers_limit=None, verified_limit=None, min_completed_limit=None, max_completed_limit=None, user_orders_limit=None, completed_rate_limit=None, user_country_limit=None, limit_country_cn=None, limit_country_en=None, is_hedge=None, hide_payment=None, fee=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, int, int, int, int, str, str, str, int, int, str, str, str, str, str, str, int, float, str, int, int, int, int, int, int, int, int, int, int, int, int, str, str, int, int, int, Configuration) -> None
         """InlineResponse20020Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._lists = None
+        self._rate = None
+        self._type = None
+        self._amount = None
+        self._min_amount = None
+        self._max_amount = None
+        self._total = None
+        self._pay_ali = None
+        self._pay_bank = None
+        self._pay_paypal = None
+        self._pay_wechat = None
+        self._pay_type_num = None
+        self._pay_type_json = None
+        self._locked_amount = None
+        self._orderid = None
+        self._timestamp = None
+        self._currency_type = None
+        self._want_type = None
+        self._hide_rate = None
+        self._trade_tips = None
+        self._auto_reply = None
+        self._new_hand = None
+        self._rate_ref_id = None
+        self._rate_offset = None
+        self._status = None
+        self._rate_fixed = None
+        self._float_trend = None
+        self._expire_min = None
+        self._tier_limit = None
+        self._reg_time_limit = None
+        self._advertisers_limit = None
+        self._verified_limit = None
+        self._min_completed_limit = None
+        self._max_completed_limit = None
+        self._user_orders_limit = None
+        self._completed_rate_limit = None
+        self._user_country_limit = None
+        self._limit_country_cn = None
+        self._limit_country_en = None
+        self._is_hedge = None
+        self._hide_payment = None
+        self._fee = None
         self.discriminator = None
 
-        self.lists = lists
+        self.rate = rate
+        self.type = type
+        self.amount = amount
+        self.min_amount = min_amount
+        self.max_amount = max_amount
+        self.total = total
+        self.pay_ali = pay_ali
+        self.pay_bank = pay_bank
+        self.pay_paypal = pay_paypal
+        self.pay_wechat = pay_wechat
+        self.pay_type_num = pay_type_num
+        self.pay_type_json = pay_type_json
+        self.locked_amount = locked_amount
+        self.orderid = orderid
+        self.timestamp = timestamp
+        self.currency_type = currency_type
+        self.want_type = want_type
+        self.hide_rate = hide_rate
+        self.trade_tips = trade_tips
+        self.auto_reply = auto_reply
+        self.new_hand = new_hand
+        self.rate_ref_id = rate_ref_id
+        self.rate_offset = rate_offset
+        self.status = status
+        self.rate_fixed = rate_fixed
+        self.float_trend = float_trend
+        self.expire_min = expire_min
+        self.tier_limit = tier_limit
+        self.reg_time_limit = reg_time_limit
+        self.advertisers_limit = advertisers_limit
+        self.verified_limit = verified_limit
+        self.min_completed_limit = min_completed_limit
+        self.max_completed_limit = max_completed_limit
+        self.user_orders_limit = user_orders_limit
+        self.completed_rate_limit = completed_rate_limit
+        self.user_country_limit = user_country_limit
+        self.limit_country_cn = limit_country_cn
+        self.limit_country_en = limit_country_en
+        self.is_hedge = is_hedge
+        self.hide_payment = hide_payment
+        self.fee = fee
 
     @property
-    def lists(self):
-        """Gets the lists of this InlineResponse20020Data.  # noqa: E501
+    def rate(self):
+        """Gets the rate of this InlineResponse20020Data.  # noqa: E501
 
+        Price  # noqa: E501
 
-        :return: The lists of this InlineResponse20020Data.  # noqa: E501
-        :rtype: list[InlineResponse20020DataLists]
+        :return: The rate of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
         """
-        return self._lists
+        return self._rate
 
-    @lists.setter
-    def lists(self, lists):
-        """Sets the lists of this InlineResponse20020Data.
+    @rate.setter
+    def rate(self, rate):
+        """Sets the rate of this InlineResponse20020Data.
 
+        Price  # noqa: E501
 
-        :param lists: The lists of this InlineResponse20020Data.  # noqa: E501
-        :type: list[InlineResponse20020DataLists]
+        :param rate: The rate of this InlineResponse20020Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and lists is None:  # noqa: E501
-            raise ValueError("Invalid value for `lists`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate`, must not be `None`")  # noqa: E501
 
-        self._lists = lists
+        self._rate = rate
+
+    @property
+    def type(self):
+        """Gets the type of this InlineResponse20020Data.  # noqa: E501
+
+        Buy/Sell order  # noqa: E501
+
+        :return: The type of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineResponse20020Data.
+
+        Buy/Sell order  # noqa: E501
+
+        :param type: The type of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+
+        self._type = type
+
+    @property
+    def amount(self):
+        """Gets the amount of this InlineResponse20020Data.  # noqa: E501
+
+        Cryptocurrency amount  # noqa: E501
+
+        :return: The amount of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this InlineResponse20020Data.
+
+        Cryptocurrency amount  # noqa: E501
+
+        :param amount: The amount of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+
+        self._amount = amount
+
+    @property
+    def min_amount(self):
+        """Gets the min_amount of this InlineResponse20020Data.  # noqa: E501
+
+        Minimum limit  # noqa: E501
+
+        :return: The min_amount of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._min_amount
+
+    @min_amount.setter
+    def min_amount(self, min_amount):
+        """Sets the min_amount of this InlineResponse20020Data.
+
+        Minimum limit  # noqa: E501
+
+        :param min_amount: The min_amount of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and min_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `min_amount`, must not be `None`")  # noqa: E501
+
+        self._min_amount = min_amount
+
+    @property
+    def max_amount(self):
+        """Gets the max_amount of this InlineResponse20020Data.  # noqa: E501
+
+        Maximum limit  # noqa: E501
+
+        :return: The max_amount of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._max_amount
+
+    @max_amount.setter
+    def max_amount(self, max_amount):
+        """Sets the max_amount of this InlineResponse20020Data.
+
+        Maximum limit  # noqa: E501
+
+        :param max_amount: The max_amount of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and max_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `max_amount`, must not be `None`")  # noqa: E501
+
+        self._max_amount = max_amount
+
+    @property
+    def total(self):
+        """Gets the total of this InlineResponse20020Data.  # noqa: E501
+
+        Fiat amount  # noqa: E501
+
+        :return: The total of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this InlineResponse20020Data.
+
+        Fiat amount  # noqa: E501
+
+        :param total: The total of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
+            raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
+
+        self._total = total
+
+    @property
+    def pay_ali(self):
+        """Gets the pay_ali of this InlineResponse20020Data.  # noqa: E501
+
+        Whether Alipay payment is supported  # noqa: E501
+
+        :return: The pay_ali of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._pay_ali
+
+    @pay_ali.setter
+    def pay_ali(self, pay_ali):
+        """Sets the pay_ali of this InlineResponse20020Data.
+
+        Whether Alipay payment is supported  # noqa: E501
+
+        :param pay_ali: The pay_ali of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and pay_ali is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_ali`, must not be `None`")  # noqa: E501
+
+        self._pay_ali = pay_ali
+
+    @property
+    def pay_bank(self):
+        """Gets the pay_bank of this InlineResponse20020Data.  # noqa: E501
+
+        Whether bank payment is supported  # noqa: E501
+
+        :return: The pay_bank of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._pay_bank
+
+    @pay_bank.setter
+    def pay_bank(self, pay_bank):
+        """Sets the pay_bank of this InlineResponse20020Data.
+
+        Whether bank payment is supported  # noqa: E501
+
+        :param pay_bank: The pay_bank of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and pay_bank is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_bank`, must not be `None`")  # noqa: E501
+
+        self._pay_bank = pay_bank
+
+    @property
+    def pay_paypal(self):
+        """Gets the pay_paypal of this InlineResponse20020Data.  # noqa: E501
+
+        Whether PayPal payment is supported  # noqa: E501
+
+        :return: The pay_paypal of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._pay_paypal
+
+    @pay_paypal.setter
+    def pay_paypal(self, pay_paypal):
+        """Sets the pay_paypal of this InlineResponse20020Data.
+
+        Whether PayPal payment is supported  # noqa: E501
+
+        :param pay_paypal: The pay_paypal of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and pay_paypal is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_paypal`, must not be `None`")  # noqa: E501
+
+        self._pay_paypal = pay_paypal
+
+    @property
+    def pay_wechat(self):
+        """Gets the pay_wechat of this InlineResponse20020Data.  # noqa: E501
+
+        Whether WeChat payment is supported  # noqa: E501
+
+        :return: The pay_wechat of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._pay_wechat
+
+    @pay_wechat.setter
+    def pay_wechat(self, pay_wechat):
+        """Sets the pay_wechat of this InlineResponse20020Data.
+
+        Whether WeChat payment is supported  # noqa: E501
+
+        :param pay_wechat: The pay_wechat of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and pay_wechat is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_wechat`, must not be `None`")  # noqa: E501
+
+        self._pay_wechat = pay_wechat
+
+    @property
+    def pay_type_num(self):
+        """Gets the pay_type_num of this InlineResponse20020Data.  # noqa: E501
+
+        Payment method ID list  # noqa: E501
+
+        :return: The pay_type_num of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._pay_type_num
+
+    @pay_type_num.setter
+    def pay_type_num(self, pay_type_num):
+        """Sets the pay_type_num of this InlineResponse20020Data.
+
+        Payment method ID list  # noqa: E501
+
+        :param pay_type_num: The pay_type_num of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and pay_type_num is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_type_num`, must not be `None`")  # noqa: E501
+
+        self._pay_type_num = pay_type_num
+
+    @property
+    def pay_type_json(self):
+        """Gets the pay_type_json of this InlineResponse20020Data.  # noqa: E501
+
+        Payment method list  # noqa: E501
+
+        :return: The pay_type_json of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._pay_type_json
+
+    @pay_type_json.setter
+    def pay_type_json(self, pay_type_json):
+        """Sets the pay_type_json of this InlineResponse20020Data.
+
+        Payment method list  # noqa: E501
+
+        :param pay_type_json: The pay_type_json of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and pay_type_json is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_type_json`, must not be `None`")  # noqa: E501
+
+        self._pay_type_json = pay_type_json
+
+    @property
+    def locked_amount(self):
+        """Gets the locked_amount of this InlineResponse20020Data.  # noqa: E501
+
+        Locked amount  # noqa: E501
+
+        :return: The locked_amount of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._locked_amount
+
+    @locked_amount.setter
+    def locked_amount(self, locked_amount):
+        """Sets the locked_amount of this InlineResponse20020Data.
+
+        Locked amount  # noqa: E501
+
+        :param locked_amount: The locked_amount of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and locked_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `locked_amount`, must not be `None`")  # noqa: E501
+
+        self._locked_amount = locked_amount
+
+    @property
+    def orderid(self):
+        """Gets the orderid of this InlineResponse20020Data.  # noqa: E501
+
+        Order ID  # noqa: E501
+
+        :return: The orderid of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._orderid
+
+    @orderid.setter
+    def orderid(self, orderid):
+        """Sets the orderid of this InlineResponse20020Data.
+
+        Order ID  # noqa: E501
+
+        :param orderid: The orderid of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and orderid is None:  # noqa: E501
+            raise ValueError("Invalid value for `orderid`, must not be `None`")  # noqa: E501
+
+        self._orderid = orderid
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20020Data.  # noqa: E501
+
+        Created time  # noqa: E501
+
+        :return: The timestamp of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20020Data.
+
+        Created time  # noqa: E501
+
+        :param timestamp: The timestamp of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
+
+        self._timestamp = timestamp
+
+    @property
+    def currency_type(self):
+        """Gets the currency_type of this InlineResponse20020Data.  # noqa: E501
+
+        Cryptocurrency type  # noqa: E501
+
+        :return: The currency_type of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_type
+
+    @currency_type.setter
+    def currency_type(self, currency_type):
+        """Sets the currency_type of this InlineResponse20020Data.
+
+        Cryptocurrency type  # noqa: E501
+
+        :param currency_type: The currency_type of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and currency_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `currency_type`, must not be `None`")  # noqa: E501
+
+        self._currency_type = currency_type
+
+    @property
+    def want_type(self):
+        """Gets the want_type of this InlineResponse20020Data.  # noqa: E501
+
+        Fiat type  # noqa: E501
+
+        :return: The want_type of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._want_type
+
+    @want_type.setter
+    def want_type(self, want_type):
+        """Sets the want_type of this InlineResponse20020Data.
+
+        Fiat type  # noqa: E501
+
+        :param want_type: The want_type of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and want_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `want_type`, must not be `None`")  # noqa: E501
+
+        self._want_type = want_type
+
+    @property
+    def hide_rate(self):
+        """Gets the hide_rate of this InlineResponse20020Data.  # noqa: E501
+
+        Hidden price  # noqa: E501
+
+        :return: The hide_rate of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._hide_rate
+
+    @hide_rate.setter
+    def hide_rate(self, hide_rate):
+        """Sets the hide_rate of this InlineResponse20020Data.
+
+        Hidden price  # noqa: E501
+
+        :param hide_rate: The hide_rate of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and hide_rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `hide_rate`, must not be `None`")  # noqa: E501
+
+        self._hide_rate = hide_rate
+
+    @property
+    def trade_tips(self):
+        """Gets the trade_tips of this InlineResponse20020Data.  # noqa: E501
+
+        Trading terms  # noqa: E501
+
+        :return: The trade_tips of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_tips
+
+    @trade_tips.setter
+    def trade_tips(self, trade_tips):
+        """Sets the trade_tips of this InlineResponse20020Data.
+
+        Trading terms  # noqa: E501
+
+        :param trade_tips: The trade_tips of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and trade_tips is None:  # noqa: E501
+            raise ValueError("Invalid value for `trade_tips`, must not be `None`")  # noqa: E501
+
+        self._trade_tips = trade_tips
+
+    @property
+    def auto_reply(self):
+        """Gets the auto_reply of this InlineResponse20020Data.  # noqa: E501
+
+        Auto reply  # noqa: E501
+
+        :return: The auto_reply of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_reply
+
+    @auto_reply.setter
+    def auto_reply(self, auto_reply):
+        """Sets the auto_reply of this InlineResponse20020Data.
+
+        Auto reply  # noqa: E501
+
+        :param auto_reply: The auto_reply of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and auto_reply is None:  # noqa: E501
+            raise ValueError("Invalid value for `auto_reply`, must not be `None`")  # noqa: E501
+
+        self._auto_reply = auto_reply
+
+    @property
+    def new_hand(self):
+        """Gets the new_hand of this InlineResponse20020Data.  # noqa: E501
+
+        Merchant-friendly order  # noqa: E501
+
+        :return: The new_hand of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_hand
+
+    @new_hand.setter
+    def new_hand(self, new_hand):
+        """Sets the new_hand of this InlineResponse20020Data.
+
+        Merchant-friendly order  # noqa: E501
+
+        :param new_hand: The new_hand of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and new_hand is None:  # noqa: E501
+            raise ValueError("Invalid value for `new_hand`, must not be `None`")  # noqa: E501
+
+        self._new_hand = new_hand
+
+    @property
+    def rate_ref_id(self):
+        """Gets the rate_ref_id of this InlineResponse20020Data.  # noqa: E501
+
+        Floating price reference ID: 1=Platform reference price, 3=Spot reference price (≤0 means fixed price, >0 means floating price)  # noqa: E501
+
+        :return: The rate_ref_id of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._rate_ref_id
+
+    @rate_ref_id.setter
+    def rate_ref_id(self, rate_ref_id):
+        """Sets the rate_ref_id of this InlineResponse20020Data.
+
+        Floating price reference ID: 1=Platform reference price, 3=Spot reference price (≤0 means fixed price, >0 means floating price)  # noqa: E501
+
+        :param rate_ref_id: The rate_ref_id of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and rate_ref_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate_ref_id`, must not be `None`")  # noqa: E501
+
+        self._rate_ref_id = rate_ref_id
+
+    @property
+    def rate_offset(self):
+        """Gets the rate_offset of this InlineResponse20020Data.  # noqa: E501
+
+        Floating ratio (absolute value)  # noqa: E501
+
+        :return: The rate_offset of this InlineResponse20020Data.  # noqa: E501
+        :rtype: float
+        """
+        return self._rate_offset
+
+    @rate_offset.setter
+    def rate_offset(self, rate_offset):
+        """Sets the rate_offset of this InlineResponse20020Data.
+
+        Floating ratio (absolute value)  # noqa: E501
+
+        :param rate_offset: The rate_offset of this InlineResponse20020Data.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and rate_offset is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate_offset`, must not be `None`")  # noqa: E501
+
+        self._rate_offset = rate_offset
+
+    @property
+    def status(self):
+        """Gets the status of this InlineResponse20020Data.  # noqa: E501
+
+        Status  # noqa: E501
+
+        :return: The status of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this InlineResponse20020Data.
+
+        Status  # noqa: E501
+
+        :param status: The status of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+
+        self._status = status
+
+    @property
+    def rate_fixed(self):
+        """Gets the rate_fixed of this InlineResponse20020Data.  # noqa: E501
+
+        0=Floating, 1=Fixed  # noqa: E501
+
+        :return: The rate_fixed of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._rate_fixed
+
+    @rate_fixed.setter
+    def rate_fixed(self, rate_fixed):
+        """Sets the rate_fixed of this InlineResponse20020Data.
+
+        0=Floating, 1=Fixed  # noqa: E501
+
+        :param rate_fixed: The rate_fixed of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and rate_fixed is None:  # noqa: E501
+            raise ValueError("Invalid value for `rate_fixed`, must not be `None`")  # noqa: E501
+
+        self._rate_fixed = rate_fixed
+
+    @property
+    def float_trend(self):
+        """Gets the float_trend of this InlineResponse20020Data.  # noqa: E501
+
+        0=Upward float, 1=Downward float  # noqa: E501
+
+        :return: The float_trend of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._float_trend
+
+    @float_trend.setter
+    def float_trend(self, float_trend):
+        """Sets the float_trend of this InlineResponse20020Data.
+
+        0=Upward float, 1=Downward float  # noqa: E501
+
+        :param float_trend: The float_trend of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and float_trend is None:  # noqa: E501
+            raise ValueError("Invalid value for `float_trend`, must not be `None`")  # noqa: E501
+
+        self._float_trend = float_trend
+
+    @property
+    def expire_min(self):
+        """Gets the expire_min of this InlineResponse20020Data.  # noqa: E501
+
+        Timeout (minutes)  # noqa: E501
+
+        :return: The expire_min of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._expire_min
+
+    @expire_min.setter
+    def expire_min(self, expire_min):
+        """Sets the expire_min of this InlineResponse20020Data.
+
+        Timeout (minutes)  # noqa: E501
+
+        :param expire_min: The expire_min of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and expire_min is None:  # noqa: E501
+            raise ValueError("Invalid value for `expire_min`, must not be `None`")  # noqa: E501
+
+        self._expire_min = expire_min
+
+    @property
+    def tier_limit(self):
+        """Gets the tier_limit of this InlineResponse20020Data.  # noqa: E501
+
+        Tier limit  # noqa: E501
+
+        :return: The tier_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._tier_limit
+
+    @tier_limit.setter
+    def tier_limit(self, tier_limit):
+        """Sets the tier_limit of this InlineResponse20020Data.
+
+        Tier limit  # noqa: E501
+
+        :param tier_limit: The tier_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and tier_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `tier_limit`, must not be `None`")  # noqa: E501
+
+        self._tier_limit = tier_limit
+
+    @property
+    def reg_time_limit(self):
+        """Gets the reg_time_limit of this InlineResponse20020Data.  # noqa: E501
+
+        Registration time limit  # noqa: E501
+
+        :return: The reg_time_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._reg_time_limit
+
+    @reg_time_limit.setter
+    def reg_time_limit(self, reg_time_limit):
+        """Sets the reg_time_limit of this InlineResponse20020Data.
+
+        Registration time limit  # noqa: E501
+
+        :param reg_time_limit: The reg_time_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and reg_time_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `reg_time_limit`, must not be `None`")  # noqa: E501
+
+        self._reg_time_limit = reg_time_limit
+
+    @property
+    def advertisers_limit(self):
+        """Gets the advertisers_limit of this InlineResponse20020Data.  # noqa: E501
+
+        Do not trade with advertisers, advertiser limit: 0=No limit, 1=Limit  # noqa: E501
+
+        :return: The advertisers_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._advertisers_limit
+
+    @advertisers_limit.setter
+    def advertisers_limit(self, advertisers_limit):
+        """Sets the advertisers_limit of this InlineResponse20020Data.
+
+        Do not trade with advertisers, advertiser limit: 0=No limit, 1=Limit  # noqa: E501
+
+        :param advertisers_limit: The advertisers_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and advertisers_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `advertisers_limit`, must not be `None`")  # noqa: E501
+
+        self._advertisers_limit = advertisers_limit
+
+    @property
+    def verified_limit(self):
+        """Gets the verified_limit of this InlineResponse20020Data.  # noqa: E501
+
+        kyclimit  # noqa: E501
+
+        :return: The verified_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._verified_limit
+
+    @verified_limit.setter
+    def verified_limit(self, verified_limit):
+        """Sets the verified_limit of this InlineResponse20020Data.
+
+        kyclimit  # noqa: E501
+
+        :param verified_limit: The verified_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and verified_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `verified_limit`, must not be `None`")  # noqa: E501
+
+        self._verified_limit = verified_limit
+
+    @property
+    def min_completed_limit(self):
+        """Gets the min_completed_limit of this InlineResponse20020Data.  # noqa: E501
+
+        Minimum limit of completed orders  # noqa: E501
+
+        :return: The min_completed_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._min_completed_limit
+
+    @min_completed_limit.setter
+    def min_completed_limit(self, min_completed_limit):
+        """Sets the min_completed_limit of this InlineResponse20020Data.
+
+        Minimum limit of completed orders  # noqa: E501
+
+        :param min_completed_limit: The min_completed_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and min_completed_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `min_completed_limit`, must not be `None`")  # noqa: E501
+
+        self._min_completed_limit = min_completed_limit
+
+    @property
+    def max_completed_limit(self):
+        """Gets the max_completed_limit of this InlineResponse20020Data.  # noqa: E501
+
+        Maximum limit of completed orders  # noqa: E501
+
+        :return: The max_completed_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_completed_limit
+
+    @max_completed_limit.setter
+    def max_completed_limit(self, max_completed_limit):
+        """Sets the max_completed_limit of this InlineResponse20020Data.
+
+        Maximum limit of completed orders  # noqa: E501
+
+        :param max_completed_limit: The max_completed_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and max_completed_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `max_completed_limit`, must not be `None`")  # noqa: E501
+
+        self._max_completed_limit = max_completed_limit
+
+    @property
+    def user_orders_limit(self):
+        """Gets the user_orders_limit of this InlineResponse20020Data.  # noqa: E501
+
+        Order count limit  # noqa: E501
+
+        :return: The user_orders_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_orders_limit
+
+    @user_orders_limit.setter
+    def user_orders_limit(self, user_orders_limit):
+        """Sets the user_orders_limit of this InlineResponse20020Data.
+
+        Order count limit  # noqa: E501
+
+        :param user_orders_limit: The user_orders_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and user_orders_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `user_orders_limit`, must not be `None`")  # noqa: E501
+
+        self._user_orders_limit = user_orders_limit
+
+    @property
+    def completed_rate_limit(self):
+        """Gets the completed_rate_limit of this InlineResponse20020Data.  # noqa: E501
+
+        30-day completion rate limit  # noqa: E501
+
+        :return: The completed_rate_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._completed_rate_limit
+
+    @completed_rate_limit.setter
+    def completed_rate_limit(self, completed_rate_limit):
+        """Sets the completed_rate_limit of this InlineResponse20020Data.
+
+        30-day completion rate limit  # noqa: E501
+
+        :param completed_rate_limit: The completed_rate_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and completed_rate_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `completed_rate_limit`, must not be `None`")  # noqa: E501
+
+        self._completed_rate_limit = completed_rate_limit
+
+    @property
+    def user_country_limit(self):
+        """Gets the user_country_limit of this InlineResponse20020Data.  # noqa: E501
+
+        KYC nationality restriction  # noqa: E501
+
+        :return: The user_country_limit of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_country_limit
+
+    @user_country_limit.setter
+    def user_country_limit(self, user_country_limit):
+        """Sets the user_country_limit of this InlineResponse20020Data.
+
+        KYC nationality restriction  # noqa: E501
+
+        :param user_country_limit: The user_country_limit of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and user_country_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `user_country_limit`, must not be `None`")  # noqa: E501
+
+        self._user_country_limit = user_country_limit
+
+    @property
+    def limit_country_cn(self):
+        """Gets the limit_country_cn of this InlineResponse20020Data.  # noqa: E501
+
+        Restricted nationality (Chinese)  # noqa: E501
+
+        :return: The limit_country_cn of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._limit_country_cn
+
+    @limit_country_cn.setter
+    def limit_country_cn(self, limit_country_cn):
+        """Sets the limit_country_cn of this InlineResponse20020Data.
+
+        Restricted nationality (Chinese)  # noqa: E501
+
+        :param limit_country_cn: The limit_country_cn of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and limit_country_cn is None:  # noqa: E501
+            raise ValueError("Invalid value for `limit_country_cn`, must not be `None`")  # noqa: E501
+
+        self._limit_country_cn = limit_country_cn
+
+    @property
+    def limit_country_en(self):
+        """Gets the limit_country_en of this InlineResponse20020Data.  # noqa: E501
+
+        Restricted nationality (English)  # noqa: E501
+
+        :return: The limit_country_en of this InlineResponse20020Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._limit_country_en
+
+    @limit_country_en.setter
+    def limit_country_en(self, limit_country_en):
+        """Sets the limit_country_en of this InlineResponse20020Data.
+
+        Restricted nationality (English)  # noqa: E501
+
+        :param limit_country_en: The limit_country_en of this InlineResponse20020Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and limit_country_en is None:  # noqa: E501
+            raise ValueError("Invalid value for `limit_country_en`, must not be `None`")  # noqa: E501
+
+        self._limit_country_en = limit_country_en
+
+    @property
+    def is_hedge(self):
+        """Gets the is_hedge of this InlineResponse20020Data.  # noqa: E501
+
+        Whether auto delegation  # noqa: E501
+
+        :return: The is_hedge of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_hedge
+
+    @is_hedge.setter
+    def is_hedge(self, is_hedge):
+        """Sets the is_hedge of this InlineResponse20020Data.
+
+        Whether auto delegation  # noqa: E501
+
+        :param is_hedge: The is_hedge of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_hedge is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_hedge`, must not be `None`")  # noqa: E501
+
+        self._is_hedge = is_hedge
+
+    @property
+    def hide_payment(self):
+        """Gets the hide_payment of this InlineResponse20020Data.  # noqa: E501
+
+        Whether to hide payment method  # noqa: E501
+
+        :return: The hide_payment of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._hide_payment
+
+    @hide_payment.setter
+    def hide_payment(self, hide_payment):
+        """Sets the hide_payment of this InlineResponse20020Data.
+
+        Whether to hide payment method  # noqa: E501
+
+        :param hide_payment: The hide_payment of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and hide_payment is None:  # noqa: E501
+            raise ValueError("Invalid value for `hide_payment`, must not be `None`")  # noqa: E501
+
+        self._hide_payment = hide_payment
+
+    @property
+    def fee(self):
+        """Gets the fee of this InlineResponse20020Data.  # noqa: E501
+
+        fee  # noqa: E501
+
+        :return: The fee of this InlineResponse20020Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._fee
+
+    @fee.setter
+    def fee(self, fee):
+        """Sets the fee of this InlineResponse20020Data.
+
+        fee  # noqa: E501
+
+        :param fee: The fee of this InlineResponse20020Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and fee is None:  # noqa: E501
+            raise ValueError("Invalid value for `fee`, must not be `None`")  # noqa: E501
+
+        self._fee = fee
 
     def to_dict(self):
         """Returns the model properties as a dict"""

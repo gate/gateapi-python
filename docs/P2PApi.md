@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **p2p_merchant_account_get_user_info**
-> InlineResponse20013 p2p_merchant_account_get_user_info()
+> InlineResponse20014 p2p_merchant_account_get_user_info()
 
 Get account information
 
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_counterparty_user_info**
-> InlineResponse20014 p2p_merchant_account_get_counterparty_user_info(biz_uid)
+> InlineResponse20015 p2p_merchant_account_get_counterparty_user_info(biz_uid)
 
 Get counterparty information
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_myself_payment**
-> InlineResponse20015 p2p_merchant_account_get_myself_payment(fiat=fiat)
+> InlineResponse20016 p2p_merchant_account_get_myself_payment(fiat=fiat)
 
 Get payment method list
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_pending_transaction_list**
-> InlineResponse20016 p2p_merchant_transaction_get_pending_transaction_list(crypto_currency, fiat_currency, order_tab=order_tab, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time)
+> InlineResponse20017 p2p_merchant_transaction_get_pending_transaction_list(crypto_currency, fiat_currency, order_tab=order_tab, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time)
 
 Get pending orders
 
@@ -214,9 +214,9 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.P2PApi(api_client)
 crypto_currency = 'crypto_currency_example' # str | Cryptocurrency
 fiat_currency = 'fiat_currency_example' # str | Fiat currency
-order_tab = 'order_tab_example' # str | Order tab, default is pending (pending: Processing (pending: AND status in ('OPEN',  'PAID', 'LOCKED', 'TEMP')); dispute: In dispute (status in ('ACCEPT',  'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL'))) (optional)
+order_tab = 'order_tab_example' # str | 订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL'))) (optional)
 select_type = 'select_type_example' # str | Buy/Sell (sell=Sell, buy=Buy, others=All) (optional)
-status = 'status_example' # str | 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED） (optional)
+status = 'status_example' # str | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
 txid = 56 # int | Order ID (optional)
 start_time = 56 # int | Start timestamp, default is 00:00 89 days ago (optional)
 end_time = 56 # int | End timestamp, default is 23:59:59 today (optional)
@@ -237,16 +237,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **crypto_currency** | **str**| Cryptocurrency | 
  **fiat_currency** | **str**| Fiat currency | 
- **order_tab** | **str**| Order tab, default is pending (pending: Processing (pending: AND status in (&#39;OPEN&#39;,  &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In dispute (status in (&#39;ACCEPT&#39;,  &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional] 
+ **order_tab** | **str**| 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional] 
  **select_type** | **str**| Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) | [optional] 
- **status** | **str**| 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED） | [optional] 
+ **status** | **str**| Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) | [optional] 
  **txid** | **int**| Order ID | [optional] 
  **start_time** | **int**| Start timestamp, default is 00:00 89 days ago | [optional] 
  **end_time** | **int**| End timestamp, default is 23:59:59 today | [optional] 
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_completed_transaction_list**
-> InlineResponse20016 p2p_merchant_transaction_get_completed_transaction_list(crypto_currency, fiat_currency, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time, query_dispute=query_dispute, page=page, per_page=per_page)
+> InlineResponse20017 p2p_merchant_transaction_get_completed_transaction_list(crypto_currency, fiat_currency, select_type=select_type, status=status, txid=txid, start_time=start_time, end_time=end_time, query_dispute=query_dispute, page=page, per_page=per_page)
 
 Get all/historical orders
 
@@ -287,7 +287,7 @@ api_instance = gate_api.P2PApi(api_client)
 crypto_currency = 'crypto_currency_example' # str | Cryptocurrency
 fiat_currency = 'fiat_currency_example' # str | Fiat currency
 select_type = 'select_type_example' # str | Buy/Sell (sell=Sell, buy=Buy, others=All) (optional)
-status = 'status_example' # str | 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED） (optional)
+status = 'status_example' # str | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
 txid = 56 # int | Order ID (optional)
 start_time = 56 # int | Start timestamp, default is 00:00 89 days ago (optional)
 end_time = 56 # int | End timestamp, default is 23:59:59 today (optional)
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
  **crypto_currency** | **str**| Cryptocurrency | 
  **fiat_currency** | **str**| Fiat currency | 
  **select_type** | **str**| Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) | [optional] 
- **status** | **str**| 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED） | [optional] 
+ **status** | **str**| Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) | [optional] 
  **txid** | **int**| Order ID | [optional] 
  **start_time** | **int**| Start timestamp, default is 00:00 89 days ago | [optional] 
  **end_time** | **int**| End timestamp, default is 23:59:59 today | [optional] 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -341,7 +341,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_transaction_details**
-> InlineResponse20017 p2p_merchant_transaction_get_transaction_details(txid, channel=channel)
+> InlineResponse20018 p2p_merchant_transaction_get_transaction_details(txid, channel=channel)
 
 Query order details
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -685,7 +685,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_update_status**
-> InlineResponse20018 p2p_merchant_books_ads_update_status(adv_no, adv_status, trade_type=trade_type)
+> InlineResponse20019 p2p_merchant_books_ads_update_status(adv_no, adv_status, trade_type=trade_type)
 
 Update ad status
 
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -747,7 +747,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_detail**
-> InlineResponse20019 p2p_merchant_books_ads_detail(adv_no)
+> InlineResponse20020 p2p_merchant_books_ads_detail(adv_no)
 
 Query ad details
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -805,7 +805,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_my_ads_list**
-> InlineResponse20020 p2p_merchant_books_my_ads_list(asset=asset, fiat_unit=fiat_unit, trade_type=trade_type)
+> InlineResponse20021 p2p_merchant_books_my_ads_list(asset=asset, fiat_unit=fiat_unit, trade_type=trade_type)
 
 Get my ad list
 
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -867,7 +867,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_get_chats_list**
-> InlineResponse20021 p2p_merchant_chat_get_chats_list(txid, lastreceived=lastreceived, firstreceived=firstreceived)
+> InlineResponse20022 p2p_merchant_chat_get_chats_list(txid, lastreceived=lastreceived, firstreceived=firstreceived)
 
 Get chat history
 
@@ -910,7 +910,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -929,7 +929,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_send_chat_message**
-> InlineResponse20022 p2p_merchant_chat_send_chat_message(txid, message, type=type)
+> InlineResponse20023 p2p_merchant_chat_send_chat_message(txid, message, type=type)
 
 Send text message
 
@@ -972,7 +972,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -991,7 +991,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_upload_chat_file**
-> InlineResponse20023 p2p_merchant_chat_upload_chat_file(image_content_type, base64_img)
+> InlineResponse20024 p2p_merchant_chat_upload_chat_file(image_content_type, base64_img)
 
 Upload chat file
 
@@ -1032,7 +1032,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 

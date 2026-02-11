@@ -164,7 +164,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20024]
+        :rtype: list[gate_api.InlineResponse20025]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -191,7 +191,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20024], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20025], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -252,7 +252,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20024]',  # noqa: E501
+            response_type='list[InlineResponse20025]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -278,7 +278,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20025]
+        :rtype: list[gate_api.InlineResponse20026]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -305,7 +305,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20025], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20026], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -362,7 +362,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20025]',  # noqa: E501
+            response_type='list[InlineResponse20026]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -393,7 +393,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20026]
+        :rtype: list[gate_api.InlineResponse20027]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -425,7 +425,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20026], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20027], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -497,7 +497,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20026]',  # noqa: E501
+            response_type='list[InlineResponse20027]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -523,7 +523,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20027
+        :rtype: gate_api.InlineResponse20028
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -550,7 +550,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -611,7 +611,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -637,7 +637,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20028
+        :rtype: gate_api.InlineResponse20029
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -664,7 +664,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -725,7 +725,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -751,7 +751,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20029
+        :rtype: gate_api.InlineResponse20030
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -778,7 +778,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -839,7 +839,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -866,7 +866,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20030
+        :rtype: gate_api.InlineResponse20031
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -894,7 +894,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -962,7 +962,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1111,7 +1111,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20031
+        :rtype: gate_api.InlineResponse20032
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1138,7 +1138,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1199,7 +1199,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1324,7 +1324,7 @@ class CrossExApi(object):
     def get_crossex_account(self, **kwargs):  # noqa: E501
         """Query Account Assets  # noqa: E501
 
-        限频：每10秒200次请求 100% <= initial_margin_rate < 110%，禁止划出保证金币种。 initial_margin_rate < 100%，系统自动撤单，只能平仓不能开仓 maintenance_margin_rate  <= 100%，系统强制平仓  # noqa: E501
+        Rate Limit: 200 requests per 10 seconds If 100% ≤ initial_margin_rate < 110%, transferring out the margin currency is prohibited. If initial_margin_rate < 100%, the system will automatically cancel orders; only closing positions is allowed, not opening new ones. If maintenance_margin_rate ≤ 100%, the system will force liquidation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_crossex_account(async_req=True)
@@ -1339,7 +1339,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20032
+        :rtype: gate_api.InlineResponse20033
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1349,7 +1349,7 @@ class CrossExApi(object):
     def get_crossex_account_with_http_info(self, **kwargs):  # noqa: E501
         """Query Account Assets  # noqa: E501
 
-        限频：每10秒200次请求 100% <= initial_margin_rate < 110%，禁止划出保证金币种。 initial_margin_rate < 100%，系统自动撤单，只能平仓不能开仓 maintenance_margin_rate  <= 100%，系统强制平仓  # noqa: E501
+        Rate Limit: 200 requests per 10 seconds If 100% ≤ initial_margin_rate < 110%, transferring out the margin currency is prohibited. If initial_margin_rate < 100%, the system will automatically cancel orders; only closing positions is allowed, not opening new ones. If maintenance_margin_rate ≤ 100%, the system will force liquidation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_crossex_account_with_http_info(async_req=True)
@@ -1366,7 +1366,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1423,7 +1423,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1563,7 +1563,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20033]
+        :rtype: list[gate_api.InlineResponse20034]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1590,7 +1590,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20033], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20034], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1647,7 +1647,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20033]',  # noqa: E501
+            response_type='list[InlineResponse20034]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1787,7 +1787,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20033]
+        :rtype: list[gate_api.InlineResponse20034]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1814,7 +1814,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20033], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20034], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1871,7 +1871,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20033]',  # noqa: E501
+            response_type='list[InlineResponse20034]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2011,7 +2011,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20028
+        :rtype: gate_api.InlineResponse20029
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2038,7 +2038,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2099,7 +2099,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2126,7 +2126,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20034]
+        :rtype: list[gate_api.InlineResponse20035]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2154,7 +2154,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20034], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20035], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2214,7 +2214,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20034]',  # noqa: E501
+            response_type='list[InlineResponse20035]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2239,7 +2239,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20035
+        :rtype: gate_api.InlineResponse20036
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2265,7 +2265,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2319,7 +2319,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20036',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2346,7 +2346,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20036]
+        :rtype: list[gate_api.InlineResponse20037]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2374,7 +2374,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20036], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20037], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2434,7 +2434,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20036]',  # noqa: E501
+            response_type='list[InlineResponse20037]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2461,7 +2461,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20037]
+        :rtype: list[gate_api.InlineResponse20038]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2489,7 +2489,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20037], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20038], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2549,7 +2549,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20037]',  # noqa: E501
+            response_type='list[InlineResponse20038]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2575,7 +2575,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20038]
+        :rtype: list[gate_api.InlineResponse20039]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2602,7 +2602,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20038], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20039], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2663,7 +2663,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20038]',  # noqa: E501
+            response_type='list[InlineResponse20039]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2691,7 +2691,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20029]
+        :rtype: list[gate_api.InlineResponse20030]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2720,7 +2720,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20029], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20030], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2783,7 +2783,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20029]',  # noqa: E501
+            response_type='list[InlineResponse20030]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2813,7 +2813,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20039]
+        :rtype: list[gate_api.InlineResponse20040]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2844,7 +2844,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20039], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20040], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2913,7 +2913,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20039]',  # noqa: E501
+            response_type='list[InlineResponse20040]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2943,7 +2943,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20040]
+        :rtype: list[gate_api.InlineResponse20041]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2974,7 +2974,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20040], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20041], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3043,7 +3043,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20040]',  # noqa: E501
+            response_type='list[InlineResponse20041]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3073,7 +3073,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20041]
+        :rtype: list[gate_api.InlineResponse20042]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3104,7 +3104,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20041], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20042], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3173,7 +3173,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20041]',  # noqa: E501
+            response_type='list[InlineResponse20042]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3204,7 +3204,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20042]
+        :rtype: list[gate_api.InlineResponse20043]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3236,7 +3236,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20042], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20043], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3308,7 +3308,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20042]',  # noqa: E501
+            response_type='list[InlineResponse20043]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3338,7 +3338,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20043]
+        :rtype: list[gate_api.InlineResponse20044]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3369,7 +3369,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20043], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20044], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3438,7 +3438,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20043]',  # noqa: E501
+            response_type='list[InlineResponse20044]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3468,7 +3468,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20044]
+        :rtype: list[gate_api.InlineResponse20045]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3499,7 +3499,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20044], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20045], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3568,7 +3568,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20044]',  # noqa: E501
+            response_type='list[InlineResponse20045]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3595,7 +3595,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20045]
+        :rtype: list[gate_api.InlineResponse20046]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3623,7 +3623,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20045], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20046], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3683,7 +3683,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20045]',  # noqa: E501
+            response_type='list[InlineResponse20046]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **method** | **str** |  | 
 **code** | **int** |  | 
 **message** | **str** |  | 
-**data** | [**list[InlineResponse20015Data]**](InlineResponse20015Data.md) |  | 
+**data** | [**InlineResponse20015Data**](InlineResponse20015Data.md) |  | 
 **version** | **str** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**list_multi_collateral_records**](MultiCollateralLoanApi.md#list_multi_collateral_records) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records
 [**operate_multi_collateral**](MultiCollateralLoanApi.md#operate_multi_collateral) | **POST** /loan/multi_collateral/mortgage | Add or withdraw collateral
 [**list_user_currency_quota**](MultiCollateralLoanApi.md#list_user_currency_quota) | **GET** /loan/multi_collateral/currency_quota | Query user&#39;s collateral and borrowing currency quota information
-[**list_multi_collateral_currencies**](MultiCollateralLoanApi.md#list_multi_collateral_currencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies for multi-currency collateral
+[**list_multi_collateral_currencies**](MultiCollateralLoanApi.md#list_multi_collateral_currencies) | **GET** /loan/multi_collateral/currencies | Query borrow currencies and collateral currencies supported by multi-currency collateral
 [**get_multi_collateral_ltv**](MultiCollateralLoanApi.md#get_multi_collateral_ltv) | **GET** /loan/multi_collateral/ltv | Query collateralization ratio information
 [**get_multi_collateral_fix_rate**](MultiCollateralLoanApi.md#get_multi_collateral_fix_rate) | **GET** /loan/multi_collateral/fixed_rate | Query currency&#39;s 7-day and 30-day fixed interest rates
 [**get_multi_collateral_current_rate**](MultiCollateralLoanApi.md#get_multi_collateral_current_rate) | **GET** /loan/multi_collateral/current_rate | Query currency&#39;s current interest rate
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 # **list_multi_collateral_currencies**
 > MultiCollateralCurrency list_multi_collateral_currencies()
 
-Query supported borrowing and collateral currencies for multi-currency collateral
+Query borrow currencies and collateral currencies supported by multi-currency collateral
 
 ### Example
 
@@ -602,7 +602,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.MultiCollateralLoanApi(api_client)
 
 try:
-    # Query supported borrowing and collateral currencies for multi-currency collateral
+    # Query borrow currencies and collateral currencies supported by multi-currency collateral
     api_response = api_instance.list_multi_collateral_currencies()
     print(api_response)
 except GateApiException as ex:

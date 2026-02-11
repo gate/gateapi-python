@@ -33,163 +33,136 @@ class InlineResponse20035(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'spot_maker_fee': 'str',
-        'spot_taker_fee': 'str',
-        'future_maker_fee': 'str',
-        'future_taker_fee': 'str',
-        'special_fee_list': 'list[InlineResponse20035SpecialFeeList]'
+        'coin': 'str',
+        'exchange_type': 'str',
+        'hour_interest_rate': 'str',
+        'time': 'str'
     }
 
     attribute_map = {
-        'spot_maker_fee': 'spot_maker_fee',
-        'spot_taker_fee': 'spot_taker_fee',
-        'future_maker_fee': 'future_maker_fee',
-        'future_taker_fee': 'future_taker_fee',
-        'special_fee_list': 'special_fee_list'
+        'coin': 'coin',
+        'exchange_type': 'exchange_type',
+        'hour_interest_rate': 'hour_interest_rate',
+        'time': 'time'
     }
 
-    def __init__(self, spot_maker_fee=None, spot_taker_fee=None, future_maker_fee=None, future_taker_fee=None, special_fee_list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, list[InlineResponse20035SpecialFeeList], Configuration) -> None
+    def __init__(self, coin=None, exchange_type=None, hour_interest_rate=None, time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, Configuration) -> None
         """InlineResponse20035 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._spot_maker_fee = None
-        self._spot_taker_fee = None
-        self._future_maker_fee = None
-        self._future_taker_fee = None
-        self._special_fee_list = None
+        self._coin = None
+        self._exchange_type = None
+        self._hour_interest_rate = None
+        self._time = None
         self.discriminator = None
 
-        self.spot_maker_fee = spot_maker_fee
-        self.spot_taker_fee = spot_taker_fee
-        self.future_maker_fee = future_maker_fee
-        self.future_taker_fee = future_taker_fee
-        self.special_fee_list = special_fee_list
+        self.coin = coin
+        self.exchange_type = exchange_type
+        self.hour_interest_rate = hour_interest_rate
+        self.time = time
 
     @property
-    def spot_maker_fee(self):
-        """Gets the spot_maker_fee of this InlineResponse20035.  # noqa: E501
+    def coin(self):
+        """Gets the coin of this InlineResponse20035.  # noqa: E501
 
-        spotMakerfee rate  # noqa: E501
+        Currency  # noqa: E501
 
-        :return: The spot_maker_fee of this InlineResponse20035.  # noqa: E501
+        :return: The coin of this InlineResponse20035.  # noqa: E501
         :rtype: str
         """
-        return self._spot_maker_fee
+        return self._coin
 
-    @spot_maker_fee.setter
-    def spot_maker_fee(self, spot_maker_fee):
-        """Sets the spot_maker_fee of this InlineResponse20035.
+    @coin.setter
+    def coin(self, coin):
+        """Sets the coin of this InlineResponse20035.
 
-        spotMakerfee rate  # noqa: E501
+        Currency  # noqa: E501
 
-        :param spot_maker_fee: The spot_maker_fee of this InlineResponse20035.  # noqa: E501
+        :param coin: The coin of this InlineResponse20035.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and spot_maker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `spot_maker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
 
-        self._spot_maker_fee = spot_maker_fee
+        self._coin = coin
 
     @property
-    def spot_taker_fee(self):
-        """Gets the spot_taker_fee of this InlineResponse20035.  # noqa: E501
+    def exchange_type(self):
+        """Gets the exchange_type of this InlineResponse20035.  # noqa: E501
 
-        spotTakerfee rate  # noqa: E501
+        Exchange  # noqa: E501
 
-        :return: The spot_taker_fee of this InlineResponse20035.  # noqa: E501
+        :return: The exchange_type of this InlineResponse20035.  # noqa: E501
         :rtype: str
         """
-        return self._spot_taker_fee
+        return self._exchange_type
 
-    @spot_taker_fee.setter
-    def spot_taker_fee(self, spot_taker_fee):
-        """Sets the spot_taker_fee of this InlineResponse20035.
+    @exchange_type.setter
+    def exchange_type(self, exchange_type):
+        """Sets the exchange_type of this InlineResponse20035.
 
-        spotTakerfee rate  # noqa: E501
+        Exchange  # noqa: E501
 
-        :param spot_taker_fee: The spot_taker_fee of this InlineResponse20035.  # noqa: E501
+        :param exchange_type: The exchange_type of this InlineResponse20035.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and spot_taker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `spot_taker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
 
-        self._spot_taker_fee = spot_taker_fee
+        self._exchange_type = exchange_type
 
     @property
-    def future_maker_fee(self):
-        """Gets the future_maker_fee of this InlineResponse20035.  # noqa: E501
+    def hour_interest_rate(self):
+        """Gets the hour_interest_rate of this InlineResponse20035.  # noqa: E501
 
-        contractMakerfee rate  # noqa: E501
+        Hourly Interest Rate  # noqa: E501
 
-        :return: The future_maker_fee of this InlineResponse20035.  # noqa: E501
+        :return: The hour_interest_rate of this InlineResponse20035.  # noqa: E501
         :rtype: str
         """
-        return self._future_maker_fee
+        return self._hour_interest_rate
 
-    @future_maker_fee.setter
-    def future_maker_fee(self, future_maker_fee):
-        """Sets the future_maker_fee of this InlineResponse20035.
+    @hour_interest_rate.setter
+    def hour_interest_rate(self, hour_interest_rate):
+        """Sets the hour_interest_rate of this InlineResponse20035.
 
-        contractMakerfee rate  # noqa: E501
+        Hourly Interest Rate  # noqa: E501
 
-        :param future_maker_fee: The future_maker_fee of this InlineResponse20035.  # noqa: E501
+        :param hour_interest_rate: The hour_interest_rate of this InlineResponse20035.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and future_maker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `future_maker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and hour_interest_rate is None:  # noqa: E501
+            raise ValueError("Invalid value for `hour_interest_rate`, must not be `None`")  # noqa: E501
 
-        self._future_maker_fee = future_maker_fee
+        self._hour_interest_rate = hour_interest_rate
 
     @property
-    def future_taker_fee(self):
-        """Gets the future_taker_fee of this InlineResponse20035.  # noqa: E501
+    def time(self):
+        """Gets the time of this InlineResponse20035.  # noqa: E501
 
-        contractTakerfee rate  # noqa: E501
+        Millisecond Timestamp  # noqa: E501
 
-        :return: The future_taker_fee of this InlineResponse20035.  # noqa: E501
+        :return: The time of this InlineResponse20035.  # noqa: E501
         :rtype: str
         """
-        return self._future_taker_fee
+        return self._time
 
-    @future_taker_fee.setter
-    def future_taker_fee(self, future_taker_fee):
-        """Sets the future_taker_fee of this InlineResponse20035.
+    @time.setter
+    def time(self, time):
+        """Sets the time of this InlineResponse20035.
 
-        contractTakerfee rate  # noqa: E501
+        Millisecond Timestamp  # noqa: E501
 
-        :param future_taker_fee: The future_taker_fee of this InlineResponse20035.  # noqa: E501
+        :param time: The time of this InlineResponse20035.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and future_taker_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `future_taker_fee`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
+            raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
 
-        self._future_taker_fee = future_taker_fee
-
-    @property
-    def special_fee_list(self):
-        """Gets the special_fee_list of this InlineResponse20035.  # noqa: E501
-
-
-        :return: The special_fee_list of this InlineResponse20035.  # noqa: E501
-        :rtype: list[InlineResponse20035SpecialFeeList]
-        """
-        return self._special_fee_list
-
-    @special_fee_list.setter
-    def special_fee_list(self, special_fee_list):
-        """Sets the special_fee_list of this InlineResponse20035.
-
-
-        :param special_fee_list: The special_fee_list of this InlineResponse20035.  # noqa: E501
-        :type: list[InlineResponse20035SpecialFeeList]
-        """
-        if self.local_vars_configuration.client_side_validation and special_fee_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `special_fee_list`, must not be `None`")  # noqa: E501
-
-        self._special_fee_list = special_fee_list
+        self._time = time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

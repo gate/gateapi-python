@@ -33,55 +33,32 @@ class InlineResponse20012(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'message': 'str',
         'code': 'int',
+        'message': 'str',
         'data': 'InlineResponse20012Data'
     }
 
     attribute_map = {
-        'message': 'message',
         'code': 'code',
+        'message': 'message',
         'data': 'data'
     }
 
-    def __init__(self, message=None, code=None, data=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, InlineResponse20012Data, Configuration) -> None
+    def __init__(self, code=None, message=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, InlineResponse20012Data, Configuration) -> None
         """InlineResponse20012 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._message = None
         self._code = None
+        self._message = None
         self._data = None
         self.discriminator = None
 
-        self.message = message
         self.code = code
+        self.message = message
         self.data = data
-
-    @property
-    def message(self):
-        """Gets the message of this InlineResponse20012.  # noqa: E501
-
-
-        :return: The message of this InlineResponse20012.  # noqa: E501
-        :rtype: str
-        """
-        return self._message
-
-    @message.setter
-    def message(self, message):
-        """Sets the message of this InlineResponse20012.
-
-
-        :param message: The message of this InlineResponse20012.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
-
-        self._message = message
 
     @property
     def code(self):
@@ -105,6 +82,29 @@ class InlineResponse20012(object):
             raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
+
+    @property
+    def message(self):
+        """Gets the message of this InlineResponse20012.  # noqa: E501
+
+
+        :return: The message of this InlineResponse20012.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse20012.
+
+
+        :param message: The message of this InlineResponse20012.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
+
+        self._message = message
 
     @property
     def data(self):

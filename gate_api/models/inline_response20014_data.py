@@ -33,7 +33,9 @@ class InlineResponse20014Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'is_self': 'bool',
         'user_timest': 'str',
+        'counterparties_num': 'int',
         'email_verified': 'str',
         'verified': 'str',
         'has_phone': 'str',
@@ -46,16 +48,28 @@ class InlineResponse20014Data(object):
         'cancelled_used_time_month': 'str',
         'complete_transactions_month': 'str',
         'complete_rate_month': 'int',
+        'orders_buy_rate_month': 'int',
+        'is_black': 'int',
         'is_follow': 'int',
         'have_traded': 'int',
         'biz_uid': 'str',
+        'blue_vip': 'int',
+        'work_status': 'int',
         'registration_days': 'int',
         'first_trade_days': 'int',
+        'need_replenish': 'int',
+        'merchant_info': 'InlineResponse20014DataMerchantInfo',
+        'online_status': 'int',
+        'work_hours': 'object',
+        'transactions_month': 'int',
+        'transactions_all': 'int',
         'trade_versatile': 'bool'
     }
 
     attribute_map = {
+        'is_self': 'is_self',
         'user_timest': 'user_timest',
+        'counterparties_num': 'counterparties_num',
         'email_verified': 'email_verified',
         'verified': 'verified',
         'has_phone': 'has_phone',
@@ -68,22 +82,34 @@ class InlineResponse20014Data(object):
         'cancelled_used_time_month': 'cancelled_used_time_month',
         'complete_transactions_month': 'complete_transactions_month',
         'complete_rate_month': 'complete_rate_month',
+        'orders_buy_rate_month': 'orders_buy_rate_month',
+        'is_black': 'is_black',
         'is_follow': 'is_follow',
         'have_traded': 'have_traded',
         'biz_uid': 'biz_uid',
+        'blue_vip': 'blue_vip',
+        'work_status': 'work_status',
         'registration_days': 'registration_days',
         'first_trade_days': 'first_trade_days',
+        'need_replenish': 'need_replenish',
+        'merchant_info': 'merchant_info',
+        'online_status': 'online_status',
+        'work_hours': 'work_hours',
+        'transactions_month': 'transactions_month',
+        'transactions_all': 'transactions_all',
         'trade_versatile': 'trade_versatile'
     }
 
-    def __init__(self, user_timest=None, email_verified=None, verified=None, has_phone=None, user_name=None, user_note=None, complete_transactions=None, paid_transactions=None, accepted_transactions=None, transactions_used_time=None, cancelled_used_time_month=None, complete_transactions_month=None, complete_rate_month=None, is_follow=None, have_traded=None, biz_uid=None, registration_days=None, first_trade_days=None, trade_versatile=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, int, int, int, str, int, int, bool, Configuration) -> None
+    def __init__(self, is_self=None, user_timest=None, counterparties_num=None, email_verified=None, verified=None, has_phone=None, user_name=None, user_note=None, complete_transactions=None, paid_transactions=None, accepted_transactions=None, transactions_used_time=None, cancelled_used_time_month=None, complete_transactions_month=None, complete_rate_month=None, orders_buy_rate_month=None, is_black=None, is_follow=None, have_traded=None, biz_uid=None, blue_vip=None, work_status=None, registration_days=None, first_trade_days=None, need_replenish=None, merchant_info=None, online_status=None, work_hours=None, transactions_month=None, transactions_all=None, trade_versatile=None, local_vars_configuration=None):  # noqa: E501
+        # type: (bool, str, int, str, str, str, str, str, str, str, str, str, str, str, int, int, int, int, int, str, int, int, int, int, int, InlineResponse20014DataMerchantInfo, int, object, int, int, bool, Configuration) -> None
         """InlineResponse20014Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._is_self = None
         self._user_timest = None
+        self._counterparties_num = None
         self._email_verified = None
         self._verified = None
         self._has_phone = None
@@ -96,15 +122,27 @@ class InlineResponse20014Data(object):
         self._cancelled_used_time_month = None
         self._complete_transactions_month = None
         self._complete_rate_month = None
+        self._orders_buy_rate_month = None
+        self._is_black = None
         self._is_follow = None
         self._have_traded = None
         self._biz_uid = None
+        self._blue_vip = None
+        self._work_status = None
         self._registration_days = None
         self._first_trade_days = None
+        self._need_replenish = None
+        self._merchant_info = None
+        self._online_status = None
+        self._work_hours = None
+        self._transactions_month = None
+        self._transactions_all = None
         self._trade_versatile = None
         self.discriminator = None
 
+        self.is_self = is_self
         self.user_timest = user_timest
+        self.counterparties_num = counterparties_num
         self.email_verified = email_verified
         self.verified = verified
         self.has_phone = has_phone
@@ -117,12 +155,47 @@ class InlineResponse20014Data(object):
         self.cancelled_used_time_month = cancelled_used_time_month
         self.complete_transactions_month = complete_transactions_month
         self.complete_rate_month = complete_rate_month
+        self.orders_buy_rate_month = orders_buy_rate_month
+        self.is_black = is_black
         self.is_follow = is_follow
         self.have_traded = have_traded
         self.biz_uid = biz_uid
+        self.blue_vip = blue_vip
+        self.work_status = work_status
         self.registration_days = registration_days
         self.first_trade_days = first_trade_days
+        self.need_replenish = need_replenish
+        self.merchant_info = merchant_info
+        self.online_status = online_status
+        self.work_hours = work_hours
+        self.transactions_month = transactions_month
+        self.transactions_all = transactions_all
         self.trade_versatile = trade_versatile
+
+    @property
+    def is_self(self):
+        """Gets the is_self of this InlineResponse20014Data.  # noqa: E501
+
+        Whether self  # noqa: E501
+
+        :return: The is_self of this InlineResponse20014Data.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_self
+
+    @is_self.setter
+    def is_self(self, is_self):
+        """Sets the is_self of this InlineResponse20014Data.
+
+        Whether self  # noqa: E501
+
+        :param is_self: The is_self of this InlineResponse20014Data.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and is_self is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_self`, must not be `None`")  # noqa: E501
+
+        self._is_self = is_self
 
     @property
     def user_timest(self):
@@ -148,6 +221,31 @@ class InlineResponse20014Data(object):
             raise ValueError("Invalid value for `user_timest`, must not be `None`")  # noqa: E501
 
         self._user_timest = user_timest
+
+    @property
+    def counterparties_num(self):
+        """Gets the counterparties_num of this InlineResponse20014Data.  # noqa: E501
+
+        Number of counterparties  # noqa: E501
+
+        :return: The counterparties_num of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._counterparties_num
+
+    @counterparties_num.setter
+    def counterparties_num(self, counterparties_num):
+        """Sets the counterparties_num of this InlineResponse20014Data.
+
+        Number of counterparties  # noqa: E501
+
+        :param counterparties_num: The counterparties_num of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and counterparties_num is None:  # noqa: E501
+            raise ValueError("Invalid value for `counterparties_num`, must not be `None`")  # noqa: E501
+
+        self._counterparties_num = counterparties_num
 
     @property
     def email_verified(self):
@@ -450,6 +548,56 @@ class InlineResponse20014Data(object):
         self._complete_rate_month = complete_rate_month
 
     @property
+    def orders_buy_rate_month(self):
+        """Gets the orders_buy_rate_month of this InlineResponse20014Data.  # noqa: E501
+
+        Buy order ratio in last 30 days  # noqa: E501
+
+        :return: The orders_buy_rate_month of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._orders_buy_rate_month
+
+    @orders_buy_rate_month.setter
+    def orders_buy_rate_month(self, orders_buy_rate_month):
+        """Sets the orders_buy_rate_month of this InlineResponse20014Data.
+
+        Buy order ratio in last 30 days  # noqa: E501
+
+        :param orders_buy_rate_month: The orders_buy_rate_month of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and orders_buy_rate_month is None:  # noqa: E501
+            raise ValueError("Invalid value for `orders_buy_rate_month`, must not be `None`")  # noqa: E501
+
+        self._orders_buy_rate_month = orders_buy_rate_month
+
+    @property
+    def is_black(self):
+        """Gets the is_black of this InlineResponse20014Data.  # noqa: E501
+
+        Whether blocked  # noqa: E501
+
+        :return: The is_black of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._is_black
+
+    @is_black.setter
+    def is_black(self, is_black):
+        """Sets the is_black of this InlineResponse20014Data.
+
+        Whether blocked  # noqa: E501
+
+        :param is_black: The is_black of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and is_black is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_black`, must not be `None`")  # noqa: E501
+
+        self._is_black = is_black
+
+    @property
     def is_follow(self):
         """Gets the is_follow of this InlineResponse20014Data.  # noqa: E501
 
@@ -525,6 +673,56 @@ class InlineResponse20014Data(object):
         self._biz_uid = biz_uid
 
     @property
+    def blue_vip(self):
+        """Gets the blue_vip of this InlineResponse20014Data.  # noqa: E501
+
+        Blue V Crown Shield  # noqa: E501
+
+        :return: The blue_vip of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._blue_vip
+
+    @blue_vip.setter
+    def blue_vip(self, blue_vip):
+        """Sets the blue_vip of this InlineResponse20014Data.
+
+        Blue V Crown Shield  # noqa: E501
+
+        :param blue_vip: The blue_vip of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and blue_vip is None:  # noqa: E501
+            raise ValueError("Invalid value for `blue_vip`, must not be `None`")  # noqa: E501
+
+        self._blue_vip = blue_vip
+
+    @property
+    def work_status(self):
+        """Gets the work_status of this InlineResponse20014Data.  # noqa: E501
+
+        Merchant work status  # noqa: E501
+
+        :return: The work_status of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._work_status
+
+    @work_status.setter
+    def work_status(self, work_status):
+        """Sets the work_status of this InlineResponse20014Data.
+
+        Merchant work status  # noqa: E501
+
+        :param work_status: The work_status of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and work_status is None:  # noqa: E501
+            raise ValueError("Invalid value for `work_status`, must not be `None`")  # noqa: E501
+
+        self._work_status = work_status
+
+    @property
     def registration_days(self):
         """Gets the registration_days of this InlineResponse20014Data.  # noqa: E501
 
@@ -573,6 +771,152 @@ class InlineResponse20014Data(object):
             raise ValueError("Invalid value for `first_trade_days`, must not be `None`")  # noqa: E501
 
         self._first_trade_days = first_trade_days
+
+    @property
+    def need_replenish(self):
+        """Gets the need_replenish of this InlineResponse20014Data.  # noqa: E501
+
+        Whether margin replenishment is needed  # noqa: E501
+
+        :return: The need_replenish of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._need_replenish
+
+    @need_replenish.setter
+    def need_replenish(self, need_replenish):
+        """Sets the need_replenish of this InlineResponse20014Data.
+
+        Whether margin replenishment is needed  # noqa: E501
+
+        :param need_replenish: The need_replenish of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and need_replenish is None:  # noqa: E501
+            raise ValueError("Invalid value for `need_replenish`, must not be `None`")  # noqa: E501
+
+        self._need_replenish = need_replenish
+
+    @property
+    def merchant_info(self):
+        """Gets the merchant_info of this InlineResponse20014Data.  # noqa: E501
+
+
+        :return: The merchant_info of this InlineResponse20014Data.  # noqa: E501
+        :rtype: InlineResponse20014DataMerchantInfo
+        """
+        return self._merchant_info
+
+    @merchant_info.setter
+    def merchant_info(self, merchant_info):
+        """Sets the merchant_info of this InlineResponse20014Data.
+
+
+        :param merchant_info: The merchant_info of this InlineResponse20014Data.  # noqa: E501
+        :type: InlineResponse20014DataMerchantInfo
+        """
+        if self.local_vars_configuration.client_side_validation and merchant_info is None:  # noqa: E501
+            raise ValueError("Invalid value for `merchant_info`, must not be `None`")  # noqa: E501
+
+        self._merchant_info = merchant_info
+
+    @property
+    def online_status(self):
+        """Gets the online_status of this InlineResponse20014Data.  # noqa: E501
+
+        Merchant online status  # noqa: E501
+
+        :return: The online_status of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._online_status
+
+    @online_status.setter
+    def online_status(self, online_status):
+        """Sets the online_status of this InlineResponse20014Data.
+
+        Merchant online status  # noqa: E501
+
+        :param online_status: The online_status of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and online_status is None:  # noqa: E501
+            raise ValueError("Invalid value for `online_status`, must not be `None`")  # noqa: E501
+
+        self._online_status = online_status
+
+    @property
+    def work_hours(self):
+        """Gets the work_hours of this InlineResponse20014Data.  # noqa: E501
+
+        Merchant online status details  # noqa: E501
+
+        :return: The work_hours of this InlineResponse20014Data.  # noqa: E501
+        :rtype: object
+        """
+        return self._work_hours
+
+    @work_hours.setter
+    def work_hours(self, work_hours):
+        """Sets the work_hours of this InlineResponse20014Data.
+
+        Merchant online status details  # noqa: E501
+
+        :param work_hours: The work_hours of this InlineResponse20014Data.  # noqa: E501
+        :type: object
+        """
+
+        self._work_hours = work_hours
+
+    @property
+    def transactions_month(self):
+        """Gets the transactions_month of this InlineResponse20014Data.  # noqa: E501
+
+        30-day transaction volume  # noqa: E501
+
+        :return: The transactions_month of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._transactions_month
+
+    @transactions_month.setter
+    def transactions_month(self, transactions_month):
+        """Sets the transactions_month of this InlineResponse20014Data.
+
+        30-day transaction volume  # noqa: E501
+
+        :param transactions_month: The transactions_month of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and transactions_month is None:  # noqa: E501
+            raise ValueError("Invalid value for `transactions_month`, must not be `None`")  # noqa: E501
+
+        self._transactions_month = transactions_month
+
+    @property
+    def transactions_all(self):
+        """Gets the transactions_all of this InlineResponse20014Data.  # noqa: E501
+
+        Total transaction volume  # noqa: E501
+
+        :return: The transactions_all of this InlineResponse20014Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._transactions_all
+
+    @transactions_all.setter
+    def transactions_all(self, transactions_all):
+        """Sets the transactions_all of this InlineResponse20014Data.
+
+        Total transaction volume  # noqa: E501
+
+        :param transactions_all: The transactions_all of this InlineResponse20014Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and transactions_all is None:  # noqa: E501
+            raise ValueError("Invalid value for `transactions_all`, must not be `None`")  # noqa: E501
+
+        self._transactions_all = transactions_all
 
     @property
     def trade_versatile(self):

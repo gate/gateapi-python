@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**list** | [**list[InlineResponse20016DataList]**](InlineResponse20016DataList.md) |  | 
-**trans_time** | [**list[InlineResponse20016DataTransTime]**](InlineResponse20016DataTransTime.md) | Countdown time | 
-**count** | **int** | Number of orders | 
-**exported_num** | **int** | Export count | 
+**pay_type** | **str** | Payment method type | [optional] 
+**pay_name** | **str** | Payment method name | [optional] 
+**ids** | **list[int]** | User&#39;s currently bound payment method (primary key ID) | [optional] 
+**list** | [**list[InlineResponse20016List]**](InlineResponse20016List.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

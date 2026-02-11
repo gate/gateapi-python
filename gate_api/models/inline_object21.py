@@ -123,7 +123,7 @@ class InlineObject21(object):
     def symbol(self):
         """Gets the symbol of this InlineObject21.  # noqa: E501
 
-        唯一标识 Exchange_Business_Base_Counter  示例：  如果您想在币安交易所上为ADA/USDT交易对下现货订单，您可以使用这样的唯一标识符：`BINANCE_SPOT_ADA_USDT`;   如果您想在欧易交易所上为ADA/USDT交易对下U本位永续合约订单，您可以使用这样的唯一标识符：`OKX_FUTURE_ADA_USDT`;   如果您想在Gate交易所上为ADA/USDT交易对下现货杠杆订单，您可以使用这样的唯一标识符：`GATE_MARGIN_ADA_USDT`;   目前支持三种订单：现货订单、U本位永续合约订单和现货杠杆订单  # noqa: E501
+        Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier `BINANCE_SPOT_ADA_USDT`; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier `OKX_FUTURE_ADA_USDT`; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier `GATE_MARGIN_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders  # noqa: E501
 
         :return: The symbol of this InlineObject21.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class InlineObject21(object):
     def symbol(self, symbol):
         """Sets the symbol of this InlineObject21.
 
-        唯一标识 Exchange_Business_Base_Counter  示例：  如果您想在币安交易所上为ADA/USDT交易对下现货订单，您可以使用这样的唯一标识符：`BINANCE_SPOT_ADA_USDT`;   如果您想在欧易交易所上为ADA/USDT交易对下U本位永续合约订单，您可以使用这样的唯一标识符：`OKX_FUTURE_ADA_USDT`;   如果您想在Gate交易所上为ADA/USDT交易对下现货杠杆订单，您可以使用这样的唯一标识符：`GATE_MARGIN_ADA_USDT`;   目前支持三种订单：现货订单、U本位永续合约订单和现货杠杆订单  # noqa: E501
+        Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier `BINANCE_SPOT_ADA_USDT`; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier `OKX_FUTURE_ADA_USDT`; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier `GATE_MARGIN_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders  # noqa: E501
 
         :param symbol: The symbol of this InlineObject21.  # noqa: E501
         :type: str

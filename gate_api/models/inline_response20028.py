@@ -33,53 +33,53 @@ class InlineResponse20028(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'order_id': 'str',
+        'tx_id': 'str',
         'text': 'str'
     }
 
     attribute_map = {
-        'order_id': 'order_id',
+        'tx_id': 'tx_id',
         'text': 'text'
     }
 
-    def __init__(self, order_id=None, text=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, tx_id=None, text=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, Configuration) -> None
         """InlineResponse20028 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._order_id = None
+        self._tx_id = None
         self._text = None
         self.discriminator = None
 
-        self.order_id = order_id
+        self.tx_id = tx_id
         self.text = text
 
     @property
-    def order_id(self):
-        """Gets the order_id of this InlineResponse20028.  # noqa: E501
+    def tx_id(self):
+        """Gets the tx_id of this InlineResponse20028.  # noqa: E501
 
         Order ID  # noqa: E501
 
-        :return: The order_id of this InlineResponse20028.  # noqa: E501
+        :return: The tx_id of this InlineResponse20028.  # noqa: E501
         :rtype: str
         """
-        return self._order_id
+        return self._tx_id
 
-    @order_id.setter
-    def order_id(self, order_id):
-        """Sets the order_id of this InlineResponse20028.
+    @tx_id.setter
+    def tx_id(self, tx_id):
+        """Sets the tx_id of this InlineResponse20028.
 
         Order ID  # noqa: E501
 
-        :param order_id: The order_id of this InlineResponse20028.  # noqa: E501
+        :param tx_id: The tx_id of this InlineResponse20028.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and tx_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `tx_id`, must not be `None`")  # noqa: E501
 
-        self._order_id = order_id
+        self._tx_id = tx_id
 
     @property
     def text(self):

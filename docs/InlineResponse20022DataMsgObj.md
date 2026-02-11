@@ -1,4 +1,4 @@
-# InlineResponse20021DataMsgObj
+# InlineResponse20022DataMsgObj
 
 ## Properties
 Name | Type | Description | Notes

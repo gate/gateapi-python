@@ -190,7 +190,7 @@ currency = 'BTC' # str | Specify the currency. If not specified, returns all cur
 withdraw_id = 'withdraw_id_example' # str | Withdrawal record ID starts with 'w', such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled (optional)
 asset_class = 'asset_class_example' # str | Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone (optional)
 withdraw_order_id = 'withdraw_order_id_example' # str | User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
  **withdraw_id** | **str**| Withdrawal record ID starts with &#39;w&#39;, such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled | [optional] 
  **asset_class** | **str**| Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone | [optional] 
  **withdraw_order_id** | **str**| User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -270,7 +270,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.WalletApi(api_client)
 currency = 'BTC' # str | Specify the currency. If not specified, returns all currencies (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of entries returned in the list, limited to 500 transactions (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -290,7 +290,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **str**| Specify the currency. If not specified, returns all currencies | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of entries returned in the list, limited to 500 transactions | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -416,7 +416,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.WalletApi(api_client)
 sub_uid = '10003' # str | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts (optional)
-_from = 1602120000 # int | Start time for querying records, defaults to 7 days before current time if not specified (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
 to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -436,7 +436,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sub_uid** | **str**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional] 
- **_from** | **int**| Start time for querying records, defaults to 7 days before current time if not specified | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
  **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]

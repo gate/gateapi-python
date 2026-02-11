@@ -35,17 +35,19 @@ class InlineResponse20010(object):
     openapi_types = {
         'code': 'int',
         'message': 'str',
-        'data': 'InlineResponse20010Data'
+        'data': 'InlineResponse20010Data',
+        'timestamp': 'int'
     }
 
     attribute_map = {
         'code': 'code',
         'message': 'message',
-        'data': 'data'
+        'data': 'data',
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, code=None, message=None, data=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, InlineResponse20010Data, Configuration) -> None
+    def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, InlineResponse20010Data, int, Configuration) -> None
         """InlineResponse20010 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,11 +56,13 @@ class InlineResponse20010(object):
         self._code = None
         self._message = None
         self._data = None
+        self._timestamp = None
         self.discriminator = None
 
         self.code = code
         self.message = message
         self.data = data
+        self.timestamp = timestamp
 
     @property
     def code(self):
@@ -128,6 +132,29 @@ class InlineResponse20010(object):
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The timestamp of this InlineResponse20010.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20010.
+
+
+        :param timestamp: The timestamp of this InlineResponse20010.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

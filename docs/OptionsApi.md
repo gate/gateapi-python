@@ -492,7 +492,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.OptionsApi(api_client)
 contract = 'BTC_USDT-20210916-5000-C' # str | Options contract name
-interval = '0' # str | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional) (default to '0')
+interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
 limit = 10 # int | Number of depth levels (optional) (default to 10)
 with_id = False # bool | Whether to return depth update ID. This ID increments by 1 each time the depth changes (optional) (default to False)
 
@@ -511,7 +511,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **str**| Options contract name | 
- **interval** | **str**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
+ **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Number of depth levels | [optional] [default to 10]
  **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to False]
 

@@ -297,7 +297,7 @@ class FuturesApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str interval: Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
         :param bool with_id: Whether to return depth update ID. This ID increments by 1 each time the depth changes
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -326,7 +326,7 @@ class FuturesApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str interval: Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
         :param bool with_id: Whether to return depth update ID. This ID increments by 1 each time the depth changes
         :param _return_http_data_only: response data without head status code
@@ -594,7 +594,7 @@ class FuturesApi(object):
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
         :param int limit: Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        :param str interval: Interval time between data points. Note that `1w` means natural week(Mon-Sun), while `7d` means every 7d since unix 0. 30d represents a natural month, not 30 days
+        :param str interval: Time interval for data points. Note: 1w represents a natural week, 7d is aligned with Unix epoch time, 30d represents a natural month
         :param str timezone: Time zone: all/utc0/utc8, default utc0
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -625,7 +625,7 @@ class FuturesApi(object):
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
         :param int limit: Maximum number of recent data points to return. `limit` conflicts with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        :param str interval: Interval time between data points. Note that `1w` means natural week(Mon-Sun), while `7d` means every 7d since unix 0. 30d represents a natural month, not 30 days
+        :param str interval: Time interval for data points. Note: 1w represents a natural week, 7d is aligned with Unix epoch time, 30d represents a natural month
         :param str timezone: Time zone: all/utc0/utc8, default utc0
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -732,7 +732,7 @@ class FuturesApi(object):
     def list_futures_premium_index(self, settle, contract, **kwargs):  # noqa: E501
         """Premium Index K-line chart  # noqa: E501
 
-        Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval  # noqa: E501
+        K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_premium_index(settle, contract, async_req=True)
@@ -762,7 +762,7 @@ class FuturesApi(object):
     def list_futures_premium_index_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
         """Premium Index K-line chart  # noqa: E501
 
-        Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval  # noqa: E501
+        K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_premium_index_with_http_info(settle, contract, async_req=True)
@@ -5372,7 +5372,7 @@ class FuturesApi(object):
     def get_my_trades(self, settle, **kwargs):  # noqa: E501
         """Query personal trading records  # noqa: E501
 
-        By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/my_trades_timerange`.  # noqa: E501
+        By default, only supports querying data within 6 months. For older data, use `GET /futures/{settle}/my_trades_timerange`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_trades(settle, async_req=True)
@@ -5402,7 +5402,7 @@ class FuturesApi(object):
     def get_my_trades_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Query personal trading records  # noqa: E501
 
-        By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/my_trades_timerange`.  # noqa: E501
+        By default, only supports querying data within 6 months. For older data, use `GET /futures/{settle}/my_trades_timerange`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_my_trades_with_http_info(settle, async_req=True)

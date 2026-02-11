@@ -140,7 +140,7 @@ class InlineObject7(object):
     def order_tab(self):
         """Gets the order_tab of this InlineObject7.  # noqa: E501
 
-        Order tab, default is pending (pending: Processing (pending: AND status in ('OPEN',  'PAID', 'LOCKED', 'TEMP')); dispute: In dispute (status in ('ACCEPT',  'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
 
         :return: The order_tab of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -151,7 +151,7 @@ class InlineObject7(object):
     def order_tab(self, order_tab):
         """Sets the order_tab of this InlineObject7.
 
-        Order tab, default is pending (pending: Processing (pending: AND status in ('OPEN',  'PAID', 'LOCKED', 'TEMP')); dispute: In dispute (status in ('ACCEPT',  'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
 
         :param order_tab: The order_tab of this InlineObject7.  # noqa: E501
         :type: str
@@ -186,7 +186,7 @@ class InlineObject7(object):
     def status(self):
         """Gets the status of this InlineObject7.  # noqa: E501
 
-        订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED）  # noqa: E501
+        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
 
         :return: The status of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -197,7 +197,7 @@ class InlineObject7(object):
     def status(self, status):
         """Sets the status of this InlineObject7.
 
-        订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED）  # noqa: E501
+        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
 
         :param status: The status of this InlineObject7.  # noqa: E501
         :type: str

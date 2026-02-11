@@ -1,4 +1,4 @@
-# InlineResponse20021DataMessages
+# InlineResponse20022DataMessages
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **msg** | **str** | Message content | 
 **username** | **str** | Message sender username | 
 **timest** | **int** | Message timestamp | 
-**msg_obj** | [**InlineResponse20021DataMsgObj**](InlineResponse20021DataMsgObj.md) |  | 
+**msg_obj** | [**InlineResponse20022DataMsgObj**](InlineResponse20022DataMsgObj.md) |  | 
 **uid** | **str** | Message sender UID | 
 **type** | **int** | Message type | 
 **pic** | **str** | File link | 

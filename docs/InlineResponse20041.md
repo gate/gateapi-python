@@ -14,11 +14,13 @@ Name | Type | Description | Notes
 **max_position_qty** | **str** | Max Trade Size | [optional] 
 **closed_qty** | **str** | Close Position Quantity | [optional] 
 **closed_value** | **str** | Close Position Value | [optional] 
+**fee** | **str** | Position Accumulated Fees | [optional] 
 **liq_fee** | **str** | Liquidation Fee | [optional] 
+**funding_fee** | **str** | Funding Fee | [optional] 
 **position_side** | **str** | Position Direction Before Close | [optional] 
+**position_mode** | **str** | Position Mode at Close | [optional] 
 **leverage** | **str** | Leverage at Close | [optional] 
-**interest** | **str** | Total Deducted Interest | 
-**business_type** | **str** | Position Business Type | 
+**business_type** | **str** | Business Type | 
 **create_time** | **str** | Created time | [optional] 
 **update_time** | **str** | Update time | [optional] 
 

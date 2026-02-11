@@ -301,7 +301,7 @@ class DualGetPlans(object):
     def per_value(self):
         """Gets the per_value of this DualGetPlans.  # noqa: E501
 
-        Value Per Unit  # noqa: E501
+        Value Per Unit (deprecated)  # noqa: E501
 
         :return: The per_value of this DualGetPlans.  # noqa: E501
         :rtype: str
@@ -312,7 +312,7 @@ class DualGetPlans(object):
     def per_value(self, per_value):
         """Sets the per_value of this DualGetPlans.
 
-        Value Per Unit  # noqa: E501
+        Value Per Unit (deprecated)  # noqa: E501
 
         :param per_value: The per_value of this DualGetPlans.  # noqa: E501
         :type: str
@@ -393,7 +393,7 @@ class DualGetPlans(object):
     def status(self):
         """Gets the status of this DualGetPlans.  # noqa: E501
 
-        Status:   `NOTSTARTED`-Not Started  `ONGOING`-In Progress  `ENDED`-Ended  # noqa: E501
+        状态:  `NOTSTARTED`-未开始 `ONGOING`-进行中 `ENDED`-已结束  # noqa: E501
 
         :return: The status of this DualGetPlans.  # noqa: E501
         :rtype: str
@@ -404,7 +404,7 @@ class DualGetPlans(object):
     def status(self, status):
         """Sets the status of this DualGetPlans.
 
-        Status:   `NOTSTARTED`-Not Started  `ONGOING`-In Progress  `ENDED`-Ended  # noqa: E501
+        状态:  `NOTSTARTED`-未开始 `ONGOING`-进行中 `ENDED`-已结束  # noqa: E501
 
         :param status: The status of this DualGetPlans.  # noqa: E501
         :type: str

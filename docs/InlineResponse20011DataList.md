@@ -3,17 +3,23 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Order ID | [optional] 
-**trade_no** | **str** | Transaction reference number | [optional] 
-**pay_coin** | **str** | Payment currency | [optional] 
-**pay_amount** | **str** | Payment amount | [optional] 
-**get_coin** | **str** | Received currency | [optional] 
-**get_amount** | **str** | Received amount | [optional] 
+**time** | **str** | Current time | [optional] 
+**timestamp** | **int** | Current timestamp | [optional] 
+**order_id** | **str** | orderId | [optional] 
+**trade_no** | **str** | Trade number | [optional] 
+**type** | **str** | Quote direction buy/sell/all | [optional] 
+**status** | **str** | Order Status | [optional] 
+**db_status** | **str** |  | [optional] 
+**fiat_currency** | **str** | Fiat type | [optional] 
+**fiat_currency_info** | [**InlineResponse20011DataFiatCurrencyInfo**](InlineResponse20011DataFiatCurrencyInfo.md) |  | [optional] 
+**fiat_amount** | **str** | Fiat amount | [optional] 
+**crypto_currency** | **str** | Stablecoin | [optional] 
+**crypto_currency_info** | [**InlineResponse20011DataCryptoCurrencyInfo**](InlineResponse20011DataCryptoCurrencyInfo.md) |  | [optional] 
+**crypto_amount** | **str** | Stablecoin amount | [optional] 
 **rate** | **str** | Exchange rate | [optional] 
-**rate_reci** | **str** | Reciprocal of the exchange rate | [optional] 
-**status** | **str** | PROCESSING: in progress / DONE: completed / FAILED: failed | [optional] 
-**create_timest** | **int** | timetimestamp | [optional] 
-**create_time** | **str** | Created time | [optional] 
+**transfer_remark** | **str** | Remark | [optional] 
+**gate_bank_account_iban** | **str** | Bank account | [optional] 
+**promotion_code** | **str** | Promotion code | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

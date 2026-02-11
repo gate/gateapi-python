@@ -33,49 +33,49 @@ class InlineResponse20023Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'file_key': 'str'
+        'srvtm': 'int'
     }
 
     attribute_map = {
-        'file_key': 'file_key'
+        'srvtm': 'SRVTM'
     }
 
-    def __init__(self, file_key=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, srvtm=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, Configuration) -> None
         """InlineResponse20023Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._file_key = None
+        self._srvtm = None
         self.discriminator = None
 
-        self.file_key = file_key
+        self.srvtm = srvtm
 
     @property
-    def file_key(self):
-        """Gets the file_key of this InlineResponse20023Data.  # noqa: E501
+    def srvtm(self):
+        """Gets the srvtm of this InlineResponse20023Data.  # noqa: E501
 
-        File key  # noqa: E501
+        Timestamp when message was successfully sent (current timestamp)  # noqa: E501
 
-        :return: The file_key of this InlineResponse20023Data.  # noqa: E501
-        :rtype: str
+        :return: The srvtm of this InlineResponse20023Data.  # noqa: E501
+        :rtype: int
         """
-        return self._file_key
+        return self._srvtm
 
-    @file_key.setter
-    def file_key(self, file_key):
-        """Sets the file_key of this InlineResponse20023Data.
+    @srvtm.setter
+    def srvtm(self, srvtm):
+        """Sets the srvtm of this InlineResponse20023Data.
 
-        File key  # noqa: E501
+        Timestamp when message was successfully sent (current timestamp)  # noqa: E501
 
-        :param file_key: The file_key of this InlineResponse20023Data.  # noqa: E501
-        :type: str
+        :param srvtm: The srvtm of this InlineResponse20023Data.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and file_key is None:  # noqa: E501
-            raise ValueError("Invalid value for `file_key`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and srvtm is None:  # noqa: E501
+            raise ValueError("Invalid value for `srvtm`, must not be `None`")  # noqa: E501
 
-        self._file_key = file_key
+        self._srvtm = srvtm
 
     def to_dict(self):
         """Returns the model properties as a dict"""

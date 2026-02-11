@@ -281,7 +281,7 @@ class DeliveryApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str interval: Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
         :param bool with_id: Whether to return depth update ID. This ID increments by 1 each time the depth changes
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -310,7 +310,7 @@ class DeliveryApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str interval: Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
         :param bool with_id: Whether to return depth update ID. This ID increments by 1 each time the depth changes
         :param _return_http_data_only: response data without head status code

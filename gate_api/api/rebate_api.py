@@ -48,7 +48,7 @@ class RebateApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Specify the trading pair. If not specified, returns all trading pairs
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -78,7 +78,7 @@ class RebateApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Specify the trading pair. If not specified, returns all trading pairs
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -190,7 +190,7 @@ class RebateApi(object):
         :param str currency: Specify the currency. If not specified, returns all currencies
         :param int commission_type: Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -221,7 +221,7 @@ class RebateApi(object):
         :param str currency: Specify the currency. If not specified, returns all currencies
         :param int commission_type: Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -335,7 +335,7 @@ class RebateApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Specify the trading pair. If not specified, returns all trading pairs
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -365,7 +365,7 @@ class RebateApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency_pair: Specify the trading pair. If not specified, returns all trading pairs
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -476,7 +476,7 @@ class RebateApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency: Specify the currency. If not specified, returns all currencies
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -506,7 +506,7 @@ class RebateApi(object):
         :param bool async_req: execute request asynchronously
         :param str currency: Specify the currency. If not specified, returns all currencies
         :param int user_id: User ID. If not specified, all user records will be returned
-        :param int _from: Start time for querying records, defaults to 7 days before current time if not specified
+        :param int _from: Start time for querying records. If not specified, defaults to 7 days before current time
         :param int to: End timestamp for the query, defaults to current time if not specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0

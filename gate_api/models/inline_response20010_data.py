@@ -33,155 +33,49 @@ class InlineResponse20010Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'pn': 'int',
-        'ps': 'int',
-        'total_pn': 'int',
-        'count': 'int',
-        'list': 'list[InlineResponse20010DataList]'
+        'lists': 'list[InlineResponse20010DataLists]'
     }
 
     attribute_map = {
-        'pn': 'pn',
-        'ps': 'ps',
-        'total_pn': 'total_pn',
-        'count': 'count',
-        'list': 'list'
+        'lists': 'lists'
     }
 
-    def __init__(self, pn=None, ps=None, total_pn=None, count=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, int, list[InlineResponse20010DataList], Configuration) -> None
+    def __init__(self, lists=None, local_vars_configuration=None):  # noqa: E501
+        # type: (list[InlineResponse20010DataLists], Configuration) -> None
         """InlineResponse20010Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._pn = None
-        self._ps = None
-        self._total_pn = None
-        self._count = None
-        self._list = None
+        self._lists = None
         self.discriminator = None
 
-        self.pn = pn
-        self.ps = ps
-        self.total_pn = total_pn
-        self.count = count
-        self.list = list
+        self.lists = lists
 
     @property
-    def pn(self):
-        """Gets the pn of this InlineResponse20010Data.  # noqa: E501
+    def lists(self):
+        """Gets the lists of this InlineResponse20010Data.  # noqa: E501
 
+        Bank card list  # noqa: E501
 
-        :return: The pn of this InlineResponse20010Data.  # noqa: E501
-        :rtype: int
+        :return: The lists of this InlineResponse20010Data.  # noqa: E501
+        :rtype: list[InlineResponse20010DataLists]
         """
-        return self._pn
+        return self._lists
 
-    @pn.setter
-    def pn(self, pn):
-        """Sets the pn of this InlineResponse20010Data.
+    @lists.setter
+    def lists(self, lists):
+        """Sets the lists of this InlineResponse20010Data.
 
+        Bank card list  # noqa: E501
 
-        :param pn: The pn of this InlineResponse20010Data.  # noqa: E501
-        :type: int
+        :param lists: The lists of this InlineResponse20010Data.  # noqa: E501
+        :type: list[InlineResponse20010DataLists]
         """
-        if self.local_vars_configuration.client_side_validation and pn is None:  # noqa: E501
-            raise ValueError("Invalid value for `pn`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and lists is None:  # noqa: E501
+            raise ValueError("Invalid value for `lists`, must not be `None`")  # noqa: E501
 
-        self._pn = pn
-
-    @property
-    def ps(self):
-        """Gets the ps of this InlineResponse20010Data.  # noqa: E501
-
-
-        :return: The ps of this InlineResponse20010Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._ps
-
-    @ps.setter
-    def ps(self, ps):
-        """Sets the ps of this InlineResponse20010Data.
-
-
-        :param ps: The ps of this InlineResponse20010Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and ps is None:  # noqa: E501
-            raise ValueError("Invalid value for `ps`, must not be `None`")  # noqa: E501
-
-        self._ps = ps
-
-    @property
-    def total_pn(self):
-        """Gets the total_pn of this InlineResponse20010Data.  # noqa: E501
-
-
-        :return: The total_pn of this InlineResponse20010Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._total_pn
-
-    @total_pn.setter
-    def total_pn(self, total_pn):
-        """Sets the total_pn of this InlineResponse20010Data.
-
-
-        :param total_pn: The total_pn of this InlineResponse20010Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and total_pn is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_pn`, must not be `None`")  # noqa: E501
-
-        self._total_pn = total_pn
-
-    @property
-    def count(self):
-        """Gets the count of this InlineResponse20010Data.  # noqa: E501
-
-
-        :return: The count of this InlineResponse20010Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._count
-
-    @count.setter
-    def count(self, count):
-        """Sets the count of this InlineResponse20010Data.
-
-
-        :param count: The count of this InlineResponse20010Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
-
-        self._count = count
-
-    @property
-    def list(self):
-        """Gets the list of this InlineResponse20010Data.  # noqa: E501
-
-
-        :return: The list of this InlineResponse20010Data.  # noqa: E501
-        :rtype: list[InlineResponse20010DataList]
-        """
-        return self._list
-
-    @list.setter
-    def list(self, list):
-        """Sets the list of this InlineResponse20010Data.
-
-
-        :param list: The list of this InlineResponse20010Data.  # noqa: E501
-        :type: list[InlineResponse20010DataList]
-        """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
-
-        self._list = list
+        self._lists = lists
 
     def to_dict(self):
         """Returns the model properties as a dict"""

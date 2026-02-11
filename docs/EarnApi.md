@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **place_dual_order**
-> place_dual_order(place_dual_investment_order)
+> PlaceDualInvestmentOrder place_dual_order(place_dual_investment_order_params)
 
 Place Dual Investment order
 
@@ -311,11 +311,12 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.EarnApi(api_client)
-place_dual_investment_order = gate_api.PlaceDualInvestmentOrder() # PlaceDualInvestmentOrder | 
+place_dual_investment_order_params = gate_api.PlaceDualInvestmentOrderParams() # PlaceDualInvestmentOrderParams | 
 
 try:
     # Place Dual Investment order
-    api_instance.place_dual_order(place_dual_investment_order)
+    api_response = api_instance.place_dual_order(place_dual_investment_order_params)
+    print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
 except ApiException as e:
@@ -326,11 +327,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **place_dual_investment_order** | [**PlaceDualInvestmentOrder**](PlaceDualInvestmentOrder.md)|  | 
+ **place_dual_investment_order_params** | [**PlaceDualInvestmentOrderParams**](PlaceDualInvestmentOrderParams.md)|  | 
 
 ### Return type
 
-void (empty response body)
+[**PlaceDualInvestmentOrder**](PlaceDualInvestmentOrder.md)
 
 ### Authorization
 
@@ -339,7 +340,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -173,7 +173,7 @@ class InlineObject8(object):
     def status(self):
         """Gets the status of this InlineObject8.  # noqa: E501
 
-        订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED）  # noqa: E501
+        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
 
         :return: The status of this InlineObject8.  # noqa: E501
         :rtype: str
@@ -184,7 +184,7 @@ class InlineObject8(object):
     def status(self, status):
         """Sets the status of this InlineObject8.
 
-        订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED）  # noqa: E501
+        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
 
         :param status: The status of this InlineObject8.  # noqa: E501
         :type: str

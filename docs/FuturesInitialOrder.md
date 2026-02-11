@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **contract** | **str** | Futures contract | 
 **size** | **int** | Represents the number of contracts that need to be closed, full closing: size&#x3D;0 Partial closing: plan-close-short-position size&gt;0  Partial closing: plan-close-long-position size&lt;0 | [optional] 
 **price** | **str** | Order price. Set to 0 to use market price | 
-**close** | **bool** | In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close&#x3D;false | [optional] [default to False]
+**close** | **bool** | When fully closing a position in single-position mode, close must be set to true to execute the close operation. When partially closing a position in single-position mode or in dual-position mode, close can be left unset or set to false. | [optional] [default to False]
 **tif** | **str** | Time in force strategy, default is gtc, market orders currently only support ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled | [optional] [default to 'gtc']
 **text** | **str** | The source of the order, including: - web: Web - api: API call - app: Mobile app | [optional] 
 **reduce_only** | **bool** | When set to true, perform automatic position reduction operation. Set to true to ensure that the order will not open a new position, and is only used to close or reduce positions | [optional] [default to False]

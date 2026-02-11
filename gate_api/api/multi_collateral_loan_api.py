@@ -1024,7 +1024,7 @@ class MultiCollateralLoanApi(object):
             collection_formats=collection_formats)
 
     def list_multi_collateral_currencies(self, **kwargs):  # noqa: E501
-        """Query supported borrowing and collateral currencies for multi-currency collateral  # noqa: E501
+        """Query borrow currencies and collateral currencies supported by multi-currency collateral  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1047,7 +1047,7 @@ class MultiCollateralLoanApi(object):
         return self.list_multi_collateral_currencies_with_http_info(**kwargs)  # noqa: E501
 
     def list_multi_collateral_currencies_with_http_info(self, **kwargs):  # noqa: E501
-        """Query supported borrowing and collateral currencies for multi-currency collateral  # noqa: E501
+        """Query borrow currencies and collateral currencies supported by multi-currency collateral  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
