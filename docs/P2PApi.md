@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**p2p_merchant_books_ads_update_status**](P2PApi.md#p2p_merchant_books_ads_update_status) | **POST** /p2p/merchant/books/ads_update_status | Update ad status
 [**p2p_merchant_books_ads_detail**](P2PApi.md#p2p_merchant_books_ads_detail) | **POST** /p2p/merchant/books/ads_detail | Query ad details
 [**p2p_merchant_books_my_ads_list**](P2PApi.md#p2p_merchant_books_my_ads_list) | **POST** /p2p/merchant/books/my_ads_list | Get my ad list
+[**p2p_merchant_books_ads_list**](P2PApi.md#p2p_merchant_books_ads_list) | **POST** /p2p/merchant/books/ads_list | Get Advertisement List
 [**p2p_merchant_chat_get_chats_list**](P2PApi.md#p2p_merchant_chat_get_chats_list) | **POST** /p2p/merchant/chat/get_chats_list | Get chat history
 [**p2p_merchant_chat_send_chat_message**](P2PApi.md#p2p_merchant_chat_send_chat_message) | **POST** /p2p/merchant/chat/send_chat_message | Send text message
 [**p2p_merchant_chat_upload_chat_file**](P2PApi.md#p2p_merchant_chat_upload_chat_file) | **POST** /p2p/merchant/chat/upload_chat_file | Upload chat file
@@ -214,7 +215,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.P2PApi(api_client)
 crypto_currency = 'crypto_currency_example' # str | Cryptocurrency
 fiat_currency = 'fiat_currency_example' # str | Fiat currency
-order_tab = 'order_tab_example' # str | 订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL'))) (optional)
+order_tab = 'order_tab_example' # str | Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL'))) (optional)
 select_type = 'select_type_example' # str | Buy/Sell (sell=Sell, buy=Buy, others=All) (optional)
 status = 'status_example' # str | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
 txid = 56 # int | Order ID (optional)
@@ -237,7 +238,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **crypto_currency** | **str**| Cryptocurrency | 
  **fiat_currency** | **str**| Fiat currency | 
- **order_tab** | **str**| 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional] 
+ **order_tab** | **str**| Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional] 
  **select_type** | **str**| Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) | [optional] 
  **status** | **str**| Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) | [optional] 
  **txid** | **int**| Order ID | [optional] 
@@ -866,8 +867,72 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **p2p_merchant_books_ads_list**
+> InlineResponse20022 p2p_merchant_books_ads_list(asset, fiat_unit, trade_type)
+
+Get Advertisement List
+
+Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.P2PApi(api_client)
+asset = 'asset_example' # str | Cryptocurrency
+fiat_unit = 'fiat_unit_example' # str | Fiat currency
+trade_type = 'trade_type_example' # str | Buy/Sell, sell/buy
+
+try:
+    # Get Advertisement List
+    api_response = api_instance.p2p_merchant_books_ads_list(asset, fiat_unit, trade_type)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling P2PApi->p2p_merchant_books_ads_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset** | **str**| Cryptocurrency | 
+ **fiat_unit** | **str**| Fiat currency | 
+ **trade_type** | **str**| Buy/Sell, sell/buy | 
+
+### Return type
+
+[**InlineResponse20022**](InlineResponse20022.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **p2p_merchant_chat_get_chats_list**
-> InlineResponse20022 p2p_merchant_chat_get_chats_list(txid, lastreceived=lastreceived, firstreceived=firstreceived)
+> InlineResponse20023 p2p_merchant_chat_get_chats_list(txid, lastreceived=lastreceived, firstreceived=firstreceived)
 
 Get chat history
 
@@ -910,7 +975,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -929,7 +994,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_send_chat_message**
-> InlineResponse20023 p2p_merchant_chat_send_chat_message(txid, message, type=type)
+> InlineResponse20024 p2p_merchant_chat_send_chat_message(txid, message, type=type)
 
 Send text message
 
@@ -972,7 +1037,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -991,7 +1056,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_upload_chat_file**
-> InlineResponse20024 p2p_merchant_chat_upload_chat_file(image_content_type, base64_img)
+> InlineResponse20025 p2p_merchant_chat_upload_chat_file(image_content_type, base64_img)
 
 Upload chat file
 
@@ -1032,7 +1097,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 

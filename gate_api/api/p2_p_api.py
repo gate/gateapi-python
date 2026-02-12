@@ -378,7 +378,7 @@ class P2PApi(object):
         :param bool async_req: execute request asynchronously
         :param str crypto_currency: Cryptocurrency (required)
         :param str fiat_currency: Fiat currency (required)
-        :param str order_tab: 订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
+        :param str order_tab: Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
         :param str select_type: Buy/Sell (sell=Sell, buy=Buy, others=All)
         :param str status: Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
         :param int txid: Order ID
@@ -409,7 +409,7 @@ class P2PApi(object):
         :param bool async_req: execute request asynchronously
         :param str crypto_currency: Cryptocurrency (required)
         :param str fiat_currency: Fiat currency (required)
-        :param str order_tab: 订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
+        :param str order_tab: Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
         :param str select_type: Buy/Sell (sell=Sell, buy=Buy, others=All)
         :param str status: Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
         :param int txid: Order ID
@@ -1782,6 +1782,142 @@ class P2PApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def p2p_merchant_books_ads_list(self, asset, fiat_unit, trade_type, **kwargs):  # noqa: E501
+        """Get Advertisement List  # noqa: E501
+
+        Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.p2p_merchant_books_ads_list(asset, fiat_unit, trade_type, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str asset: Cryptocurrency (required)
+        :param str fiat_unit: Fiat currency (required)
+        :param str trade_type: Buy/Sell, sell/buy (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse20022
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.p2p_merchant_books_ads_list_with_http_info(asset, fiat_unit, trade_type, **kwargs)  # noqa: E501
+
+    def p2p_merchant_books_ads_list_with_http_info(self, asset, fiat_unit, trade_type, **kwargs):  # noqa: E501
+        """Get Advertisement List  # noqa: E501
+
+        Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.p2p_merchant_books_ads_list_with_http_info(asset, fiat_unit, trade_type, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str asset: Cryptocurrency (required)
+        :param str fiat_unit: Fiat currency (required)
+        :param str trade_type: Buy/Sell, sell/buy (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'asset',
+            'fiat_unit',
+            'trade_type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method p2p_merchant_books_ads_list" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'asset' is set
+        if self.api_client.client_side_validation and ('asset' not in local_var_params or  # noqa: E501
+                                                        local_var_params['asset'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `asset` when calling `p2p_merchant_books_ads_list`")  # noqa: E501
+        # verify the required parameter 'fiat_unit' is set
+        if self.api_client.client_side_validation and ('fiat_unit' not in local_var_params or  # noqa: E501
+                                                        local_var_params['fiat_unit'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `fiat_unit` when calling `p2p_merchant_books_ads_list`")  # noqa: E501
+        # verify the required parameter 'trade_type' is set
+        if self.api_client.client_side_validation and ('trade_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trade_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trade_type` when calling `p2p_merchant_books_ads_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'asset' in local_var_params:
+            form_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'fiat_unit' in local_var_params:
+            form_params.append(('fiat_unit', local_var_params['fiat_unit']))  # noqa: E501
+        if 'trade_type' in local_var_params:
+            form_params.append(('trade_type', local_var_params['trade_type']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/p2p/merchant/books/ads_list', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20022',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def p2p_merchant_chat_get_chats_list(self, txid, **kwargs):  # noqa: E501
         """Get chat history  # noqa: E501
 
@@ -1801,7 +1937,7 @@ class P2PApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20022
+        :rtype: gate_api.InlineResponse20023
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1829,7 +1965,7 @@ class P2PApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1900,7 +2036,7 @@ class P2PApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1927,7 +2063,7 @@ class P2PApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20023
+        :rtype: gate_api.InlineResponse20024
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1955,7 +2091,7 @@ class P2PApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2030,7 +2166,7 @@ class P2PApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2056,7 +2192,7 @@ class P2PApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20024
+        :rtype: gate_api.InlineResponse20025
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2083,7 +2219,7 @@ class P2PApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2155,7 +2291,7 @@ class P2PApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

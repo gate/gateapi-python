@@ -34,15 +34,15 @@ class InlineObject28(object):
     """
     openapi_types = {
         'symbol': 'str',
-        'position_side': 'str'
+        'leverage': 'str'
     }
 
     attribute_map = {
         'symbol': 'symbol',
-        'position_side': 'position_side'
+        'leverage': 'leverage'
     }
 
-    def __init__(self, symbol=None, position_side=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, symbol=None, leverage=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, Configuration) -> None
         """InlineObject28 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
@@ -50,18 +50,17 @@ class InlineObject28(object):
         self.local_vars_configuration = local_vars_configuration
 
         self._symbol = None
-        self._position_side = None
+        self._leverage = None
         self.discriminator = None
 
         self.symbol = symbol
-        if position_side is not None:
-            self.position_side = position_side
+        self.leverage = leverage
 
     @property
     def symbol(self):
         """Gets the symbol of this InlineObject28.  # noqa: E501
 
-        Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT  # noqa: E501
+        Currency pair  # noqa: E501
 
         :return: The symbol of this InlineObject28.  # noqa: E501
         :rtype: str
@@ -72,7 +71,7 @@ class InlineObject28(object):
     def symbol(self, symbol):
         """Sets the symbol of this InlineObject28.
 
-        Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT  # noqa: E501
+        Currency pair  # noqa: E501
 
         :param symbol: The symbol of this InlineObject28.  # noqa: E501
         :type: str
@@ -83,27 +82,29 @@ class InlineObject28(object):
         self._symbol = symbol
 
     @property
-    def position_side(self):
-        """Gets the position_side of this InlineObject28.  # noqa: E501
+    def leverage(self):
+        """Gets the leverage of this InlineObject28.  # noqa: E501
 
-        Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method  # noqa: E501
+        leverage  # noqa: E501
 
-        :return: The position_side of this InlineObject28.  # noqa: E501
+        :return: The leverage of this InlineObject28.  # noqa: E501
         :rtype: str
         """
-        return self._position_side
+        return self._leverage
 
-    @position_side.setter
-    def position_side(self, position_side):
-        """Sets the position_side of this InlineObject28.
+    @leverage.setter
+    def leverage(self, leverage):
+        """Sets the leverage of this InlineObject28.
 
-        Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method  # noqa: E501
+        leverage  # noqa: E501
 
-        :param position_side: The position_side of this InlineObject28.  # noqa: E501
+        :param leverage: The leverage of this InlineObject28.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and leverage is None:  # noqa: E501
+            raise ValueError("Invalid value for `leverage`, must not be `None`")  # noqa: E501
 
-        self._position_side = position_side
+        self._leverage = leverage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

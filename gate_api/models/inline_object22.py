@@ -33,36 +33,211 @@ class InlineObject22(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'text': 'str',
+        'symbol': 'str',
+        'side': 'str',
+        'type': 'str',
+        'time_in_force': 'str',
         'qty': 'str',
-        'price': 'str'
+        'price': 'str',
+        'quote_qty': 'str',
+        'reduce_only': 'str',
+        'position_side': 'str'
     }
 
     attribute_map = {
+        'text': 'text',
+        'symbol': 'symbol',
+        'side': 'side',
+        'type': 'type',
+        'time_in_force': 'time_in_force',
         'qty': 'qty',
-        'price': 'price'
+        'price': 'price',
+        'quote_qty': 'quote_qty',
+        'reduce_only': 'reduce_only',
+        'position_side': 'position_side'
     }
 
-    def __init__(self, qty=None, price=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, text=None, symbol=None, side=None, type='LIMIT', time_in_force='GTC', qty=None, price=None, quote_qty=None, reduce_only=None, position_side=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineObject22 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._text = None
+        self._symbol = None
+        self._side = None
+        self._type = None
+        self._time_in_force = None
         self._qty = None
         self._price = None
+        self._quote_qty = None
+        self._reduce_only = None
+        self._position_side = None
         self.discriminator = None
 
+        if text is not None:
+            self.text = text
+        self.symbol = symbol
+        self.side = side
+        if type is not None:
+            self.type = type
+        if time_in_force is not None:
+            self.time_in_force = time_in_force
         if qty is not None:
             self.qty = qty
         if price is not None:
             self.price = price
+        if quote_qty is not None:
+            self.quote_qty = quote_qty
+        if reduce_only is not None:
+            self.reduce_only = reduce_only
+        if position_side is not None:
+            self.position_side = position_side
+
+    @property
+    def text(self):
+        """Gets the text of this InlineObject22.  # noqa: E501
+
+        Client-defined Order ID, supports letters (a-z), numbers (0-9), symbols (-, _) only  # noqa: E501
+
+        :return: The text of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._text
+
+    @text.setter
+    def text(self, text):
+        """Sets the text of this InlineObject22.
+
+        Client-defined Order ID, supports letters (a-z), numbers (0-9), symbols (-, _) only  # noqa: E501
+
+        :param text: The text of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+
+        self._text = text
+
+    @property
+    def symbol(self):
+        """Gets the symbol of this InlineObject22.  # noqa: E501
+
+        Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier `BINANCE_SPOT_ADA_USDT`; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier `OKX_FUTURE_ADA_USDT`; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier `GATE_MARGIN_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders  # noqa: E501
+
+        :return: The symbol of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._symbol
+
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineObject22.
+
+        Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier `BINANCE_SPOT_ADA_USDT`; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier `OKX_FUTURE_ADA_USDT`; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier `GATE_MARGIN_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders  # noqa: E501
+
+        :param symbol: The symbol of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
+
+        self._symbol = symbol
+
+    @property
+    def side(self):
+        """Gets the side of this InlineObject22.  # noqa: E501
+
+        BUY, SELL  # noqa: E501
+
+        :return: The side of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._side
+
+    @side.setter
+    def side(self, side):
+        """Sets the side of this InlineObject22.
+
+        BUY, SELL  # noqa: E501
+
+        :param side: The side of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
+        allowed_values = ["BUY", "SELL"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and side not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `side` ({0}), must be one of {1}"  # noqa: E501
+                .format(side, allowed_values)
+            )
+
+        self._side = side
+
+    @property
+    def type(self):
+        """Gets the type of this InlineObject22.  # noqa: E501
+
+        Order type (default: `LIMIT`; supported types: `LIMIT`, `MARKET`)  # noqa: E501
+
+        :return: The type of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineObject22.
+
+        Order type (default: `LIMIT`; supported types: `LIMIT`, `MARKET`)  # noqa: E501
+
+        :param type: The type of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["LIMIT", "MARKET"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
+
+    @property
+    def time_in_force(self):
+        """Gets the time_in_force of this InlineObject22.  # noqa: E501
+
+        Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly  # noqa: E501
+
+        :return: The time_in_force of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._time_in_force
+
+    @time_in_force.setter
+    def time_in_force(self, time_in_force):
+        """Sets the time_in_force of this InlineObject22.
+
+        Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly  # noqa: E501
+
+        :param time_in_force: The time_in_force of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["GTC", "IOC", "FOK", "POC"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and time_in_force not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `time_in_force` ({0}), must be one of {1}"  # noqa: E501
+                .format(time_in_force, allowed_values)
+            )
+
+        self._time_in_force = time_in_force
 
     @property
     def qty(self):
         """Gets the qty of this InlineObject22.  # noqa: E501
 
-        modify amount  # noqa: E501
+        Order quantity (required unless spot market buy)  # noqa: E501
 
         :return: The qty of this InlineObject22.  # noqa: E501
         :rtype: str
@@ -73,7 +248,7 @@ class InlineObject22(object):
     def qty(self, qty):
         """Sets the qty of this InlineObject22.
 
-        modify amount  # noqa: E501
+        Order quantity (required unless spot market buy)  # noqa: E501
 
         :param qty: The qty of this InlineObject22.  # noqa: E501
         :type: str
@@ -85,7 +260,7 @@ class InlineObject22(object):
     def price(self):
         """Gets the price of this InlineObject22.  # noqa: E501
 
-        modify price  # noqa: E501
+        Limit Order Price (Required for Limit Orders)  # noqa: E501
 
         :return: The price of this InlineObject22.  # noqa: E501
         :rtype: str
@@ -96,13 +271,94 @@ class InlineObject22(object):
     def price(self, price):
         """Sets the price of this InlineObject22.
 
-        modify price  # noqa: E501
+        Limit Order Price (Required for Limit Orders)  # noqa: E501
 
         :param price: The price of this InlineObject22.  # noqa: E501
         :type: str
         """
 
         self._price = price
+
+    @property
+    def quote_qty(self):
+        """Gets the quote_qty of this InlineObject22.  # noqa: E501
+
+        Order quote quantity; required for spot and margin market buy orders  # noqa: E501
+
+        :return: The quote_qty of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._quote_qty
+
+    @quote_qty.setter
+    def quote_qty(self, quote_qty):
+        """Sets the quote_qty of this InlineObject22.
+
+        Order quote quantity; required for spot and margin market buy orders  # noqa: E501
+
+        :param quote_qty: The quote_qty of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+
+        self._quote_qty = quote_qty
+
+    @property
+    def reduce_only(self):
+        """Gets the reduce_only of this InlineObject22.  # noqa: E501
+
+        Reduce-only: `true` or `false`  # noqa: E501
+
+        :return: The reduce_only of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._reduce_only
+
+    @reduce_only.setter
+    def reduce_only(self, reduce_only):
+        """Sets the reduce_only of this InlineObject22.
+
+        Reduce-only: `true` or `false`  # noqa: E501
+
+        :param reduce_only: The reduce_only of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["true", "false"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and reduce_only not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `reduce_only` ({0}), must be one of {1}"  # noqa: E501
+                .format(reduce_only, allowed_values)
+            )
+
+        self._reduce_only = reduce_only
+
+    @property
+    def position_side(self):
+        """Gets the position_side of this InlineObject22.  # noqa: E501
+
+        Position side: `NONE`, `LONG`, `SHORT` Defaults to `NONE` (single position mode) if not specified  # noqa: E501
+
+        :return: The position_side of this InlineObject22.  # noqa: E501
+        :rtype: str
+        """
+        return self._position_side
+
+    @position_side.setter
+    def position_side(self, position_side):
+        """Sets the position_side of this InlineObject22.
+
+        Position side: `NONE`, `LONG`, `SHORT` Defaults to `NONE` (single position mode) if not specified  # noqa: E501
+
+        :param position_side: The position_side of this InlineObject22.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["LONG", "SHORT", "NONE"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and position_side not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `position_side` ({0}), must be one of {1}"  # noqa: E501
+                .format(position_side, allowed_values)
+            )
+
+        self._position_side = position_side
 
     def to_dict(self):
         """Returns the model properties as a dict"""

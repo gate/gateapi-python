@@ -98,7 +98,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_rule_risk_limits**
-> list[InlineResponse20025] list_crossex_rule_risk_limits(symbols)
+> list[InlineResponse20026] list_crossex_rule_risk_limits(symbols)
 
 [Public Interface] Query Risk Limit Information
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20025]**](InlineResponse20025.md)
+[**list[InlineResponse20026]**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_transfer_coins**
-> list[InlineResponse20026] list_crossex_transfer_coins(coin=coin)
+> list[InlineResponse20027] list_crossex_transfer_coins(coin=coin)
 
 [Public Interface] Query Supported Transfer Currencies
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20026]**](InlineResponse20026.md)
+[**list[InlineResponse20027]**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_transfers**
-> list[InlineResponse20027] list_crossex_transfers(coin=coin, order_id=order_id, _from=_from, to=to, page=page, limit=limit)
+> list[InlineResponse20028] list_crossex_transfers(coin=coin, order_id=order_id, _from=_from, to=to, page=page, limit=limit)
 
 Query Fund Transfer History
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20027]**](InlineResponse20027.md)
+[**list[InlineResponse20028]**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_transfer**
-> InlineResponse20028 create_crossex_transfer(inline_object20=inline_object20)
+> InlineResponse20029 create_crossex_transfer(inline_object21=inline_object21)
 
 Fund Transfer
 
@@ -327,11 +327,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object20 = gate_api.InlineObject20() # InlineObject20 |  (optional)
+inline_object21 = gate_api.InlineObject21() # InlineObject21 |  (optional)
 
 try:
     # Fund Transfer
-    api_response = api_instance.create_crossex_transfer(inline_object20=inline_object20)
+    api_response = api_instance.create_crossex_transfer(inline_object21=inline_object21)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -343,11 +343,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object20** | [**InlineObject20**](InlineObject20.md)|  | [optional] 
+ **inline_object21** | [**InlineObject21**](InlineObject21.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_order**
-> InlineResponse20029 create_crossex_order(inline_object21=inline_object21)
+> InlineResponse20030 create_crossex_order(inline_object22=inline_object22)
 
 Create an order
 
@@ -396,11 +396,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object21 = gate_api.InlineObject21() # InlineObject21 |  (optional)
+inline_object22 = gate_api.InlineObject22() # InlineObject22 |  (optional)
 
 try:
     # Create an order
-    api_response = api_instance.create_crossex_order(inline_object21=inline_object21)
+    api_response = api_instance.create_crossex_order(inline_object22=inline_object22)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -412,11 +412,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object21** | [**InlineObject21**](InlineObject21.md)|  | [optional] 
+ **inline_object22** | [**InlineObject22**](InlineObject22.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_order**
-> InlineResponse20030 get_crossex_order(order_id)
+> InlineResponse20031 get_crossex_order(order_id)
 
 Query order details
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_order**
-> InlineResponse20031 update_crossex_order(order_id, inline_object22=inline_object22)
+> InlineResponse20032 update_crossex_order(order_id, inline_object23=inline_object23)
 
 Modify Order
 
@@ -535,11 +535,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 order_id = 'order_id_example' # str | Support Order ID or Text for Modify Order
-inline_object22 = gate_api.InlineObject22() # InlineObject22 |  (optional)
+inline_object23 = gate_api.InlineObject23() # InlineObject23 |  (optional)
 
 try:
     # Modify Order
-    api_response = api_instance.update_crossex_order(order_id, inline_object22=inline_object22)
+    api_response = api_instance.update_crossex_order(order_id, inline_object23=inline_object23)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -552,11 +552,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **str**| Support Order ID or Text for Modify Order | 
- **inline_object22** | [**InlineObject22**](InlineObject22.md)|  | [optional] 
+ **inline_object23** | [**InlineObject23**](InlineObject23.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_convert_quote**
-> InlineResponse20032 create_crossex_convert_quote(inline_object23=inline_object23)
+> InlineResponse20033 create_crossex_convert_quote(inline_object24=inline_object24)
 
 Flash Swap Inquiry
 
@@ -676,11 +676,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object23 = gate_api.InlineObject23() # InlineObject23 |  (optional)
+inline_object24 = gate_api.InlineObject24() # InlineObject24 |  (optional)
 
 try:
     # Flash Swap Inquiry
-    api_response = api_instance.create_crossex_convert_quote(inline_object23=inline_object23)
+    api_response = api_instance.create_crossex_convert_quote(inline_object24=inline_object24)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -692,11 +692,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object23** | [**InlineObject23**](InlineObject23.md)|  | [optional] 
+ **inline_object24** | [**InlineObject24**](InlineObject24.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -715,7 +715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_convert_order**
-> object create_crossex_convert_order(inline_object24=inline_object24)
+> object create_crossex_convert_order(inline_object25=inline_object25)
 
 Flash Swap Transaction
 
@@ -745,11 +745,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object24 = gate_api.InlineObject24() # InlineObject24 |  (optional)
+inline_object25 = gate_api.InlineObject25() # InlineObject25 |  (optional)
 
 try:
     # Flash Swap Transaction
-    api_response = api_instance.create_crossex_convert_order(inline_object24=inline_object24)
+    api_response = api_instance.create_crossex_convert_order(inline_object25=inline_object25)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -761,7 +761,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object24** | [**InlineObject24**](InlineObject24.md)|  | [optional] 
+ **inline_object25** | [**InlineObject25**](InlineObject25.md)|  | [optional] 
 
 ### Return type
 
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_account**
-> InlineResponse20033 get_crossex_account(exchange_type=exchange_type)
+> InlineResponse20034 get_crossex_account(exchange_type=exchange_type)
 
 Query Account Assets
 
@@ -834,7 +834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -853,7 +853,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_account**
-> InlineResponse202 update_crossex_account(inline_object25=inline_object25)
+> InlineResponse202 update_crossex_account(inline_object26=inline_object26)
 
 Modify Account Contract Position Mode and Account Mode
 
@@ -883,11 +883,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object25 = gate_api.InlineObject25() # InlineObject25 |  (optional)
+inline_object26 = gate_api.InlineObject26() # InlineObject26 |  (optional)
 
 try:
     # Modify Account Contract Position Mode and Account Mode
-    api_response = api_instance.update_crossex_account(inline_object25=inline_object25)
+    api_response = api_instance.update_crossex_account(inline_object26=inline_object26)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -899,7 +899,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object25** | [**InlineObject25**](InlineObject25.md)|  | [optional] 
+ **inline_object26** | [**InlineObject26**](InlineObject26.md)|  | [optional] 
 
 ### Return type
 
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_positions_leverage**
-> list[InlineResponse20034] get_crossex_positions_leverage(symbols=symbols)
+> list[InlineResponse20035] get_crossex_positions_leverage(symbols=symbols)
 
 Query Contract Trading Pair Leverage Multiplier
 
@@ -972,7 +972,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20034]**](InlineResponse20034.md)
+[**list[InlineResponse20035]**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -991,7 +991,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_positions_leverage**
-> InlineResponse2021 update_crossex_positions_leverage(inline_object26=inline_object26)
+> InlineResponse2021 update_crossex_positions_leverage(inline_object27=inline_object27)
 
 Modify Contract Trading Pair Leverage Multiplier
 
@@ -1021,11 +1021,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object26 = gate_api.InlineObject26() # InlineObject26 |  (optional)
+inline_object27 = gate_api.InlineObject27() # InlineObject27 |  (optional)
 
 try:
     # Modify Contract Trading Pair Leverage Multiplier
-    api_response = api_instance.update_crossex_positions_leverage(inline_object26=inline_object26)
+    api_response = api_instance.update_crossex_positions_leverage(inline_object27=inline_object27)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1037,7 +1037,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object26** | [**InlineObject26**](InlineObject26.md)|  | [optional] 
+ **inline_object27** | [**InlineObject27**](InlineObject27.md)|  | [optional] 
 
 ### Return type
 
@@ -1060,7 +1060,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_margin_positions_leverage**
-> list[InlineResponse20034] get_crossex_margin_positions_leverage(symbols=symbols)
+> list[InlineResponse20035] get_crossex_margin_positions_leverage(symbols=symbols)
 
 Query Leveraged Trading Pair Leverage Multiplier
 
@@ -1110,7 +1110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20034]**](InlineResponse20034.md)
+[**list[InlineResponse20035]**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_margin_positions_leverage**
-> InlineResponse2021 update_crossex_margin_positions_leverage(inline_object27=inline_object27)
+> InlineResponse2021 update_crossex_margin_positions_leverage(inline_object28=inline_object28)
 
 Modify Leveraged Trading Pair Leverage Multiplier
 
@@ -1159,11 +1159,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object27 = gate_api.InlineObject27() # InlineObject27 |  (optional)
+inline_object28 = gate_api.InlineObject28() # InlineObject28 |  (optional)
 
 try:
     # Modify Leveraged Trading Pair Leverage Multiplier
-    api_response = api_instance.update_crossex_margin_positions_leverage(inline_object27=inline_object27)
+    api_response = api_instance.update_crossex_margin_positions_leverage(inline_object28=inline_object28)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1175,7 +1175,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object27** | [**InlineObject27**](InlineObject27.md)|  | [optional] 
+ **inline_object28** | [**InlineObject28**](InlineObject28.md)|  | [optional] 
 
 ### Return type
 
@@ -1198,7 +1198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **close_crossex_position**
-> InlineResponse20029 close_crossex_position(inline_object28=inline_object28)
+> InlineResponse20030 close_crossex_position(inline_object29=inline_object29)
 
 Full Close Position
 
@@ -1228,11 +1228,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object28 = gate_api.InlineObject28() # InlineObject28 |  (optional)
+inline_object29 = gate_api.InlineObject29() # InlineObject29 |  (optional)
 
 try:
     # Full Close Position
-    api_response = api_instance.close_crossex_position(inline_object28=inline_object28)
+    api_response = api_instance.close_crossex_position(inline_object29=inline_object29)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1244,11 +1244,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object28** | [**InlineObject28**](InlineObject28.md)|  | [optional] 
+ **inline_object29** | [**InlineObject29**](InlineObject29.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_interest_rate**
-> list[InlineResponse20035] get_crossex_interest_rate(coin=coin, exchange_type=exchange_type)
+> list[InlineResponse20036] get_crossex_interest_rate(coin=coin, exchange_type=exchange_type)
 
 Query margin asset interest rates
 
@@ -1319,7 +1319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20035]**](InlineResponse20035.md)
+[**list[InlineResponse20036]**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -1338,7 +1338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_fee**
-> InlineResponse20036 get_crossex_fee()
+> InlineResponse20037 get_crossex_fee()
 
 Query User Fee Rates
 
@@ -1384,7 +1384,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -1403,7 +1403,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_positions**
-> list[InlineResponse20037] list_crossex_positions(symbol=symbol, exchange_type=exchange_type)
+> list[InlineResponse20038] list_crossex_positions(symbol=symbol, exchange_type=exchange_type)
 
 Query Contract Positions
 
@@ -1455,7 +1455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20037]**](InlineResponse20037.md)
+[**list[InlineResponse20038]**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -1474,7 +1474,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_margin_positions**
-> list[InlineResponse20038] list_crossex_margin_positions(symbol=symbol, exchange_type=exchange_type)
+> list[InlineResponse20039] list_crossex_margin_positions(symbol=symbol, exchange_type=exchange_type)
 
 Query Leveraged Positions
 
@@ -1526,7 +1526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20038]**](InlineResponse20038.md)
+[**list[InlineResponse20039]**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -1545,7 +1545,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_adl_rank**
-> list[InlineResponse20039] list_crossex_adl_rank(symbol)
+> list[InlineResponse20040] list_crossex_adl_rank(symbol)
 
 Query ADL Position Reduction Ranking
 
@@ -1595,7 +1595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20039]**](InlineResponse20039.md)
+[**list[InlineResponse20040]**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_open_orders**
-> list[InlineResponse20030] list_crossex_open_orders(symbol=symbol, exchange_type=exchange_type, business_type=business_type)
+> list[InlineResponse20031] list_crossex_open_orders(symbol=symbol, exchange_type=exchange_type, business_type=business_type)
 
 Query All Current Open Orders
 
@@ -1668,7 +1668,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20030]**](InlineResponse20030.md)
+[**list[InlineResponse20031]**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -1687,7 +1687,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_orders**
-> list[InlineResponse20040] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[InlineResponse20041] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 queryorderhistory
 
@@ -1745,7 +1745,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20040]**](InlineResponse20040.md)
+[**list[InlineResponse20041]**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -1764,7 +1764,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_positions**
-> list[InlineResponse20041] list_crossex_history_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[InlineResponse20042] list_crossex_history_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 Query Contract Position History
 
@@ -1822,7 +1822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20041]**](InlineResponse20041.md)
+[**list[InlineResponse20042]**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_margin_positions**
-> list[InlineResponse20042] list_crossex_history_margin_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[InlineResponse20043] list_crossex_history_margin_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 Query Leveraged Position History
 
@@ -1899,7 +1899,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20042]**](InlineResponse20042.md)
+[**list[InlineResponse20043]**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -1918,7 +1918,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_margin_interests**
-> list[InlineResponse20043] list_crossex_history_margin_interests(symbol=symbol, _from=_from, to=to, page=page, limit=limit, exchange_type=exchange_type)
+> list[InlineResponse20044] list_crossex_history_margin_interests(symbol=symbol, _from=_from, to=to, page=page, limit=limit, exchange_type=exchange_type)
 
 Query Leveraged Interest Deduction History
 
@@ -1978,7 +1978,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20043]**](InlineResponse20043.md)
+[**list[InlineResponse20044]**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -1997,7 +1997,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_trades**
-> list[InlineResponse20044] list_crossex_history_trades(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[InlineResponse20045] list_crossex_history_trades(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 queryfilledhistory
 
@@ -2055,7 +2055,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20044]**](InlineResponse20044.md)
+[**list[InlineResponse20045]**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -2074,7 +2074,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_account_book**
-> list[InlineResponse20045] list_crossex_account_book(page=page, limit=limit, coin=coin, _from=_from, to=to)
+> list[InlineResponse20046] list_crossex_account_book(page=page, limit=limit, coin=coin, _from=_from, to=to)
 
 Query Account Asset Change History
 
@@ -2132,7 +2132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20045]**](InlineResponse20045.md)
+[**list[InlineResponse20046]**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -2151,7 +2151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_coin_discount_rate**
-> list[InlineResponse20046] list_crossex_coin_discount_rate(coin=coin, exchange_type=exchange_type)
+> list[InlineResponse20047] list_crossex_coin_discount_rate(coin=coin, exchange_type=exchange_type)
 
 Query currency discount rate (discount rate of margin currency in isolated exchange mode)
 
@@ -2203,7 +2203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20046]**](InlineResponse20046.md)
+[**list[InlineResponse20047]**](InlineResponse20047.md)
 
 ### Authorization
 

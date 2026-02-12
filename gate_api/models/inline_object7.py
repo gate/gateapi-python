@@ -140,7 +140,7 @@ class InlineObject7(object):
     def order_tab(self):
         """Gets the order_tab of this InlineObject7.  # noqa: E501
 
-        订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
 
         :return: The order_tab of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -151,7 +151,7 @@ class InlineObject7(object):
     def order_tab(self, order_tab):
         """Sets the order_tab of this InlineObject7.
 
-        订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
 
         :param order_tab: The order_tab of this InlineObject7.  # noqa: E501
         :type: str

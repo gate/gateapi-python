@@ -33,78 +33,106 @@ class InlineObject19(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'image_content_type': 'str',
-        'base64_img': 'str'
+        'txid': 'int',
+        'type': 'int',
+        'message': 'str'
     }
 
     attribute_map = {
-        'image_content_type': 'image_content_type',
-        'base64_img': 'base64_img'
+        'txid': 'txid',
+        'type': 'type',
+        'message': 'message'
     }
 
-    def __init__(self, image_content_type=None, base64_img=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, txid=None, type=None, message=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, Configuration) -> None
         """InlineObject19 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._image_content_type = None
-        self._base64_img = None
+        self._txid = None
+        self._type = None
+        self._message = None
         self.discriminator = None
 
-        self.image_content_type = image_content_type
-        self.base64_img = base64_img
+        self.txid = txid
+        if type is not None:
+            self.type = type
+        self.message = message
 
     @property
-    def image_content_type(self):
-        """Gets the image_content_type of this InlineObject19.  # noqa: E501
+    def txid(self):
+        """Gets the txid of this InlineObject19.  # noqa: E501
 
-        File type, currently only images and videos are supported  # noqa: E501
+        Order ID  # noqa: E501
 
-        :return: The image_content_type of this InlineObject19.  # noqa: E501
-        :rtype: str
+        :return: The txid of this InlineObject19.  # noqa: E501
+        :rtype: int
         """
-        return self._image_content_type
+        return self._txid
 
-    @image_content_type.setter
-    def image_content_type(self, image_content_type):
-        """Sets the image_content_type of this InlineObject19.
+    @txid.setter
+    def txid(self, txid):
+        """Sets the txid of this InlineObject19.
 
-        File type, currently only images and videos are supported  # noqa: E501
+        Order ID  # noqa: E501
 
-        :param image_content_type: The image_content_type of this InlineObject19.  # noqa: E501
-        :type: str
+        :param txid: The txid of this InlineObject19.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and image_content_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_content_type`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
+            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
 
-        self._image_content_type = image_content_type
+        self._txid = txid
 
     @property
-    def base64_img(self):
-        """Gets the base64_img of this InlineObject19.  # noqa: E501
+    def type(self):
+        """Gets the type of this InlineObject19.  # noqa: E501
 
-        File content (base64 encoded)  # noqa: E501
+        0=Text, 1=File (video or image), default is 0 if not provided  # noqa: E501
 
-        :return: The base64_img of this InlineObject19.  # noqa: E501
+        :return: The type of this InlineObject19.  # noqa: E501
+        :rtype: int
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineObject19.
+
+        0=Text, 1=File (video or image), default is 0 if not provided  # noqa: E501
+
+        :param type: The type of this InlineObject19.  # noqa: E501
+        :type: int
+        """
+
+        self._type = type
+
+    @property
+    def message(self):
+        """Gets the message of this InlineObject19.  # noqa: E501
+
+        Message content  # noqa: E501
+
+        :return: The message of this InlineObject19.  # noqa: E501
         :rtype: str
         """
-        return self._base64_img
+        return self._message
 
-    @base64_img.setter
-    def base64_img(self, base64_img):
-        """Sets the base64_img of this InlineObject19.
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineObject19.
 
-        File content (base64 encoded)  # noqa: E501
+        Message content  # noqa: E501
 
-        :param base64_img: The base64_img of this InlineObject19.  # noqa: E501
+        :param message: The message of this InlineObject19.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and base64_img is None:  # noqa: E501
-            raise ValueError("Invalid value for `base64_img`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
-        self._base64_img = base64_img
+        self._message = message
 
     def to_dict(self):
         """Returns the model properties as a dict"""

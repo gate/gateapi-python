@@ -33,164 +33,78 @@ class InlineObject20(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'coin': 'str',
-        'amount': 'str',
-        '_from': 'str',
-        'to': 'str',
-        'text': 'str'
+        'image_content_type': 'str',
+        'base64_img': 'str'
     }
 
     attribute_map = {
-        'coin': 'coin',
-        'amount': 'amount',
-        '_from': 'from',
-        'to': 'to',
-        'text': 'text'
+        'image_content_type': 'image_content_type',
+        'base64_img': 'base64_img'
     }
 
-    def __init__(self, coin=None, amount=None, _from=None, to=None, text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, Configuration) -> None
+    def __init__(self, image_content_type=None, base64_img=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineObject20 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._coin = None
-        self._amount = None
-        self.__from = None
-        self._to = None
-        self._text = None
+        self._image_content_type = None
+        self._base64_img = None
         self.discriminator = None
 
-        self.coin = coin
-        self.amount = amount
-        self._from = _from
-        self.to = to
-        if text is not None:
-            self.text = text
+        self.image_content_type = image_content_type
+        self.base64_img = base64_img
 
     @property
-    def coin(self):
-        """Gets the coin of this InlineObject20.  # noqa: E501
+    def image_content_type(self):
+        """Gets the image_content_type of this InlineObject20.  # noqa: E501
 
-        Currency  # noqa: E501
+        File type, currently only images and videos are supported  # noqa: E501
 
-        :return: The coin of this InlineObject20.  # noqa: E501
+        :return: The image_content_type of this InlineObject20.  # noqa: E501
         :rtype: str
         """
-        return self._coin
+        return self._image_content_type
 
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineObject20.
+    @image_content_type.setter
+    def image_content_type(self, image_content_type):
+        """Sets the image_content_type of this InlineObject20.
 
-        Currency  # noqa: E501
+        File type, currently only images and videos are supported  # noqa: E501
 
-        :param coin: The coin of this InlineObject20.  # noqa: E501
+        :param image_content_type: The image_content_type of this InlineObject20.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and image_content_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `image_content_type`, must not be `None`")  # noqa: E501
 
-        self._coin = coin
+        self._image_content_type = image_content_type
 
     @property
-    def amount(self):
-        """Gets the amount of this InlineObject20.  # noqa: E501
+    def base64_img(self):
+        """Gets the base64_img of this InlineObject20.  # noqa: E501
 
-        Transfer amount  # noqa: E501
+        File content (base64 encoded)  # noqa: E501
 
-        :return: The amount of this InlineObject20.  # noqa: E501
+        :return: The base64_img of this InlineObject20.  # noqa: E501
         :rtype: str
         """
-        return self._amount
+        return self._base64_img
 
-    @amount.setter
-    def amount(self, amount):
-        """Sets the amount of this InlineObject20.
+    @base64_img.setter
+    def base64_img(self, base64_img):
+        """Sets the base64_img of this InlineObject20.
 
-        Transfer amount  # noqa: E501
+        File content (base64 encoded)  # noqa: E501
 
-        :param amount: The amount of this InlineObject20.  # noqa: E501
+        :param base64_img: The base64_img of this InlineObject20.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and base64_img is None:  # noqa: E501
+            raise ValueError("Invalid value for `base64_img`, must not be `None`")  # noqa: E501
 
-        self._amount = amount
-
-    @property
-    def _from(self):
-        """Gets the _from of this InlineObject20.  # noqa: E501
-
-        Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
-
-        :return: The _from of this InlineObject20.  # noqa: E501
-        :rtype: str
-        """
-        return self.__from
-
-    @_from.setter
-    def _from(self, _from):
-        """Sets the _from of this InlineObject20.
-
-        Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
-
-        :param _from: The _from of this InlineObject20.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and _from is None:  # noqa: E501
-            raise ValueError("Invalid value for `_from`, must not be `None`")  # noqa: E501
-
-        self.__from = _from
-
-    @property
-    def to(self):
-        """Gets the to of this InlineObject20.  # noqa: E501
-
-        Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
-
-        :return: The to of this InlineObject20.  # noqa: E501
-        :rtype: str
-        """
-        return self._to
-
-    @to.setter
-    def to(self, to):
-        """Sets the to of this InlineObject20.
-
-        Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
-
-        :param to: The to of this InlineObject20.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and to is None:  # noqa: E501
-            raise ValueError("Invalid value for `to`, must not be `None`")  # noqa: E501
-
-        self._to = to
-
-    @property
-    def text(self):
-        """Gets the text of this InlineObject20.  # noqa: E501
-
-        User-defined ID  # noqa: E501
-
-        :return: The text of this InlineObject20.  # noqa: E501
-        :rtype: str
-        """
-        return self._text
-
-    @text.setter
-    def text(self, text):
-        """Sets the text of this InlineObject20.
-
-        User-defined ID  # noqa: E501
-
-        :param text: The text of this InlineObject20.  # noqa: E501
-        :type: str
-        """
-
-        self._text = text
+        self._base64_img = base64_img
 
     def to_dict(self):
         """Returns the model properties as a dict"""

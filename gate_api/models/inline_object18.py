@@ -34,32 +34,33 @@ class InlineObject18(object):
     """
     openapi_types = {
         'txid': 'int',
-        'type': 'int',
-        'message': 'str'
+        'lastreceived': 'int',
+        'firstreceived': 'int'
     }
 
     attribute_map = {
         'txid': 'txid',
-        'type': 'type',
-        'message': 'message'
+        'lastreceived': 'lastreceived',
+        'firstreceived': 'firstreceived'
     }
 
-    def __init__(self, txid=None, type=None, message=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, str, Configuration) -> None
+    def __init__(self, txid=None, lastreceived=None, firstreceived=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, int, Configuration) -> None
         """InlineObject18 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._txid = None
-        self._type = None
-        self._message = None
+        self._lastreceived = None
+        self._firstreceived = None
         self.discriminator = None
 
         self.txid = txid
-        if type is not None:
-            self.type = type
-        self.message = message
+        if lastreceived is not None:
+            self.lastreceived = lastreceived
+        if firstreceived is not None:
+            self.firstreceived = firstreceived
 
     @property
     def txid(self):
@@ -87,52 +88,50 @@ class InlineObject18(object):
         self._txid = txid
 
     @property
-    def type(self):
-        """Gets the type of this InlineObject18.  # noqa: E501
+    def lastreceived(self):
+        """Gets the lastreceived of this InlineObject18.  # noqa: E501
 
-        0=Text, 1=File (video or image), default is 0 if not provided  # noqa: E501
+        Pagination timestamp (forward)  # noqa: E501
 
-        :return: The type of this InlineObject18.  # noqa: E501
+        :return: The lastreceived of this InlineObject18.  # noqa: E501
         :rtype: int
         """
-        return self._type
+        return self._lastreceived
 
-    @type.setter
-    def type(self, type):
-        """Sets the type of this InlineObject18.
+    @lastreceived.setter
+    def lastreceived(self, lastreceived):
+        """Sets the lastreceived of this InlineObject18.
 
-        0=Text, 1=File (video or image), default is 0 if not provided  # noqa: E501
+        Pagination timestamp (forward)  # noqa: E501
 
-        :param type: The type of this InlineObject18.  # noqa: E501
+        :param lastreceived: The lastreceived of this InlineObject18.  # noqa: E501
         :type: int
         """
 
-        self._type = type
+        self._lastreceived = lastreceived
 
     @property
-    def message(self):
-        """Gets the message of this InlineObject18.  # noqa: E501
+    def firstreceived(self):
+        """Gets the firstreceived of this InlineObject18.  # noqa: E501
 
-        Message content  # noqa: E501
+        Pagination timestamp (backward)  # noqa: E501
 
-        :return: The message of this InlineObject18.  # noqa: E501
-        :rtype: str
+        :return: The firstreceived of this InlineObject18.  # noqa: E501
+        :rtype: int
         """
-        return self._message
+        return self._firstreceived
 
-    @message.setter
-    def message(self, message):
-        """Sets the message of this InlineObject18.
+    @firstreceived.setter
+    def firstreceived(self, firstreceived):
+        """Sets the firstreceived of this InlineObject18.
 
-        Message content  # noqa: E501
+        Pagination timestamp (backward)  # noqa: E501
 
-        :param message: The message of this InlineObject18.  # noqa: E501
-        :type: str
+        :param firstreceived: The firstreceived of this InlineObject18.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
-        self._message = message
+        self._firstreceived = firstreceived
 
     def to_dict(self):
         """Returns the model properties as a dict"""

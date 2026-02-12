@@ -1,10 +1,9 @@
-# InlineResponse20026
+# InlineResponse20025Data
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **str** |  | [optional] 
-**tiers** | [**list[RuleRiskLimitsTiers]**](RuleRiskLimitsTiers.md) |  | [optional] 
+**file_key** | **str** | File key | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

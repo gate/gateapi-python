@@ -3,12 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messages** | [**list[InlineResponse20022DataMessages]**](InlineResponse20022DataMessages.md) | Message List | 
-**memo** | **str** | Payment tip (displayed on homepage only) | 
-**has_history** | **bool** | Whether historical records exist | 
-**txid** | **int** | Order ID | 
-**srvtm** | **int** | Timestamp of the latest message | 
-**order_status** | **str** | Order Status | 
+**index** | **int** | Serial number | 
+**asset** | **str** | Cryptocurrency | 
+**fiat_unit** | **str** | Fiat currency | 
+**adv_no** | **int** | 广告id | 
+**price** | **str** | Price | 
+**max_single_trans_amount** | **str** | Maximum Cryptocurrency Amount | 
+**min_single_trans_amount** | **str** | Minimum Cryptocurrency Amount | 
+**nick_name** | **str** | Advertiser Nickname | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

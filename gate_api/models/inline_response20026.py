@@ -33,165 +33,72 @@ class InlineResponse20026(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'coin': 'str',
-        'min_trans_amount': 'float',
-        'est_fee': 'float',
-        'precision': 'int',
-        'is_disabled': 'int'
+        'symbol': 'str',
+        'tiers': 'list[RuleRiskLimitsTiers]'
     }
 
     attribute_map = {
-        'coin': 'coin',
-        'min_trans_amount': 'min_trans_amount',
-        'est_fee': 'est_fee',
-        'precision': 'precision',
-        'is_disabled': 'is_disabled'
+        'symbol': 'symbol',
+        'tiers': 'tiers'
     }
 
-    def __init__(self, coin=None, min_trans_amount=None, est_fee=None, precision=None, is_disabled=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, float, float, int, int, Configuration) -> None
+    def __init__(self, symbol=None, tiers=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, list[RuleRiskLimitsTiers], Configuration) -> None
         """InlineResponse20026 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._coin = None
-        self._min_trans_amount = None
-        self._est_fee = None
-        self._precision = None
-        self._is_disabled = None
+        self._symbol = None
+        self._tiers = None
         self.discriminator = None
 
-        self.coin = coin
-        self.min_trans_amount = min_trans_amount
-        self.est_fee = est_fee
-        self.precision = precision
-        self.is_disabled = is_disabled
+        if symbol is not None:
+            self.symbol = symbol
+        if tiers is not None:
+            self.tiers = tiers
 
     @property
-    def coin(self):
-        """Gets the coin of this InlineResponse20026.  # noqa: E501
+    def symbol(self):
+        """Gets the symbol of this InlineResponse20026.  # noqa: E501
 
-        Currency  # noqa: E501
 
-        :return: The coin of this InlineResponse20026.  # noqa: E501
+        :return: The symbol of this InlineResponse20026.  # noqa: E501
         :rtype: str
         """
-        return self._coin
+        return self._symbol
 
-    @coin.setter
-    def coin(self, coin):
-        """Sets the coin of this InlineResponse20026.
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineResponse20026.
 
-        Currency  # noqa: E501
 
-        :param coin: The coin of this InlineResponse20026.  # noqa: E501
+        :param symbol: The symbol of this InlineResponse20026.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
 
-        self._coin = coin
+        self._symbol = symbol
 
     @property
-    def min_trans_amount(self):
-        """Gets the min_trans_amount of this InlineResponse20026.  # noqa: E501
+    def tiers(self):
+        """Gets the tiers of this InlineResponse20026.  # noqa: E501
 
-        Minimum Transfer Quantity (including estimated fees)  # noqa: E501
 
-        :return: The min_trans_amount of this InlineResponse20026.  # noqa: E501
-        :rtype: float
+        :return: The tiers of this InlineResponse20026.  # noqa: E501
+        :rtype: list[RuleRiskLimitsTiers]
         """
-        return self._min_trans_amount
+        return self._tiers
 
-    @min_trans_amount.setter
-    def min_trans_amount(self, min_trans_amount):
-        """Sets the min_trans_amount of this InlineResponse20026.
+    @tiers.setter
+    def tiers(self, tiers):
+        """Sets the tiers of this InlineResponse20026.
 
-        Minimum Transfer Quantity (including estimated fees)  # noqa: E501
 
-        :param min_trans_amount: The min_trans_amount of this InlineResponse20026.  # noqa: E501
-        :type: float
+        :param tiers: The tiers of this InlineResponse20026.  # noqa: E501
+        :type: list[RuleRiskLimitsTiers]
         """
-        if self.local_vars_configuration.client_side_validation and min_trans_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_trans_amount`, must not be `None`")  # noqa: E501
 
-        self._min_trans_amount = min_trans_amount
-
-    @property
-    def est_fee(self):
-        """Gets the est_fee of this InlineResponse20026.  # noqa: E501
-
-        Estimated Fee  # noqa: E501
-
-        :return: The est_fee of this InlineResponse20026.  # noqa: E501
-        :rtype: float
-        """
-        return self._est_fee
-
-    @est_fee.setter
-    def est_fee(self, est_fee):
-        """Sets the est_fee of this InlineResponse20026.
-
-        Estimated Fee  # noqa: E501
-
-        :param est_fee: The est_fee of this InlineResponse20026.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and est_fee is None:  # noqa: E501
-            raise ValueError("Invalid value for `est_fee`, must not be `None`")  # noqa: E501
-
-        self._est_fee = est_fee
-
-    @property
-    def precision(self):
-        """Gets the precision of this InlineResponse20026.  # noqa: E501
-
-        Precision  # noqa: E501
-
-        :return: The precision of this InlineResponse20026.  # noqa: E501
-        :rtype: int
-        """
-        return self._precision
-
-    @precision.setter
-    def precision(self, precision):
-        """Sets the precision of this InlineResponse20026.
-
-        Precision  # noqa: E501
-
-        :param precision: The precision of this InlineResponse20026.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and precision is None:  # noqa: E501
-            raise ValueError("Invalid value for `precision`, must not be `None`")  # noqa: E501
-
-        self._precision = precision
-
-    @property
-    def is_disabled(self):
-        """Gets the is_disabled of this InlineResponse20026.  # noqa: E501
-
-        If it is disabled. 0 means NOT being disabled  # noqa: E501
-
-        :return: The is_disabled of this InlineResponse20026.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_disabled
-
-    @is_disabled.setter
-    def is_disabled(self, is_disabled):
-        """Sets the is_disabled of this InlineResponse20026.
-
-        If it is disabled. 0 means NOT being disabled  # noqa: E501
-
-        :param is_disabled: The is_disabled of this InlineResponse20026.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and is_disabled is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_disabled`, must not be `None`")  # noqa: E501
-
-        self._is_disabled = is_disabled
+        self._tiers = tiers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

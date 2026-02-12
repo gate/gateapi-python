@@ -33,49 +33,136 @@ class InlineObject24(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'quote_id': 'str'
+        'exchange_type': 'str',
+        'from_coin': 'str',
+        'to_coin': 'str',
+        'from_amount': 'str'
     }
 
     attribute_map = {
-        'quote_id': 'quote_id'
+        'exchange_type': 'exchange_type',
+        'from_coin': 'from_coin',
+        'to_coin': 'to_coin',
+        'from_amount': 'from_amount'
     }
 
-    def __init__(self, quote_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, exchange_type=None, from_coin=None, to_coin=None, from_amount=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, Configuration) -> None
         """InlineObject24 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._quote_id = None
+        self._exchange_type = None
+        self._from_coin = None
+        self._to_coin = None
+        self._from_amount = None
         self.discriminator = None
 
-        self.quote_id = quote_id
+        self.exchange_type = exchange_type
+        self.from_coin = from_coin
+        self.to_coin = to_coin
+        self.from_amount = from_amount
 
     @property
-    def quote_id(self):
-        """Gets the quote_id of this InlineObject24.  # noqa: E501
+    def exchange_type(self):
+        """Gets the exchange_type of this InlineObject24.  # noqa: E501
 
-        Inquiry ID  # noqa: E501
+        Exchange Type  # noqa: E501
 
-        :return: The quote_id of this InlineObject24.  # noqa: E501
+        :return: The exchange_type of this InlineObject24.  # noqa: E501
         :rtype: str
         """
-        return self._quote_id
+        return self._exchange_type
 
-    @quote_id.setter
-    def quote_id(self, quote_id):
-        """Sets the quote_id of this InlineObject24.
+    @exchange_type.setter
+    def exchange_type(self, exchange_type):
+        """Sets the exchange_type of this InlineObject24.
 
-        Inquiry ID  # noqa: E501
+        Exchange Type  # noqa: E501
 
-        :param quote_id: The quote_id of this InlineObject24.  # noqa: E501
+        :param exchange_type: The exchange_type of this InlineObject24.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and quote_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `quote_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
 
-        self._quote_id = quote_id
+        self._exchange_type = exchange_type
+
+    @property
+    def from_coin(self):
+        """Gets the from_coin of this InlineObject24.  # noqa: E501
+
+        Asset Sold  # noqa: E501
+
+        :return: The from_coin of this InlineObject24.  # noqa: E501
+        :rtype: str
+        """
+        return self._from_coin
+
+    @from_coin.setter
+    def from_coin(self, from_coin):
+        """Sets the from_coin of this InlineObject24.
+
+        Asset Sold  # noqa: E501
+
+        :param from_coin: The from_coin of this InlineObject24.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and from_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `from_coin`, must not be `None`")  # noqa: E501
+
+        self._from_coin = from_coin
+
+    @property
+    def to_coin(self):
+        """Gets the to_coin of this InlineObject24.  # noqa: E501
+
+        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
+
+        :return: The to_coin of this InlineObject24.  # noqa: E501
+        :rtype: str
+        """
+        return self._to_coin
+
+    @to_coin.setter
+    def to_coin(self, to_coin):
+        """Sets the to_coin of this InlineObject24.
+
+        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
+
+        :param to_coin: The to_coin of this InlineObject24.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and to_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `to_coin`, must not be `None`")  # noqa: E501
+
+        self._to_coin = to_coin
+
+    @property
+    def from_amount(self):
+        """Gets the from_amount of this InlineObject24.  # noqa: E501
+
+        Amount to sell  # noqa: E501
+
+        :return: The from_amount of this InlineObject24.  # noqa: E501
+        :rtype: str
+        """
+        return self._from_amount
+
+    @from_amount.setter
+    def from_amount(self, from_amount):
+        """Sets the from_amount of this InlineObject24.
+
+        Amount to sell  # noqa: E501
+
+        :param from_amount: The from_amount of this InlineObject24.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and from_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `from_amount`, must not be `None`")  # noqa: E501
+
+        self._from_amount = from_amount
 
     def to_dict(self):
         """Returns the model properties as a dict"""

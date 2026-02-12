@@ -33,105 +33,107 @@ class InlineObject17(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'txid': 'int',
-        'lastreceived': 'int',
-        'firstreceived': 'int'
+        'asset': 'str',
+        'fiat_unit': 'str',
+        'trade_type': 'str'
     }
 
     attribute_map = {
-        'txid': 'txid',
-        'lastreceived': 'lastreceived',
-        'firstreceived': 'firstreceived'
+        'asset': 'asset',
+        'fiat_unit': 'fiat_unit',
+        'trade_type': 'trade_type'
     }
 
-    def __init__(self, txid=None, lastreceived=None, firstreceived=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, Configuration) -> None
+    def __init__(self, asset=None, fiat_unit=None, trade_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, Configuration) -> None
         """InlineObject17 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._txid = None
-        self._lastreceived = None
-        self._firstreceived = None
+        self._asset = None
+        self._fiat_unit = None
+        self._trade_type = None
         self.discriminator = None
 
-        self.txid = txid
-        if lastreceived is not None:
-            self.lastreceived = lastreceived
-        if firstreceived is not None:
-            self.firstreceived = firstreceived
+        self.asset = asset
+        self.fiat_unit = fiat_unit
+        self.trade_type = trade_type
 
     @property
-    def txid(self):
-        """Gets the txid of this InlineObject17.  # noqa: E501
+    def asset(self):
+        """Gets the asset of this InlineObject17.  # noqa: E501
 
-        Order ID  # noqa: E501
+        Cryptocurrency  # noqa: E501
 
-        :return: The txid of this InlineObject17.  # noqa: E501
-        :rtype: int
+        :return: The asset of this InlineObject17.  # noqa: E501
+        :rtype: str
         """
-        return self._txid
+        return self._asset
 
-    @txid.setter
-    def txid(self, txid):
-        """Sets the txid of this InlineObject17.
+    @asset.setter
+    def asset(self, asset):
+        """Sets the asset of this InlineObject17.
 
-        Order ID  # noqa: E501
+        Cryptocurrency  # noqa: E501
 
-        :param txid: The txid of this InlineObject17.  # noqa: E501
-        :type: int
+        :param asset: The asset of this InlineObject17.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
-            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and asset is None:  # noqa: E501
+            raise ValueError("Invalid value for `asset`, must not be `None`")  # noqa: E501
 
-        self._txid = txid
+        self._asset = asset
 
     @property
-    def lastreceived(self):
-        """Gets the lastreceived of this InlineObject17.  # noqa: E501
+    def fiat_unit(self):
+        """Gets the fiat_unit of this InlineObject17.  # noqa: E501
 
-        Pagination timestamp (forward)  # noqa: E501
+        Fiat currency  # noqa: E501
 
-        :return: The lastreceived of this InlineObject17.  # noqa: E501
-        :rtype: int
+        :return: The fiat_unit of this InlineObject17.  # noqa: E501
+        :rtype: str
         """
-        return self._lastreceived
+        return self._fiat_unit
 
-    @lastreceived.setter
-    def lastreceived(self, lastreceived):
-        """Sets the lastreceived of this InlineObject17.
+    @fiat_unit.setter
+    def fiat_unit(self, fiat_unit):
+        """Sets the fiat_unit of this InlineObject17.
 
-        Pagination timestamp (forward)  # noqa: E501
+        Fiat currency  # noqa: E501
 
-        :param lastreceived: The lastreceived of this InlineObject17.  # noqa: E501
-        :type: int
+        :param fiat_unit: The fiat_unit of this InlineObject17.  # noqa: E501
+        :type: str
         """
+        if self.local_vars_configuration.client_side_validation and fiat_unit is None:  # noqa: E501
+            raise ValueError("Invalid value for `fiat_unit`, must not be `None`")  # noqa: E501
 
-        self._lastreceived = lastreceived
+        self._fiat_unit = fiat_unit
 
     @property
-    def firstreceived(self):
-        """Gets the firstreceived of this InlineObject17.  # noqa: E501
+    def trade_type(self):
+        """Gets the trade_type of this InlineObject17.  # noqa: E501
 
-        Pagination timestamp (backward)  # noqa: E501
+        Buy/Sell, sell/buy  # noqa: E501
 
-        :return: The firstreceived of this InlineObject17.  # noqa: E501
-        :rtype: int
+        :return: The trade_type of this InlineObject17.  # noqa: E501
+        :rtype: str
         """
-        return self._firstreceived
+        return self._trade_type
 
-    @firstreceived.setter
-    def firstreceived(self, firstreceived):
-        """Sets the firstreceived of this InlineObject17.
+    @trade_type.setter
+    def trade_type(self, trade_type):
+        """Sets the trade_type of this InlineObject17.
 
-        Pagination timestamp (backward)  # noqa: E501
+        Buy/Sell, sell/buy  # noqa: E501
 
-        :param firstreceived: The firstreceived of this InlineObject17.  # noqa: E501
-        :type: int
+        :param trade_type: The trade_type of this InlineObject17.  # noqa: E501
+        :type: str
         """
+        if self.local_vars_configuration.client_side_validation and trade_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `trade_type`, must not be `None`")  # noqa: E501
 
-        self._firstreceived = firstreceived
+        self._trade_type = trade_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

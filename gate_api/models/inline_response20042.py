@@ -44,10 +44,12 @@ class InlineResponse20042(object):
         'max_position_qty': 'str',
         'closed_qty': 'str',
         'closed_value': 'str',
+        'fee': 'str',
         'liq_fee': 'str',
+        'funding_fee': 'str',
         'position_side': 'str',
+        'position_mode': 'str',
         'leverage': 'str',
-        'interest': 'str',
         'business_type': 'str',
         'create_time': 'str',
         'update_time': 'str'
@@ -65,17 +67,19 @@ class InlineResponse20042(object):
         'max_position_qty': 'max_position_qty',
         'closed_qty': 'closed_qty',
         'closed_value': 'closed_value',
+        'fee': 'fee',
         'liq_fee': 'liq_fee',
+        'funding_fee': 'funding_fee',
         'position_side': 'position_side',
+        'position_mode': 'position_mode',
         'leverage': 'leverage',
-        'interest': 'interest',
         'business_type': 'business_type',
         'create_time': 'create_time',
         'update_time': 'update_time'
     }
 
-    def __init__(self, position_id=None, user_id=None, symbol=None, closed_type=None, closed_pnl=None, closed_pnl_rate=None, open_avg_price=None, closed_avg_price=None, max_position_qty=None, closed_qty=None, closed_value=None, liq_fee=None, position_side=None, leverage=None, interest=None, business_type=None, create_time=None, update_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, position_id=None, user_id=None, symbol=None, closed_type=None, closed_pnl=None, closed_pnl_rate=None, open_avg_price=None, closed_avg_price=None, max_position_qty=None, closed_qty=None, closed_value=None, fee=None, liq_fee=None, funding_fee=None, position_side=None, position_mode=None, leverage=None, business_type=None, create_time=None, update_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineResponse20042 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,10 +96,12 @@ class InlineResponse20042(object):
         self._max_position_qty = None
         self._closed_qty = None
         self._closed_value = None
+        self._fee = None
         self._liq_fee = None
+        self._funding_fee = None
         self._position_side = None
+        self._position_mode = None
         self._leverage = None
-        self._interest = None
         self._business_type = None
         self._create_time = None
         self._update_time = None
@@ -123,13 +129,18 @@ class InlineResponse20042(object):
             self.closed_qty = closed_qty
         if closed_value is not None:
             self.closed_value = closed_value
+        if fee is not None:
+            self.fee = fee
         if liq_fee is not None:
             self.liq_fee = liq_fee
+        if funding_fee is not None:
+            self.funding_fee = funding_fee
         if position_side is not None:
             self.position_side = position_side
+        if position_mode is not None:
+            self.position_mode = position_mode
         if leverage is not None:
             self.leverage = leverage
-        self.interest = interest
         self.business_type = business_type
         if create_time is not None:
             self.create_time = create_time
@@ -390,6 +401,29 @@ class InlineResponse20042(object):
         self._closed_value = closed_value
 
     @property
+    def fee(self):
+        """Gets the fee of this InlineResponse20042.  # noqa: E501
+
+        Position Accumulated Fees  # noqa: E501
+
+        :return: The fee of this InlineResponse20042.  # noqa: E501
+        :rtype: str
+        """
+        return self._fee
+
+    @fee.setter
+    def fee(self, fee):
+        """Sets the fee of this InlineResponse20042.
+
+        Position Accumulated Fees  # noqa: E501
+
+        :param fee: The fee of this InlineResponse20042.  # noqa: E501
+        :type: str
+        """
+
+        self._fee = fee
+
+    @property
     def liq_fee(self):
         """Gets the liq_fee of this InlineResponse20042.  # noqa: E501
 
@@ -411,6 +445,29 @@ class InlineResponse20042(object):
         """
 
         self._liq_fee = liq_fee
+
+    @property
+    def funding_fee(self):
+        """Gets the funding_fee of this InlineResponse20042.  # noqa: E501
+
+        Funding Fee  # noqa: E501
+
+        :return: The funding_fee of this InlineResponse20042.  # noqa: E501
+        :rtype: str
+        """
+        return self._funding_fee
+
+    @funding_fee.setter
+    def funding_fee(self, funding_fee):
+        """Sets the funding_fee of this InlineResponse20042.
+
+        Funding Fee  # noqa: E501
+
+        :param funding_fee: The funding_fee of this InlineResponse20042.  # noqa: E501
+        :type: str
+        """
+
+        self._funding_fee = funding_fee
 
     @property
     def position_side(self):
@@ -436,6 +493,29 @@ class InlineResponse20042(object):
         self._position_side = position_side
 
     @property
+    def position_mode(self):
+        """Gets the position_mode of this InlineResponse20042.  # noqa: E501
+
+        Position Mode at Close  # noqa: E501
+
+        :return: The position_mode of this InlineResponse20042.  # noqa: E501
+        :rtype: str
+        """
+        return self._position_mode
+
+    @position_mode.setter
+    def position_mode(self, position_mode):
+        """Sets the position_mode of this InlineResponse20042.
+
+        Position Mode at Close  # noqa: E501
+
+        :param position_mode: The position_mode of this InlineResponse20042.  # noqa: E501
+        :type: str
+        """
+
+        self._position_mode = position_mode
+
+    @property
     def leverage(self):
         """Gets the leverage of this InlineResponse20042.  # noqa: E501
 
@@ -459,35 +539,10 @@ class InlineResponse20042(object):
         self._leverage = leverage
 
     @property
-    def interest(self):
-        """Gets the interest of this InlineResponse20042.  # noqa: E501
-
-        Total Deducted Interest  # noqa: E501
-
-        :return: The interest of this InlineResponse20042.  # noqa: E501
-        :rtype: str
-        """
-        return self._interest
-
-    @interest.setter
-    def interest(self, interest):
-        """Sets the interest of this InlineResponse20042.
-
-        Total Deducted Interest  # noqa: E501
-
-        :param interest: The interest of this InlineResponse20042.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and interest is None:  # noqa: E501
-            raise ValueError("Invalid value for `interest`, must not be `None`")  # noqa: E501
-
-        self._interest = interest
-
-    @property
     def business_type(self):
         """Gets the business_type of this InlineResponse20042.  # noqa: E501
 
-        Position Business Type  # noqa: E501
+        Business Type  # noqa: E501
 
         :return: The business_type of this InlineResponse20042.  # noqa: E501
         :rtype: str
@@ -498,7 +553,7 @@ class InlineResponse20042(object):
     def business_type(self, business_type):
         """Sets the business_type of this InlineResponse20042.
 
-        Position Business Type  # noqa: E501
+        Business Type  # noqa: E501
 
         :param business_type: The business_type of this InlineResponse20042.  # noqa: E501
         :type: str

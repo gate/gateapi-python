@@ -148,6 +148,7 @@ from gate_api.models.inline_object25 import InlineObject25
 from gate_api.models.inline_object26 import InlineObject26
 from gate_api.models.inline_object27 import InlineObject27
 from gate_api.models.inline_object28 import InlineObject28
+from gate_api.models.inline_object29 import InlineObject29
 from gate_api.models.inline_object3 import InlineObject3
 from gate_api.models.inline_object4 import InlineObject4
 from gate_api.models.inline_object5 import InlineObject5
@@ -195,13 +196,14 @@ from gate_api.models.inline_response20021_data import InlineResponse20021Data
 from gate_api.models.inline_response20021_data_lists import InlineResponse20021DataLists
 from gate_api.models.inline_response20022 import InlineResponse20022
 from gate_api.models.inline_response20022_data import InlineResponse20022Data
-from gate_api.models.inline_response20022_data_messages import InlineResponse20022DataMessages
-from gate_api.models.inline_response20022_data_msg_obj import InlineResponse20022DataMsgObj
 from gate_api.models.inline_response20023 import InlineResponse20023
 from gate_api.models.inline_response20023_data import InlineResponse20023Data
+from gate_api.models.inline_response20023_data_messages import InlineResponse20023DataMessages
+from gate_api.models.inline_response20023_data_msg_obj import InlineResponse20023DataMsgObj
 from gate_api.models.inline_response20024 import InlineResponse20024
 from gate_api.models.inline_response20024_data import InlineResponse20024Data
 from gate_api.models.inline_response20025 import InlineResponse20025
+from gate_api.models.inline_response20025_data import InlineResponse20025Data
 from gate_api.models.inline_response20026 import InlineResponse20026
 from gate_api.models.inline_response20027 import InlineResponse20027
 from gate_api.models.inline_response20028 import InlineResponse20028
@@ -211,12 +213,12 @@ from gate_api.models.inline_response20030 import InlineResponse20030
 from gate_api.models.inline_response20031 import InlineResponse20031
 from gate_api.models.inline_response20032 import InlineResponse20032
 from gate_api.models.inline_response20033 import InlineResponse20033
-from gate_api.models.inline_response20033_assets import InlineResponse20033Assets
 from gate_api.models.inline_response20034 import InlineResponse20034
+from gate_api.models.inline_response20034_assets import InlineResponse20034Assets
 from gate_api.models.inline_response20035 import InlineResponse20035
 from gate_api.models.inline_response20036 import InlineResponse20036
-from gate_api.models.inline_response20036_special_fee_list import InlineResponse20036SpecialFeeList
 from gate_api.models.inline_response20037 import InlineResponse20037
+from gate_api.models.inline_response20037_special_fee_list import InlineResponse20037SpecialFeeList
 from gate_api.models.inline_response20038 import InlineResponse20038
 from gate_api.models.inline_response20039 import InlineResponse20039
 from gate_api.models.inline_response2004 import InlineResponse2004
@@ -227,6 +229,7 @@ from gate_api.models.inline_response20043 import InlineResponse20043
 from gate_api.models.inline_response20044 import InlineResponse20044
 from gate_api.models.inline_response20045 import InlineResponse20045
 from gate_api.models.inline_response20046 import InlineResponse20046
+from gate_api.models.inline_response20047 import InlineResponse20047
 from gate_api.models.inline_response2005 import InlineResponse2005
 from gate_api.models.inline_response2006 import InlineResponse2006
 from gate_api.models.inline_response2006_data import InlineResponse2006Data

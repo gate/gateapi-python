@@ -33,136 +33,76 @@ class InlineObject23(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'exchange_type': 'str',
-        'from_coin': 'str',
-        'to_coin': 'str',
-        'from_amount': 'str'
+        'qty': 'str',
+        'price': 'str'
     }
 
     attribute_map = {
-        'exchange_type': 'exchange_type',
-        'from_coin': 'from_coin',
-        'to_coin': 'to_coin',
-        'from_amount': 'from_amount'
+        'qty': 'qty',
+        'price': 'price'
     }
 
-    def __init__(self, exchange_type=None, from_coin=None, to_coin=None, from_amount=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, Configuration) -> None
+    def __init__(self, qty=None, price=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineObject23 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._exchange_type = None
-        self._from_coin = None
-        self._to_coin = None
-        self._from_amount = None
+        self._qty = None
+        self._price = None
         self.discriminator = None
 
-        self.exchange_type = exchange_type
-        self.from_coin = from_coin
-        self.to_coin = to_coin
-        self.from_amount = from_amount
+        if qty is not None:
+            self.qty = qty
+        if price is not None:
+            self.price = price
 
     @property
-    def exchange_type(self):
-        """Gets the exchange_type of this InlineObject23.  # noqa: E501
+    def qty(self):
+        """Gets the qty of this InlineObject23.  # noqa: E501
 
-        Exchange Type  # noqa: E501
+        modify amount  # noqa: E501
 
-        :return: The exchange_type of this InlineObject23.  # noqa: E501
+        :return: The qty of this InlineObject23.  # noqa: E501
         :rtype: str
         """
-        return self._exchange_type
+        return self._qty
 
-    @exchange_type.setter
-    def exchange_type(self, exchange_type):
-        """Sets the exchange_type of this InlineObject23.
+    @qty.setter
+    def qty(self, qty):
+        """Sets the qty of this InlineObject23.
 
-        Exchange Type  # noqa: E501
+        modify amount  # noqa: E501
 
-        :param exchange_type: The exchange_type of this InlineObject23.  # noqa: E501
+        :param qty: The qty of this InlineObject23.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and exchange_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `exchange_type`, must not be `None`")  # noqa: E501
 
-        self._exchange_type = exchange_type
+        self._qty = qty
 
     @property
-    def from_coin(self):
-        """Gets the from_coin of this InlineObject23.  # noqa: E501
+    def price(self):
+        """Gets the price of this InlineObject23.  # noqa: E501
 
-        Asset Sold  # noqa: E501
+        modify price  # noqa: E501
 
-        :return: The from_coin of this InlineObject23.  # noqa: E501
+        :return: The price of this InlineObject23.  # noqa: E501
         :rtype: str
         """
-        return self._from_coin
+        return self._price
 
-    @from_coin.setter
-    def from_coin(self, from_coin):
-        """Sets the from_coin of this InlineObject23.
+    @price.setter
+    def price(self, price):
+        """Sets the price of this InlineObject23.
 
-        Asset Sold  # noqa: E501
+        modify price  # noqa: E501
 
-        :param from_coin: The from_coin of this InlineObject23.  # noqa: E501
+        :param price: The price of this InlineObject23.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and from_coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `from_coin`, must not be `None`")  # noqa: E501
 
-        self._from_coin = from_coin
-
-    @property
-    def to_coin(self):
-        """Gets the to_coin of this InlineObject23.  # noqa: E501
-
-        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
-
-        :return: The to_coin of this InlineObject23.  # noqa: E501
-        :rtype: str
-        """
-        return self._to_coin
-
-    @to_coin.setter
-    def to_coin(self, to_coin):
-        """Sets the to_coin of this InlineObject23.
-
-        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
-
-        :param to_coin: The to_coin of this InlineObject23.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and to_coin is None:  # noqa: E501
-            raise ValueError("Invalid value for `to_coin`, must not be `None`")  # noqa: E501
-
-        self._to_coin = to_coin
-
-    @property
-    def from_amount(self):
-        """Gets the from_amount of this InlineObject23.  # noqa: E501
-
-        Amount to sell  # noqa: E501
-
-        :return: The from_amount of this InlineObject23.  # noqa: E501
-        :rtype: str
-        """
-        return self._from_amount
-
-    @from_amount.setter
-    def from_amount(self, from_amount):
-        """Sets the from_amount of this InlineObject23.
-
-        Amount to sell  # noqa: E501
-
-        :param from_amount: The from_amount of this InlineObject23.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and from_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `from_amount`, must not be `None`")  # noqa: E501
-
-        self._from_amount = from_amount
+        self._price = price
 
     def to_dict(self):
         """Returns the model properties as a dict"""
