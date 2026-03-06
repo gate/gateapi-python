@@ -53,8 +53,10 @@ class InlineResponse20014DataMerchantInfo(object):
         self._market = None
         self.discriminator = None
 
-        self.type = type
-        self.market = market
+        if type is not None:
+            self.type = type
+        if market is not None:
+            self.market = market
 
     @property
     def type(self):
@@ -74,8 +76,6 @@ class InlineResponse20014DataMerchantInfo(object):
         :param type: The type of this InlineResponse20014DataMerchantInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -97,8 +97,6 @@ class InlineResponse20014DataMerchantInfo(object):
         :param market: The market of this InlineResponse20014DataMerchantInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and market is None:  # noqa: E501
-            raise ValueError("Invalid value for `market`, must not be `None`")  # noqa: E501
 
         self._market = market
 

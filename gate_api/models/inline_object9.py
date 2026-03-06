@@ -33,77 +33,49 @@ class InlineObject9(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'txid': 'int',
-        'channel': 'str'
+        'order_id': 'str'
     }
 
     attribute_map = {
-        'txid': 'txid',
-        'channel': 'channel'
+        'order_id': 'order_id'
     }
 
-    def __init__(self, txid=None, channel=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, Configuration) -> None
+    def __init__(self, order_id=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, Configuration) -> None
         """InlineObject9 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._txid = None
-        self._channel = None
+        self._order_id = None
         self.discriminator = None
 
-        self.txid = txid
-        if channel is not None:
-            self.channel = channel
+        self.order_id = order_id
 
     @property
-    def txid(self):
-        """Gets the txid of this InlineObject9.  # noqa: E501
+    def order_id(self):
+        """Gets the order_id of this InlineObject9.  # noqa: E501
 
         Order ID  # noqa: E501
 
-        :return: The txid of this InlineObject9.  # noqa: E501
-        :rtype: int
-        """
-        return self._txid
-
-    @txid.setter
-    def txid(self, txid):
-        """Sets the txid of this InlineObject9.
-
-        Order ID  # noqa: E501
-
-        :param txid: The txid of this InlineObject9.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
-            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
-
-        self._txid = txid
-
-    @property
-    def channel(self):
-        """Gets the channel of this InlineObject9.  # noqa: E501
-
-        Empty or web3  # noqa: E501
-
-        :return: The channel of this InlineObject9.  # noqa: E501
+        :return: The order_id of this InlineObject9.  # noqa: E501
         :rtype: str
         """
-        return self._channel
+        return self._order_id
 
-    @channel.setter
-    def channel(self, channel):
-        """Sets the channel of this InlineObject9.
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineObject9.
 
-        Empty or web3  # noqa: E501
+        Order ID  # noqa: E501
 
-        :param channel: The channel of this InlineObject9.  # noqa: E501
+        :param order_id: The order_id of this InlineObject9.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._channel = channel
+        self._order_id = order_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

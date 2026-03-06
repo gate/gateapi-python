@@ -33,302 +33,216 @@ class InlineObject8(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'crypto_currency': 'str',
-        'fiat_currency': 'str',
-        'select_type': 'str',
-        'status': 'str',
-        'txid': 'int',
-        'start_time': 'int',
-        'end_time': 'int',
-        'query_dispute': 'int',
-        'page': 'int',
-        'per_page': 'int'
+        'pay_coin': 'str',
+        'get_coin': 'str',
+        'pay_amount': 'str',
+        'get_amount': 'str',
+        'side': 'str',
+        'promotion_code': 'str',
+        'quote_token': 'str'
     }
 
     attribute_map = {
-        'crypto_currency': 'crypto_currency',
-        'fiat_currency': 'fiat_currency',
-        'select_type': 'select_type',
-        'status': 'status',
-        'txid': 'txid',
-        'start_time': 'start_time',
-        'end_time': 'end_time',
-        'query_dispute': 'query_dispute',
-        'page': 'page',
-        'per_page': 'per_page'
+        'pay_coin': 'pay_coin',
+        'get_coin': 'get_coin',
+        'pay_amount': 'pay_amount',
+        'get_amount': 'get_amount',
+        'side': 'side',
+        'promotion_code': 'promotion_code',
+        'quote_token': 'quote_token'
     }
 
-    def __init__(self, crypto_currency=None, fiat_currency=None, select_type=None, status=None, txid=None, start_time=None, end_time=None, query_dispute=None, page=None, per_page=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, int, int, int, int, int, int, Configuration) -> None
+    def __init__(self, pay_coin=None, get_coin=None, pay_amount=None, get_amount=None, side=None, promotion_code=None, quote_token=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, Configuration) -> None
         """InlineObject8 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._crypto_currency = None
-        self._fiat_currency = None
-        self._select_type = None
-        self._status = None
-        self._txid = None
-        self._start_time = None
-        self._end_time = None
-        self._query_dispute = None
-        self._page = None
-        self._per_page = None
+        self._pay_coin = None
+        self._get_coin = None
+        self._pay_amount = None
+        self._get_amount = None
+        self._side = None
+        self._promotion_code = None
+        self._quote_token = None
         self.discriminator = None
 
-        self.crypto_currency = crypto_currency
-        self.fiat_currency = fiat_currency
-        if select_type is not None:
-            self.select_type = select_type
-        if status is not None:
-            self.status = status
-        if txid is not None:
-            self.txid = txid
-        if start_time is not None:
-            self.start_time = start_time
-        if end_time is not None:
-            self.end_time = end_time
-        if query_dispute is not None:
-            self.query_dispute = query_dispute
-        if page is not None:
-            self.page = page
-        if per_page is not None:
-            self.per_page = per_page
+        if pay_coin is not None:
+            self.pay_coin = pay_coin
+        if get_coin is not None:
+            self.get_coin = get_coin
+        if pay_amount is not None:
+            self.pay_amount = pay_amount
+        if get_amount is not None:
+            self.get_amount = get_amount
+        if side is not None:
+            self.side = side
+        if promotion_code is not None:
+            self.promotion_code = promotion_code
+        if quote_token is not None:
+            self.quote_token = quote_token
 
     @property
-    def crypto_currency(self):
-        """Gets the crypto_currency of this InlineObject8.  # noqa: E501
+    def pay_coin(self):
+        """Gets the pay_coin of this InlineObject8.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
 
-        :return: The crypto_currency of this InlineObject8.  # noqa: E501
+        :return: The pay_coin of this InlineObject8.  # noqa: E501
         :rtype: str
         """
-        return self._crypto_currency
+        return self._pay_coin
 
-    @crypto_currency.setter
-    def crypto_currency(self, crypto_currency):
-        """Sets the crypto_currency of this InlineObject8.
+    @pay_coin.setter
+    def pay_coin(self, pay_coin):
+        """Sets the pay_coin of this InlineObject8.
 
-        Cryptocurrency  # noqa: E501
+        Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
 
-        :param crypto_currency: The crypto_currency of this InlineObject8.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and crypto_currency is None:  # noqa: E501
-            raise ValueError("Invalid value for `crypto_currency`, must not be `None`")  # noqa: E501
-
-        self._crypto_currency = crypto_currency
-
-    @property
-    def fiat_currency(self):
-        """Gets the fiat_currency of this InlineObject8.  # noqa: E501
-
-        Fiat currency  # noqa: E501
-
-        :return: The fiat_currency of this InlineObject8.  # noqa: E501
-        :rtype: str
-        """
-        return self._fiat_currency
-
-    @fiat_currency.setter
-    def fiat_currency(self, fiat_currency):
-        """Sets the fiat_currency of this InlineObject8.
-
-        Fiat currency  # noqa: E501
-
-        :param fiat_currency: The fiat_currency of this InlineObject8.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and fiat_currency is None:  # noqa: E501
-            raise ValueError("Invalid value for `fiat_currency`, must not be `None`")  # noqa: E501
-
-        self._fiat_currency = fiat_currency
-
-    @property
-    def select_type(self):
-        """Gets the select_type of this InlineObject8.  # noqa: E501
-
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
-
-        :return: The select_type of this InlineObject8.  # noqa: E501
-        :rtype: str
-        """
-        return self._select_type
-
-    @select_type.setter
-    def select_type(self, select_type):
-        """Sets the select_type of this InlineObject8.
-
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
-
-        :param select_type: The select_type of this InlineObject8.  # noqa: E501
+        :param pay_coin: The pay_coin of this InlineObject8.  # noqa: E501
         :type: str
         """
 
-        self._select_type = select_type
+        self._pay_coin = pay_coin
 
     @property
-    def status(self):
-        """Gets the status of this InlineObject8.  # noqa: E501
+    def get_coin(self):
+        """Gets the get_coin of this InlineObject8.  # noqa: E501
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
 
-        :return: The status of this InlineObject8.  # noqa: E501
+        :return: The get_coin of this InlineObject8.  # noqa: E501
         :rtype: str
         """
-        return self._status
+        return self._get_coin
 
-    @status.setter
-    def status(self, status):
-        """Sets the status of this InlineObject8.
+    @get_coin.setter
+    def get_coin(self, get_coin):
+        """Sets the get_coin of this InlineObject8.
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
 
-        :param status: The status of this InlineObject8.  # noqa: E501
+        :param get_coin: The get_coin of this InlineObject8.  # noqa: E501
         :type: str
         """
 
-        self._status = status
+        self._get_coin = get_coin
 
     @property
-    def txid(self):
-        """Gets the txid of this InlineObject8.  # noqa: E501
+    def pay_amount(self):
+        """Gets the pay_amount of this InlineObject8.  # noqa: E501
 
-        Order ID  # noqa: E501
+        User payment currency amount  # noqa: E501
 
-        :return: The txid of this InlineObject8.  # noqa: E501
-        :rtype: int
+        :return: The pay_amount of this InlineObject8.  # noqa: E501
+        :rtype: str
         """
-        return self._txid
+        return self._pay_amount
 
-    @txid.setter
-    def txid(self, txid):
-        """Sets the txid of this InlineObject8.
+    @pay_amount.setter
+    def pay_amount(self, pay_amount):
+        """Sets the pay_amount of this InlineObject8.
 
-        Order ID  # noqa: E501
+        User payment currency amount  # noqa: E501
 
-        :param txid: The txid of this InlineObject8.  # noqa: E501
-        :type: int
+        :param pay_amount: The pay_amount of this InlineObject8.  # noqa: E501
+        :type: str
         """
 
-        self._txid = txid
+        self._pay_amount = pay_amount
 
     @property
-    def start_time(self):
-        """Gets the start_time of this InlineObject8.  # noqa: E501
+    def get_amount(self):
+        """Gets the get_amount of this InlineObject8.  # noqa: E501
 
-        Start timestamp, default is 00:00 89 days ago  # noqa: E501
+        Amount of currency received by the user  # noqa: E501
 
-        :return: The start_time of this InlineObject8.  # noqa: E501
-        :rtype: int
+        :return: The get_amount of this InlineObject8.  # noqa: E501
+        :rtype: str
         """
-        return self._start_time
+        return self._get_amount
 
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this InlineObject8.
+    @get_amount.setter
+    def get_amount(self, get_amount):
+        """Sets the get_amount of this InlineObject8.
 
-        Start timestamp, default is 00:00 89 days ago  # noqa: E501
+        Amount of currency received by the user  # noqa: E501
 
-        :param start_time: The start_time of this InlineObject8.  # noqa: E501
-        :type: int
+        :param get_amount: The get_amount of this InlineObject8.  # noqa: E501
+        :type: str
         """
 
-        self._start_time = start_time
+        self._get_amount = get_amount
 
     @property
-    def end_time(self):
-        """Gets the end_time of this InlineObject8.  # noqa: E501
+    def side(self):
+        """Gets the side of this InlineObject8.  # noqa: E501
 
-        End timestamp, default is 23:59:59 today  # noqa: E501
+        Quote direction returned by the quote API (used for order validation)  # noqa: E501
 
-        :return: The end_time of this InlineObject8.  # noqa: E501
-        :rtype: int
+        :return: The side of this InlineObject8.  # noqa: E501
+        :rtype: str
         """
-        return self._end_time
+        return self._side
 
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this InlineObject8.
+    @side.setter
+    def side(self, side):
+        """Sets the side of this InlineObject8.
 
-        End timestamp, default is 23:59:59 today  # noqa: E501
+        Quote direction returned by the quote API (used for order validation)  # noqa: E501
 
-        :param end_time: The end_time of this InlineObject8.  # noqa: E501
-        :type: int
+        :param side: The side of this InlineObject8.  # noqa: E501
+        :type: str
         """
 
-        self._end_time = end_time
+        self._side = side
 
     @property
-    def query_dispute(self):
-        """Gets the query_dispute of this InlineObject8.  # noqa: E501
+    def promotion_code(self):
+        """Gets the promotion_code of this InlineObject8.  # noqa: E501
 
-        1: Include appeal status, 0: None  # noqa: E501
+        promotion code   # noqa: E501
 
-        :return: The query_dispute of this InlineObject8.  # noqa: E501
-        :rtype: int
+        :return: The promotion_code of this InlineObject8.  # noqa: E501
+        :rtype: str
         """
-        return self._query_dispute
+        return self._promotion_code
 
-    @query_dispute.setter
-    def query_dispute(self, query_dispute):
-        """Sets the query_dispute of this InlineObject8.
+    @promotion_code.setter
+    def promotion_code(self, promotion_code):
+        """Sets the promotion_code of this InlineObject8.
 
-        1: Include appeal status, 0: None  # noqa: E501
+        promotion code   # noqa: E501
 
-        :param query_dispute: The query_dispute of this InlineObject8.  # noqa: E501
-        :type: int
+        :param promotion_code: The promotion_code of this InlineObject8.  # noqa: E501
+        :type: str
         """
 
-        self._query_dispute = query_dispute
+        self._promotion_code = promotion_code
 
     @property
-    def page(self):
-        """Gets the page of this InlineObject8.  # noqa: E501
+    def quote_token(self):
+        """Gets the quote_token of this InlineObject8.  # noqa: E501
 
-        page number  # noqa: E501
+        Parameter returned by the quote API  # noqa: E501
 
-        :return: The page of this InlineObject8.  # noqa: E501
-        :rtype: int
+        :return: The quote_token of this InlineObject8.  # noqa: E501
+        :rtype: str
         """
-        return self._page
+        return self._quote_token
 
-    @page.setter
-    def page(self, page):
-        """Sets the page of this InlineObject8.
+    @quote_token.setter
+    def quote_token(self, quote_token):
+        """Sets the quote_token of this InlineObject8.
 
-        page number  # noqa: E501
+        Parameter returned by the quote API  # noqa: E501
 
-        :param page: The page of this InlineObject8.  # noqa: E501
-        :type: int
-        """
-
-        self._page = page
-
-    @property
-    def per_page(self):
-        """Gets the per_page of this InlineObject8.  # noqa: E501
-
-        Number of orders per page  # noqa: E501
-
-        :return: The per_page of this InlineObject8.  # noqa: E501
-        :rtype: int
-        """
-        return self._per_page
-
-    @per_page.setter
-    def per_page(self, per_page):
-        """Sets the per_page of this InlineObject8.
-
-        Number of orders per page  # noqa: E501
-
-        :param per_page: The per_page of this InlineObject8.  # noqa: E501
-        :type: int
+        :param quote_token: The quote_token of this InlineObject8.  # noqa: E501
+        :type: str
         """
 
-        self._per_page = per_page
+        self._quote_token = quote_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

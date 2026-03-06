@@ -131,7 +131,7 @@ class CrossExApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/rule/symbols', 'GET',
+            '/crossex/rule/symbols', 'GET',
             path_params,
             query_params,
             header_params,
@@ -164,7 +164,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20026]
+        :rtype: list[gate_api.InlineResponse20027]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -191,7 +191,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20026], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20027], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -245,14 +245,14 @@ class CrossExApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/rule/risk_limits', 'GET',
+            '/crossex/rule/risk_limits', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20026]',  # noqa: E501
+            response_type='list[InlineResponse20027]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -278,7 +278,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20027]
+        :rtype: list[gate_api.InlineResponse20028]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -305,7 +305,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20027], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20028], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -355,14 +355,14 @@ class CrossExApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/transfers/coin', 'GET',
+            '/crossex/transfers/coin', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20027]',  # noqa: E501
+            response_type='list[InlineResponse20028]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -393,7 +393,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20028]
+        :rtype: list[gate_api.InlineResponse20029]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -425,7 +425,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20028], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20029], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -490,14 +490,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/transfers', 'GET',
+            '/crossex/transfers', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20028]',  # noqa: E501
+            response_type='list[InlineResponse20029]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -515,7 +515,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject21 inline_object21:
+        :param InlineObject10 inline_object10:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -523,7 +523,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20029
+        :rtype: gate_api.InlineResponse20030
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -540,7 +540,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject21 inline_object21:
+        :param InlineObject10 inline_object10:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -550,7 +550,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -558,7 +558,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object21'
+            'inline_object10'
         ]
         all_params.extend(
             [
@@ -590,8 +590,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object21' in local_var_params:
-            body_params = local_var_params['inline_object21']
+        if 'inline_object10' in local_var_params:
+            body_params = local_var_params['inline_object10']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -604,14 +604,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/transfers', 'POST',
+            '/crossex/transfers', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -622,14 +622,14 @@ class CrossExApi(object):
     def create_crossex_order(self, **kwargs):  # noqa: E501
         """Create an order  # noqa: E501
 
-        Rate Limit: 100 requests per 10 seconds  # noqa: E501
+        Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_crossex_order(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject22 inline_object22:
+        :param InlineObject11 inline_object11:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -637,7 +637,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20030
+        :rtype: gate_api.InlineResponse20031
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -647,14 +647,14 @@ class CrossExApi(object):
     def create_crossex_order_with_http_info(self, **kwargs):  # noqa: E501
         """Create an order  # noqa: E501
 
-        Rate Limit: 100 requests per 10 seconds  # noqa: E501
+        Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_crossex_order_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject22 inline_object22:
+        :param InlineObject11 inline_object11:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -664,7 +664,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -672,7 +672,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object22'
+            'inline_object11'
         ]
         all_params.extend(
             [
@@ -704,8 +704,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object22' in local_var_params:
-            body_params = local_var_params['inline_object22']
+        if 'inline_object11' in local_var_params:
+            body_params = local_var_params['inline_object11']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -718,14 +718,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orders', 'POST',
+            '/crossex/orders', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -751,7 +751,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20031
+        :rtype: gate_api.InlineResponse20032
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -778,7 +778,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -832,14 +832,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orders/{order_id}', 'GET',
+            '/crossex/orders/{order_id}', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -858,7 +858,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str order_id: Support Order ID or Text for Modify Order (required)
-        :param InlineObject23 inline_object23:
+        :param InlineObject12 inline_object12:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -866,7 +866,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20032
+        :rtype: gate_api.InlineResponse20033
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -884,7 +884,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str order_id: Support Order ID or Text for Modify Order (required)
-        :param InlineObject23 inline_object23:
+        :param InlineObject12 inline_object12:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -894,7 +894,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -903,7 +903,7 @@ class CrossExApi(object):
 
         all_params = [
             'order_id',
-            'inline_object23'
+            'inline_object12'
         ]
         all_params.extend(
             [
@@ -941,8 +941,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object23' in local_var_params:
-            body_params = local_var_params['inline_object23']
+        if 'inline_object12' in local_var_params:
+            body_params = local_var_params['inline_object12']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -955,14 +955,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orders/{order_id}', 'PUT',
+            '/crossex/orders/{order_id}', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -981,7 +981,6 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str order_id: Support Order ID or Text for Cancel Order (required)
-        :param object body:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1007,7 +1006,6 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str order_id: Support Order ID or Text for Cancel Order (required)
-        :param object body:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1025,8 +1023,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'order_id',
-            'body'
+            'order_id'
         ]
         all_params.extend(
             [
@@ -1064,21 +1061,15 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/orders/{order_id}', 'DELETE',
+            '/crossex/orders/{order_id}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -1103,7 +1094,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject24 inline_object24:
+        :param InlineObject13 inline_object13:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1111,7 +1102,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20033
+        :rtype: gate_api.InlineResponse20034
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1128,7 +1119,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject24 inline_object24:
+        :param InlineObject13 inline_object13:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1138,7 +1129,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1146,7 +1137,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object24'
+            'inline_object13'
         ]
         all_params.extend(
             [
@@ -1178,8 +1169,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object24' in local_var_params:
-            body_params = local_var_params['inline_object24']
+        if 'inline_object13' in local_var_params:
+            body_params = local_var_params['inline_object13']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1192,14 +1183,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/convert/quote', 'POST',
+            '/crossex/convert/quote', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1217,7 +1208,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject25 inline_object25:
+        :param InlineObject14 inline_object14:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1242,7 +1233,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject25 inline_object25:
+        :param InlineObject14 inline_object14:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1260,7 +1251,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object25'
+            'inline_object14'
         ]
         all_params.extend(
             [
@@ -1292,8 +1283,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object25' in local_var_params:
-            body_params = local_var_params['inline_object25']
+        if 'inline_object14' in local_var_params:
+            body_params = local_var_params['inline_object14']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1306,7 +1297,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/convert/orders', 'POST',
+            '/crossex/convert/orders', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1339,7 +1330,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20034
+        :rtype: gate_api.InlineResponse20035
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1366,7 +1357,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1416,14 +1407,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/accounts', 'GET',
+            '/crossex/accounts', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1441,7 +1432,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject26 inline_object26:
+        :param InlineObject15 inline_object15:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1466,7 +1457,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject26 inline_object26:
+        :param InlineObject15 inline_object15:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1484,7 +1475,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object26'
+            'inline_object15'
         ]
         all_params.extend(
             [
@@ -1516,8 +1507,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object26' in local_var_params:
-            body_params = local_var_params['inline_object26']
+        if 'inline_object15' in local_var_params:
+            body_params = local_var_params['inline_object15']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1530,7 +1521,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/accounts', 'PUT',
+            '/crossex/accounts', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -1563,7 +1554,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20035]
+        :rtype: dict(str, str)
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1590,7 +1581,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20035], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(dict(str, str), status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1640,14 +1631,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/positions/leverage', 'GET',
+            '/crossex/positions/leverage', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20035]',  # noqa: E501
+            response_type='dict(str, str)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1665,7 +1656,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject27 inline_object27:
+        :param InlineObject16 inline_object16:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1690,7 +1681,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject27 inline_object27:
+        :param InlineObject16 inline_object16:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1708,7 +1699,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object27'
+            'inline_object16'
         ]
         all_params.extend(
             [
@@ -1740,8 +1731,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object27' in local_var_params:
-            body_params = local_var_params['inline_object27']
+        if 'inline_object16' in local_var_params:
+            body_params = local_var_params['inline_object16']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1754,7 +1745,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/positions/leverage', 'POST',
+            '/crossex/positions/leverage', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1787,7 +1778,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20035]
+        :rtype: dict(str, str)
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1814,7 +1805,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20035], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(dict(str, str), status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1864,14 +1855,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/margin_positions/leverage', 'GET',
+            '/crossex/margin_positions/leverage', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20035]',  # noqa: E501
+            response_type='dict(str, str)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1889,7 +1880,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject28 inline_object28:
+        :param InlineObject17 inline_object17:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1914,7 +1905,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject28 inline_object28:
+        :param InlineObject17 inline_object17:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1932,7 +1923,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object28'
+            'inline_object17'
         ]
         all_params.extend(
             [
@@ -1964,8 +1955,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object28' in local_var_params:
-            body_params = local_var_params['inline_object28']
+        if 'inline_object17' in local_var_params:
+            body_params = local_var_params['inline_object17']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1978,7 +1969,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/margin_positions/leverage', 'POST',
+            '/crossex/margin_positions/leverage', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2003,7 +1994,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject29 inline_object29:
+        :param InlineObject18 inline_object18:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2011,7 +2002,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20030
+        :rtype: gate_api.InlineResponse20031
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2028,7 +2019,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject29 inline_object29:
+        :param InlineObject18 inline_object18:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2038,7 +2029,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2046,7 +2037,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object29'
+            'inline_object18'
         ]
         all_params.extend(
             [
@@ -2078,8 +2069,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object29' in local_var_params:
-            body_params = local_var_params['inline_object29']
+        if 'inline_object18' in local_var_params:
+            body_params = local_var_params['inline_object18']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -2092,14 +2083,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/position', 'DELETE',
+            '/crossex/position', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2207,7 +2198,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/interest_rate', 'GET',
+            '/crossex/interest_rate', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2312,7 +2303,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/fee', 'GET',
+            '/crossex/fee', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2427,7 +2418,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/positions', 'GET',
+            '/crossex/positions', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2542,7 +2533,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/margin_positions', 'GET',
+            '/crossex/margin_positions', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2656,7 +2647,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/adl_rank', 'GET',
+            '/crossex/adl_rank', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2691,7 +2682,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.InlineResponse20031]
+        :rtype: list[gate_api.InlineResponse20032]
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2720,7 +2711,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.InlineResponse20031], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(list[gate_api.InlineResponse20032], status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2776,14 +2767,14 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/open_orders', 'GET',
+            '/crossex/open_orders', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[InlineResponse20031]',  # noqa: E501
+            response_type='list[InlineResponse20032]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2906,7 +2897,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/history_orders', 'GET',
+            '/crossex/history_orders', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3036,7 +3027,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/history_positions', 'GET',
+            '/crossex/history_positions', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3166,7 +3157,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/history_margin_positions', 'GET',
+            '/crossex/history_margin_positions', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3301,7 +3292,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/history_margin_interests', 'GET',
+            '/crossex/history_margin_interests', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3431,7 +3422,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/history_trades', 'GET',
+            '/crossex/history_trades', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3561,7 +3552,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/account_book', 'GET',
+            '/crossex/account_book', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3676,7 +3667,7 @@ class CrossExApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/coin_discount_rate', 'GET',
+            '/crossex/coin_discount_rate', 'GET',
             path_params,
             query_params,
             header_params,

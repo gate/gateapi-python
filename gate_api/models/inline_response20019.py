@@ -33,90 +33,35 @@ class InlineResponse20019(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'timestamp': 'float',
-        'method': 'str',
         'code': 'int',
         'message': 'str',
-        'data': 'InlineResponse20019Data',
-        'version': 'str'
+        'timestamp': 'int'
     }
 
     attribute_map = {
-        'timestamp': 'timestamp',
-        'method': 'method',
         'code': 'code',
         'message': 'message',
-        'data': 'data',
-        'version': 'version'
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
-        # type: (float, str, int, str, InlineResponse20019Data, str, Configuration) -> None
+    def __init__(self, code=None, message=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, int, Configuration) -> None
         """InlineResponse20019 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._timestamp = None
-        self._method = None
         self._code = None
         self._message = None
-        self._data = None
-        self._version = None
+        self._timestamp = None
         self.discriminator = None
 
-        self.timestamp = timestamp
-        self.method = method
-        self.code = code
-        self.message = message
-        self.data = data
-        self.version = version
-
-    @property
-    def timestamp(self):
-        """Gets the timestamp of this InlineResponse20019.  # noqa: E501
-
-
-        :return: The timestamp of this InlineResponse20019.  # noqa: E501
-        :rtype: float
-        """
-        return self._timestamp
-
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this InlineResponse20019.
-
-
-        :param timestamp: The timestamp of this InlineResponse20019.  # noqa: E501
-        :type: float
-        """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
-
-        self._timestamp = timestamp
-
-    @property
-    def method(self):
-        """Gets the method of this InlineResponse20019.  # noqa: E501
-
-
-        :return: The method of this InlineResponse20019.  # noqa: E501
-        :rtype: str
-        """
-        return self._method
-
-    @method.setter
-    def method(self, method):
-        """Sets the method of this InlineResponse20019.
-
-
-        :param method: The method of this InlineResponse20019.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
-            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
-
-        self._method = method
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
+        if timestamp is not None:
+            self.timestamp = timestamp
 
     @property
     def code(self):
@@ -136,8 +81,6 @@ class InlineResponse20019(object):
         :param code: The code of this InlineResponse20019.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -159,56 +102,29 @@ class InlineResponse20019(object):
         :param message: The message of this InlineResponse20019.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
     @property
-    def data(self):
-        """Gets the data of this InlineResponse20019.  # noqa: E501
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20019.  # noqa: E501
 
 
-        :return: The data of this InlineResponse20019.  # noqa: E501
-        :rtype: InlineResponse20019Data
+        :return: The timestamp of this InlineResponse20019.  # noqa: E501
+        :rtype: int
         """
-        return self._data
+        return self._timestamp
 
-    @data.setter
-    def data(self, data):
-        """Sets the data of this InlineResponse20019.
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20019.
 
 
-        :param data: The data of this InlineResponse20019.  # noqa: E501
-        :type: InlineResponse20019Data
+        :param timestamp: The timestamp of this InlineResponse20019.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
-        self._data = data
-
-    @property
-    def version(self):
-        """Gets the version of this InlineResponse20019.  # noqa: E501
-
-
-        :return: The version of this InlineResponse20019.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this InlineResponse20019.
-
-
-        :param version: The version of this InlineResponse20019.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
-
-        self._version = version
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,101 +33,76 @@ class InlineObject12(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'trade_id': 'str',
-        'reason_id': 'str',
-        'reason_memo': 'str'
+        'qty': 'str',
+        'price': 'str'
     }
 
     attribute_map = {
-        'trade_id': 'trade_id',
-        'reason_id': 'reason_id',
-        'reason_memo': 'reason_memo'
+        'qty': 'qty',
+        'price': 'price'
     }
 
-    def __init__(self, trade_id=None, reason_id=None, reason_memo=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, Configuration) -> None
+    def __init__(self, qty=None, price=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineObject12 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._trade_id = None
-        self._reason_id = None
-        self._reason_memo = None
+        self._qty = None
+        self._price = None
         self.discriminator = None
 
-        self.trade_id = trade_id
-        self.reason_id = reason_id
-        self.reason_memo = reason_memo
+        if qty is not None:
+            self.qty = qty
+        if price is not None:
+            self.price = price
 
     @property
-    def trade_id(self):
-        """Gets the trade_id of this InlineObject12.  # noqa: E501
+    def qty(self):
+        """Gets the qty of this InlineObject12.  # noqa: E501
 
+        modify amount  # noqa: E501
 
-        :return: The trade_id of this InlineObject12.  # noqa: E501
+        :return: The qty of this InlineObject12.  # noqa: E501
         :rtype: str
         """
-        return self._trade_id
+        return self._qty
 
-    @trade_id.setter
-    def trade_id(self, trade_id):
-        """Sets the trade_id of this InlineObject12.
+    @qty.setter
+    def qty(self, qty):
+        """Sets the qty of this InlineObject12.
 
+        modify amount  # noqa: E501
 
-        :param trade_id: The trade_id of this InlineObject12.  # noqa: E501
+        :param qty: The qty of this InlineObject12.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and trade_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `trade_id`, must not be `None`")  # noqa: E501
 
-        self._trade_id = trade_id
+        self._qty = qty
 
     @property
-    def reason_id(self):
-        """Gets the reason_id of this InlineObject12.  # noqa: E501
+    def price(self):
+        """Gets the price of this InlineObject12.  # noqa: E501
 
+        modify price  # noqa: E501
 
-        :return: The reason_id of this InlineObject12.  # noqa: E501
+        :return: The price of this InlineObject12.  # noqa: E501
         :rtype: str
         """
-        return self._reason_id
+        return self._price
 
-    @reason_id.setter
-    def reason_id(self, reason_id):
-        """Sets the reason_id of this InlineObject12.
+    @price.setter
+    def price(self, price):
+        """Sets the price of this InlineObject12.
 
+        modify price  # noqa: E501
 
-        :param reason_id: The reason_id of this InlineObject12.  # noqa: E501
+        :param price: The price of this InlineObject12.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and reason_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `reason_id`, must not be `None`")  # noqa: E501
 
-        self._reason_id = reason_id
-
-    @property
-    def reason_memo(self):
-        """Gets the reason_memo of this InlineObject12.  # noqa: E501
-
-
-        :return: The reason_memo of this InlineObject12.  # noqa: E501
-        :rtype: str
-        """
-        return self._reason_memo
-
-    @reason_memo.setter
-    def reason_memo(self, reason_memo):
-        """Sets the reason_memo of this InlineObject12.
-
-
-        :param reason_memo: The reason_memo of this InlineObject12.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and reason_memo is None:  # noqa: E501
-            raise ValueError("Invalid value for `reason_memo`, must not be `None`")  # noqa: E501
-
-        self._reason_memo = reason_memo
+        self._price = price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

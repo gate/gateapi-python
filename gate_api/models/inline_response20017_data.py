@@ -59,10 +59,14 @@ class InlineResponse20017Data(object):
         self._exported_num = None
         self.discriminator = None
 
-        self.list = list
-        self.trans_time = trans_time
-        self.count = count
-        self.exported_num = exported_num
+        if list is not None:
+            self.list = list
+        if trans_time is not None:
+            self.trans_time = trans_time
+        if count is not None:
+            self.count = count
+        if exported_num is not None:
+            self.exported_num = exported_num
 
     @property
     def list(self):
@@ -82,8 +86,6 @@ class InlineResponse20017Data(object):
         :param list: The list of this InlineResponse20017Data.  # noqa: E501
         :type: list[InlineResponse20017DataList]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 
@@ -107,8 +109,6 @@ class InlineResponse20017Data(object):
         :param trans_time: The trans_time of this InlineResponse20017Data.  # noqa: E501
         :type: list[InlineResponse20017DataTransTime]
         """
-        if self.local_vars_configuration.client_side_validation and trans_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `trans_time`, must not be `None`")  # noqa: E501
 
         self._trans_time = trans_time
 
@@ -132,8 +132,6 @@ class InlineResponse20017Data(object):
         :param count: The count of this InlineResponse20017Data.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -157,8 +155,6 @@ class InlineResponse20017Data(object):
         :param exported_num: The exported_num of this InlineResponse20017Data.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and exported_num is None:  # noqa: E501
-            raise ValueError("Invalid value for `exported_num`, must not be `None`")  # noqa: E501
 
         self._exported_num = exported_num
 

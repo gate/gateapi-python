@@ -64,7 +64,7 @@ class MockOptionsOrder(object):
     def options_name(self):
         """Gets the options_name of this MockOptionsOrder.  # noqa: E501
 
-        Option name, currently only supports USDT options for BTC and ETH  # noqa: E501
+        Options contract name. Currently supports all options contract markets.  # noqa: E501
 
         :return: The options_name of this MockOptionsOrder.  # noqa: E501
         :rtype: str
@@ -75,7 +75,7 @@ class MockOptionsOrder(object):
     def options_name(self, options_name):
         """Sets the options_name of this MockOptionsOrder.
 
-        Option name, currently only supports USDT options for BTC and ETH  # noqa: E501
+        Options contract name. Currently supports all options contract markets.  # noqa: E501
 
         :param options_name: The options_name of this MockOptionsOrder.  # noqa: E501
         :type: str

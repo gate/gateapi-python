@@ -54,7 +54,6 @@ class FuturesBBOOrder(object):
         'stp_id': 'int',
         'stp_act': 'str',
         'amend_text': 'str',
-        'limit_vip': 'int',
         'pid': 'int'
     }
 
@@ -80,12 +79,11 @@ class FuturesBBOOrder(object):
         'stp_id': 'stp_id',
         'stp_act': 'stp_act',
         'amend_text': 'amend_text',
-        'limit_vip': 'limit_vip',
         'pid': 'pid'
     }
 
-    def __init__(self, contract=None, size=None, direction=None, iceberg=None, level=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, limit_vip=None, pid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, str, int, int, bool, bool, bool, bool, bool, str, int, str, str, str, str, int, str, int, str, str, int, int, Configuration) -> None
+    def __init__(self, contract=None, size=None, direction=None, iceberg=None, level=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, str, int, int, bool, bool, bool, bool, bool, str, int, str, str, str, str, int, str, int, str, str, int, Configuration) -> None
         """FuturesBBOOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -112,7 +110,6 @@ class FuturesBBOOrder(object):
         self._stp_id = None
         self._stp_act = None
         self._amend_text = None
-        self._limit_vip = None
         self._pid = None
         self.discriminator = None
 
@@ -154,8 +151,6 @@ class FuturesBBOOrder(object):
             self.stp_act = stp_act
         if amend_text is not None:
             self.amend_text = amend_text
-        if limit_vip is not None:
-            self.limit_vip = limit_vip
         if pid is not None:
             self.pid = pid
 
@@ -667,29 +662,6 @@ class FuturesBBOOrder(object):
         """
 
         self._amend_text = amend_text
-
-    @property
-    def limit_vip(self):
-        """Gets the limit_vip of this FuturesBBOOrder.  # noqa: E501
-
-        Counterparty user's VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0  # noqa: E501
-
-        :return: The limit_vip of this FuturesBBOOrder.  # noqa: E501
-        :rtype: int
-        """
-        return self._limit_vip
-
-    @limit_vip.setter
-    def limit_vip(self, limit_vip):
-        """Sets the limit_vip of this FuturesBBOOrder.
-
-        Counterparty user's VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0  # noqa: E501
-
-        :param limit_vip: The limit_vip of this FuturesBBOOrder.  # noqa: E501
-        :type: int
-        """
-
-        self._limit_vip = limit_vip
 
     @property
     def pid(self):

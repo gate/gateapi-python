@@ -33,105 +33,77 @@ class InlineObject18(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'txid': 'int',
-        'lastreceived': 'int',
-        'firstreceived': 'int'
+        'symbol': 'str',
+        'position_side': 'str'
     }
 
     attribute_map = {
-        'txid': 'txid',
-        'lastreceived': 'lastreceived',
-        'firstreceived': 'firstreceived'
+        'symbol': 'symbol',
+        'position_side': 'position_side'
     }
 
-    def __init__(self, txid=None, lastreceived=None, firstreceived=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, Configuration) -> None
+    def __init__(self, symbol=None, position_side=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineObject18 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._txid = None
-        self._lastreceived = None
-        self._firstreceived = None
+        self._symbol = None
+        self._position_side = None
         self.discriminator = None
 
-        self.txid = txid
-        if lastreceived is not None:
-            self.lastreceived = lastreceived
-        if firstreceived is not None:
-            self.firstreceived = firstreceived
+        self.symbol = symbol
+        if position_side is not None:
+            self.position_side = position_side
 
     @property
-    def txid(self):
-        """Gets the txid of this InlineObject18.  # noqa: E501
+    def symbol(self):
+        """Gets the symbol of this InlineObject18.  # noqa: E501
 
-        Order ID  # noqa: E501
+        Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT  # noqa: E501
 
-        :return: The txid of this InlineObject18.  # noqa: E501
-        :rtype: int
+        :return: The symbol of this InlineObject18.  # noqa: E501
+        :rtype: str
         """
-        return self._txid
+        return self._symbol
 
-    @txid.setter
-    def txid(self, txid):
-        """Sets the txid of this InlineObject18.
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineObject18.
 
-        Order ID  # noqa: E501
+        Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT  # noqa: E501
 
-        :param txid: The txid of this InlineObject18.  # noqa: E501
-        :type: int
+        :param symbol: The symbol of this InlineObject18.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
-            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
 
-        self._txid = txid
+        self._symbol = symbol
 
     @property
-    def lastreceived(self):
-        """Gets the lastreceived of this InlineObject18.  # noqa: E501
+    def position_side(self):
+        """Gets the position_side of this InlineObject18.  # noqa: E501
 
-        Pagination timestamp (forward)  # noqa: E501
+        Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method  # noqa: E501
 
-        :return: The lastreceived of this InlineObject18.  # noqa: E501
-        :rtype: int
+        :return: The position_side of this InlineObject18.  # noqa: E501
+        :rtype: str
         """
-        return self._lastreceived
+        return self._position_side
 
-    @lastreceived.setter
-    def lastreceived(self, lastreceived):
-        """Sets the lastreceived of this InlineObject18.
+    @position_side.setter
+    def position_side(self, position_side):
+        """Sets the position_side of this InlineObject18.
 
-        Pagination timestamp (forward)  # noqa: E501
+        Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method  # noqa: E501
 
-        :param lastreceived: The lastreceived of this InlineObject18.  # noqa: E501
-        :type: int
-        """
-
-        self._lastreceived = lastreceived
-
-    @property
-    def firstreceived(self):
-        """Gets the firstreceived of this InlineObject18.  # noqa: E501
-
-        Pagination timestamp (backward)  # noqa: E501
-
-        :return: The firstreceived of this InlineObject18.  # noqa: E501
-        :rtype: int
-        """
-        return self._firstreceived
-
-    @firstreceived.setter
-    def firstreceived(self, firstreceived):
-        """Sets the firstreceived of this InlineObject18.
-
-        Pagination timestamp (backward)  # noqa: E501
-
-        :param firstreceived: The firstreceived of this InlineObject18.  # noqa: E501
-        :type: int
+        :param position_side: The position_side of this InlineObject18.  # noqa: E501
+        :type: str
         """
 
-        self._firstreceived = firstreceived
+        self._position_side = position_side
 
     def to_dict(self):
         """Returns the model properties as a dict"""

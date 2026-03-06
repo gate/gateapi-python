@@ -34,7 +34,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
     """
     openapi_types = {
         'settle': 'str',
-        'order_id': 'str',
+        'order_id': 'int',
         'size': 'int',
         'price': 'str',
         'trigger_price': 'str',
@@ -55,7 +55,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
     }
 
     def __init__(self, settle=None, order_id=None, size=None, price=None, trigger_price=None, price_type=None, auto_size=None, close=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, int, str, str, int, str, bool, Configuration) -> None
+        # type: (str, int, int, str, str, int, str, bool, Configuration) -> None
         """FuturesUpdatePriceTriggeredOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -114,10 +114,10 @@ class FuturesUpdatePriceTriggeredOrder(object):
     def order_id(self):
         """Gets the order_id of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
 
-        The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.  # noqa: E501
+        ID of the Pending Take-Profit/Stop-Loss Trigger Order  # noqa: E501
 
         :return: The order_id of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._order_id
 
@@ -125,10 +125,10 @@ class FuturesUpdatePriceTriggeredOrder(object):
     def order_id(self, order_id):
         """Sets the order_id of this FuturesUpdatePriceTriggeredOrder.
 
-        The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.  # noqa: E501
+        ID of the Pending Take-Profit/Stop-Loss Trigger Order  # noqa: E501
 
         :param order_id: The order_id of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
-        :type: str
+        :type: int
         """
         if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
             raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501

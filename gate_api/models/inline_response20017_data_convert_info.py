@@ -77,16 +77,26 @@ class InlineResponse20017DataConvertInfo(object):
         self._status = None
         self.discriminator = None
 
-        self.convert_type = convert_type
-        self.convert_status = convert_status
-        self.pre_rate = pre_rate
-        self.rate = rate
-        self.pre_fiat_rate = pre_fiat_rate
-        self.fiat_rate = fiat_rate
-        self.amount = amount
-        self.convert_amount = convert_amount
-        self.slippage = slippage
-        self.status = status
+        if convert_type is not None:
+            self.convert_type = convert_type
+        if convert_status is not None:
+            self.convert_status = convert_status
+        if pre_rate is not None:
+            self.pre_rate = pre_rate
+        if rate is not None:
+            self.rate = rate
+        if pre_fiat_rate is not None:
+            self.pre_fiat_rate = pre_fiat_rate
+        if fiat_rate is not None:
+            self.fiat_rate = fiat_rate
+        if amount is not None:
+            self.amount = amount
+        if convert_amount is not None:
+            self.convert_amount = convert_amount
+        if slippage is not None:
+            self.slippage = slippage
+        if status is not None:
+            self.status = status
 
     @property
     def convert_type(self):
@@ -108,8 +118,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param convert_type: The convert_type of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and convert_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `convert_type`, must not be `None`")  # noqa: E501
 
         self._convert_type = convert_type
 
@@ -133,8 +141,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param convert_status: The convert_status of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and convert_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `convert_status`, must not be `None`")  # noqa: E501
 
         self._convert_status = convert_status
 
@@ -158,8 +164,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param pre_rate: The pre_rate of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and pre_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `pre_rate`, must not be `None`")  # noqa: E501
 
         self._pre_rate = pre_rate
 
@@ -183,8 +187,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param rate: The rate of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `rate`, must not be `None`")  # noqa: E501
 
         self._rate = rate
 
@@ -208,8 +210,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param pre_fiat_rate: The pre_fiat_rate of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and pre_fiat_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `pre_fiat_rate`, must not be `None`")  # noqa: E501
 
         self._pre_fiat_rate = pre_fiat_rate
 
@@ -233,8 +233,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param fiat_rate: The fiat_rate of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and fiat_rate is None:  # noqa: E501
-            raise ValueError("Invalid value for `fiat_rate`, must not be `None`")  # noqa: E501
 
         self._fiat_rate = fiat_rate
 
@@ -258,8 +256,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param amount: The amount of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
 
@@ -283,8 +279,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param convert_amount: The convert_amount of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and convert_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `convert_amount`, must not be `None`")  # noqa: E501
 
         self._convert_amount = convert_amount
 
@@ -308,8 +302,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param slippage: The slippage of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and slippage is None:  # noqa: E501
-            raise ValueError("Invalid value for `slippage`, must not be `None`")  # noqa: E501
 
         self._slippage = slippage
 
@@ -333,8 +325,6 @@ class InlineResponse20017DataConvertInfo(object):
         :param status: The status of this InlineResponse20017DataConvertInfo.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

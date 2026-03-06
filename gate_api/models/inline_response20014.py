@@ -65,12 +65,18 @@ class InlineResponse20014(object):
         self._version = None
         self.discriminator = None
 
-        self.timestamp = timestamp
-        self.method = method
-        self.code = code
-        self.message = message
-        self.data = data
-        self.version = version
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if method is not None:
+            self.method = method
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
+        if version is not None:
+            self.version = version
 
     @property
     def timestamp(self):
@@ -90,8 +96,6 @@ class InlineResponse20014(object):
         :param timestamp: The timestamp of this InlineResponse20014.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
 
@@ -113,8 +117,6 @@ class InlineResponse20014(object):
         :param method: The method of this InlineResponse20014.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
-            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
 
         self._method = method
 
@@ -136,8 +138,6 @@ class InlineResponse20014(object):
         :param code: The code of this InlineResponse20014.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -159,8 +159,6 @@ class InlineResponse20014(object):
         :param message: The message of this InlineResponse20014.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
@@ -182,8 +180,6 @@ class InlineResponse20014(object):
         :param data: The data of this InlineResponse20014.  # noqa: E501
         :type: InlineResponse20014Data
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -205,8 +201,6 @@ class InlineResponse20014(object):
         :param version: The version of this InlineResponse20014.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 

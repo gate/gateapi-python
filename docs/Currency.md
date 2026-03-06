@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **fixed_rate** | **str** | Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies | [optional] 
 **chain** | **str** | The main chain corresponding to the coin | [optional] 
 **chains** | [**list[SpotCurrencyChain]**](SpotCurrencyChain.md) | All links corresponding to coins | [optional] 
+**total_supply** | **str** | Total supply | [optional] 
+**market_cap** | **str** | Market cap | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

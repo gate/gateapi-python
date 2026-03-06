@@ -66,8 +66,8 @@ Method | HTTP request | Description
 [**create_price_triggered_order**](FuturesApi.md#create_price_triggered_order) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 [**cancel_price_triggered_order_list**](FuturesApi.md#cancel_price_triggered_order_list) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**get_price_triggered_order**](FuturesApi.md#get_price_triggered_order) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
-[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/{order_id} | Modify a Single Auto Order
 [**cancel_price_triggered_order**](FuturesApi.md#cancel_price_triggered_order) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
+[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
 
 
 # **list_futures_contracts**
@@ -4458,7 +4458,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-order_id = 'order_id_example' # str | ID returned when order is successfully created
+order_id = 56 # int | ID returned when order is successfully created
 
 try:
     # Query single auto order details
@@ -4475,7 +4475,76 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **order_id** | **str**| ID returned when order is successfully created | 
+ **order_id** | **int**| ID returned when order is successfully created | 
+
+### Return type
+
+[**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Auto order details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_price_triggered_order**
+> FuturesPriceTriggeredOrder cancel_price_triggered_order(settle, order_id)
+
+Cancel single auto order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+order_id = 56 # int | ID returned when order is successfully created
+
+try:
+    # Cancel single auto order
+    api_response = api_instance.cancel_price_triggered_order(settle, order_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->cancel_price_triggered_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **order_id** | **int**| ID returned when order is successfully created | 
 
 ### Return type
 
@@ -4527,7 +4596,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-order_id = 'order_id_example' # str | ID returned when order is successfully created
+order_id = 56 # int | ID returned when order is successfully created
 futures_update_price_triggered_order = gate_api.FuturesUpdatePriceTriggeredOrder() # FuturesUpdatePriceTriggeredOrder | 
 
 try:
@@ -4545,7 +4614,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **order_id** | **str**| ID returned when order is successfully created | 
+ **order_id** | **int**| ID returned when order is successfully created | 
  **futures_update_price_triggered_order** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  | 
 
 ### Return type
@@ -4565,75 +4634,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Order created successfully |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cancel_price_triggered_order**
-> FuturesPriceTriggeredOrder cancel_price_triggered_order(settle, order_id)
-
-Cancel single auto order
-
-### Example
-
-* Api Key Authentication (apiv4):
-```python
-from __future__ import print_function
-import gate_api
-from gate_api.exceptions import ApiException, GateApiException
-# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
-# See configuration.py for a list of all supported configuration parameters.
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure APIv4 key authorization
-configuration = gate_api.Configuration(
-    host = "https://api.gateio.ws/api/v4",
-    key = "YOU_API_KEY",
-    secret = "YOUR_API_SECRET"
-)
-
-api_client = gate_api.ApiClient(configuration)
-# Create an instance of the API class
-api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
-order_id = 'order_id_example' # str | ID returned when order is successfully created
-
-try:
-    # Cancel single auto order
-    api_response = api_instance.cancel_price_triggered_order(settle, order_id)
-    print(api_response)
-except GateApiException as ex:
-    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
-except ApiException as e:
-    print("Exception when calling FuturesApi->cancel_price_triggered_order: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
- **order_id** | **str**| ID returned when order is successfully created | 
-
-### Return type
-
-[**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Auto order details |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

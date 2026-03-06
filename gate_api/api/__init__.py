@@ -7,8 +7,8 @@ from gate_api.api.cross_ex_api import CrossExApi
 from gate_api.api.earn_uni_api import EarnUniApi
 from gate_api.api.margin_uni_api import MarginUniApi
 from gate_api.api.otc_api import OTCApi
-from gate_api.api.p2_p_api import P2PApi
 from gate_api.api.sub_account_api import SubAccountApi
+from gate_api.api.trad_fi_api import TradFiApi
 from gate_api.api.unified_api import UnifiedApi
 from gate_api.api.account_api import AccountApi
 from gate_api.api.delivery_api import DeliveryApi
@@ -18,6 +18,7 @@ from gate_api.api.futures_api import FuturesApi
 from gate_api.api.margin_api import MarginApi
 from gate_api.api.multi_collateral_loan_api import MultiCollateralLoanApi
 from gate_api.api.options_api import OptionsApi
+from gate_api.api.p2p_api import P2pApi
 from gate_api.api.rebate_api import RebateApi
 from gate_api.api.spot_api import SpotApi
 from gate_api.api.wallet_api import WalletApi

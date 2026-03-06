@@ -42,7 +42,9 @@ class Currency(object):
         'trade_disabled': 'bool',
         'fixed_rate': 'str',
         'chain': 'str',
-        'chains': 'list[SpotCurrencyChain]'
+        'chains': 'list[SpotCurrencyChain]',
+        'total_supply': 'str',
+        'market_cap': 'str'
     }
 
     attribute_map = {
@@ -55,11 +57,13 @@ class Currency(object):
         'trade_disabled': 'trade_disabled',
         'fixed_rate': 'fixed_rate',
         'chain': 'chain',
-        'chains': 'chains'
+        'chains': 'chains',
+        'total_supply': 'total_supply',
+        'market_cap': 'market_cap'
     }
 
-    def __init__(self, currency=None, name=None, delisted=None, withdraw_disabled=None, withdraw_delayed=None, deposit_disabled=None, trade_disabled=None, fixed_rate=None, chain=None, chains=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, bool, bool, bool, bool, bool, str, str, list[SpotCurrencyChain], Configuration) -> None
+    def __init__(self, currency=None, name=None, delisted=None, withdraw_disabled=None, withdraw_delayed=None, deposit_disabled=None, trade_disabled=None, fixed_rate=None, chain=None, chains=None, total_supply=None, market_cap=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, bool, bool, bool, bool, bool, str, str, list[SpotCurrencyChain], str, str, Configuration) -> None
         """Currency - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +79,8 @@ class Currency(object):
         self._fixed_rate = None
         self._chain = None
         self._chains = None
+        self._total_supply = None
+        self._market_cap = None
         self.discriminator = None
 
         if currency is not None:
@@ -97,6 +103,10 @@ class Currency(object):
             self.chain = chain
         if chains is not None:
             self.chains = chains
+        if total_supply is not None:
+            self.total_supply = total_supply
+        if market_cap is not None:
+            self.market_cap = market_cap
 
     @property
     def currency(self):
@@ -327,6 +337,52 @@ class Currency(object):
         """
 
         self._chains = chains
+
+    @property
+    def total_supply(self):
+        """Gets the total_supply of this Currency.  # noqa: E501
+
+        Total supply  # noqa: E501
+
+        :return: The total_supply of this Currency.  # noqa: E501
+        :rtype: str
+        """
+        return self._total_supply
+
+    @total_supply.setter
+    def total_supply(self, total_supply):
+        """Sets the total_supply of this Currency.
+
+        Total supply  # noqa: E501
+
+        :param total_supply: The total_supply of this Currency.  # noqa: E501
+        :type: str
+        """
+
+        self._total_supply = total_supply
+
+    @property
+    def market_cap(self):
+        """Gets the market_cap of this Currency.  # noqa: E501
+
+        Market cap  # noqa: E501
+
+        :return: The market_cap of this Currency.  # noqa: E501
+        :rtype: str
+        """
+        return self._market_cap
+
+    @market_cap.setter
+    def market_cap(self, market_cap):
+        """Sets the market_cap of this Currency.
+
+        Market cap  # noqa: E501
+
+        :param market_cap: The market_cap of this Currency.  # noqa: E501
+        :type: str
+        """
+
+        self._market_cap = market_cap
 
     def to_dict(self):
         """Returns the model properties as a dict"""

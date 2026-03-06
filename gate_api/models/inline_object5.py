@@ -33,49 +33,82 @@ class InlineObject5(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'biz_uid': 'str'
+        'close_type': 'int',
+        'close_volume': 'str'
     }
 
     attribute_map = {
-        'biz_uid': 'biz_uid'
+        'close_type': 'close_type',
+        'close_volume': 'close_volume'
     }
 
-    def __init__(self, biz_uid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, close_type=None, close_volume=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, Configuration) -> None
         """InlineObject5 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._biz_uid = None
+        self._close_type = None
+        self._close_volume = None
         self.discriminator = None
 
-        self.biz_uid = biz_uid
+        self.close_type = close_type
+        self.close_volume = close_volume
 
     @property
-    def biz_uid(self):
-        """Gets the biz_uid of this InlineObject5.  # noqa: E501
+    def close_type(self):
+        """Gets the close_type of this InlineObject5.  # noqa: E501
 
-        Counterparty UID (encrypted)  # noqa: E501
+        平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）  # noqa: E501
 
-        :return: The biz_uid of this InlineObject5.  # noqa: E501
+        :return: The close_type of this InlineObject5.  # noqa: E501
+        :rtype: int
+        """
+        return self._close_type
+
+    @close_type.setter
+    def close_type(self, close_type):
+        """Sets the close_type of this InlineObject5.
+
+        平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）  # noqa: E501
+
+        :param close_type: The close_type of this InlineObject5.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and close_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `close_type`, must not be `None`")  # noqa: E501
+        allowed_values = [1, 2]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and close_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `close_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(close_type, allowed_values)
+            )
+
+        self._close_type = close_type
+
+    @property
+    def close_volume(self):
+        """Gets the close_volume of this InlineObject5.  # noqa: E501
+
+        平仓数量  说明： - 当 close_type = 1 时必传 - 当 close_type = 2 时忽略该字段  # noqa: E501
+
+        :return: The close_volume of this InlineObject5.  # noqa: E501
         :rtype: str
         """
-        return self._biz_uid
+        return self._close_volume
 
-    @biz_uid.setter
-    def biz_uid(self, biz_uid):
-        """Sets the biz_uid of this InlineObject5.
+    @close_volume.setter
+    def close_volume(self, close_volume):
+        """Sets the close_volume of this InlineObject5.
 
-        Counterparty UID (encrypted)  # noqa: E501
+        平仓数量  说明： - 当 close_type = 1 时必传 - 当 close_type = 2 时忽略该字段  # noqa: E501
 
-        :param biz_uid: The biz_uid of this InlineObject5.  # noqa: E501
+        :param close_volume: The close_volume of this InlineObject5.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and biz_uid is None:  # noqa: E501
-            raise ValueError("Invalid value for `biz_uid`, must not be `None`")  # noqa: E501
 
-        self._biz_uid = biz_uid
+        self._close_volume = close_volume
 
     def to_dict(self):
         """Returns the model properties as a dict"""

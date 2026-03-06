@@ -123,7 +123,7 @@ class MockSpotOrder(object):
     def count(self):
         """Gets the count of this MockSpotOrder.  # noqa: E501
 
-        Initial order quantity for spot trading pairs, not involved in actual calculation. Currently only supports BTC and ETH Currently only supports three currencies: BTC, ETH  # noqa: E501
+        Initial order quantity for spot trading pairs, not involved in actual calculation.  # noqa: E501
 
         :return: The count of this MockSpotOrder.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class MockSpotOrder(object):
     def count(self, count):
         """Sets the count of this MockSpotOrder.
 
-        Initial order quantity for spot trading pairs, not involved in actual calculation. Currently only supports BTC and ETH Currently only supports three currencies: BTC, ETH  # noqa: E501
+        Initial order quantity for spot trading pairs, not involved in actual calculation.  # noqa: E501
 
         :param count: The count of this MockSpotOrder.  # noqa: E501
         :type: str

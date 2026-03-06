@@ -33,107 +33,78 @@ class InlineObject17(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'asset': 'str',
-        'fiat_unit': 'str',
-        'trade_type': 'str'
+        'symbol': 'str',
+        'leverage': 'str'
     }
 
     attribute_map = {
-        'asset': 'asset',
-        'fiat_unit': 'fiat_unit',
-        'trade_type': 'trade_type'
+        'symbol': 'symbol',
+        'leverage': 'leverage'
     }
 
-    def __init__(self, asset=None, fiat_unit=None, trade_type=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, Configuration) -> None
+    def __init__(self, symbol=None, leverage=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineObject17 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._asset = None
-        self._fiat_unit = None
-        self._trade_type = None
+        self._symbol = None
+        self._leverage = None
         self.discriminator = None
 
-        self.asset = asset
-        self.fiat_unit = fiat_unit
-        self.trade_type = trade_type
+        self.symbol = symbol
+        self.leverage = leverage
 
     @property
-    def asset(self):
-        """Gets the asset of this InlineObject17.  # noqa: E501
+    def symbol(self):
+        """Gets the symbol of this InlineObject17.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Currency pair  # noqa: E501
 
-        :return: The asset of this InlineObject17.  # noqa: E501
+        :return: The symbol of this InlineObject17.  # noqa: E501
         :rtype: str
         """
-        return self._asset
+        return self._symbol
 
-    @asset.setter
-    def asset(self, asset):
-        """Sets the asset of this InlineObject17.
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this InlineObject17.
 
-        Cryptocurrency  # noqa: E501
+        Currency pair  # noqa: E501
 
-        :param asset: The asset of this InlineObject17.  # noqa: E501
+        :param symbol: The symbol of this InlineObject17.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and asset is None:  # noqa: E501
-            raise ValueError("Invalid value for `asset`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
 
-        self._asset = asset
+        self._symbol = symbol
 
     @property
-    def fiat_unit(self):
-        """Gets the fiat_unit of this InlineObject17.  # noqa: E501
+    def leverage(self):
+        """Gets the leverage of this InlineObject17.  # noqa: E501
 
-        Fiat currency  # noqa: E501
+        leverage  # noqa: E501
 
-        :return: The fiat_unit of this InlineObject17.  # noqa: E501
+        :return: The leverage of this InlineObject17.  # noqa: E501
         :rtype: str
         """
-        return self._fiat_unit
+        return self._leverage
 
-    @fiat_unit.setter
-    def fiat_unit(self, fiat_unit):
-        """Sets the fiat_unit of this InlineObject17.
+    @leverage.setter
+    def leverage(self, leverage):
+        """Sets the leverage of this InlineObject17.
 
-        Fiat currency  # noqa: E501
+        leverage  # noqa: E501
 
-        :param fiat_unit: The fiat_unit of this InlineObject17.  # noqa: E501
+        :param leverage: The leverage of this InlineObject17.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and fiat_unit is None:  # noqa: E501
-            raise ValueError("Invalid value for `fiat_unit`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and leverage is None:  # noqa: E501
+            raise ValueError("Invalid value for `leverage`, must not be `None`")  # noqa: E501
 
-        self._fiat_unit = fiat_unit
-
-    @property
-    def trade_type(self):
-        """Gets the trade_type of this InlineObject17.  # noqa: E501
-
-        Buy/Sell, sell/buy  # noqa: E501
-
-        :return: The trade_type of this InlineObject17.  # noqa: E501
-        :rtype: str
-        """
-        return self._trade_type
-
-    @trade_type.setter
-    def trade_type(self, trade_type):
-        """Sets the trade_type of this InlineObject17.
-
-        Buy/Sell, sell/buy  # noqa: E501
-
-        :param trade_type: The trade_type of this InlineObject17.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and trade_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `trade_type`, must not be `None`")  # noqa: E501
-
-        self._trade_type = trade_type
+        self._leverage = leverage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

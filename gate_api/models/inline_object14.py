@@ -33,78 +33,49 @@ class InlineObject14(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'adv_no': 'int',
-        'adv_status': 'int'
+        'quote_id': 'str'
     }
 
     attribute_map = {
-        'adv_no': 'adv_no',
-        'adv_status': 'adv_status'
+        'quote_id': 'quote_id'
     }
 
-    def __init__(self, adv_no=None, adv_status=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, Configuration) -> None
+    def __init__(self, quote_id=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, Configuration) -> None
         """InlineObject14 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._adv_no = None
-        self._adv_status = None
+        self._quote_id = None
         self.discriminator = None
 
-        self.adv_no = adv_no
-        self.adv_status = adv_status
+        self.quote_id = quote_id
 
     @property
-    def adv_no(self):
-        """Gets the adv_no of this InlineObject14.  # noqa: E501
+    def quote_id(self):
+        """Gets the quote_id of this InlineObject14.  # noqa: E501
 
-        Ad ID  # noqa: E501
+        Inquiry ID  # noqa: E501
 
-        :return: The adv_no of this InlineObject14.  # noqa: E501
-        :rtype: int
+        :return: The quote_id of this InlineObject14.  # noqa: E501
+        :rtype: str
         """
-        return self._adv_no
+        return self._quote_id
 
-    @adv_no.setter
-    def adv_no(self, adv_no):
-        """Sets the adv_no of this InlineObject14.
+    @quote_id.setter
+    def quote_id(self, quote_id):
+        """Sets the quote_id of this InlineObject14.
 
-        Ad ID  # noqa: E501
+        Inquiry ID  # noqa: E501
 
-        :param adv_no: The adv_no of this InlineObject14.  # noqa: E501
-        :type: int
+        :param quote_id: The quote_id of this InlineObject14.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and adv_no is None:  # noqa: E501
-            raise ValueError("Invalid value for `adv_no`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and quote_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `quote_id`, must not be `None`")  # noqa: E501
 
-        self._adv_no = adv_no
-
-    @property
-    def adv_status(self):
-        """Gets the adv_status of this InlineObject14.  # noqa: E501
-
-        Ad status: 1=Active, 3=Inactive, 4=Closed  # noqa: E501
-
-        :return: The adv_status of this InlineObject14.  # noqa: E501
-        :rtype: int
-        """
-        return self._adv_status
-
-    @adv_status.setter
-    def adv_status(self, adv_status):
-        """Sets the adv_status of this InlineObject14.
-
-        Ad status: 1=Active, 3=Inactive, 4=Closed  # noqa: E501
-
-        :param adv_status: The adv_status of this InlineObject14.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and adv_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `adv_status`, must not be `None`")  # noqa: E501
-
-        self._adv_status = adv_status
+        self._quote_id = quote_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

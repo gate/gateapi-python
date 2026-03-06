@@ -60,7 +60,7 @@ class MockFuturesPosition(object):
     def contract(self):
         """Gets the contract of this MockFuturesPosition.  # noqa: E501
 
-        Futures name, currently only supports USDT perpetual contracts for BTC and ETH  # noqa: E501
+        Perpetual contract name. Only USDT perpetual contracts for underlying currencies with active options trading are supported.  # noqa: E501
 
         :return: The contract of this MockFuturesPosition.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class MockFuturesPosition(object):
     def contract(self, contract):
         """Sets the contract of this MockFuturesPosition.
 
-        Futures name, currently only supports USDT perpetual contracts for BTC and ETH  # noqa: E501
+        Perpetual contract name. Only USDT perpetual contracts for underlying currencies with active options trading are supported.  # noqa: E501
 
         :param contract: The contract of this MockFuturesPosition.  # noqa: E501
         :type: str

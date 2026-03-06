@@ -1039,7 +1039,7 @@ No authorization required
 
 Portfolio margin calculator
 
-Portfolio Margin Calculator  When inputting simulated position portfolios, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+Portfolio Margin Calculator  This interface calculates maintenance and initial margin requirements under the portfolio margin model for custom simulated position and order portfolios. It currently supports all underlying currencies with active options trading. Each simulated position requires a name and holding quantity; each simulated pending order requires a market identifier, price, and quantity. Market orders are not supported.
 
 ### Example
 

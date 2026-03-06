@@ -33,72 +33,176 @@ class InlineResponse20026(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'symbol': 'str',
-        'tiers': 'list[RuleRiskLimitsTiers]'
+        'timestamp': 'float',
+        'method': 'str',
+        'code': 'int',
+        'message': 'str',
+        'data': 'InlineResponse20026Data',
+        'version': 'str'
     }
 
     attribute_map = {
-        'symbol': 'symbol',
-        'tiers': 'tiers'
+        'timestamp': 'timestamp',
+        'method': 'method',
+        'code': 'code',
+        'message': 'message',
+        'data': 'data',
+        'version': 'version'
     }
 
-    def __init__(self, symbol=None, tiers=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, list[RuleRiskLimitsTiers], Configuration) -> None
+    def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
+        # type: (float, str, int, str, InlineResponse20026Data, str, Configuration) -> None
         """InlineResponse20026 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._symbol = None
-        self._tiers = None
+        self._timestamp = None
+        self._method = None
+        self._code = None
+        self._message = None
+        self._data = None
+        self._version = None
         self.discriminator = None
 
-        if symbol is not None:
-            self.symbol = symbol
-        if tiers is not None:
-            self.tiers = tiers
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if method is not None:
+            self.method = method
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
+        if version is not None:
+            self.version = version
 
     @property
-    def symbol(self):
-        """Gets the symbol of this InlineResponse20026.  # noqa: E501
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse20026.  # noqa: E501
 
 
-        :return: The symbol of this InlineResponse20026.  # noqa: E501
+        :return: The timestamp of this InlineResponse20026.  # noqa: E501
+        :rtype: float
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse20026.
+
+
+        :param timestamp: The timestamp of this InlineResponse20026.  # noqa: E501
+        :type: float
+        """
+
+        self._timestamp = timestamp
+
+    @property
+    def method(self):
+        """Gets the method of this InlineResponse20026.  # noqa: E501
+
+
+        :return: The method of this InlineResponse20026.  # noqa: E501
         :rtype: str
         """
-        return self._symbol
+        return self._method
 
-    @symbol.setter
-    def symbol(self, symbol):
-        """Sets the symbol of this InlineResponse20026.
+    @method.setter
+    def method(self, method):
+        """Sets the method of this InlineResponse20026.
 
 
-        :param symbol: The symbol of this InlineResponse20026.  # noqa: E501
+        :param method: The method of this InlineResponse20026.  # noqa: E501
         :type: str
         """
 
-        self._symbol = symbol
+        self._method = method
 
     @property
-    def tiers(self):
-        """Gets the tiers of this InlineResponse20026.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse20026.  # noqa: E501
 
 
-        :return: The tiers of this InlineResponse20026.  # noqa: E501
-        :rtype: list[RuleRiskLimitsTiers]
+        :return: The code of this InlineResponse20026.  # noqa: E501
+        :rtype: int
         """
-        return self._tiers
+        return self._code
 
-    @tiers.setter
-    def tiers(self, tiers):
-        """Sets the tiers of this InlineResponse20026.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse20026.
 
 
-        :param tiers: The tiers of this InlineResponse20026.  # noqa: E501
-        :type: list[RuleRiskLimitsTiers]
+        :param code: The code of this InlineResponse20026.  # noqa: E501
+        :type: int
         """
 
-        self._tiers = tiers
+        self._code = code
+
+    @property
+    def message(self):
+        """Gets the message of this InlineResponse20026.  # noqa: E501
+
+
+        :return: The message of this InlineResponse20026.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse20026.
+
+
+        :param message: The message of this InlineResponse20026.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse20026.  # noqa: E501
+
+
+        :return: The data of this InlineResponse20026.  # noqa: E501
+        :rtype: InlineResponse20026Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse20026.
+
+
+        :param data: The data of this InlineResponse20026.  # noqa: E501
+        :type: InlineResponse20026Data
+        """
+
+        self._data = data
+
+    @property
+    def version(self):
+        """Gets the version of this InlineResponse20026.  # noqa: E501
+
+
+        :return: The version of this InlineResponse20026.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this InlineResponse20026.
+
+
+        :param version: The version of this InlineResponse20026.  # noqa: E501
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

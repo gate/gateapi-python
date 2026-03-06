@@ -37,7 +37,7 @@ class InlineResponse20022(object):
         'method': 'str',
         'code': 'int',
         'message': 'str',
-        'data': 'list[InlineResponse20022Data]',
+        'data': 'InlineResponse20022Data',
         'version': 'str'
     }
 
@@ -51,7 +51,7 @@ class InlineResponse20022(object):
     }
 
     def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
-        # type: (float, str, int, str, list[InlineResponse20022Data], str, Configuration) -> None
+        # type: (float, str, int, str, InlineResponse20022Data, str, Configuration) -> None
         """InlineResponse20022 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,12 +65,18 @@ class InlineResponse20022(object):
         self._version = None
         self.discriminator = None
 
-        self.timestamp = timestamp
-        self.method = method
-        self.code = code
-        self.message = message
-        self.data = data
-        self.version = version
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if method is not None:
+            self.method = method
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
+        if version is not None:
+            self.version = version
 
     @property
     def timestamp(self):
@@ -90,8 +96,6 @@ class InlineResponse20022(object):
         :param timestamp: The timestamp of this InlineResponse20022.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
 
@@ -113,8 +117,6 @@ class InlineResponse20022(object):
         :param method: The method of this InlineResponse20022.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and method is None:  # noqa: E501
-            raise ValueError("Invalid value for `method`, must not be `None`")  # noqa: E501
 
         self._method = method
 
@@ -136,8 +138,6 @@ class InlineResponse20022(object):
         :param code: The code of this InlineResponse20022.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -159,8 +159,6 @@ class InlineResponse20022(object):
         :param message: The message of this InlineResponse20022.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
@@ -170,7 +168,7 @@ class InlineResponse20022(object):
 
 
         :return: The data of this InlineResponse20022.  # noqa: E501
-        :rtype: list[InlineResponse20022Data]
+        :rtype: InlineResponse20022Data
         """
         return self._data
 
@@ -180,10 +178,8 @@ class InlineResponse20022(object):
 
 
         :param data: The data of this InlineResponse20022.  # noqa: E501
-        :type: list[InlineResponse20022Data]
+        :type: InlineResponse20022Data
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -191,6 +187,7 @@ class InlineResponse20022(object):
     def version(self):
         """Gets the version of this InlineResponse20022.  # noqa: E501
 
+        Version number  # noqa: E501
 
         :return: The version of this InlineResponse20022.  # noqa: E501
         :rtype: str
@@ -201,12 +198,11 @@ class InlineResponse20022(object):
     def version(self, version):
         """Sets the version of this InlineResponse20022.
 
+        Version number  # noqa: E501
 
         :param version: The version of this InlineResponse20022.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 

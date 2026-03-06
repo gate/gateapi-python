@@ -33,64 +33,113 @@ class InlineObject7(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'type': 'str',
+        'side': 'str',
         'crypto_currency': 'str',
         'fiat_currency': 'str',
-        'order_tab': 'str',
-        'select_type': 'str',
-        'status': 'str',
-        'txid': 'int',
-        'start_time': 'int',
-        'end_time': 'int'
+        'crypto_amount': 'str',
+        'fiat_amount': 'str',
+        'promotion_code': 'str',
+        'quote_token': 'str',
+        'bank_id': 'str'
     }
 
     attribute_map = {
+        'type': 'type',
+        'side': 'side',
         'crypto_currency': 'crypto_currency',
         'fiat_currency': 'fiat_currency',
-        'order_tab': 'order_tab',
-        'select_type': 'select_type',
-        'status': 'status',
-        'txid': 'txid',
-        'start_time': 'start_time',
-        'end_time': 'end_time'
+        'crypto_amount': 'crypto_amount',
+        'fiat_amount': 'fiat_amount',
+        'promotion_code': 'promotion_code',
+        'quote_token': 'quote_token',
+        'bank_id': 'bank_id'
     }
 
-    def __init__(self, crypto_currency=None, fiat_currency=None, order_tab=None, select_type=None, status=None, txid=None, start_time=None, end_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, int, int, int, Configuration) -> None
+    def __init__(self, type=None, side=None, crypto_currency=None, fiat_currency=None, crypto_amount=None, fiat_amount=None, promotion_code=None, quote_token=None, bank_id=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineObject7 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._type = None
+        self._side = None
         self._crypto_currency = None
         self._fiat_currency = None
-        self._order_tab = None
-        self._select_type = None
-        self._status = None
-        self._txid = None
-        self._start_time = None
-        self._end_time = None
+        self._crypto_amount = None
+        self._fiat_amount = None
+        self._promotion_code = None
+        self._quote_token = None
+        self._bank_id = None
         self.discriminator = None
 
+        self.type = type
+        self.side = side
         self.crypto_currency = crypto_currency
         self.fiat_currency = fiat_currency
-        if order_tab is not None:
-            self.order_tab = order_tab
-        if select_type is not None:
-            self.select_type = select_type
-        if status is not None:
-            self.status = status
-        if txid is not None:
-            self.txid = txid
-        if start_time is not None:
-            self.start_time = start_time
-        if end_time is not None:
-            self.end_time = end_time
+        self.crypto_amount = crypto_amount
+        self.fiat_amount = fiat_amount
+        if promotion_code is not None:
+            self.promotion_code = promotion_code
+        self.quote_token = quote_token
+        self.bank_id = bank_id
+
+    @property
+    def type(self):
+        """Gets the type of this InlineObject7.  # noqa: E501
+
+        BUY for on-ramp, SELL for off-ramp  # noqa: E501
+
+        :return: The type of this InlineObject7.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineObject7.
+
+        BUY for on-ramp, SELL for off-ramp  # noqa: E501
+
+        :param type: The type of this InlineObject7.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+
+        self._type = type
+
+    @property
+    def side(self):
+        """Gets the side of this InlineObject7.  # noqa: E501
+
+        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+
+        :return: The side of this InlineObject7.  # noqa: E501
+        :rtype: str
+        """
+        return self._side
+
+    @side.setter
+    def side(self, side):
+        """Sets the side of this InlineObject7.
+
+        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+
+        :param side: The side of this InlineObject7.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
+
+        self._side = side
 
     @property
     def crypto_currency(self):
         """Gets the crypto_currency of this InlineObject7.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
 
         :return: The crypto_currency of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -101,7 +150,7 @@ class InlineObject7(object):
     def crypto_currency(self, crypto_currency):
         """Sets the crypto_currency of this InlineObject7.
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
 
         :param crypto_currency: The crypto_currency of this InlineObject7.  # noqa: E501
         :type: str
@@ -115,7 +164,7 @@ class InlineObject7(object):
     def fiat_currency(self):
         """Gets the fiat_currency of this InlineObject7.  # noqa: E501
 
-        Fiat currency  # noqa: E501
+        Fiat currency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
 
         :return: The fiat_currency of this InlineObject7.  # noqa: E501
         :rtype: str
@@ -126,7 +175,7 @@ class InlineObject7(object):
     def fiat_currency(self, fiat_currency):
         """Sets the fiat_currency of this InlineObject7.
 
-        Fiat currency  # noqa: E501
+        Fiat currency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
 
         :param fiat_currency: The fiat_currency of this InlineObject7.  # noqa: E501
         :type: str
@@ -137,142 +186,127 @@ class InlineObject7(object):
         self._fiat_currency = fiat_currency
 
     @property
-    def order_tab(self):
-        """Gets the order_tab of this InlineObject7.  # noqa: E501
+    def crypto_amount(self):
+        """Gets the crypto_amount of this InlineObject7.  # noqa: E501
 
-        Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        Amount of cryptocurrency  # noqa: E501
 
-        :return: The order_tab of this InlineObject7.  # noqa: E501
+        :return: The crypto_amount of this InlineObject7.  # noqa: E501
         :rtype: str
         """
-        return self._order_tab
+        return self._crypto_amount
 
-    @order_tab.setter
-    def order_tab(self, order_tab):
-        """Sets the order_tab of this InlineObject7.
+    @crypto_amount.setter
+    def crypto_amount(self, crypto_amount):
+        """Sets the crypto_amount of this InlineObject7.
 
-        Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        Amount of cryptocurrency  # noqa: E501
 
-        :param order_tab: The order_tab of this InlineObject7.  # noqa: E501
+        :param crypto_amount: The crypto_amount of this InlineObject7.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and crypto_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `crypto_amount`, must not be `None`")  # noqa: E501
+
+        self._crypto_amount = crypto_amount
+
+    @property
+    def fiat_amount(self):
+        """Gets the fiat_amount of this InlineObject7.  # noqa: E501
+
+        Fiat amount  # noqa: E501
+
+        :return: The fiat_amount of this InlineObject7.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_amount
+
+    @fiat_amount.setter
+    def fiat_amount(self, fiat_amount):
+        """Sets the fiat_amount of this InlineObject7.
+
+        Fiat amount  # noqa: E501
+
+        :param fiat_amount: The fiat_amount of this InlineObject7.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and fiat_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `fiat_amount`, must not be `None`")  # noqa: E501
+
+        self._fiat_amount = fiat_amount
+
+    @property
+    def promotion_code(self):
+        """Gets the promotion_code of this InlineObject7.  # noqa: E501
+
+        Promotion code  # noqa: E501
+
+        :return: The promotion_code of this InlineObject7.  # noqa: E501
+        :rtype: str
+        """
+        return self._promotion_code
+
+    @promotion_code.setter
+    def promotion_code(self, promotion_code):
+        """Sets the promotion_code of this InlineObject7.
+
+        Promotion code  # noqa: E501
+
+        :param promotion_code: The promotion_code of this InlineObject7.  # noqa: E501
         :type: str
         """
 
-        self._order_tab = order_tab
+        self._promotion_code = promotion_code
 
     @property
-    def select_type(self):
-        """Gets the select_type of this InlineObject7.  # noqa: E501
+    def quote_token(self):
+        """Gets the quote_token of this InlineObject7.  # noqa: E501
 
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
+        Parameter returned by the quote API  # noqa: E501
 
-        :return: The select_type of this InlineObject7.  # noqa: E501
+        :return: The quote_token of this InlineObject7.  # noqa: E501
         :rtype: str
         """
-        return self._select_type
+        return self._quote_token
 
-    @select_type.setter
-    def select_type(self, select_type):
-        """Sets the select_type of this InlineObject7.
+    @quote_token.setter
+    def quote_token(self, quote_token):
+        """Sets the quote_token of this InlineObject7.
 
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
+        Parameter returned by the quote API  # noqa: E501
 
-        :param select_type: The select_type of this InlineObject7.  # noqa: E501
+        :param quote_token: The quote_token of this InlineObject7.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and quote_token is None:  # noqa: E501
+            raise ValueError("Invalid value for `quote_token`, must not be `None`")  # noqa: E501
 
-        self._select_type = select_type
+        self._quote_token = quote_token
 
     @property
-    def status(self):
-        """Gets the status of this InlineObject7.  # noqa: E501
+    def bank_id(self):
+        """Gets the bank_id of this InlineObject7.  # noqa: E501
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Bank card ID used for the order (retrieved via the default bank card API)  # noqa: E501
 
-        :return: The status of this InlineObject7.  # noqa: E501
+        :return: The bank_id of this InlineObject7.  # noqa: E501
         :rtype: str
         """
-        return self._status
+        return self._bank_id
 
-    @status.setter
-    def status(self, status):
-        """Sets the status of this InlineObject7.
+    @bank_id.setter
+    def bank_id(self, bank_id):
+        """Sets the bank_id of this InlineObject7.
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Bank card ID used for the order (retrieved via the default bank card API)  # noqa: E501
 
-        :param status: The status of this InlineObject7.  # noqa: E501
+        :param bank_id: The bank_id of this InlineObject7.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and bank_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `bank_id`, must not be `None`")  # noqa: E501
 
-        self._status = status
-
-    @property
-    def txid(self):
-        """Gets the txid of this InlineObject7.  # noqa: E501
-
-        Order ID  # noqa: E501
-
-        :return: The txid of this InlineObject7.  # noqa: E501
-        :rtype: int
-        """
-        return self._txid
-
-    @txid.setter
-    def txid(self, txid):
-        """Sets the txid of this InlineObject7.
-
-        Order ID  # noqa: E501
-
-        :param txid: The txid of this InlineObject7.  # noqa: E501
-        :type: int
-        """
-
-        self._txid = txid
-
-    @property
-    def start_time(self):
-        """Gets the start_time of this InlineObject7.  # noqa: E501
-
-        Start timestamp, default is 00:00 89 days ago  # noqa: E501
-
-        :return: The start_time of this InlineObject7.  # noqa: E501
-        :rtype: int
-        """
-        return self._start_time
-
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this InlineObject7.
-
-        Start timestamp, default is 00:00 89 days ago  # noqa: E501
-
-        :param start_time: The start_time of this InlineObject7.  # noqa: E501
-        :type: int
-        """
-
-        self._start_time = start_time
-
-    @property
-    def end_time(self):
-        """Gets the end_time of this InlineObject7.  # noqa: E501
-
-        End timestamp, default is 23:59:59 today  # noqa: E501
-
-        :return: The end_time of this InlineObject7.  # noqa: E501
-        :rtype: int
-        """
-        return self._end_time
-
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this InlineObject7.
-
-        End timestamp, default is 23:59:59 today  # noqa: E501
-
-        :param end_time: The end_time of this InlineObject7.  # noqa: E501
-        :type: int
-        """
-
-        self._end_time = end_time
+        self._bank_id = bank_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

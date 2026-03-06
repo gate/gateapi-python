@@ -85,7 +85,7 @@ class MockSpotBalance(object):
     def equity(self):
         """Gets the equity of this MockSpotBalance.  # noqa: E501
 
-        Currency equity, where equity = balance - borrowed, represents the net delta exposure of your spot positions, which can be negative. Currently only supports BTC and ETH  # noqa: E501
+        Currency equity, where equity = balance - borrowed, represents the net delta exposure of your spot positions  # noqa: E501
 
         :return: The equity of this MockSpotBalance.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class MockSpotBalance(object):
     def equity(self, equity):
         """Sets the equity of this MockSpotBalance.
 
-        Currency equity, where equity = balance - borrowed, represents the net delta exposure of your spot positions, which can be negative. Currently only supports BTC and ETH  # noqa: E501
+        Currency equity, where equity = balance - borrowed, represents the net delta exposure of your spot positions  # noqa: E501
 
         :param equity: The equity of this MockSpotBalance.  # noqa: E501
         :type: str

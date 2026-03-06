@@ -33,179 +33,42 @@ class InlineObject13(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'currency_type': 'str',
         'exchange_type': 'str',
-        'type': 'str',
-        'unit_price': 'str',
-        'number': 'str',
-        'pay_type': 'str',
-        'pay_type_json': 'str',
-        'rate_fixed': 'str',
-        'oid': 'str',
-        'min_amount': 'str',
-        'max_amount': 'str',
-        'tier_limit': 'str',
-        'verified_limit': 'str',
-        'reg_time_limit': 'str',
-        'advertisers_limit': 'str',
-        'hide_payment': 'str',
-        'expire_min': 'str',
-        'trade_tips': 'str',
-        'auto_reply': 'str',
-        'min_completed_limit': 'str',
-        'max_completed_limit': 'str',
-        'completed_rate_limit': 'str',
-        'user_country_limit': 'str',
-        'user_order_limit': 'str',
-        'rate_reference_id': 'str',
-        'rate_offset': 'str',
-        'float_trend': 'str'
+        'from_coin': 'str',
+        'to_coin': 'str',
+        'from_amount': 'str'
     }
 
     attribute_map = {
-        'currency_type': 'currencyType',
-        'exchange_type': 'exchangeType',
-        'type': 'type',
-        'unit_price': 'unitPrice',
-        'number': 'number',
-        'pay_type': 'payType',
-        'pay_type_json': 'pay_type_json',
-        'rate_fixed': 'rateFixed',
-        'oid': 'oid',
-        'min_amount': 'minAmount',
-        'max_amount': 'maxAmount',
-        'tier_limit': 'tierLimit',
-        'verified_limit': 'verifiedLimit',
-        'reg_time_limit': 'regTimeLimit',
-        'advertisers_limit': 'advertisersLimit',
-        'hide_payment': 'hide_payment',
-        'expire_min': 'expire_min',
-        'trade_tips': 'trade_tips',
-        'auto_reply': 'auto_reply',
-        'min_completed_limit': 'min_completed_limit',
-        'max_completed_limit': 'max_completed_limit',
-        'completed_rate_limit': 'completed_rate_limit',
-        'user_country_limit': 'user_country_limit',
-        'user_order_limit': 'user_order_limit',
-        'rate_reference_id': 'rateReferenceId',
-        'rate_offset': 'rateOffset',
-        'float_trend': 'float_trend'
+        'exchange_type': 'exchange_type',
+        'from_coin': 'from_coin',
+        'to_coin': 'to_coin',
+        'from_amount': 'from_amount'
     }
 
-    def __init__(self, currency_type=None, exchange_type=None, type=None, unit_price=None, number=None, pay_type=None, pay_type_json=None, rate_fixed=None, oid=None, min_amount=None, max_amount=None, tier_limit=None, verified_limit=None, reg_time_limit=None, advertisers_limit=None, hide_payment=None, expire_min=None, trade_tips=None, auto_reply=None, min_completed_limit=None, max_completed_limit=None, completed_rate_limit=None, user_country_limit=None, user_order_limit=None, rate_reference_id=None, rate_offset=None, float_trend=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, exchange_type=None, from_coin=None, to_coin=None, from_amount=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, Configuration) -> None
         """InlineObject13 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._currency_type = None
         self._exchange_type = None
-        self._type = None
-        self._unit_price = None
-        self._number = None
-        self._pay_type = None
-        self._pay_type_json = None
-        self._rate_fixed = None
-        self._oid = None
-        self._min_amount = None
-        self._max_amount = None
-        self._tier_limit = None
-        self._verified_limit = None
-        self._reg_time_limit = None
-        self._advertisers_limit = None
-        self._hide_payment = None
-        self._expire_min = None
-        self._trade_tips = None
-        self._auto_reply = None
-        self._min_completed_limit = None
-        self._max_completed_limit = None
-        self._completed_rate_limit = None
-        self._user_country_limit = None
-        self._user_order_limit = None
-        self._rate_reference_id = None
-        self._rate_offset = None
-        self._float_trend = None
+        self._from_coin = None
+        self._to_coin = None
+        self._from_amount = None
         self.discriminator = None
 
-        self.currency_type = currency_type
         self.exchange_type = exchange_type
-        self.type = type
-        self.unit_price = unit_price
-        self.number = number
-        if pay_type is not None:
-            self.pay_type = pay_type
-        if pay_type_json is not None:
-            self.pay_type_json = pay_type_json
-        if rate_fixed is not None:
-            self.rate_fixed = rate_fixed
-        if oid is not None:
-            self.oid = oid
-        self.min_amount = min_amount
-        self.max_amount = max_amount
-        if tier_limit is not None:
-            self.tier_limit = tier_limit
-        if verified_limit is not None:
-            self.verified_limit = verified_limit
-        if reg_time_limit is not None:
-            self.reg_time_limit = reg_time_limit
-        if advertisers_limit is not None:
-            self.advertisers_limit = advertisers_limit
-        if hide_payment is not None:
-            self.hide_payment = hide_payment
-        if expire_min is not None:
-            self.expire_min = expire_min
-        if trade_tips is not None:
-            self.trade_tips = trade_tips
-        if auto_reply is not None:
-            self.auto_reply = auto_reply
-        if min_completed_limit is not None:
-            self.min_completed_limit = min_completed_limit
-        if max_completed_limit is not None:
-            self.max_completed_limit = max_completed_limit
-        if completed_rate_limit is not None:
-            self.completed_rate_limit = completed_rate_limit
-        if user_country_limit is not None:
-            self.user_country_limit = user_country_limit
-        if user_order_limit is not None:
-            self.user_order_limit = user_order_limit
-        if rate_reference_id is not None:
-            self.rate_reference_id = rate_reference_id
-        if rate_offset is not None:
-            self.rate_offset = rate_offset
-        if float_trend is not None:
-            self.float_trend = float_trend
-
-    @property
-    def currency_type(self):
-        """Gets the currency_type of this InlineObject13.  # noqa: E501
-
-        Cryptocurrency  # noqa: E501
-
-        :return: The currency_type of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._currency_type
-
-    @currency_type.setter
-    def currency_type(self, currency_type):
-        """Sets the currency_type of this InlineObject13.
-
-        Cryptocurrency  # noqa: E501
-
-        :param currency_type: The currency_type of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and currency_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `currency_type`, must not be `None`")  # noqa: E501
-
-        self._currency_type = currency_type
+        self.from_coin = from_coin
+        self.to_coin = to_coin
+        self.from_amount = from_amount
 
     @property
     def exchange_type(self):
         """Gets the exchange_type of this InlineObject13.  # noqa: E501
 
-        Fiat currency  # noqa: E501
+        Exchange Type  # noqa: E501
 
         :return: The exchange_type of this InlineObject13.  # noqa: E501
         :rtype: str
@@ -216,7 +79,7 @@ class InlineObject13(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this InlineObject13.
 
-        Fiat currency  # noqa: E501
+        Exchange Type  # noqa: E501
 
         :param exchange_type: The exchange_type of this InlineObject13.  # noqa: E501
         :type: str
@@ -227,589 +90,79 @@ class InlineObject13(object):
         self._exchange_type = exchange_type
 
     @property
-    def type(self):
-        """Gets the type of this InlineObject13.  # noqa: E501
+    def from_coin(self):
+        """Gets the from_coin of this InlineObject13.  # noqa: E501
 
-        Ad type: 0=Sell, 1=Buy, 2=Edit sell, 3=Edit buy  # noqa: E501
+        Asset Sold  # noqa: E501
 
-        :return: The type of this InlineObject13.  # noqa: E501
+        :return: The from_coin of this InlineObject13.  # noqa: E501
         :rtype: str
         """
-        return self._type
+        return self._from_coin
 
-    @type.setter
-    def type(self, type):
-        """Sets the type of this InlineObject13.
+    @from_coin.setter
+    def from_coin(self, from_coin):
+        """Sets the from_coin of this InlineObject13.
 
-        Ad type: 0=Sell, 1=Buy, 2=Edit sell, 3=Edit buy  # noqa: E501
+        Asset Sold  # noqa: E501
 
-        :param type: The type of this InlineObject13.  # noqa: E501
+        :param from_coin: The from_coin of this InlineObject13.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and from_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `from_coin`, must not be `None`")  # noqa: E501
 
-        self._type = type
+        self._from_coin = from_coin
 
     @property
-    def unit_price(self):
-        """Gets the unit_price of this InlineObject13.  # noqa: E501
+    def to_coin(self):
+        """Gets the to_coin of this InlineObject13.  # noqa: E501
 
-        Unit price  # noqa: E501
+        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
 
-        :return: The unit_price of this InlineObject13.  # noqa: E501
+        :return: The to_coin of this InlineObject13.  # noqa: E501
         :rtype: str
         """
-        return self._unit_price
+        return self._to_coin
 
-    @unit_price.setter
-    def unit_price(self, unit_price):
-        """Sets the unit_price of this InlineObject13.
+    @to_coin.setter
+    def to_coin(self, to_coin):
+        """Sets the to_coin of this InlineObject13.
 
-        Unit price  # noqa: E501
+        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
 
-        :param unit_price: The unit_price of this InlineObject13.  # noqa: E501
+        :param to_coin: The to_coin of this InlineObject13.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and unit_price is None:  # noqa: E501
-            raise ValueError("Invalid value for `unit_price`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and to_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `to_coin`, must not be `None`")  # noqa: E501
 
-        self._unit_price = unit_price
+        self._to_coin = to_coin
 
     @property
-    def number(self):
-        """Gets the number of this InlineObject13.  # noqa: E501
+    def from_amount(self):
+        """Gets the from_amount of this InlineObject13.  # noqa: E501
 
-        Size  # noqa: E501
+        Amount to sell  # noqa: E501
 
-        :return: The number of this InlineObject13.  # noqa: E501
+        :return: The from_amount of this InlineObject13.  # noqa: E501
         :rtype: str
         """
-        return self._number
+        return self._from_amount
 
-    @number.setter
-    def number(self, number):
-        """Sets the number of this InlineObject13.
+    @from_amount.setter
+    def from_amount(self, from_amount):
+        """Sets the from_amount of this InlineObject13.
 
-        Size  # noqa: E501
+        Amount to sell  # noqa: E501
 
-        :param number: The number of this InlineObject13.  # noqa: E501
+        :param from_amount: The from_amount of this InlineObject13.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and number is None:  # noqa: E501
-            raise ValueError("Invalid value for `number`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and from_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `from_amount`, must not be `None`")  # noqa: E501
 
-        self._number = number
-
-    @property
-    def pay_type(self):
-        """Gets the pay_type of this InlineObject13.  # noqa: E501
-
-        Payment method  # noqa: E501
-
-        :return: The pay_type of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._pay_type
-
-    @pay_type.setter
-    def pay_type(self, pay_type):
-        """Sets the pay_type of this InlineObject13.
-
-        Payment method  # noqa: E501
-
-        :param pay_type: The pay_type of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._pay_type = pay_type
-
-    @property
-    def pay_type_json(self):
-        """Gets the pay_type_json of this InlineObject13.  # noqa: E501
-
-        Payment method JSON string  # noqa: E501
-
-        :return: The pay_type_json of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._pay_type_json
-
-    @pay_type_json.setter
-    def pay_type_json(self, pay_type_json):
-        """Sets the pay_type_json of this InlineObject13.
-
-        Payment method JSON string  # noqa: E501
-
-        :param pay_type_json: The pay_type_json of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._pay_type_json = pay_type_json
-
-    @property
-    def rate_fixed(self):
-        """Gets the rate_fixed of this InlineObject13.  # noqa: E501
-
-        Price type: 0-Floating price, 1-Fixed price  # noqa: E501
-
-        :return: The rate_fixed of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._rate_fixed
-
-    @rate_fixed.setter
-    def rate_fixed(self, rate_fixed):
-        """Sets the rate_fixed of this InlineObject13.
-
-        Price type: 0-Floating price, 1-Fixed price  # noqa: E501
-
-        :param rate_fixed: The rate_fixed of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._rate_fixed = rate_fixed
-
-    @property
-    def oid(self):
-        """Gets the oid of this InlineObject13.  # noqa: E501
-
-        Ad ID when editing  # noqa: E501
-
-        :return: The oid of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._oid
-
-    @oid.setter
-    def oid(self, oid):
-        """Sets the oid of this InlineObject13.
-
-        Ad ID when editing  # noqa: E501
-
-        :param oid: The oid of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._oid = oid
-
-    @property
-    def min_amount(self):
-        """Gets the min_amount of this InlineObject13.  # noqa: E501
-
-        Minimum transaction amount per order  # noqa: E501
-
-        :return: The min_amount of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._min_amount
-
-    @min_amount.setter
-    def min_amount(self, min_amount):
-        """Sets the min_amount of this InlineObject13.
-
-        Minimum transaction amount per order  # noqa: E501
-
-        :param min_amount: The min_amount of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and min_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_amount`, must not be `None`")  # noqa: E501
-
-        self._min_amount = min_amount
-
-    @property
-    def max_amount(self):
-        """Gets the max_amount of this InlineObject13.  # noqa: E501
-
-        Maximum transaction amount per order  # noqa: E501
-
-        :return: The max_amount of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._max_amount
-
-    @max_amount.setter
-    def max_amount(self, max_amount):
-        """Sets the max_amount of this InlineObject13.
-
-        Maximum transaction amount per order  # noqa: E501
-
-        :param max_amount: The max_amount of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and max_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_amount`, must not be `None`")  # noqa: E501
-
-        self._max_amount = max_amount
-
-    @property
-    def tier_limit(self):
-        """Gets the tier_limit of this InlineObject13.  # noqa: E501
-
-        Order tier limit  # noqa: E501
-
-        :return: The tier_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._tier_limit
-
-    @tier_limit.setter
-    def tier_limit(self, tier_limit):
-        """Sets the tier_limit of this InlineObject13.
-
-        Order tier limit  # noqa: E501
-
-        :param tier_limit: The tier_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._tier_limit = tier_limit
-
-    @property
-    def verified_limit(self):
-        """Gets the verified_limit of this InlineObject13.  # noqa: E501
-
-        Verification level limit  # noqa: E501
-
-        :return: The verified_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._verified_limit
-
-    @verified_limit.setter
-    def verified_limit(self, verified_limit):
-        """Sets the verified_limit of this InlineObject13.
-
-        Verification level limit  # noqa: E501
-
-        :param verified_limit: The verified_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._verified_limit = verified_limit
-
-    @property
-    def reg_time_limit(self):
-        """Gets the reg_time_limit of this InlineObject13.  # noqa: E501
-
-        Registration time limit  # noqa: E501
-
-        :return: The reg_time_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._reg_time_limit
-
-    @reg_time_limit.setter
-    def reg_time_limit(self, reg_time_limit):
-        """Sets the reg_time_limit of this InlineObject13.
-
-        Registration time limit  # noqa: E501
-
-        :param reg_time_limit: The reg_time_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._reg_time_limit = reg_time_limit
-
-    @property
-    def advertisers_limit(self):
-        """Gets the advertisers_limit of this InlineObject13.  # noqa: E501
-
-        Advertiser restriction  # noqa: E501
-
-        :return: The advertisers_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._advertisers_limit
-
-    @advertisers_limit.setter
-    def advertisers_limit(self, advertisers_limit):
-        """Sets the advertisers_limit of this InlineObject13.
-
-        Advertiser restriction  # noqa: E501
-
-        :param advertisers_limit: The advertisers_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._advertisers_limit = advertisers_limit
-
-    @property
-    def hide_payment(self):
-        """Gets the hide_payment of this InlineObject13.  # noqa: E501
-
-        Whether to hide payment method: 1=Yes, 0=No  # noqa: E501
-
-        :return: The hide_payment of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._hide_payment
-
-    @hide_payment.setter
-    def hide_payment(self, hide_payment):
-        """Sets the hide_payment of this InlineObject13.
-
-        Whether to hide payment method: 1=Yes, 0=No  # noqa: E501
-
-        :param hide_payment: The hide_payment of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._hide_payment = hide_payment
-
-    @property
-    def expire_min(self):
-        """Gets the expire_min of this InlineObject13.  # noqa: E501
-
-        Ad expiration time (minutes)  # noqa: E501
-
-        :return: The expire_min of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._expire_min
-
-    @expire_min.setter
-    def expire_min(self, expire_min):
-        """Sets the expire_min of this InlineObject13.
-
-        Ad expiration time (minutes)  # noqa: E501
-
-        :param expire_min: The expire_min of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._expire_min = expire_min
-
-    @property
-    def trade_tips(self):
-        """Gets the trade_tips of this InlineObject13.  # noqa: E501
-
-        Trading terms  # noqa: E501
-
-        :return: The trade_tips of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._trade_tips
-
-    @trade_tips.setter
-    def trade_tips(self, trade_tips):
-        """Sets the trade_tips of this InlineObject13.
-
-        Trading terms  # noqa: E501
-
-        :param trade_tips: The trade_tips of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._trade_tips = trade_tips
-
-    @property
-    def auto_reply(self):
-        """Gets the auto_reply of this InlineObject13.  # noqa: E501
-
-        Auto reply  # noqa: E501
-
-        :return: The auto_reply of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._auto_reply
-
-    @auto_reply.setter
-    def auto_reply(self, auto_reply):
-        """Sets the auto_reply of this InlineObject13.
-
-        Auto reply  # noqa: E501
-
-        :param auto_reply: The auto_reply of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._auto_reply = auto_reply
-
-    @property
-    def min_completed_limit(self):
-        """Gets the min_completed_limit of this InlineObject13.  # noqa: E501
-
-        Minimum limit of completed orders  # noqa: E501
-
-        :return: The min_completed_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._min_completed_limit
-
-    @min_completed_limit.setter
-    def min_completed_limit(self, min_completed_limit):
-        """Sets the min_completed_limit of this InlineObject13.
-
-        Minimum limit of completed orders  # noqa: E501
-
-        :param min_completed_limit: The min_completed_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._min_completed_limit = min_completed_limit
-
-    @property
-    def max_completed_limit(self):
-        """Gets the max_completed_limit of this InlineObject13.  # noqa: E501
-
-        Maximum limit of completed orders  # noqa: E501
-
-        :return: The max_completed_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._max_completed_limit
-
-    @max_completed_limit.setter
-    def max_completed_limit(self, max_completed_limit):
-        """Sets the max_completed_limit of this InlineObject13.
-
-        Maximum limit of completed orders  # noqa: E501
-
-        :param max_completed_limit: The max_completed_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._max_completed_limit = max_completed_limit
-
-    @property
-    def completed_rate_limit(self):
-        """Gets the completed_rate_limit of this InlineObject13.  # noqa: E501
-
-        30-day completion rate limit  # noqa: E501
-
-        :return: The completed_rate_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._completed_rate_limit
-
-    @completed_rate_limit.setter
-    def completed_rate_limit(self, completed_rate_limit):
-        """Sets the completed_rate_limit of this InlineObject13.
-
-        30-day completion rate limit  # noqa: E501
-
-        :param completed_rate_limit: The completed_rate_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._completed_rate_limit = completed_rate_limit
-
-    @property
-    def user_country_limit(self):
-        """Gets the user_country_limit of this InlineObject13.  # noqa: E501
-
-        KYC nationality restriction  # noqa: E501
-
-        :return: The user_country_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_country_limit
-
-    @user_country_limit.setter
-    def user_country_limit(self, user_country_limit):
-        """Sets the user_country_limit of this InlineObject13.
-
-        KYC nationality restriction  # noqa: E501
-
-        :param user_country_limit: The user_country_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._user_country_limit = user_country_limit
-
-    @property
-    def user_order_limit(self):
-        """Gets the user_order_limit of this InlineObject13.  # noqa: E501
-
-        Order count limit  # noqa: E501
-
-        :return: The user_order_limit of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_order_limit
-
-    @user_order_limit.setter
-    def user_order_limit(self, user_order_limit):
-        """Sets the user_order_limit of this InlineObject13.
-
-        Order count limit  # noqa: E501
-
-        :param user_order_limit: The user_order_limit of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._user_order_limit = user_order_limit
-
-    @property
-    def rate_reference_id(self):
-        """Gets the rate_reference_id of this InlineObject13.  # noqa: E501
-
-        Reference exchange rate ID  # noqa: E501
-
-        :return: The rate_reference_id of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._rate_reference_id
-
-    @rate_reference_id.setter
-    def rate_reference_id(self, rate_reference_id):
-        """Sets the rate_reference_id of this InlineObject13.
-
-        Reference exchange rate ID  # noqa: E501
-
-        :param rate_reference_id: The rate_reference_id of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._rate_reference_id = rate_reference_id
-
-    @property
-    def rate_offset(self):
-        """Gets the rate_offset of this InlineObject13.  # noqa: E501
-
-        Reference exchange rate offset  # noqa: E501
-
-        :return: The rate_offset of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._rate_offset
-
-    @rate_offset.setter
-    def rate_offset(self, rate_offset):
-        """Sets the rate_offset of this InlineObject13.
-
-        Reference exchange rate offset  # noqa: E501
-
-        :param rate_offset: The rate_offset of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._rate_offset = rate_offset
-
-    @property
-    def float_trend(self):
-        """Gets the float_trend of this InlineObject13.  # noqa: E501
-
-        444  # noqa: E501
-
-        :return: The float_trend of this InlineObject13.  # noqa: E501
-        :rtype: str
-        """
-        return self._float_trend
-
-    @float_trend.setter
-    def float_trend(self, float_trend):
-        """Sets the float_trend of this InlineObject13.
-
-        444  # noqa: E501
-
-        :param float_trend: The float_trend of this InlineObject13.  # noqa: E501
-        :type: str
-        """
-
-        self._float_trend = float_trend
+        self._from_amount = from_amount
 
     def to_dict(self):
         """Returns the model properties as a dict"""

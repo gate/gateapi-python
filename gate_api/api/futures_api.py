@@ -8192,7 +8192,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param str order_id: ID returned when order is successfully created (required)
+        :param int order_id: ID returned when order is successfully created (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8217,7 +8217,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param str order_id: ID returned when order is successfully created (required)
+        :param int order_id: ID returned when order is successfully created (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8303,6 +8303,127 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def cancel_price_triggered_order(self, settle, order_id, **kwargs):  # noqa: E501
+        """Cancel single auto order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cancel_price_triggered_order(settle, order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param int order_id: ID returned when order is successfully created (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FuturesPriceTriggeredOrder
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.cancel_price_triggered_order_with_http_info(settle, order_id, **kwargs)  # noqa: E501
+
+    def cancel_price_triggered_order_with_http_info(self, settle, order_id, **kwargs):  # noqa: E501
+        """Cancel single auto order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cancel_price_triggered_order_with_http_info(settle, order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param int order_id: ID returned when order is successfully created (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FuturesPriceTriggeredOrder, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'order_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cancel_price_triggered_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `cancel_price_triggered_order`")  # noqa: E501
+        # verify the required parameter 'order_id' is set
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_id` when calling `cancel_price_triggered_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+        if 'order_id' in local_var_params:
+            path_params['order_id'] = local_var_params['order_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/price_orders/{order_id}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FuturesPriceTriggeredOrder',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_price_triggered_order(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
         """Modify a Single Auto Order  # noqa: E501
 
@@ -8313,7 +8434,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param str order_id: ID returned when order is successfully created (required)
+        :param int order_id: ID returned when order is successfully created (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8339,7 +8460,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param str order_id: ID returned when order is successfully created (required)
+        :param int order_id: ID returned when order is successfully created (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8422,7 +8543,7 @@ class FuturesApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/futures/{settle}/price_orders/{order_id}', 'PUT',
+            '/futures/{settle}/price_orders/amend/{order_id}', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -8430,127 +8551,6 @@ class FuturesApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='TriggerOrderResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cancel_price_triggered_order(self, settle, order_id, **kwargs):  # noqa: E501
-        """Cancel single auto order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_price_triggered_order(settle, order_id, async_req=True)
-        >>> result = thread.get()
-
-        :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
-        :param str order_id: ID returned when order is successfully created (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :rtype: gate_api.FuturesPriceTriggeredOrder
-        :return: If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.cancel_price_triggered_order_with_http_info(settle, order_id, **kwargs)  # noqa: E501
-
-    def cancel_price_triggered_order_with_http_info(self, settle, order_id, **kwargs):  # noqa: E501
-        """Cancel single auto order  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_price_triggered_order_with_http_info(settle, order_id, async_req=True)
-        >>> result = thread.get()
-
-        :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
-        :param str order_id: ID returned when order is successfully created (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :rtype: tuple(gate_api.FuturesPriceTriggeredOrder, status_code(int), headers(HTTPHeaderDict))
-        :return: If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'settle',
-            'order_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for k, v in six.iteritems(local_var_params['kwargs']):
-            if k not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cancel_price_triggered_order" % k
-                )
-            local_var_params[k] = v
-        del local_var_params['kwargs']
-        # verify the required parameter 'settle' is set
-        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
-                                                        local_var_params['settle'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `settle` when calling `cancel_price_triggered_order`")  # noqa: E501
-        # verify the required parameter 'order_id' is set
-        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['order_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `order_id` when calling `cancel_price_triggered_order`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'settle' in local_var_params:
-            path_params['settle'] = local_var_params['settle']  # noqa: E501
-        if 'order_id' in local_var_params:
-            path_params['order_id'] = local_var_params['order_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiv4']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/futures/{settle}/price_orders/{order_id}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='FuturesPriceTriggeredOrder',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -33,252 +33,46 @@ class InlineResponse20022Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'index': 'int',
-        'asset': 'str',
-        'fiat_unit': 'str',
-        'adv_no': 'int',
-        'price': 'str',
-        'max_single_trans_amount': 'str',
-        'min_single_trans_amount': 'str',
-        'nick_name': 'str'
+        'lists': 'list[InlineResponse20022DataLists]'
     }
 
     attribute_map = {
-        'index': 'index',
-        'asset': 'asset',
-        'fiat_unit': 'fiat_unit',
-        'adv_no': 'adv_no',
-        'price': 'price',
-        'max_single_trans_amount': 'max_single_trans_amount',
-        'min_single_trans_amount': 'min_single_trans_amount',
-        'nick_name': 'nick_name'
+        'lists': 'lists'
     }
 
-    def __init__(self, index=None, asset=None, fiat_unit=None, adv_no=None, price=None, max_single_trans_amount=None, min_single_trans_amount=None, nick_name=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, int, str, str, str, str, Configuration) -> None
+    def __init__(self, lists=None, local_vars_configuration=None):  # noqa: E501
+        # type: (list[InlineResponse20022DataLists], Configuration) -> None
         """InlineResponse20022Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._index = None
-        self._asset = None
-        self._fiat_unit = None
-        self._adv_no = None
-        self._price = None
-        self._max_single_trans_amount = None
-        self._min_single_trans_amount = None
-        self._nick_name = None
+        self._lists = None
         self.discriminator = None
 
-        self.index = index
-        self.asset = asset
-        self.fiat_unit = fiat_unit
-        self.adv_no = adv_no
-        self.price = price
-        self.max_single_trans_amount = max_single_trans_amount
-        self.min_single_trans_amount = min_single_trans_amount
-        self.nick_name = nick_name
+        if lists is not None:
+            self.lists = lists
 
     @property
-    def index(self):
-        """Gets the index of this InlineResponse20022Data.  # noqa: E501
+    def lists(self):
+        """Gets the lists of this InlineResponse20022Data.  # noqa: E501
 
-        Serial number  # noqa: E501
 
-        :return: The index of this InlineResponse20022Data.  # noqa: E501
-        :rtype: int
+        :return: The lists of this InlineResponse20022Data.  # noqa: E501
+        :rtype: list[InlineResponse20022DataLists]
         """
-        return self._index
+        return self._lists
 
-    @index.setter
-    def index(self, index):
-        """Sets the index of this InlineResponse20022Data.
+    @lists.setter
+    def lists(self, lists):
+        """Sets the lists of this InlineResponse20022Data.
 
-        Serial number  # noqa: E501
 
-        :param index: The index of this InlineResponse20022Data.  # noqa: E501
-        :type: int
+        :param lists: The lists of this InlineResponse20022Data.  # noqa: E501
+        :type: list[InlineResponse20022DataLists]
         """
-        if self.local_vars_configuration.client_side_validation and index is None:  # noqa: E501
-            raise ValueError("Invalid value for `index`, must not be `None`")  # noqa: E501
 
-        self._index = index
-
-    @property
-    def asset(self):
-        """Gets the asset of this InlineResponse20022Data.  # noqa: E501
-
-        Cryptocurrency  # noqa: E501
-
-        :return: The asset of this InlineResponse20022Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._asset
-
-    @asset.setter
-    def asset(self, asset):
-        """Sets the asset of this InlineResponse20022Data.
-
-        Cryptocurrency  # noqa: E501
-
-        :param asset: The asset of this InlineResponse20022Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and asset is None:  # noqa: E501
-            raise ValueError("Invalid value for `asset`, must not be `None`")  # noqa: E501
-
-        self._asset = asset
-
-    @property
-    def fiat_unit(self):
-        """Gets the fiat_unit of this InlineResponse20022Data.  # noqa: E501
-
-        Fiat currency  # noqa: E501
-
-        :return: The fiat_unit of this InlineResponse20022Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._fiat_unit
-
-    @fiat_unit.setter
-    def fiat_unit(self, fiat_unit):
-        """Sets the fiat_unit of this InlineResponse20022Data.
-
-        Fiat currency  # noqa: E501
-
-        :param fiat_unit: The fiat_unit of this InlineResponse20022Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and fiat_unit is None:  # noqa: E501
-            raise ValueError("Invalid value for `fiat_unit`, must not be `None`")  # noqa: E501
-
-        self._fiat_unit = fiat_unit
-
-    @property
-    def adv_no(self):
-        """Gets the adv_no of this InlineResponse20022Data.  # noqa: E501
-
-        广告id  # noqa: E501
-
-        :return: The adv_no of this InlineResponse20022Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._adv_no
-
-    @adv_no.setter
-    def adv_no(self, adv_no):
-        """Sets the adv_no of this InlineResponse20022Data.
-
-        广告id  # noqa: E501
-
-        :param adv_no: The adv_no of this InlineResponse20022Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and adv_no is None:  # noqa: E501
-            raise ValueError("Invalid value for `adv_no`, must not be `None`")  # noqa: E501
-
-        self._adv_no = adv_no
-
-    @property
-    def price(self):
-        """Gets the price of this InlineResponse20022Data.  # noqa: E501
-
-        Price  # noqa: E501
-
-        :return: The price of this InlineResponse20022Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._price
-
-    @price.setter
-    def price(self, price):
-        """Sets the price of this InlineResponse20022Data.
-
-        Price  # noqa: E501
-
-        :param price: The price of this InlineResponse20022Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
-            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
-
-        self._price = price
-
-    @property
-    def max_single_trans_amount(self):
-        """Gets the max_single_trans_amount of this InlineResponse20022Data.  # noqa: E501
-
-        Maximum Cryptocurrency Amount  # noqa: E501
-
-        :return: The max_single_trans_amount of this InlineResponse20022Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._max_single_trans_amount
-
-    @max_single_trans_amount.setter
-    def max_single_trans_amount(self, max_single_trans_amount):
-        """Sets the max_single_trans_amount of this InlineResponse20022Data.
-
-        Maximum Cryptocurrency Amount  # noqa: E501
-
-        :param max_single_trans_amount: The max_single_trans_amount of this InlineResponse20022Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and max_single_trans_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_single_trans_amount`, must not be `None`")  # noqa: E501
-
-        self._max_single_trans_amount = max_single_trans_amount
-
-    @property
-    def min_single_trans_amount(self):
-        """Gets the min_single_trans_amount of this InlineResponse20022Data.  # noqa: E501
-
-        Minimum Cryptocurrency Amount  # noqa: E501
-
-        :return: The min_single_trans_amount of this InlineResponse20022Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._min_single_trans_amount
-
-    @min_single_trans_amount.setter
-    def min_single_trans_amount(self, min_single_trans_amount):
-        """Sets the min_single_trans_amount of this InlineResponse20022Data.
-
-        Minimum Cryptocurrency Amount  # noqa: E501
-
-        :param min_single_trans_amount: The min_single_trans_amount of this InlineResponse20022Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and min_single_trans_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_single_trans_amount`, must not be `None`")  # noqa: E501
-
-        self._min_single_trans_amount = min_single_trans_amount
-
-    @property
-    def nick_name(self):
-        """Gets the nick_name of this InlineResponse20022Data.  # noqa: E501
-
-        Advertiser Nickname  # noqa: E501
-
-        :return: The nick_name of this InlineResponse20022Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._nick_name
-
-    @nick_name.setter
-    def nick_name(self, nick_name):
-        """Sets the nick_name of this InlineResponse20022Data.
-
-        Advertiser Nickname  # noqa: E501
-
-        :param nick_name: The nick_name of this InlineResponse20022Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and nick_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `nick_name`, must not be `None`")  # noqa: E501
-
-        self._nick_name = nick_name
+        self._lists = lists
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,49 +33,74 @@ class InlineObject4(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'order_id': 'str'
+        'price_tp': 'str',
+        'price_sl': 'str'
     }
 
     attribute_map = {
-        'order_id': 'order_id'
+        'price_tp': 'price_tp',
+        'price_sl': 'price_sl'
     }
 
-    def __init__(self, order_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, price_tp=None, price_sl=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, Configuration) -> None
         """InlineObject4 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._order_id = None
+        self._price_tp = None
+        self._price_sl = None
         self.discriminator = None
 
-        self.order_id = order_id
+        self.price_tp = price_tp
+        self.price_sl = price_sl
 
     @property
-    def order_id(self):
-        """Gets the order_id of this InlineObject4.  # noqa: E501
+    def price_tp(self):
+        """Gets the price_tp of this InlineObject4.  # noqa: E501
 
-        Order ID  # noqa: E501
+        止盈价格  说明： - 不传 或 传 \"0\"：将清空原有止盈价 - 如不希望清空，请传接口返回的原止盈价  # noqa: E501
 
-        :return: The order_id of this InlineObject4.  # noqa: E501
+        :return: The price_tp of this InlineObject4.  # noqa: E501
         :rtype: str
         """
-        return self._order_id
+        return self._price_tp
 
-    @order_id.setter
-    def order_id(self, order_id):
-        """Sets the order_id of this InlineObject4.
+    @price_tp.setter
+    def price_tp(self, price_tp):
+        """Sets the price_tp of this InlineObject4.
 
-        Order ID  # noqa: E501
+        止盈价格  说明： - 不传 或 传 \"0\"：将清空原有止盈价 - 如不希望清空，请传接口返回的原止盈价  # noqa: E501
 
-        :param order_id: The order_id of this InlineObject4.  # noqa: E501
+        :param price_tp: The price_tp of this InlineObject4.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._order_id = order_id
+        self._price_tp = price_tp
+
+    @property
+    def price_sl(self):
+        """Gets the price_sl of this InlineObject4.  # noqa: E501
+
+        止损价格  说明： - 不传 或 传 \"0\"：将清空原有止损价 - 如不希望清空，请传接口返回的原止损价  # noqa: E501
+
+        :return: The price_sl of this InlineObject4.  # noqa: E501
+        :rtype: str
+        """
+        return self._price_sl
+
+    @price_sl.setter
+    def price_sl(self, price_sl):
+        """Sets the price_sl of this InlineObject4.
+
+        止损价格  说明： - 不传 或 传 \"0\"：将清空原有止损价 - 如不希望清空，请传接口返回的原止损价  # noqa: E501
+
+        :param price_sl: The price_sl of this InlineObject4.  # noqa: E501
+        :type: str
+        """
+
+        self._price_sl = price_sl
 
     def to_dict(self):
         """Returns the model properties as a dict"""

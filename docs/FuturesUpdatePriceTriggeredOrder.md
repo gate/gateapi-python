@@ -4,8 +4,8 @@ Modify Price Order Details
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**settle** | **str** | Settlement Currency (e.g., USDT, BTC) | [optional] [readonly] 
-**order_id** | **str** | The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body. | 
+**settle** | **str** | Settlement Currency (e.g., USDT, BTC) | [optional] 
+**order_id** | **int** | ID of the Pending Take-Profit/Stop-Loss Trigger Order | 
 **size** | **int** | Modified Contract Quantity. Full Close: 0; Partial Close: Positive/Negative values indicate direction (consistent with the creation interface logic). | [optional] 
 **price** | **str** | Represents the modified trading price. A value of 0 indicates a market order. | [optional] 
 **trigger_price** | **str** | Modified Trigger Price | [optional] 

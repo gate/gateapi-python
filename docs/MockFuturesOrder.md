@@ -4,7 +4,7 @@ Futures order
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contract** | **str** | Futures name, currently only supports USDT perpetual contracts for BTC and ETH | 
+**contract** | **str** | Perpetual contract name. Only USDT perpetual contracts for underlying currencies with active options trading are supported. | 
 **size** | **str** | Contract quantity, representing the initial order quantity, not involved in actual settlement | 
 **left** | **str** | Unfilled contract quantity, involved in actual calculation | 
 

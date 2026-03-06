@@ -33,74 +33,164 @@ class InlineObject10(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'trade_id': 'str',
-        'payment_method': 'str'
+        'coin': 'str',
+        'amount': 'str',
+        '_from': 'str',
+        'to': 'str',
+        'text': 'str'
     }
 
     attribute_map = {
-        'trade_id': 'trade_id',
-        'payment_method': 'payment_method'
+        'coin': 'coin',
+        'amount': 'amount',
+        '_from': 'from',
+        'to': 'to',
+        'text': 'text'
     }
 
-    def __init__(self, trade_id=None, payment_method=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, coin=None, amount=None, _from=None, to=None, text=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, Configuration) -> None
         """InlineObject10 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._trade_id = None
-        self._payment_method = None
+        self._coin = None
+        self._amount = None
+        self.__from = None
+        self._to = None
+        self._text = None
         self.discriminator = None
 
-        self.trade_id = trade_id
-        self.payment_method = payment_method
+        self.coin = coin
+        self.amount = amount
+        self._from = _from
+        self.to = to
+        if text is not None:
+            self.text = text
 
     @property
-    def trade_id(self):
-        """Gets the trade_id of this InlineObject10.  # noqa: E501
+    def coin(self):
+        """Gets the coin of this InlineObject10.  # noqa: E501
 
+        Currency  # noqa: E501
 
-        :return: The trade_id of this InlineObject10.  # noqa: E501
+        :return: The coin of this InlineObject10.  # noqa: E501
         :rtype: str
         """
-        return self._trade_id
+        return self._coin
 
-    @trade_id.setter
-    def trade_id(self, trade_id):
-        """Sets the trade_id of this InlineObject10.
+    @coin.setter
+    def coin(self, coin):
+        """Sets the coin of this InlineObject10.
 
+        Currency  # noqa: E501
 
-        :param trade_id: The trade_id of this InlineObject10.  # noqa: E501
+        :param coin: The coin of this InlineObject10.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and trade_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `trade_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
 
-        self._trade_id = trade_id
+        self._coin = coin
 
     @property
-    def payment_method(self):
-        """Gets the payment_method of this InlineObject10.  # noqa: E501
+    def amount(self):
+        """Gets the amount of this InlineObject10.  # noqa: E501
 
+        Transfer amount  # noqa: E501
 
-        :return: The payment_method of this InlineObject10.  # noqa: E501
+        :return: The amount of this InlineObject10.  # noqa: E501
         :rtype: str
         """
-        return self._payment_method
+        return self._amount
 
-    @payment_method.setter
-    def payment_method(self, payment_method):
-        """Sets the payment_method of this InlineObject10.
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this InlineObject10.
 
+        Transfer amount  # noqa: E501
 
-        :param payment_method: The payment_method of this InlineObject10.  # noqa: E501
+        :param amount: The amount of this InlineObject10.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and payment_method is None:  # noqa: E501
-            raise ValueError("Invalid value for `payment_method`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
-        self._payment_method = payment_method
+        self._amount = amount
+
+    @property
+    def _from(self):
+        """Gets the _from of this InlineObject10.  # noqa: E501
+
+        Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
+
+        :return: The _from of this InlineObject10.  # noqa: E501
+        :rtype: str
+        """
+        return self.__from
+
+    @_from.setter
+    def _from(self, _from):
+        """Sets the _from of this InlineObject10.
+
+        Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
+
+        :param _from: The _from of this InlineObject10.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and _from is None:  # noqa: E501
+            raise ValueError("Invalid value for `_from`, must not be `None`")  # noqa: E501
+
+        self.__from = _from
+
+    @property
+    def to(self):
+        """Gets the to of this InlineObject10.  # noqa: E501
+
+        Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
+
+        :return: The to of this InlineObject10.  # noqa: E501
+        :rtype: str
+        """
+        return self._to
+
+    @to.setter
+    def to(self, to):
+        """Sets the to of this InlineObject10.
+
+        Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT  # noqa: E501
+
+        :param to: The to of this InlineObject10.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and to is None:  # noqa: E501
+            raise ValueError("Invalid value for `to`, must not be `None`")  # noqa: E501
+
+        self._to = to
+
+    @property
+    def text(self):
+        """Gets the text of this InlineObject10.  # noqa: E501
+
+        User-defined ID  # noqa: E501
+
+        :return: The text of this InlineObject10.  # noqa: E501
+        :rtype: str
+        """
+        return self._text
+
+    @text.setter
+    def text(self, text):
+        """Sets the text of this InlineObject10.
+
+        User-defined ID  # noqa: E501
+
+        :param text: The text of this InlineObject10.  # noqa: E501
+        :type: str
+        """
+
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

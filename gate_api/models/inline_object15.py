@@ -33,47 +33,104 @@ class InlineObject15(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'adv_no': 'str'
+        'position_mode': 'str',
+        'account_mode': 'str',
+        'exchange_type': 'str'
     }
 
     attribute_map = {
-        'adv_no': 'adv_no'
+        'position_mode': 'position_mode',
+        'account_mode': 'account_mode',
+        'exchange_type': 'exchange_type'
     }
 
-    def __init__(self, adv_no=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, position_mode=None, account_mode=None, exchange_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, Configuration) -> None
         """InlineObject15 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._adv_no = None
+        self._position_mode = None
+        self._account_mode = None
+        self._exchange_type = None
         self.discriminator = None
 
-        self.adv_no = adv_no
+        if position_mode is not None:
+            self.position_mode = position_mode
+        if account_mode is not None:
+            self.account_mode = account_mode
+        if exchange_type is not None:
+            self.exchange_type = exchange_type
 
     @property
-    def adv_no(self):
-        """Gets the adv_no of this InlineObject15.  # noqa: E501
+    def position_mode(self):
+        """Gets the position_mode of this InlineObject15.  # noqa: E501
 
+        Futures position mode (SINGLE/DUAL)  # noqa: E501
 
-        :return: The adv_no of this InlineObject15.  # noqa: E501
+        :return: The position_mode of this InlineObject15.  # noqa: E501
         :rtype: str
         """
-        return self._adv_no
+        return self._position_mode
 
-    @adv_no.setter
-    def adv_no(self, adv_no):
-        """Sets the adv_no of this InlineObject15.
+    @position_mode.setter
+    def position_mode(self, position_mode):
+        """Sets the position_mode of this InlineObject15.
 
+        Futures position mode (SINGLE/DUAL)  # noqa: E501
 
-        :param adv_no: The adv_no of this InlineObject15.  # noqa: E501
+        :param position_mode: The position_mode of this InlineObject15.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and adv_no is None:  # noqa: E501
-            raise ValueError("Invalid value for `adv_no`, must not be `None`")  # noqa: E501
 
-        self._adv_no = adv_no
+        self._position_mode = position_mode
+
+    @property
+    def account_mode(self):
+        """Gets the account_mode of this InlineObject15.  # noqa: E501
+
+        Account mode (CROSS_EXCHANGE/ISOLATED_EXCHANGE, default: CROSS_EXCHANGE)  # noqa: E501
+
+        :return: The account_mode of this InlineObject15.  # noqa: E501
+        :rtype: str
+        """
+        return self._account_mode
+
+    @account_mode.setter
+    def account_mode(self, account_mode):
+        """Sets the account_mode of this InlineObject15.
+
+        Account mode (CROSS_EXCHANGE/ISOLATED_EXCHANGE, default: CROSS_EXCHANGE)  # noqa: E501
+
+        :param account_mode: The account_mode of this InlineObject15.  # noqa: E501
+        :type: str
+        """
+
+        self._account_mode = account_mode
+
+    @property
+    def exchange_type(self):
+        """Gets the exchange_type of this InlineObject15.  # noqa: E501
+
+        Exchange (BINANCE/OKX/GATE/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)  # noqa: E501
+
+        :return: The exchange_type of this InlineObject15.  # noqa: E501
+        :rtype: str
+        """
+        return self._exchange_type
+
+    @exchange_type.setter
+    def exchange_type(self, exchange_type):
+        """Sets the exchange_type of this InlineObject15.
+
+        Exchange (BINANCE/OKX/GATE/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)  # noqa: E501
+
+        :param exchange_type: The exchange_type of this InlineObject15.  # noqa: E501
+        :type: str
+        """
+
+        self._exchange_type = exchange_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
