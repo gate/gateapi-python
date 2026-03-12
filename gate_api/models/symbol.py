@@ -133,7 +133,7 @@ class Symbol(object):
     def exchange_type(self):
         """Gets the exchange_type of this Symbol.  # noqa: E501
 
-        BINANCE,OKX,GATE,CROSSEX  # noqa: E501
+        BINANCE,OKX,GATE,BYBIT,CROSSEX  # noqa: E501
 
         :return: The exchange_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -144,7 +144,7 @@ class Symbol(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this Symbol.
 
-        BINANCE,OKX,GATE,CROSSEX  # noqa: E501
+        BINANCE,OKX,GATE,BYBIT,CROSSEX  # noqa: E501
 
         :param exchange_type: The exchange_type of this Symbol.  # noqa: E501
         :type: str

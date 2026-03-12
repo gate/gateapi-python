@@ -268,7 +268,7 @@ class BrokerCommission1(object):
     def source(self):
         """Gets the source of this BrokerCommission1.  # noqa: E501
 
-        Commission transaction type: Spot, Futures, Options, Alpha  # noqa: E501
+        Commission transaction type: Spot, Futures, Options, Alpha、TradFi  # noqa: E501
 
         :return: The source of this BrokerCommission1.  # noqa: E501
         :rtype: str
@@ -279,7 +279,7 @@ class BrokerCommission1(object):
     def source(self, source):
         """Sets the source of this BrokerCommission1.
 
-        Commission transaction type: Spot, Futures, Options, Alpha  # noqa: E501
+        Commission transaction type: Spot, Futures, Options, Alpha、TradFi  # noqa: E501
 
         :param source: The source of this BrokerCommission1.  # noqa: E501
         :type: str

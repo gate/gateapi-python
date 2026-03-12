@@ -46,7 +46,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbols: Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        :param str symbols: 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -71,7 +71,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbols: Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        :param str symbols: 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1322,7 +1322,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str exchange_type: Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE)
+        :param str exchange_type: Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1347,7 +1347,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str exchange_type: Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE)
+        :param str exchange_type: Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3578,7 +3578,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        :param str exchange_type: OKX/GATE/BINANCE
+        :param str exchange_type: OKX/GATE/BINANCE/BYBIT
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3604,7 +3604,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        :param str exchange_type: OKX/GATE/BINANCE
+        :param str exchange_type: OKX/GATE/BINANCE/BYBIT
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

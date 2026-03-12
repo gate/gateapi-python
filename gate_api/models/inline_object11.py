@@ -123,7 +123,7 @@ class InlineObject11(object):
     def symbol(self):
         """Gets the symbol of this InlineObject11.  # noqa: E501
 
-        Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier `BINANCE_SPOT_ADA_USDT`; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier `OKX_FUTURE_ADA_USDT`; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier `GATE_MARGIN_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders  # noqa: E501
+        Unique Identifier Exchange_Business_Base_Counter Examples: - To place a Spot order for ADA/USDT on BINANCE: Use identifier `BINANCE_SPOT_ADA_USDT`;   - To place a USDT-margined Perpetual Futures order for ADA/USDT on OKX: Use identifier `OKX_FUTURE_ADA_USDT`;   - To place a Spot Margin order for ADA/USDT on GATE: Use identifier `GATE_MARGIN_ADA_USDT`;   - To place a Spot order for ADA/USDT on BYBIT: Use identifier `BYBIT_SPOT_ADA_USDT`;   Currently supports three order types: Spot orders, USDT-margined Perpetual Futures orders, and Spot Margin orders. BYBIT does not currently support Spot Margin orders  # noqa: E501
 
         :return: The symbol of this InlineObject11.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class InlineObject11(object):
     def symbol(self, symbol):
         """Sets the symbol of this InlineObject11.
 
-        Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier `BINANCE_SPOT_ADA_USDT`; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier `OKX_FUTURE_ADA_USDT`; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier `GATE_MARGIN_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders  # noqa: E501
+        Unique Identifier Exchange_Business_Base_Counter Examples: - To place a Spot order for ADA/USDT on BINANCE: Use identifier `BINANCE_SPOT_ADA_USDT`;   - To place a USDT-margined Perpetual Futures order for ADA/USDT on OKX: Use identifier `OKX_FUTURE_ADA_USDT`;   - To place a Spot Margin order for ADA/USDT on GATE: Use identifier `GATE_MARGIN_ADA_USDT`;   - To place a Spot order for ADA/USDT on BYBIT: Use identifier `BYBIT_SPOT_ADA_USDT`;   Currently supports three order types: Spot orders, USDT-margined Perpetual Futures orders, and Spot Margin orders. BYBIT does not currently support Spot Margin orders  # noqa: E501
 
         :param symbol: The symbol of this InlineObject11.  # noqa: E501
         :type: str

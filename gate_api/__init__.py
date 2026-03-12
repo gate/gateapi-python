@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.32"
+__version__ = "7.2.34"
 
 # import apis into sdk package
 from gate_api.api.cross_ex_api import CrossExApi
@@ -25,6 +25,7 @@ from gate_api.api.sub_account_api import SubAccountApi
 from gate_api.api.trad_fi_api import TradFiApi
 from gate_api.api.unified_api import UnifiedApi
 from gate_api.api.account_api import AccountApi
+from gate_api.api.alpha_api import AlphaApi
 from gate_api.api.delivery_api import DeliveryApi
 from gate_api.api.earn_api import EarnApi
 from gate_api.api.flash_swap_api import FlashSwapApi
@@ -48,11 +49,13 @@ from gate_api.exceptions import ApiKeyError
 from gate_api.exceptions import ApiException
 # import models into sdk package
 from gate_api.models.account_balance import AccountBalance
+from gate_api.models.account_book_response import AccountBookResponse
 from gate_api.models.account_detail import AccountDetail
 from gate_api.models.account_detail_key import AccountDetailKey
 from gate_api.models.account_key_info import AccountKeyInfo
 from gate_api.models.account_key_info_perms import AccountKeyInfoPerms
 from gate_api.models.account_rate_limit import AccountRateLimit
+from gate_api.models.accounts_response import AccountsResponse
 from gate_api.models.ads_detail_request import AdsDetailRequest
 from gate_api.models.ads_list_request import AdsListRequest
 from gate_api.models.ads_update_status import AdsUpdateStatus
@@ -114,6 +117,7 @@ from gate_api.models.cross_margin_loan import CrossMarginLoan
 from gate_api.models.cross_margin_repayment import CrossMarginRepayment
 from gate_api.models.crossex_rule_risk_limits_tiers import CrossexRuleRiskLimitsTiers
 from gate_api.models.currency import Currency
+from gate_api.models.currency2 import Currency2
 from gate_api.models.currency_chain import CurrencyChain
 from gate_api.models.currency_pair import CurrencyPair
 from gate_api.models.currency_quota import CurrencyQuota
@@ -358,6 +362,7 @@ from gate_api.models.order_list_struct import OrderListStruct
 from gate_api.models.order_list_struct_list import OrderListStructList
 from gate_api.models.order_patch import OrderPatch
 from gate_api.models.order_resp import OrderResp
+from gate_api.models.order_response import OrderResponse
 from gate_api.models.partner_commission_history import PartnerCommissionHistory
 from gate_api.models.partner_sub import PartnerSub
 from gate_api.models.partner_sub_list import PartnerSubList
@@ -366,6 +371,8 @@ from gate_api.models.patch_uni_lend import PatchUniLend
 from gate_api.models.place_biz_push_order import PlaceBizPushOrder
 from gate_api.models.place_dual_investment_order import PlaceDualInvestmentOrder
 from gate_api.models.place_dual_investment_order_params import PlaceDualInvestmentOrderParams
+from gate_api.models.place_order_request import PlaceOrderRequest
+from gate_api.models.place_order_response import PlaceOrderResponse
 from gate_api.models.position import Position
 from gate_api.models.position_close import PositionClose
 from gate_api.models.position_close_order import PositionCloseOrder
@@ -379,6 +386,8 @@ from gate_api.models.position_list_data import PositionListData
 from gate_api.models.position_list_data_list import PositionListDataList
 from gate_api.models.position_timerange import PositionTimerange
 from gate_api.models.profit_loss_range import ProfitLossRange
+from gate_api.models.quote_request import QuoteRequest
+from gate_api.models.quote_response import QuoteResponse
 from gate_api.models.rebate_user_info import RebateUserInfo
 from gate_api.models.repay_currency_res import RepayCurrencyRes
 from gate_api.models.repay_multi_loan import RepayMultiLoan
@@ -428,6 +437,7 @@ from gate_api.models.system_time import SystemTime
 from gate_api.models.ticker import Ticker
 from gate_api.models.ticker2 import Ticker2
 from gate_api.models.ticker2_data import Ticker2Data
+from gate_api.models.tokens import Tokens
 from gate_api.models.total_balance import TotalBalance
 from gate_api.models.trade import Trade
 from gate_api.models.trade_fee import TradeFee

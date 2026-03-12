@@ -148,7 +148,7 @@ class InlineResponse20029(object):
     def from_account_type(self):
         """Gets the from_account_type of this InlineResponse20029.  # noqa: E501
 
-        Source `from` account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)  # noqa: E501
+        Source `from` account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX_BYBIT, CROSSEX, SPOT)  # noqa: E501
 
         :return: The from_account_type of this InlineResponse20029.  # noqa: E501
         :rtype: str
@@ -159,7 +159,7 @@ class InlineResponse20029(object):
     def from_account_type(self, from_account_type):
         """Sets the from_account_type of this InlineResponse20029.
 
-        Source `from` account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)  # noqa: E501
+        Source `from` account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX_BYBIT, CROSSEX, SPOT)  # noqa: E501
 
         :param from_account_type: The from_account_type of this InlineResponse20029.  # noqa: E501
         :type: str

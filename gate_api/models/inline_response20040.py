@@ -143,7 +143,7 @@ class InlineResponse20040(object):
     def exchange_adl_rank(self):
         """Gets the exchange_adl_rank of this InlineResponse20040.  # noqa: E501
 
-        Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)  # noqa: E501
+        Original exchange information (BINANCE: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; GATE: 1–5, lower value ranks higher; BYBIT: 0–5, higher value ranks higher)  # noqa: E501
 
         :return: The exchange_adl_rank of this InlineResponse20040.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class InlineResponse20040(object):
     def exchange_adl_rank(self, exchange_adl_rank):
         """Sets the exchange_adl_rank of this InlineResponse20040.
 
-        Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)  # noqa: E501
+        Original exchange information (BINANCE: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; GATE: 1–5, lower value ranks higher; BYBIT: 0–5, higher value ranks higher)  # noqa: E501
 
         :param exchange_adl_rank: The exchange_adl_rank of this InlineResponse20040.  # noqa: E501
         :type: str

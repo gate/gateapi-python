@@ -59,7 +59,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-symbols = 'symbols_example' # str | Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
+symbols = 'symbols_example' # str | 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
 
 try:
     # [Public Interface] Query Trading Pair Information
@@ -75,7 +75,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **str**| Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional] 
+ **symbols** | **str**| 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional] 
 
 ### Return type
 
@@ -812,7 +812,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-exchange_type = 'BINANCE,OKX,GATE' # str | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE) (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT' # str | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) (optional)
 
 try:
     # Query Account Assets
@@ -828,7 +828,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_type** | **str**| Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE) | [optional] 
+ **exchange_type** | **str**| Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) | [optional] 
 
 ### Return type
 
@@ -1296,7 +1296,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 coin = 'SOL' # str | Currency (optional)
-exchange_type = 'OKX' # str | Exchange (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT' # str | Exchange (optional)
 
 try:
     # Query margin asset interest rates
@@ -1432,7 +1432,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 symbol = 'BINANCE_FUTURE_ADA_USDT' # str | Trading Pair (optional)
-exchange_type = 'BINANCE' # str | Exchange (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT' # str | Exchange (optional)
 
 try:
     # Query Contract Positions
@@ -2180,7 +2180,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 coin = 'SOL' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
-exchange_type = 'OKX' # str | OKX/GATE/BINANCE (optional)
+exchange_type = 'OKX' # str | OKX/GATE/BINANCE/BYBIT (optional)
 
 try:
     # Query currency discount rate (discount rate of margin currency in isolated exchange mode)
@@ -2197,7 +2197,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
- **exchange_type** | **str**| OKX/GATE/BINANCE | [optional] 
+ **exchange_type** | **str**| OKX/GATE/BINANCE/BYBIT | [optional] 
 
 ### Return type
 
