@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_otc_quote**
-> InlineResponse2006 create_otc_quote(inline_object6)
+> InlineResponse2006 create_otc_quote(inline_object7)
 
 Fiat and stablecoin quote
 
@@ -47,11 +47,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.OTCApi(api_client)
-inline_object6 = gate_api.InlineObject6() # InlineObject6 | 
+inline_object7 = gate_api.InlineObject7() # InlineObject7 | 
 
 try:
     # Fiat and stablecoin quote
-    api_response = api_instance.create_otc_quote(inline_object6)
+    api_response = api_instance.create_otc_quote(inline_object7)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -63,7 +63,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_otc_order**
-> InlineResponse2007 create_otc_order(inline_object7)
+> InlineResponse2007 create_otc_order(inline_object8)
 
 Create fiat order
 
@@ -116,11 +116,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.OTCApi(api_client)
-inline_object7 = gate_api.InlineObject7() # InlineObject7 | 
+inline_object8 = gate_api.InlineObject8() # InlineObject8 | 
 
 try:
     # Create fiat order
-    api_response = api_instance.create_otc_order(inline_object7)
+    api_response = api_instance.create_otc_order(inline_object8)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -132,7 +132,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_stable_coin_order**
-> InlineResponse2008 create_stable_coin_order(inline_object8)
+> InlineResponse2008 create_stable_coin_order(inline_object9)
 
 Create stablecoin order
 
@@ -185,11 +185,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.OTCApi(api_client)
-inline_object8 = gate_api.InlineObject8() # InlineObject8 | 
+inline_object9 = gate_api.InlineObject9() # InlineObject9 | 
 
 try:
     # Create stablecoin order
-    api_response = api_instance.create_stable_coin_order(inline_object8)
+    api_response = api_instance.create_stable_coin_order(inline_object9)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -201,7 +201,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
@@ -354,7 +354,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mark_otc_order_paid**
-> InlineResponse2007 mark_otc_order_paid(inline_object9)
+> InlineResponse2007 mark_otc_order_paid(inline_object10)
 
 Mark fiat order as paid
 
@@ -384,11 +384,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.OTCApi(api_client)
-inline_object9 = gate_api.InlineObject9() # InlineObject9 | 
+inline_object10 = gate_api.InlineObject10() # InlineObject10 | 
 
 try:
     # Mark fiat order as paid
-    api_response = api_instance.mark_otc_order_paid(inline_object9)
+    api_response = api_instance.mark_otc_order_paid(inline_object10)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -400,7 +400,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
+ **inline_object10** | [**InlineObject10**](InlineObject10.md)|  | 
 
 ### Return type
 

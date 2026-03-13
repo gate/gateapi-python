@@ -2729,6 +2729,133 @@ class OptionsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def amend_options_order(self, order_id, inline_object6, **kwargs):  # noqa: E501
+        """Option Order Modification  # noqa: E501
+
+        Modify the order price and/or quantity of a specified order; only orders with status 'open' are supported  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.amend_options_order(order_id, inline_object6, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int order_id: Order ID returned when order is successfully created (required)
+        :param InlineObject6 inline_object6: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OptionsOrder
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.amend_options_order_with_http_info(order_id, inline_object6, **kwargs)  # noqa: E501
+
+    def amend_options_order_with_http_info(self, order_id, inline_object6, **kwargs):  # noqa: E501
+        """Option Order Modification  # noqa: E501
+
+        Modify the order price and/or quantity of a specified order; only orders with status 'open' are supported  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.amend_options_order_with_http_info(order_id, inline_object6, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int order_id: Order ID returned when order is successfully created (required)
+        :param InlineObject6 inline_object6: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OptionsOrder, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'order_id',
+            'inline_object6'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method amend_options_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_id` when calling `amend_options_order`")  # noqa: E501
+        # verify the required parameter 'inline_object6' is set
+        if self.api_client.client_side_validation and ('inline_object6' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object6'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object6` when calling `amend_options_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'order_id' in local_var_params:
+            path_params['order_id'] = local_var_params['order_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object6' in local_var_params:
+            body_params = local_var_params['inline_object6']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/options/orders/{order_id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OptionsOrder',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def cancel_options_order(self, order_id, **kwargs):  # noqa: E501
         """Cancel single order  # noqa: E501
 

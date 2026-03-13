@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.34"
+__version__ = "7.2.36"
 
 # import apis into sdk package
 from gate_api.api.cross_ex_api import CrossExApi
@@ -200,6 +200,7 @@ from gate_api.models.inline_object15 import InlineObject15
 from gate_api.models.inline_object16 import InlineObject16
 from gate_api.models.inline_object17 import InlineObject17
 from gate_api.models.inline_object18 import InlineObject18
+from gate_api.models.inline_object19 import InlineObject19
 from gate_api.models.inline_object2 import InlineObject2
 from gate_api.models.inline_object3 import InlineObject3
 from gate_api.models.inline_object4 import InlineObject4

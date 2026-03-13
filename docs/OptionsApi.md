@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**create_options_order**](OptionsApi.md#create_options_order) | **POST** /options/orders | Create an options order
 [**cancel_options_orders**](OptionsApi.md#cancel_options_orders) | **DELETE** /options/orders | Cancel all orders with &#39;open&#39; status
 [**get_options_order**](OptionsApi.md#get_options_order) | **GET** /options/orders/{order_id} | Query single order details
+[**amend_options_order**](OptionsApi.md#amend_options_order) | **PUT** /options/orders/{order_id} | Option Order Modification
 [**cancel_options_order**](OptionsApi.md#cancel_options_order) | **DELETE** /options/orders/{order_id} | Cancel single order
 [**countdown_cancel_all_options**](OptionsApi.md#countdown_cancel_all_options) | **POST** /options/countdown_cancel_all | Countdown cancel orders
 [**list_my_options_trades**](OptionsApi.md#list_my_options_trades) | **GET** /options/my_trades | Query personal trading records
@@ -1469,6 +1470,77 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order detail |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **amend_options_order**
+> OptionsOrder amend_options_order(order_id, inline_object6)
+
+Option Order Modification
+
+Modify the order price and/or quantity of a specified order; only orders with status 'open' are supported
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.OptionsApi(api_client)
+order_id = 12345 # int | Order ID returned when order is successfully created
+inline_object6 = gate_api.InlineObject6() # InlineObject6 | 
+
+try:
+    # Option Order Modification
+    api_response = api_instance.amend_options_order(order_id, inline_object6)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling OptionsApi->amend_options_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **int**| Order ID returned when order is successfully created | 
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**OptionsOrder**](OptionsOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

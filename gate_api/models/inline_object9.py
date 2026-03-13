@@ -33,49 +33,216 @@ class InlineObject9(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'order_id': 'str'
+        'pay_coin': 'str',
+        'get_coin': 'str',
+        'pay_amount': 'str',
+        'get_amount': 'str',
+        'side': 'str',
+        'promotion_code': 'str',
+        'quote_token': 'str'
     }
 
     attribute_map = {
-        'order_id': 'order_id'
+        'pay_coin': 'pay_coin',
+        'get_coin': 'get_coin',
+        'pay_amount': 'pay_amount',
+        'get_amount': 'get_amount',
+        'side': 'side',
+        'promotion_code': 'promotion_code',
+        'quote_token': 'quote_token'
     }
 
-    def __init__(self, order_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, pay_coin=None, get_coin=None, pay_amount=None, get_amount=None, side=None, promotion_code=None, quote_token=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, Configuration) -> None
         """InlineObject9 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._order_id = None
+        self._pay_coin = None
+        self._get_coin = None
+        self._pay_amount = None
+        self._get_amount = None
+        self._side = None
+        self._promotion_code = None
+        self._quote_token = None
         self.discriminator = None
 
-        self.order_id = order_id
+        if pay_coin is not None:
+            self.pay_coin = pay_coin
+        if get_coin is not None:
+            self.get_coin = get_coin
+        if pay_amount is not None:
+            self.pay_amount = pay_amount
+        if get_amount is not None:
+            self.get_amount = get_amount
+        if side is not None:
+            self.side = side
+        if promotion_code is not None:
+            self.promotion_code = promotion_code
+        if quote_token is not None:
+            self.quote_token = quote_token
 
     @property
-    def order_id(self):
-        """Gets the order_id of this InlineObject9.  # noqa: E501
+    def pay_coin(self):
+        """Gets the pay_coin of this InlineObject9.  # noqa: E501
 
-        Order ID  # noqa: E501
+        Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
 
-        :return: The order_id of this InlineObject9.  # noqa: E501
+        :return: The pay_coin of this InlineObject9.  # noqa: E501
         :rtype: str
         """
-        return self._order_id
+        return self._pay_coin
 
-    @order_id.setter
-    def order_id(self, order_id):
-        """Sets the order_id of this InlineObject9.
+    @pay_coin.setter
+    def pay_coin(self, pay_coin):
+        """Sets the pay_coin of this InlineObject9.
 
-        Order ID  # noqa: E501
+        Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
 
-        :param order_id: The order_id of this InlineObject9.  # noqa: E501
+        :param pay_coin: The pay_coin of this InlineObject9.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._order_id = order_id
+        self._pay_coin = pay_coin
+
+    @property
+    def get_coin(self):
+        """Gets the get_coin of this InlineObject9.  # noqa: E501
+
+        Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
+
+        :return: The get_coin of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._get_coin
+
+    @get_coin.setter
+    def get_coin(self, get_coin):
+        """Sets the get_coin of this InlineObject9.
+
+        Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
+
+        :param get_coin: The get_coin of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._get_coin = get_coin
+
+    @property
+    def pay_amount(self):
+        """Gets the pay_amount of this InlineObject9.  # noqa: E501
+
+        User payment currency amount  # noqa: E501
+
+        :return: The pay_amount of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._pay_amount
+
+    @pay_amount.setter
+    def pay_amount(self, pay_amount):
+        """Sets the pay_amount of this InlineObject9.
+
+        User payment currency amount  # noqa: E501
+
+        :param pay_amount: The pay_amount of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._pay_amount = pay_amount
+
+    @property
+    def get_amount(self):
+        """Gets the get_amount of this InlineObject9.  # noqa: E501
+
+        Amount of currency received by the user  # noqa: E501
+
+        :return: The get_amount of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._get_amount
+
+    @get_amount.setter
+    def get_amount(self, get_amount):
+        """Sets the get_amount of this InlineObject9.
+
+        Amount of currency received by the user  # noqa: E501
+
+        :param get_amount: The get_amount of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._get_amount = get_amount
+
+    @property
+    def side(self):
+        """Gets the side of this InlineObject9.  # noqa: E501
+
+        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+
+        :return: The side of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._side
+
+    @side.setter
+    def side(self, side):
+        """Sets the side of this InlineObject9.
+
+        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+
+        :param side: The side of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._side = side
+
+    @property
+    def promotion_code(self):
+        """Gets the promotion_code of this InlineObject9.  # noqa: E501
+
+        promotion code   # noqa: E501
+
+        :return: The promotion_code of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._promotion_code
+
+    @promotion_code.setter
+    def promotion_code(self, promotion_code):
+        """Sets the promotion_code of this InlineObject9.
+
+        promotion code   # noqa: E501
+
+        :param promotion_code: The promotion_code of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._promotion_code = promotion_code
+
+    @property
+    def quote_token(self):
+        """Gets the quote_token of this InlineObject9.  # noqa: E501
+
+        Parameter returned by the quote API  # noqa: E501
+
+        :return: The quote_token of this InlineObject9.  # noqa: E501
+        :rtype: str
+        """
+        return self._quote_token
+
+    @quote_token.setter
+    def quote_token(self, quote_token):
+        """Sets the quote_token of this InlineObject9.
+
+        Parameter returned by the quote API  # noqa: E501
+
+        :param quote_token: The quote_token of this InlineObject9.  # noqa: E501
+        :type: str
+        """
+
+        self._quote_token = quote_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

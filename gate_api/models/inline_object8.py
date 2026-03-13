@@ -33,147 +33,82 @@ class InlineObject8(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'pay_coin': 'str',
-        'get_coin': 'str',
-        'pay_amount': 'str',
-        'get_amount': 'str',
+        'type': 'str',
         'side': 'str',
+        'crypto_currency': 'str',
+        'fiat_currency': 'str',
+        'crypto_amount': 'str',
+        'fiat_amount': 'str',
         'promotion_code': 'str',
-        'quote_token': 'str'
+        'quote_token': 'str',
+        'bank_id': 'str'
     }
 
     attribute_map = {
-        'pay_coin': 'pay_coin',
-        'get_coin': 'get_coin',
-        'pay_amount': 'pay_amount',
-        'get_amount': 'get_amount',
+        'type': 'type',
         'side': 'side',
+        'crypto_currency': 'crypto_currency',
+        'fiat_currency': 'fiat_currency',
+        'crypto_amount': 'crypto_amount',
+        'fiat_amount': 'fiat_amount',
         'promotion_code': 'promotion_code',
-        'quote_token': 'quote_token'
+        'quote_token': 'quote_token',
+        'bank_id': 'bank_id'
     }
 
-    def __init__(self, pay_coin=None, get_coin=None, pay_amount=None, get_amount=None, side=None, promotion_code=None, quote_token=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, type=None, side=None, crypto_currency=None, fiat_currency=None, crypto_amount=None, fiat_amount=None, promotion_code=None, quote_token=None, bank_id=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
         """InlineObject8 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._pay_coin = None
-        self._get_coin = None
-        self._pay_amount = None
-        self._get_amount = None
+        self._type = None
         self._side = None
+        self._crypto_currency = None
+        self._fiat_currency = None
+        self._crypto_amount = None
+        self._fiat_amount = None
         self._promotion_code = None
         self._quote_token = None
+        self._bank_id = None
         self.discriminator = None
 
-        if pay_coin is not None:
-            self.pay_coin = pay_coin
-        if get_coin is not None:
-            self.get_coin = get_coin
-        if pay_amount is not None:
-            self.pay_amount = pay_amount
-        if get_amount is not None:
-            self.get_amount = get_amount
-        if side is not None:
-            self.side = side
+        self.type = type
+        self.side = side
+        self.crypto_currency = crypto_currency
+        self.fiat_currency = fiat_currency
+        self.crypto_amount = crypto_amount
+        self.fiat_amount = fiat_amount
         if promotion_code is not None:
             self.promotion_code = promotion_code
-        if quote_token is not None:
-            self.quote_token = quote_token
+        self.quote_token = quote_token
+        self.bank_id = bank_id
 
     @property
-    def pay_coin(self):
-        """Gets the pay_coin of this InlineObject8.  # noqa: E501
+    def type(self):
+        """Gets the type of this InlineObject8.  # noqa: E501
 
-        Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
+        BUY for on-ramp, SELL for off-ramp  # noqa: E501
 
-        :return: The pay_coin of this InlineObject8.  # noqa: E501
+        :return: The type of this InlineObject8.  # noqa: E501
         :rtype: str
         """
-        return self._pay_coin
+        return self._type
 
-    @pay_coin.setter
-    def pay_coin(self, pay_coin):
-        """Sets the pay_coin of this InlineObject8.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this InlineObject8.
 
-        Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
+        BUY for on-ramp, SELL for off-ramp  # noqa: E501
 
-        :param pay_coin: The pay_coin of this InlineObject8.  # noqa: E501
+        :param type: The type of this InlineObject8.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
-        self._pay_coin = pay_coin
-
-    @property
-    def get_coin(self):
-        """Gets the get_coin of this InlineObject8.  # noqa: E501
-
-        Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
-
-        :return: The get_coin of this InlineObject8.  # noqa: E501
-        :rtype: str
-        """
-        return self._get_coin
-
-    @get_coin.setter
-    def get_coin(self, get_coin):
-        """Sets the get_coin of this InlineObject8.
-
-        Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.  # noqa: E501
-
-        :param get_coin: The get_coin of this InlineObject8.  # noqa: E501
-        :type: str
-        """
-
-        self._get_coin = get_coin
-
-    @property
-    def pay_amount(self):
-        """Gets the pay_amount of this InlineObject8.  # noqa: E501
-
-        User payment currency amount  # noqa: E501
-
-        :return: The pay_amount of this InlineObject8.  # noqa: E501
-        :rtype: str
-        """
-        return self._pay_amount
-
-    @pay_amount.setter
-    def pay_amount(self, pay_amount):
-        """Sets the pay_amount of this InlineObject8.
-
-        User payment currency amount  # noqa: E501
-
-        :param pay_amount: The pay_amount of this InlineObject8.  # noqa: E501
-        :type: str
-        """
-
-        self._pay_amount = pay_amount
-
-    @property
-    def get_amount(self):
-        """Gets the get_amount of this InlineObject8.  # noqa: E501
-
-        Amount of currency received by the user  # noqa: E501
-
-        :return: The get_amount of this InlineObject8.  # noqa: E501
-        :rtype: str
-        """
-        return self._get_amount
-
-    @get_amount.setter
-    def get_amount(self, get_amount):
-        """Sets the get_amount of this InlineObject8.
-
-        Amount of currency received by the user  # noqa: E501
-
-        :param get_amount: The get_amount of this InlineObject8.  # noqa: E501
-        :type: str
-        """
-
-        self._get_amount = get_amount
+        self._type = type
 
     @property
     def side(self):
@@ -195,14 +130,116 @@ class InlineObject8(object):
         :param side: The side of this InlineObject8.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
 
         self._side = side
+
+    @property
+    def crypto_currency(self):
+        """Gets the crypto_currency of this InlineObject8.  # noqa: E501
+
+        Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
+
+        :return: The crypto_currency of this InlineObject8.  # noqa: E501
+        :rtype: str
+        """
+        return self._crypto_currency
+
+    @crypto_currency.setter
+    def crypto_currency(self, crypto_currency):
+        """Sets the crypto_currency of this InlineObject8.
+
+        Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
+
+        :param crypto_currency: The crypto_currency of this InlineObject8.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and crypto_currency is None:  # noqa: E501
+            raise ValueError("Invalid value for `crypto_currency`, must not be `None`")  # noqa: E501
+
+        self._crypto_currency = crypto_currency
+
+    @property
+    def fiat_currency(self):
+        """Gets the fiat_currency of this InlineObject8.  # noqa: E501
+
+        Fiat currency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
+
+        :return: The fiat_currency of this InlineObject8.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_currency
+
+    @fiat_currency.setter
+    def fiat_currency(self, fiat_currency):
+        """Sets the fiat_currency of this InlineObject8.
+
+        Fiat currency (supported currencies can be queried from the OTC web fiat quote page)  # noqa: E501
+
+        :param fiat_currency: The fiat_currency of this InlineObject8.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and fiat_currency is None:  # noqa: E501
+            raise ValueError("Invalid value for `fiat_currency`, must not be `None`")  # noqa: E501
+
+        self._fiat_currency = fiat_currency
+
+    @property
+    def crypto_amount(self):
+        """Gets the crypto_amount of this InlineObject8.  # noqa: E501
+
+        Amount of cryptocurrency  # noqa: E501
+
+        :return: The crypto_amount of this InlineObject8.  # noqa: E501
+        :rtype: str
+        """
+        return self._crypto_amount
+
+    @crypto_amount.setter
+    def crypto_amount(self, crypto_amount):
+        """Sets the crypto_amount of this InlineObject8.
+
+        Amount of cryptocurrency  # noqa: E501
+
+        :param crypto_amount: The crypto_amount of this InlineObject8.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and crypto_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `crypto_amount`, must not be `None`")  # noqa: E501
+
+        self._crypto_amount = crypto_amount
+
+    @property
+    def fiat_amount(self):
+        """Gets the fiat_amount of this InlineObject8.  # noqa: E501
+
+        Fiat amount  # noqa: E501
+
+        :return: The fiat_amount of this InlineObject8.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_amount
+
+    @fiat_amount.setter
+    def fiat_amount(self, fiat_amount):
+        """Sets the fiat_amount of this InlineObject8.
+
+        Fiat amount  # noqa: E501
+
+        :param fiat_amount: The fiat_amount of this InlineObject8.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and fiat_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `fiat_amount`, must not be `None`")  # noqa: E501
+
+        self._fiat_amount = fiat_amount
 
     @property
     def promotion_code(self):
         """Gets the promotion_code of this InlineObject8.  # noqa: E501
 
-        promotion code   # noqa: E501
+        Promotion code  # noqa: E501
 
         :return: The promotion_code of this InlineObject8.  # noqa: E501
         :rtype: str
@@ -213,7 +250,7 @@ class InlineObject8(object):
     def promotion_code(self, promotion_code):
         """Sets the promotion_code of this InlineObject8.
 
-        promotion code   # noqa: E501
+        Promotion code  # noqa: E501
 
         :param promotion_code: The promotion_code of this InlineObject8.  # noqa: E501
         :type: str
@@ -241,8 +278,35 @@ class InlineObject8(object):
         :param quote_token: The quote_token of this InlineObject8.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and quote_token is None:  # noqa: E501
+            raise ValueError("Invalid value for `quote_token`, must not be `None`")  # noqa: E501
 
         self._quote_token = quote_token
+
+    @property
+    def bank_id(self):
+        """Gets the bank_id of this InlineObject8.  # noqa: E501
+
+        Bank card ID used for the order (retrieved via the default bank card API)  # noqa: E501
+
+        :return: The bank_id of this InlineObject8.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_id
+
+    @bank_id.setter
+    def bank_id(self, bank_id):
+        """Sets the bank_id of this InlineObject8.
+
+        Bank card ID used for the order (retrieved via the default bank card API)  # noqa: E501
+
+        :param bank_id: The bank_id of this InlineObject8.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and bank_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `bank_id`, must not be `None`")  # noqa: E501
+
+        self._bank_id = bank_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

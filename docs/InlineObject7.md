@@ -3,15 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | BUY for on-ramp, SELL for off-ramp | 
-**side** | **str** | Quote direction returned by the quote API (used for order validation) | 
-**crypto_currency** | **str** | Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page) | 
-**fiat_currency** | **str** | Fiat currency (supported currencies can be queried from the OTC web fiat quote page) | 
-**crypto_amount** | **str** | Amount of cryptocurrency | 
-**fiat_amount** | **str** | Fiat amount | 
-**promotion_code** | **str** | Promotion code | [optional] 
-**quote_token** | **str** | Parameter returned by the quote API | 
-**bank_id** | **str** | Bank card ID used for the order (retrieved via the default bank card API) | 
+**side** | **str** | PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required | 
+**pay_coin** | **str** | Currency the user pays. Supported currencies can be found on the OTC web quote page. | 
+**get_coin** | **str** | Currency the user receives. Supported currencies can be found on the OTC web quote page. | 
+**pay_amount** | **str** | User payment currency amount | [optional] 
+**get_amount** | **str** | Amount of currency received by the user | [optional] 
+**create_quote_token** | **str** | Create quote token: 0: quote preview only; 1: generate quote token for order placement. | [optional] 
+**promotion_code** | **str** | Promotion code (optional) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

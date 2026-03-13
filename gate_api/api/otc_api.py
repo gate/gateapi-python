@@ -36,17 +36,17 @@ class OTCApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_otc_quote(self, inline_object6, **kwargs):  # noqa: E501
+    def create_otc_quote(self, inline_object7, **kwargs):  # noqa: E501
         """Fiat and stablecoin quote  # noqa: E501
 
         Create fiat and stablecoin quotes, supporting both PAY and GET directions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_otc_quote(inline_object6, async_req=True)
+        >>> thread = api.create_otc_quote(inline_object7, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject6 inline_object6: (required)
+        :param InlineObject7 inline_object7: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -59,19 +59,19 @@ class OTCApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_otc_quote_with_http_info(inline_object6, **kwargs)  # noqa: E501
+        return self.create_otc_quote_with_http_info(inline_object7, **kwargs)  # noqa: E501
 
-    def create_otc_quote_with_http_info(self, inline_object6, **kwargs):  # noqa: E501
+    def create_otc_quote_with_http_info(self, inline_object7, **kwargs):  # noqa: E501
         """Fiat and stablecoin quote  # noqa: E501
 
         Create fiat and stablecoin quotes, supporting both PAY and GET directions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_otc_quote_with_http_info(inline_object6, async_req=True)
+        >>> thread = api.create_otc_quote_with_http_info(inline_object7, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject6 inline_object6: (required)
+        :param InlineObject7 inline_object7: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -82,124 +82,6 @@ class OTCApi(object):
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
         :rtype: tuple(gate_api.InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
-        :return: If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'inline_object6'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for k, v in six.iteritems(local_var_params['kwargs']):
-            if k not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_otc_quote" % k
-                )
-            local_var_params[k] = v
-        del local_var_params['kwargs']
-        # verify the required parameter 'inline_object6' is set
-        if self.api_client.client_side_validation and ('inline_object6' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object6'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object6` when calling `create_otc_quote`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'inline_object6' in local_var_params:
-            body_params = local_var_params['inline_object6']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiv4']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/otc/quote', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_otc_order(self, inline_object7, **kwargs):  # noqa: E501
-        """Create fiat order  # noqa: E501
-
-        Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_otc_order(inline_object7, async_req=True)
-        >>> result = thread.get()
-
-        :param bool async_req: execute request asynchronously
-        :param InlineObject7 inline_object7: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2007
-        :return: If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.create_otc_order_with_http_info(inline_object7, **kwargs)  # noqa: E501
-
-    def create_otc_order_with_http_info(self, inline_object7, **kwargs):  # noqa: E501
-        """Create fiat order  # noqa: E501
-
-        Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_otc_order_with_http_info(inline_object7, async_req=True)
-        >>> result = thread.get()
-
-        :param bool async_req: execute request asynchronously
-        :param InlineObject7 inline_object7: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -222,14 +104,14 @@ class OTCApi(object):
             if k not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_otc_order" % k
+                    " to method create_otc_quote" % k
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
         # verify the required parameter 'inline_object7' is set
         if self.api_client.client_side_validation and ('inline_object7' not in local_var_params or  # noqa: E501
                                                         local_var_params['inline_object7'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object7` when calling `create_otc_order`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object7` when calling `create_otc_quote`")  # noqa: E501
 
         collection_formats = {}
 
@@ -257,14 +139,14 @@ class OTCApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/otc/order/create', 'POST',
+            '/otc/quote', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -272,13 +154,13 @@ class OTCApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_stable_coin_order(self, inline_object8, **kwargs):  # noqa: E501
-        """Create stablecoin order  # noqa: E501
+    def create_otc_order(self, inline_object8, **kwargs):  # noqa: E501
+        """Create fiat order  # noqa: E501
 
-        Create stablecoin order  # noqa: E501
+        Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_stable_coin_order(inline_object8, async_req=True)
+        >>> thread = api.create_otc_order(inline_object8, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
@@ -290,20 +172,20 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2008
+        :rtype: gate_api.InlineResponse2007
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_stable_coin_order_with_http_info(inline_object8, **kwargs)  # noqa: E501
+        return self.create_otc_order_with_http_info(inline_object8, **kwargs)  # noqa: E501
 
-    def create_stable_coin_order_with_http_info(self, inline_object8, **kwargs):  # noqa: E501
-        """Create stablecoin order  # noqa: E501
+    def create_otc_order_with_http_info(self, inline_object8, **kwargs):  # noqa: E501
+        """Create fiat order  # noqa: E501
 
-        Create stablecoin order  # noqa: E501
+        Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_stable_coin_order_with_http_info(inline_object8, async_req=True)
+        >>> thread = api.create_otc_order_with_http_info(inline_object8, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
@@ -317,7 +199,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -340,14 +222,14 @@ class OTCApi(object):
             if k not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_stable_coin_order" % k
+                    " to method create_otc_order" % k
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
         # verify the required parameter 'inline_object8' is set
         if self.api_client.client_side_validation and ('inline_object8' not in local_var_params or  # noqa: E501
                                                         local_var_params['inline_object8'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object8` when calling `create_stable_coin_order`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object8` when calling `create_otc_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -363,6 +245,124 @@ class OTCApi(object):
         body_params = None
         if 'inline_object8' in local_var_params:
             body_params = local_var_params['inline_object8']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/order/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2007',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_stable_coin_order(self, inline_object9, **kwargs):  # noqa: E501
+        """Create stablecoin order  # noqa: E501
+
+        Create stablecoin order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_stable_coin_order(inline_object9, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param InlineObject9 inline_object9: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse2008
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_stable_coin_order_with_http_info(inline_object9, **kwargs)  # noqa: E501
+
+    def create_stable_coin_order_with_http_info(self, inline_object9, **kwargs):  # noqa: E501
+        """Create stablecoin order  # noqa: E501
+
+        Create stablecoin order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_stable_coin_order_with_http_info(inline_object9, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param InlineObject9 inline_object9: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'inline_object9'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_stable_coin_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'inline_object9' is set
+        if self.api_client.client_side_validation and ('inline_object9' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object9'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object9` when calling `create_stable_coin_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object9' in local_var_params:
+            body_params = local_var_params['inline_object9']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -600,17 +600,17 @@ class OTCApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mark_otc_order_paid(self, inline_object9, **kwargs):  # noqa: E501
+    def mark_otc_order_paid(self, inline_object10, **kwargs):  # noqa: E501
         """Mark fiat order as paid  # noqa: E501
 
         Mark fiat order as paid  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mark_otc_order_paid(inline_object9, async_req=True)
+        >>> thread = api.mark_otc_order_paid(inline_object10, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject9 inline_object9: (required)
+        :param InlineObject10 inline_object10: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -623,19 +623,19 @@ class OTCApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.mark_otc_order_paid_with_http_info(inline_object9, **kwargs)  # noqa: E501
+        return self.mark_otc_order_paid_with_http_info(inline_object10, **kwargs)  # noqa: E501
 
-    def mark_otc_order_paid_with_http_info(self, inline_object9, **kwargs):  # noqa: E501
+    def mark_otc_order_paid_with_http_info(self, inline_object10, **kwargs):  # noqa: E501
         """Mark fiat order as paid  # noqa: E501
 
         Mark fiat order as paid  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mark_otc_order_paid_with_http_info(inline_object9, async_req=True)
+        >>> thread = api.mark_otc_order_paid_with_http_info(inline_object10, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject9 inline_object9: (required)
+        :param InlineObject10 inline_object10: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -653,7 +653,7 @@ class OTCApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object9'
+            'inline_object10'
         ]
         all_params.extend(
             [
@@ -672,10 +672,10 @@ class OTCApi(object):
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
-        # verify the required parameter 'inline_object9' is set
-        if self.api_client.client_side_validation and ('inline_object9' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object9'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object9` when calling `mark_otc_order_paid`")  # noqa: E501
+        # verify the required parameter 'inline_object10' is set
+        if self.api_client.client_side_validation and ('inline_object10' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object10'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object10` when calling `mark_otc_order_paid`")  # noqa: E501
 
         collection_formats = {}
 
@@ -689,8 +689,8 @@ class OTCApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object9' in local_var_params:
-            body_params = local_var_params['inline_object9']
+        if 'inline_object10' in local_var_params:
+            body_params = local_var_params['inline_object10']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
