@@ -515,7 +515,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject11 inline_object11:
+        :param CrossexTransferRequest crossex_transfer_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -540,7 +540,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject11 inline_object11:
+        :param CrossexTransferRequest crossex_transfer_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -558,7 +558,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object11'
+            'crossex_transfer_request'
         ]
         all_params.extend(
             [
@@ -590,8 +590,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object11' in local_var_params:
-            body_params = local_var_params['inline_object11']
+        if 'crossex_transfer_request' in local_var_params:
+            body_params = local_var_params['crossex_transfer_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -629,7 +629,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject12 inline_object12:
+        :param CrossexOrderRequest crossex_order_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -654,7 +654,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject12 inline_object12:
+        :param CrossexOrderRequest crossex_order_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -672,7 +672,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object12'
+            'crossex_order_request'
         ]
         all_params.extend(
             [
@@ -704,8 +704,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object12' in local_var_params:
-            body_params = local_var_params['inline_object12']
+        if 'crossex_order_request' in local_var_params:
+            body_params = local_var_params['crossex_order_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -858,7 +858,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str order_id: Support Order ID or Text for Modify Order (required)
-        :param InlineObject13 inline_object13:
+        :param CrossexOrderUpdateRequest crossex_order_update_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -884,7 +884,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str order_id: Support Order ID or Text for Modify Order (required)
-        :param InlineObject13 inline_object13:
+        :param CrossexOrderUpdateRequest crossex_order_update_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -903,7 +903,7 @@ class CrossExApi(object):
 
         all_params = [
             'order_id',
-            'inline_object13'
+            'crossex_order_update_request'
         ]
         all_params.extend(
             [
@@ -941,8 +941,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object13' in local_var_params:
-            body_params = local_var_params['inline_object13']
+        if 'crossex_order_update_request' in local_var_params:
+            body_params = local_var_params['crossex_order_update_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1094,7 +1094,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject14 inline_object14:
+        :param CrossexConvertQuoteRequest crossex_convert_quote_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1119,7 +1119,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject14 inline_object14:
+        :param CrossexConvertQuoteRequest crossex_convert_quote_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1137,7 +1137,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object14'
+            'crossex_convert_quote_request'
         ]
         all_params.extend(
             [
@@ -1169,8 +1169,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object14' in local_var_params:
-            body_params = local_var_params['inline_object14']
+        if 'crossex_convert_quote_request' in local_var_params:
+            body_params = local_var_params['crossex_convert_quote_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1208,7 +1208,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject15 inline_object15:
+        :param CrossexConvertOrderRequest crossex_convert_order_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1233,7 +1233,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject15 inline_object15:
+        :param CrossexConvertOrderRequest crossex_convert_order_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1251,7 +1251,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object15'
+            'crossex_convert_order_request'
         ]
         all_params.extend(
             [
@@ -1283,8 +1283,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object15' in local_var_params:
-            body_params = local_var_params['inline_object15']
+        if 'crossex_convert_order_request' in local_var_params:
+            body_params = local_var_params['crossex_convert_order_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1432,7 +1432,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject16 inline_object16:
+        :param CrossexAccountUpdateRequest crossex_account_update_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1457,7 +1457,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject16 inline_object16:
+        :param CrossexAccountUpdateRequest crossex_account_update_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1475,7 +1475,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object16'
+            'crossex_account_update_request'
         ]
         all_params.extend(
             [
@@ -1507,8 +1507,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object16' in local_var_params:
-            body_params = local_var_params['inline_object16']
+        if 'crossex_account_update_request' in local_var_params:
+            body_params = local_var_params['crossex_account_update_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1656,7 +1656,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject17 inline_object17:
+        :param CrossexLeverageRequest crossex_leverage_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1681,7 +1681,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject17 inline_object17:
+        :param CrossexLeverageRequest crossex_leverage_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1699,7 +1699,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object17'
+            'crossex_leverage_request'
         ]
         all_params.extend(
             [
@@ -1731,8 +1731,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object17' in local_var_params:
-            body_params = local_var_params['inline_object17']
+        if 'crossex_leverage_request' in local_var_params:
+            body_params = local_var_params['crossex_leverage_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1880,7 +1880,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject18 inline_object18:
+        :param CrossexLeverageRequest crossex_leverage_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1905,7 +1905,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject18 inline_object18:
+        :param CrossexLeverageRequest crossex_leverage_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1923,7 +1923,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object18'
+            'crossex_leverage_request'
         ]
         all_params.extend(
             [
@@ -1955,8 +1955,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object18' in local_var_params:
-            body_params = local_var_params['inline_object18']
+        if 'crossex_leverage_request' in local_var_params:
+            body_params = local_var_params['crossex_leverage_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1994,7 +1994,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject19 inline_object19:
+        :param CrossexClosePositionRequest crossex_close_position_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2019,7 +2019,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject19 inline_object19:
+        :param CrossexClosePositionRequest crossex_close_position_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2037,7 +2037,7 @@ class CrossExApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object19'
+            'crossex_close_position_request'
         ]
         all_params.extend(
             [
@@ -2069,8 +2069,8 @@ class CrossExApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object19' in local_var_params:
-            body_params = local_var_params['inline_object19']
+        if 'crossex_close_position_request' in local_var_params:
+            body_params = local_var_params['crossex_close_position_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

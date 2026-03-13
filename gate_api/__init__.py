@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.36"
+__version__ = "7.2.37"
 
 # import apis into sdk package
 from gate_api.api.cross_ex_api import CrossExApi
@@ -115,7 +115,15 @@ from gate_api.models.create_user_resp_data import CreateUserRespData
 from gate_api.models.cross_margin_balance import CrossMarginBalance
 from gate_api.models.cross_margin_loan import CrossMarginLoan
 from gate_api.models.cross_margin_repayment import CrossMarginRepayment
+from gate_api.models.crossex_account_update_request import CrossexAccountUpdateRequest
+from gate_api.models.crossex_close_position_request import CrossexClosePositionRequest
+from gate_api.models.crossex_convert_order_request import CrossexConvertOrderRequest
+from gate_api.models.crossex_convert_quote_request import CrossexConvertQuoteRequest
+from gate_api.models.crossex_leverage_request import CrossexLeverageRequest
+from gate_api.models.crossex_order_request import CrossexOrderRequest
+from gate_api.models.crossex_order_update_request import CrossexOrderUpdateRequest
 from gate_api.models.crossex_rule_risk_limits_tiers import CrossexRuleRiskLimitsTiers
+from gate_api.models.crossex_transfer_request import CrossexTransferRequest
 from gate_api.models.currency import Currency
 from gate_api.models.currency2 import Currency2
 from gate_api.models.currency_chain import CurrencyChain
@@ -191,24 +199,6 @@ from gate_api.models.get_transaction_details_request import GetTransactionDetail
 from gate_api.models.index_constituent import IndexConstituent
 from gate_api.models.inline_object import InlineObject
 from gate_api.models.inline_object1 import InlineObject1
-from gate_api.models.inline_object10 import InlineObject10
-from gate_api.models.inline_object11 import InlineObject11
-from gate_api.models.inline_object12 import InlineObject12
-from gate_api.models.inline_object13 import InlineObject13
-from gate_api.models.inline_object14 import InlineObject14
-from gate_api.models.inline_object15 import InlineObject15
-from gate_api.models.inline_object16 import InlineObject16
-from gate_api.models.inline_object17 import InlineObject17
-from gate_api.models.inline_object18 import InlineObject18
-from gate_api.models.inline_object19 import InlineObject19
-from gate_api.models.inline_object2 import InlineObject2
-from gate_api.models.inline_object3 import InlineObject3
-from gate_api.models.inline_object4 import InlineObject4
-from gate_api.models.inline_object5 import InlineObject5
-from gate_api.models.inline_object6 import InlineObject6
-from gate_api.models.inline_object7 import InlineObject7
-from gate_api.models.inline_object8 import InlineObject8
-from gate_api.models.inline_object9 import InlineObject9
 from gate_api.models.inline_response200 import InlineResponse200
 from gate_api.models.inline_response2001 import InlineResponse2001
 from gate_api.models.inline_response20010 import InlineResponse20010
@@ -364,6 +354,10 @@ from gate_api.models.order_list_struct_list import OrderListStructList
 from gate_api.models.order_patch import OrderPatch
 from gate_api.models.order_resp import OrderResp
 from gate_api.models.order_response import OrderResponse
+from gate_api.models.otc_mark_order_paid_request import OtcMarkOrderPaidRequest
+from gate_api.models.otc_order_request import OtcOrderRequest
+from gate_api.models.otc_quote_request import OtcQuoteRequest
+from gate_api.models.otc_stable_coin_order_request import OtcStableCoinOrderRequest
 from gate_api.models.partner_commission_history import PartnerCommissionHistory
 from gate_api.models.partner_sub import PartnerSub
 from gate_api.models.partner_sub_list import PartnerSubList
@@ -440,6 +434,11 @@ from gate_api.models.ticker2 import Ticker2
 from gate_api.models.ticker2_data import Ticker2Data
 from gate_api.models.tokens import Tokens
 from gate_api.models.total_balance import TotalBalance
+from gate_api.models.trad_fi_close_position_request import TradFiClosePositionRequest
+from gate_api.models.trad_fi_order_request import TradFiOrderRequest
+from gate_api.models.trad_fi_order_update_request import TradFiOrderUpdateRequest
+from gate_api.models.trad_fi_position_update_request import TradFiPositionUpdateRequest
+from gate_api.models.trad_fi_transaction_request import TradFiTransactionRequest
 from gate_api.models.trade import Trade
 from gate_api.models.trade_fee import TradeFee
 from gate_api.models.trail_change_log import TrailChangeLog

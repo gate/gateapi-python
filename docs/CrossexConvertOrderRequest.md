@@ -1,11 +1,10 @@
-# InlineObject1
+# CrossexConvertOrderRequest
 
-Order Modification Request Body
+闪兑交易请求体
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**price** | **str** | Order Price | 
-**size** | **int** | Trade amount | 
+**quote_id** | **str** | Inquiry ID | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

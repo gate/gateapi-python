@@ -1045,16 +1045,16 @@ class TradFiApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_transaction(self, inline_object1, **kwargs):  # noqa: E501
+    def create_transaction(self, trad_fi_transaction_request, **kwargs):  # noqa: E501
         """Fund Deposit and Withdrawal  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_transaction(inline_object1, async_req=True)
+        >>> thread = api.create_transaction(trad_fi_transaction_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject1 inline_object1: (required)
+        :param TradFiTransactionRequest trad_fi_transaction_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1067,18 +1067,18 @@ class TradFiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_transaction_with_http_info(inline_object1, **kwargs)  # noqa: E501
+        return self.create_transaction_with_http_info(trad_fi_transaction_request, **kwargs)  # noqa: E501
 
-    def create_transaction_with_http_info(self, inline_object1, **kwargs):  # noqa: E501
+    def create_transaction_with_http_info(self, trad_fi_transaction_request, **kwargs):  # noqa: E501
         """Fund Deposit and Withdrawal  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_transaction_with_http_info(inline_object1, async_req=True)
+        >>> thread = api.create_transaction_with_http_info(trad_fi_transaction_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject1 inline_object1: (required)
+        :param TradFiTransactionRequest trad_fi_transaction_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1096,7 +1096,7 @@ class TradFiApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object1'
+            'trad_fi_transaction_request'
         ]
         all_params.extend(
             [
@@ -1115,10 +1115,10 @@ class TradFiApi(object):
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
-        # verify the required parameter 'inline_object1' is set
-        if self.api_client.client_side_validation and ('inline_object1' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object1'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object1` when calling `create_transaction`")  # noqa: E501
+        # verify the required parameter 'trad_fi_transaction_request' is set
+        if self.api_client.client_side_validation and ('trad_fi_transaction_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trad_fi_transaction_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trad_fi_transaction_request` when calling `create_transaction`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1132,8 +1132,8 @@ class TradFiApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object1' in local_var_params:
-            body_params = local_var_params['inline_object1']
+        if 'trad_fi_transaction_request' in local_var_params:
+            body_params = local_var_params['trad_fi_transaction_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1264,16 +1264,16 @@ class TradFiApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_trad_fi_order(self, inline_object2, **kwargs):  # noqa: E501
+    def create_trad_fi_order(self, trad_fi_order_request, **kwargs):  # noqa: E501
         """Create an order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_trad_fi_order(inline_object2, async_req=True)
+        >>> thread = api.create_trad_fi_order(trad_fi_order_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject2 inline_object2: (required)
+        :param TradFiOrderRequest trad_fi_order_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1286,18 +1286,18 @@ class TradFiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_trad_fi_order_with_http_info(inline_object2, **kwargs)  # noqa: E501
+        return self.create_trad_fi_order_with_http_info(trad_fi_order_request, **kwargs)  # noqa: E501
 
-    def create_trad_fi_order_with_http_info(self, inline_object2, **kwargs):  # noqa: E501
+    def create_trad_fi_order_with_http_info(self, trad_fi_order_request, **kwargs):  # noqa: E501
         """Create an order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_trad_fi_order_with_http_info(inline_object2, async_req=True)
+        >>> thread = api.create_trad_fi_order_with_http_info(trad_fi_order_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject2 inline_object2: (required)
+        :param TradFiOrderRequest trad_fi_order_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1315,7 +1315,7 @@ class TradFiApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object2'
+            'trad_fi_order_request'
         ]
         all_params.extend(
             [
@@ -1334,10 +1334,10 @@ class TradFiApi(object):
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
-        # verify the required parameter 'inline_object2' is set
-        if self.api_client.client_side_validation and ('inline_object2' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object2'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object2` when calling `create_trad_fi_order`")  # noqa: E501
+        # verify the required parameter 'trad_fi_order_request' is set
+        if self.api_client.client_side_validation and ('trad_fi_order_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trad_fi_order_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trad_fi_order_request` when calling `create_trad_fi_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1351,8 +1351,8 @@ class TradFiApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object2' in local_var_params:
-            body_params = local_var_params['inline_object2']
+        if 'trad_fi_order_request' in local_var_params:
+            body_params = local_var_params['trad_fi_order_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1380,17 +1380,17 @@ class TradFiApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_order(self, order_id, inline_object3, **kwargs):  # noqa: E501
+    def update_order(self, order_id, trad_fi_order_update_request, **kwargs):  # noqa: E501
         """Modify order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_order(order_id, inline_object3, async_req=True)
+        >>> thread = api.update_order(order_id, trad_fi_order_update_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int order_id: Order ID (required)
-        :param InlineObject3 inline_object3: (required)
+        :param TradFiOrderUpdateRequest trad_fi_order_update_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1403,19 +1403,19 @@ class TradFiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_order_with_http_info(order_id, inline_object3, **kwargs)  # noqa: E501
+        return self.update_order_with_http_info(order_id, trad_fi_order_update_request, **kwargs)  # noqa: E501
 
-    def update_order_with_http_info(self, order_id, inline_object3, **kwargs):  # noqa: E501
+    def update_order_with_http_info(self, order_id, trad_fi_order_update_request, **kwargs):  # noqa: E501
         """Modify order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_order_with_http_info(order_id, inline_object3, async_req=True)
+        >>> thread = api.update_order_with_http_info(order_id, trad_fi_order_update_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int order_id: Order ID (required)
-        :param InlineObject3 inline_object3: (required)
+        :param TradFiOrderUpdateRequest trad_fi_order_update_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1434,7 +1434,7 @@ class TradFiApi(object):
 
         all_params = [
             'order_id',
-            'inline_object3'
+            'trad_fi_order_update_request'
         ]
         all_params.extend(
             [
@@ -1457,10 +1457,10 @@ class TradFiApi(object):
         if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['order_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `order_id` when calling `update_order`")  # noqa: E501
-        # verify the required parameter 'inline_object3' is set
-        if self.api_client.client_side_validation and ('inline_object3' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object3'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object3` when calling `update_order`")  # noqa: E501
+        # verify the required parameter 'trad_fi_order_update_request' is set
+        if self.api_client.client_side_validation and ('trad_fi_order_update_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trad_fi_order_update_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trad_fi_order_update_request` when calling `update_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1476,8 +1476,8 @@ class TradFiApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object3' in local_var_params:
-            body_params = local_var_params['inline_object3']
+        if 'trad_fi_order_update_request' in local_var_params:
+            body_params = local_var_params['trad_fi_order_update_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1843,17 +1843,17 @@ class TradFiApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_position(self, position_id, inline_object4, **kwargs):  # noqa: E501
+    def update_position(self, position_id, trad_fi_position_update_request, **kwargs):  # noqa: E501
         """Modify position  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_position(position_id, inline_object4, async_req=True)
+        >>> thread = api.update_position(position_id, trad_fi_position_update_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int position_id: Position ID (required)
-        :param InlineObject4 inline_object4: (required)
+        :param TradFiPositionUpdateRequest trad_fi_position_update_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1866,19 +1866,19 @@ class TradFiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_position_with_http_info(position_id, inline_object4, **kwargs)  # noqa: E501
+        return self.update_position_with_http_info(position_id, trad_fi_position_update_request, **kwargs)  # noqa: E501
 
-    def update_position_with_http_info(self, position_id, inline_object4, **kwargs):  # noqa: E501
+    def update_position_with_http_info(self, position_id, trad_fi_position_update_request, **kwargs):  # noqa: E501
         """Modify position  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_position_with_http_info(position_id, inline_object4, async_req=True)
+        >>> thread = api.update_position_with_http_info(position_id, trad_fi_position_update_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int position_id: Position ID (required)
-        :param InlineObject4 inline_object4: (required)
+        :param TradFiPositionUpdateRequest trad_fi_position_update_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1897,7 +1897,7 @@ class TradFiApi(object):
 
         all_params = [
             'position_id',
-            'inline_object4'
+            'trad_fi_position_update_request'
         ]
         all_params.extend(
             [
@@ -1920,10 +1920,10 @@ class TradFiApi(object):
         if self.api_client.client_side_validation and ('position_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['position_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `position_id` when calling `update_position`")  # noqa: E501
-        # verify the required parameter 'inline_object4' is set
-        if self.api_client.client_side_validation and ('inline_object4' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object4'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object4` when calling `update_position`")  # noqa: E501
+        # verify the required parameter 'trad_fi_position_update_request' is set
+        if self.api_client.client_side_validation and ('trad_fi_position_update_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trad_fi_position_update_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trad_fi_position_update_request` when calling `update_position`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1939,8 +1939,8 @@ class TradFiApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object4' in local_var_params:
-            body_params = local_var_params['inline_object4']
+        if 'trad_fi_position_update_request' in local_var_params:
+            body_params = local_var_params['trad_fi_position_update_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1968,17 +1968,17 @@ class TradFiApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def close_position(self, position_id, inline_object5, **kwargs):  # noqa: E501
+    def close_position(self, position_id, trad_fi_close_position_request, **kwargs):  # noqa: E501
         """Close position  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.close_position(position_id, inline_object5, async_req=True)
+        >>> thread = api.close_position(position_id, trad_fi_close_position_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int position_id: Position ID (required)
-        :param InlineObject5 inline_object5: (required)
+        :param TradFiClosePositionRequest trad_fi_close_position_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1991,19 +1991,19 @@ class TradFiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.close_position_with_http_info(position_id, inline_object5, **kwargs)  # noqa: E501
+        return self.close_position_with_http_info(position_id, trad_fi_close_position_request, **kwargs)  # noqa: E501
 
-    def close_position_with_http_info(self, position_id, inline_object5, **kwargs):  # noqa: E501
+    def close_position_with_http_info(self, position_id, trad_fi_close_position_request, **kwargs):  # noqa: E501
         """Close position  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.close_position_with_http_info(position_id, inline_object5, async_req=True)
+        >>> thread = api.close_position_with_http_info(position_id, trad_fi_close_position_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int position_id: Position ID (required)
-        :param InlineObject5 inline_object5: (required)
+        :param TradFiClosePositionRequest trad_fi_close_position_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2022,7 +2022,7 @@ class TradFiApi(object):
 
         all_params = [
             'position_id',
-            'inline_object5'
+            'trad_fi_close_position_request'
         ]
         all_params.extend(
             [
@@ -2045,10 +2045,10 @@ class TradFiApi(object):
         if self.api_client.client_side_validation and ('position_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['position_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `position_id` when calling `close_position`")  # noqa: E501
-        # verify the required parameter 'inline_object5' is set
-        if self.api_client.client_side_validation and ('inline_object5' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object5'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object5` when calling `close_position`")  # noqa: E501
+        # verify the required parameter 'trad_fi_close_position_request' is set
+        if self.api_client.client_side_validation and ('trad_fi_close_position_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trad_fi_close_position_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trad_fi_close_position_request` when calling `close_position`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2064,8 +2064,8 @@ class TradFiApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object5' in local_var_params:
-            body_params = local_var_params['inline_object5']
+        if 'trad_fi_close_position_request' in local_var_params:
+            body_params = local_var_params['trad_fi_close_position_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

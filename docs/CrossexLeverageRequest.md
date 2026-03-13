@@ -1,11 +1,11 @@
-# InlineObject1
+# CrossexLeverageRequest
 
-Order Modification Request Body
+更改杠杆请求体（合约/杠杆通用）
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**price** | **str** | Order Price | 
-**size** | **int** | Trade amount | 
+**symbol** | **str** | Currency pair | 
+**leverage** | **str** | leverage | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

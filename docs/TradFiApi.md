@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_transaction**
-> CreateTransaction create_transaction(inline_object1)
+> CreateTransaction create_transaction(trad_fi_transaction_request)
 
 Fund Deposit and Withdrawal
 
@@ -619,11 +619,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.TradFiApi(api_client)
-inline_object1 = gate_api.InlineObject1() # InlineObject1 | 
+trad_fi_transaction_request = gate_api.TradFiTransactionRequest() # TradFiTransactionRequest | 
 
 try:
     # Fund Deposit and Withdrawal
-    api_response = api_instance.create_transaction(inline_object1)
+    api_response = api_instance.create_transaction(trad_fi_transaction_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -635,7 +635,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **trad_fi_transaction_request** | [**TradFiTransactionRequest**](TradFiTransactionRequest.md)|  | 
 
 ### Return type
 
@@ -723,7 +723,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_trad_fi_order**
-> CreateOrder create_trad_fi_order(inline_object2)
+> CreateOrder create_trad_fi_order(trad_fi_order_request)
 
 Create an order
 
@@ -751,11 +751,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.TradFiApi(api_client)
-inline_object2 = gate_api.InlineObject2() # InlineObject2 | 
+trad_fi_order_request = gate_api.TradFiOrderRequest() # TradFiOrderRequest | 
 
 try:
     # Create an order
-    api_response = api_instance.create_trad_fi_order(inline_object2)
+    api_response = api_instance.create_trad_fi_order(trad_fi_order_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -767,7 +767,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **trad_fi_order_request** | [**TradFiOrderRequest**](TradFiOrderRequest.md)|  | 
 
 ### Return type
 
@@ -791,7 +791,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_order**
-> UpdateOrder update_order(order_id, inline_object3)
+> UpdateOrder update_order(order_id, trad_fi_order_update_request)
 
 Modify order
 
@@ -820,11 +820,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.TradFiApi(api_client)
 order_id = 1223 # int | Order ID
-inline_object3 = gate_api.InlineObject3() # InlineObject3 | 
+trad_fi_order_update_request = gate_api.TradFiOrderUpdateRequest() # TradFiOrderUpdateRequest | 
 
 try:
     # Modify order
-    api_response = api_instance.update_order(order_id, inline_object3)
+    api_response = api_instance.update_order(order_id, trad_fi_order_update_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -837,7 +837,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **int**| Order ID | 
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **trad_fi_order_update_request** | [**TradFiOrderUpdateRequest**](TradFiOrderUpdateRequest.md)|  | 
 
 ### Return type
 
@@ -1067,7 +1067,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_position**
-> UpdatePosition update_position(position_id, inline_object4)
+> UpdatePosition update_position(position_id, trad_fi_position_update_request)
 
 Modify position
 
@@ -1096,11 +1096,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.TradFiApi(api_client)
 position_id = 1223 # int | Position ID
-inline_object4 = gate_api.InlineObject4() # InlineObject4 | 
+trad_fi_position_update_request = gate_api.TradFiPositionUpdateRequest() # TradFiPositionUpdateRequest | 
 
 try:
     # Modify position
-    api_response = api_instance.update_position(position_id, inline_object4)
+    api_response = api_instance.update_position(position_id, trad_fi_position_update_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1113,7 +1113,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **position_id** | **int**| Position ID | 
- **inline_object4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **trad_fi_position_update_request** | [**TradFiPositionUpdateRequest**](TradFiPositionUpdateRequest.md)|  | 
 
 ### Return type
 
@@ -1137,7 +1137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **close_position**
-> DeletePosition close_position(position_id, inline_object5)
+> DeletePosition close_position(position_id, trad_fi_close_position_request)
 
 Close position
 
@@ -1166,11 +1166,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.TradFiApi(api_client)
 position_id = 1223 # int | Position ID
-inline_object5 = gate_api.InlineObject5() # InlineObject5 | 
+trad_fi_close_position_request = gate_api.TradFiClosePositionRequest() # TradFiClosePositionRequest | 
 
 try:
     # Close position
-    api_response = api_instance.close_position(position_id, inline_object5)
+    api_response = api_instance.close_position(position_id, trad_fi_close_position_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1183,7 +1183,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **position_id** | **int**| Position ID | 
- **inline_object5** | [**InlineObject5**](InlineObject5.md)|  | 
+ **trad_fi_close_position_request** | [**TradFiClosePositionRequest**](TradFiClosePositionRequest.md)|  | 
 
 ### Return type
 

@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_transfer**
-> InlineResponse20030 create_crossex_transfer(inline_object11=inline_object11)
+> InlineResponse20030 create_crossex_transfer(crossex_transfer_request=crossex_transfer_request)
 
 Fund Transfer
 
@@ -327,11 +327,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object11 = gate_api.InlineObject11() # InlineObject11 |  (optional)
+crossex_transfer_request = gate_api.CrossexTransferRequest() # CrossexTransferRequest |  (optional)
 
 try:
     # Fund Transfer
-    api_response = api_instance.create_crossex_transfer(inline_object11=inline_object11)
+    api_response = api_instance.create_crossex_transfer(crossex_transfer_request=crossex_transfer_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -343,7 +343,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object11** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
+ **crossex_transfer_request** | [**CrossexTransferRequest**](CrossexTransferRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_order**
-> InlineResponse20031 create_crossex_order(inline_object12=inline_object12)
+> InlineResponse20031 create_crossex_order(crossex_order_request=crossex_order_request)
 
 Create an order
 
@@ -396,11 +396,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object12 = gate_api.InlineObject12() # InlineObject12 |  (optional)
+crossex_order_request = gate_api.CrossexOrderRequest() # CrossexOrderRequest |  (optional)
 
 try:
     # Create an order
-    api_response = api_instance.create_crossex_order(inline_object12=inline_object12)
+    api_response = api_instance.create_crossex_order(crossex_order_request=crossex_order_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -412,7 +412,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object12** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
+ **crossex_order_request** | [**CrossexOrderRequest**](CrossexOrderRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_order**
-> InlineResponse20033 update_crossex_order(order_id, inline_object13=inline_object13)
+> InlineResponse20033 update_crossex_order(order_id, crossex_order_update_request=crossex_order_update_request)
 
 Modify Order
 
@@ -535,11 +535,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 order_id = 'order_id_example' # str | Support Order ID or Text for Modify Order
-inline_object13 = gate_api.InlineObject13() # InlineObject13 |  (optional)
+crossex_order_update_request = gate_api.CrossexOrderUpdateRequest() # CrossexOrderUpdateRequest |  (optional)
 
 try:
     # Modify Order
-    api_response = api_instance.update_crossex_order(order_id, inline_object13=inline_object13)
+    api_response = api_instance.update_crossex_order(order_id, crossex_order_update_request=crossex_order_update_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -552,7 +552,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **str**| Support Order ID or Text for Modify Order | 
- **inline_object13** | [**InlineObject13**](InlineObject13.md)|  | [optional] 
+ **crossex_order_update_request** | [**CrossexOrderUpdateRequest**](CrossexOrderUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_convert_quote**
-> InlineResponse20034 create_crossex_convert_quote(inline_object14=inline_object14)
+> InlineResponse20034 create_crossex_convert_quote(crossex_convert_quote_request=crossex_convert_quote_request)
 
 Flash Swap Inquiry
 
@@ -674,11 +674,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object14 = gate_api.InlineObject14() # InlineObject14 |  (optional)
+crossex_convert_quote_request = gate_api.CrossexConvertQuoteRequest() # CrossexConvertQuoteRequest |  (optional)
 
 try:
     # Flash Swap Inquiry
-    api_response = api_instance.create_crossex_convert_quote(inline_object14=inline_object14)
+    api_response = api_instance.create_crossex_convert_quote(crossex_convert_quote_request=crossex_convert_quote_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -690,7 +690,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object14** | [**InlineObject14**](InlineObject14.md)|  | [optional] 
+ **crossex_convert_quote_request** | [**CrossexConvertQuoteRequest**](CrossexConvertQuoteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -713,7 +713,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_convert_order**
-> object create_crossex_convert_order(inline_object15=inline_object15)
+> object create_crossex_convert_order(crossex_convert_order_request=crossex_convert_order_request)
 
 Flash Swap Transaction
 
@@ -743,11 +743,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object15 = gate_api.InlineObject15() # InlineObject15 |  (optional)
+crossex_convert_order_request = gate_api.CrossexConvertOrderRequest() # CrossexConvertOrderRequest |  (optional)
 
 try:
     # Flash Swap Transaction
-    api_response = api_instance.create_crossex_convert_order(inline_object15=inline_object15)
+    api_response = api_instance.create_crossex_convert_order(crossex_convert_order_request=crossex_convert_order_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -759,7 +759,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object15** | [**InlineObject15**](InlineObject15.md)|  | [optional] 
+ **crossex_convert_order_request** | [**CrossexConvertOrderRequest**](CrossexConvertOrderRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_account**
-> InlineResponse202 update_crossex_account(inline_object16=inline_object16)
+> InlineResponse202 update_crossex_account(crossex_account_update_request=crossex_account_update_request)
 
 Modify Account Contract Position Mode and Account Mode
 
@@ -881,11 +881,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object16 = gate_api.InlineObject16() # InlineObject16 |  (optional)
+crossex_account_update_request = gate_api.CrossexAccountUpdateRequest() # CrossexAccountUpdateRequest |  (optional)
 
 try:
     # Modify Account Contract Position Mode and Account Mode
-    api_response = api_instance.update_crossex_account(inline_object16=inline_object16)
+    api_response = api_instance.update_crossex_account(crossex_account_update_request=crossex_account_update_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -897,7 +897,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object16** | [**InlineObject16**](InlineObject16.md)|  | [optional] 
+ **crossex_account_update_request** | [**CrossexAccountUpdateRequest**](CrossexAccountUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -989,7 +989,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_positions_leverage**
-> InlineResponse2021 update_crossex_positions_leverage(inline_object17=inline_object17)
+> InlineResponse2021 update_crossex_positions_leverage(crossex_leverage_request=crossex_leverage_request)
 
 Modify Contract Trading Pair Leverage Multiplier
 
@@ -1019,11 +1019,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object17 = gate_api.InlineObject17() # InlineObject17 |  (optional)
+crossex_leverage_request = gate_api.CrossexLeverageRequest() # CrossexLeverageRequest |  (optional)
 
 try:
     # Modify Contract Trading Pair Leverage Multiplier
-    api_response = api_instance.update_crossex_positions_leverage(inline_object17=inline_object17)
+    api_response = api_instance.update_crossex_positions_leverage(crossex_leverage_request=crossex_leverage_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1035,7 +1035,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object17** | [**InlineObject17**](InlineObject17.md)|  | [optional] 
+ **crossex_leverage_request** | [**CrossexLeverageRequest**](CrossexLeverageRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_margin_positions_leverage**
-> InlineResponse2021 update_crossex_margin_positions_leverage(inline_object18=inline_object18)
+> InlineResponse2021 update_crossex_margin_positions_leverage(crossex_leverage_request=crossex_leverage_request)
 
 Modify Leveraged Trading Pair Leverage Multiplier
 
@@ -1157,11 +1157,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object18 = gate_api.InlineObject18() # InlineObject18 |  (optional)
+crossex_leverage_request = gate_api.CrossexLeverageRequest() # CrossexLeverageRequest |  (optional)
 
 try:
     # Modify Leveraged Trading Pair Leverage Multiplier
-    api_response = api_instance.update_crossex_margin_positions_leverage(inline_object18=inline_object18)
+    api_response = api_instance.update_crossex_margin_positions_leverage(crossex_leverage_request=crossex_leverage_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1173,7 +1173,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object18** | [**InlineObject18**](InlineObject18.md)|  | [optional] 
+ **crossex_leverage_request** | [**CrossexLeverageRequest**](CrossexLeverageRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **close_crossex_position**
-> InlineResponse20031 close_crossex_position(inline_object19=inline_object19)
+> InlineResponse20031 close_crossex_position(crossex_close_position_request=crossex_close_position_request)
 
 Full Close Position
 
@@ -1226,11 +1226,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-inline_object19 = gate_api.InlineObject19() # InlineObject19 |  (optional)
+crossex_close_position_request = gate_api.CrossexClosePositionRequest() # CrossexClosePositionRequest |  (optional)
 
 try:
     # Full Close Position
-    api_response = api_instance.close_crossex_position(inline_object19=inline_object19)
+    api_response = api_instance.close_crossex_position(crossex_close_position_request=crossex_close_position_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1242,7 +1242,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object19** | [**InlineObject19**](InlineObject19.md)|  | [optional] 
+ **crossex_close_position_request** | [**CrossexClosePositionRequest**](CrossexClosePositionRequest.md)|  | [optional] 
 
 ### Return type
 

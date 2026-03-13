@@ -1,11 +1,10 @@
-# InlineObject1
+# OtcMarkOrderPaidRequest
 
-Order Modification Request Body
+法币订单设置已付款请求体
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**price** | **str** | Order Price | 
-**size** | **int** | Trade amount | 
+**order_id** | **str** | Order ID | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
