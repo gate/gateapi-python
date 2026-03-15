@@ -1,6 +1,6 @@
 # OtcQuoteRequest
 
-法币和稳定币询价请求体
+Fiat and Stablecoin Quote Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

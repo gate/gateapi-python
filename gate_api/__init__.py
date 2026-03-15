@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.37"
+__version__ = "7.2.39"
 
 # import apis into sdk package
 from gate_api.api.cross_ex_api import CrossExApi
@@ -63,6 +63,7 @@ from gate_api.models.agency_commission import AgencyCommission
 from gate_api.models.agency_commission_history import AgencyCommissionHistory
 from gate_api.models.agency_transaction import AgencyTransaction
 from gate_api.models.agency_transaction_history import AgencyTransactionHistory
+from gate_api.models.alpha_ticker import AlphaTicker
 from gate_api.models.auto_repay_setting import AutoRepaySetting
 from gate_api.models.award_list_struct import AwardListStruct
 from gate_api.models.award_list_struct_list import AwardListStructList

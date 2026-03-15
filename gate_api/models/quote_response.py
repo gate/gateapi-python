@@ -240,7 +240,7 @@ class QuoteResponse(object):
     def order_fee(self):
         """Gets the order_fee of this QuoteResponse.  # noqa: E501
 
-        Slippage tolerance (10 means 10% tolerance)  # noqa: E501
+        Trading fee  # noqa: E501
 
         :return: The order_fee of this QuoteResponse.  # noqa: E501
         :rtype: str
@@ -251,7 +251,7 @@ class QuoteResponse(object):
     def order_fee(self, order_fee):
         """Sets the order_fee of this QuoteResponse.
 
-        Slippage tolerance (10 means 10% tolerance)  # noqa: E501
+        Trading fee  # noqa: E501
 
         :param order_fee: The order_fee of this QuoteResponse.  # noqa: E501
         :type: str

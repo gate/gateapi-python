@@ -504,7 +504,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_alpha_tickers**
-> list[Ticker2] list_alpha_tickers(currency=currency, limit=limit, page=page)
+> list[AlphaTicker] list_alpha_tickers(currency=currency, limit=limit, page=page)
 
 Query currency ticker
 
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Ticker2]**](Ticker2.md)
+[**list[AlphaTicker]**](AlphaTicker.md)
 
 ### Authorization
 

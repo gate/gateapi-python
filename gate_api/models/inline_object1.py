@@ -33,28 +33,57 @@ class InlineObject1(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'contract': 'str',
         'price': 'str',
         'size': 'int'
     }
 
     attribute_map = {
+        'contract': 'contract',
         'price': 'price',
         'size': 'size'
     }
 
-    def __init__(self, price=None, size=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, Configuration) -> None
+    def __init__(self, contract=None, price=None, size=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, int, Configuration) -> None
         """InlineObject1 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._contract = None
         self._price = None
         self._size = None
         self.discriminator = None
 
+        self.contract = contract
         self.price = price
         self.size = size
+
+    @property
+    def contract(self):
+        """Gets the contract of this InlineObject1.  # noqa: E501
+
+        Options contract name  # noqa: E501
+
+        :return: The contract of this InlineObject1.  # noqa: E501
+        :rtype: str
+        """
+        return self._contract
+
+    @contract.setter
+    def contract(self, contract):
+        """Sets the contract of this InlineObject1.
+
+        Options contract name  # noqa: E501
+
+        :param contract: The contract of this InlineObject1.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and contract is None:  # noqa: E501
+            raise ValueError("Invalid value for `contract`, must not be `None`")  # noqa: E501
+
+        self._contract = contract
 
     @property
     def price(self):

@@ -1,6 +1,6 @@
 # CrossexConvertOrderRequest
 
-闪兑交易请求体
+Flash Swap Transaction Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

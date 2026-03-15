@@ -1,6 +1,6 @@
 # OtcOrderRequest
 
-法币下单请求体
+Fiat Order Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

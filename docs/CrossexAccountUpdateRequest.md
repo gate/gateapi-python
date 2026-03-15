@@ -1,6 +1,6 @@
 # CrossexAccountUpdateRequest
 
-更改账户请求体
+Change Account Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
