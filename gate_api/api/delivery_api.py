@@ -3294,7 +3294,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.TriggerOrderResponse
+        :rtype: gate_api.TriggerOrderResponse1
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3321,7 +3321,7 @@ class DeliveryApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.TriggerOrderResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TriggerOrderResponse1, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3393,7 +3393,7 @@ class DeliveryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TriggerOrderResponse',  # noqa: E501
+            response_type='TriggerOrderResponse1',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

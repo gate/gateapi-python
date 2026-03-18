@@ -1977,7 +1977,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_spot_price_triggered_order**
-> TriggerOrderResponse create_spot_price_triggered_order(spot_price_triggered_order)
+> TriggerOrderResponse1 create_spot_price_triggered_order(spot_price_triggered_order)
 
 Create price-triggered order
 
@@ -2025,7 +2025,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TriggerOrderResponse**](TriggerOrderResponse.md)
+[**TriggerOrderResponse1**](TriggerOrderResponse1.md)
 
 ### Authorization
 

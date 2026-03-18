@@ -418,6 +418,7 @@ from gate_api.models.transfer import Transfer
 from gate_api.models.transfer_order_status import TransferOrderStatus
 from gate_api.models.transferables_result import TransferablesResult
 from gate_api.models.trigger_order_response import TriggerOrderResponse
+from gate_api.models.trigger_order_response1 import TriggerOrderResponse1
 from gate_api.models.trigger_time import TriggerTime
 from gate_api.models.uid_push_order import UidPushOrder
 from gate_api.models.uid_push_withdrawal import UidPushWithdrawal
