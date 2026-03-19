@@ -1,5 +1,6 @@
 # UnifiedBorrowable
 
+统一账户最多可借入额度
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

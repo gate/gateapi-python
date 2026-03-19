@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_uni_chart**
-> list[InlineResponse2004] list_uni_chart(_from, to, asset)
+> list[UniChartPoint] list_uni_chart(_from, to, asset)
 
 UniLoan currency annualized trend chart
 
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse2004]**](InlineResponse2004.md)
+[**list[UniChartPoint]**](UniChartPoint.md)
 
 ### Authorization
 
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_uni_rate**
-> list[InlineResponse2005] list_uni_rate()
+> list[UniEstimatedRate] list_uni_rate()
 
 Currency estimated annualized interest rate
 
@@ -738,7 +738,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[InlineResponse2005]**](InlineResponse2005.md)
+[**list[UniEstimatedRate]**](UniEstimatedRate.md)
 
 ### Authorization
 

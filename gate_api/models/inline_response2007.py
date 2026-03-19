@@ -34,36 +34,45 @@ class InlineResponse2007(object):
     """
     openapi_types = {
         'code': 'int',
+        'label': 'str',
         'message': 'str',
-        'timestamp': 'int'
+        'data': 'InlineResponse2007Data'
     }
 
     attribute_map = {
         'code': 'code',
+        'label': 'label',
         'message': 'message',
-        'timestamp': 'timestamp'
+        'data': 'data'
     }
 
-    def __init__(self, code=None, message=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, Configuration) -> None
+    def __init__(self, code=None, label=None, message=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, InlineResponse2007Data, Configuration) -> None
         """InlineResponse2007 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
+        self._label = None
         self._message = None
-        self._timestamp = None
+        self._data = None
         self.discriminator = None
 
-        self.code = code
-        self.message = message
-        self.timestamp = timestamp
+        if code is not None:
+            self.code = code
+        if label is not None:
+            self.label = label
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
 
     @property
     def code(self):
         """Gets the code of this InlineResponse2007.  # noqa: E501
 
+        Response code. `0` = success; `2002` = user not logged in; `50105` = parameter validation failed; `10001` = coupon record does not exist or does not belong to current user; `10000` = invalid parameter (e.g., task coupon missing coupon_info)  # noqa: E501
 
         :return: The code of this InlineResponse2007.  # noqa: E501
         :rtype: int
@@ -74,14 +83,42 @@ class InlineResponse2007(object):
     def code(self, code):
         """Sets the code of this InlineResponse2007.
 
+        Response code. `0` = success; `2002` = user not logged in; `50105` = parameter validation failed; `10001` = coupon record does not exist or does not belong to current user; `10000` = invalid parameter (e.g., task coupon missing coupon_info)  # noqa: E501
 
         :param code: The code of this InlineResponse2007.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
+        allowed_values = [0, 2002, 50105, 10001, 10000]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and code not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `code` ({0}), must be one of {1}"  # noqa: E501
+                .format(code, allowed_values)
+            )
 
         self._code = code
+
+    @property
+    def label(self):
+        """Gets the label of this InlineResponse2007.  # noqa: E501
+
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
+
+        :return: The label of this InlineResponse2007.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse2007.
+
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
+
+        :param label: The label of this InlineResponse2007.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
 
     @property
     def message(self):
@@ -101,33 +138,29 @@ class InlineResponse2007(object):
         :param message: The message of this InlineResponse2007.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
     @property
-    def timestamp(self):
-        """Gets the timestamp of this InlineResponse2007.  # noqa: E501
+    def data(self):
+        """Gets the data of this InlineResponse2007.  # noqa: E501
 
 
-        :return: The timestamp of this InlineResponse2007.  # noqa: E501
-        :rtype: int
+        :return: The data of this InlineResponse2007.  # noqa: E501
+        :rtype: InlineResponse2007Data
         """
-        return self._timestamp
+        return self._data
 
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this InlineResponse2007.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse2007.
 
 
-        :param timestamp: The timestamp of this InlineResponse2007.  # noqa: E501
-        :type: int
+        :param data: The data of this InlineResponse2007.  # noqa: E501
+        :type: InlineResponse2007Data
         """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
-        self._timestamp = timestamp
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

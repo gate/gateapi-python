@@ -1,0 +1,50 @@
+# P2pAdDetail
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**rate** | **str** | Price | [optional] 
+**type** | **str** | Buy/Sell order | [optional] 
+**amount** | **str** | Cryptocurrency amount | [optional] 
+**min_amount** | **str** | Minimum limit | [optional] 
+**max_amount** | **str** | Maximum limit | [optional] 
+**total** | **str** | Fiat amount | [optional] 
+**pay_ali** | **int** | Whether Alipay payment is supported | [optional] 
+**pay_bank** | **int** | Whether bank payment is supported | [optional] 
+**pay_paypal** | **int** | Whether PayPal payment is supported | [optional] 
+**pay_wechat** | **int** | Whether WeChat payment is supported | [optional] 
+**pay_type_num** | **str** | Payment method ID list | [optional] 
+**pay_type_json** | **str** | Payment method list | [optional] 
+**locked_amount** | **str** | Locked amount | [optional] 
+**orderid** | **int** | Order ID | [optional] 
+**timestamp** | **int** | Created time | [optional] 
+**currency_type** | **str** | Cryptocurrency type | [optional] 
+**want_type** | **str** | Fiat type | [optional] 
+**hide_rate** | **str** | Hidden price | [optional] 
+**trade_tips** | **str** | Trading terms | [optional] 
+**auto_reply** | **str** | Auto reply | [optional] 
+**new_hand** | **str** | Merchant-friendly order | [optional] 
+**rate_ref_id** | **int** | Floating price reference ID: 1&#x3D;Platform reference price, 3&#x3D;Spot reference price (≤0 means fixed price, &gt;0 means floating price) | [optional] 
+**rate_offset** | **float** | Floating ratio (absolute value) | [optional] 
+**status** | **str** | Status | [optional] 
+**rate_fixed** | **int** | 0&#x3D;Floating, 1&#x3D;Fixed | [optional] 
+**float_trend** | **int** | 0&#x3D;Upward float, 1&#x3D;Downward float | [optional] 
+**expire_min** | **int** | Timeout (minutes) | [optional] 
+**tier_limit** | **int** | Tier limit | [optional] 
+**reg_time_limit** | **int** | Registration time limit | [optional] 
+**advertisers_limit** | **int** | Do not trade with advertisers, advertiser limit: 0&#x3D;No limit, 1&#x3D;Limit | [optional] 
+**verified_limit** | **int** | kyclimit | [optional] 
+**min_completed_limit** | **int** | Minimum limit of completed orders | [optional] 
+**max_completed_limit** | **int** | Maximum limit of completed orders | [optional] 
+**user_orders_limit** | **int** | Order count limit | [optional] 
+**completed_rate_limit** | **float** | 30-day completion rate limit | [optional] 
+**user_country_limit** | **int** | KYC nationality restriction | [optional] 
+**limit_country_cn** | **str** | Restricted nationality (Chinese) | [optional] 
+**limit_country_en** | **str** | Restricted nationality (English) | [optional] 
+**is_hedge** | **int** | Whether auto delegation | [optional] 
+**hide_payment** | **int** | Whether to hide payment method | [optional] 
+**fee** | **int** | fee | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

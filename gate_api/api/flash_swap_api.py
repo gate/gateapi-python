@@ -646,3 +646,726 @@ class FlashSwapApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def create_flash_swap_multi_currency_many_to_one_order(self, flash_swap_multi_currency_many_to_one_order_create_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Place order (many-to-one)  # noqa: E501
+
+        Create a multi-currency to single target currency exchange order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_flash_swap_multi_currency_many_to_one_order(flash_swap_multi_currency_many_to_one_order_create_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyManyToOneOrderCreateReq flash_swap_multi_currency_many_to_one_order_create_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FlashSwapMultiCurrencyManyToOneOrderCreateResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_flash_swap_multi_currency_many_to_one_order_with_http_info(flash_swap_multi_currency_many_to_one_order_create_req, **kwargs)  # noqa: E501
+
+    def create_flash_swap_multi_currency_many_to_one_order_with_http_info(self, flash_swap_multi_currency_many_to_one_order_create_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Place order (many-to-one)  # noqa: E501
+
+        Create a multi-currency to single target currency exchange order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_flash_swap_multi_currency_many_to_one_order_with_http_info(flash_swap_multi_currency_many_to_one_order_create_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyManyToOneOrderCreateReq flash_swap_multi_currency_many_to_one_order_create_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FlashSwapMultiCurrencyManyToOneOrderCreateResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'flash_swap_multi_currency_many_to_one_order_create_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_flash_swap_multi_currency_many_to_one_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'flash_swap_multi_currency_many_to_one_order_create_req' is set
+        if self.api_client.client_side_validation and ('flash_swap_multi_currency_many_to_one_order_create_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['flash_swap_multi_currency_many_to_one_order_create_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `flash_swap_multi_currency_many_to_one_order_create_req` when calling `create_flash_swap_multi_currency_many_to_one_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'flash_swap_multi_currency_many_to_one_order_create_req' in local_var_params:
+            body_params = local_var_params['flash_swap_multi_currency_many_to_one_order_create_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/flash-swap/multi-currency/many-to-one/order/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlashSwapMultiCurrencyManyToOneOrderCreateResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def preview_flash_swap_multi_currency_many_to_one_order(self, flash_swap_multi_currency_many_to_one_order_preview_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Preview (many-to-one)  # noqa: E501
+
+        Preview quote for multi-currency to single target currency exchange  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_flash_swap_multi_currency_many_to_one_order(flash_swap_multi_currency_many_to_one_order_preview_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyManyToOneOrderPreviewReq flash_swap_multi_currency_many_to_one_order_preview_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FlashSwapMultiCurrencyManyToOneOrderPreviewResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.preview_flash_swap_multi_currency_many_to_one_order_with_http_info(flash_swap_multi_currency_many_to_one_order_preview_req, **kwargs)  # noqa: E501
+
+    def preview_flash_swap_multi_currency_many_to_one_order_with_http_info(self, flash_swap_multi_currency_many_to_one_order_preview_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Preview (many-to-one)  # noqa: E501
+
+        Preview quote for multi-currency to single target currency exchange  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_flash_swap_multi_currency_many_to_one_order_with_http_info(flash_swap_multi_currency_many_to_one_order_preview_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyManyToOneOrderPreviewReq flash_swap_multi_currency_many_to_one_order_preview_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FlashSwapMultiCurrencyManyToOneOrderPreviewResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'flash_swap_multi_currency_many_to_one_order_preview_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method preview_flash_swap_multi_currency_many_to_one_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'flash_swap_multi_currency_many_to_one_order_preview_req' is set
+        if self.api_client.client_side_validation and ('flash_swap_multi_currency_many_to_one_order_preview_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['flash_swap_multi_currency_many_to_one_order_preview_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `flash_swap_multi_currency_many_to_one_order_preview_req` when calling `preview_flash_swap_multi_currency_many_to_one_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'flash_swap_multi_currency_many_to_one_order_preview_req' in local_var_params:
+            body_params = local_var_params['flash_swap_multi_currency_many_to_one_order_preview_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/flash-swap/multi-currency/many-to-one/order/preview', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlashSwapMultiCurrencyManyToOneOrderPreviewResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_flash_swap_order_v1(self, flash_swap_order_create_req, **kwargs):  # noqa: E501
+        """Flash Swap - Place order (one-to-one)  # noqa: E501
+
+        Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_flash_swap_order_v1(flash_swap_order_create_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapOrderCreateReq flash_swap_order_create_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FlashSwapOrderCreateResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_flash_swap_order_v1_with_http_info(flash_swap_order_create_req, **kwargs)  # noqa: E501
+
+    def create_flash_swap_order_v1_with_http_info(self, flash_swap_order_create_req, **kwargs):  # noqa: E501
+        """Flash Swap - Place order (one-to-one)  # noqa: E501
+
+        Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_flash_swap_order_v1_with_http_info(flash_swap_order_create_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapOrderCreateReq flash_swap_order_create_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FlashSwapOrderCreateResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'flash_swap_order_create_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_flash_swap_order_v1" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'flash_swap_order_create_req' is set
+        if self.api_client.client_side_validation and ('flash_swap_order_create_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['flash_swap_order_create_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `flash_swap_order_create_req` when calling `create_flash_swap_order_v1`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'flash_swap_order_create_req' in local_var_params:
+            body_params = local_var_params['flash_swap_order_create_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/flash-swap/order/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlashSwapOrderCreateResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_flash_swap_multi_currency_one_to_many_order(self, flash_swap_multi_currency_one_to_many_order_create_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Place order (one-to-many)  # noqa: E501
+
+        Create a single currency to multiple target currencies exchange order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_flash_swap_multi_currency_one_to_many_order(flash_swap_multi_currency_one_to_many_order_create_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyOneToManyOrderCreateReq flash_swap_multi_currency_one_to_many_order_create_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FlashSwapMultiCurrencyOneToManyOrderCreateResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_flash_swap_multi_currency_one_to_many_order_with_http_info(flash_swap_multi_currency_one_to_many_order_create_req, **kwargs)  # noqa: E501
+
+    def create_flash_swap_multi_currency_one_to_many_order_with_http_info(self, flash_swap_multi_currency_one_to_many_order_create_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Place order (one-to-many)  # noqa: E501
+
+        Create a single currency to multiple target currencies exchange order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_flash_swap_multi_currency_one_to_many_order_with_http_info(flash_swap_multi_currency_one_to_many_order_create_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyOneToManyOrderCreateReq flash_swap_multi_currency_one_to_many_order_create_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FlashSwapMultiCurrencyOneToManyOrderCreateResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'flash_swap_multi_currency_one_to_many_order_create_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_flash_swap_multi_currency_one_to_many_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'flash_swap_multi_currency_one_to_many_order_create_req' is set
+        if self.api_client.client_side_validation and ('flash_swap_multi_currency_one_to_many_order_create_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['flash_swap_multi_currency_one_to_many_order_create_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `flash_swap_multi_currency_one_to_many_order_create_req` when calling `create_flash_swap_multi_currency_one_to_many_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'flash_swap_multi_currency_one_to_many_order_create_req' in local_var_params:
+            body_params = local_var_params['flash_swap_multi_currency_one_to_many_order_create_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/flash-swap/multi-currency/one-to-many/order/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlashSwapMultiCurrencyOneToManyOrderCreateResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def preview_flash_swap_multi_currency_one_to_many_order(self, flash_swap_multi_currency_one_to_many_order_preview_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Preview (one-to-many)  # noqa: E501
+
+        Preview quote for single currency to multiple target currencies exchange  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_flash_swap_multi_currency_one_to_many_order(flash_swap_multi_currency_one_to_many_order_preview_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyOneToManyOrderPreviewReq flash_swap_multi_currency_one_to_many_order_preview_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FlashSwapMultiCurrencyOneToManyOrderPreviewResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.preview_flash_swap_multi_currency_one_to_many_order_with_http_info(flash_swap_multi_currency_one_to_many_order_preview_req, **kwargs)  # noqa: E501
+
+    def preview_flash_swap_multi_currency_one_to_many_order_with_http_info(self, flash_swap_multi_currency_one_to_many_order_preview_req, **kwargs):  # noqa: E501
+        """Flash Swap - Multi-currency exchange - Preview (one-to-many)  # noqa: E501
+
+        Preview quote for single currency to multiple target currencies exchange  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_flash_swap_multi_currency_one_to_many_order_with_http_info(flash_swap_multi_currency_one_to_many_order_preview_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FlashSwapMultiCurrencyOneToManyOrderPreviewReq flash_swap_multi_currency_one_to_many_order_preview_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FlashSwapMultiCurrencyOneToManyOrderPreviewResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'flash_swap_multi_currency_one_to_many_order_preview_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method preview_flash_swap_multi_currency_one_to_many_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'flash_swap_multi_currency_one_to_many_order_preview_req' is set
+        if self.api_client.client_side_validation and ('flash_swap_multi_currency_one_to_many_order_preview_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['flash_swap_multi_currency_one_to_many_order_preview_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `flash_swap_multi_currency_one_to_many_order_preview_req` when calling `preview_flash_swap_multi_currency_one_to_many_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'flash_swap_multi_currency_one_to_many_order_preview_req' in local_var_params:
+            body_params = local_var_params['flash_swap_multi_currency_one_to_many_order_preview_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/flash-swap/multi-currency/one-to-many/order/preview', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlashSwapMultiCurrencyOneToManyOrderPreviewResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def preview_flash_swap_order_v1(self, sell_asset, buy_asset, **kwargs):  # noqa: E501
+        """Flash Swap - Preview (one-to-one)  # noqa: E501
+
+        Get one-to-one flash swap quote. Either sell_amount or buy_amount must be specified  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_flash_swap_order_v1(sell_asset, buy_asset, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str sell_asset: Currency to sell (required)
+        :param str buy_asset: Currency to buy (required)
+        :param str sell_amount: Sell amount, either this or buy_amount must be specified
+        :param str buy_amount: Buy amount, either this or sell_amount must be specified
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FlashSwapOrderPreviewResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.preview_flash_swap_order_v1_with_http_info(sell_asset, buy_asset, **kwargs)  # noqa: E501
+
+    def preview_flash_swap_order_v1_with_http_info(self, sell_asset, buy_asset, **kwargs):  # noqa: E501
+        """Flash Swap - Preview (one-to-one)  # noqa: E501
+
+        Get one-to-one flash swap quote. Either sell_amount or buy_amount must be specified  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.preview_flash_swap_order_v1_with_http_info(sell_asset, buy_asset, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str sell_asset: Currency to sell (required)
+        :param str buy_asset: Currency to buy (required)
+        :param str sell_amount: Sell amount, either this or buy_amount must be specified
+        :param str buy_amount: Buy amount, either this or sell_amount must be specified
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FlashSwapOrderPreviewResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'sell_asset',
+            'buy_asset',
+            'sell_amount',
+            'buy_amount'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method preview_flash_swap_order_v1" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'sell_asset' is set
+        if self.api_client.client_side_validation and ('sell_asset' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sell_asset'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sell_asset` when calling `preview_flash_swap_order_v1`")  # noqa: E501
+        # verify the required parameter 'buy_asset' is set
+        if self.api_client.client_side_validation and ('buy_asset' not in local_var_params or  # noqa: E501
+                                                        local_var_params['buy_asset'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `buy_asset` when calling `preview_flash_swap_order_v1`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'sell_asset' in local_var_params and local_var_params['sell_asset'] is not None:  # noqa: E501
+            query_params.append(('sell_asset', local_var_params['sell_asset']))  # noqa: E501
+        if 'sell_amount' in local_var_params and local_var_params['sell_amount'] is not None:  # noqa: E501
+            query_params.append(('sell_amount', local_var_params['sell_amount']))  # noqa: E501
+        if 'buy_asset' in local_var_params and local_var_params['buy_asset'] is not None:  # noqa: E501
+            query_params.append(('buy_asset', local_var_params['buy_asset']))  # noqa: E501
+        if 'buy_amount' in local_var_params and local_var_params['buy_amount'] is not None:  # noqa: E501
+            query_params.append(('buy_amount', local_var_params['buy_amount']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/flash-swap/order/preview', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FlashSwapOrderPreviewResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)

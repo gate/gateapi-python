@@ -326,7 +326,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_symbol_ticker**
-> Ticker2 query_symbol_ticker(symbol)
+> TradFiTicker query_symbol_ticker(symbol)
 
 Query trading symbol ticker
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Ticker2**](Ticker2.md)
+[**TradFiTicker**](TradFiTicker.md)
 
 ### Authorization
 

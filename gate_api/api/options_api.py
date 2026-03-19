@@ -2729,18 +2729,18 @@ class OptionsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def amend_options_order(self, order_id, inline_object1, **kwargs):  # noqa: E501
+    def amend_options_order(self, order_id, amend_options_order_request, **kwargs):  # noqa: E501
         """Option Order Modification  # noqa: E501
 
         Modify the order price and/or quantity of a specified order; only orders with status 'open' are supported  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.amend_options_order(order_id, inline_object1, async_req=True)
+        >>> thread = api.amend_options_order(order_id, amend_options_order_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int order_id: Order ID returned when order is successfully created (required)
-        :param InlineObject1 inline_object1: (required)
+        :param AmendOptionsOrderRequest amend_options_order_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2753,20 +2753,20 @@ class OptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.amend_options_order_with_http_info(order_id, inline_object1, **kwargs)  # noqa: E501
+        return self.amend_options_order_with_http_info(order_id, amend_options_order_request, **kwargs)  # noqa: E501
 
-    def amend_options_order_with_http_info(self, order_id, inline_object1, **kwargs):  # noqa: E501
+    def amend_options_order_with_http_info(self, order_id, amend_options_order_request, **kwargs):  # noqa: E501
         """Option Order Modification  # noqa: E501
 
         Modify the order price and/or quantity of a specified order; only orders with status 'open' are supported  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.amend_options_order_with_http_info(order_id, inline_object1, async_req=True)
+        >>> thread = api.amend_options_order_with_http_info(order_id, amend_options_order_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param int order_id: Order ID returned when order is successfully created (required)
-        :param InlineObject1 inline_object1: (required)
+        :param AmendOptionsOrderRequest amend_options_order_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2785,7 +2785,7 @@ class OptionsApi(object):
 
         all_params = [
             'order_id',
-            'inline_object1'
+            'amend_options_order_request'
         ]
         all_params.extend(
             [
@@ -2808,10 +2808,10 @@ class OptionsApi(object):
         if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['order_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `order_id` when calling `amend_options_order`")  # noqa: E501
-        # verify the required parameter 'inline_object1' is set
-        if self.api_client.client_side_validation and ('inline_object1' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object1'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object1` when calling `amend_options_order`")  # noqa: E501
+        # verify the required parameter 'amend_options_order_request' is set
+        if self.api_client.client_side_validation and ('amend_options_order_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['amend_options_order_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `amend_options_order_request` when calling `amend_options_order`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2827,8 +2827,8 @@ class OptionsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object1' in local_var_params:
-            body_params = local_var_params['inline_object1']
+        if 'amend_options_order_request' in local_var_params:
+            body_params = local_var_params['amend_options_order_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

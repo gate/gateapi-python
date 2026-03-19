@@ -34,7 +34,7 @@ class BrokerCommission(object):
     """
     openapi_types = {
         'total': 'int',
-        'list': 'list[BrokerCommission1]'
+        'list': 'list[BrokerCommissionItem]'
     }
 
     attribute_map = {
@@ -43,7 +43,7 @@ class BrokerCommission(object):
     }
 
     def __init__(self, total=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, list[BrokerCommission1], Configuration) -> None
+        # type: (int, list[BrokerCommissionItem], Configuration) -> None
         """BrokerCommission - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -88,7 +88,7 @@ class BrokerCommission(object):
         List of commission history  # noqa: E501
 
         :return: The list of this BrokerCommission.  # noqa: E501
-        :rtype: list[BrokerCommission1]
+        :rtype: list[BrokerCommissionItem]
         """
         return self._list
 
@@ -99,7 +99,7 @@ class BrokerCommission(object):
         List of commission history  # noqa: E501
 
         :param list: The list of this BrokerCommission.  # noqa: E501
-        :type: list[BrokerCommission1]
+        :type: list[BrokerCommissionItem]
         """
 
         self._list = list

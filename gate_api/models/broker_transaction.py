@@ -33,76 +33,298 @@ class BrokerTransaction(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'total': 'int',
-        'list': 'list[BrokerTransaction1]'
+        'transaction_time': 'int',
+        'user_id': 'int',
+        'group_name': 'str',
+        'fee': 'str',
+        'currency_pair': 'str',
+        'amount': 'str',
+        'fee_asset': 'str',
+        'source': 'str',
+        'sub_broker_info': 'BrokerCommissionSubBrokerInfo',
+        'alpha_contract_addr': 'str'
     }
 
     attribute_map = {
-        'total': 'total',
-        'list': 'list'
+        'transaction_time': 'transaction_time',
+        'user_id': 'user_id',
+        'group_name': 'group_name',
+        'fee': 'fee',
+        'currency_pair': 'currency_pair',
+        'amount': 'amount',
+        'fee_asset': 'fee_asset',
+        'source': 'source',
+        'sub_broker_info': 'sub_broker_info',
+        'alpha_contract_addr': 'alpha_contract_addr'
     }
 
-    def __init__(self, total=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, list[BrokerTransaction1], Configuration) -> None
+    def __init__(self, transaction_time=None, user_id=None, group_name=None, fee=None, currency_pair=None, amount=None, fee_asset=None, source=None, sub_broker_info=None, alpha_contract_addr=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, str, str, str, str, str, BrokerCommissionSubBrokerInfo, str, Configuration) -> None
         """BrokerTransaction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._total = None
-        self._list = None
+        self._transaction_time = None
+        self._user_id = None
+        self._group_name = None
+        self._fee = None
+        self._currency_pair = None
+        self._amount = None
+        self._fee_asset = None
+        self._source = None
+        self._sub_broker_info = None
+        self._alpha_contract_addr = None
         self.discriminator = None
 
-        if total is not None:
-            self.total = total
-        if list is not None:
-            self.list = list
+        if transaction_time is not None:
+            self.transaction_time = transaction_time
+        if user_id is not None:
+            self.user_id = user_id
+        if group_name is not None:
+            self.group_name = group_name
+        if fee is not None:
+            self.fee = fee
+        if currency_pair is not None:
+            self.currency_pair = currency_pair
+        if amount is not None:
+            self.amount = amount
+        if fee_asset is not None:
+            self.fee_asset = fee_asset
+        if source is not None:
+            self.source = source
+        if sub_broker_info is not None:
+            self.sub_broker_info = sub_broker_info
+        if alpha_contract_addr is not None:
+            self.alpha_contract_addr = alpha_contract_addr
 
     @property
-    def total(self):
-        """Gets the total of this BrokerTransaction.  # noqa: E501
+    def transaction_time(self):
+        """Gets the transaction_time of this BrokerTransaction.  # noqa: E501
 
-        Total  # noqa: E501
+        Transaction Time. (unix timestamp)  # noqa: E501
 
-        :return: The total of this BrokerTransaction.  # noqa: E501
+        :return: The transaction_time of this BrokerTransaction.  # noqa: E501
         :rtype: int
         """
-        return self._total
+        return self._transaction_time
 
-    @total.setter
-    def total(self, total):
-        """Sets the total of this BrokerTransaction.
+    @transaction_time.setter
+    def transaction_time(self, transaction_time):
+        """Sets the transaction_time of this BrokerTransaction.
 
-        Total  # noqa: E501
+        Transaction Time. (unix timestamp)  # noqa: E501
 
-        :param total: The total of this BrokerTransaction.  # noqa: E501
+        :param transaction_time: The transaction_time of this BrokerTransaction.  # noqa: E501
         :type: int
         """
 
-        self._total = total
+        self._transaction_time = transaction_time
 
     @property
-    def list(self):
-        """Gets the list of this BrokerTransaction.  # noqa: E501
+    def user_id(self):
+        """Gets the user_id of this BrokerTransaction.  # noqa: E501
 
-        List of transaction history  # noqa: E501
+        User ID  # noqa: E501
 
-        :return: The list of this BrokerTransaction.  # noqa: E501
-        :rtype: list[BrokerTransaction1]
+        :return: The user_id of this BrokerTransaction.  # noqa: E501
+        :rtype: int
         """
-        return self._list
+        return self._user_id
 
-    @list.setter
-    def list(self, list):
-        """Sets the list of this BrokerTransaction.
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this BrokerTransaction.
 
-        List of transaction history  # noqa: E501
+        User ID  # noqa: E501
 
-        :param list: The list of this BrokerTransaction.  # noqa: E501
-        :type: list[BrokerTransaction1]
+        :param user_id: The user_id of this BrokerTransaction.  # noqa: E501
+        :type: int
         """
 
-        self._list = list
+        self._user_id = user_id
+
+    @property
+    def group_name(self):
+        """Gets the group_name of this BrokerTransaction.  # noqa: E501
+
+        Group name  # noqa: E501
+
+        :return: The group_name of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._group_name
+
+    @group_name.setter
+    def group_name(self, group_name):
+        """Sets the group_name of this BrokerTransaction.
+
+        Group name  # noqa: E501
+
+        :param group_name: The group_name of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._group_name = group_name
+
+    @property
+    def fee(self):
+        """Gets the fee of this BrokerTransaction.  # noqa: E501
+
+        Fee amount (USDT)  # noqa: E501
+
+        :return: The fee of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._fee
+
+    @fee.setter
+    def fee(self, fee):
+        """Sets the fee of this BrokerTransaction.
+
+        Fee amount (USDT)  # noqa: E501
+
+        :param fee: The fee of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._fee = fee
+
+    @property
+    def currency_pair(self):
+        """Gets the currency_pair of this BrokerTransaction.  # noqa: E501
+
+        Currency pair  # noqa: E501
+
+        :return: The currency_pair of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_pair
+
+    @currency_pair.setter
+    def currency_pair(self, currency_pair):
+        """Sets the currency_pair of this BrokerTransaction.
+
+        Currency pair  # noqa: E501
+
+        :param currency_pair: The currency_pair of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._currency_pair = currency_pair
+
+    @property
+    def amount(self):
+        """Gets the amount of this BrokerTransaction.  # noqa: E501
+
+        Transaction amount  # noqa: E501
+
+        :return: The amount of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this BrokerTransaction.
+
+        Transaction amount  # noqa: E501
+
+        :param amount: The amount of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._amount = amount
+
+    @property
+    def fee_asset(self):
+        """Gets the fee_asset of this BrokerTransaction.  # noqa: E501
+
+        Fee currency  # noqa: E501
+
+        :return: The fee_asset of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._fee_asset
+
+    @fee_asset.setter
+    def fee_asset(self, fee_asset):
+        """Sets the fee_asset of this BrokerTransaction.
+
+        Fee currency  # noqa: E501
+
+        :param fee_asset: The fee_asset of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._fee_asset = fee_asset
+
+    @property
+    def source(self):
+        """Gets the source of this BrokerTransaction.  # noqa: E501
+
+        Commission transaction type: Spot, Futures, Options, Alpha、TradFi  # noqa: E501
+
+        :return: The source of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this BrokerTransaction.
+
+        Commission transaction type: Spot, Futures, Options, Alpha、TradFi  # noqa: E501
+
+        :param source: The source of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
+
+    @property
+    def sub_broker_info(self):
+        """Gets the sub_broker_info of this BrokerTransaction.  # noqa: E501
+
+
+        :return: The sub_broker_info of this BrokerTransaction.  # noqa: E501
+        :rtype: BrokerCommissionSubBrokerInfo
+        """
+        return self._sub_broker_info
+
+    @sub_broker_info.setter
+    def sub_broker_info(self, sub_broker_info):
+        """Sets the sub_broker_info of this BrokerTransaction.
+
+
+        :param sub_broker_info: The sub_broker_info of this BrokerTransaction.  # noqa: E501
+        :type: BrokerCommissionSubBrokerInfo
+        """
+
+        self._sub_broker_info = sub_broker_info
+
+    @property
+    def alpha_contract_addr(self):
+        """Gets the alpha_contract_addr of this BrokerTransaction.  # noqa: E501
+
+        Alpha contract address  # noqa: E501
+
+        :return: The alpha_contract_addr of this BrokerTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._alpha_contract_addr
+
+    @alpha_contract_addr.setter
+    def alpha_contract_addr(self, alpha_contract_addr):
+        """Sets the alpha_contract_addr of this BrokerTransaction.
+
+        Alpha contract address  # noqa: E501
+
+        :param alpha_contract_addr: The alpha_contract_addr of this BrokerTransaction.  # noqa: E501
+        :type: str
+        """
+
+        self._alpha_contract_addr = alpha_contract_addr
 
     def to_dict(self):
         """Returns the model properties as a dict"""

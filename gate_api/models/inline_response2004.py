@@ -33,72 +33,132 @@ class InlineResponse2004(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'time': 'int',
-        'value': 'str'
+        'code': 'int',
+        'message': 'str',
+        'data': 'object',
+        'timestamp': 'int'
     }
 
     attribute_map = {
-        'time': 'time',
-        'value': 'value'
+        'code': 'code',
+        'message': 'message',
+        'data': 'data',
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, time=None, value=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, Configuration) -> None
+    def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, object, int, Configuration) -> None
         """InlineResponse2004 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._time = None
-        self._value = None
+        self._code = None
+        self._message = None
+        self._data = None
+        self._timestamp = None
         self.discriminator = None
 
-        if time is not None:
-            self.time = time
-        if value is not None:
-            self.value = value
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
+        if timestamp is not None:
+            self.timestamp = timestamp
 
     @property
-    def time(self):
-        """Gets the time of this InlineResponse2004.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse2004.  # noqa: E501
 
+        Return code, 0 means success  # noqa: E501
 
-        :return: The time of this InlineResponse2004.  # noqa: E501
+        :return: The code of this InlineResponse2004.  # noqa: E501
         :rtype: int
         """
-        return self._time
+        return self._code
 
-    @time.setter
-    def time(self, time):
-        """Sets the time of this InlineResponse2004.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse2004.
 
+        Return code, 0 means success  # noqa: E501
 
-        :param time: The time of this InlineResponse2004.  # noqa: E501
+        :param code: The code of this InlineResponse2004.  # noqa: E501
         :type: int
         """
 
-        self._time = time
+        self._code = code
 
     @property
-    def value(self):
-        """Gets the value of this InlineResponse2004.  # noqa: E501
+    def message(self):
+        """Gets the message of this InlineResponse2004.  # noqa: E501
 
+        Response message  # noqa: E501
 
-        :return: The value of this InlineResponse2004.  # noqa: E501
+        :return: The message of this InlineResponse2004.  # noqa: E501
         :rtype: str
         """
-        return self._value
+        return self._message
 
-    @value.setter
-    def value(self, value):
-        """Sets the value of this InlineResponse2004.
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse2004.
 
+        Response message  # noqa: E501
 
-        :param value: The value of this InlineResponse2004.  # noqa: E501
+        :param message: The message of this InlineResponse2004.  # noqa: E501
         :type: str
         """
 
-        self._value = value
+        self._message = message
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse2004.  # noqa: E501
+
+        Redemption result (empty object on success)  # noqa: E501
+
+        :return: The data of this InlineResponse2004.  # noqa: E501
+        :rtype: object
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse2004.
+
+        Redemption result (empty object on success)  # noqa: E501
+
+        :param data: The data of this InlineResponse2004.  # noqa: E501
+        :type: object
+        """
+
+        self._data = data
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse2004.  # noqa: E501
+
+        Response timestamp (in seconds)  # noqa: E501
+
+        :return: The timestamp of this InlineResponse2004.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse2004.
+
+        Response timestamp (in seconds)  # noqa: E501
+
+        :param timestamp: The timestamp of this InlineResponse2004.  # noqa: E501
+        :type: int
+        """
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -1667,3 +1667,807 @@ class EarnApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def list_earn_fixed_term_products(self, page, limit, **kwargs):  # noqa: E501
+        """Get product list  # noqa: E501
+
+        Query fixed-term earn product list. Supports filtering by currency, product type, status, etc. Returns product interest rate, lock-up period, quota, and reward campaign information  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_products(page, limit, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int page: Page number (required)
+        :param int limit: Page size (required)
+        :param str asset: Currency
+        :param int type: Product type: 1 for regular, 2 for VIP
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse200
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_earn_fixed_term_products_with_http_info(page, limit, **kwargs)  # noqa: E501
+
+    def list_earn_fixed_term_products_with_http_info(self, page, limit, **kwargs):  # noqa: E501
+        """Get product list  # noqa: E501
+
+        Query fixed-term earn product list. Supports filtering by currency, product type, status, etc. Returns product interest rate, lock-up period, quota, and reward campaign information  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_products_with_http_info(page, limit, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int page: Page number (required)
+        :param int limit: Page size (required)
+        :param str asset: Currency
+        :param int type: Product type: 1 for regular, 2 for VIP
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'page',
+            'limit',
+            'asset',
+            'type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_earn_fixed_term_products" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'page' is set
+        if self.api_client.client_side_validation and ('page' not in local_var_params or  # noqa: E501
+                                                        local_var_params['page'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `page` when calling `list_earn_fixed_term_products`")  # noqa: E501
+        # verify the required parameter 'limit' is set
+        if self.api_client.client_side_validation and ('limit' not in local_var_params or  # noqa: E501
+                                                        local_var_params['limit'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `limit` when calling `list_earn_fixed_term_products`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'asset' in local_var_params and local_var_params['asset'] is not None:  # noqa: E501
+            query_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/fixed-term/product', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse200',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_earn_fixed_term_products_by_asset(self, asset, **kwargs):  # noqa: E501
+        """Get product list by single currency  # noqa: E501
+
+        Sort by product term in ascending order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_products_by_asset(asset, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str asset: Currency name, e.g., USDT, BTC (required)
+        :param str type: Product type: \"\" or 1 for regular product list, 2 for VIP product list, 0 for all products
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse2001
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_earn_fixed_term_products_by_asset_with_http_info(asset, **kwargs)  # noqa: E501
+
+    def list_earn_fixed_term_products_by_asset_with_http_info(self, asset, **kwargs):  # noqa: E501
+        """Get product list by single currency  # noqa: E501
+
+        Sort by product term in ascending order  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_products_by_asset_with_http_info(asset, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str asset: Currency name, e.g., USDT, BTC (required)
+        :param str type: Product type: \"\" or 1 for regular product list, 2 for VIP product list, 0 for all products
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'asset',
+            'type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_earn_fixed_term_products_by_asset" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'asset' is set
+        if self.api_client.client_side_validation and ('asset' not in local_var_params or  # noqa: E501
+                                                        local_var_params['asset'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `asset` when calling `list_earn_fixed_term_products_by_asset`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset' in local_var_params:
+            path_params['asset'] = local_var_params['asset']  # noqa: E501
+
+        query_params = []
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/fixed-term/product/{asset}/list', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2001',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_earn_fixed_term_lends(self, order_type, page, limit, **kwargs):  # noqa: E501
+        """Subscription list  # noqa: E501
+
+        Query the user's fixed-term earn subscription order list. Supports filtering by product, currency, order type, etc. Returns order details, earnings, rewards, and interest rate boost coupon information  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_lends(order_type, page, limit, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str order_type: Order type: 1 for current orders, 2 for historical orders (required)
+        :param int page: Page number (required)
+        :param int limit: Page size (required)
+        :param int product_id: Product ID
+        :param int order_id: Order ID
+        :param str asset: Currency
+        :param int sub_business: Sub-business
+        :param str business_filter: Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse2002
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_earn_fixed_term_lends_with_http_info(order_type, page, limit, **kwargs)  # noqa: E501
+
+    def list_earn_fixed_term_lends_with_http_info(self, order_type, page, limit, **kwargs):  # noqa: E501
+        """Subscription list  # noqa: E501
+
+        Query the user's fixed-term earn subscription order list. Supports filtering by product, currency, order type, etc. Returns order details, earnings, rewards, and interest rate boost coupon information  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_lends_with_http_info(order_type, page, limit, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str order_type: Order type: 1 for current orders, 2 for historical orders (required)
+        :param int page: Page number (required)
+        :param int limit: Page size (required)
+        :param int product_id: Product ID
+        :param int order_id: Order ID
+        :param str asset: Currency
+        :param int sub_business: Sub-business
+        :param str business_filter: Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'order_type',
+            'page',
+            'limit',
+            'product_id',
+            'order_id',
+            'asset',
+            'sub_business',
+            'business_filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_earn_fixed_term_lends" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'order_type' is set
+        if self.api_client.client_side_validation and ('order_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_type` when calling `list_earn_fixed_term_lends`")  # noqa: E501
+        # verify the required parameter 'page' is set
+        if self.api_client.client_side_validation and ('page' not in local_var_params or  # noqa: E501
+                                                        local_var_params['page'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `page` when calling `list_earn_fixed_term_lends`")  # noqa: E501
+        # verify the required parameter 'limit' is set
+        if self.api_client.client_side_validation and ('limit' not in local_var_params or  # noqa: E501
+                                                        local_var_params['limit'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `limit` when calling `list_earn_fixed_term_lends`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'product_id' in local_var_params and local_var_params['product_id'] is not None:  # noqa: E501
+            query_params.append(('product_id', local_var_params['product_id']))  # noqa: E501
+        if 'order_id' in local_var_params and local_var_params['order_id'] is not None:  # noqa: E501
+            query_params.append(('order_id', local_var_params['order_id']))  # noqa: E501
+        if 'asset' in local_var_params and local_var_params['asset'] is not None:  # noqa: E501
+            query_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'order_type' in local_var_params and local_var_params['order_type'] is not None:  # noqa: E501
+            query_params.append(('order_type', local_var_params['order_type']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'sub_business' in local_var_params and local_var_params['sub_business'] is not None:  # noqa: E501
+            query_params.append(('sub_business', local_var_params['sub_business']))  # noqa: E501
+        if 'business_filter' in local_var_params and local_var_params['business_filter'] is not None:  # noqa: E501
+            query_params.append(('business_filter', local_var_params['business_filter']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/fixed-term/user/lend', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_earn_fixed_term_lend(self, **kwargs):  # noqa: E501
+        """Subscription  # noqa: E501
+
+        Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_earn_fixed_term_lend(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FixedTermLendRequest fixed_term_lend_request:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse2003
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_earn_fixed_term_lend_with_http_info(**kwargs)  # noqa: E501
+
+    def create_earn_fixed_term_lend_with_http_info(self, **kwargs):  # noqa: E501
+        """Subscription  # noqa: E501
+
+        Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_earn_fixed_term_lend_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param FixedTermLendRequest fixed_term_lend_request:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'fixed_term_lend_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_earn_fixed_term_lend" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'fixed_term_lend_request' in local_var_params:
+            body_params = local_var_params['fixed_term_lend_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/fixed-term/user/lend', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2003',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_earn_fixed_term_pre_redeem(self, **kwargs):  # noqa: E501
+        """Redeem  # noqa: E501
+
+        Early redemption of a fixed-term earn order, order ID is required  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_earn_fixed_term_pre_redeem(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param InlineObject inline_object:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse2004
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_earn_fixed_term_pre_redeem_with_http_info(**kwargs)  # noqa: E501
+
+    def create_earn_fixed_term_pre_redeem_with_http_info(self, **kwargs):  # noqa: E501
+        """Redeem  # noqa: E501
+
+        Early redemption of a fixed-term earn order, order ID is required  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_earn_fixed_term_pre_redeem_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param InlineObject inline_object:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'inline_object'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_earn_fixed_term_pre_redeem" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object' in local_var_params:
+            body_params = local_var_params['inline_object']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/fixed-term/user/pre-redeem', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2004',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_earn_fixed_term_history(self, type, page, limit, **kwargs):  # noqa: E501
+        """Subscription history  # noqa: E501
+
+        Query the user's fixed-term earn history records. Supports filtering by type (subscription, redemption, interest, bonus rewards) and time range  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_history(type, page, limit, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str type: 1 for subscription, 2 for redemption, 3 for interest, 4 for bonus reward (required)
+        :param int page: Page number (required)
+        :param int limit: Page size (required)
+        :param int product_id: Product ID
+        :param str order_id: Order ID
+        :param str asset: Currency
+        :param int start_at: Start timestamp
+        :param int end_at: End Timestamp
+        :param int sub_business: Sub-business
+        :param str business_filter: Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.InlineResponse2005
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_earn_fixed_term_history_with_http_info(type, page, limit, **kwargs)  # noqa: E501
+
+    def list_earn_fixed_term_history_with_http_info(self, type, page, limit, **kwargs):  # noqa: E501
+        """Subscription history  # noqa: E501
+
+        Query the user's fixed-term earn history records. Supports filtering by type (subscription, redemption, interest, bonus rewards) and time range  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_earn_fixed_term_history_with_http_info(type, page, limit, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str type: 1 for subscription, 2 for redemption, 3 for interest, 4 for bonus reward (required)
+        :param int page: Page number (required)
+        :param int limit: Page size (required)
+        :param int product_id: Product ID
+        :param str order_id: Order ID
+        :param str asset: Currency
+        :param int start_at: Start timestamp
+        :param int end_at: End Timestamp
+        :param int sub_business: Sub-business
+        :param str business_filter: Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'type',
+            'page',
+            'limit',
+            'product_id',
+            'order_id',
+            'asset',
+            'start_at',
+            'end_at',
+            'sub_business',
+            'business_filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_earn_fixed_term_history" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'type' is set
+        if self.api_client.client_side_validation and ('type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `type` when calling `list_earn_fixed_term_history`")  # noqa: E501
+        # verify the required parameter 'page' is set
+        if self.api_client.client_side_validation and ('page' not in local_var_params or  # noqa: E501
+                                                        local_var_params['page'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `page` when calling `list_earn_fixed_term_history`")  # noqa: E501
+        # verify the required parameter 'limit' is set
+        if self.api_client.client_side_validation and ('limit' not in local_var_params or  # noqa: E501
+                                                        local_var_params['limit'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `limit` when calling `list_earn_fixed_term_history`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'product_id' in local_var_params and local_var_params['product_id'] is not None:  # noqa: E501
+            query_params.append(('product_id', local_var_params['product_id']))  # noqa: E501
+        if 'order_id' in local_var_params and local_var_params['order_id'] is not None:  # noqa: E501
+            query_params.append(('order_id', local_var_params['order_id']))  # noqa: E501
+        if 'asset' in local_var_params and local_var_params['asset'] is not None:  # noqa: E501
+            query_params.append(('asset', local_var_params['asset']))  # noqa: E501
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'start_at' in local_var_params and local_var_params['start_at'] is not None:  # noqa: E501
+            query_params.append(('start_at', local_var_params['start_at']))  # noqa: E501
+        if 'end_at' in local_var_params and local_var_params['end_at'] is not None:  # noqa: E501
+            query_params.append(('end_at', local_var_params['end_at']))  # noqa: E501
+        if 'sub_business' in local_var_params and local_var_params['sub_business'] is not None:  # noqa: E501
+            query_params.append(('sub_business', local_var_params['sub_business']))  # noqa: E501
+        if 'business_filter' in local_var_params and local_var_params['business_filter'] is not None:  # noqa: E501
+            query_params.append(('business_filter', local_var_params['business_filter']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/fixed-term/user/history', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2005',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)

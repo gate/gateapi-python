@@ -33,155 +33,194 @@ class InlineResponse20011Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'pn': 'int',
-        'ps': 'int',
-        'total_pn': 'int',
-        'count': 'int',
-        'list': 'list[InlineResponse20011DataList]'
+        'icon_url': 'str',
+        'icon_url_dark': 'str',
+        'source_type': 'str',
+        'title': 'str',
+        'url_type': 'str',
+        'url': 'str'
     }
 
     attribute_map = {
-        'pn': 'pn',
-        'ps': 'ps',
-        'total_pn': 'total_pn',
-        'count': 'count',
-        'list': 'list'
+        'icon_url': 'icon_url',
+        'icon_url_dark': 'icon_url_dark',
+        'source_type': 'source_type',
+        'title': 'title',
+        'url_type': 'url_type',
+        'url': 'url'
     }
 
-    def __init__(self, pn=None, ps=None, total_pn=None, count=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, int, list[InlineResponse20011DataList], Configuration) -> None
+    def __init__(self, icon_url=None, icon_url_dark=None, source_type=None, title=None, url_type=None, url=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, Configuration) -> None
         """InlineResponse20011Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._pn = None
-        self._ps = None
-        self._total_pn = None
-        self._count = None
-        self._list = None
+        self._icon_url = None
+        self._icon_url_dark = None
+        self._source_type = None
+        self._title = None
+        self._url_type = None
+        self._url = None
         self.discriminator = None
 
-        self.pn = pn
-        self.ps = ps
-        self.total_pn = total_pn
-        self.count = count
-        self.list = list
+        self.icon_url = icon_url
+        self.icon_url_dark = icon_url_dark
+        self.source_type = source_type
+        self.title = title
+        self.url_type = url_type
+        self.url = url
 
     @property
-    def pn(self):
-        """Gets the pn of this InlineResponse20011Data.  # noqa: E501
+    def icon_url(self):
+        """Gets the icon_url of this InlineResponse20011Data.  # noqa: E501
 
+        Activity entry icon URL (light mode)  # noqa: E501
 
-        :return: The pn of this InlineResponse20011Data.  # noqa: E501
-        :rtype: int
+        :return: The icon_url of this InlineResponse20011Data.  # noqa: E501
+        :rtype: str
         """
-        return self._pn
+        return self._icon_url
 
-    @pn.setter
-    def pn(self, pn):
-        """Sets the pn of this InlineResponse20011Data.
+    @icon_url.setter
+    def icon_url(self, icon_url):
+        """Sets the icon_url of this InlineResponse20011Data.
 
+        Activity entry icon URL (light mode)  # noqa: E501
 
-        :param pn: The pn of this InlineResponse20011Data.  # noqa: E501
-        :type: int
+        :param icon_url: The icon_url of this InlineResponse20011Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and pn is None:  # noqa: E501
-            raise ValueError("Invalid value for `pn`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and icon_url is None:  # noqa: E501
+            raise ValueError("Invalid value for `icon_url`, must not be `None`")  # noqa: E501
 
-        self._pn = pn
+        self._icon_url = icon_url
 
     @property
-    def ps(self):
-        """Gets the ps of this InlineResponse20011Data.  # noqa: E501
+    def icon_url_dark(self):
+        """Gets the icon_url_dark of this InlineResponse20011Data.  # noqa: E501
 
+        Activity entry icon URL (dark mode)  # noqa: E501
 
-        :return: The ps of this InlineResponse20011Data.  # noqa: E501
-        :rtype: int
+        :return: The icon_url_dark of this InlineResponse20011Data.  # noqa: E501
+        :rtype: str
         """
-        return self._ps
+        return self._icon_url_dark
 
-    @ps.setter
-    def ps(self, ps):
-        """Sets the ps of this InlineResponse20011Data.
+    @icon_url_dark.setter
+    def icon_url_dark(self, icon_url_dark):
+        """Sets the icon_url_dark of this InlineResponse20011Data.
 
+        Activity entry icon URL (dark mode)  # noqa: E501
 
-        :param ps: The ps of this InlineResponse20011Data.  # noqa: E501
-        :type: int
+        :param icon_url_dark: The icon_url_dark of this InlineResponse20011Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and ps is None:  # noqa: E501
-            raise ValueError("Invalid value for `ps`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and icon_url_dark is None:  # noqa: E501
+            raise ValueError("Invalid value for `icon_url_dark`, must not be `None`")  # noqa: E501
 
-        self._ps = ps
+        self._icon_url_dark = icon_url_dark
 
     @property
-    def total_pn(self):
-        """Gets the total_pn of this InlineResponse20011Data.  # noqa: E501
+    def source_type(self):
+        """Gets the source_type of this InlineResponse20011Data.  # noqa: E501
 
+        Source type, e.g., activity for campaign  # noqa: E501
 
-        :return: The total_pn of this InlineResponse20011Data.  # noqa: E501
-        :rtype: int
+        :return: The source_type of this InlineResponse20011Data.  # noqa: E501
+        :rtype: str
         """
-        return self._total_pn
+        return self._source_type
 
-    @total_pn.setter
-    def total_pn(self, total_pn):
-        """Sets the total_pn of this InlineResponse20011Data.
+    @source_type.setter
+    def source_type(self, source_type):
+        """Sets the source_type of this InlineResponse20011Data.
 
+        Source type, e.g., activity for campaign  # noqa: E501
 
-        :param total_pn: The total_pn of this InlineResponse20011Data.  # noqa: E501
-        :type: int
+        :param source_type: The source_type of this InlineResponse20011Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and total_pn is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_pn`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and source_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `source_type`, must not be `None`")  # noqa: E501
 
-        self._total_pn = total_pn
+        self._source_type = source_type
 
     @property
-    def count(self):
-        """Gets the count of this InlineResponse20011Data.  # noqa: E501
+    def title(self):
+        """Gets the title of this InlineResponse20011Data.  # noqa: E501
 
+        Activity entry title  # noqa: E501
 
-        :return: The count of this InlineResponse20011Data.  # noqa: E501
-        :rtype: int
+        :return: The title of this InlineResponse20011Data.  # noqa: E501
+        :rtype: str
         """
-        return self._count
+        return self._title
 
-    @count.setter
-    def count(self, count):
-        """Sets the count of this InlineResponse20011Data.
+    @title.setter
+    def title(self, title):
+        """Sets the title of this InlineResponse20011Data.
 
+        Activity entry title  # noqa: E501
 
-        :param count: The count of this InlineResponse20011Data.  # noqa: E501
-        :type: int
+        :param title: The title of this InlineResponse20011Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
-        self._count = count
+        self._title = title
 
     @property
-    def list(self):
-        """Gets the list of this InlineResponse20011Data.  # noqa: E501
+    def url_type(self):
+        """Gets the url_type of this InlineResponse20011Data.  # noqa: E501
 
+        Redirect link type, e.g., h5 for H5 page  # noqa: E501
 
-        :return: The list of this InlineResponse20011Data.  # noqa: E501
-        :rtype: list[InlineResponse20011DataList]
+        :return: The url_type of this InlineResponse20011Data.  # noqa: E501
+        :rtype: str
         """
-        return self._list
+        return self._url_type
 
-    @list.setter
-    def list(self, list):
-        """Sets the list of this InlineResponse20011Data.
+    @url_type.setter
+    def url_type(self, url_type):
+        """Sets the url_type of this InlineResponse20011Data.
 
+        Redirect link type, e.g., h5 for H5 page  # noqa: E501
 
-        :param list: The list of this InlineResponse20011Data.  # noqa: E501
-        :type: list[InlineResponse20011DataList]
+        :param url_type: The url_type of this InlineResponse20011Data.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and url_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `url_type`, must not be `None`")  # noqa: E501
 
-        self._list = list
+        self._url_type = url_type
+
+    @property
+    def url(self):
+        """Gets the url of this InlineResponse20011Data.  # noqa: E501
+
+        Activity entry redirect URL  # noqa: E501
+
+        :return: The url of this InlineResponse20011Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this InlineResponse20011Data.
+
+        Activity entry redirect URL  # noqa: E501
+
+        :param url: The url of this InlineResponse20011Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
+
+        self._url = url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

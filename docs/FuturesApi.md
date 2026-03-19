@@ -1350,7 +1350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_leverage**
-> FuturesLeverage get_leverage(settle, contract, pos_margin_mode=pos_margin_mode, dual_side=dual_side)
+> FuturesLeverage get_leverage(settle, contract, pos_margin_mode, dual_side)
 
 Get Leverage Information for Specified Mode
 
@@ -1382,12 +1382,12 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
 contract = 'BTC_USDT' # str | Futures contract
-pos_margin_mode = 'isolated' # str | Position Margin Mode, required for split position mode, values: isolated/cross. (optional)
-dual_side = 'dual_long' # str | dual_long - Long, dual_short - Short (optional)
+pos_margin_mode = 'isolated' # str | Position Margin Mode, required for split position mode, values: isolated/cross.
+dual_side = 'dual_long' # str | dual_long - Long, dual_short - Short
 
 try:
     # Get Leverage Information for Specified Mode
-    api_response = api_instance.get_leverage(settle, contract, pos_margin_mode=pos_margin_mode, dual_side=dual_side)
+    api_response = api_instance.get_leverage(settle, contract, pos_margin_mode, dual_side)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1401,8 +1401,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
  **contract** | **str**| Futures contract | 
- **pos_margin_mode** | **str**| Position Margin Mode, required for split position mode, values: isolated/cross. | [optional] 
- **dual_side** | **str**| dual_long - Long, dual_short - Short | [optional] 
+ **pos_margin_mode** | **str**| Position Margin Mode, required for split position mode, values: isolated/cross. | 
+ **dual_side** | **str**| dual_long - Long, dual_short - Short | 
 
 ### Return type
 
@@ -1721,7 +1721,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_dual_comp_position_cross_mode**
-> list[Position] update_dual_comp_position_cross_mode(settle, inline_object)
+> list[Position] update_dual_comp_position_cross_mode(settle, update_dual_comp_position_cross_mode_request)
 
 Switch Between Cross and Isolated Margin Modes Under Hedge Mode
 
@@ -1750,11 +1750,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-inline_object = gate_api.InlineObject() # InlineObject | 
+update_dual_comp_position_cross_mode_request = gate_api.UpdateDualCompPositionCrossModeRequest() # UpdateDualCompPositionCrossModeRequest | 
 
 try:
     # Switch Between Cross and Isolated Margin Modes Under Hedge Mode
-    api_response = api_instance.update_dual_comp_position_cross_mode(settle, inline_object)
+    api_response = api_instance.update_dual_comp_position_cross_mode(settle, update_dual_comp_position_cross_mode_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1767,7 +1767,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **inline_object** | [**InlineObject**](InlineObject.md)|  | 
+ **update_dual_comp_position_cross_mode_request** | [**UpdateDualCompPositionCrossModeRequest**](UpdateDualCompPositionCrossModeRequest.md)|  | 
 
 ### Return type
 
@@ -3707,7 +3707,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_trail_order**
-> InlineResponse201 create_trail_order(settle, create_trail_order)
+> CreateTrailOrderResponse create_trail_order(settle, create_trail_order)
 
 Create trail order
 
@@ -3757,7 +3757,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateTrailOrderResponse**](CreateTrailOrderResponse.md)
 
 ### Authorization
 
@@ -3776,7 +3776,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_trail_order**
-> InlineResponse200 stop_trail_order(settle, stop_trail_order)
+> TrailOrderResponse stop_trail_order(settle, stop_trail_order)
 
 Terminate trail order
 
@@ -3826,7 +3826,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TrailOrderResponse**](TrailOrderResponse.md)
 
 ### Authorization
 
@@ -3845,7 +3845,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_all_trail_orders**
-> InlineResponse2001 stop_all_trail_orders(settle, stop_all_trail_orders)
+> TrailOrderListResponse stop_all_trail_orders(settle, stop_all_trail_orders)
 
 Batch terminate trail orders
 
@@ -3895,7 +3895,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**TrailOrderListResponse**](TrailOrderListResponse.md)
 
 ### Authorization
 
@@ -3914,7 +3914,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trail_orders**
-> InlineResponse2001 get_trail_orders(settle, contract=contract, is_finished=is_finished, start_at=start_at, end_at=end_at, page_num=page_num, page_size=page_size, sort_by=sort_by, hide_cancel=hide_cancel, related_position=related_position, sort_by_trigger=sort_by_trigger, reduce_only=reduce_only, side=side)
+> TrailOrderListResponse get_trail_orders(settle, contract=contract, is_finished=is_finished, start_at=start_at, end_at=end_at, page_num=page_num, page_size=page_size, sort_by=sort_by, hide_cancel=hide_cancel, related_position=related_position, sort_by_trigger=sort_by_trigger, reduce_only=reduce_only, side=side)
 
 Get trail order list
 
@@ -3986,7 +3986,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**TrailOrderListResponse**](TrailOrderListResponse.md)
 
 ### Authorization
 
@@ -4005,7 +4005,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trail_order_detail**
-> InlineResponse2002 get_trail_order_detail(settle, id)
+> TrailOrderDetailResponse get_trail_order_detail(settle, id)
 
 Get trail order details
 
@@ -4055,7 +4055,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**TrailOrderDetailResponse**](TrailOrderDetailResponse.md)
 
 ### Authorization
 
@@ -4074,7 +4074,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_trail_order**
-> InlineResponse200 update_trail_order(settle, update_trail_order)
+> TrailOrderResponse update_trail_order(settle, update_trail_order)
 
 Update trail order
 
@@ -4124,7 +4124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TrailOrderResponse**](TrailOrderResponse.md)
 
 ### Authorization
 
@@ -4143,7 +4143,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trail_order_change_log**
-> InlineResponse2003 get_trail_order_change_log(settle, id, page_num=page_num, page_size=page_size)
+> TrailOrderChangeLogResponse get_trail_order_change_log(settle, id, page_num=page_num, page_size=page_size)
 
 Get trail order user modification records
 
@@ -4197,7 +4197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**TrailOrderChangeLogResponse**](TrailOrderChangeLogResponse.md)
 
 ### Authorization
 

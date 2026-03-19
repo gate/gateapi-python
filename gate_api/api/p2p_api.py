@@ -52,7 +52,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20014
+        :rtype: gate_api.P2pMerchantUserInfoResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -77,7 +77,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pMerchantUserInfoResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -131,7 +131,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='P2pMerchantUserInfoResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -156,7 +156,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20015
+        :rtype: gate_api.P2pCounterpartyUserInfoResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -182,7 +182,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pCounterpartyUserInfoResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -247,7 +247,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='P2pCounterpartyUserInfoResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -272,7 +272,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20016
+        :rtype: gate_api.P2pPaymentMethodsResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -298,7 +298,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pPaymentMethodsResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -359,7 +359,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='P2pPaymentMethodsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -384,7 +384,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20017
+        :rtype: gate_api.P2pTransactionListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -410,7 +410,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pTransactionListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -475,7 +475,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='P2pTransactionListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -500,7 +500,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20017
+        :rtype: gate_api.P2pTransactionListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -526,7 +526,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pTransactionListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -591,7 +591,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='P2pTransactionListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -616,7 +616,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20018
+        :rtype: gate_api.P2pTransactionDetailResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -642,7 +642,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pTransactionDetailResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -707,7 +707,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='P2pTransactionDetailResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -732,7 +732,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20019
+        :rtype: gate_api.P2pTransactionActionResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -758,7 +758,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pTransactionActionResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -823,7 +823,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='P2pTransactionActionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -848,7 +848,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20019
+        :rtype: gate_api.P2pTransactionActionResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -874,7 +874,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pTransactionActionResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -939,7 +939,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='P2pTransactionActionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -964,7 +964,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20019
+        :rtype: gate_api.P2pTransactionActionResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -990,7 +990,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pTransactionActionResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1055,7 +1055,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='P2pTransactionActionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1197,7 +1197,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20020
+        :rtype: gate_api.P2pAdsUpdateStatusResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1224,7 +1224,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pAdsUpdateStatusResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1292,7 +1292,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='P2pAdsUpdateStatusResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1317,7 +1317,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20021
+        :rtype: gate_api.P2pAdDetailResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1343,7 +1343,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pAdDetailResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1408,7 +1408,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='P2pAdDetailResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1433,7 +1433,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20022
+        :rtype: gate_api.P2pMyAdsListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1459,7 +1459,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pMyAdsListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1520,7 +1520,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='P2pMyAdsListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1546,7 +1546,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20023
+        :rtype: gate_api.P2pAdsListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1573,7 +1573,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pAdsListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1638,7 +1638,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='P2pAdsListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1663,7 +1663,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20024
+        :rtype: gate_api.P2pChatListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1689,7 +1689,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pChatListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1754,7 +1754,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='P2pChatListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1779,7 +1779,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20025
+        :rtype: gate_api.P2pSendChatMessageResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1805,7 +1805,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pSendChatMessageResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1870,7 +1870,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='P2pSendChatMessageResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1895,7 +1895,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20026
+        :rtype: gate_api.P2pUploadChatFileResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1921,7 +1921,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pUploadChatFileResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1986,7 +1986,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='P2pUploadChatFileResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

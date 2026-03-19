@@ -34,32 +34,45 @@ class InlineResponse2008(object):
     """
     openapi_types = {
         'code': 'int',
-        'message': 'str'
+        'label': 'str',
+        'msg': 'str',
+        'data': 'InlineResponse2008Data'
     }
 
     attribute_map = {
         'code': 'code',
-        'message': 'message'
+        'label': 'label',
+        'msg': 'msg',
+        'data': 'data'
     }
 
-    def __init__(self, code=None, message=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, Configuration) -> None
+    def __init__(self, code=None, label=None, msg=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, InlineResponse2008Data, Configuration) -> None
         """InlineResponse2008 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
-        self._message = None
+        self._label = None
+        self._msg = None
+        self._data = None
         self.discriminator = None
 
-        self.code = code
-        self.message = message
+        if code is not None:
+            self.code = code
+        if label is not None:
+            self.label = label
+        if msg is not None:
+            self.msg = msg
+        if data is not None:
+            self.data = data
 
     @property
     def code(self):
         """Gets the code of this InlineResponse2008.  # noqa: E501
 
+        Status code, 0 = success  # noqa: E501
 
         :return: The code of this InlineResponse2008.  # noqa: E501
         :rtype: int
@@ -70,37 +83,80 @@ class InlineResponse2008(object):
     def code(self, code):
         """Sets the code of this InlineResponse2008.
 
+        Status code, 0 = success  # noqa: E501
 
         :param code: The code of this InlineResponse2008.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
     @property
-    def message(self):
-        """Gets the message of this InlineResponse2008.  # noqa: E501
+    def label(self):
+        """Gets the label of this InlineResponse2008.  # noqa: E501
 
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
 
-        :return: The message of this InlineResponse2008.  # noqa: E501
+        :return: The label of this InlineResponse2008.  # noqa: E501
         :rtype: str
         """
-        return self._message
+        return self._label
 
-    @message.setter
-    def message(self, message):
-        """Sets the message of this InlineResponse2008.
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse2008.
 
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
 
-        :param message: The message of this InlineResponse2008.  # noqa: E501
+        :param label: The label of this InlineResponse2008.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
-        self._message = message
+        self._label = label
+
+    @property
+    def msg(self):
+        """Gets the msg of this InlineResponse2008.  # noqa: E501
+
+        Status message  # noqa: E501
+
+        :return: The msg of this InlineResponse2008.  # noqa: E501
+        :rtype: str
+        """
+        return self._msg
+
+    @msg.setter
+    def msg(self, msg):
+        """Sets the msg of this InlineResponse2008.
+
+        Status message  # noqa: E501
+
+        :param msg: The msg of this InlineResponse2008.  # noqa: E501
+        :type: str
+        """
+
+        self._msg = msg
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse2008.  # noqa: E501
+
+
+        :return: The data of this InlineResponse2008.  # noqa: E501
+        :rtype: InlineResponse2008Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse2008.
+
+
+        :param data: The data of this InlineResponse2008.  # noqa: E501
+        :type: InlineResponse2008Data
+        """
+
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

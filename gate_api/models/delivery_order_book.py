@@ -36,8 +36,8 @@ class DeliveryOrderBook(object):
         'id': 'int',
         'current': 'float',
         'update': 'float',
-        'asks': 'list[FuturesOrderBookItem1]',
-        'bids': 'list[FuturesOrderBookItem1]'
+        'asks': 'list[DeliveryOrderBookItem]',
+        'bids': 'list[DeliveryOrderBookItem]'
     }
 
     attribute_map = {
@@ -49,7 +49,7 @@ class DeliveryOrderBook(object):
     }
 
     def __init__(self, id=None, current=None, update=None, asks=None, bids=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, list[FuturesOrderBookItem1], list[FuturesOrderBookItem1], Configuration) -> None
+        # type: (int, float, float, list[DeliveryOrderBookItem], list[DeliveryOrderBookItem], Configuration) -> None
         """DeliveryOrderBook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -147,7 +147,7 @@ class DeliveryOrderBook(object):
         Ask Depth  # noqa: E501
 
         :return: The asks of this DeliveryOrderBook.  # noqa: E501
-        :rtype: list[FuturesOrderBookItem1]
+        :rtype: list[DeliveryOrderBookItem]
         """
         return self._asks
 
@@ -158,7 +158,7 @@ class DeliveryOrderBook(object):
         Ask Depth  # noqa: E501
 
         :param asks: The asks of this DeliveryOrderBook.  # noqa: E501
-        :type: list[FuturesOrderBookItem1]
+        :type: list[DeliveryOrderBookItem]
         """
         if self.local_vars_configuration.client_side_validation and asks is None:  # noqa: E501
             raise ValueError("Invalid value for `asks`, must not be `None`")  # noqa: E501
@@ -172,7 +172,7 @@ class DeliveryOrderBook(object):
         Bid Depth  # noqa: E501
 
         :return: The bids of this DeliveryOrderBook.  # noqa: E501
-        :rtype: list[FuturesOrderBookItem1]
+        :rtype: list[DeliveryOrderBookItem]
         """
         return self._bids
 
@@ -183,7 +183,7 @@ class DeliveryOrderBook(object):
         Bid Depth  # noqa: E501
 
         :param bids: The bids of this DeliveryOrderBook.  # noqa: E501
-        :type: list[FuturesOrderBookItem1]
+        :type: list[DeliveryOrderBookItem]
         """
         if self.local_vars_configuration.client_side_validation and bids is None:  # noqa: E501
             raise ValueError("Invalid value for `bids`, must not be `None`")  # noqa: E501

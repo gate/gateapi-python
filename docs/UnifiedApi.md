@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_unified_borrowable_list**
-> list[UnifiedBorrowable1] get_unified_borrowable_list(currencies)
+> list[UnifiedBorrowable] get_unified_borrowable_list(currencies)
 
 Batch query unified account maximum borrowable amount
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[UnifiedBorrowable1]**](UnifiedBorrowable1.md)
+[**list[UnifiedBorrowable]**](UnifiedBorrowable.md)
 
 ### Authorization
 

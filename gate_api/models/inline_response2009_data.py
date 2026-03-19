@@ -33,211 +33,48 @@ class InlineResponse2009Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'str',
-        'bank_account_name': 'str',
-        'bank_name': 'str',
-        'bank_country': 'str',
-        'bank_address': 'str',
-        'bank_code': 'str',
-        'branch_code': 'str'
+        'list': 'list[InlineResponse2009DataList]'
     }
 
     attribute_map = {
-        'id': 'id',
-        'bank_account_name': 'bank_account_name',
-        'bank_name': 'bank_name',
-        'bank_country': 'bank_country',
-        'bank_address': 'bank_address',
-        'bank_code': 'bank_code',
-        'branch_code': 'branch_code'
+        'list': 'list'
     }
 
-    def __init__(self, id=None, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, bank_code=None, branch_code=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, list=None, local_vars_configuration=None):  # noqa: E501
+        # type: (list[InlineResponse2009DataList], Configuration) -> None
         """InlineResponse2009Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
-        self._bank_account_name = None
-        self._bank_name = None
-        self._bank_country = None
-        self._bank_address = None
-        self._bank_code = None
-        self._branch_code = None
+        self._list = None
         self.discriminator = None
 
-        self.id = id
-        self.bank_account_name = bank_account_name
-        self.bank_name = bank_name
-        self.bank_country = bank_country
-        self.bank_address = bank_address
-        self.bank_code = bank_code
-        self.branch_code = branch_code
+        if list is not None:
+            self.list = list
 
     @property
-    def id(self):
-        """Gets the id of this InlineResponse2009Data.  # noqa: E501
+    def list(self):
+        """Gets the list of this InlineResponse2009Data.  # noqa: E501
 
-        Bank ID (required for order placement)  # noqa: E501
+        Live stream/replay list  # noqa: E501
 
-        :return: The id of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
+        :return: The list of this InlineResponse2009Data.  # noqa: E501
+        :rtype: list[InlineResponse2009DataList]
         """
-        return self._id
+        return self._list
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse2009Data.
+    @list.setter
+    def list(self, list):
+        """Sets the list of this InlineResponse2009Data.
 
-        Bank ID (required for order placement)  # noqa: E501
+        Live stream/replay list  # noqa: E501
 
-        :param id: The id of this InlineResponse2009Data.  # noqa: E501
-        :type: str
+        :param list: The list of this InlineResponse2009Data.  # noqa: E501
+        :type: list[InlineResponse2009DataList]
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._id = id
-
-    @property
-    def bank_account_name(self):
-        """Gets the bank_account_name of this InlineResponse2009Data.  # noqa: E501
-
-
-        :return: The bank_account_name of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_account_name
-
-    @bank_account_name.setter
-    def bank_account_name(self, bank_account_name):
-        """Sets the bank_account_name of this InlineResponse2009Data.
-
-
-        :param bank_account_name: The bank_account_name of this InlineResponse2009Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and bank_account_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `bank_account_name`, must not be `None`")  # noqa: E501
-
-        self._bank_account_name = bank_account_name
-
-    @property
-    def bank_name(self):
-        """Gets the bank_name of this InlineResponse2009Data.  # noqa: E501
-
-
-        :return: The bank_name of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_name
-
-    @bank_name.setter
-    def bank_name(self, bank_name):
-        """Sets the bank_name of this InlineResponse2009Data.
-
-
-        :param bank_name: The bank_name of this InlineResponse2009Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and bank_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `bank_name`, must not be `None`")  # noqa: E501
-
-        self._bank_name = bank_name
-
-    @property
-    def bank_country(self):
-        """Gets the bank_country of this InlineResponse2009Data.  # noqa: E501
-
-
-        :return: The bank_country of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_country
-
-    @bank_country.setter
-    def bank_country(self, bank_country):
-        """Sets the bank_country of this InlineResponse2009Data.
-
-
-        :param bank_country: The bank_country of this InlineResponse2009Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and bank_country is None:  # noqa: E501
-            raise ValueError("Invalid value for `bank_country`, must not be `None`")  # noqa: E501
-
-        self._bank_country = bank_country
-
-    @property
-    def bank_address(self):
-        """Gets the bank_address of this InlineResponse2009Data.  # noqa: E501
-
-
-        :return: The bank_address of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_address
-
-    @bank_address.setter
-    def bank_address(self, bank_address):
-        """Sets the bank_address of this InlineResponse2009Data.
-
-
-        :param bank_address: The bank_address of this InlineResponse2009Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and bank_address is None:  # noqa: E501
-            raise ValueError("Invalid value for `bank_address`, must not be `None`")  # noqa: E501
-
-        self._bank_address = bank_address
-
-    @property
-    def bank_code(self):
-        """Gets the bank_code of this InlineResponse2009Data.  # noqa: E501
-
-
-        :return: The bank_code of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_code
-
-    @bank_code.setter
-    def bank_code(self, bank_code):
-        """Sets the bank_code of this InlineResponse2009Data.
-
-
-        :param bank_code: The bank_code of this InlineResponse2009Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and bank_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `bank_code`, must not be `None`")  # noqa: E501
-
-        self._bank_code = bank_code
-
-    @property
-    def branch_code(self):
-        """Gets the branch_code of this InlineResponse2009Data.  # noqa: E501
-
-
-        :return: The branch_code of this InlineResponse2009Data.  # noqa: E501
-        :rtype: str
-        """
-        return self._branch_code
-
-    @branch_code.setter
-    def branch_code(self, branch_code):
-        """Sets the branch_code of this InlineResponse2009Data.
-
-
-        :param branch_code: The branch_code of this InlineResponse2009Data.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and branch_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `branch_code`, must not be `None`")  # noqa: E501
-
-        self._branch_code = branch_code
+        self._list = list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -18,6 +18,12 @@ Method | HTTP request | Description
 [**order_list**](EarnApi.md#order_list) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
 [**award_list**](EarnApi.md#award_list) | **GET** /earn/staking/award_list | On-chain coin-earning dividend records
 [**asset_list**](EarnApi.md#asset_list) | **GET** /earn/staking/assets | On-chain coin-earning assets
+[**list_earn_fixed_term_products**](EarnApi.md#list_earn_fixed_term_products) | **GET** /earn/fixed-term/product | Get product list
+[**list_earn_fixed_term_products_by_asset**](EarnApi.md#list_earn_fixed_term_products_by_asset) | **GET** /earn/fixed-term/product/{asset}/list | Get product list by single currency
+[**list_earn_fixed_term_lends**](EarnApi.md#list_earn_fixed_term_lends) | **GET** /earn/fixed-term/user/lend | Subscription list
+[**create_earn_fixed_term_lend**](EarnApi.md#create_earn_fixed_term_lend) | **POST** /earn/fixed-term/user/lend | Subscription
+[**create_earn_fixed_term_pre_redeem**](EarnApi.md#create_earn_fixed_term_pre_redeem) | **POST** /earn/fixed-term/user/pre-redeem | Redeem
+[**list_earn_fixed_term_history**](EarnApi.md#list_earn_fixed_term_history) | **GET** /earn/fixed-term/user/history | Subscription history
 
 
 # **swap_eth2**
@@ -957,6 +963,442 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_earn_fixed_term_products**
+> InlineResponse200 list_earn_fixed_term_products(page, limit, asset=asset, type=type)
+
+Get product list
+
+Query fixed-term earn product list. Supports filtering by currency, product type, status, etc. Returns product interest rate, lock-up period, quota, and reward campaign information
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+page = 1 # int | Page number
+limit = 100 # int | Page size
+asset = 'USDT' # str | Currency (optional)
+type = 1 # int | Product type: 1 for regular, 2 for VIP (optional)
+
+try:
+    # Get product list
+    api_response = api_instance.list_earn_fixed_term_products(page, limit, asset=asset, type=type)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_earn_fixed_term_products: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number | 
+ **limit** | **int**| Page size | 
+ **asset** | **str**| Currency | [optional] 
+ **type** | **int**| Product type: 1 for regular, 2 for VIP | [optional] 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Product list retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_earn_fixed_term_products_by_asset**
+> InlineResponse2001 list_earn_fixed_term_products_by_asset(asset, type=type)
+
+Get product list by single currency
+
+Sort by product term in ascending order
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+asset = 'USDT' # str | Currency name, e.g., USDT, BTC
+type = '1' # str | Product type: \"\" or 1 for regular product list, 2 for VIP product list, 0 for all products (optional)
+
+try:
+    # Get product list by single currency
+    api_response = api_instance.list_earn_fixed_term_products_by_asset(asset, type=type)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_earn_fixed_term_products_by_asset: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset** | **str**| Currency name, e.g., USDT, BTC | 
+ **type** | **str**| Product type: \&quot;\&quot; or 1 for regular product list, 2 for VIP product list, 0 for all products | [optional] 
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Single currency product list retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_earn_fixed_term_lends**
+> InlineResponse2002 list_earn_fixed_term_lends(order_type, page, limit, product_id=product_id, order_id=order_id, asset=asset, sub_business=sub_business, business_filter=business_filter)
+
+Subscription list
+
+Query the user's fixed-term earn subscription order list. Supports filtering by product, currency, order type, etc. Returns order details, earnings, rewards, and interest rate boost coupon information
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+order_type = '1' # str | Order type: 1 for current orders, 2 for historical orders
+page = 1 # int | Page number
+limit = 10 # int | Page size
+product_id = 56 # int | Product ID (optional)
+order_id = 56 # int | Order ID (optional)
+asset = 'asset_example' # str | Currency (optional)
+sub_business = 56 # int | Sub-business (optional)
+business_filter = '[{\"business\":1, \"sub_business\": 0},{\"business\":2, \"sub_business\": 0}]' # str | Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP (optional)
+
+try:
+    # Subscription list
+    api_response = api_instance.list_earn_fixed_term_lends(order_type, page, limit, product_id=product_id, order_id=order_id, asset=asset, sub_business=sub_business, business_filter=business_filter)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_earn_fixed_term_lends: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_type** | **str**| Order type: 1 for current orders, 2 for historical orders | 
+ **page** | **int**| Page number | 
+ **limit** | **int**| Page size | 
+ **product_id** | **int**| Product ID | [optional] 
+ **order_id** | **int**| Order ID | [optional] 
+ **asset** | **str**| Currency | [optional] 
+ **sub_business** | **int**| Sub-business | [optional] 
+ **business_filter** | **str**| Business filter conditions, JSON array format, e.g., [{\&quot;business\&quot;:1, \&quot;sub_business\&quot;: 0}]. business: 1 for regular, 2 for VIP | [optional] 
+
+### Return type
+
+[**InlineResponse2002**](InlineResponse2002.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Subscription order list retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_earn_fixed_term_lend**
+> InlineResponse2003 create_earn_fixed_term_lend(fixed_term_lend_request=fixed_term_lend_request)
+
+Subscription
+
+Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+fixed_term_lend_request = gate_api.FixedTermLendRequest() # FixedTermLendRequest |  (optional)
+
+try:
+    # Subscription
+    api_response = api_instance.create_earn_fixed_term_lend(fixed_term_lend_request=fixed_term_lend_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->create_earn_fixed_term_lend: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fixed_term_lend_request** | [**FixedTermLendRequest**](FixedTermLendRequest.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2003**](InlineResponse2003.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Subscription successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_earn_fixed_term_pre_redeem**
+> InlineResponse2004 create_earn_fixed_term_pre_redeem(inline_object=inline_object)
+
+Redeem
+
+Early redemption of a fixed-term earn order, order ID is required
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+inline_object = gate_api.InlineObject() # InlineObject |  (optional)
+
+try:
+    # Redeem
+    api_response = api_instance.create_earn_fixed_term_pre_redeem(inline_object=inline_object)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->create_earn_fixed_term_pre_redeem: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Redemption successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_earn_fixed_term_history**
+> InlineResponse2005 list_earn_fixed_term_history(type, page, limit, product_id=product_id, order_id=order_id, asset=asset, start_at=start_at, end_at=end_at, sub_business=sub_business, business_filter=business_filter)
+
+Subscription history
+
+Query the user's fixed-term earn history records. Supports filtering by type (subscription, redemption, interest, bonus rewards) and time range
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+type = '1' # str | 1 for subscription, 2 for redemption, 3 for interest, 4 for bonus reward
+page = 1 # int | Page number
+limit = 10 # int | Page size
+product_id = 56 # int | Product ID (optional)
+order_id = 'order_id_example' # str | Order ID (optional)
+asset = 'asset_example' # str | Currency (optional)
+start_at = 56 # int | Start timestamp (optional)
+end_at = 56 # int | End Timestamp (optional)
+sub_business = 56 # int | Sub-business (optional)
+business_filter = '[{\"business\":1, \"sub_business\": 0},{\"business\":2, \"sub_business\": 0}]' # str | Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP (optional)
+
+try:
+    # Subscription history
+    api_response = api_instance.list_earn_fixed_term_history(type, page, limit, product_id=product_id, order_id=order_id, asset=asset, start_at=start_at, end_at=end_at, sub_business=sub_business, business_filter=business_filter)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_earn_fixed_term_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **str**| 1 for subscription, 2 for redemption, 3 for interest, 4 for bonus reward | 
+ **page** | **int**| Page number | 
+ **limit** | **int**| Page size | 
+ **product_id** | **int**| Product ID | [optional] 
+ **order_id** | **str**| Order ID | [optional] 
+ **asset** | **str**| Currency | [optional] 
+ **start_at** | **int**| Start timestamp | [optional] 
+ **end_at** | **int**| End Timestamp | [optional] 
+ **sub_business** | **int**| Sub-business | [optional] 
+ **business_filter** | **str**| Business filter conditions, JSON array format, e.g., [{\&quot;business\&quot;:1, \&quot;sub_business\&quot;: 0}]. business: 1 for regular, 2 for VIP | [optional] 
+
+### Return type
+
+[**InlineResponse2005**](InlineResponse2005.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | History records retrieved successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

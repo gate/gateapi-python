@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_alpha_currencies**
-> list[Currency2] list_alpha_currencies(currency=currency, limit=limit, page=page)
+> list[AlphaCurrency] list_alpha_currencies(currency=currency, limit=limit, page=page)
 
 Query currency information
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Currency2]**](Currency2.md)
+[**list[AlphaCurrency]**](AlphaCurrency.md)
 
 ### Authorization
 

@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 
 # **p2p_merchant_account_get_user_info**
-> InlineResponse20014 p2p_merchant_account_get_user_info()
+> P2pMerchantUserInfoResponse p2p_merchant_account_get_user_info()
 
 Get account information
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**P2pMerchantUserInfoResponse**](P2pMerchantUserInfoResponse.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_counterparty_user_info**
-> InlineResponse20015 p2p_merchant_account_get_counterparty_user_info(get_counterparty_user_info_request)
+> P2pCounterpartyUserInfoResponse p2p_merchant_account_get_counterparty_user_info(get_counterparty_user_info_request)
 
 Get counterparty information
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**P2pCounterpartyUserInfoResponse**](P2pCounterpartyUserInfoResponse.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_myself_payment**
-> InlineResponse20016 p2p_merchant_account_get_myself_payment(get_myself_payment_request=get_myself_payment_request)
+> P2pPaymentMethodsResponse p2p_merchant_account_get_myself_payment(get_myself_payment_request=get_myself_payment_request)
 
 Get payment method list
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**P2pPaymentMethodsResponse**](P2pPaymentMethodsResponse.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_pending_transaction_list**
-> InlineResponse20017 p2p_merchant_transaction_get_pending_transaction_list(get_pending_transaction_list_request)
+> P2pTransactionListResponse p2p_merchant_transaction_get_pending_transaction_list(get_pending_transaction_list_request)
 
 Get pending orders
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**P2pTransactionListResponse**](P2pTransactionListResponse.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_completed_transaction_list**
-> InlineResponse20017 p2p_merchant_transaction_get_completed_transaction_list(get_completed_transaction_list_request)
+> P2pTransactionListResponse p2p_merchant_transaction_get_completed_transaction_list(get_completed_transaction_list_request)
 
 Get all/historical orders
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**P2pTransactionListResponse**](P2pTransactionListResponse.md)
 
 ### Authorization
 
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_get_transaction_details**
-> InlineResponse20018 p2p_merchant_transaction_get_transaction_details(get_transaction_details_request)
+> P2pTransactionDetailResponse p2p_merchant_transaction_get_transaction_details(get_transaction_details_request)
 
 Query order details
 
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**P2pTransactionDetailResponse**](P2pTransactionDetailResponse.md)
 
 ### Authorization
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_confirm_payment**
-> InlineResponse20019 p2p_merchant_transaction_confirm_payment(confirm_payment)
+> P2pTransactionActionResponse p2p_merchant_transaction_confirm_payment(confirm_payment)
 
 Confirm payment
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**P2pTransactionActionResponse**](P2pTransactionActionResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_confirm_receipt**
-> InlineResponse20019 p2p_merchant_transaction_confirm_receipt(confirm_receipt)
+> P2pTransactionActionResponse p2p_merchant_transaction_confirm_receipt(confirm_receipt)
 
 Confirm receipt
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**P2pTransactionActionResponse**](P2pTransactionActionResponse.md)
 
 ### Authorization
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_transaction_cancel**
-> InlineResponse20019 p2p_merchant_transaction_cancel(cancel_order)
+> P2pTransactionActionResponse p2p_merchant_transaction_cancel(cancel_order)
 
 Cancel order
 
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**P2pTransactionActionResponse**](P2pTransactionActionResponse.md)
 
 ### Authorization
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_update_status**
-> InlineResponse20020 p2p_merchant_books_ads_update_status(ads_update_status, trade_type=trade_type)
+> P2pAdsUpdateStatusResponse p2p_merchant_books_ads_update_status(ads_update_status, trade_type=trade_type)
 
 Update ad status
 
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**P2pAdsUpdateStatusResponse**](P2pAdsUpdateStatusResponse.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_detail**
-> InlineResponse20021 p2p_merchant_books_ads_detail(ads_detail_request)
+> P2pAdDetailResponse p2p_merchant_books_ads_detail(ads_detail_request)
 
 Query ad details
 
@@ -807,7 +807,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**P2pAdDetailResponse**](P2pAdDetailResponse.md)
 
 ### Authorization
 
@@ -826,7 +826,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_my_ads_list**
-> InlineResponse20022 p2p_merchant_books_my_ads_list(my_ads_list_request=my_ads_list_request)
+> P2pMyAdsListResponse p2p_merchant_books_my_ads_list(my_ads_list_request=my_ads_list_request)
 
 Get my ad list
 
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**P2pMyAdsListResponse**](P2pMyAdsListResponse.md)
 
 ### Authorization
 
@@ -893,7 +893,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_list**
-> InlineResponse20023 p2p_merchant_books_ads_list(ads_list_request)
+> P2pAdsListResponse p2p_merchant_books_ads_list(ads_list_request)
 
 Get Advertisement List
 
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**P2pAdsListResponse**](P2pAdsListResponse.md)
 
 ### Authorization
 
@@ -962,7 +962,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_get_chats_list**
-> InlineResponse20024 p2p_merchant_chat_get_chats_list(get_chats_list_request)
+> P2pChatListResponse p2p_merchant_chat_get_chats_list(get_chats_list_request)
 
 Get chat history
 
@@ -1010,7 +1010,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**P2pChatListResponse**](P2pChatListResponse.md)
 
 ### Authorization
 
@@ -1029,7 +1029,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_send_chat_message**
-> InlineResponse20025 p2p_merchant_chat_send_chat_message(send_chat_message_request)
+> P2pSendChatMessageResponse p2p_merchant_chat_send_chat_message(send_chat_message_request)
 
 Send text message
 
@@ -1077,7 +1077,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**P2pSendChatMessageResponse**](P2pSendChatMessageResponse.md)
 
 ### Authorization
 
@@ -1096,7 +1096,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_chat_upload_chat_file**
-> InlineResponse20026 p2p_merchant_chat_upload_chat_file(upload_chat_file)
+> P2pUploadChatFileResponse p2p_merchant_chat_upload_chat_file(upload_chat_file)
 
 Upload chat file
 
@@ -1144,7 +1144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**P2pUploadChatFileResponse**](P2pUploadChatFileResponse.md)
 
 ### Authorization
 

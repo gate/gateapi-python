@@ -98,7 +98,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_rule_risk_limits**
-> list[InlineResponse20027] list_crossex_rule_risk_limits(symbols)
+> list[CrossexRiskLimit] list_crossex_rule_risk_limits(symbols)
 
 [Public Interface] Query Risk Limit Information
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20027]**](InlineResponse20027.md)
+[**list[CrossexRiskLimit]**](CrossexRiskLimit.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_transfer_coins**
-> list[InlineResponse20028] list_crossex_transfer_coins(coin=coin)
+> list[CrossexTransferCoin] list_crossex_transfer_coins(coin=coin)
 
 [Public Interface] Query Supported Transfer Currencies
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20028]**](InlineResponse20028.md)
+[**list[CrossexTransferCoin]**](CrossexTransferCoin.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_transfers**
-> list[InlineResponse20029] list_crossex_transfers(coin=coin, order_id=order_id, _from=_from, to=to, page=page, limit=limit)
+> list[CrossexTransferRecord] list_crossex_transfers(coin=coin, order_id=order_id, _from=_from, to=to, page=page, limit=limit)
 
 Query Fund Transfer History
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20029]**](InlineResponse20029.md)
+[**list[CrossexTransferRecord]**](CrossexTransferRecord.md)
 
 ### Authorization
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_transfer**
-> InlineResponse20030 create_crossex_transfer(crossex_transfer_request=crossex_transfer_request)
+> CrossexTransferResponse create_crossex_transfer(crossex_transfer_request=crossex_transfer_request)
 
 Fund Transfer
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**CrossexTransferResponse**](CrossexTransferResponse.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_order**
-> InlineResponse20031 create_crossex_order(crossex_order_request=crossex_order_request)
+> CrossexOrderActionResponse create_crossex_order(crossex_order_request=crossex_order_request)
 
 Create an order
 
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_order**
-> InlineResponse20032 get_crossex_order(order_id)
+> CrossexOrder get_crossex_order(order_id)
 
 Query order details
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**CrossexOrder**](CrossexOrder.md)
 
 ### Authorization
 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_order**
-> InlineResponse20033 update_crossex_order(order_id, crossex_order_update_request=crossex_order_update_request)
+> CrossexOrderActionResponse update_crossex_order(order_id, crossex_order_update_request=crossex_order_update_request)
 
 Modify Order
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_crossex_order**
-> object cancel_crossex_order(order_id)
+> CrossexOrderActionResponse cancel_crossex_order(order_id)
 
 Cancel Order
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_convert_quote**
-> InlineResponse20034 create_crossex_convert_quote(crossex_convert_quote_request=crossex_convert_quote_request)
+> CrossexConvertQuoteResponse create_crossex_convert_quote(crossex_convert_quote_request=crossex_convert_quote_request)
 
 Flash Swap Inquiry
 
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**CrossexConvertQuoteResponse**](CrossexConvertQuoteResponse.md)
 
 ### Authorization
 
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_account**
-> InlineResponse20035 get_crossex_account(exchange_type=exchange_type)
+> CrossexAccount get_crossex_account(exchange_type=exchange_type)
 
 Query Account Assets
 
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**CrossexAccount**](CrossexAccount.md)
 
 ### Authorization
 
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_account**
-> InlineResponse202 update_crossex_account(crossex_account_update_request=crossex_account_update_request)
+> CrossexAccountUpdateResponse update_crossex_account(crossex_account_update_request=crossex_account_update_request)
 
 Modify Account Contract Position Mode and Account Mode
 
@@ -901,7 +901,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**CrossexAccountUpdateResponse**](CrossexAccountUpdateResponse.md)
 
 ### Authorization
 
@@ -989,7 +989,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_positions_leverage**
-> InlineResponse2021 update_crossex_positions_leverage(crossex_leverage_request=crossex_leverage_request)
+> CrossexLeverageResponse update_crossex_positions_leverage(crossex_leverage_request=crossex_leverage_request)
 
 Modify Contract Trading Pair Leverage Multiplier
 
@@ -1039,7 +1039,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2021**](InlineResponse2021.md)
+[**CrossexLeverageResponse**](CrossexLeverageResponse.md)
 
 ### Authorization
 
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_crossex_margin_positions_leverage**
-> InlineResponse2021 update_crossex_margin_positions_leverage(crossex_leverage_request=crossex_leverage_request)
+> CrossexLeverageResponse update_crossex_margin_positions_leverage(crossex_leverage_request=crossex_leverage_request)
 
 Modify Leveraged Trading Pair Leverage Multiplier
 
@@ -1177,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2021**](InlineResponse2021.md)
+[**CrossexLeverageResponse**](CrossexLeverageResponse.md)
 
 ### Authorization
 
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **close_crossex_position**
-> InlineResponse20031 close_crossex_position(crossex_close_position_request=crossex_close_position_request)
+> CrossexOrderActionResponse close_crossex_position(crossex_close_position_request=crossex_close_position_request)
 
 Full Close Position
 
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -1265,7 +1265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_interest_rate**
-> list[InlineResponse20036] get_crossex_interest_rate(coin=coin, exchange_type=exchange_type)
+> list[CrossexInterestRate] get_crossex_interest_rate(coin=coin, exchange_type=exchange_type)
 
 Query margin asset interest rates
 
@@ -1317,7 +1317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20036]**](InlineResponse20036.md)
+[**list[CrossexInterestRate]**](CrossexInterestRate.md)
 
 ### Authorization
 
@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_fee**
-> InlineResponse20037 get_crossex_fee()
+> CrossexFee get_crossex_fee()
 
 Query User Fee Rates
 
@@ -1382,7 +1382,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**CrossexFee**](CrossexFee.md)
 
 ### Authorization
 
@@ -1401,7 +1401,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_positions**
-> list[InlineResponse20038] list_crossex_positions(symbol=symbol, exchange_type=exchange_type)
+> list[CrossexPosition] list_crossex_positions(symbol=symbol, exchange_type=exchange_type)
 
 Query Contract Positions
 
@@ -1453,7 +1453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20038]**](InlineResponse20038.md)
+[**list[CrossexPosition]**](CrossexPosition.md)
 
 ### Authorization
 
@@ -1472,7 +1472,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_margin_positions**
-> list[InlineResponse20039] list_crossex_margin_positions(symbol=symbol, exchange_type=exchange_type)
+> list[CrossexMarginPosition] list_crossex_margin_positions(symbol=symbol, exchange_type=exchange_type)
 
 Query Leveraged Positions
 
@@ -1524,7 +1524,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20039]**](InlineResponse20039.md)
+[**list[CrossexMarginPosition]**](CrossexMarginPosition.md)
 
 ### Authorization
 
@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_adl_rank**
-> list[InlineResponse20040] list_crossex_adl_rank(symbol)
+> list[CrossexAdlRank] list_crossex_adl_rank(symbol)
 
 Query ADL Position Reduction Ranking
 
@@ -1593,7 +1593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20040]**](InlineResponse20040.md)
+[**list[CrossexAdlRank]**](CrossexAdlRank.md)
 
 ### Authorization
 
@@ -1612,7 +1612,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_open_orders**
-> list[InlineResponse20032] list_crossex_open_orders(symbol=symbol, exchange_type=exchange_type, business_type=business_type)
+> list[CrossexOrder] list_crossex_open_orders(symbol=symbol, exchange_type=exchange_type, business_type=business_type)
 
 Query All Current Open Orders
 
@@ -1666,7 +1666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20032]**](InlineResponse20032.md)
+[**list[CrossexOrder]**](CrossexOrder.md)
 
 ### Authorization
 
@@ -1685,7 +1685,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_orders**
-> list[InlineResponse20041] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[CrossexOrder] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 queryorderhistory
 
@@ -1743,7 +1743,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20041]**](InlineResponse20041.md)
+[**list[CrossexOrder]**](CrossexOrder.md)
 
 ### Authorization
 
@@ -1762,7 +1762,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_positions**
-> list[InlineResponse20042] list_crossex_history_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[CrossexHistoricalPosition] list_crossex_history_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 Query Contract Position History
 
@@ -1820,7 +1820,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20042]**](InlineResponse20042.md)
+[**list[CrossexHistoricalPosition]**](CrossexHistoricalPosition.md)
 
 ### Authorization
 
@@ -1839,7 +1839,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_margin_positions**
-> list[InlineResponse20043] list_crossex_history_margin_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[CrossexHistoricalMarginPosition] list_crossex_history_margin_positions(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 Query Leveraged Position History
 
@@ -1897,7 +1897,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20043]**](InlineResponse20043.md)
+[**list[CrossexHistoricalMarginPosition]**](CrossexHistoricalMarginPosition.md)
 
 ### Authorization
 
@@ -1916,7 +1916,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_margin_interests**
-> list[InlineResponse20044] list_crossex_history_margin_interests(symbol=symbol, _from=_from, to=to, page=page, limit=limit, exchange_type=exchange_type)
+> list[CrossexMarginInterestRecord] list_crossex_history_margin_interests(symbol=symbol, _from=_from, to=to, page=page, limit=limit, exchange_type=exchange_type)
 
 Query Leveraged Interest Deduction History
 
@@ -1976,7 +1976,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20044]**](InlineResponse20044.md)
+[**list[CrossexMarginInterestRecord]**](CrossexMarginInterestRecord.md)
 
 ### Authorization
 
@@ -1995,7 +1995,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_trades**
-> list[InlineResponse20045] list_crossex_history_trades(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[CrossexTrade] list_crossex_history_trades(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
 queryfilledhistory
 
@@ -2053,7 +2053,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20045]**](InlineResponse20045.md)
+[**list[CrossexTrade]**](CrossexTrade.md)
 
 ### Authorization
 
@@ -2072,7 +2072,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_account_book**
-> list[InlineResponse20046] list_crossex_account_book(page=page, limit=limit, coin=coin, _from=_from, to=to)
+> list[CrossexAccountBookRecord] list_crossex_account_book(page=page, limit=limit, coin=coin, _from=_from, to=to)
 
 Query Account Asset Change History
 
@@ -2130,7 +2130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20046]**](InlineResponse20046.md)
+[**list[CrossexAccountBookRecord]**](CrossexAccountBookRecord.md)
 
 ### Authorization
 
@@ -2149,7 +2149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_coin_discount_rate**
-> list[InlineResponse20047] list_crossex_coin_discount_rate(coin=coin, exchange_type=exchange_type)
+> list[CrossexCoinDiscountRate] list_crossex_coin_discount_rate(coin=coin, exchange_type=exchange_type)
 
 Query currency discount rate (discount rate of margin currency in isolated exchange mode)
 
@@ -2201,7 +2201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse20047]**](InlineResponse20047.md)
+[**list[CrossexCoinDiscountRate]**](CrossexCoinDiscountRate.md)
 
 ### Authorization
 

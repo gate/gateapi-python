@@ -33,46 +33,134 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'order': 'TrailOrder'
+        'code': 'int',
+        'message': 'str',
+        'data': 'InlineResponse200Data',
+        'timestamp': 'int'
     }
 
     attribute_map = {
-        'order': 'order'
+        'code': 'code',
+        'message': 'message',
+        'data': 'data',
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, order=None, local_vars_configuration=None):  # noqa: E501
-        # type: (TrailOrder, Configuration) -> None
+    def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, InlineResponse200Data, int, Configuration) -> None
         """InlineResponse200 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._order = None
+        self._code = None
+        self._message = None
+        self._data = None
+        self._timestamp = None
         self.discriminator = None
 
-        if order is not None:
-            self.order = order
+        self.code = code
+        self.message = message
+        self.data = data
+        self.timestamp = timestamp
 
     @property
-    def order(self):
-        """Gets the order of this InlineResponse200.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse200.  # noqa: E501
 
+        Return code, 0 means success  # noqa: E501
 
-        :return: The order of this InlineResponse200.  # noqa: E501
-        :rtype: TrailOrder
+        :return: The code of this InlineResponse200.  # noqa: E501
+        :rtype: int
         """
-        return self._order
+        return self._code
 
-    @order.setter
-    def order(self, order):
-        """Sets the order of this InlineResponse200.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse200.
 
+        Return code, 0 means success  # noqa: E501
 
-        :param order: The order of this InlineResponse200.  # noqa: E501
-        :type: TrailOrder
+        :param code: The code of this InlineResponse200.  # noqa: E501
+        :type: int
         """
+        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
-        self._order = order
+        self._code = code
+
+    @property
+    def message(self):
+        """Gets the message of this InlineResponse200.  # noqa: E501
+
+        Response message  # noqa: E501
+
+        :return: The message of this InlineResponse200.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse200.
+
+        Response message  # noqa: E501
+
+        :param message: The message of this InlineResponse200.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
+
+        self._message = message
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse200.  # noqa: E501
+
+
+        :return: The data of this InlineResponse200.  # noqa: E501
+        :rtype: InlineResponse200Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse200.
+
+
+        :param data: The data of this InlineResponse200.  # noqa: E501
+        :type: InlineResponse200Data
+        """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
+
+        self._data = data
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse200.  # noqa: E501
+
+        Response timestamp (in seconds)  # noqa: E501
+
+        :return: The timestamp of this InlineResponse200.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse200.
+
+        Response timestamp (in seconds)  # noqa: E501
+
+        :param timestamp: The timestamp of this InlineResponse200.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

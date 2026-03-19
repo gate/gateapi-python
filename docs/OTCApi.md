@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_otc_quote**
-> InlineResponse2006 create_otc_quote(otc_quote_request)
+> OtcQuoteResponse create_otc_quote(otc_quote_request)
 
 Fiat and stablecoin quote
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**OtcQuoteResponse**](OtcQuoteResponse.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_otc_order**
-> InlineResponse2007 create_otc_order(otc_order_request)
+> OtcActionResponse create_otc_order(otc_order_request)
 
 Create fiat order
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**OtcActionResponse**](OtcActionResponse.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_stable_coin_order**
-> InlineResponse2008 create_stable_coin_order(otc_stable_coin_order_request)
+> OtcStableCoinOrderCreateResponse create_stable_coin_order(otc_stable_coin_order_request)
 
 Create stablecoin order
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**OtcStableCoinOrderCreateResponse**](OtcStableCoinOrderCreateResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_default_bank**
-> InlineResponse2009 get_user_default_bank()
+> OtcUserDefaultBankResponse get_user_default_bank()
 
 Get user's default bank account information
 
@@ -270,7 +270,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**OtcUserDefaultBankResponse**](OtcUserDefaultBankResponse.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_bank_list**
-> InlineResponse20010 get_bank_list()
+> OtcBankListResponse get_bank_list()
 
 Get user bank card list
 
@@ -335,7 +335,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**OtcBankListResponse**](OtcBankListResponse.md)
 
 ### Authorization
 
@@ -354,7 +354,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mark_otc_order_paid**
-> InlineResponse2007 mark_otc_order_paid(otc_mark_order_paid_request)
+> OtcActionResponse mark_otc_order_paid(otc_mark_order_paid_request)
 
 Mark fiat order as paid
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**OtcActionResponse**](OtcActionResponse.md)
 
 ### Authorization
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_otc_order**
-> InlineResponse2007 cancel_otc_order(order_id)
+> OtcActionResponse cancel_otc_order(order_id)
 
 Fiat order cancellation
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**OtcActionResponse**](OtcActionResponse.md)
 
 ### Authorization
 
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_otc_orders**
-> InlineResponse20011 list_otc_orders(type=type, fiat_currency=fiat_currency, crypto_currency=crypto_currency, start_time=start_time, end_time=end_time, status=status, pn=pn, ps=ps)
+> OtcOrderListResponse list_otc_orders(type=type, fiat_currency=fiat_currency, crypto_currency=crypto_currency, start_time=start_time, end_time=end_time, status=status, pn=pn, ps=ps)
 
 Fiat order list
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**OtcOrderListResponse**](OtcOrderListResponse.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stable_coin_orders**
-> InlineResponse20012 list_stable_coin_orders(page_size=page_size, page_number=page_number, coin_name=coin_name, start_time=start_time, end_time=end_time, status=status)
+> OtcStableCoinOrderListResponse list_stable_coin_orders(page_size=page_size, page_number=page_number, coin_name=coin_name, start_time=start_time, end_time=end_time, status=status)
 
 Stablecoin order list
 
@@ -635,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**OtcStableCoinOrderListResponse**](OtcStableCoinOrderListResponse.md)
 
 ### Authorization
 
@@ -654,7 +654,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_otc_order_detail**
-> InlineResponse20013 get_otc_order_detail(order_id)
+> OtcOrderDetailResponse get_otc_order_detail(order_id)
 
 Fiat order details
 
@@ -704,7 +704,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**OtcOrderDetailResponse**](OtcOrderDetailResponse.md)
 
 ### Authorization
 

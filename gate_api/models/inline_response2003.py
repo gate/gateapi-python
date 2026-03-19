@@ -33,46 +33,130 @@ class InlineResponse2003(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'change_log': 'list[TrailChangeLog]'
+        'code': 'int',
+        'message': 'str',
+        'data': 'InlineResponse2003Data',
+        'timestamp': 'int'
     }
 
     attribute_map = {
-        'change_log': 'change_log'
+        'code': 'code',
+        'message': 'message',
+        'data': 'data',
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, change_log=None, local_vars_configuration=None):  # noqa: E501
-        # type: (list[TrailChangeLog], Configuration) -> None
+    def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, InlineResponse2003Data, int, Configuration) -> None
         """InlineResponse2003 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._change_log = None
+        self._code = None
+        self._message = None
+        self._data = None
+        self._timestamp = None
         self.discriminator = None
 
-        if change_log is not None:
-            self.change_log = change_log
+        if code is not None:
+            self.code = code
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
+        if timestamp is not None:
+            self.timestamp = timestamp
 
     @property
-    def change_log(self):
-        """Gets the change_log of this InlineResponse2003.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse2003.  # noqa: E501
 
+        Return code, 0 means success  # noqa: E501
 
-        :return: The change_log of this InlineResponse2003.  # noqa: E501
-        :rtype: list[TrailChangeLog]
+        :return: The code of this InlineResponse2003.  # noqa: E501
+        :rtype: int
         """
-        return self._change_log
+        return self._code
 
-    @change_log.setter
-    def change_log(self, change_log):
-        """Sets the change_log of this InlineResponse2003.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse2003.
 
+        Return code, 0 means success  # noqa: E501
 
-        :param change_log: The change_log of this InlineResponse2003.  # noqa: E501
-        :type: list[TrailChangeLog]
+        :param code: The code of this InlineResponse2003.  # noqa: E501
+        :type: int
         """
 
-        self._change_log = change_log
+        self._code = code
+
+    @property
+    def message(self):
+        """Gets the message of this InlineResponse2003.  # noqa: E501
+
+        Response message  # noqa: E501
+
+        :return: The message of this InlineResponse2003.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse2003.
+
+        Response message  # noqa: E501
+
+        :param message: The message of this InlineResponse2003.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse2003.  # noqa: E501
+
+
+        :return: The data of this InlineResponse2003.  # noqa: E501
+        :rtype: InlineResponse2003Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse2003.
+
+
+        :param data: The data of this InlineResponse2003.  # noqa: E501
+        :type: InlineResponse2003Data
+        """
+
+        self._data = data
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this InlineResponse2003.  # noqa: E501
+
+        Response timestamp (in seconds)  # noqa: E501
+
+        :return: The timestamp of this InlineResponse2003.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this InlineResponse2003.
+
+        Response timestamp (in seconds)  # noqa: E501
+
+        :param timestamp: The timestamp of this InlineResponse2003.  # noqa: E501
+        :type: int
+        """
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

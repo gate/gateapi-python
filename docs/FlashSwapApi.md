@@ -9,6 +9,12 @@ Method | HTTP request | Description
 [**create_flash_swap_order**](FlashSwapApi.md#create_flash_swap_order) | **POST** /flash_swap/orders | Create a flash swap order
 [**get_flash_swap_order**](FlashSwapApi.md#get_flash_swap_order) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
 [**preview_flash_swap_order**](FlashSwapApi.md#preview_flash_swap_order) | **POST** /flash_swap/orders/preview | Flash swap order preview
+[**create_flash_swap_multi_currency_many_to_one_order**](FlashSwapApi.md#create_flash_swap_multi_currency_many_to_one_order) | **POST** /flash-swap/multi-currency/many-to-one/order/create | Flash Swap - Multi-currency exchange - Place order (many-to-one)
+[**preview_flash_swap_multi_currency_many_to_one_order**](FlashSwapApi.md#preview_flash_swap_multi_currency_many_to_one_order) | **POST** /flash-swap/multi-currency/many-to-one/order/preview | Flash Swap - Multi-currency exchange - Preview (many-to-one)
+[**create_flash_swap_order_v1**](FlashSwapApi.md#create_flash_swap_order_v1) | **POST** /flash-swap/order/create | Flash Swap - Place order (one-to-one)
+[**create_flash_swap_multi_currency_one_to_many_order**](FlashSwapApi.md#create_flash_swap_multi_currency_one_to_many_order) | **POST** /flash-swap/multi-currency/one-to-many/order/create | Flash Swap - Multi-currency exchange - Place order (one-to-many)
+[**preview_flash_swap_multi_currency_one_to_many_order**](FlashSwapApi.md#preview_flash_swap_multi_currency_one_to_many_order) | **POST** /flash-swap/multi-currency/one-to-many/order/preview | Flash Swap - Multi-currency exchange - Preview (one-to-many)
+[**preview_flash_swap_order_v1**](FlashSwapApi.md#preview_flash_swap_order_v1) | **GET** /flash-swap/order/preview | Flash Swap - Preview (one-to-one)
 
 
 # **list_flash_swap_currency_pair**
@@ -352,6 +358,438 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Flash swap order preview successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_flash_swap_multi_currency_many_to_one_order**
+> FlashSwapMultiCurrencyManyToOneOrderCreateResp create_flash_swap_multi_currency_many_to_one_order(flash_swap_multi_currency_many_to_one_order_create_req)
+
+Flash Swap - Multi-currency exchange - Place order (many-to-one)
+
+Create a multi-currency to single target currency exchange order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+flash_swap_multi_currency_many_to_one_order_create_req = gate_api.FlashSwapMultiCurrencyManyToOneOrderCreateReq() # FlashSwapMultiCurrencyManyToOneOrderCreateReq | 
+
+try:
+    # Flash Swap - Multi-currency exchange - Place order (many-to-one)
+    api_response = api_instance.create_flash_swap_multi_currency_many_to_one_order(flash_swap_multi_currency_many_to_one_order_create_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->create_flash_swap_multi_currency_many_to_one_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flash_swap_multi_currency_many_to_one_order_create_req** | [**FlashSwapMultiCurrencyManyToOneOrderCreateReq**](FlashSwapMultiCurrencyManyToOneOrderCreateReq.md)|  | 
+
+### Return type
+
+[**FlashSwapMultiCurrencyManyToOneOrderCreateResp**](FlashSwapMultiCurrencyManyToOneOrderCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **preview_flash_swap_multi_currency_many_to_one_order**
+> FlashSwapMultiCurrencyManyToOneOrderPreviewResp preview_flash_swap_multi_currency_many_to_one_order(flash_swap_multi_currency_many_to_one_order_preview_req)
+
+Flash Swap - Multi-currency exchange - Preview (many-to-one)
+
+Preview quote for multi-currency to single target currency exchange
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+flash_swap_multi_currency_many_to_one_order_preview_req = gate_api.FlashSwapMultiCurrencyManyToOneOrderPreviewReq() # FlashSwapMultiCurrencyManyToOneOrderPreviewReq | 
+
+try:
+    # Flash Swap - Multi-currency exchange - Preview (many-to-one)
+    api_response = api_instance.preview_flash_swap_multi_currency_many_to_one_order(flash_swap_multi_currency_many_to_one_order_preview_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->preview_flash_swap_multi_currency_many_to_one_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flash_swap_multi_currency_many_to_one_order_preview_req** | [**FlashSwapMultiCurrencyManyToOneOrderPreviewReq**](FlashSwapMultiCurrencyManyToOneOrderPreviewReq.md)|  | 
+
+### Return type
+
+[**FlashSwapMultiCurrencyManyToOneOrderPreviewResp**](FlashSwapMultiCurrencyManyToOneOrderPreviewResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_flash_swap_order_v1**
+> FlashSwapOrderCreateResp create_flash_swap_order_v1(flash_swap_order_create_req)
+
+Flash Swap - Place order (one-to-one)
+
+Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+flash_swap_order_create_req = gate_api.FlashSwapOrderCreateReq() # FlashSwapOrderCreateReq | 
+
+try:
+    # Flash Swap - Place order (one-to-one)
+    api_response = api_instance.create_flash_swap_order_v1(flash_swap_order_create_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->create_flash_swap_order_v1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flash_swap_order_create_req** | [**FlashSwapOrderCreateReq**](FlashSwapOrderCreateReq.md)|  | 
+
+### Return type
+
+[**FlashSwapOrderCreateResp**](FlashSwapOrderCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_flash_swap_multi_currency_one_to_many_order**
+> FlashSwapMultiCurrencyOneToManyOrderCreateResp create_flash_swap_multi_currency_one_to_many_order(flash_swap_multi_currency_one_to_many_order_create_req)
+
+Flash Swap - Multi-currency exchange - Place order (one-to-many)
+
+Create a single currency to multiple target currencies exchange order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+flash_swap_multi_currency_one_to_many_order_create_req = gate_api.FlashSwapMultiCurrencyOneToManyOrderCreateReq() # FlashSwapMultiCurrencyOneToManyOrderCreateReq | 
+
+try:
+    # Flash Swap - Multi-currency exchange - Place order (one-to-many)
+    api_response = api_instance.create_flash_swap_multi_currency_one_to_many_order(flash_swap_multi_currency_one_to_many_order_create_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->create_flash_swap_multi_currency_one_to_many_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flash_swap_multi_currency_one_to_many_order_create_req** | [**FlashSwapMultiCurrencyOneToManyOrderCreateReq**](FlashSwapMultiCurrencyOneToManyOrderCreateReq.md)|  | 
+
+### Return type
+
+[**FlashSwapMultiCurrencyOneToManyOrderCreateResp**](FlashSwapMultiCurrencyOneToManyOrderCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **preview_flash_swap_multi_currency_one_to_many_order**
+> FlashSwapMultiCurrencyOneToManyOrderPreviewResp preview_flash_swap_multi_currency_one_to_many_order(flash_swap_multi_currency_one_to_many_order_preview_req)
+
+Flash Swap - Multi-currency exchange - Preview (one-to-many)
+
+Preview quote for single currency to multiple target currencies exchange
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+flash_swap_multi_currency_one_to_many_order_preview_req = gate_api.FlashSwapMultiCurrencyOneToManyOrderPreviewReq() # FlashSwapMultiCurrencyOneToManyOrderPreviewReq | 
+
+try:
+    # Flash Swap - Multi-currency exchange - Preview (one-to-many)
+    api_response = api_instance.preview_flash_swap_multi_currency_one_to_many_order(flash_swap_multi_currency_one_to_many_order_preview_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->preview_flash_swap_multi_currency_one_to_many_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flash_swap_multi_currency_one_to_many_order_preview_req** | [**FlashSwapMultiCurrencyOneToManyOrderPreviewReq**](FlashSwapMultiCurrencyOneToManyOrderPreviewReq.md)|  | 
+
+### Return type
+
+[**FlashSwapMultiCurrencyOneToManyOrderPreviewResp**](FlashSwapMultiCurrencyOneToManyOrderPreviewResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **preview_flash_swap_order_v1**
+> FlashSwapOrderPreviewResp preview_flash_swap_order_v1(sell_asset, buy_asset, sell_amount=sell_amount, buy_amount=buy_amount)
+
+Flash Swap - Preview (one-to-one)
+
+Get one-to-one flash swap quote. Either sell_amount or buy_amount must be specified
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+sell_asset = 'sell_asset_example' # str | Currency to sell
+buy_asset = 'buy_asset_example' # str | Currency to buy
+sell_amount = 'sell_amount_example' # str | Sell amount, either this or buy_amount must be specified (optional)
+buy_amount = 'buy_amount_example' # str | Buy amount, either this or sell_amount must be specified (optional)
+
+try:
+    # Flash Swap - Preview (one-to-one)
+    api_response = api_instance.preview_flash_swap_order_v1(sell_asset, buy_asset, sell_amount=sell_amount, buy_amount=buy_amount)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->preview_flash_swap_order_v1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sell_asset** | **str**| Currency to sell | 
+ **buy_asset** | **str**| Currency to buy | 
+ **sell_amount** | **str**| Sell amount, either this or buy_amount must be specified | [optional] 
+ **buy_amount** | **str**| Buy amount, either this or sell_amount must be specified | [optional] 
+
+### Return type
+
+[**FlashSwapOrderPreviewResp**](FlashSwapOrderPreviewResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

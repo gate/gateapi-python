@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mode** | **str** | Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin | 
-**contract** | **str** | Futures market | 
+**order_id** | **str** | Order ID | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

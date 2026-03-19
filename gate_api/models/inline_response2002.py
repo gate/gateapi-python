@@ -35,7 +35,7 @@ class InlineResponse2002(object):
     openapi_types = {
         'code': 'int',
         'message': 'str',
-        'data': 'InlineResponse200',
+        'data': 'InlineResponse2002Data',
         'timestamp': 'int'
     }
 
@@ -47,7 +47,7 @@ class InlineResponse2002(object):
     }
 
     def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, InlineResponse200, int, Configuration) -> None
+        # type: (int, str, InlineResponse2002Data, int, Configuration) -> None
         """InlineResponse2002 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,20 +59,16 @@ class InlineResponse2002(object):
         self._timestamp = None
         self.discriminator = None
 
-        if code is not None:
-            self.code = code
-        if message is not None:
-            self.message = message
-        if data is not None:
-            self.data = data
-        if timestamp is not None:
-            self.timestamp = timestamp
+        self.code = code
+        self.message = message
+        self.data = data
+        self.timestamp = timestamp
 
     @property
     def code(self):
         """Gets the code of this InlineResponse2002.  # noqa: E501
 
-        Status code, 0 means success  # noqa: E501
+        Return code, 0 means success  # noqa: E501
 
         :return: The code of this InlineResponse2002.  # noqa: E501
         :rtype: int
@@ -83,11 +79,13 @@ class InlineResponse2002(object):
     def code(self, code):
         """Sets the code of this InlineResponse2002.
 
-        Status code, 0 means success  # noqa: E501
+        Return code, 0 means success  # noqa: E501
 
         :param code: The code of this InlineResponse2002.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -111,6 +109,8 @@ class InlineResponse2002(object):
         :param message: The message of this InlineResponse2002.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
+            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
@@ -120,7 +120,7 @@ class InlineResponse2002(object):
 
 
         :return: The data of this InlineResponse2002.  # noqa: E501
-        :rtype: InlineResponse200
+        :rtype: InlineResponse2002Data
         """
         return self._data
 
@@ -130,8 +130,10 @@ class InlineResponse2002(object):
 
 
         :param data: The data of this InlineResponse2002.  # noqa: E501
-        :type: InlineResponse200
+        :type: InlineResponse2002Data
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -139,7 +141,7 @@ class InlineResponse2002(object):
     def timestamp(self):
         """Gets the timestamp of this InlineResponse2002.  # noqa: E501
 
-        Response timestamp (milliseconds)  # noqa: E501
+        Response timestamp (in seconds)  # noqa: E501
 
         :return: The timestamp of this InlineResponse2002.  # noqa: E501
         :rtype: int
@@ -150,11 +152,13 @@ class InlineResponse2002(object):
     def timestamp(self, timestamp):
         """Sets the timestamp of this InlineResponse2002.
 
-        Response timestamp (milliseconds)  # noqa: E501
+        Response timestamp (in seconds)  # noqa: E501
 
         :param timestamp: The timestamp of this InlineResponse2002.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
 

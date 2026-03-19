@@ -2578,20 +2578,20 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_leverage(self, settle, contract, **kwargs):  # noqa: E501
+    def get_leverage(self, settle, contract, pos_margin_mode, dual_side, **kwargs):  # noqa: E501
         """Get Leverage Information for Specified Mode  # noqa: E501
 
         Get Leverage Information for Specified Mode  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_leverage(settle, contract, async_req=True)
+        >>> thread = api.get_leverage(settle, contract, pos_margin_mode, dual_side, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross.
-        :param str dual_side: dual_long - Long, dual_short - Short
+        :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross. (required)
+        :param str dual_side: dual_long - Long, dual_short - Short (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2604,22 +2604,22 @@ class FuturesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_leverage_with_http_info(settle, contract, **kwargs)  # noqa: E501
+        return self.get_leverage_with_http_info(settle, contract, pos_margin_mode, dual_side, **kwargs)  # noqa: E501
 
-    def get_leverage_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
+    def get_leverage_with_http_info(self, settle, contract, pos_margin_mode, dual_side, **kwargs):  # noqa: E501
         """Get Leverage Information for Specified Mode  # noqa: E501
 
         Get Leverage Information for Specified Mode  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_leverage_with_http_info(settle, contract, async_req=True)
+        >>> thread = api.get_leverage_with_http_info(settle, contract, pos_margin_mode, dual_side, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param str contract: Futures contract (required)
-        :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross.
-        :param str dual_side: dual_long - Long, dual_short - Short
+        :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross. (required)
+        :param str dual_side: dual_long - Long, dual_short - Short (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2667,6 +2667,14 @@ class FuturesApi(object):
         if self.api_client.client_side_validation and ('contract' not in local_var_params or  # noqa: E501
                                                         local_var_params['contract'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `contract` when calling `get_leverage`")  # noqa: E501
+        # verify the required parameter 'pos_margin_mode' is set
+        if self.api_client.client_side_validation and ('pos_margin_mode' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pos_margin_mode'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pos_margin_mode` when calling `get_leverage`")  # noqa: E501
+        # verify the required parameter 'dual_side' is set
+        if self.api_client.client_side_validation and ('dual_side' not in local_var_params or  # noqa: E501
+                                                        local_var_params['dual_side'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `dual_side` when calling `get_leverage`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3256,17 +3264,17 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_dual_comp_position_cross_mode(self, settle, inline_object, **kwargs):  # noqa: E501
+    def update_dual_comp_position_cross_mode(self, settle, update_dual_comp_position_cross_mode_request, **kwargs):  # noqa: E501
         """Switch Between Cross and Isolated Margin Modes Under Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_dual_comp_position_cross_mode(settle, inline_object, async_req=True)
+        >>> thread = api.update_dual_comp_position_cross_mode(settle, update_dual_comp_position_cross_mode_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param InlineObject inline_object: (required)
+        :param UpdateDualCompPositionCrossModeRequest update_dual_comp_position_cross_mode_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3279,19 +3287,19 @@ class FuturesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_dual_comp_position_cross_mode_with_http_info(settle, inline_object, **kwargs)  # noqa: E501
+        return self.update_dual_comp_position_cross_mode_with_http_info(settle, update_dual_comp_position_cross_mode_request, **kwargs)  # noqa: E501
 
-    def update_dual_comp_position_cross_mode_with_http_info(self, settle, inline_object, **kwargs):  # noqa: E501
+    def update_dual_comp_position_cross_mode_with_http_info(self, settle, update_dual_comp_position_cross_mode_request, **kwargs):  # noqa: E501
         """Switch Between Cross and Isolated Margin Modes Under Hedge Mode  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_dual_comp_position_cross_mode_with_http_info(settle, inline_object, async_req=True)
+        >>> thread = api.update_dual_comp_position_cross_mode_with_http_info(settle, update_dual_comp_position_cross_mode_request, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param InlineObject inline_object: (required)
+        :param UpdateDualCompPositionCrossModeRequest update_dual_comp_position_cross_mode_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3310,7 +3318,7 @@ class FuturesApi(object):
 
         all_params = [
             'settle',
-            'inline_object'
+            'update_dual_comp_position_cross_mode_request'
         ]
         all_params.extend(
             [
@@ -3333,10 +3341,10 @@ class FuturesApi(object):
         if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
                                                         local_var_params['settle'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `settle` when calling `update_dual_comp_position_cross_mode`")  # noqa: E501
-        # verify the required parameter 'inline_object' is set
-        if self.api_client.client_side_validation and ('inline_object' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object` when calling `update_dual_comp_position_cross_mode`")  # noqa: E501
+        # verify the required parameter 'update_dual_comp_position_cross_mode_request' is set
+        if self.api_client.client_side_validation and ('update_dual_comp_position_cross_mode_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_dual_comp_position_cross_mode_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_dual_comp_position_cross_mode_request` when calling `update_dual_comp_position_cross_mode`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3352,8 +3360,8 @@ class FuturesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object' in local_var_params:
-            body_params = local_var_params['inline_object']
+        if 'update_dual_comp_position_cross_mode_request' in local_var_params:
+            body_params = local_var_params['update_dual_comp_position_cross_mode_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -6892,7 +6900,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse201
+        :rtype: gate_api.CreateTrailOrderResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6919,7 +6927,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse201, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.CreateTrailOrderResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6991,7 +6999,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse201',  # noqa: E501
+            response_type='CreateTrailOrderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7017,7 +7025,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse200
+        :rtype: gate_api.TrailOrderResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7044,7 +7052,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7116,7 +7124,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='TrailOrderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7142,7 +7150,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2001
+        :rtype: gate_api.TrailOrderListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7169,7 +7177,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7241,7 +7249,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='TrailOrderListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7278,7 +7286,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2001
+        :rtype: gate_api.TrailOrderListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7316,7 +7324,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7413,7 +7421,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='TrailOrderListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7439,7 +7447,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2002
+        :rtype: gate_api.TrailOrderDetailResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7466,7 +7474,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderDetailResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7534,7 +7542,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='TrailOrderDetailResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7560,7 +7568,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse200
+        :rtype: gate_api.TrailOrderResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7587,7 +7595,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7659,7 +7667,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='TrailOrderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7687,7 +7695,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2003
+        :rtype: gate_api.TrailOrderChangeLogResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7716,7 +7724,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderChangeLogResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7790,7 +7798,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='TrailOrderChangeLogResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

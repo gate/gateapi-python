@@ -34,36 +34,45 @@ class InlineResponse2006(object):
     """
     openapi_types = {
         'code': 'int',
+        'label': 'str',
         'message': 'str',
         'data': 'InlineResponse2006Data'
     }
 
     attribute_map = {
         'code': 'code',
+        'label': 'label',
         'message': 'message',
         'data': 'data'
     }
 
-    def __init__(self, code=None, message=None, data=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, InlineResponse2006Data, Configuration) -> None
+    def __init__(self, code=None, label=None, message=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, InlineResponse2006Data, Configuration) -> None
         """InlineResponse2006 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
+        self._label = None
         self._message = None
         self._data = None
         self.discriminator = None
 
-        self.code = code
-        self.message = message
-        self.data = data
+        if code is not None:
+            self.code = code
+        if label is not None:
+            self.label = label
+        if message is not None:
+            self.message = message
+        if data is not None:
+            self.data = data
 
     @property
     def code(self):
         """Gets the code of this InlineResponse2006.  # noqa: E501
 
+        Response Code. `0` = Success; `2002` = User not logged in; `50105` = Input parameter validation failed  # noqa: E501
 
         :return: The code of this InlineResponse2006.  # noqa: E501
         :rtype: int
@@ -74,14 +83,42 @@ class InlineResponse2006(object):
     def code(self, code):
         """Sets the code of this InlineResponse2006.
 
+        Response Code. `0` = Success; `2002` = User not logged in; `50105` = Input parameter validation failed  # noqa: E501
 
         :param code: The code of this InlineResponse2006.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
+        allowed_values = [0, 2002, 50105]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and code not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `code` ({0}), must be one of {1}"  # noqa: E501
+                .format(code, allowed_values)
+            )
 
         self._code = code
+
+    @property
+    def label(self):
+        """Gets the label of this InlineResponse2006.  # noqa: E501
+
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
+
+        :return: The label of this InlineResponse2006.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse2006.
+
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
+
+        :param label: The label of this InlineResponse2006.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
 
     @property
     def message(self):
@@ -101,8 +138,6 @@ class InlineResponse2006(object):
         :param message: The message of this InlineResponse2006.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
 
@@ -124,8 +159,6 @@ class InlineResponse2006(object):
         :param data: The data of this InlineResponse2006.  # noqa: E501
         :type: InlineResponse2006Data
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

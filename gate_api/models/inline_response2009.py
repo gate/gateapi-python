@@ -34,40 +34,50 @@ class InlineResponse2009(object):
     """
     openapi_types = {
         'code': 'int',
+        'label': 'str',
         'message': 'str',
-        'data': 'InlineResponse2009Data',
-        'timestamp': 'int'
+        'request_id': 'str',
+        'data': 'InlineResponse2009Data'
     }
 
     attribute_map = {
         'code': 'code',
+        'label': 'label',
         'message': 'message',
-        'data': 'data',
-        'timestamp': 'timestamp'
+        'request_id': 'request_id',
+        'data': 'data'
     }
 
-    def __init__(self, code=None, message=None, data=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, InlineResponse2009Data, int, Configuration) -> None
+    def __init__(self, code=None, label=None, message=None, request_id=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, InlineResponse2009Data, Configuration) -> None
         """InlineResponse2009 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
+        self._label = None
         self._message = None
+        self._request_id = None
         self._data = None
-        self._timestamp = None
         self.discriminator = None
 
-        self.code = code
-        self.message = message
-        self.data = data
-        self.timestamp = timestamp
+        if code is not None:
+            self.code = code
+        if label is not None:
+            self.label = label
+        if message is not None:
+            self.message = message
+        if request_id is not None:
+            self.request_id = request_id
+        if data is not None:
+            self.data = data
 
     @property
     def code(self):
         """Gets the code of this InlineResponse2009.  # noqa: E501
 
+        Status code, 200 = success  # noqa: E501
 
         :return: The code of this InlineResponse2009.  # noqa: E501
         :rtype: int
@@ -78,19 +88,42 @@ class InlineResponse2009(object):
     def code(self, code):
         """Sets the code of this InlineResponse2009.
 
+        Status code, 200 = success  # noqa: E501
 
         :param code: The code of this InlineResponse2009.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
+
+    @property
+    def label(self):
+        """Gets the label of this InlineResponse2009.  # noqa: E501
+
+        Status label  # noqa: E501
+
+        :return: The label of this InlineResponse2009.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse2009.
+
+        Status label  # noqa: E501
+
+        :param label: The label of this InlineResponse2009.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
 
     @property
     def message(self):
         """Gets the message of this InlineResponse2009.  # noqa: E501
 
+        Status message  # noqa: E501
 
         :return: The message of this InlineResponse2009.  # noqa: E501
         :rtype: str
@@ -101,14 +134,36 @@ class InlineResponse2009(object):
     def message(self, message):
         """Sets the message of this InlineResponse2009.
 
+        Status message  # noqa: E501
 
         :param message: The message of this InlineResponse2009.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and message is None:  # noqa: E501
-            raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this InlineResponse2009.  # noqa: E501
+
+        Request ID  # noqa: E501
+
+        :return: The request_id of this InlineResponse2009.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this InlineResponse2009.
+
+        Request ID  # noqa: E501
+
+        :param request_id: The request_id of this InlineResponse2009.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
 
     @property
     def data(self):
@@ -128,33 +183,8 @@ class InlineResponse2009(object):
         :param data: The data of this InlineResponse2009.  # noqa: E501
         :type: InlineResponse2009Data
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
-
-    @property
-    def timestamp(self):
-        """Gets the timestamp of this InlineResponse2009.  # noqa: E501
-
-
-        :return: The timestamp of this InlineResponse2009.  # noqa: E501
-        :rtype: int
-        """
-        return self._timestamp
-
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this InlineResponse2009.
-
-
-        :param timestamp: The timestamp of this InlineResponse2009.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
-            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
-
-        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -1480,7 +1480,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **amend_options_order**
-> OptionsOrder amend_options_order(order_id, inline_object1)
+> OptionsOrder amend_options_order(order_id, amend_options_order_request)
 
 Option Order Modification
 
@@ -1511,11 +1511,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.OptionsApi(api_client)
 order_id = 12345 # int | Order ID returned when order is successfully created
-inline_object1 = gate_api.InlineObject1() # InlineObject1 | 
+amend_options_order_request = gate_api.AmendOptionsOrderRequest() # AmendOptionsOrderRequest | 
 
 try:
     # Option Order Modification
-    api_response = api_instance.amend_options_order(order_id, inline_object1)
+    api_response = api_instance.amend_options_order(order_id, amend_options_order_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1528,7 +1528,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **int**| Order ID returned when order is successfully created | 
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **amend_options_order_request** | [**AmendOptionsOrderRequest**](AmendOptionsOrderRequest.md)|  | 
 
 ### Return type
 

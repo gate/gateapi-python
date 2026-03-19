@@ -1,19 +1,11 @@
 # InlineResponse2006Data
 
+Returned when code=0; empty object {} otherwise
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | BUY (on-ramp) or SELL (off-ramp) | 
-**pay_coin** | **str** | Payment currency | 
-**get_coin** | **str** | Currency | 
-**pay_amount** | **str** | Payment amount | 
-**get_amount** | **str** | Redemption Amount | 
-**rate** | **str** | Exchange rate | 
-**rate_reci** | **str** | Reciprocal of the exchange rate | 
-**promotion_code** | **str** | Promotion code | 
-**side** | **str** | Quote method | 
-**order_type** | **str** | Order type: FIAT (fiat) / STABLE (stablecoin) | 
-**quote_token** | **str** | Quote token required when placing an order | 
+**next_page** | **bool** | Whether there is a next page. &#x60;true&#x60; means more data is available. Pass the &#x60;id&#x60; of the last record as &#x60;last_id&#x60; and &#x60;expire_time_order_by&#x60; as &#x60;expire_time&#x60; in the next request | [optional] 
+**list** | [**list[InlineResponse2006DataList]**](InlineResponse2006DataList.md) | Coupon object array, see field details below | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

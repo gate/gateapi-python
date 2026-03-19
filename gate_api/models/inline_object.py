@@ -33,78 +33,49 @@ class InlineObject(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'mode': 'str',
-        'contract': 'str'
+        'order_id': 'str'
     }
 
     attribute_map = {
-        'mode': 'mode',
-        'contract': 'contract'
+        'order_id': 'order_id'
     }
 
-    def __init__(self, mode=None, contract=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, order_id=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, Configuration) -> None
         """InlineObject - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._mode = None
-        self._contract = None
+        self._order_id = None
         self.discriminator = None
 
-        self.mode = mode
-        self.contract = contract
+        self.order_id = order_id
 
     @property
-    def mode(self):
-        """Gets the mode of this InlineObject.  # noqa: E501
+    def order_id(self):
+        """Gets the order_id of this InlineObject.  # noqa: E501
 
-        Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin  # noqa: E501
+        Order ID  # noqa: E501
 
-        :return: The mode of this InlineObject.  # noqa: E501
+        :return: The order_id of this InlineObject.  # noqa: E501
         :rtype: str
         """
-        return self._mode
+        return self._order_id
 
-    @mode.setter
-    def mode(self, mode):
-        """Sets the mode of this InlineObject.
+    @order_id.setter
+    def order_id(self, order_id):
+        """Sets the order_id of this InlineObject.
 
-        Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin  # noqa: E501
+        Order ID  # noqa: E501
 
-        :param mode: The mode of this InlineObject.  # noqa: E501
+        :param order_id: The order_id of this InlineObject.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and mode is None:  # noqa: E501
-            raise ValueError("Invalid value for `mode`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
-        self._mode = mode
-
-    @property
-    def contract(self):
-        """Gets the contract of this InlineObject.  # noqa: E501
-
-        Futures market  # noqa: E501
-
-        :return: The contract of this InlineObject.  # noqa: E501
-        :rtype: str
-        """
-        return self._contract
-
-    @contract.setter
-    def contract(self, contract):
-        """Sets the contract of this InlineObject.
-
-        Futures market  # noqa: E501
-
-        :param contract: The contract of this InlineObject.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and contract is None:  # noqa: E501
-            raise ValueError("Invalid value for `contract`, must not be `None`")  # noqa: E501
-
-        self._contract = contract
+        self._order_id = order_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

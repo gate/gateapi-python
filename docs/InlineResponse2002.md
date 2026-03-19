@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** | Status code, 0 means success | [optional] 
-**message** | **str** | Response message | [optional] 
-**data** | [**InlineResponse200**](InlineResponse200.md) |  | [optional] 
-**timestamp** | **int** | Response timestamp (milliseconds) | [optional] 
+**code** | **int** | Return code, 0 means success | 
+**message** | **str** | Response message | 
+**data** | [**InlineResponse2002Data**](InlineResponse2002Data.md) |  | 
+**timestamp** | **int** | Response timestamp (in seconds) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

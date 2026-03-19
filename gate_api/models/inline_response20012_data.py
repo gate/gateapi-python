@@ -33,137 +33,50 @@ class InlineResponse20012Data(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'total': 'int',
+        'list': 'list[InlineResponse20012DataList]',
+        'page': 'int',
         'page_size': 'int',
-        'page_number': 'int',
-        'total_page': 'int',
-        'list': 'list[InlineResponse20012DataList]'
+        'page_count': 'int',
+        'total_count': 'int',
+        'url': 'str'
     }
 
     attribute_map = {
-        'total': 'total',
-        'page_size': 'page_size',
-        'page_number': 'page_number',
-        'total_page': 'total_page',
-        'list': 'list'
+        'list': 'list',
+        'page': 'page',
+        'page_size': 'pageSize',
+        'page_count': 'pageCount',
+        'total_count': 'totalCount',
+        'url': 'url'
     }
 
-    def __init__(self, total=None, page_size=None, page_number=None, total_page=None, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, int, list[InlineResponse20012DataList], Configuration) -> None
+    def __init__(self, list=None, page=None, page_size=None, page_count=None, total_count=None, url=None, local_vars_configuration=None):  # noqa: E501
+        # type: (list[InlineResponse20012DataList], int, int, int, int, str, Configuration) -> None
         """InlineResponse20012Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._total = None
-        self._page_size = None
-        self._page_number = None
-        self._total_page = None
         self._list = None
+        self._page = None
+        self._page_size = None
+        self._page_count = None
+        self._total_count = None
+        self._url = None
         self.discriminator = None
 
-        self.total = total
-        self.page_size = page_size
-        self.page_number = page_number
-        self.total_page = total_page
         self.list = list
-
-    @property
-    def total(self):
-        """Gets the total of this InlineResponse20012Data.  # noqa: E501
-
-
-        :return: The total of this InlineResponse20012Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._total
-
-    @total.setter
-    def total(self, total):
-        """Sets the total of this InlineResponse20012Data.
-
-
-        :param total: The total of this InlineResponse20012Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
-            raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
-
-        self._total = total
-
-    @property
-    def page_size(self):
-        """Gets the page_size of this InlineResponse20012Data.  # noqa: E501
-
-
-        :return: The page_size of this InlineResponse20012Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_size
-
-    @page_size.setter
-    def page_size(self, page_size):
-        """Sets the page_size of this InlineResponse20012Data.
-
-
-        :param page_size: The page_size of this InlineResponse20012Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and page_size is None:  # noqa: E501
-            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
-
-        self._page_size = page_size
-
-    @property
-    def page_number(self):
-        """Gets the page_number of this InlineResponse20012Data.  # noqa: E501
-
-
-        :return: The page_number of this InlineResponse20012Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._page_number
-
-    @page_number.setter
-    def page_number(self, page_number):
-        """Sets the page_number of this InlineResponse20012Data.
-
-
-        :param page_number: The page_number of this InlineResponse20012Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and page_number is None:  # noqa: E501
-            raise ValueError("Invalid value for `page_number`, must not be `None`")  # noqa: E501
-
-        self._page_number = page_number
-
-    @property
-    def total_page(self):
-        """Gets the total_page of this InlineResponse20012Data.  # noqa: E501
-
-
-        :return: The total_page of this InlineResponse20012Data.  # noqa: E501
-        :rtype: int
-        """
-        return self._total_page
-
-    @total_page.setter
-    def total_page(self, total_page):
-        """Sets the total_page of this InlineResponse20012Data.
-
-
-        :param total_page: The total_page of this InlineResponse20012Data.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and total_page is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_page`, must not be `None`")  # noqa: E501
-
-        self._total_page = total_page
+        self.page = page
+        self.page_size = page_size
+        self.page_count = page_count
+        self.total_count = total_count
+        self.url = url
 
     @property
     def list(self):
         """Gets the list of this InlineResponse20012Data.  # noqa: E501
 
+        Activity list  # noqa: E501
 
         :return: The list of this InlineResponse20012Data.  # noqa: E501
         :rtype: list[InlineResponse20012DataList]
@@ -174,6 +87,7 @@ class InlineResponse20012Data(object):
     def list(self, list):
         """Sets the list of this InlineResponse20012Data.
 
+        Activity list  # noqa: E501
 
         :param list: The list of this InlineResponse20012Data.  # noqa: E501
         :type: list[InlineResponse20012DataList]
@@ -182,6 +96,131 @@ class InlineResponse20012Data(object):
             raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
+
+    @property
+    def page(self):
+        """Gets the page of this InlineResponse20012Data.  # noqa: E501
+
+        Current page number  # noqa: E501
+
+        :return: The page of this InlineResponse20012Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._page
+
+    @page.setter
+    def page(self, page):
+        """Sets the page of this InlineResponse20012Data.
+
+        Current page number  # noqa: E501
+
+        :param page: The page of this InlineResponse20012Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and page is None:  # noqa: E501
+            raise ValueError("Invalid value for `page`, must not be `None`")  # noqa: E501
+
+        self._page = page
+
+    @property
+    def page_size(self):
+        """Gets the page_size of this InlineResponse20012Data.  # noqa: E501
+
+        Items per page  # noqa: E501
+
+        :return: The page_size of this InlineResponse20012Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_size
+
+    @page_size.setter
+    def page_size(self, page_size):
+        """Sets the page_size of this InlineResponse20012Data.
+
+        Items per page  # noqa: E501
+
+        :param page_size: The page_size of this InlineResponse20012Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and page_size is None:  # noqa: E501
+            raise ValueError("Invalid value for `page_size`, must not be `None`")  # noqa: E501
+
+        self._page_size = page_size
+
+    @property
+    def page_count(self):
+        """Gets the page_count of this InlineResponse20012Data.  # noqa: E501
+
+        Total pages  # noqa: E501
+
+        :return: The page_count of this InlineResponse20012Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_count
+
+    @page_count.setter
+    def page_count(self, page_count):
+        """Sets the page_count of this InlineResponse20012Data.
+
+        Total pages  # noqa: E501
+
+        :param page_count: The page_count of this InlineResponse20012Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and page_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `page_count`, must not be `None`")  # noqa: E501
+
+        self._page_count = page_count
+
+    @property
+    def total_count(self):
+        """Gets the total_count of this InlineResponse20012Data.  # noqa: E501
+
+        Total Records  # noqa: E501
+
+        :return: The total_count of this InlineResponse20012Data.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_count
+
+    @total_count.setter
+    def total_count(self, total_count):
+        """Sets the total_count of this InlineResponse20012Data.
+
+        Total Records  # noqa: E501
+
+        :param total_count: The total_count of this InlineResponse20012Data.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and total_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_count`, must not be `None`")  # noqa: E501
+
+        self._total_count = total_count
+
+    @property
+    def url(self):
+        """Gets the url of this InlineResponse20012Data.  # noqa: E501
+
+        Activity Center page link  # noqa: E501
+
+        :return: The url of this InlineResponse20012Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this InlineResponse20012Data.
+
+        Activity Center page link  # noqa: E501
+
+        :param url: The url of this InlineResponse20012Data.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
+
+        self._url = url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

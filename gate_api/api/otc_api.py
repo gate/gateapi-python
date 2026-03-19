@@ -54,7 +54,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2006
+        :rtype: gate_api.OtcQuoteResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -81,7 +81,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcQuoteResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -146,7 +146,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='OtcQuoteResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -172,7 +172,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2007
+        :rtype: gate_api.OtcActionResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -199,7 +199,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -264,7 +264,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='OtcActionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -290,7 +290,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2008
+        :rtype: gate_api.OtcStableCoinOrderCreateResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -317,7 +317,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcStableCoinOrderCreateResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -382,7 +382,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='OtcStableCoinOrderCreateResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -407,7 +407,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2009
+        :rtype: gate_api.OtcUserDefaultBankResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -433,7 +433,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcUserDefaultBankResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -487,7 +487,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='OtcUserDefaultBankResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -512,7 +512,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20010
+        :rtype: gate_api.OtcBankListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -538,7 +538,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcBankListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -592,7 +592,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='OtcBankListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -618,7 +618,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2007
+        :rtype: gate_api.OtcActionResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -645,7 +645,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -710,7 +710,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='OtcActionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -736,7 +736,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2007
+        :rtype: gate_api.OtcActionResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -763,7 +763,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -824,7 +824,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='OtcActionResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -857,7 +857,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20011
+        :rtype: gate_api.OtcOrderListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -891,7 +891,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcOrderListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -969,7 +969,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='OtcOrderListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1000,7 +1000,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20012
+        :rtype: gate_api.OtcStableCoinOrderListResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1032,7 +1032,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcStableCoinOrderListResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1104,7 +1104,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='OtcStableCoinOrderListResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1130,7 +1130,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse20013
+        :rtype: gate_api.OtcOrderDetailResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1157,7 +1157,7 @@ class OTCApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.OtcOrderDetailResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1218,7 +1218,7 @@ class OTCApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='OtcOrderDetailResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

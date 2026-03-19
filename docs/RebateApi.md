@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**rebate_broker_transaction_history**](RebateApi.md#rebate_broker_transaction_history) | **GET** /rebate/broker/transaction_history | Broker obtains user&#39;s trading history
 [**rebate_user_info**](RebateApi.md#rebate_user_info) | **GET** /rebate/user/info | User obtains rebate information
 [**user_sub_relation**](RebateApi.md#user_sub_relation) | **GET** /rebate/user/sub_relation | User subordinate relationship
+[**get_partner_application_recent**](RebateApi.md#get_partner_application_recent) | **GET** /rebate/partner/applications/recent | Get recent partner application records
+[**get_partner_eligibility**](RebateApi.md#get_partner_eligibility) | **GET** /rebate/partner/eligibility | Check partner application eligibility
 
 
 # **agency_transaction_history**
@@ -484,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rebate_broker_transaction_history**
-> list[BrokerTransaction] rebate_broker_transaction_history(limit=limit, offset=offset, user_id=user_id, _from=_from, to=to)
+> list[BrokerTransactionHistory] rebate_broker_transaction_history(limit=limit, offset=offset, user_id=user_id, _from=_from, to=to)
 
 Broker obtains user's trading history
 
@@ -542,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[BrokerTransaction]**](BrokerTransaction.md)
+[**list[BrokerTransactionHistory]**](BrokerTransactionHistory.md)
 
 ### Authorization
 
@@ -689,6 +691,136 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_partner_application_recent**
+> PartnerApplicationResponse get_partner_application_recent()
+
+Get recent partner application records
+
+获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+
+try:
+    # Get recent partner application records
+    api_response = api_instance.get_partner_application_recent()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->get_partner_application_recent: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PartnerApplicationResponse**](PartnerApplicationResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_partner_eligibility**
+> EligibilityResponse get_partner_eligibility()
+
+Check partner application eligibility
+
+检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+
+try:
+    # Check partner application eligibility
+    api_response = api_instance.get_partner_eligibility()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->get_partner_eligibility: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EligibilityResponse**](EligibilityResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
