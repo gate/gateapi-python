@@ -33,6 +33,7 @@ class UnifiedAccount(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'mode': 'str',
         'user_id': 'int',
         'refresh_time': 'int',
         'locked': 'bool',
@@ -57,6 +58,7 @@ class UnifiedAccount(object):
     }
 
     attribute_map = {
+        'mode': 'mode',
         'user_id': 'user_id',
         'refresh_time': 'refresh_time',
         'locked': 'locked',
@@ -80,13 +82,14 @@ class UnifiedAccount(object):
         'is_all_collateral': 'is_all_collateral'
     }
 
-    def __init__(self, user_id=None, refresh_time=None, locked=None, balances=None, total=None, borrowed=None, total_initial_margin=None, total_margin_balance=None, total_maintenance_margin=None, total_initial_margin_rate=None, total_maintenance_margin_rate=None, total_available_margin=None, unified_account_total=None, unified_account_total_liab=None, unified_account_total_equity=None, leverage=None, spot_order_loss=None, options_order_loss=None, spot_hedge=None, use_funding=None, is_all_collateral=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, bool, dict(str, UnifiedBalance), str, str, str, str, str, str, str, str, str, str, str, str, str, str, bool, bool, bool, Configuration) -> None
+    def __init__(self, mode=None, user_id=None, refresh_time=None, locked=None, balances=None, total=None, borrowed=None, total_initial_margin=None, total_margin_balance=None, total_maintenance_margin=None, total_initial_margin_rate=None, total_maintenance_margin_rate=None, total_available_margin=None, unified_account_total=None, unified_account_total_liab=None, unified_account_total_equity=None, leverage=None, spot_order_loss=None, options_order_loss=None, spot_hedge=None, use_funding=None, is_all_collateral=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, int, bool, dict(str, UnifiedBalance), str, str, str, str, str, str, str, str, str, str, str, str, str, str, bool, bool, bool, Configuration) -> None
         """UnifiedAccount - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._mode = None
         self._user_id = None
         self._refresh_time = None
         self._locked = None
@@ -110,6 +113,8 @@ class UnifiedAccount(object):
         self._is_all_collateral = None
         self.discriminator = None
 
+        if mode is not None:
+            self.mode = mode
         if user_id is not None:
             self.user_id = user_id
         if refresh_time is not None:
@@ -152,6 +157,29 @@ class UnifiedAccount(object):
             self.use_funding = use_funding
         if is_all_collateral is not None:
             self.is_all_collateral = is_all_collateral
+
+    @property
+    def mode(self):
+        """Gets the mode of this UnifiedAccount.  # noqa: E501
+
+        Unified account mode: - classic: Classic account mode - multi_currency: Multi-currency margin mode - portfolio: Portfolio margin mode - single_currency: Single-currency margin mode  # noqa: E501
+
+        :return: The mode of this UnifiedAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        """Sets the mode of this UnifiedAccount.
+
+        Unified account mode: - classic: Classic account mode - multi_currency: Multi-currency margin mode - portfolio: Portfolio margin mode - single_currency: Single-currency margin mode  # noqa: E501
+
+        :param mode: The mode of this UnifiedAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._mode = mode
 
     @property
     def user_id(self):
@@ -293,7 +321,7 @@ class UnifiedAccount(object):
     def total_initial_margin(self):
         """Gets the total_initial_margin of this UnifiedAccount.  # noqa: E501
 
-        Total initial margin, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total initial margin (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :return: The total_initial_margin of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -304,7 +332,7 @@ class UnifiedAccount(object):
     def total_initial_margin(self, total_initial_margin):
         """Sets the total_initial_margin of this UnifiedAccount.
 
-        Total initial margin, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total initial margin (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :param total_initial_margin: The total_initial_margin of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -316,7 +344,7 @@ class UnifiedAccount(object):
     def total_margin_balance(self):
         """Gets the total_margin_balance of this UnifiedAccount.  # noqa: E501
 
-        Total margin balance, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total margin balance (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :return: The total_margin_balance of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -327,7 +355,7 @@ class UnifiedAccount(object):
     def total_margin_balance(self, total_margin_balance):
         """Sets the total_margin_balance of this UnifiedAccount.
 
-        Total margin balance, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total margin balance (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :param total_margin_balance: The total_margin_balance of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -339,7 +367,7 @@ class UnifiedAccount(object):
     def total_maintenance_margin(self):
         """Gets the total_maintenance_margin of this UnifiedAccount.  # noqa: E501
 
-        Total maintenance margin is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total maintenance margin (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :return: The total_maintenance_margin of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -350,7 +378,7 @@ class UnifiedAccount(object):
     def total_maintenance_margin(self, total_maintenance_margin):
         """Sets the total_maintenance_margin of this UnifiedAccount.
 
-        Total maintenance margin is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total maintenance margin (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :param total_maintenance_margin: The total_maintenance_margin of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -362,7 +390,7 @@ class UnifiedAccount(object):
     def total_initial_margin_rate(self):
         """Gets the total_initial_margin_rate of this UnifiedAccount.  # noqa: E501
 
-        Total initial margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total initial margin rate (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :return: The total_initial_margin_rate of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -373,7 +401,7 @@ class UnifiedAccount(object):
     def total_initial_margin_rate(self, total_initial_margin_rate):
         """Sets the total_initial_margin_rate of this UnifiedAccount.
 
-        Total initial margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total initial margin rate (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :param total_initial_margin_rate: The total_initial_margin_rate of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -385,7 +413,7 @@ class UnifiedAccount(object):
     def total_maintenance_margin_rate(self):
         """Gets the total_maintenance_margin_rate of this UnifiedAccount.  # noqa: E501
 
-        Total maintenance margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total maintenance margin rate (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :return: The total_maintenance_margin_rate of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -396,7 +424,7 @@ class UnifiedAccount(object):
     def total_maintenance_margin_rate(self, total_maintenance_margin_rate):
         """Sets the total_maintenance_margin_rate of this UnifiedAccount.
 
-        Total maintenance margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total maintenance margin rate (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :param total_maintenance_margin_rate: The total_maintenance_margin_rate of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -431,7 +459,7 @@ class UnifiedAccount(object):
     def unified_account_total(self):
         """Gets the unified_account_total of this UnifiedAccount.  # noqa: E501
 
-        Total unified account assets, valid in single currency margin/cross-currency margin/combined margin mode  # noqa: E501
+        Total unified account assets, includes both cross and isolated total assets in single-currency/multi-currency mode, only cross total assets in portfolio margin mode  # noqa: E501
 
         :return: The unified_account_total of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -442,7 +470,7 @@ class UnifiedAccount(object):
     def unified_account_total(self, unified_account_total):
         """Sets the unified_account_total of this UnifiedAccount.
 
-        Total unified account assets, valid in single currency margin/cross-currency margin/combined margin mode  # noqa: E501
+        Total unified account assets, includes both cross and isolated total assets in single-currency/multi-currency mode, only cross total assets in portfolio margin mode  # noqa: E501
 
         :param unified_account_total: The unified_account_total of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -454,7 +482,7 @@ class UnifiedAccount(object):
     def unified_account_total_liab(self):
         """Gets the unified_account_total_liab of this UnifiedAccount.  # noqa: E501
 
-        Total unified account borrowed amount, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total unified account borrowed, i.e. total cross borrowed, effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :return: The unified_account_total_liab of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -465,7 +493,7 @@ class UnifiedAccount(object):
     def unified_account_total_liab(self, unified_account_total_liab):
         """Sets the unified_account_total_liab of this UnifiedAccount.
 
-        Total unified account borrowed amount, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode  # noqa: E501
+        Total unified account borrowed, i.e. total cross borrowed, effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode  # noqa: E501
 
         :param unified_account_total_liab: The unified_account_total_liab of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -477,7 +505,7 @@ class UnifiedAccount(object):
     def unified_account_total_equity(self):
         """Gets the unified_account_total_equity of this UnifiedAccount.  # noqa: E501
 
-        Total unified account equity, valid in single currency margin/cross-currency margin/combined margin mode  # noqa: E501
+        Total unified account equity, includes both cross and isolated total equity in single-currency/multi-currency mode, only cross total equity in portfolio margin mode  # noqa: E501
 
         :return: The unified_account_total_equity of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -488,7 +516,7 @@ class UnifiedAccount(object):
     def unified_account_total_equity(self, unified_account_total_equity):
         """Sets the unified_account_total_equity of this UnifiedAccount.
 
-        Total unified account equity, valid in single currency margin/cross-currency margin/combined margin mode  # noqa: E501
+        Total unified account equity, includes both cross and isolated total equity in single-currency/multi-currency mode, only cross total equity in portfolio margin mode  # noqa: E501
 
         :param unified_account_total_equity: The unified_account_total_equity of this UnifiedAccount.  # noqa: E501
         :type: str
@@ -500,7 +528,7 @@ class UnifiedAccount(object):
     def leverage(self):
         """Gets the leverage of this UnifiedAccount.  # noqa: E501
 
-        Actual leverage ratio, valid in cross-currency margin/combined margin mode  # noqa: E501
+        Account leverage multiplier, effective in multi-currency/portfolio margin mode (deprecated). Currency leverage query API: GET /unified/leverage/user_currency_setting  # noqa: E501
 
         :return: The leverage of this UnifiedAccount.  # noqa: E501
         :rtype: str
@@ -511,7 +539,7 @@ class UnifiedAccount(object):
     def leverage(self, leverage):
         """Sets the leverage of this UnifiedAccount.
 
-        Actual leverage ratio, valid in cross-currency margin/combined margin mode  # noqa: E501
+        Account leverage multiplier, effective in multi-currency/portfolio margin mode (deprecated). Currency leverage query API: GET /unified/leverage/user_currency_setting  # noqa: E501
 
         :param leverage: The leverage of this UnifiedAccount.  # noqa: E501
         :type: str

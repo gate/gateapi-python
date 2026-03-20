@@ -52,7 +52,8 @@ class UnifiedBalance(object):
         'mmr': 'str',
         'margin_balance': 'str',
         'available_margin': 'str',
-        'enabled_collateral': 'bool'
+        'enabled_collateral': 'bool',
+        'balance_version': 'float'
     }
 
     attribute_map = {
@@ -75,11 +76,12 @@ class UnifiedBalance(object):
         'mmr': 'mmr',
         'margin_balance': 'margin_balance',
         'available_margin': 'available_margin',
-        'enabled_collateral': 'enabled_collateral'
+        'enabled_collateral': 'enabled_collateral',
+        'balance_version': 'balance_version'
     }
 
-    def __init__(self, available=None, freeze=None, borrowed=None, negative_liab=None, futures_pos_liab=None, equity=None, total_freeze=None, total_liab=None, spot_in_use=None, funding=None, funding_version=None, cross_balance=None, iso_balance=None, im=None, mm=None, imr=None, mmr=None, margin_balance=None, available_margin=None, enabled_collateral=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, bool, Configuration) -> None
+    def __init__(self, available=None, freeze=None, borrowed=None, negative_liab=None, futures_pos_liab=None, equity=None, total_freeze=None, total_liab=None, spot_in_use=None, funding=None, funding_version=None, cross_balance=None, iso_balance=None, im=None, mm=None, imr=None, mmr=None, margin_balance=None, available_margin=None, enabled_collateral=None, balance_version=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, bool, float, Configuration) -> None
         """UnifiedBalance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class UnifiedBalance(object):
         self._margin_balance = None
         self._available_margin = None
         self._enabled_collateral = None
+        self._balance_version = None
         self.discriminator = None
 
         if available is not None:
@@ -147,12 +150,14 @@ class UnifiedBalance(object):
             self.available_margin = available_margin
         if enabled_collateral is not None:
             self.enabled_collateral = enabled_collateral
+        if balance_version is not None:
+            self.balance_version = balance_version
 
     @property
     def available(self):
         """Gets the available of this UnifiedBalance.  # noqa: E501
 
-        Available balance, valid in single currency margin/cross-currency margin/combined margin mode, calculation varies by mode  # noqa: E501
+        Cross available balance, deducted futures isolated margin occupation and frozen amount (futures isolated occupation, i.e. futures isolated balance), effective in single-currency/multi-currency/portfolio margin mode.  # noqa: E501
 
         :return: The available of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -163,7 +168,7 @@ class UnifiedBalance(object):
     def available(self, available):
         """Sets the available of this UnifiedBalance.
 
-        Available balance, valid in single currency margin/cross-currency margin/combined margin mode, calculation varies by mode  # noqa: E501
+        Cross available balance, deducted futures isolated margin occupation and frozen amount (futures isolated occupation, i.e. futures isolated balance), effective in single-currency/multi-currency/portfolio margin mode.  # noqa: E501
 
         :param available: The available of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -175,7 +180,7 @@ class UnifiedBalance(object):
     def freeze(self):
         """Gets the freeze of this UnifiedBalance.  # noqa: E501
 
-        Locked balance, valid in single currency margin/cross-currency margin/combined margin mode  # noqa: E501
+        Frozen amount, effective in single-currency/multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The freeze of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -186,7 +191,7 @@ class UnifiedBalance(object):
     def freeze(self, freeze):
         """Sets the freeze of this UnifiedBalance.
 
-        Locked balance, valid in single currency margin/cross-currency margin/combined margin mode  # noqa: E501
+        Frozen amount, effective in single-currency/multi-currency/portfolio margin mode  # noqa: E501
 
         :param freeze: The freeze of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -267,7 +272,7 @@ class UnifiedBalance(object):
     def equity(self):
         """Gets the equity of this UnifiedBalance.  # noqa: E501
 
-        Equity, valid in single currency margin/cross currency margin/combined margin mode  # noqa: E501
+        Currency equity amount (cross), effective in single-currency/multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The equity of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -278,7 +283,7 @@ class UnifiedBalance(object):
     def equity(self, equity):
         """Sets the equity of this UnifiedBalance.
 
-        Equity, valid in single currency margin/cross currency margin/combined margin mode  # noqa: E501
+        Currency equity amount (cross), effective in single-currency/multi-currency/portfolio margin mode  # noqa: E501
 
         :param equity: The equity of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -428,7 +433,7 @@ class UnifiedBalance(object):
     def iso_balance(self):
         """Gets the iso_balance of this UnifiedBalance.  # noqa: E501
 
-        Isolated Margin Balance applies to Single-Currency Margin Mode and Cross-Currency Margin Mode, and is 0 in other modes such as Portfolio Margin Mode.  # noqa: E501
+        Futures isolated balance, effective in single-currency and multi-currency margin mode, 0 in portfolio margin mode  # noqa: E501
 
         :return: The iso_balance of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -439,7 +444,7 @@ class UnifiedBalance(object):
     def iso_balance(self, iso_balance):
         """Sets the iso_balance of this UnifiedBalance.
 
-        Isolated Margin Balance applies to Single-Currency Margin Mode and Cross-Currency Margin Mode, and is 0 in other modes such as Portfolio Margin Mode.  # noqa: E501
+        Futures isolated balance, effective in single-currency and multi-currency margin mode, 0 in portfolio margin mode  # noqa: E501
 
         :param iso_balance: The iso_balance of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -451,7 +456,7 @@ class UnifiedBalance(object):
     def im(self):
         """Gets the im of this UnifiedBalance.  # noqa: E501
 
-        Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross initial margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The im of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -462,7 +467,7 @@ class UnifiedBalance(object):
     def im(self, im):
         """Sets the im of this UnifiedBalance.
 
-        Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross initial margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :param im: The im of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -474,7 +479,7 @@ class UnifiedBalance(object):
     def mm(self):
         """Gets the mm of this UnifiedBalance.  # noqa: E501
 
-        Cross margin maintenance margin, valid in single-currency margin mode, 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross maintenance margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The mm of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -485,7 +490,7 @@ class UnifiedBalance(object):
     def mm(self, mm):
         """Sets the mm of this UnifiedBalance.
 
-        Cross margin maintenance margin, valid in single-currency margin mode, 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross maintenance margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :param mm: The mm of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -497,7 +502,7 @@ class UnifiedBalance(object):
     def imr(self):
         """Gets the imr of this UnifiedBalance.  # noqa: E501
 
-        Full-position initial margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross initial margin rate, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The imr of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -508,7 +513,7 @@ class UnifiedBalance(object):
     def imr(self, imr):
         """Sets the imr of this UnifiedBalance.
 
-        Full-position initial margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross initial margin rate, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :param imr: The imr of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -520,7 +525,7 @@ class UnifiedBalance(object):
     def mmr(self):
         """Gets the mmr of this UnifiedBalance.  # noqa: E501
 
-        Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross maintenance margin rate, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The mmr of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -531,7 +536,7 @@ class UnifiedBalance(object):
     def mmr(self, mmr):
         """Sets the mmr of this UnifiedBalance.
 
-        Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross maintenance margin rate, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :param mmr: The mmr of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -543,7 +548,7 @@ class UnifiedBalance(object):
     def margin_balance(self):
         """Gets the margin_balance of this UnifiedBalance.  # noqa: E501
 
-        Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode  # noqa: E501
+        Cross margin balance, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The margin_balance of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -554,7 +559,7 @@ class UnifiedBalance(object):
     def margin_balance(self, margin_balance):
         """Sets the margin_balance of this UnifiedBalance.
 
-        Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode  # noqa: E501
+        Cross margin balance, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :param margin_balance: The margin_balance of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -566,7 +571,7 @@ class UnifiedBalance(object):
     def available_margin(self):
         """Gets the available_margin of this UnifiedBalance.  # noqa: E501
 
-        Cross margin available balance, valid in single currency margin mode, 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross available margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :return: The available_margin of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -577,7 +582,7 @@ class UnifiedBalance(object):
     def available_margin(self, available_margin):
         """Sets the available_margin of this UnifiedBalance.
 
-        Cross margin available balance, valid in single currency margin mode, 0 in other modes such as cross-currency margin/combined margin mode  # noqa: E501
+        Cross available margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode  # noqa: E501
 
         :param available_margin: The available_margin of this UnifiedBalance.  # noqa: E501
         :type: str
@@ -607,6 +612,29 @@ class UnifiedBalance(object):
         """
 
         self._enabled_collateral = enabled_collateral
+
+    @property
+    def balance_version(self):
+        """Gets the balance_version of this UnifiedBalance.  # noqa: E501
+
+        Balance version number  # noqa: E501
+
+        :return: The balance_version of this UnifiedBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._balance_version
+
+    @balance_version.setter
+    def balance_version(self, balance_version):
+        """Sets the balance_version of this UnifiedBalance.
+
+        Balance version number  # noqa: E501
+
+        :param balance_version: The balance_version of this UnifiedBalance.  # noqa: E501
+        :type: float
+        """
+
+        self._balance_version = balance_version
 
     def to_dict(self):
         """Returns the model properties as a dict"""
