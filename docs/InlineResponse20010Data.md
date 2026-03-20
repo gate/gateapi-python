@@ -1,11 +1,9 @@
-# InlineResponse2006DataHelpUrl
+# InlineResponse20010Data
 
-Help Center Link
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**web** | **str** | Web Help Link | [optional] 
-**app** | **str** | App Help Link | [optional] 
+**list** | [**list[InlineResponse20010DataList]**](InlineResponse20010DataList.md) | Live stream/replay list | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

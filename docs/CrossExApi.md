@@ -713,7 +713,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_crossex_convert_order**
-> object create_crossex_convert_order(crossex_convert_order_request=crossex_convert_order_request)
+> CrossexConvertOrderResponse create_crossex_convert_order(crossex_convert_order_request=crossex_convert_order_request)
 
 Flash Swap Transaction
 
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**CrossexConvertOrderResponse**](CrossexConvertOrderResponse.md)
 
 ### Authorization
 
@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_fee**
-> CrossexFee get_crossex_fee()
+> list[InlineResponse2006] get_crossex_fee()
 
 Query User Fee Rates
 
@@ -1382,7 +1382,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CrossexFee**](CrossexFee.md)
+[**list[InlineResponse2006]**](InlineResponse2006.md)
 
 ### Authorization
 

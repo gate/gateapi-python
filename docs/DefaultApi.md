@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_my_activity_entry**
-> InlineResponse20011 get_my_activity_entry()
+> InlineResponse20012 get_my_activity_entry()
 
 My activity entry
 
@@ -56,7 +56,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_activities**
-> InlineResponse20012 list_activities(recommend_type=recommend_type, type_ids=type_ids, keywords=keywords, page=page, page_size=page_size, sort_by=sort_by)
+> InlineResponse20013 list_activities(recommend_type=recommend_type, type_ids=type_ids, keywords=keywords, page=page, page_size=page_size, sort_by=sort_by)
 
 Recommended activity list
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_activity_types**
-> InlineResponse20013 list_activity_types()
+> InlineResponse20014 list_activity_types()
 
 Activity type list
 
@@ -191,7 +191,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 

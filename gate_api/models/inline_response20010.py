@@ -33,48 +33,158 @@ class InlineResponse20010(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'success': 'bool'
+        'code': 'int',
+        'label': 'str',
+        'message': 'str',
+        'request_id': 'str',
+        'data': 'InlineResponse20010Data'
     }
 
     attribute_map = {
-        'success': 'success'
+        'code': 'code',
+        'label': 'label',
+        'message': 'message',
+        'request_id': 'request_id',
+        'data': 'data'
     }
 
-    def __init__(self, success=None, local_vars_configuration=None):  # noqa: E501
-        # type: (bool, Configuration) -> None
+    def __init__(self, code=None, label=None, message=None, request_id=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, InlineResponse20010Data, Configuration) -> None
         """InlineResponse20010 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._success = None
+        self._code = None
+        self._label = None
+        self._message = None
+        self._request_id = None
+        self._data = None
         self.discriminator = None
 
-        if success is not None:
-            self.success = success
+        if code is not None:
+            self.code = code
+        if label is not None:
+            self.label = label
+        if message is not None:
+            self.message = message
+        if request_id is not None:
+            self.request_id = request_id
+        if data is not None:
+            self.data = data
 
     @property
-    def success(self):
-        """Gets the success of this InlineResponse20010.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse20010.  # noqa: E501
 
-        Whether redemption was successful  # noqa: E501
+        Status code, 200 = success  # noqa: E501
 
-        :return: The success of this InlineResponse20010.  # noqa: E501
-        :rtype: bool
+        :return: The code of this InlineResponse20010.  # noqa: E501
+        :rtype: int
         """
-        return self._success
+        return self._code
 
-    @success.setter
-    def success(self, success):
-        """Sets the success of this InlineResponse20010.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse20010.
 
-        Whether redemption was successful  # noqa: E501
+        Status code, 200 = success  # noqa: E501
 
-        :param success: The success of this InlineResponse20010.  # noqa: E501
-        :type: bool
+        :param code: The code of this InlineResponse20010.  # noqa: E501
+        :type: int
         """
 
-        self._success = success
+        self._code = code
+
+    @property
+    def label(self):
+        """Gets the label of this InlineResponse20010.  # noqa: E501
+
+        Status label  # noqa: E501
+
+        :return: The label of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse20010.
+
+        Status label  # noqa: E501
+
+        :param label: The label of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
+
+    @property
+    def message(self):
+        """Gets the message of this InlineResponse20010.  # noqa: E501
+
+        Status message  # noqa: E501
+
+        :return: The message of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this InlineResponse20010.
+
+        Status message  # noqa: E501
+
+        :param message: The message of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
+
+    @property
+    def request_id(self):
+        """Gets the request_id of this InlineResponse20010.  # noqa: E501
+
+        Request ID  # noqa: E501
+
+        :return: The request_id of this InlineResponse20010.  # noqa: E501
+        :rtype: str
+        """
+        return self._request_id
+
+    @request_id.setter
+    def request_id(self, request_id):
+        """Sets the request_id of this InlineResponse20010.
+
+        Request ID  # noqa: E501
+
+        :param request_id: The request_id of this InlineResponse20010.  # noqa: E501
+        :type: str
+        """
+
+        self._request_id = request_id
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The data of this InlineResponse20010.  # noqa: E501
+        :rtype: InlineResponse20010Data
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse20010.
+
+
+        :param data: The data of this InlineResponse20010.  # noqa: E501
+        :type: InlineResponse20010Data
+        """
+
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

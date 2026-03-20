@@ -35,21 +35,19 @@ class InlineResponse2009(object):
     openapi_types = {
         'code': 'int',
         'label': 'str',
-        'message': 'str',
-        'request_id': 'str',
+        'msg': 'str',
         'data': 'InlineResponse2009Data'
     }
 
     attribute_map = {
         'code': 'code',
         'label': 'label',
-        'message': 'message',
-        'request_id': 'request_id',
+        'msg': 'msg',
         'data': 'data'
     }
 
-    def __init__(self, code=None, label=None, message=None, request_id=None, data=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, InlineResponse2009Data, Configuration) -> None
+    def __init__(self, code=None, label=None, msg=None, data=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, InlineResponse2009Data, Configuration) -> None
         """InlineResponse2009 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,8 +55,7 @@ class InlineResponse2009(object):
 
         self._code = None
         self._label = None
-        self._message = None
-        self._request_id = None
+        self._msg = None
         self._data = None
         self.discriminator = None
 
@@ -66,10 +63,8 @@ class InlineResponse2009(object):
             self.code = code
         if label is not None:
             self.label = label
-        if message is not None:
-            self.message = message
-        if request_id is not None:
-            self.request_id = request_id
+        if msg is not None:
+            self.msg = msg
         if data is not None:
             self.data = data
 
@@ -77,7 +72,7 @@ class InlineResponse2009(object):
     def code(self):
         """Gets the code of this InlineResponse2009.  # noqa: E501
 
-        Status code, 200 = success  # noqa: E501
+        Status code, 0 = success  # noqa: E501
 
         :return: The code of this InlineResponse2009.  # noqa: E501
         :rtype: int
@@ -88,7 +83,7 @@ class InlineResponse2009(object):
     def code(self, code):
         """Sets the code of this InlineResponse2009.
 
-        Status code, 200 = success  # noqa: E501
+        Status code, 0 = success  # noqa: E501
 
         :param code: The code of this InlineResponse2009.  # noqa: E501
         :type: int
@@ -100,7 +95,7 @@ class InlineResponse2009(object):
     def label(self):
         """Gets the label of this InlineResponse2009.  # noqa: E501
 
-        Status label  # noqa: E501
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
 
         :return: The label of this InlineResponse2009.  # noqa: E501
         :rtype: str
@@ -111,7 +106,7 @@ class InlineResponse2009(object):
     def label(self, label):
         """Sets the label of this InlineResponse2009.
 
-        Status label  # noqa: E501
+        Error identifier code. Empty string on success, machine-readable error label on error  # noqa: E501
 
         :param label: The label of this InlineResponse2009.  # noqa: E501
         :type: str
@@ -120,50 +115,27 @@ class InlineResponse2009(object):
         self._label = label
 
     @property
-    def message(self):
-        """Gets the message of this InlineResponse2009.  # noqa: E501
+    def msg(self):
+        """Gets the msg of this InlineResponse2009.  # noqa: E501
 
         Status message  # noqa: E501
 
-        :return: The message of this InlineResponse2009.  # noqa: E501
+        :return: The msg of this InlineResponse2009.  # noqa: E501
         :rtype: str
         """
-        return self._message
+        return self._msg
 
-    @message.setter
-    def message(self, message):
-        """Sets the message of this InlineResponse2009.
+    @msg.setter
+    def msg(self, msg):
+        """Sets the msg of this InlineResponse2009.
 
         Status message  # noqa: E501
 
-        :param message: The message of this InlineResponse2009.  # noqa: E501
+        :param msg: The msg of this InlineResponse2009.  # noqa: E501
         :type: str
         """
 
-        self._message = message
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this InlineResponse2009.  # noqa: E501
-
-        Request ID  # noqa: E501
-
-        :return: The request_id of this InlineResponse2009.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this InlineResponse2009.
-
-        Request ID  # noqa: E501
-
-        :param request_id: The request_id of this InlineResponse2009.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
+        self._msg = msg
 
     @property
     def data(self):

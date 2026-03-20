@@ -1106,7 +1106,7 @@ class BatchOrder(object):
     def finish_as(self):
         """Gets the finish_as of this BatchOrder.  # noqa: E501
 
-        订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - poc: 未满足挂单策略，因为 tif 设置为 poc - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知  # noqa: E501
+        订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 ioc - poc: 未满足挂单策略，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知  # noqa: E501
 
         :return: The finish_as of this BatchOrder.  # noqa: E501
         :rtype: str
@@ -1117,7 +1117,7 @@ class BatchOrder(object):
     def finish_as(self, finish_as):
         """Sets the finish_as of this BatchOrder.
 
-        订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - poc: 未满足挂单策略，因为 tif 设置为 poc - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知  # noqa: E501
+        订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 ioc - poc: 未满足挂单策略，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知  # noqa: E501
 
         :param finish_as: The finish_as of this BatchOrder.  # noqa: E501
         :type: str

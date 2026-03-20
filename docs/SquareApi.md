@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list_square_ai_search**
-> InlineResponse2008 list_square_ai_search(keyword=keyword, currency=currency, time_range=time_range, sort=sort, limit=limit, page=page)
+> InlineResponse2009 list_square_ai_search(keyword=keyword, currency=currency, time_range=time_range, sort=sort, limit=limit, page=page)
 
 AI MCP Dynamic Search
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_live_replay**
-> InlineResponse2009 list_live_replay(tag=tag, coin=coin, sort=sort, limit=limit)
+> InlineResponse20010 list_live_replay(tag=tag, coin=coin, sort=sort, limit=limit)
 
 Gate AI Assistant live stream data retrieval
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 

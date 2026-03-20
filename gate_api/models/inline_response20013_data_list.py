@@ -34,33 +34,105 @@ class InlineResponse20013DataList(object):
     """
     openapi_types = {
         'id': 'int',
-        'name': 'str'
+        'type_id': 'int',
+        'type_name': 'str',
+        'competition_name': 'str',
+        'start_at': 'int',
+        'end_at': 'int',
+        'img': 'str',
+        'img_dark': 'str',
+        'url': 'str',
+        'hot': 'int',
+        'master_one_line': 'str',
+        'master_two_line': 'str',
+        'slave_one_line': 'str',
+        'slave_two_line': 'str',
+        'competition_title': 'str',
+        'top_id': 'int',
+        'parent_id': 'int',
+        'new_img': 'str',
+        'new_img_dark': 'str',
+        'tag': 'list[str]'
     }
 
     attribute_map = {
         'id': 'id',
-        'name': 'name'
+        'type_id': 'type_id',
+        'type_name': 'type_name',
+        'competition_name': 'competition_name',
+        'start_at': 'start_at',
+        'end_at': 'end_at',
+        'img': 'img',
+        'img_dark': 'img_dark',
+        'url': 'url',
+        'hot': 'hot',
+        'master_one_line': 'master_one_line',
+        'master_two_line': 'master_two_line',
+        'slave_one_line': 'slave_one_line',
+        'slave_two_line': 'slave_two_line',
+        'competition_title': 'competition_title',
+        'top_id': 'top_id',
+        'parent_id': 'parent_id',
+        'new_img': 'new_img',
+        'new_img_dark': 'new_img_dark',
+        'tag': 'tag'
     }
 
-    def __init__(self, id=None, name=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, Configuration) -> None
+    def __init__(self, id=None, type_id=None, type_name=None, competition_name=None, start_at=None, end_at=None, img=None, img_dark=None, url=None, hot=None, master_one_line=None, master_two_line=None, slave_one_line=None, slave_two_line=None, competition_title=None, top_id=None, parent_id=None, new_img=None, new_img_dark=None, tag=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, str, int, int, str, str, str, int, str, str, str, str, str, int, int, str, str, list[str], Configuration) -> None
         """InlineResponse20013DataList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._name = None
+        self._type_id = None
+        self._type_name = None
+        self._competition_name = None
+        self._start_at = None
+        self._end_at = None
+        self._img = None
+        self._img_dark = None
+        self._url = None
+        self._hot = None
+        self._master_one_line = None
+        self._master_two_line = None
+        self._slave_one_line = None
+        self._slave_two_line = None
+        self._competition_title = None
+        self._top_id = None
+        self._parent_id = None
+        self._new_img = None
+        self._new_img_dark = None
+        self._tag = None
         self.discriminator = None
 
         self.id = id
-        self.name = name
+        self.type_id = type_id
+        self.type_name = type_name
+        self.competition_name = competition_name
+        self.start_at = start_at
+        self.end_at = end_at
+        self.img = img
+        self.img_dark = img_dark
+        self.url = url
+        self.hot = hot
+        self.master_one_line = master_one_line
+        self.master_two_line = master_two_line
+        self.slave_one_line = slave_one_line
+        self.slave_two_line = slave_two_line
+        self.competition_title = competition_title
+        self.top_id = top_id
+        self.parent_id = parent_id
+        self.new_img = new_img
+        self.new_img_dark = new_img_dark
+        self.tag = tag
 
     @property
     def id(self):
         """Gets the id of this InlineResponse20013DataList.  # noqa: E501
 
-        Activity type ID  # noqa: E501
+        Activity ID  # noqa: E501
 
         :return: The id of this InlineResponse20013DataList.  # noqa: E501
         :rtype: int
@@ -71,7 +143,7 @@ class InlineResponse20013DataList(object):
     def id(self, id):
         """Sets the id of this InlineResponse20013DataList.
 
-        Activity type ID  # noqa: E501
+        Activity ID  # noqa: E501
 
         :param id: The id of this InlineResponse20013DataList.  # noqa: E501
         :type: int
@@ -82,29 +154,479 @@ class InlineResponse20013DataList(object):
         self._id = id
 
     @property
-    def name(self):
-        """Gets the name of this InlineResponse20013DataList.  # noqa: E501
+    def type_id(self):
+        """Gets the type_id of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity type ID  # noqa: E501
+
+        :return: The type_id of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: int
+        """
+        return self._type_id
+
+    @type_id.setter
+    def type_id(self, type_id):
+        """Sets the type_id of this InlineResponse20013DataList.
+
+        Activity type ID  # noqa: E501
+
+        :param type_id: The type_id of this InlineResponse20013DataList.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `type_id`, must not be `None`")  # noqa: E501
+
+        self._type_id = type_id
+
+    @property
+    def type_name(self):
+        """Gets the type_name of this InlineResponse20013DataList.  # noqa: E501
 
         Activity type name  # noqa: E501
 
-        :return: The name of this InlineResponse20013DataList.  # noqa: E501
+        :return: The type_name of this InlineResponse20013DataList.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._type_name
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this InlineResponse20013DataList.
+    @type_name.setter
+    def type_name(self, type_name):
+        """Sets the type_name of this InlineResponse20013DataList.
 
         Activity type name  # noqa: E501
 
-        :param name: The name of this InlineResponse20013DataList.  # noqa: E501
+        :param type_name: The type_name of this InlineResponse20013DataList.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `type_name`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._type_name = type_name
+
+    @property
+    def competition_name(self):
+        """Gets the competition_name of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity name  # noqa: E501
+
+        :return: The competition_name of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._competition_name
+
+    @competition_name.setter
+    def competition_name(self, competition_name):
+        """Sets the competition_name of this InlineResponse20013DataList.
+
+        Activity name  # noqa: E501
+
+        :param competition_name: The competition_name of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and competition_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `competition_name`, must not be `None`")  # noqa: E501
+
+        self._competition_name = competition_name
+
+    @property
+    def start_at(self):
+        """Gets the start_at of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity start time (Unix timestamp, in seconds)  # noqa: E501
+
+        :return: The start_at of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: int
+        """
+        return self._start_at
+
+    @start_at.setter
+    def start_at(self, start_at):
+        """Sets the start_at of this InlineResponse20013DataList.
+
+        Activity start time (Unix timestamp, in seconds)  # noqa: E501
+
+        :param start_at: The start_at of this InlineResponse20013DataList.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and start_at is None:  # noqa: E501
+            raise ValueError("Invalid value for `start_at`, must not be `None`")  # noqa: E501
+
+        self._start_at = start_at
+
+    @property
+    def end_at(self):
+        """Gets the end_at of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity end time (Unix timestamp, in seconds)  # noqa: E501
+
+        :return: The end_at of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: int
+        """
+        return self._end_at
+
+    @end_at.setter
+    def end_at(self, end_at):
+        """Sets the end_at of this InlineResponse20013DataList.
+
+        Activity end time (Unix timestamp, in seconds)  # noqa: E501
+
+        :param end_at: The end_at of this InlineResponse20013DataList.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and end_at is None:  # noqa: E501
+            raise ValueError("Invalid value for `end_at`, must not be `None`")  # noqa: E501
+
+        self._end_at = end_at
+
+    @property
+    def img(self):
+        """Gets the img of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity image URL (light mode)  # noqa: E501
+
+        :return: The img of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._img
+
+    @img.setter
+    def img(self, img):
+        """Sets the img of this InlineResponse20013DataList.
+
+        Activity image URL (light mode)  # noqa: E501
+
+        :param img: The img of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and img is None:  # noqa: E501
+            raise ValueError("Invalid value for `img`, must not be `None`")  # noqa: E501
+
+        self._img = img
+
+    @property
+    def img_dark(self):
+        """Gets the img_dark of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity image URL (dark mode)  # noqa: E501
+
+        :return: The img_dark of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._img_dark
+
+    @img_dark.setter
+    def img_dark(self, img_dark):
+        """Sets the img_dark of this InlineResponse20013DataList.
+
+        Activity image URL (dark mode)  # noqa: E501
+
+        :param img_dark: The img_dark of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and img_dark is None:  # noqa: E501
+            raise ValueError("Invalid value for `img_dark`, must not be `None`")  # noqa: E501
+
+        self._img_dark = img_dark
+
+    @property
+    def url(self):
+        """Gets the url of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity redirect link  # noqa: E501
+
+        :return: The url of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this InlineResponse20013DataList.
+
+        Activity redirect link  # noqa: E501
+
+        :param url: The url of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and url is None:  # noqa: E501
+            raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
+
+        self._url = url
+
+    @property
+    def hot(self):
+        """Gets the hot of this InlineResponse20013DataList.  # noqa: E501
+
+        Popularity score  # noqa: E501
+
+        :return: The hot of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: int
+        """
+        return self._hot
+
+    @hot.setter
+    def hot(self, hot):
+        """Sets the hot of this InlineResponse20013DataList.
+
+        Popularity score  # noqa: E501
+
+        :param hot: The hot of this InlineResponse20013DataList.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and hot is None:  # noqa: E501
+            raise ValueError("Invalid value for `hot`, must not be `None`")  # noqa: E501
+
+        self._hot = hot
+
+    @property
+    def master_one_line(self):
+        """Gets the master_one_line of this InlineResponse20013DataList.  # noqa: E501
+
+        Main title first line  # noqa: E501
+
+        :return: The master_one_line of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_one_line
+
+    @master_one_line.setter
+    def master_one_line(self, master_one_line):
+        """Sets the master_one_line of this InlineResponse20013DataList.
+
+        Main title first line  # noqa: E501
+
+        :param master_one_line: The master_one_line of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and master_one_line is None:  # noqa: E501
+            raise ValueError("Invalid value for `master_one_line`, must not be `None`")  # noqa: E501
+
+        self._master_one_line = master_one_line
+
+    @property
+    def master_two_line(self):
+        """Gets the master_two_line of this InlineResponse20013DataList.  # noqa: E501
+
+        Main title second line  # noqa: E501
+
+        :return: The master_two_line of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._master_two_line
+
+    @master_two_line.setter
+    def master_two_line(self, master_two_line):
+        """Sets the master_two_line of this InlineResponse20013DataList.
+
+        Main title second line  # noqa: E501
+
+        :param master_two_line: The master_two_line of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and master_two_line is None:  # noqa: E501
+            raise ValueError("Invalid value for `master_two_line`, must not be `None`")  # noqa: E501
+
+        self._master_two_line = master_two_line
+
+    @property
+    def slave_one_line(self):
+        """Gets the slave_one_line of this InlineResponse20013DataList.  # noqa: E501
+
+        Subtitle first line  # noqa: E501
+
+        :return: The slave_one_line of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._slave_one_line
+
+    @slave_one_line.setter
+    def slave_one_line(self, slave_one_line):
+        """Sets the slave_one_line of this InlineResponse20013DataList.
+
+        Subtitle first line  # noqa: E501
+
+        :param slave_one_line: The slave_one_line of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and slave_one_line is None:  # noqa: E501
+            raise ValueError("Invalid value for `slave_one_line`, must not be `None`")  # noqa: E501
+
+        self._slave_one_line = slave_one_line
+
+    @property
+    def slave_two_line(self):
+        """Gets the slave_two_line of this InlineResponse20013DataList.  # noqa: E501
+
+        Subtitle second line  # noqa: E501
+
+        :return: The slave_two_line of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._slave_two_line
+
+    @slave_two_line.setter
+    def slave_two_line(self, slave_two_line):
+        """Sets the slave_two_line of this InlineResponse20013DataList.
+
+        Subtitle second line  # noqa: E501
+
+        :param slave_two_line: The slave_two_line of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and slave_two_line is None:  # noqa: E501
+            raise ValueError("Invalid value for `slave_two_line`, must not be `None`")  # noqa: E501
+
+        self._slave_two_line = slave_two_line
+
+    @property
+    def competition_title(self):
+        """Gets the competition_title of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity title  # noqa: E501
+
+        :return: The competition_title of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._competition_title
+
+    @competition_title.setter
+    def competition_title(self, competition_title):
+        """Sets the competition_title of this InlineResponse20013DataList.
+
+        Activity title  # noqa: E501
+
+        :param competition_title: The competition_title of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and competition_title is None:  # noqa: E501
+            raise ValueError("Invalid value for `competition_title`, must not be `None`")  # noqa: E501
+
+        self._competition_title = competition_title
+
+    @property
+    def top_id(self):
+        """Gets the top_id of this InlineResponse20013DataList.  # noqa: E501
+
+        Pin ID, 0 means not pinned  # noqa: E501
+
+        :return: The top_id of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: int
+        """
+        return self._top_id
+
+    @top_id.setter
+    def top_id(self, top_id):
+        """Sets the top_id of this InlineResponse20013DataList.
+
+        Pin ID, 0 means not pinned  # noqa: E501
+
+        :param top_id: The top_id of this InlineResponse20013DataList.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and top_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `top_id`, must not be `None`")  # noqa: E501
+
+        self._top_id = top_id
+
+    @property
+    def parent_id(self):
+        """Gets the parent_id of this InlineResponse20013DataList.  # noqa: E501
+
+        Parent activity ID, 0 means no parent activity  # noqa: E501
+
+        :return: The parent_id of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: int
+        """
+        return self._parent_id
+
+    @parent_id.setter
+    def parent_id(self, parent_id):
+        """Sets the parent_id of this InlineResponse20013DataList.
+
+        Parent activity ID, 0 means no parent activity  # noqa: E501
+
+        :param parent_id: The parent_id of this InlineResponse20013DataList.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and parent_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `parent_id`, must not be `None`")  # noqa: E501
+
+        self._parent_id = parent_id
+
+    @property
+    def new_img(self):
+        """Gets the new_img of this InlineResponse20013DataList.  # noqa: E501
+
+        New activity image URL (light mode)  # noqa: E501
+
+        :return: The new_img of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_img
+
+    @new_img.setter
+    def new_img(self, new_img):
+        """Sets the new_img of this InlineResponse20013DataList.
+
+        New activity image URL (light mode)  # noqa: E501
+
+        :param new_img: The new_img of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and new_img is None:  # noqa: E501
+            raise ValueError("Invalid value for `new_img`, must not be `None`")  # noqa: E501
+
+        self._new_img = new_img
+
+    @property
+    def new_img_dark(self):
+        """Gets the new_img_dark of this InlineResponse20013DataList.  # noqa: E501
+
+        New activity image URL (dark mode)  # noqa: E501
+
+        :return: The new_img_dark of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_img_dark
+
+    @new_img_dark.setter
+    def new_img_dark(self, new_img_dark):
+        """Sets the new_img_dark of this InlineResponse20013DataList.
+
+        New activity image URL (dark mode)  # noqa: E501
+
+        :param new_img_dark: The new_img_dark of this InlineResponse20013DataList.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and new_img_dark is None:  # noqa: E501
+            raise ValueError("Invalid value for `new_img_dark`, must not be `None`")  # noqa: E501
+
+        self._new_img_dark = new_img_dark
+
+    @property
+    def tag(self):
+        """Gets the tag of this InlineResponse20013DataList.  # noqa: E501
+
+        Activity tag list  # noqa: E501
+
+        :return: The tag of this InlineResponse20013DataList.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tag
+
+    @tag.setter
+    def tag(self, tag):
+        """Sets the tag of this InlineResponse20013DataList.
+
+        Activity tag list  # noqa: E501
+
+        :param tag: The tag of this InlineResponse20013DataList.  # noqa: E501
+        :type: list[str]
+        """
+        if self.local_vars_configuration.client_side_validation and tag is None:  # noqa: E501
+            raise ValueError("Invalid value for `tag`, must not be `None`")  # noqa: E501
+
+        self._tag = tag
 
     def to_dict(self):
         """Returns the model properties as a dict"""

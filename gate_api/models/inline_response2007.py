@@ -72,7 +72,7 @@ class InlineResponse2007(object):
     def code(self):
         """Gets the code of this InlineResponse2007.  # noqa: E501
 
-        Response code. `0` = success; `2002` = user not logged in; `50105` = parameter validation failed; `10001` = coupon record does not exist or does not belong to current user; `10000` = invalid parameter (e.g., task coupon missing coupon_info)  # noqa: E501
+        Response Code. `0` = Success; `2002` = User not logged in; `50105` = Input parameter validation failed  # noqa: E501
 
         :return: The code of this InlineResponse2007.  # noqa: E501
         :rtype: int
@@ -83,12 +83,12 @@ class InlineResponse2007(object):
     def code(self, code):
         """Sets the code of this InlineResponse2007.
 
-        Response code. `0` = success; `2002` = user not logged in; `50105` = parameter validation failed; `10001` = coupon record does not exist or does not belong to current user; `10000` = invalid parameter (e.g., task coupon missing coupon_info)  # noqa: E501
+        Response Code. `0` = Success; `2002` = User not logged in; `50105` = Input parameter validation failed  # noqa: E501
 
         :param code: The code of this InlineResponse2007.  # noqa: E501
         :type: int
         """
-        allowed_values = [0, 2002, 50105, 10001, 10000]  # noqa: E501
+        allowed_values = [0, 2002, 50105]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and code not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `code` ({0}), must be one of {1}"  # noqa: E501

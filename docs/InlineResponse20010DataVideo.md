@@ -1,4 +1,4 @@
-# InlineResponse2009DataVideo
+# InlineResponse20010DataVideo
 
 Replay video information (has value when content_type=video)
 ## Properties

@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **redeem_launch_pool**
-> InlineResponse20010 redeem_launch_pool(redeem_v4)
+> InlineResponse20011 redeem_launch_pool(redeem_v4)
 
 Redeem LaunchPool staked assets
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

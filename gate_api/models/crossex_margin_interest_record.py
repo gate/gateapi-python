@@ -296,7 +296,7 @@ class CrossexMarginInterestRecord(object):
     def interest_type(self):
         """Gets the interest_type of this CrossexMarginInterestRecord.  # noqa: E501
 
-        Interest deduction type (`PERIODIC_POSITION`: periodic position interest; `PERIODIC_OPEN_ORDER`: periodic open-order interest; `IMMEDIATE_OPEN_ORDER`: interest charged on order opening)  # noqa: E501
+        Interest deduction type (`PERIODIC_POSITION` hourly interest on position, `PERIODIC_OPEN_ORDER` hourly interest on open orders, `IMMEDIATE_OPEN_ORDER` interest charged on order placement, `PERIODIC_ISOLATED` hourly interest on debt)  # noqa: E501
 
         :return: The interest_type of this CrossexMarginInterestRecord.  # noqa: E501
         :rtype: str
@@ -307,7 +307,7 @@ class CrossexMarginInterestRecord(object):
     def interest_type(self, interest_type):
         """Sets the interest_type of this CrossexMarginInterestRecord.
 
-        Interest deduction type (`PERIODIC_POSITION`: periodic position interest; `PERIODIC_OPEN_ORDER`: periodic open-order interest; `IMMEDIATE_OPEN_ORDER`: interest charged on order opening)  # noqa: E501
+        Interest deduction type (`PERIODIC_POSITION` hourly interest on position, `PERIODIC_OPEN_ORDER` hourly interest on open orders, `IMMEDIATE_OPEN_ORDER` interest charged on order placement, `PERIODIC_ISOLATED` hourly interest on debt)  # noqa: E501
 
         :param interest_type: The interest_type of this CrossexMarginInterestRecord.  # noqa: E501
         :type: str

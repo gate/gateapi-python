@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **list_user_coupons**
-> InlineResponse2006 list_user_coupons(expired=expired, limit=limit, last_id=last_id, expire_time=expire_time, order_by=order_by, type=type, is_task_coupon=is_task_coupon)
+> InlineResponse2007 list_user_coupons(expired=expired, limit=limit, last_id=last_id, expire_time=expire_time, order_by=order_by, type=type, is_task_coupon=is_task_coupon)
 
 Coupon Center list
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_coupon_detail**
-> InlineResponse2007 get_user_coupon_detail(coupon_type, detail_id, is_task_coupon=is_task_coupon)
+> InlineResponse2008 get_user_coupon_detail(coupon_type, detail_id, is_task_coupon=is_task_coupon)
 
 Coupon Center details
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
