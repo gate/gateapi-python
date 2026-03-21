@@ -3457,7 +3457,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-request_body = ['request_body_example'] # list[str] | 
+request_body = ['[\"1\",\"2\",\"3\"]'] # list[str] | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
 try:

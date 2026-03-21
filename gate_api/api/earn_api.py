@@ -1689,7 +1689,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse200
+        :rtype: gate_api.ListEarnFixedTermProductsResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1719,7 +1719,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.ListEarnFixedTermProductsResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1793,7 +1793,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='ListEarnFixedTermProductsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1820,7 +1820,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2001
+        :rtype: gate_api.ListEarnFixedTermProductsByAssetResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1848,7 +1848,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.ListEarnFixedTermProductsByAssetResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1912,7 +1912,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='ListEarnFixedTermProductsByAssetResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1945,7 +1945,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2002
+        :rtype: gate_api.ListEarnFixedTermLendsResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1979,7 +1979,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.ListEarnFixedTermLendsResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2069,7 +2069,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='ListEarnFixedTermLendsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2095,7 +2095,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2003
+        :rtype: gate_api.CreateEarnFixedTermLendResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2122,7 +2122,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.CreateEarnFixedTermLendResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2183,7 +2183,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='CreateEarnFixedTermLendResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2201,7 +2201,7 @@ class EarnApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject inline_object:
+        :param EarnFixedTermPreRedeemRequest earn_fixed_term_pre_redeem_request:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2209,7 +2209,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2004
+        :rtype: gate_api.CreateEarnFixedTermPreRedeemResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2226,7 +2226,7 @@ class EarnApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param InlineObject inline_object:
+        :param EarnFixedTermPreRedeemRequest earn_fixed_term_pre_redeem_request:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2236,7 +2236,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.CreateEarnFixedTermPreRedeemResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2244,7 +2244,7 @@ class EarnApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object'
+            'earn_fixed_term_pre_redeem_request'
         ]
         all_params.extend(
             [
@@ -2276,8 +2276,8 @@ class EarnApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object' in local_var_params:
-            body_params = local_var_params['inline_object']
+        if 'earn_fixed_term_pre_redeem_request' in local_var_params:
+            body_params = local_var_params['earn_fixed_term_pre_redeem_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -2297,7 +2297,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='CreateEarnFixedTermPreRedeemResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2332,7 +2332,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.InlineResponse2005
+        :rtype: gate_api.ListEarnFixedTermHistoryResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2368,7 +2368,7 @@ class EarnApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.ListEarnFixedTermHistoryResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2464,7 +2464,7 @@ class EarnApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2005',  # noqa: E501
+            response_type='ListEarnFixedTermHistoryResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

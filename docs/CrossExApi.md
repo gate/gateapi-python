@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_crossex_fee**
-> list[InlineResponse2006] get_crossex_fee()
+> list[InlineResponse200] get_crossex_fee()
 
 Query User Fee Rates
 
@@ -1382,7 +1382,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[InlineResponse2006]**](InlineResponse2006.md)
+[**list[InlineResponse200]**](InlineResponse200.md)
 
 ### Authorization
 

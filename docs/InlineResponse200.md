@@ -3,10 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** | Return code, 0 means success | 
-**message** | **str** | Response message | 
-**data** | [**InlineResponse200Data**](InlineResponse200Data.md) |  | 
-**timestamp** | **int** | Response timestamp (in seconds) | 
+**exchange_type** | **str** | Exchange | [optional] 
+**spot_maker_fee** | **str** | spotMakerfee rate | 
+**spot_taker_fee** | **str** | spotTakerfee rate | 
+**future_maker_fee** | **str** | contractMakerfee rate | 
+**future_taker_fee** | **str** | contractTakerfee rate | 
+**special_fee_list** | [**list[CrossexSpecialFee]**](CrossexSpecialFee.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

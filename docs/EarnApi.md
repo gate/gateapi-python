@@ -967,7 +967,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_earn_fixed_term_products**
-> InlineResponse200 list_earn_fixed_term_products(page, limit, asset=asset, type=type)
+> ListEarnFixedTermProductsResponse list_earn_fixed_term_products(page, limit, asset=asset, type=type)
 
 Get product list
 
@@ -1014,7 +1014,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**ListEarnFixedTermProductsResponse**](ListEarnFixedTermProductsResponse.md)
 
 ### Authorization
 
@@ -1033,7 +1033,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_earn_fixed_term_products_by_asset**
-> InlineResponse2001 list_earn_fixed_term_products_by_asset(asset, type=type)
+> ListEarnFixedTermProductsByAssetResponse list_earn_fixed_term_products_by_asset(asset, type=type)
 
 Get product list by single currency
 
@@ -1076,7 +1076,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ListEarnFixedTermProductsByAssetResponse**](ListEarnFixedTermProductsByAssetResponse.md)
 
 ### Authorization
 
@@ -1095,7 +1095,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_earn_fixed_term_lends**
-> InlineResponse2002 list_earn_fixed_term_lends(order_type, page, limit, product_id=product_id, order_id=order_id, asset=asset, sub_business=sub_business, business_filter=business_filter)
+> ListEarnFixedTermLendsResponse list_earn_fixed_term_lends(order_type, page, limit, product_id=product_id, order_id=order_id, asset=asset, sub_business=sub_business, business_filter=business_filter)
 
 Subscription list
 
@@ -1159,7 +1159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**ListEarnFixedTermLendsResponse**](ListEarnFixedTermLendsResponse.md)
 
 ### Authorization
 
@@ -1178,7 +1178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_earn_fixed_term_lend**
-> InlineResponse2003 create_earn_fixed_term_lend(fixed_term_lend_request=fixed_term_lend_request)
+> CreateEarnFixedTermLendResponse create_earn_fixed_term_lend(fixed_term_lend_request=fixed_term_lend_request)
 
 Subscription
 
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**CreateEarnFixedTermLendResponse**](CreateEarnFixedTermLendResponse.md)
 
 ### Authorization
 
@@ -1247,7 +1247,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_earn_fixed_term_pre_redeem**
-> InlineResponse2004 create_earn_fixed_term_pre_redeem(inline_object=inline_object)
+> CreateEarnFixedTermPreRedeemResponse create_earn_fixed_term_pre_redeem(earn_fixed_term_pre_redeem_request=earn_fixed_term_pre_redeem_request)
 
 Redeem
 
@@ -1277,11 +1277,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.EarnApi(api_client)
-inline_object = gate_api.InlineObject() # InlineObject |  (optional)
+earn_fixed_term_pre_redeem_request = gate_api.EarnFixedTermPreRedeemRequest() # EarnFixedTermPreRedeemRequest |  (optional)
 
 try:
     # Redeem
-    api_response = api_instance.create_earn_fixed_term_pre_redeem(inline_object=inline_object)
+    api_response = api_instance.create_earn_fixed_term_pre_redeem(earn_fixed_term_pre_redeem_request=earn_fixed_term_pre_redeem_request)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1293,11 +1293,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **earn_fixed_term_pre_redeem_request** | [**EarnFixedTermPreRedeemRequest**](EarnFixedTermPreRedeemRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**CreateEarnFixedTermPreRedeemResponse**](CreateEarnFixedTermPreRedeemResponse.md)
 
 ### Authorization
 
@@ -1316,7 +1316,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_earn_fixed_term_history**
-> InlineResponse2005 list_earn_fixed_term_history(type, page, limit, product_id=product_id, order_id=order_id, asset=asset, start_at=start_at, end_at=end_at, sub_business=sub_business, business_filter=business_filter)
+> ListEarnFixedTermHistoryResponse list_earn_fixed_term_history(type, page, limit, product_id=product_id, order_id=order_id, asset=asset, start_at=start_at, end_at=end_at, sub_business=sub_business, business_filter=business_filter)
 
 Subscription history
 
@@ -1384,7 +1384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**ListEarnFixedTermHistoryResponse**](ListEarnFixedTermHistoryResponse.md)
 
 ### Authorization
 

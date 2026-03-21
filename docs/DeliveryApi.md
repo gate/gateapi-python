@@ -1773,7 +1773,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_price_triggered_delivery_order**
-> TriggerOrderResponse1 create_price_triggered_delivery_order(settle, futures_price_triggered_order)
+> TriggerOrderResponse create_price_triggered_delivery_order(settle, futures_price_triggered_order)
 
 Create price-triggered order
 
@@ -1823,7 +1823,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TriggerOrderResponse1**](TriggerOrderResponse1.md)
+[**TriggerOrderResponse**](TriggerOrderResponse.md)
 
 ### Authorization
 

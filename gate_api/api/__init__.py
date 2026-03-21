@@ -3,7 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
-from gate_api.api.default_api import DefaultApi
+from gate_api.api.activity_api import ActivityApi
 from gate_api.api.cross_ex_api import CrossExApi
 from gate_api.api.earn_uni_api import EarnUniApi
 from gate_api.api.margin_uni_api import MarginUniApi
