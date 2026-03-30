@@ -159,8 +159,6 @@ from gate_api.models.eligibility import Eligibility
 from gate_api.models.eligibility_response import EligibilityResponse
 from gate_api.models.eligibility_response_all_of import EligibilityResponseAllOf
 from gate_api.models.err_code_msg import ErrCodeMsg
-from gate_api.models.eth2_rate_list import Eth2RateList
-from gate_api.models.eth2_swap import Eth2Swap
 from gate_api.models.find_coin import FindCoin
 from gate_api.models.fixed_term_bonus_info import FixedTermBonusInfo
 from gate_api.models.fixed_term_coupon_info import FixedTermCouponInfo
@@ -218,6 +216,7 @@ from gate_api.models.futures_order import FuturesOrder
 from gate_api.models.futures_order_amendment import FuturesOrderAmendment
 from gate_api.models.futures_order_book import FuturesOrderBook
 from gate_api.models.futures_order_book_item import FuturesOrderBookItem
+from gate_api.models.futures_order_timerange import FuturesOrderTimerange
 from gate_api.models.futures_position_cross_mode import FuturesPositionCrossMode
 from gate_api.models.futures_premium_index import FuturesPremiumIndex
 from gate_api.models.futures_price_trigger import FuturesPriceTrigger
@@ -459,9 +458,6 @@ from gate_api.models.stop_all_trail_orders import StopAllTrailOrders
 from gate_api.models.stop_trail_order import StopTrailOrder
 from gate_api.models.stp_group import StpGroup
 from gate_api.models.stp_group_user import StpGroupUser
-from gate_api.models.structured_buy import StructuredBuy
-from gate_api.models.structured_get_project_list import StructuredGetProjectList
-from gate_api.models.structured_order_list import StructuredOrderList
 from gate_api.models.sub_account import SubAccount
 from gate_api.models.sub_account_balance import SubAccountBalance
 from gate_api.models.sub_account_cross_margin_balance import SubAccountCrossMarginBalance

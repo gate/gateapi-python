@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **chains** | [**list[SpotCurrencyChain]**](SpotCurrencyChain.md) | All links corresponding to coins | [optional] 
 **total_supply** | **str** | Total supply | [optional] 
 **market_cap** | **str** | Market cap | [optional] 
+**category** | **list[str]** | 币种分类  - stocks: 股票 - metals: 金属 - indices: 指数 - forex: 外汇 - commodities: 大宗商品 | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

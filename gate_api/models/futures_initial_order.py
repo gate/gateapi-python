@@ -35,6 +35,7 @@ class FuturesInitialOrder(object):
     openapi_types = {
         'contract': 'str',
         'size': 'int',
+        'amount': 'str',
         'price': 'str',
         'close': 'bool',
         'tif': 'str',
@@ -48,6 +49,7 @@ class FuturesInitialOrder(object):
     attribute_map = {
         'contract': 'contract',
         'size': 'size',
+        'amount': 'amount',
         'price': 'price',
         'close': 'close',
         'tif': 'tif',
@@ -58,8 +60,8 @@ class FuturesInitialOrder(object):
         'is_close': 'is_close'
     }
 
-    def __init__(self, contract=None, size=None, price=None, close=False, tif='gtc', text=None, reduce_only=False, auto_size=None, is_reduce_only=None, is_close=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, str, bool, str, str, bool, str, bool, bool, Configuration) -> None
+    def __init__(self, contract=None, size=None, amount=None, price=None, close=False, tif='gtc', text=None, reduce_only=False, auto_size=None, is_reduce_only=None, is_close=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, str, str, bool, str, str, bool, str, bool, bool, Configuration) -> None
         """FuturesInitialOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class FuturesInitialOrder(object):
 
         self._contract = None
         self._size = None
+        self._amount = None
         self._price = None
         self._close = None
         self._tif = None
@@ -80,6 +83,8 @@ class FuturesInitialOrder(object):
         self.contract = contract
         if size is not None:
             self.size = size
+        if amount is not None:
+            self.amount = amount
         self.price = price
         if close is not None:
             self.close = close
@@ -143,6 +148,29 @@ class FuturesInitialOrder(object):
         """
 
         self._size = size
+
+    @property
+    def amount(self):
+        """Gets the amount of this FuturesInitialOrder.  # noqa: E501
+
+        Same as `size`; used for decimal contract size. When both `size` and `amount` are provided, `amount` takes precedence.  # noqa: E501
+
+        :return: The amount of this FuturesInitialOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this FuturesInitialOrder.
+
+        Same as `size`; used for decimal contract size. When both `size` and `amount` are provided, `amount` takes precedence.  # noqa: E501
+
+        :param amount: The amount of this FuturesInitialOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._amount = amount
 
     @property
     def price(self):

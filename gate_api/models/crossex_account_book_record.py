@@ -163,7 +163,7 @@ class CrossexAccountBookRecord(object):
     def type(self):
         """Gets the type of this CrossexAccountBookRecord.  # noqa: E501
 
-        变更类型| `TRANSACTION` 成交 `TRADING_FEE` 手续费 `FUNDING_FEE` 合约资金费 `LIQUIDATION_FEE` 强平费 `TRANSFER_IN` 资金转入 `TRANSFER_OUT` 资金转出 `BANKRUPT_COMPENSATION` 穿仓补贴 `AUTO_REPAY` 杠杆仓位自动还负债  # noqa: E501
+        Change type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` futures funding fee `LIQUIDATION_FEE` liquidation fee `TRANSFER_IN` transfer in `TRANSFER_OUT` transfer out `BANKRUPT_COMPENSATION` bankruptcy compensation `AUTO_REPAY` margin position auto-repay  # noqa: E501
 
         :return: The type of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
@@ -174,7 +174,7 @@ class CrossexAccountBookRecord(object):
     def type(self, type):
         """Sets the type of this CrossexAccountBookRecord.
 
-        变更类型| `TRANSACTION` 成交 `TRADING_FEE` 手续费 `FUNDING_FEE` 合约资金费 `LIQUIDATION_FEE` 强平费 `TRANSFER_IN` 资金转入 `TRANSFER_OUT` 资金转出 `BANKRUPT_COMPENSATION` 穿仓补贴 `AUTO_REPAY` 杠杆仓位自动还负债  # noqa: E501
+        Change type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` futures funding fee `LIQUIDATION_FEE` liquidation fee `TRANSFER_IN` transfer in `TRANSFER_OUT` transfer out `BANKRUPT_COMPENSATION` bankruptcy compensation `AUTO_REPAY` margin position auto-repay  # noqa: E501
 
         :param type: The type of this CrossexAccountBookRecord.  # noqa: E501
         :type: str

@@ -80,8 +80,7 @@ class SpotPricePutOrder(object):
         self.price = price
         self.amount = amount
         self.account = account
-        if time_in_force is not None:
-            self.time_in_force = time_in_force
+        self.time_in_force = time_in_force
         if auto_borrow is not None:
             self.auto_borrow = auto_borrow
         if auto_repay is not None:
@@ -250,6 +249,8 @@ class SpotPricePutOrder(object):
         :param time_in_force: The time_in_force of this SpotPricePutOrder.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and time_in_force is None:  # noqa: E501
+            raise ValueError("Invalid value for `time_in_force`, must not be `None`")  # noqa: E501
         allowed_values = ["gtc", "ioc"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and time_in_force not in allowed_values:  # noqa: E501
             raise ValueError(

@@ -750,7 +750,7 @@ class FlashSwapApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/flash-swap/multi-currency/many-to-one/order/create', 'POST',
+            '/flash_swap/multi-currency/many-to-one/order/create', 'POST',
             path_params,
             query_params,
             header_params,
@@ -868,7 +868,7 @@ class FlashSwapApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/flash-swap/multi-currency/many-to-one/order/preview', 'POST',
+            '/flash_swap/multi-currency/many-to-one/order/preview', 'POST',
             path_params,
             query_params,
             header_params,
@@ -986,7 +986,7 @@ class FlashSwapApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/flash-swap/order/create', 'POST',
+            '/flash_swap/order/create', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1104,7 +1104,7 @@ class FlashSwapApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/flash-swap/multi-currency/one-to-many/order/create', 'POST',
+            '/flash_swap/multi-currency/one-to-many/order/create', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1222,7 +1222,7 @@ class FlashSwapApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/flash-swap/multi-currency/one-to-many/order/preview', 'POST',
+            '/flash_swap/multi-currency/one-to-many/order/preview', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1355,7 +1355,7 @@ class FlashSwapApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/flash-swap/order/preview', 'GET',
+            '/flash_swap/order/preview', 'GET',
             path_params,
             query_params,
             header_params,

@@ -44,7 +44,8 @@ class Currency(object):
         'chain': 'str',
         'chains': 'list[SpotCurrencyChain]',
         'total_supply': 'str',
-        'market_cap': 'str'
+        'market_cap': 'str',
+        'category': 'list[str]'
     }
 
     attribute_map = {
@@ -59,11 +60,12 @@ class Currency(object):
         'chain': 'chain',
         'chains': 'chains',
         'total_supply': 'total_supply',
-        'market_cap': 'market_cap'
+        'market_cap': 'market_cap',
+        'category': 'category'
     }
 
-    def __init__(self, currency=None, name=None, delisted=None, withdraw_disabled=None, withdraw_delayed=None, deposit_disabled=None, trade_disabled=None, fixed_rate=None, chain=None, chains=None, total_supply=None, market_cap=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, bool, bool, bool, bool, bool, str, str, list[SpotCurrencyChain], str, str, Configuration) -> None
+    def __init__(self, currency=None, name=None, delisted=None, withdraw_disabled=None, withdraw_delayed=None, deposit_disabled=None, trade_disabled=None, fixed_rate=None, chain=None, chains=None, total_supply=None, market_cap=None, category=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, bool, bool, bool, bool, bool, str, str, list[SpotCurrencyChain], str, str, list[str], Configuration) -> None
         """Currency - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,6 +83,7 @@ class Currency(object):
         self._chains = None
         self._total_supply = None
         self._market_cap = None
+        self._category = None
         self.discriminator = None
 
         if currency is not None:
@@ -107,6 +110,8 @@ class Currency(object):
             self.total_supply = total_supply
         if market_cap is not None:
             self.market_cap = market_cap
+        if category is not None:
+            self.category = category
 
     @property
     def currency(self):
@@ -383,6 +388,29 @@ class Currency(object):
         """
 
         self._market_cap = market_cap
+
+    @property
+    def category(self):
+        """Gets the category of this Currency.  # noqa: E501
+
+        币种分类  - stocks: 股票 - metals: 金属 - indices: 指数 - forex: 外汇 - commodities: 大宗商品  # noqa: E501
+
+        :return: The category of this Currency.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """Sets the category of this Currency.
+
+        币种分类  - stocks: 股票 - metals: 金属 - indices: 指数 - forex: 外汇 - commodities: 大宗商品  # noqa: E501
+
+        :param category: The category of this Currency.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._category = category
 
     def to_dict(self):
         """Returns the model properties as a dict"""

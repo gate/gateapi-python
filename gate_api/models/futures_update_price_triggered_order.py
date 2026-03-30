@@ -36,6 +36,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
         'settle': 'str',
         'order_id': 'int',
         'size': 'int',
+        'amount': 'str',
         'price': 'str',
         'trigger_price': 'str',
         'price_type': 'int',
@@ -47,6 +48,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
         'settle': 'settle',
         'order_id': 'order_id',
         'size': 'size',
+        'amount': 'amount',
         'price': 'price',
         'trigger_price': 'trigger_price',
         'price_type': 'price_type',
@@ -54,8 +56,8 @@ class FuturesUpdatePriceTriggeredOrder(object):
         'close': 'close'
     }
 
-    def __init__(self, settle=None, order_id=None, size=None, price=None, trigger_price=None, price_type=None, auto_size=None, close=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, int, str, str, int, str, bool, Configuration) -> None
+    def __init__(self, settle=None, order_id=None, size=None, amount=None, price=None, trigger_price=None, price_type=None, auto_size=None, close=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, int, str, str, str, int, str, bool, Configuration) -> None
         """FuturesUpdatePriceTriggeredOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +66,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
         self._settle = None
         self._order_id = None
         self._size = None
+        self._amount = None
         self._price = None
         self._trigger_price = None
         self._price_type = None
@@ -76,6 +79,8 @@ class FuturesUpdatePriceTriggeredOrder(object):
         self.order_id = order_id
         if size is not None:
             self.size = size
+        if amount is not None:
+            self.amount = amount
         if price is not None:
             self.price = price
         if trigger_price is not None:
@@ -157,6 +162,29 @@ class FuturesUpdatePriceTriggeredOrder(object):
         """
 
         self._size = size
+
+    @property
+    def amount(self):
+        """Gets the amount of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
+
+        Same as `size`; used for decimal contract size. When both `size` and `amount` are provided, `amount` takes precedence.  # noqa: E501
+
+        :return: The amount of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._amount
+
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this FuturesUpdatePriceTriggeredOrder.
+
+        Same as `size`; used for decimal contract size. When both `size` and `amount` are provided, `amount` takes precedence.  # noqa: E501
+
+        :param amount: The amount of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._amount = amount
 
     @property
     def price(self):

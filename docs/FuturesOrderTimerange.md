@@ -1,4 +1,4 @@
-# FuturesOrder
+# FuturesOrderTimerange
 
 Futures order details
 ## Properties
@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **int** | Futures order ID | [optional] [readonly] 
 **user** | **int** | User ID | [optional] [readonly] 
 **create_time** | **float** | Creation time of order | [optional] [readonly] 
-**update_time** | **float** | OrderUpdateTime | [optional] [readonly] 
-**finish_time** | **float** | Order finished time. Not returned if order is open | [optional] [readonly] 
+**update_time** | **str** | OrderUpdateTime | [optional] [readonly] 
+**finish_time** | **str** | Order finished time. Not returned if order is open | [optional] [readonly] 
 **finish_as** | **str** | How the order was finished:  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set - position_closed: cancelled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention | [optional] [readonly] 
 **status** | **str** | Order status  - &#x60;open&#x60;: Pending - &#x60;finished&#x60;: Completed | [optional] [readonly] 
 **contract** | **str** | Futures contract | 
