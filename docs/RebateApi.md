@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**user_sub_relation**](RebateApi.md#user_sub_relation) | **GET** /rebate/user/sub_relation | User subordinate relationship
 [**get_partner_application_recent**](RebateApi.md#get_partner_application_recent) | **GET** /rebate/partner/applications/recent | Get recent partner application records
 [**get_partner_eligibility**](RebateApi.md#get_partner_eligibility) | **GET** /rebate/partner/eligibility | Check partner application eligibility
+[**get_partner_agent_data_aggregated**](RebateApi.md#get_partner_agent_data_aggregated) | **GET** /rebate/partner/data/aggregated | Aggregated partner agent statistics
 
 
 # **agency_transaction_history**
@@ -821,6 +822,82 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_partner_agent_data_aggregated**
+> PartnerDataAggregatedResponse get_partner_agent_data_aggregated(start_date=start_date, end_date=end_date, business_type=business_type)
+
+Aggregated partner agent statistics
+
+查询指定时间范围内合伙人代理的数据聚合统计，包括返佣金额、交易量、净手续费、客户数和交易人数。  **注意事项：** - 交易人数 `trading_user_count` 仅在 `business_type=0`（全部）时返回 - 时间参数使用 UTC+8 时区 - 如不传时间参数，默认查询近 7 天数据 - 仅限合伙人代理访问，子账号无权限
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+start_date = '2024-01-01 00:00:00' # str | 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间 (optional)
+end_date = '2024-01-07 23:59:59' # str | 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间 (optional)
+business_type = 0 # int | Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi (optional) (default to 0)
+
+try:
+    # Aggregated partner agent statistics
+    api_response = api_instance.get_partner_agent_data_aggregated(start_date=start_date, end_date=end_date, business_type=business_type)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->get_partner_agent_data_aggregated: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **str**| 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间 | [optional] 
+ **end_date** | **str**| 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间 | [optional] 
+ **business_type** | **int**| Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi | [optional] [default to 0]
+
+### Return type
+
+[**PartnerDataAggregatedResponse**](PartnerDataAggregatedResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Unauthorized access |  -  |
+**403** | Access denied |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

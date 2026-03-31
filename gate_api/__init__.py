@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.52"
+__version__ = "7.2.56"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -75,6 +75,23 @@ from gate_api.models.api_response_ex_skill_get_beginner_task_list_resp import Ap
 from gate_api.models.api_response_ex_skill_get_beginner_task_list_resp_data import ApiResponseExSkillGetBeginnerTaskListRespData
 from gate_api.models.api_response_ex_skill_get_beginner_task_list_resp_data_tasks import ApiResponseExSkillGetBeginnerTaskListRespDataTasks
 from gate_api.models.api_response_ex_skill_get_user_identity_resp import ApiResponseExSkillGetUserIdentityResp
+from gate_api.models.auto_invest_coins_item import AutoInvestCoinsItem
+from gate_api.models.auto_invest_config_item import AutoInvestConfigItem
+from gate_api.models.auto_invest_min_invest_amount import AutoInvestMinInvestAmount
+from gate_api.models.auto_invest_min_invest_amount_items import AutoInvestMinInvestAmountItems
+from gate_api.models.auto_invest_min_invest_amount_resp import AutoInvestMinInvestAmountResp
+from gate_api.models.auto_invest_order_item import AutoInvestOrderItem
+from gate_api.models.auto_invest_plan_add_position import AutoInvestPlanAddPosition
+from gate_api.models.auto_invest_plan_create import AutoInvestPlanCreate
+from gate_api.models.auto_invest_plan_create_items import AutoInvestPlanCreateItems
+from gate_api.models.auto_invest_plan_create_resp import AutoInvestPlanCreateResp
+from gate_api.models.auto_invest_plan_detail import AutoInvestPlanDetail
+from gate_api.models.auto_invest_plan_list_info_resp import AutoInvestPlanListInfoResp
+from gate_api.models.auto_invest_plan_record_item import AutoInvestPlanRecordItem
+from gate_api.models.auto_invest_plan_records_resp import AutoInvestPlanRecordsResp
+from gate_api.models.auto_invest_plan_stop import AutoInvestPlanStop
+from gate_api.models.auto_invest_plan_update import AutoInvestPlanUpdate
+from gate_api.models.auto_invest_portfolio_item import AutoInvestPortfolioItem
 from gate_api.models.auto_repay_setting import AutoRepaySetting
 from gate_api.models.award_list_struct import AwardListStruct
 from gate_api.models.award_list_struct_list import AwardListStructList
@@ -198,7 +215,7 @@ from gate_api.models.eligibility import Eligibility
 from gate_api.models.eligibility_response import EligibilityResponse
 from gate_api.models.eligibility_response_all_of import EligibilityResponseAllOf
 from gate_api.models.err_code_msg import ErrCodeMsg
-from gate_api.models.find_coin import FindCoin
+from gate_api.models.error_response import ErrorResponse
 from gate_api.models.fixed_term_bonus_info import FixedTermBonusInfo
 from gate_api.models.fixed_term_coupon_info import FixedTermCouponInfo
 from gate_api.models.fixed_term_history_record import FixedTermHistoryRecord
@@ -447,6 +464,9 @@ from gate_api.models.partner_application import PartnerApplication
 from gate_api.models.partner_application_response import PartnerApplicationResponse
 from gate_api.models.partner_application_response_all_of import PartnerApplicationResponseAllOf
 from gate_api.models.partner_commission_history import PartnerCommissionHistory
+from gate_api.models.partner_data_aggregated import PartnerDataAggregated
+from gate_api.models.partner_data_aggregated_response import PartnerDataAggregatedResponse
+from gate_api.models.partner_data_aggregated_response_all_of import PartnerDataAggregatedResponseAllOf
 from gate_api.models.partner_sub import PartnerSub
 from gate_api.models.partner_sub_list import PartnerSubList
 from gate_api.models.partner_transaction_history import PartnerTransactionHistory

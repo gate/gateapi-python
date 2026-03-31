@@ -1429,3 +1429,127 @@ class RebateApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def get_partner_agent_data_aggregated(self, **kwargs):  # noqa: E501
+        """Aggregated partner agent statistics  # noqa: E501
+
+        查询指定时间范围内合伙人代理的数据聚合统计，包括返佣金额、交易量、净手续费、客户数和交易人数。  **注意事项：** - 交易人数 `trading_user_count` 仅在 `business_type=0`（全部）时返回 - 时间参数使用 UTC+8 时区 - 如不传时间参数，默认查询近 7 天数据 - 仅限合伙人代理访问，子账号无权限  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_partner_agent_data_aggregated(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str start_date: 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间
+        :param str end_date: 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间
+        :param int business_type: Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.PartnerDataAggregatedResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_partner_agent_data_aggregated_with_http_info(**kwargs)  # noqa: E501
+
+    def get_partner_agent_data_aggregated_with_http_info(self, **kwargs):  # noqa: E501
+        """Aggregated partner agent statistics  # noqa: E501
+
+        查询指定时间范围内合伙人代理的数据聚合统计，包括返佣金额、交易量、净手续费、客户数和交易人数。  **注意事项：** - 交易人数 `trading_user_count` 仅在 `business_type=0`（全部）时返回 - 时间参数使用 UTC+8 时区 - 如不传时间参数，默认查询近 7 天数据 - 仅限合伙人代理访问，子账号无权限  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_partner_agent_data_aggregated_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str start_date: 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间
+        :param str end_date: 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间
+        :param int business_type: Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.PartnerDataAggregatedResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'start_date',
+            'end_date',
+            'business_type'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_partner_agent_data_aggregated" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'start_date' in local_var_params and not re.search(r'^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$', local_var_params['start_date']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `start_date` when calling `get_partner_agent_data_aggregated`, must conform to the pattern `/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/`")  # noqa: E501
+        if self.api_client.client_side_validation and 'end_date' in local_var_params and not re.search(r'^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$', local_var_params['end_date']):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `end_date` when calling `get_partner_agent_data_aggregated`, must conform to the pattern `/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
+            query_params.append(('start_date', local_var_params['start_date']))  # noqa: E501
+        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
+            query_params.append(('end_date', local_var_params['end_date']))  # noqa: E501
+        if 'business_type' in local_var_params and local_var_params['business_type'] is not None:  # noqa: E501
+            query_params.append(('business_type', local_var_params['business_type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/rebate/partner/data/aggregated', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PartnerDataAggregatedResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)

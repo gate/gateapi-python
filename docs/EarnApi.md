@@ -13,6 +13,17 @@ Method | HTTP request | Description
 [**order_list**](EarnApi.md#order_list) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
 [**award_list**](EarnApi.md#award_list) | **GET** /earn/staking/award_list | On-chain coin-earning dividend records
 [**asset_list**](EarnApi.md#asset_list) | **GET** /earn/staking/assets | On-chain coin-earning assets
+[**create_auto_invest_plan**](EarnApi.md#create_auto_invest_plan) | **POST** /earn/autoinvest/plans/create | Create auto invest plan
+[**update_auto_invest_plan**](EarnApi.md#update_auto_invest_plan) | **POST** /earn/autoinvest/plans/update | UpdateAuto invest plan
+[**stop_auto_invest_plan**](EarnApi.md#stop_auto_invest_plan) | **POST** /earn/autoinvest/plans/stop | StopAuto invest plan
+[**add_position_auto_invest_plan**](EarnApi.md#add_position_auto_invest_plan) | **POST** /earn/autoinvest/plans/add_position | Add position immediately
+[**list_auto_invest_coins**](EarnApi.md#list_auto_invest_coins) | **GET** /earn/autoinvest/coins | QueryCurrencies supporting auto invest
+[**get_auto_invest_min_amount**](EarnApi.md#get_auto_invest_min_amount) | **POST** /earn/autoinvest/min_invest_amount | Get minimum investment amount
+[**list_auto_invest_plan_records**](EarnApi.md#list_auto_invest_plan_records) | **GET** /earn/autoinvest/plans/records | List plan execution records
+[**list_auto_invest_orders**](EarnApi.md#list_auto_invest_orders) | **GET** /earn/autoinvest/orders | List plan execution recordsDetails（OrderDetails）
+[**list_auto_invest_config**](EarnApi.md#list_auto_invest_config) | **GET** /earn/autoinvest/config | List investment currency configuration
+[**get_auto_invest_plan_detail**](EarnApi.md#get_auto_invest_plan_detail) | **GET** /earn/autoinvest/plans/detail | QueryAuto invest planDetails
+[**list_auto_invest_plans**](EarnApi.md#list_auto_invest_plans) | **GET** /earn/autoinvest/plans/list_info | QueryAuto invest planList
 [**list_earn_fixed_term_products**](EarnApi.md#list_earn_fixed_term_products) | **GET** /earn/fixed-term/product | Get product list
 [**list_earn_fixed_term_products_by_asset**](EarnApi.md#list_earn_fixed_term_products_by_asset) | **GET** /earn/fixed-term/product/{asset}/list | Get product list by single currency
 [**list_earn_fixed_term_lends**](EarnApi.md#list_earn_fixed_term_lends) | **GET** /earn/fixed-term/user/lend | Subscription list
@@ -283,7 +294,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **find_coin**
-> list[object] find_coin(find_coin)
+> list[object] find_coin(cointype=cointype)
 
 Staking coins
 
@@ -311,11 +322,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.EarnApi(api_client)
-find_coin = gate_api.FindCoin() # FindCoin | 
+cointype = 'cointype_example' # str | Currency type: swap - voucher; lock - locked position; debt - US Treasury bond. (optional)
 
 try:
     # Staking coins
-    api_response = api_instance.find_coin(find_coin)
+    api_response = api_instance.find_coin(cointype=cointype)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -327,7 +338,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **find_coin** | [**FindCoin**](FindCoin.md)|  | 
+ **cointype** | **str**| Currency type: swap - voucher; lock - locked position; debt - US Treasury bond. | [optional] 
 
 ### Return type
 
@@ -339,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -610,6 +621,746 @@ Name | Type | Description  | Notes
 ### Return type
 
 **list[object]**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_auto_invest_plan**
+> AutoInvestPlanCreateResp create_auto_invest_plan(auto_invest_plan_create)
+
+Create auto invest plan
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+auto_invest_plan_create = gate_api.AutoInvestPlanCreate() # AutoInvestPlanCreate | 
+
+try:
+    # Create auto invest plan
+    api_response = api_instance.create_auto_invest_plan(auto_invest_plan_create)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->create_auto_invest_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_invest_plan_create** | [**AutoInvestPlanCreate**](AutoInvestPlanCreate.md)|  | 
+
+### Return type
+
+[**AutoInvestPlanCreateResp**](AutoInvestPlanCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Created successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_auto_invest_plan**
+> update_auto_invest_plan(auto_invest_plan_update)
+
+UpdateAuto invest plan
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+auto_invest_plan_update = gate_api.AutoInvestPlanUpdate() # AutoInvestPlanUpdate | 
+
+try:
+    # UpdateAuto invest plan
+    api_instance.update_auto_invest_plan(auto_invest_plan_update)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->update_auto_invest_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_invest_plan_update** | [**AutoInvestPlanUpdate**](AutoInvestPlanUpdate.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stop_auto_invest_plan**
+> stop_auto_invest_plan(auto_invest_plan_stop)
+
+StopAuto invest plan
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+auto_invest_plan_stop = gate_api.AutoInvestPlanStop() # AutoInvestPlanStop | 
+
+try:
+    # StopAuto invest plan
+    api_instance.stop_auto_invest_plan(auto_invest_plan_stop)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->stop_auto_invest_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_invest_plan_stop** | [**AutoInvestPlanStop**](AutoInvestPlanStop.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Stopped successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **add_position_auto_invest_plan**
+> add_position_auto_invest_plan(auto_invest_plan_add_position)
+
+Add position immediately
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+auto_invest_plan_add_position = gate_api.AutoInvestPlanAddPosition() # AutoInvestPlanAddPosition | 
+
+try:
+    # Add position immediately
+    api_instance.add_position_auto_invest_plan(auto_invest_plan_add_position)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->add_position_auto_invest_plan: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_invest_plan_add_position** | [**AutoInvestPlanAddPosition**](AutoInvestPlanAddPosition.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Add PositionSuccess |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_auto_invest_coins**
+> list[AutoInvestCoinsItem] list_auto_invest_coins(plan_money=plan_money)
+
+QueryCurrencies supporting auto invest
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+plan_money = 'USDT' # str | Pricing currency，Optional: USDT or BTC，Default: USDT (optional)
+
+try:
+    # QueryCurrencies supporting auto invest
+    api_response = api_instance.list_auto_invest_coins(plan_money=plan_money)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_auto_invest_coins: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plan_money** | **str**| Pricing currency，Optional: USDT or BTC，Default: USDT | [optional] 
+
+### Return type
+
+[**list[AutoInvestCoinsItem]**](AutoInvestCoinsItem.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_auto_invest_min_amount**
+> AutoInvestMinInvestAmountResp get_auto_invest_min_amount(auto_invest_min_invest_amount)
+
+Get minimum investment amount
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+auto_invest_min_invest_amount = gate_api.AutoInvestMinInvestAmount() # AutoInvestMinInvestAmount | 
+
+try:
+    # Get minimum investment amount
+    api_response = api_instance.get_auto_invest_min_amount(auto_invest_min_invest_amount)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->get_auto_invest_min_amount: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_invest_min_invest_amount** | [**AutoInvestMinInvestAmount**](AutoInvestMinInvestAmount.md)|  | 
+
+### Return type
+
+[**AutoInvestMinInvestAmountResp**](AutoInvestMinInvestAmountResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_auto_invest_plan_records**
+> AutoInvestPlanRecordsResp list_auto_invest_plan_records(plan_id, page=page, page_size=page_size)
+
+List plan execution records
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+plan_id = 141378 # int | Plan ID
+page = 1 # int | page number (optional)
+page_size = 10 # int | Items per page，Maximum 100 (optional)
+
+try:
+    # List plan execution records
+    api_response = api_instance.list_auto_invest_plan_records(plan_id, page=page, page_size=page_size)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_auto_invest_plan_records: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plan_id** | **int**| Plan ID | 
+ **page** | **int**| page number | [optional] 
+ **page_size** | **int**| Items per page，Maximum 100 | [optional] 
+
+### Return type
+
+[**AutoInvestPlanRecordsResp**](AutoInvestPlanRecordsResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_auto_invest_orders**
+> list[AutoInvestOrderItem] list_auto_invest_orders(plan_id, record_id)
+
+List plan execution recordsDetails（OrderDetails）
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+plan_id = 142583 # int | Plan ID
+record_id = 1770805384904919 # int | Record ID
+
+try:
+    # List plan execution recordsDetails（OrderDetails）
+    api_response = api_instance.list_auto_invest_orders(plan_id, record_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_auto_invest_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plan_id** | **int**| Plan ID | 
+ **record_id** | **int**| Record ID | 
+
+### Return type
+
+[**list[AutoInvestOrderItem]**](AutoInvestOrderItem.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_auto_invest_config**
+> list[AutoInvestConfigItem] list_auto_invest_config()
+
+List investment currency configuration
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+
+try:
+    # List investment currency configuration
+    api_response = api_instance.list_auto_invest_config()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_auto_invest_config: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[AutoInvestConfigItem]**](AutoInvestConfigItem.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_auto_invest_plan_detail**
+> AutoInvestPlanDetail get_auto_invest_plan_detail(plan_id)
+
+QueryAuto invest planDetails
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+plan_id = 142609 # int | Plan ID
+
+try:
+    # QueryAuto invest planDetails
+    api_response = api_instance.get_auto_invest_plan_detail(plan_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->get_auto_invest_plan_detail: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plan_id** | **int**| Plan ID | 
+
+### Return type
+
+[**AutoInvestPlanDetail**](AutoInvestPlanDetail.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_auto_invest_plans**
+> AutoInvestPlanListInfoResp list_auto_invest_plans(status, page=page, page_size=page_size)
+
+QueryAuto invest planList
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+status = 'active' # str | Plan status，History history，Active active
+page = 56 # int | page number (optional)
+page_size = 56 # int | Items per page，Maximum 100 (optional)
+
+try:
+    # QueryAuto invest planList
+    api_response = api_instance.list_auto_invest_plans(status, page=page, page_size=page_size)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->list_auto_invest_plans: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **str**| Plan status，History history，Active active | 
+ **page** | **int**| page number | [optional] 
+ **page_size** | **int**| Items per page，Maximum 100 | [optional] 
+
+### Return type
+
+[**AutoInvestPlanListInfoResp**](AutoInvestPlanListInfoResp.md)
 
 ### Authorization
 
