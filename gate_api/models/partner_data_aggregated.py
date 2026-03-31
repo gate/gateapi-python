@@ -281,7 +281,7 @@ class PartnerDataAggregated(object):
     def business_type_desc(self):
         """Gets the business_type_desc of this PartnerDataAggregated.  # noqa: E501
 
-        Business type description  # noqa: E501
+        业务类型描述，可取值：全部, 现货, 合约, Alpha, Web3, Perps(DEX), Exchange All, Web3 All, TradFi  # noqa: E501
 
         :return: The business_type_desc of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -292,19 +292,13 @@ class PartnerDataAggregated(object):
     def business_type_desc(self, business_type_desc):
         """Sets the business_type_desc of this PartnerDataAggregated.
 
-        Business type description  # noqa: E501
+        业务类型描述，可取值：全部, 现货, 合约, Alpha, Web3, Perps(DEX), Exchange All, Web3 All, TradFi  # noqa: E501
 
         :param business_type_desc: The business_type_desc of this PartnerDataAggregated.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and business_type_desc is None:  # noqa: E501
             raise ValueError("Invalid value for `business_type_desc`, must not be `None`")  # noqa: E501
-        allowed_values = ["全部", "现货", "合约", "Alpha", "Web3", "Perps(DEX)", "Exchange All", "Web3 All", "TradFi"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and business_type_desc not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `business_type_desc` ({0}), must be one of {1}"  # noqa: E501
-                .format(business_type_desc, allowed_values)
-            )
 
         self._business_type_desc = business_type_desc
 
