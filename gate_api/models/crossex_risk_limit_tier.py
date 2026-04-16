@@ -35,6 +35,7 @@ class CrossexRiskLimitTier(object):
     openapi_types = {
         'min_risk_limit_value': 'str',
         'max_risk_limit_value': 'str',
+        'quick_cal_amount': 'str',
         'leverage_max': 'str',
         'maintenance_rate': 'str',
         'tier': 'str'
@@ -43,13 +44,14 @@ class CrossexRiskLimitTier(object):
     attribute_map = {
         'min_risk_limit_value': 'min_risk_limit_value',
         'max_risk_limit_value': 'max_risk_limit_value',
+        'quick_cal_amount': 'quick_cal_amount',
         'leverage_max': 'leverage_max',
         'maintenance_rate': 'maintenance_rate',
         'tier': 'tier'
     }
 
-    def __init__(self, min_risk_limit_value=None, max_risk_limit_value=None, leverage_max=None, maintenance_rate=None, tier=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, Configuration) -> None
+    def __init__(self, min_risk_limit_value=None, max_risk_limit_value=None, quick_cal_amount=None, leverage_max=None, maintenance_rate=None, tier=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, Configuration) -> None
         """CrossexRiskLimitTier - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class CrossexRiskLimitTier(object):
 
         self._min_risk_limit_value = None
         self._max_risk_limit_value = None
+        self._quick_cal_amount = None
         self._leverage_max = None
         self._maintenance_rate = None
         self._tier = None
@@ -64,6 +67,7 @@ class CrossexRiskLimitTier(object):
 
         self.min_risk_limit_value = min_risk_limit_value
         self.max_risk_limit_value = max_risk_limit_value
+        self.quick_cal_amount = quick_cal_amount
         self.leverage_max = leverage_max
         self.maintenance_rate = maintenance_rate
         self.tier = tier
@@ -117,6 +121,31 @@ class CrossexRiskLimitTier(object):
             raise ValueError("Invalid value for `max_risk_limit_value`, must not be `None`")  # noqa: E501
 
         self._max_risk_limit_value = max_risk_limit_value
+
+    @property
+    def quick_cal_amount(self):
+        """Gets the quick_cal_amount of this CrossexRiskLimitTier.  # noqa: E501
+
+        Quick-calculation amount  # noqa: E501
+
+        :return: The quick_cal_amount of this CrossexRiskLimitTier.  # noqa: E501
+        :rtype: str
+        """
+        return self._quick_cal_amount
+
+    @quick_cal_amount.setter
+    def quick_cal_amount(self, quick_cal_amount):
+        """Sets the quick_cal_amount of this CrossexRiskLimitTier.
+
+        Quick-calculation amount  # noqa: E501
+
+        :param quick_cal_amount: The quick_cal_amount of this CrossexRiskLimitTier.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and quick_cal_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `quick_cal_amount`, must not be `None`")  # noqa: E501
+
+        self._quick_cal_amount = quick_cal_amount
 
     @property
     def leverage_max(self):

@@ -33,25 +33,30 @@ class TriggerOrderResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int'
+        'id': 'int',
+        'id_string': 'str'
     }
 
     attribute_map = {
-        'id': 'id'
+        'id': 'id',
+        'id_string': 'id_string'
     }
 
-    def __init__(self, id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, Configuration) -> None
+    def __init__(self, id=None, id_string=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, Configuration) -> None
         """TriggerOrderResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
+        self._id_string = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
+        if id_string is not None:
+            self.id_string = id_string
 
     @property
     def id(self):
@@ -75,6 +80,29 @@ class TriggerOrderResponse(object):
         """
 
         self._id = id
+
+    @property
+    def id_string(self):
+        """Gets the id_string of this TriggerOrderResponse.  # noqa: E501
+
+        String form of the auto order ID; the same order as numeric `id`, as the decimal string of `id` to avoid int64 precision loss in JavaScript and similar environments. Prefer this field to display the order ID or when a string unique identifier is needed; one-to-one with `id`. Same meaning as the field of the same name in futures price-trigger REST APIs and in `futures.orders` / `futures.autoorders` WebSocket pushes.  # noqa: E501
+
+        :return: The id_string of this TriggerOrderResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._id_string
+
+    @id_string.setter
+    def id_string(self, id_string):
+        """Sets the id_string of this TriggerOrderResponse.
+
+        String form of the auto order ID; the same order as numeric `id`, as the decimal string of `id` to avoid int64 precision loss in JavaScript and similar environments. Prefer this field to display the order ID or when a string unique identifier is needed; one-to-one with `id`. Same meaning as the field of the same name in futures price-trigger REST APIs and in `futures.orders` / `futures.autoorders` WebSocket pushes.  # noqa: E501
+
+        :param id_string: The id_string of this TriggerOrderResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._id_string = id_string
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -710,3 +710,1289 @@ class LaunchApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def get_hodler_airdrop_project_list(self, **kwargs):  # noqa: E501
+        """查询HODLer Airdrop活动列表  # noqa: E501
+
+        获取HODLer Airdrop活动列表，支持按状态、币种/项目名称、参与情况筛选。此接口无需用户登录，登录用户可获取个人参与信息。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hodler_airdrop_project_list(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str status: 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部
+        :param str keyword: 币种/项目名称关键词，模糊匹配
+        :param int join: 参与情况筛选：0全部（默认），1仅已参与
+        :param int page: 页码，默认1
+        :param int size: 每页条数，默认10
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.HodlerAirdropV4ProjectItem]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_hodler_airdrop_project_list_with_http_info(**kwargs)  # noqa: E501
+
+    def get_hodler_airdrop_project_list_with_http_info(self, **kwargs):  # noqa: E501
+        """查询HODLer Airdrop活动列表  # noqa: E501
+
+        获取HODLer Airdrop活动列表，支持按状态、币种/项目名称、参与情况筛选。此接口无需用户登录，登录用户可获取个人参与信息。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hodler_airdrop_project_list_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str status: 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部
+        :param str keyword: 币种/项目名称关键词，模糊匹配
+        :param int join: 参与情况筛选：0全部（默认），1仅已参与
+        :param int page: 页码，默认1
+        :param int size: 每页条数，默认10
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.HodlerAirdropV4ProjectItem], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'status',
+            'keyword',
+            'join',
+            'page',
+            'size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hodler_airdrop_project_list" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `get_hodler_airdrop_project_list`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'size' in local_var_params and local_var_params['size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `size` when calling `get_hodler_airdrop_project_list`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if 'keyword' in local_var_params and local_var_params['keyword'] is not None:  # noqa: E501
+            query_params.append(('keyword', local_var_params['keyword']))  # noqa: E501
+        if 'join' in local_var_params and local_var_params['join'] is not None:  # noqa: E501
+            query_params.append(('join', local_var_params['join']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'size' in local_var_params and local_var_params['size'] is not None:  # noqa: E501
+            query_params.append(('size', local_var_params['size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/hodler-airdrop/project-list', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[HodlerAirdropV4ProjectItem]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def hodler_airdrop_order(self, hodler_airdrop_v4_order_request, **kwargs):  # noqa: E501
+        """参与HODLer Airdrop活动  # noqa: E501
+
+        参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.hodler_airdrop_order(hodler_airdrop_v4_order_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param HodlerAirdropV4OrderRequest hodler_airdrop_v4_order_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.HodlerAirdropV4OrderResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.hodler_airdrop_order_with_http_info(hodler_airdrop_v4_order_request, **kwargs)  # noqa: E501
+
+    def hodler_airdrop_order_with_http_info(self, hodler_airdrop_v4_order_request, **kwargs):  # noqa: E501
+        """参与HODLer Airdrop活动  # noqa: E501
+
+        参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.hodler_airdrop_order_with_http_info(hodler_airdrop_v4_order_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param HodlerAirdropV4OrderRequest hodler_airdrop_v4_order_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.HodlerAirdropV4OrderResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'hodler_airdrop_v4_order_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method hodler_airdrop_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'hodler_airdrop_v4_order_request' is set
+        if self.api_client.client_side_validation and ('hodler_airdrop_v4_order_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['hodler_airdrop_v4_order_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `hodler_airdrop_v4_order_request` when calling `hodler_airdrop_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'hodler_airdrop_v4_order_request' in local_var_params:
+            body_params = local_var_params['hodler_airdrop_v4_order_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/hodler-airdrop/order', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='HodlerAirdropV4OrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_hodler_airdrop_user_order_records(self, **kwargs):  # noqa: E501
+        """查询HODLer Airdrop参与记录  # noqa: E501
+
+        查询用户的HODLer Airdrop参与记录，返回每个活动的有效持仓和空投金额。此接口需要用户登录认证。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hodler_airdrop_user_order_records(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str keyword: 币种名称关键词筛选
+        :param int start_timest: 开始时间戳（秒）
+        :param int end_timest: 结束时间戳（秒）
+        :param int page: 页码，默认1
+        :param int size: 每页条数，默认10
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.HodlerAirdropV4UserOrderRecord]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_hodler_airdrop_user_order_records_with_http_info(**kwargs)  # noqa: E501
+
+    def get_hodler_airdrop_user_order_records_with_http_info(self, **kwargs):  # noqa: E501
+        """查询HODLer Airdrop参与记录  # noqa: E501
+
+        查询用户的HODLer Airdrop参与记录，返回每个活动的有效持仓和空投金额。此接口需要用户登录认证。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hodler_airdrop_user_order_records_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str keyword: 币种名称关键词筛选
+        :param int start_timest: 开始时间戳（秒）
+        :param int end_timest: 结束时间戳（秒）
+        :param int page: 页码，默认1
+        :param int size: 每页条数，默认10
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.HodlerAirdropV4UserOrderRecord], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'keyword',
+            'start_timest',
+            'end_timest',
+            'page',
+            'size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hodler_airdrop_user_order_records" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `get_hodler_airdrop_user_order_records`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'size' in local_var_params and local_var_params['size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `size` when calling `get_hodler_airdrop_user_order_records`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'keyword' in local_var_params and local_var_params['keyword'] is not None:  # noqa: E501
+            query_params.append(('keyword', local_var_params['keyword']))  # noqa: E501
+        if 'start_timest' in local_var_params and local_var_params['start_timest'] is not None:  # noqa: E501
+            query_params.append(('start_timest', local_var_params['start_timest']))  # noqa: E501
+        if 'end_timest' in local_var_params and local_var_params['end_timest'] is not None:  # noqa: E501
+            query_params.append(('end_timest', local_var_params['end_timest']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'size' in local_var_params and local_var_params['size'] is not None:  # noqa: E501
+            query_params.append(('size', local_var_params['size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/hodler-airdrop/user-order-records', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[HodlerAirdropV4UserOrderRecord]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_hodler_airdrop_user_airdrop_records(self, **kwargs):  # noqa: E501
+        """查询HODLer Airdrop空投记录  # noqa: E501
+
+        查询用户已获得的HODLer Airdrop空投发放记录，包含基础空投、额外空投和自动兑换状态。此接口需要用户登录认证。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hodler_airdrop_user_airdrop_records(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str keyword: 币种名称关键词筛选
+        :param int start_timest: 开始时间戳（秒）
+        :param int end_timest: 结束时间戳（秒）
+        :param int page: 页码，默认1
+        :param int size: 每页条数，默认10
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.HodlerAirdropV4UserAirdropRecord]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_hodler_airdrop_user_airdrop_records_with_http_info(**kwargs)  # noqa: E501
+
+    def get_hodler_airdrop_user_airdrop_records_with_http_info(self, **kwargs):  # noqa: E501
+        """查询HODLer Airdrop空投记录  # noqa: E501
+
+        查询用户已获得的HODLer Airdrop空投发放记录，包含基础空投、额外空投和自动兑换状态。此接口需要用户登录认证。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hodler_airdrop_user_airdrop_records_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str keyword: 币种名称关键词筛选
+        :param int start_timest: 开始时间戳（秒）
+        :param int end_timest: 结束时间戳（秒）
+        :param int page: 页码，默认1
+        :param int size: 每页条数，默认10
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.HodlerAirdropV4UserAirdropRecord], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'keyword',
+            'start_timest',
+            'end_timest',
+            'page',
+            'size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hodler_airdrop_user_airdrop_records" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `get_hodler_airdrop_user_airdrop_records`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'size' in local_var_params and local_var_params['size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `size` when calling `get_hodler_airdrop_user_airdrop_records`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'keyword' in local_var_params and local_var_params['keyword'] is not None:  # noqa: E501
+            query_params.append(('keyword', local_var_params['keyword']))  # noqa: E501
+        if 'start_timest' in local_var_params and local_var_params['start_timest'] is not None:  # noqa: E501
+            query_params.append(('start_timest', local_var_params['start_timest']))  # noqa: E501
+        if 'end_timest' in local_var_params and local_var_params['end_timest'] is not None:  # noqa: E501
+            query_params.append(('end_timest', local_var_params['end_timest']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'size' in local_var_params and local_var_params['size'] is not None:  # noqa: E501
+            query_params.append(('size', local_var_params['size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/hodler-airdrop/user-airdrop-records', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[HodlerAirdropV4UserAirdropRecord]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_candy_drop_activity_list_v4(self, **kwargs):  # noqa: E501
+        """查询活动列表  # noqa: E501
+
+        支持多维度筛选 CandyDrop 活动，每次查询返回列表排序的前十条数据。不需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_activity_list_v4(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str status: 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部
+        :param str rule_name: 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF)
+        :param str register_status: 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部
+        :param str currency: 币种名称筛选
+        :param int limit: 返回条数，默认10，最大30
+        :param int offset: 偏移量，默认0
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.CandyDropV4ActivityCd01]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_candy_drop_activity_list_v4_with_http_info(**kwargs)  # noqa: E501
+
+    def get_candy_drop_activity_list_v4_with_http_info(self, **kwargs):  # noqa: E501
+        """查询活动列表  # noqa: E501
+
+        支持多维度筛选 CandyDrop 活动，每次查询返回列表排序的前十条数据。不需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_activity_list_v4_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str status: 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部
+        :param str rule_name: 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF)
+        :param str register_status: 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部
+        :param str currency: 币种名称筛选
+        :param int limit: 返回条数，默认10，最大30
+        :param int offset: 偏移量，默认0
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.CandyDropV4ActivityCd01], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'status',
+            'rule_name',
+            'register_status',
+            'currency',
+            'limit',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_candy_drop_activity_list_v4" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 30:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_candy_drop_activity_list_v4`, must be a value less than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_candy_drop_activity_list_v4`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `get_candy_drop_activity_list_v4`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if 'rule_name' in local_var_params and local_var_params['rule_name'] is not None:  # noqa: E501
+            query_params.append(('rule_name', local_var_params['rule_name']))  # noqa: E501
+        if 'register_status' in local_var_params and local_var_params['register_status'] is not None:  # noqa: E501
+            query_params.append(('register_status', local_var_params['register_status']))  # noqa: E501
+        if 'currency' in local_var_params and local_var_params['currency'] is not None:  # noqa: E501
+            query_params.append(('currency', local_var_params['currency']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/candydrop/activity-list', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[CandyDropV4ActivityCd01]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def register_candy_drop_v4(self, candy_drop_v4_register_req_cd02, **kwargs):  # noqa: E501
+        """报名参与活动  # noqa: E501
+
+        报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.register_candy_drop_v4(candy_drop_v4_register_req_cd02, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param CandyDropV4RegisterReqCd02 candy_drop_v4_register_req_cd02: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CandyDropV4RegisterRespCd02
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.register_candy_drop_v4_with_http_info(candy_drop_v4_register_req_cd02, **kwargs)  # noqa: E501
+
+    def register_candy_drop_v4_with_http_info(self, candy_drop_v4_register_req_cd02, **kwargs):  # noqa: E501
+        """报名参与活动  # noqa: E501
+
+        报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.register_candy_drop_v4_with_http_info(candy_drop_v4_register_req_cd02, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param CandyDropV4RegisterReqCd02 candy_drop_v4_register_req_cd02: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CandyDropV4RegisterRespCd02, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'candy_drop_v4_register_req_cd02'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method register_candy_drop_v4" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'candy_drop_v4_register_req_cd02' is set
+        if self.api_client.client_side_validation and ('candy_drop_v4_register_req_cd02' not in local_var_params or  # noqa: E501
+                                                        local_var_params['candy_drop_v4_register_req_cd02'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `candy_drop_v4_register_req_cd02` when calling `register_candy_drop_v4`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'candy_drop_v4_register_req_cd02' in local_var_params:
+            body_params = local_var_params['candy_drop_v4_register_req_cd02']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/candydrop/register', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CandyDropV4RegisterRespCd02',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_candy_drop_activity_rules_v4(self, **kwargs):  # noqa: E501
+        """查询活动规则  # noqa: E501
+
+        查询特定活动的规则，包括奖池及对应任务数据。不需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_activity_rules_v4(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int activity_id: 活动ID，与 currency 二选一，至少须传其一
+        :param str currency: 项目/币种名称，与 activity_id 二选一，至少须传其一
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CandyDropV4ActivityRulesCd03
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_candy_drop_activity_rules_v4_with_http_info(**kwargs)  # noqa: E501
+
+    def get_candy_drop_activity_rules_v4_with_http_info(self, **kwargs):  # noqa: E501
+        """查询活动规则  # noqa: E501
+
+        查询特定活动的规则，包括奖池及对应任务数据。不需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_activity_rules_v4_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int activity_id: 活动ID，与 currency 二选一，至少须传其一
+        :param str currency: 项目/币种名称，与 activity_id 二选一，至少须传其一
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CandyDropV4ActivityRulesCd03, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'activity_id',
+            'currency'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_candy_drop_activity_rules_v4" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'activity_id' in local_var_params and local_var_params['activity_id'] is not None:  # noqa: E501
+            query_params.append(('activity_id', local_var_params['activity_id']))  # noqa: E501
+        if 'currency' in local_var_params and local_var_params['currency'] is not None:  # noqa: E501
+            query_params.append(('currency', local_var_params['currency']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/candydrop/activity-rules', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CandyDropV4ActivityRulesCd03',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_candy_drop_task_progress_v4(self, **kwargs):  # noqa: E501
+        """查询任务完成进度  # noqa: E501
+
+        查询进行中且已报名/参与的任务完成进度。需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_task_progress_v4(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int activity_id: 活动ID，与 currency 二选一，至少须传其一
+        :param str currency: 项目/币种名称，与 activity_id 二选一，至少须传其一
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CandyDropV4TaskProgressCd04
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_candy_drop_task_progress_v4_with_http_info(**kwargs)  # noqa: E501
+
+    def get_candy_drop_task_progress_v4_with_http_info(self, **kwargs):  # noqa: E501
+        """查询任务完成进度  # noqa: E501
+
+        查询进行中且已报名/参与的任务完成进度。需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_task_progress_v4_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int activity_id: 活动ID，与 currency 二选一，至少须传其一
+        :param str currency: 项目/币种名称，与 activity_id 二选一，至少须传其一
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CandyDropV4TaskProgressCd04, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'activity_id',
+            'currency'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_candy_drop_task_progress_v4" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'activity_id' in local_var_params and local_var_params['activity_id'] is not None:  # noqa: E501
+            query_params.append(('activity_id', local_var_params['activity_id']))  # noqa: E501
+        if 'currency' in local_var_params and local_var_params['currency'] is not None:  # noqa: E501
+            query_params.append(('currency', local_var_params['currency']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/candydrop/task-progress', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CandyDropV4TaskProgressCd04',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_candy_drop_participation_records_v4(self, **kwargs):  # noqa: E501
+        """查询参与记录  # noqa: E501
+
+        查询用户的 CandyDrop 参与详情。需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_participation_records_v4(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str currency: 币种名称筛选
+        :param str status: 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖)
+        :param int start_time: 开始时间（Unix 时间戳秒）
+        :param int end_time: 结束时间（Unix 时间戳秒）
+        :param int page: 页码，默认1
+        :param int limit: 每页条数，默认10，最大30
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.CandyDropV4ParticipationRecordCd05]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_candy_drop_participation_records_v4_with_http_info(**kwargs)  # noqa: E501
+
+    def get_candy_drop_participation_records_v4_with_http_info(self, **kwargs):  # noqa: E501
+        """查询参与记录  # noqa: E501
+
+        查询用户的 CandyDrop 参与详情。需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_participation_records_v4_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str currency: 币种名称筛选
+        :param str status: 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖)
+        :param int start_time: 开始时间（Unix 时间戳秒）
+        :param int end_time: 结束时间（Unix 时间戳秒）
+        :param int page: 页码，默认1
+        :param int limit: 每页条数，默认10，最大30
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.CandyDropV4ParticipationRecordCd05], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'currency',
+            'status',
+            'start_time',
+            'end_time',
+            'page',
+            'limit'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_candy_drop_participation_records_v4" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `get_candy_drop_participation_records_v4`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 30:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_candy_drop_participation_records_v4`, must be a value less than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_candy_drop_participation_records_v4`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'currency' in local_var_params and local_var_params['currency'] is not None:  # noqa: E501
+            query_params.append(('currency', local_var_params['currency']))  # noqa: E501
+        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if 'start_time' in local_var_params and local_var_params['start_time'] is not None:  # noqa: E501
+            query_params.append(('start_time', local_var_params['start_time']))  # noqa: E501
+        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
+            query_params.append(('end_time', local_var_params['end_time']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/candydrop/participation-records', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[CandyDropV4ParticipationRecordCd05]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_candy_drop_airdrop_records_v4(self, **kwargs):  # noqa: E501
+        """查询空投记录  # noqa: E501
+
+        查询用户的 CandyDrop 空投详情。需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_airdrop_records_v4(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str currency: 币种名称筛选
+        :param int start_time: 开始时间（Unix 时间戳秒）
+        :param int end_time: 结束时间（Unix 时间戳秒）
+        :param int page: 页码，默认1
+        :param int limit: 每页条数，默认10，最大30
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.CandyDropV4AirdropRecordCd06]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_candy_drop_airdrop_records_v4_with_http_info(**kwargs)  # noqa: E501
+
+    def get_candy_drop_airdrop_records_v4_with_http_info(self, **kwargs):  # noqa: E501
+        """查询空投记录  # noqa: E501
+
+        查询用户的 CandyDrop 空投详情。需要登录。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_candy_drop_airdrop_records_v4_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str currency: 币种名称筛选
+        :param int start_time: 开始时间（Unix 时间戳秒）
+        :param int end_time: 结束时间（Unix 时间戳秒）
+        :param int page: 页码，默认1
+        :param int limit: 每页条数，默认10，最大30
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.CandyDropV4AirdropRecordCd06], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'currency',
+            'start_time',
+            'end_time',
+            'page',
+            'limit'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_candy_drop_airdrop_records_v4" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `get_candy_drop_airdrop_records_v4`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 30:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_candy_drop_airdrop_records_v4`, must be a value less than or equal to `30`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_candy_drop_airdrop_records_v4`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'currency' in local_var_params and local_var_params['currency'] is not None:  # noqa: E501
+            query_params.append(('currency', local_var_params['currency']))  # noqa: E501
+        if 'start_time' in local_var_params and local_var_params['start_time'] is not None:  # noqa: E501
+            query_params.append(('start_time', local_var_params['start_time']))  # noqa: E501
+        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
+            query_params.append(('end_time', local_var_params['end_time']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/launch/candydrop/airdrop-records', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[CandyDropV4AirdropRecordCd06]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)

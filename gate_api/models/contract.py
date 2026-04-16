@@ -51,6 +51,7 @@ class Contract(object):
         'funding_interval': 'int',
         'funding_next_apply': 'float',
         'risk_limit_base': 'str',
+        'interest_rate': 'str',
         'risk_limit_step': 'str',
         'risk_limit_max': 'str',
         'order_size_min': 'str',
@@ -77,6 +78,7 @@ class Contract(object):
         'market_order_slip_ratio': 'str',
         'market_order_size_max': 'str',
         'funding_rate_limit': 'str',
+        'contract_type': 'str',
         'funding_impact_value': 'str'
     }
 
@@ -99,6 +101,7 @@ class Contract(object):
         'funding_interval': 'funding_interval',
         'funding_next_apply': 'funding_next_apply',
         'risk_limit_base': 'risk_limit_base',
+        'interest_rate': 'interest_rate',
         'risk_limit_step': 'risk_limit_step',
         'risk_limit_max': 'risk_limit_max',
         'order_size_min': 'order_size_min',
@@ -125,11 +128,12 @@ class Contract(object):
         'market_order_slip_ratio': 'market_order_slip_ratio',
         'market_order_size_max': 'market_order_size_max',
         'funding_rate_limit': 'funding_rate_limit',
+        'contract_type': 'contract_type',
         'funding_impact_value': 'funding_impact_value'
     }
 
-    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, enable_decimal=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, market_order_slip_ratio=None, market_order_size_max=None, funding_rate_limit=None, funding_impact_value=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, bool, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, str, str, str, Configuration) -> None
+    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, interest_rate=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, enable_decimal=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, market_order_slip_ratio=None, market_order_size_max=None, funding_rate_limit=None, contract_type=None, funding_impact_value=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, bool, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, str, str, str, str, Configuration) -> None
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -153,6 +157,7 @@ class Contract(object):
         self._funding_interval = None
         self._funding_next_apply = None
         self._risk_limit_base = None
+        self._interest_rate = None
         self._risk_limit_step = None
         self._risk_limit_max = None
         self._order_size_min = None
@@ -179,6 +184,7 @@ class Contract(object):
         self._market_order_slip_ratio = None
         self._market_order_size_max = None
         self._funding_rate_limit = None
+        self._contract_type = None
         self._funding_impact_value = None
         self.discriminator = None
 
@@ -218,6 +224,8 @@ class Contract(object):
             self.funding_next_apply = funding_next_apply
         if risk_limit_base is not None:
             self.risk_limit_base = risk_limit_base
+        if interest_rate is not None:
+            self.interest_rate = interest_rate
         if risk_limit_step is not None:
             self.risk_limit_step = risk_limit_step
         if risk_limit_max is not None:
@@ -270,6 +278,8 @@ class Contract(object):
             self.market_order_size_max = market_order_size_max
         if funding_rate_limit is not None:
             self.funding_rate_limit = funding_rate_limit
+        if contract_type is not None:
+            self.contract_type = contract_type
         if funding_impact_value is not None:
             self.funding_impact_value = funding_impact_value
 
@@ -698,6 +708,29 @@ class Contract(object):
         """
 
         self._risk_limit_base = risk_limit_base
+
+    @property
+    def interest_rate(self):
+        """Gets the interest_rate of this Contract.  # noqa: E501
+
+        Interest rate parameter used in funding rate and premium-related calculations for perpetual contracts. Returned as a string decimal ratio (e.g. `0.0003`), same convention as `funding_rate` (ratio, not percent).  # noqa: E501
+
+        :return: The interest_rate of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._interest_rate
+
+    @interest_rate.setter
+    def interest_rate(self, interest_rate):
+        """Sets the interest_rate of this Contract.
+
+        Interest rate parameter used in funding rate and premium-related calculations for perpetual contracts. Returned as a string decimal ratio (e.g. `0.0003`), same convention as `funding_rate` (ratio, not percent).  # noqa: E501
+
+        :param interest_rate: The interest_rate of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._interest_rate = interest_rate
 
     @property
     def risk_limit_step(self):
@@ -1296,6 +1329,29 @@ class Contract(object):
         """
 
         self._funding_rate_limit = funding_rate_limit
+
+    @property
+    def contract_type(self):
+        """Gets the contract_type of this Contract.  # noqa: E501
+
+        Contract classification type, e.g. stocks, metals, indices, forex, commodities, etc.  # noqa: E501
+
+        :return: The contract_type of this Contract.  # noqa: E501
+        :rtype: str
+        """
+        return self._contract_type
+
+    @contract_type.setter
+    def contract_type(self, contract_type):
+        """Sets the contract_type of this Contract.
+
+        Contract classification type, e.g. stocks, metals, indices, forex, commodities, etc.  # noqa: E501
+
+        :param contract_type: The contract_type of this Contract.  # noqa: E501
+        :type: str
+        """
+
+        self._contract_type = contract_type
 
     @property
     def funding_impact_value(self):

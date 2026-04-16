@@ -33,74 +33,263 @@ class CreateOrder(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'timestamp': 'int',
-        'data': 'CreateOrderData'
+        'id': 'int',
+        'user_id': 'int',
+        '_from': 'list[CreateOrderDetail]',
+        'to': 'list[CreateOrderDetail]',
+        'source': 'str',
+        'app_id': 'str',
+        'client_req_id': 'str',
+        'status': 'int',
+        'create_time': 'int'
     }
 
     attribute_map = {
-        'timestamp': 'timestamp',
-        'data': 'data'
+        'id': 'id',
+        'user_id': 'user_id',
+        '_from': 'from',
+        'to': 'to',
+        'source': 'source',
+        'app_id': 'app_id',
+        'client_req_id': 'client_req_id',
+        'status': 'status',
+        'create_time': 'create_time'
     }
 
-    def __init__(self, timestamp=None, data=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, CreateOrderData, Configuration) -> None
+    def __init__(self, id=None, user_id=None, _from=None, to=None, source=None, app_id=None, client_req_id=None, status=None, create_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, list[CreateOrderDetail], list[CreateOrderDetail], str, str, str, int, int, Configuration) -> None
         """CreateOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._timestamp = None
-        self._data = None
+        self._id = None
+        self._user_id = None
+        self.__from = None
+        self._to = None
+        self._source = None
+        self._app_id = None
+        self._client_req_id = None
+        self._status = None
+        self._create_time = None
         self.discriminator = None
 
-        if timestamp is not None:
-            self.timestamp = timestamp
-        if data is not None:
-            self.data = data
+        self.id = id
+        self.user_id = user_id
+        self._from = _from
+        self.to = to
+        self.source = source
+        self.app_id = app_id
+        self.client_req_id = client_req_id
+        self.status = status
+        self.create_time = create_time
 
     @property
-    def timestamp(self):
-        """Gets the timestamp of this CreateOrder.  # noqa: E501
+    def id(self):
+        """Gets the id of this CreateOrder.  # noqa: E501
 
-        Server timestamp (milliseconds)  # noqa: E501
 
-        :return: The timestamp of this CreateOrder.  # noqa: E501
+        :return: The id of this CreateOrder.  # noqa: E501
         :rtype: int
         """
-        return self._timestamp
+        return self._id
 
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this CreateOrder.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CreateOrder.
 
-        Server timestamp (milliseconds)  # noqa: E501
 
-        :param timestamp: The timestamp of this CreateOrder.  # noqa: E501
+        :param id: The id of this CreateOrder.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._timestamp = timestamp
+        self._id = id
 
     @property
-    def data(self):
-        """Gets the data of this CreateOrder.  # noqa: E501
+    def user_id(self):
+        """Gets the user_id of this CreateOrder.  # noqa: E501
 
 
-        :return: The data of this CreateOrder.  # noqa: E501
-        :rtype: CreateOrderData
+        :return: The user_id of this CreateOrder.  # noqa: E501
+        :rtype: int
         """
-        return self._data
+        return self._user_id
 
-    @data.setter
-    def data(self, data):
-        """Sets the data of this CreateOrder.
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this CreateOrder.
 
 
-        :param data: The data of this CreateOrder.  # noqa: E501
-        :type: CreateOrderData
+        :param user_id: The user_id of this CreateOrder.  # noqa: E501
+        :type: int
         """
+        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
-        self._data = data
+        self._user_id = user_id
+
+    @property
+    def _from(self):
+        """Gets the _from of this CreateOrder.  # noqa: E501
+
+
+        :return: The _from of this CreateOrder.  # noqa: E501
+        :rtype: list[CreateOrderDetail]
+        """
+        return self.__from
+
+    @_from.setter
+    def _from(self, _from):
+        """Sets the _from of this CreateOrder.
+
+
+        :param _from: The _from of this CreateOrder.  # noqa: E501
+        :type: list[CreateOrderDetail]
+        """
+        if self.local_vars_configuration.client_side_validation and _from is None:  # noqa: E501
+            raise ValueError("Invalid value for `_from`, must not be `None`")  # noqa: E501
+
+        self.__from = _from
+
+    @property
+    def to(self):
+        """Gets the to of this CreateOrder.  # noqa: E501
+
+
+        :return: The to of this CreateOrder.  # noqa: E501
+        :rtype: list[CreateOrderDetail]
+        """
+        return self._to
+
+    @to.setter
+    def to(self, to):
+        """Sets the to of this CreateOrder.
+
+
+        :param to: The to of this CreateOrder.  # noqa: E501
+        :type: list[CreateOrderDetail]
+        """
+        if self.local_vars_configuration.client_side_validation and to is None:  # noqa: E501
+            raise ValueError("Invalid value for `to`, must not be `None`")  # noqa: E501
+
+        self._to = to
+
+    @property
+    def source(self):
+        """Gets the source of this CreateOrder.  # noqa: E501
+
+
+        :return: The source of this CreateOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this CreateOrder.
+
+
+        :param source: The source of this CreateOrder.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
+            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
+
+        self._source = source
+
+    @property
+    def app_id(self):
+        """Gets the app_id of this CreateOrder.  # noqa: E501
+
+
+        :return: The app_id of this CreateOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._app_id
+
+    @app_id.setter
+    def app_id(self, app_id):
+        """Sets the app_id of this CreateOrder.
+
+
+        :param app_id: The app_id of this CreateOrder.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and app_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `app_id`, must not be `None`")  # noqa: E501
+
+        self._app_id = app_id
+
+    @property
+    def client_req_id(self):
+        """Gets the client_req_id of this CreateOrder.  # noqa: E501
+
+
+        :return: The client_req_id of this CreateOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_req_id
+
+    @client_req_id.setter
+    def client_req_id(self, client_req_id):
+        """Sets the client_req_id of this CreateOrder.
+
+
+        :param client_req_id: The client_req_id of this CreateOrder.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and client_req_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `client_req_id`, must not be `None`")  # noqa: E501
+
+        self._client_req_id = client_req_id
+
+    @property
+    def status(self):
+        """Gets the status of this CreateOrder.  # noqa: E501
+
+
+        :return: The status of this CreateOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this CreateOrder.
+
+
+        :param status: The status of this CreateOrder.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+
+        self._status = status
+
+    @property
+    def create_time(self):
+        """Gets the create_time of this CreateOrder.  # noqa: E501
+
+
+        :return: The create_time of this CreateOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._create_time
+
+    @create_time.setter
+    def create_time(self, create_time):
+        """Sets the create_time of this CreateOrder.
+
+
+        :param create_time: The create_time of this CreateOrder.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and create_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
+
+        self._create_time = create_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

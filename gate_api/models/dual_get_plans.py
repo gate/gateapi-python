@@ -255,7 +255,7 @@ class DualGetPlans(object):
     def min_copies(self):
         """Gets the min_copies of this DualGetPlans.  # noqa: E501
 
-        Minimum Units  # noqa: E501
+        Minimum share count  # noqa: E501
 
         :return: The min_copies of this DualGetPlans.  # noqa: E501
         :rtype: int
@@ -266,7 +266,7 @@ class DualGetPlans(object):
     def min_copies(self, min_copies):
         """Sets the min_copies of this DualGetPlans.
 
-        Minimum Units  # noqa: E501
+        Minimum share count  # noqa: E501
 
         :param min_copies: The min_copies of this DualGetPlans.  # noqa: E501
         :type: int
@@ -278,7 +278,7 @@ class DualGetPlans(object):
     def max_copies(self):
         """Gets the max_copies of this DualGetPlans.  # noqa: E501
 
-        Maximum Units  # noqa: E501
+        Maximum share count  # noqa: E501
 
         :return: The max_copies of this DualGetPlans.  # noqa: E501
         :rtype: int
@@ -289,7 +289,7 @@ class DualGetPlans(object):
     def max_copies(self, max_copies):
         """Sets the max_copies of this DualGetPlans.
 
-        Maximum Units  # noqa: E501
+        Maximum share count  # noqa: E501
 
         :param max_copies: The max_copies of this DualGetPlans.  # noqa: E501
         :type: int

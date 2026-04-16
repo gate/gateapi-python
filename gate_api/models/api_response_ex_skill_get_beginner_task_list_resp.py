@@ -62,16 +62,14 @@ class ApiResponseExSkillGetBeginnerTaskListResp(object):
         self._timestamp = None
         self.discriminator = None
 
-        if code is not None:
-            self.code = code
+        self.code = code
         if label is not None:
             self.label = label
         if message is not None:
             self.message = message
         if data is not None:
             self.data = data
-        if timestamp is not None:
-            self.timestamp = timestamp
+        self.timestamp = timestamp
 
     @property
     def code(self):
@@ -93,6 +91,8 @@ class ApiResponseExSkillGetBeginnerTaskListResp(object):
         :param code: The code of this ApiResponseExSkillGetBeginnerTaskListResp.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
+            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -183,6 +183,8 @@ class ApiResponseExSkillGetBeginnerTaskListResp(object):
         :param timestamp: The timestamp of this ApiResponseExSkillGetBeginnerTaskListResp.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
 

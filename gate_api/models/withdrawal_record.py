@@ -381,7 +381,7 @@ class WithdrawalRecord(object):
     def timestamp2(self):
         """Gets the timestamp2 of this WithdrawalRecord.  # noqa: E501
 
-        Withdrawal final time, i.e.: withdrawal cancellation time or withdrawal success time When status = CANCEL, corresponds to cancellation time When status = DONE and block_number > 0, it is the withdrawal success time  # noqa: E501
+        Withdrawal final time, i.e.: withdrawal cancellation time or withdrawal success time When status = CANCEL, corresponds to cancellation time When status = DONE, it is the withdrawal success time  # noqa: E501
 
         :return: The timestamp2 of this WithdrawalRecord.  # noqa: E501
         :rtype: str
@@ -392,7 +392,7 @@ class WithdrawalRecord(object):
     def timestamp2(self, timestamp2):
         """Sets the timestamp2 of this WithdrawalRecord.
 
-        Withdrawal final time, i.e.: withdrawal cancellation time or withdrawal success time When status = CANCEL, corresponds to cancellation time When status = DONE and block_number > 0, it is the withdrawal success time  # noqa: E501
+        Withdrawal final time, i.e.: withdrawal cancellation time or withdrawal success time When status = CANCEL, corresponds to cancellation time When status = DONE, it is the withdrawal success time  # noqa: E501
 
         :param timestamp2: The timestamp2 of this WithdrawalRecord.  # noqa: E501
         :type: str
@@ -427,7 +427,7 @@ class WithdrawalRecord(object):
     def status(self):
         """Gets the status of this WithdrawalRecord.  # noqa: E501
 
-        Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed (Only considered truly on-chain when block_number > 0) - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review   # noqa: E501
+        Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review   # noqa: E501
 
         :return: The status of this WithdrawalRecord.  # noqa: E501
         :rtype: str
@@ -438,7 +438,7 @@ class WithdrawalRecord(object):
     def status(self, status):
         """Sets the status of this WithdrawalRecord.
 
-        Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed (Only considered truly on-chain when block_number > 0) - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review   # noqa: E501
+        Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review   # noqa: E501
 
         :param status: The status of this WithdrawalRecord.  # noqa: E501
         :type: str

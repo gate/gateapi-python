@@ -57,7 +57,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespData(object):
     def tasks(self):
         """Gets the tasks of this ApiResponseExSkillGetBeginnerTaskListRespData.  # noqa: E501
 
-        Beginner task list (registration tasks first, onboarding tasks after)  # noqa: E501
+        入门任务列表（注册任务在前，引导任务在后；满足条件时会额外返回一条待领取下载任务）  # noqa: E501
 
         :return: The tasks of this ApiResponseExSkillGetBeginnerTaskListRespData.  # noqa: E501
         :rtype: list[ApiResponseExSkillGetBeginnerTaskListRespDataTasks]
@@ -68,7 +68,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespData(object):
     def tasks(self, tasks):
         """Sets the tasks of this ApiResponseExSkillGetBeginnerTaskListRespData.
 
-        Beginner task list (registration tasks first, onboarding tasks after)  # noqa: E501
+        入门任务列表（注册任务在前，引导任务在后；满足条件时会额外返回一条待领取下载任务）  # noqa: E501
 
         :param tasks: The tasks of this ApiResponseExSkillGetBeginnerTaskListRespData.  # noqa: E501
         :type: list[ApiResponseExSkillGetBeginnerTaskListRespDataTasks]

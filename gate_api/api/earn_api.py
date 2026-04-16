@@ -46,6 +46,12 @@ class EarnApi(object):
 
         :param bool async_req: execute request asynchronously
         :param int plan_id: Financial project ID
+        :param str coin: Investment Token
+        :param str type: Type enum: `put` — buy low; `call` — sell high
+        :param str quote_currency: Settlement currency enum: defaults to USDT; GUSD optional
+        :param str sort: Sort field enum: `apy` — highest APY first `short-period` — shortest tenor first `multiple` — highest premium first
+        :param int page: page number
+        :param int page_size: Items per page
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -70,6 +76,12 @@ class EarnApi(object):
 
         :param bool async_req: execute request asynchronously
         :param int plan_id: Financial project ID
+        :param str coin: Investment Token
+        :param str type: Type enum: `put` — buy low; `call` — sell high
+        :param str quote_currency: Settlement currency enum: defaults to USDT; GUSD optional
+        :param str sort: Sort field enum: `apy` — highest APY first `short-period` — shortest tenor first `multiple` — highest premium first
+        :param int page: page number
+        :param int page_size: Items per page
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -87,7 +99,13 @@ class EarnApi(object):
         local_var_params = locals()
 
         all_params = [
-            'plan_id'
+            'plan_id',
+            'coin',
+            'type',
+            'quote_currency',
+            'sort',
+            'page',
+            'page_size'
         ]
         all_params.extend(
             [
@@ -114,6 +132,18 @@ class EarnApi(object):
         query_params = []
         if 'plan_id' in local_var_params and local_var_params['plan_id'] is not None:  # noqa: E501
             query_params.append(('plan_id', local_var_params['plan_id']))  # noqa: E501
+        if 'coin' in local_var_params and local_var_params['coin'] is not None:  # noqa: E501
+            query_params.append(('coin', local_var_params['coin']))  # noqa: E501
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'quote_currency' in local_var_params and local_var_params['quote_currency'] is not None:  # noqa: E501
+            query_params.append(('quote_currency', local_var_params['quote_currency']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
 
         header_params = {}
 
@@ -155,6 +185,9 @@ class EarnApi(object):
         :param bool async_req: execute request asynchronously
         :param int _from: Start settlement time
         :param int to: End settlement time
+        :param str type: Type enum: `put` — buy low; `call` — sell high
+        :param str status: Order status enum: `HOLD` — open position `REPAY` — historical position `PROCESSING` — position active `SETTLEMENT_PROCESSING` — settlement in progress `ALL` — all
+        :param str coin: Investment Token
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -182,6 +215,9 @@ class EarnApi(object):
         :param bool async_req: execute request asynchronously
         :param int _from: Start settlement time
         :param int to: End settlement time
+        :param str type: Type enum: `put` — buy low; `call` — sell high
+        :param str status: Order status enum: `HOLD` — open position `REPAY` — historical position `PROCESSING` — position active `SETTLEMENT_PROCESSING` — settlement in progress `ALL` — all
+        :param str coin: Investment Token
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
         :param _return_http_data_only: response data without head status code
@@ -203,6 +239,9 @@ class EarnApi(object):
         all_params = [
             '_from',
             'to',
+            'type',
+            'status',
+            'coin',
             'page',
             'limit'
         ]
@@ -239,6 +278,12 @@ class EarnApi(object):
             query_params.append(('from', local_var_params['_from']))  # noqa: E501
         if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
             query_params.append(('to', local_var_params['to']))  # noqa: E501
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if 'coin' in local_var_params and local_var_params['coin'] is not None:  # noqa: E501
+            query_params.append(('coin', local_var_params['coin']))  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -485,6 +530,465 @@ class EarnApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DualGetBalance',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_dual_order_refund_preview(self, order_id, **kwargs):  # noqa: E501
+        """Dual-currency early redemption preview  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dual_order_refund_preview(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str order_id: Order ID (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.DualOrderRefundPreview
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_dual_order_refund_preview_with_http_info(order_id, **kwargs)  # noqa: E501
+
+    def get_dual_order_refund_preview_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Dual-currency early redemption preview  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dual_order_refund_preview_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str order_id: Order ID (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.DualOrderRefundPreview, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'order_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_dual_order_refund_preview" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_id` when calling `get_dual_order_refund_preview`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'order_id' in local_var_params and local_var_params['order_id'] is not None:  # noqa: E501
+            query_params.append(('order_id', local_var_params['order_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/dual/order-refund-preview', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DualOrderRefundPreview',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def place_dual_order_refund(self, dual_order_refund_params, **kwargs):  # noqa: E501
+        """Dual-currency order early redemption  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.place_dual_order_refund(dual_order_refund_params, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param DualOrderRefundParams dual_order_refund_params: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: None
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.place_dual_order_refund_with_http_info(dual_order_refund_params, **kwargs)  # noqa: E501
+
+    def place_dual_order_refund_with_http_info(self, dual_order_refund_params, **kwargs):  # noqa: E501
+        """Dual-currency order early redemption  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.place_dual_order_refund_with_http_info(dual_order_refund_params, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param DualOrderRefundParams dual_order_refund_params: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: None
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'dual_order_refund_params'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method place_dual_order_refund" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'dual_order_refund_params' is set
+        if self.api_client.client_side_validation and ('dual_order_refund_params' not in local_var_params or  # noqa: E501
+                                                        local_var_params['dual_order_refund_params'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `dual_order_refund_params` when calling `place_dual_order_refund`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'dual_order_refund_params' in local_var_params:
+            body_params = local_var_params['dual_order_refund_params']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/dual/order-refund', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def modify_dual_order_reinvest(self, dual_modify_order_reinvest_params, **kwargs):  # noqa: E501
+        """Modify dual-currency order reinvest  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_dual_order_reinvest(dual_modify_order_reinvest_params, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param DualModifyOrderReinvestParams dual_modify_order_reinvest_params: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: None
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.modify_dual_order_reinvest_with_http_info(dual_modify_order_reinvest_params, **kwargs)  # noqa: E501
+
+    def modify_dual_order_reinvest_with_http_info(self, dual_modify_order_reinvest_params, **kwargs):  # noqa: E501
+        """Modify dual-currency order reinvest  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.modify_dual_order_reinvest_with_http_info(dual_modify_order_reinvest_params, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param DualModifyOrderReinvestParams dual_modify_order_reinvest_params: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: None
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'dual_modify_order_reinvest_params'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method modify_dual_order_reinvest" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'dual_modify_order_reinvest_params' is set
+        if self.api_client.client_side_validation and ('dual_modify_order_reinvest_params' not in local_var_params or  # noqa: E501
+                                                        local_var_params['dual_modify_order_reinvest_params'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `dual_modify_order_reinvest_params` when calling `modify_dual_order_reinvest`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'dual_modify_order_reinvest_params' in local_var_params:
+            body_params = local_var_params['dual_modify_order_reinvest_params']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/dual/modify-order-reinvest', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_dual_project_recommend(self, **kwargs):  # noqa: E501
+        """Dual-currency recommended projects  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dual_project_recommend(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str mode: Sort mode; default `normal`: `senior` — curated picks (APR/tenor) `apy_up` — APY ascending `ep_down` — target price descending `ep_up` — target price ascending `dt_down` — maturity time descending `dt_up` — maturity time ascending
+        :param str coin: Investment Token
+        :param str type: `call`: sell high; `put`: buy low
+        :param str history_pids: Comma-separated project IDs to exclude already recommended items
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.DualProjectRecommend]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_dual_project_recommend_with_http_info(**kwargs)  # noqa: E501
+
+    def get_dual_project_recommend_with_http_info(self, **kwargs):  # noqa: E501
+        """Dual-currency recommended projects  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dual_project_recommend_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str mode: Sort mode; default `normal`: `senior` — curated picks (APR/tenor) `apy_up` — APY ascending `ep_down` — target price descending `ep_up` — target price ascending `dt_down` — maturity time descending `dt_up` — maturity time ascending
+        :param str coin: Investment Token
+        :param str type: `call`: sell high; `put`: buy low
+        :param str history_pids: Comma-separated project IDs to exclude already recommended items
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.DualProjectRecommend], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'mode',
+            'coin',
+            'type',
+            'history_pids'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_dual_project_recommend" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
+            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
+        if 'coin' in local_var_params and local_var_params['coin'] is not None:  # noqa: E501
+            query_params.append(('coin', local_var_params['coin']))  # noqa: E501
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'history_pids' in local_var_params and local_var_params['history_pids'] is not None:  # noqa: E501
+            query_params.append(('history_pids', local_var_params['history_pids']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/earn/dual/project-recommend', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[DualProjectRecommend]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

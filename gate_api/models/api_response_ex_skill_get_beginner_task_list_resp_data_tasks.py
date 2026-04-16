@@ -76,8 +76,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
 
         if welfare_task_id is not None:
             self.welfare_task_id = welfare_task_id
-        if task_center_id is not None:
-            self.task_center_id = task_center_id
+        self.task_center_id = task_center_id
         if task_type is not None:
             self.task_type = task_type
         if task_name is not None:
@@ -90,8 +89,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
             self.reward_unit = reward_unit
         if prize_type is not None:
             self.prize_type = prize_type
-        if status is not None:
-            self.status = status
+        self.status = status
 
     @property
     def welfare_task_id(self):
@@ -136,6 +134,8 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
         :param task_center_id: The task_center_id of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and task_center_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `task_center_id`, must not be `None`")  # noqa: E501
 
         self._task_center_id = task_center_id
 
@@ -143,7 +143,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def task_type(self):
         """Gets the task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
 
-        Task type: 1 = KYC level-2 verification, 2 = spot, 3 = futures, 4 = referral, 5 = quantitative, 6 = earn, 7 = startup, 8 = first deposit, 10 = registration task, 11 = onboarding task  # noqa: E501
+        任务类型：1=KYC二级认证 2=现货 3=合约 4=邀请 5=量化 6=余币宝 7=startup 8=首次入金 10=注册任务 11=引导任务 23=下载任务  # noqa: E501
 
         :return: The task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :rtype: int
@@ -154,7 +154,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def task_type(self, task_type):
         """Sets the task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.
 
-        Task type: 1 = KYC level-2 verification, 2 = spot, 3 = futures, 4 = referral, 5 = quantitative, 6 = earn, 7 = startup, 8 = first deposit, 10 = registration task, 11 = onboarding task  # noqa: E501
+        任务类型：1=KYC二级认证 2=现货 3=合约 4=邀请 5=量化 6=余币宝 7=startup 8=首次入金 10=注册任务 11=引导任务 23=下载任务  # noqa: E501
 
         :param task_type: The task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :type: int
@@ -287,7 +287,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def status(self):
         """Gets the status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
 
-        Task status: 0 = unclaimed, 1 = claimed, 2 = reward pending, 3 = rewarding, 4 = completed, 5 = expired  # noqa: E501
+        任务状态：0=未领取（典型为待领取下载任务） 1=已领取/进行中 2=已完成待领奖 3=发奖中 4=已完成/已结算 5=已过期  # noqa: E501
 
         :return: The status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :rtype: int
@@ -298,11 +298,13 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def status(self, status):
         """Sets the status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.
 
-        Task status: 0 = unclaimed, 1 = claimed, 2 = reward pending, 3 = rewarding, 4 = completed, 5 = expired  # noqa: E501
+        任务状态：0=未领取（典型为待领取下载任务） 1=已领取/进行中 2=已完成待领奖 3=发奖中 4=已完成/已结算 5=已过期  # noqa: E501
 
         :param status: The status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
         allowed_values = [0, 1, 2, 3, 4, 5]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
             raise ValueError(

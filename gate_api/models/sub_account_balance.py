@@ -34,16 +34,18 @@ class SubAccountBalance(object):
     """
     openapi_types = {
         'uid': 'str',
-        'available': 'dict(str, str)'
+        'available': 'dict(str, str)',
+        'locking': 'dict(str, str)'
     }
 
     attribute_map = {
         'uid': 'uid',
-        'available': 'available'
+        'available': 'available',
+        'locking': 'locking'
     }
 
-    def __init__(self, uid=None, available=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, dict(str, str), Configuration) -> None
+    def __init__(self, uid=None, available=None, locking=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, dict(str, str), dict(str, str), Configuration) -> None
         """SubAccountBalance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,12 +53,15 @@ class SubAccountBalance(object):
 
         self._uid = None
         self._available = None
+        self._locking = None
         self.discriminator = None
 
         if uid is not None:
             self.uid = uid
         if available is not None:
             self.available = available
+        if locking is not None:
+            self.locking = locking
 
     @property
     def uid(self):
@@ -103,6 +108,29 @@ class SubAccountBalance(object):
         """
 
         self._available = available
+
+    @property
+    def locking(self):
+        """Gets the locking of this SubAccountBalance.  # noqa: E501
+
+        Locked amount by currency  # noqa: E501
+
+        :return: The locking of this SubAccountBalance.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._locking
+
+    @locking.setter
+    def locking(self, locking):
+        """Sets the locking of this SubAccountBalance.
+
+        Locked amount by currency  # noqa: E501
+
+        :param locking: The locking of this SubAccountBalance.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._locking = locking
 
     def to_dict(self):
         """Returns the model properties as a dict"""

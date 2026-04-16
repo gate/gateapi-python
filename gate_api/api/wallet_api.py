@@ -1274,6 +1274,8 @@ class WalletApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str sub_uid: Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
+        :param int page: Page number
+        :param int limit: Maximum number of records returned. Default 20, max 100.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1298,6 +1300,8 @@ class WalletApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str sub_uid: Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
+        :param int page: Page number
+        :param int limit: Maximum number of records returned. Default 20, max 100.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1315,7 +1319,9 @@ class WalletApi(object):
         local_var_params = locals()
 
         all_params = [
-            'sub_uid'
+            'sub_uid',
+            'page',
+            'limit'
         ]
         all_params.extend(
             [
@@ -1335,6 +1341,12 @@ class WalletApi(object):
             local_var_params[k] = v
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `list_sub_account_balances`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_sub_account_balances`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_sub_account_balances`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1342,6 +1354,10 @@ class WalletApi(object):
         query_params = []
         if 'sub_uid' in local_var_params and local_var_params['sub_uid'] is not None:  # noqa: E501
             query_params.append(('sub_uid', local_var_params['sub_uid']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
 

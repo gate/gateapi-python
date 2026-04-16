@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_sub_account_balances**
-> list[SubAccountBalance] list_sub_account_balances(sub_uid=sub_uid)
+> list[SubAccountBalance] list_sub_account_balances(sub_uid=sub_uid, page=page, limit=limit)
 
 Query sub-account balance information
 
@@ -769,10 +769,12 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.WalletApi(api_client)
 sub_uid = '10003' # str | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts (optional)
+page = 1 # int | Page number (optional) (default to 1)
+limit = 100 # int | Maximum number of records returned. Default 20, max 100. (optional) (default to 100)
 
 try:
     # Query sub-account balance information
-    api_response = api_instance.list_sub_account_balances(sub_uid=sub_uid)
+    api_response = api_instance.list_sub_account_balances(sub_uid=sub_uid, page=page, limit=limit)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -785,6 +787,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sub_uid** | **str**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned. Default 20, max 100. | [optional] [default to 100]
 
 ### Return type
 

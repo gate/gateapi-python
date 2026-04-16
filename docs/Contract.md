@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **funding_interval** | **int** | Funding application interval, unit in seconds | [optional] 
 **funding_next_apply** | **float** | Next funding time | [optional] 
 **risk_limit_base** | **str** | Base risk limit (deprecated) | [optional] 
+**interest_rate** | **str** | Interest rate parameter used in funding rate and premium-related calculations for perpetual contracts. Returned as a string decimal ratio (e.g. &#x60;0.0003&#x60;), same convention as &#x60;funding_rate&#x60; (ratio, not percent). | [optional] 
 **risk_limit_step** | **str** | Risk limit adjustment step (deprecated) | [optional] 
 **risk_limit_max** | **str** | Maximum risk limit allowed by the contract (deprecated). It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits | [optional] 
 **order_size_min** | **str** | Minimum order size allowed by the contract | [optional] 
@@ -48,6 +49,7 @@ Name | Type | Description | Notes
 **market_order_slip_ratio** | **str** | The maximum slippage allowed for market orders, with the slippage rate calculated based on the latest market price | [optional] 
 **market_order_size_max** | **str** | The maximum number of contracts supported for market orders, with a default value of 0. When the default value is used, the maximum number of contracts is limited by the &#x60;order_size_max&#x60; field | [optional] 
 **funding_rate_limit** | **str** | Upper and lower limits of funding rate | [optional] 
+**contract_type** | **str** | Contract classification type, e.g. stocks, metals, indices, forex, commodities, etc. | [optional] 
 **funding_impact_value** | **str** | Funding rate depth impact value | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

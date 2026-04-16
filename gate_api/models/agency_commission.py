@@ -151,7 +151,7 @@ class AgencyCommission(object):
     def commission_amount(self):
         """Gets the commission_amount of this AgencyCommission.  # noqa: E501
 
-        Transaction amount  # noqa: E501
+        Commission amount  # noqa: E501
 
         :return: The commission_amount of this AgencyCommission.  # noqa: E501
         :rtype: str
@@ -162,7 +162,7 @@ class AgencyCommission(object):
     def commission_amount(self, commission_amount):
         """Sets the commission_amount of this AgencyCommission.
 
-        Transaction amount  # noqa: E501
+        Commission amount  # noqa: E501
 
         :param commission_amount: The commission_amount of this AgencyCommission.  # noqa: E501
         :type: str

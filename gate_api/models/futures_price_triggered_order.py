@@ -36,6 +36,7 @@ class FuturesPriceTriggeredOrder(object):
         'initial': 'FuturesInitialOrder',
         'trigger': 'FuturesPriceTrigger',
         'id': 'int',
+        'id_string': 'str',
         'user': 'int',
         'create_time': 'float',
         'finish_time': 'float',
@@ -51,6 +52,7 @@ class FuturesPriceTriggeredOrder(object):
         'initial': 'initial',
         'trigger': 'trigger',
         'id': 'id',
+        'id_string': 'id_string',
         'user': 'user',
         'create_time': 'create_time',
         'finish_time': 'finish_time',
@@ -62,8 +64,8 @@ class FuturesPriceTriggeredOrder(object):
         'me_order_id': 'me_order_id'
     }
 
-    def __init__(self, initial=None, trigger=None, id=None, user=None, create_time=None, finish_time=None, trade_id=None, status=None, finish_as=None, reason=None, order_type=None, me_order_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (FuturesInitialOrder, FuturesPriceTrigger, int, int, float, float, int, str, str, str, str, int, Configuration) -> None
+    def __init__(self, initial=None, trigger=None, id=None, id_string=None, user=None, create_time=None, finish_time=None, trade_id=None, status=None, finish_as=None, reason=None, order_type=None, me_order_id=None, local_vars_configuration=None):  # noqa: E501
+        # type: (FuturesInitialOrder, FuturesPriceTrigger, int, str, int, float, float, int, str, str, str, str, int, Configuration) -> None
         """FuturesPriceTriggeredOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class FuturesPriceTriggeredOrder(object):
         self._initial = None
         self._trigger = None
         self._id = None
+        self._id_string = None
         self._user = None
         self._create_time = None
         self._finish_time = None
@@ -87,6 +90,8 @@ class FuturesPriceTriggeredOrder(object):
         self.trigger = trigger
         if id is not None:
             self.id = id
+        if id_string is not None:
+            self.id_string = id_string
         if user is not None:
             self.user = user
         if create_time is not None:
@@ -174,6 +179,29 @@ class FuturesPriceTriggeredOrder(object):
         """
 
         self._id = id
+
+    @property
+    def id_string(self):
+        """Gets the id_string of this FuturesPriceTriggeredOrder.  # noqa: E501
+
+        String form of the auto order ID; the same order as numeric `id`, as the decimal string of `id` to avoid int64 precision loss in JavaScript and similar environments. Prefer this field to display the order ID or when a string unique identifier is needed; one-to-one with `id`. Same meaning as the field of the same name in futures price-trigger REST APIs and in `futures.orders` / `futures.autoorders` WebSocket pushes.  # noqa: E501
+
+        :return: The id_string of this FuturesPriceTriggeredOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._id_string
+
+    @id_string.setter
+    def id_string(self, id_string):
+        """Sets the id_string of this FuturesPriceTriggeredOrder.
+
+        String form of the auto order ID; the same order as numeric `id`, as the decimal string of `id` to avoid int64 precision loss in JavaScript and similar environments. Prefer this field to display the order ID or when a string unique identifier is needed; one-to-one with `id`. Same meaning as the field of the same name in futures price-trigger REST APIs and in `futures.orders` / `futures.autoorders` WebSocket pushes.  # noqa: E501
+
+        :param id_string: The id_string of this FuturesPriceTriggeredOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._id_string = id_string
 
     @property
     def user(self):

@@ -258,7 +258,7 @@ class AgencyTransaction(object):
     def amount_asset(self):
         """Gets the amount_asset of this AgencyTransaction.  # noqa: E501
 
-        Commission Asset  # noqa: E501
+        Transaction amount currency  # noqa: E501
 
         :return: The amount_asset of this AgencyTransaction.  # noqa: E501
         :rtype: str
@@ -269,7 +269,7 @@ class AgencyTransaction(object):
     def amount_asset(self, amount_asset):
         """Sets the amount_asset of this AgencyTransaction.
 
-        Commission Asset  # noqa: E501
+        Transaction amount currency  # noqa: E501
 
         :param amount_asset: The amount_asset of this AgencyTransaction.  # noqa: E501
         :type: str

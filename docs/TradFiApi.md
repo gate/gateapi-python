@@ -732,7 +732,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_trad_fi_order**
-> CreateOrder create_trad_fi_order(trad_fi_order_request)
+> CreateOrder2 create_trad_fi_order(trad_fi_order_request)
 
 Create an order
 
@@ -780,7 +780,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateOrder**](CreateOrder.md)
+[**CreateOrder2**](CreateOrder2.md)
 
 ### Authorization
 

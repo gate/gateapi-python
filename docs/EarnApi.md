@@ -8,6 +8,10 @@ Method | HTTP request | Description
 [**list_dual_orders**](EarnApi.md#list_dual_orders) | **GET** /earn/dual/orders | Dual Investment order list
 [**place_dual_order**](EarnApi.md#place_dual_order) | **POST** /earn/dual/orders | Place Dual Investment order
 [**list_dual_balance**](EarnApi.md#list_dual_balance) | **GET** /earn/dual/balance | Dual-Currency Earning Assets
+[**get_dual_order_refund_preview**](EarnApi.md#get_dual_order_refund_preview) | **GET** /earn/dual/order-refund-preview | Dual-currency early redemption preview
+[**place_dual_order_refund**](EarnApi.md#place_dual_order_refund) | **POST** /earn/dual/order-refund | Dual-currency order early redemption
+[**modify_dual_order_reinvest**](EarnApi.md#modify_dual_order_reinvest) | **POST** /earn/dual/modify-order-reinvest | Modify dual-currency order reinvest
+[**get_dual_project_recommend**](EarnApi.md#get_dual_project_recommend) | **GET** /earn/dual/project-recommend | Dual-currency recommended projects
 [**find_coin**](EarnApi.md#find_coin) | **GET** /earn/staking/coins | Staking coins
 [**swap_staking_coin**](EarnApi.md#swap_staking_coin) | **POST** /earn/staking/swap | On-chain token swap for earned coins
 [**order_list**](EarnApi.md#order_list) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
@@ -33,7 +37,7 @@ Method | HTTP request | Description
 
 
 # **list_dual_investment_plans**
-> list[DualGetPlans] list_dual_investment_plans(plan_id=plan_id)
+> list[DualGetPlans] list_dual_investment_plans(plan_id=plan_id, coin=coin, type=type, quote_currency=quote_currency, sort=sort, page=page, page_size=page_size)
 
 Dual Investment product list
 
@@ -53,10 +57,16 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.EarnApi(api_client)
 plan_id = 1 # int | Financial project ID (optional)
+coin = 'BTC' # str | Investment Token (optional)
+type = 'call' # str | Type enum: `put` — buy low; `call` — sell high (optional)
+quote_currency = 'quote_currency_example' # str | Settlement currency enum: defaults to USDT; GUSD optional (optional)
+sort = 'sort_example' # str | Sort field enum: `apy` — highest APY first `short-period` — shortest tenor first `multiple` — highest premium first (optional)
+page = 1 # int | page number (optional)
+page_size = 3 # int | Items per page (optional)
 
 try:
     # Dual Investment product list
-    api_response = api_instance.list_dual_investment_plans(plan_id=plan_id)
+    api_response = api_instance.list_dual_investment_plans(plan_id=plan_id, coin=coin, type=type, quote_currency=quote_currency, sort=sort, page=page, page_size=page_size)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -69,6 +79,12 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **plan_id** | **int**| Financial project ID | [optional] 
+ **coin** | **str**| Investment Token | [optional] 
+ **type** | **str**| Type enum: &#x60;put&#x60; — buy low; &#x60;call&#x60; — sell high | [optional] 
+ **quote_currency** | **str**| Settlement currency enum: defaults to USDT; GUSD optional | [optional] 
+ **sort** | **str**| Sort field enum: &#x60;apy&#x60; — highest APY first &#x60;short-period&#x60; — shortest tenor first &#x60;multiple&#x60; — highest premium first | [optional] 
+ **page** | **int**| page number | [optional] 
+ **page_size** | **int**| Items per page | [optional] 
 
 ### Return type
 
@@ -91,7 +107,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_dual_orders**
-> list[DualGetOrders] list_dual_orders(_from=_from, to=to, page=page, limit=limit)
+> list[DualGetOrders] list_dual_orders(_from=_from, to=to, type=type, status=status, coin=coin, page=page, limit=limit)
 
 Dual Investment order list
 
@@ -121,12 +137,15 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.EarnApi(api_client)
 _from = 1740727000 # int | Start settlement time (optional)
 to = 1740729000 # int | End settlement time (optional)
+type = 'put' # str | Type enum: `put` — buy low; `call` — sell high (optional)
+status = 'HOLD' # str | Order status enum: `HOLD` — open position `REPAY` — historical position `PROCESSING` — position active `SETTLEMENT_PROCESSING` — settlement in progress `ALL` — all (optional)
+coin = 'BTC' # str | Investment Token (optional)
 page = 1 # int | Page number (optional) (default to 1)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 
 try:
     # Dual Investment order list
-    api_response = api_instance.list_dual_orders(_from=_from, to=to, page=page, limit=limit)
+    api_response = api_instance.list_dual_orders(_from=_from, to=to, type=type, status=status, coin=coin, page=page, limit=limit)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -140,6 +159,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_from** | **int**| Start settlement time | [optional] 
  **to** | **int**| End settlement time | [optional] 
+ **type** | **str**| Type enum: &#x60;put&#x60; — buy low; &#x60;call&#x60; — sell high | [optional] 
+ **status** | **str**| Order status enum: &#x60;HOLD&#x60; — open position &#x60;REPAY&#x60; — historical position &#x60;PROCESSING&#x60; — position active &#x60;SETTLEMENT_PROCESSING&#x60; — settlement in progress &#x60;ALL&#x60; — all | [optional] 
+ **coin** | **str**| Investment Token | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
 
@@ -276,6 +298,278 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**DualGetBalance**](DualGetBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_dual_order_refund_preview**
+> DualOrderRefundPreview get_dual_order_refund_preview(order_id)
+
+Dual-currency early redemption preview
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+order_id = '9497' # str | Order ID
+
+try:
+    # Dual-currency early redemption preview
+    api_response = api_instance.get_dual_order_refund_preview(order_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->get_dual_order_refund_preview: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| Order ID | 
+
+### Return type
+
+[**DualOrderRefundPreview**](DualOrderRefundPreview.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **place_dual_order_refund**
+> place_dual_order_refund(dual_order_refund_params)
+
+Dual-currency order early redemption
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+dual_order_refund_params = gate_api.DualOrderRefundParams() # DualOrderRefundParams | 
+
+try:
+    # Dual-currency order early redemption
+    api_instance.place_dual_order_refund(dual_order_refund_params)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->place_dual_order_refund: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dual_order_refund_params** | [**DualOrderRefundParams**](DualOrderRefundParams.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Redemption successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **modify_dual_order_reinvest**
+> modify_dual_order_reinvest(dual_modify_order_reinvest_params)
+
+Modify dual-currency order reinvest
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+dual_modify_order_reinvest_params = gate_api.DualModifyOrderReinvestParams() # DualModifyOrderReinvestParams | 
+
+try:
+    # Modify dual-currency order reinvest
+    api_instance.modify_dual_order_reinvest(dual_modify_order_reinvest_params)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->modify_dual_order_reinvest: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dual_modify_order_reinvest_params** | [**DualModifyOrderReinvestParams**](DualModifyOrderReinvestParams.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_dual_project_recommend**
+> list[DualProjectRecommend] get_dual_project_recommend(mode=mode, coin=coin, type=type, history_pids=history_pids)
+
+Dual-currency recommended projects
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.EarnApi(api_client)
+mode = 'normal' # str | Sort mode; default `normal`: `senior` — curated picks (APR/tenor) `apy_up` — APY ascending `ep_down` — target price descending `ep_up` — target price ascending `dt_down` — maturity time descending `dt_up` — maturity time ascending (optional)
+coin = 'ETH' # str | Investment Token (optional)
+type = 'call' # str | `call`: sell high; `put`: buy low (optional)
+history_pids = '110656,110652' # str | Comma-separated project IDs to exclude already recommended items (optional)
+
+try:
+    # Dual-currency recommended projects
+    api_response = api_instance.get_dual_project_recommend(mode=mode, coin=coin, type=type, history_pids=history_pids)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling EarnApi->get_dual_project_recommend: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mode** | **str**| Sort mode; default &#x60;normal&#x60;: &#x60;senior&#x60; — curated picks (APR/tenor) &#x60;apy_up&#x60; — APY ascending &#x60;ep_down&#x60; — target price descending &#x60;ep_up&#x60; — target price ascending &#x60;dt_down&#x60; — maturity time descending &#x60;dt_up&#x60; — maturity time ascending | [optional] 
+ **coin** | **str**| Investment Token | [optional] 
+ **type** | **str**| &#x60;call&#x60;: sell high; &#x60;put&#x60;: buy low | [optional] 
+ **history_pids** | **str**| Comma-separated project IDs to exclude already recommended items | [optional] 
+
+### Return type
+
+[**list[DualProjectRecommend]**](DualProjectRecommend.md)
 
 ### Authorization
 

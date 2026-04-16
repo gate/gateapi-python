@@ -1,10 +1,10 @@
-# CreateOrderData
+# ClaimRewardError
 
-Order result
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Queue Task ID (not task ID) | [optional] 
+**label** | **str** | Error identifier code | [optional] 
+**message** | **str** | Error details | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
