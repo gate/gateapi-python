@@ -40,7 +40,7 @@ class AIHubRecommendation(object):
         'backtest_apr': 'str',
         'max_drawdown': 'str',
         'summary': 'str',
-        'strategy_params_preview': 'dict(str, object)'
+        'strategy_params_preview': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -55,7 +55,7 @@ class AIHubRecommendation(object):
     }
 
     def __init__(self, recommendation_id=None, market=None, strategy_type=None, strategy_name=None, backtest_apr=None, max_drawdown=None, summary=None, strategy_params_preview=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, StrategyType, str, str, str, str, dict(str, object), Configuration) -> None
+        # type: (str, str, StrategyType, str, str, str, str, dict(str, str), Configuration) -> None
         """AIHubRecommendation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -247,7 +247,7 @@ class AIHubRecommendation(object):
         推荐参数预览；按策略类型动态变化  # noqa: E501
 
         :return: The strategy_params_preview of this AIHubRecommendation.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: dict(str, str)
         """
         return self._strategy_params_preview
 
@@ -258,7 +258,7 @@ class AIHubRecommendation(object):
         推荐参数预览；按策略类型动态变化  # noqa: E501
 
         :param strategy_params_preview: The strategy_params_preview of this AIHubRecommendation.  # noqa: E501
-        :type: dict(str, object)
+        :type: dict(str, str)
         """
 
         self._strategy_params_preview = strategy_params_preview

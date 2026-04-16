@@ -37,9 +37,9 @@ class AIHubPortfolioDetailData(object):
         'strategy_type': 'StrategyType',
         'market': 'str',
         'status': 'str',
-        'base_info': 'dict(str, object)',
-        'metrics': 'dict(str, object)',
-        'position': 'dict(str, object)',
+        'base_info': 'dict(str, str)',
+        'metrics': 'dict(str, str)',
+        'position': 'dict(str, str)',
         'stop_supported': 'bool'
     }
 
@@ -55,7 +55,7 @@ class AIHubPortfolioDetailData(object):
     }
 
     def __init__(self, strategy_id=None, strategy_type=None, market=None, status=None, base_info=None, metrics=None, position=None, stop_supported=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, str, str, dict(str, object), dict(str, object), dict(str, object), bool, Configuration) -> None
+        # type: (str, StrategyType, str, str, dict(str, str), dict(str, str), dict(str, str), bool, Configuration) -> None
         """AIHubPortfolioDetailData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -179,7 +179,7 @@ class AIHubPortfolioDetailData(object):
         基础信息，字段按策略类型动态变化  # noqa: E501
 
         :return: The base_info of this AIHubPortfolioDetailData.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: dict(str, str)
         """
         return self._base_info
 
@@ -190,7 +190,7 @@ class AIHubPortfolioDetailData(object):
         基础信息，字段按策略类型动态变化  # noqa: E501
 
         :param base_info: The base_info of this AIHubPortfolioDetailData.  # noqa: E501
-        :type: dict(str, object)
+        :type: dict(str, str)
         """
         if self.local_vars_configuration.client_side_validation and base_info is None:  # noqa: E501
             raise ValueError("Invalid value for `base_info`, must not be `None`")  # noqa: E501
@@ -204,7 +204,7 @@ class AIHubPortfolioDetailData(object):
         指标信息，字段按策略类型动态变化  # noqa: E501
 
         :return: The metrics of this AIHubPortfolioDetailData.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: dict(str, str)
         """
         return self._metrics
 
@@ -215,7 +215,7 @@ class AIHubPortfolioDetailData(object):
         指标信息，字段按策略类型动态变化  # noqa: E501
 
         :param metrics: The metrics of this AIHubPortfolioDetailData.  # noqa: E501
-        :type: dict(str, object)
+        :type: dict(str, str)
         """
         if self.local_vars_configuration.client_side_validation and metrics is None:  # noqa: E501
             raise ValueError("Invalid value for `metrics`, must not be `None`")  # noqa: E501
@@ -229,7 +229,7 @@ class AIHubPortfolioDetailData(object):
         仓位或持仓信息，字段按策略类型动态变化  # noqa: E501
 
         :return: The position of this AIHubPortfolioDetailData.  # noqa: E501
-        :rtype: dict(str, object)
+        :rtype: dict(str, str)
         """
         return self._position
 
@@ -240,7 +240,7 @@ class AIHubPortfolioDetailData(object):
         仓位或持仓信息，字段按策略类型动态变化  # noqa: E501
 
         :param position: The position of this AIHubPortfolioDetailData.  # noqa: E501
-        :type: dict(str, object)
+        :type: dict(str, str)
         """
 
         self._position = position
