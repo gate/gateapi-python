@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.66"
+__version__ = "7.2.67"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -162,7 +162,6 @@ from gate_api.models.collateral_currency_res import CollateralCurrencyRes
 from gate_api.models.collateral_current_rate import CollateralCurrentRate
 from gate_api.models.collateral_fix_rate import CollateralFixRate
 from gate_api.models.collateral_ltv import CollateralLtv
-from gate_api.models.config_resp import ConfigResp
 from gate_api.models.confirm_payment import ConfirmPayment
 from gate_api.models.confirm_receipt import ConfirmReceipt
 from gate_api.models.contract import Contract
@@ -476,7 +475,6 @@ from gate_api.models.order_list_v1_resp import OrderListV1Resp
 from gate_api.models.order_patch import OrderPatch
 from gate_api.models.order_preview_v1_req import OrderPreviewV1Req
 from gate_api.models.order_preview_v1_resp import OrderPreviewV1Resp
-from gate_api.models.order_query_v1_resp import OrderQueryV1Resp
 from gate_api.models.order_resp import OrderResp
 from gate_api.models.order_response import OrderResponse
 from gate_api.models.otc_action_response import OtcActionResponse

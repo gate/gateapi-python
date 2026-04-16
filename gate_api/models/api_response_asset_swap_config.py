@@ -146,7 +146,7 @@ class ApiResponseAssetSwapConfig(object):
     def data(self):
         """Gets the data of this ApiResponseAssetSwapConfig.  # noqa: E501
 
-        成功时为前端配置（ConfigResp），失败时为 null  # noqa: E501
+        成功时为前端配置，失败时为 null  # noqa: E501
 
         :return: The data of this ApiResponseAssetSwapConfig.  # noqa: E501
         :rtype: object
@@ -157,7 +157,7 @@ class ApiResponseAssetSwapConfig(object):
     def data(self, data):
         """Sets the data of this ApiResponseAssetSwapConfig.
 
-        成功时为前端配置（ConfigResp），失败时为 null  # noqa: E501
+        成功时为前端配置，失败时为 null  # noqa: E501
 
         :param data: The data of this ApiResponseAssetSwapConfig.  # noqa: E501
         :type: object

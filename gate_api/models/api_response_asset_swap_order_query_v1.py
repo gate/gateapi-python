@@ -146,7 +146,7 @@ class ApiResponseAssetSwapOrderQueryV1(object):
     def data(self):
         """Gets the data of this ApiResponseAssetSwapOrderQueryV1.  # noqa: E501
 
-        成功时为订单详情（CreateOrder），失败时为 null  # noqa: E501
+        成功时为订单详情，失败时为 null  # noqa: E501
 
         :return: The data of this ApiResponseAssetSwapOrderQueryV1.  # noqa: E501
         :rtype: object
@@ -157,7 +157,7 @@ class ApiResponseAssetSwapOrderQueryV1(object):
     def data(self, data):
         """Sets the data of this ApiResponseAssetSwapOrderQueryV1.
 
-        成功时为订单详情（CreateOrder），失败时为 null  # noqa: E501
+        成功时为订单详情，失败时为 null  # noqa: E501
 
         :param data: The data of this ApiResponseAssetSwapOrderQueryV1.  # noqa: E501
         :type: object
