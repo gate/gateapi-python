@@ -60,7 +60,7 @@ class PreviewFromParam(object):
     def asset(self):
         """Gets the asset of this PreviewFromParam.  # noqa: E501
 
-        要换出的币种符号。  # noqa: E501
+        The currency symbol to be swapped out.  # noqa: E501
 
         :return: The asset of this PreviewFromParam.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class PreviewFromParam(object):
     def asset(self, asset):
         """Sets the asset of this PreviewFromParam.
 
-        要换出的币种符号。  # noqa: E501
+        The currency symbol to be swapped out.  # noqa: E501
 
         :param asset: The asset of this PreviewFromParam.  # noqa: E501
         :type: str
@@ -85,7 +85,7 @@ class PreviewFromParam(object):
     def amount(self):
         """Gets the amount of this PreviewFromParam.  # noqa: E501
 
-        该币种换出数量，十进制字符串。  # noqa: E501
+        The currency swap quantity, decimal string.  # noqa: E501
 
         :return: The amount of this PreviewFromParam.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class PreviewFromParam(object):
     def amount(self, amount):
         """Sets the amount of this PreviewFromParam.
 
-        该币种换出数量，十进制字符串。  # noqa: E501
+        The currency swap quantity, decimal string.  # noqa: E501
 
         :param amount: The amount of this PreviewFromParam.  # noqa: E501
         :type: str

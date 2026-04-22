@@ -1,6 +1,6 @@
 # AIHubPortfolioRunningSuccessResponse
 
-查询运行中策略列表成功时的响应体。
+The response body when querying the running policy list is successful.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -97,7 +97,7 @@ class SpotGridCreateParams(object):
     def money(self):
         """Gets the money of this SpotGridCreateParams.  # noqa: E501
 
-        投入金额  # noqa: E501
+        Amount of investment  # noqa: E501
 
         :return: The money of this SpotGridCreateParams.  # noqa: E501
         :rtype: str
@@ -108,7 +108,7 @@ class SpotGridCreateParams(object):
     def money(self, money):
         """Sets the money of this SpotGridCreateParams.
 
-        投入金额  # noqa: E501
+        Amount of investment  # noqa: E501
 
         :param money: The money of this SpotGridCreateParams.  # noqa: E501
         :type: str
@@ -172,7 +172,7 @@ class SpotGridCreateParams(object):
     def grid_num(self):
         """Gets the grid_num of this SpotGridCreateParams.  # noqa: E501
 
-        网格数量  # noqa: E501
+        Number of grids  # noqa: E501
 
         :return: The grid_num of this SpotGridCreateParams.  # noqa: E501
         :rtype: int
@@ -183,7 +183,7 @@ class SpotGridCreateParams(object):
     def grid_num(self, grid_num):
         """Sets the grid_num of this SpotGridCreateParams.
 
-        网格数量  # noqa: E501
+        Number of grids  # noqa: E501
 
         :param grid_num: The grid_num of this SpotGridCreateParams.  # noqa: E501
         :type: int

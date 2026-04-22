@@ -60,7 +60,7 @@ class OrderCreateV1Req(object):
     def _from(self):
         """Gets the _from of this OrderCreateV1Req.  # noqa: E501
 
-        卖出侧列表，至少一项；每项为要换出的币种及数量 `amount`。  # noqa: E501
+        Sell ​​side list, at least one item; each item is the currency and amount `amount` to be swapped out.  # noqa: E501
 
         :return: The _from of this OrderCreateV1Req.  # noqa: E501
         :rtype: list[CreateParam]
@@ -71,7 +71,7 @@ class OrderCreateV1Req(object):
     def _from(self, _from):
         """Sets the _from of this OrderCreateV1Req.
 
-        卖出侧列表，至少一项；每项为要换出的币种及数量 `amount`。  # noqa: E501
+        Sell ​​side list, at least one item; each item is the currency and amount `amount` to be swapped out.  # noqa: E501
 
         :param _from: The _from of this OrderCreateV1Req.  # noqa: E501
         :type: list[CreateParam]
@@ -85,7 +85,7 @@ class OrderCreateV1Req(object):
     def to(self):
         """Gets the to of this OrderCreateV1Req.  # noqa: E501
 
-        目标侧列表，至少一项；每项为目标币种及**数量** `amount`（非比例）。 与 `OrderPreviewV1Req.to`（`PreviewToParam`，含 `ratio`）结构语义不同，勿混用。  # noqa: E501
+        Target side list, at least one item; each item is the target currency and **amount** `amount` (non-proportional). The structural semantics are different from `OrderPreviewV1Req.to` (`PreviewToParam`, including `ratio`), so do not mix them.  # noqa: E501
 
         :return: The to of this OrderCreateV1Req.  # noqa: E501
         :rtype: list[CreateParam]
@@ -96,7 +96,7 @@ class OrderCreateV1Req(object):
     def to(self, to):
         """Sets the to of this OrderCreateV1Req.
 
-        目标侧列表，至少一项；每项为目标币种及**数量** `amount`（非比例）。 与 `OrderPreviewV1Req.to`（`PreviewToParam`，含 `ratio`）结构语义不同，勿混用。  # noqa: E501
+        Target side list, at least one item; each item is the target currency and **amount** `amount` (non-proportional). The structural semantics are different from `OrderPreviewV1Req.to` (`PreviewToParam`, including `ratio`), so do not mix them.  # noqa: E501
 
         :param to: The to of this OrderCreateV1Req.  # noqa: E501
         :type: list[CreateParam]

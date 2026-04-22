@@ -104,7 +104,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def asset(self):
         """Gets the asset of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
 
-        空投币种  # noqa: E501
+        Airdrop currency  # noqa: E501
 
         :return: The asset of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :rtype: str
@@ -115,7 +115,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def asset(self, asset):
         """Sets the asset of this HodlerAirdropV4UserAirdropRecord.
 
-        空投币种  # noqa: E501
+        Airdrop currency  # noqa: E501
 
         :param asset: The asset of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :type: str
@@ -129,7 +129,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def receive_amount_base(self):
         """Gets the receive_amount_base of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
 
-        基础空投金额  # noqa: E501
+        Basic airdrop amount  # noqa: E501
 
         :return: The receive_amount_base of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :rtype: str
@@ -140,7 +140,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def receive_amount_base(self, receive_amount_base):
         """Sets the receive_amount_base of this HodlerAirdropV4UserAirdropRecord.
 
-        基础空投金额  # noqa: E501
+        Basic airdrop amount  # noqa: E501
 
         :param receive_amount_base: The receive_amount_base of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :type: str
@@ -152,7 +152,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def receive_amount_ext(self):
         """Gets the receive_amount_ext of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
 
-        额外空投金额（余币宝加成）  # noqa: E501
+        Additional airdrop amount (Yubibao bonus)  # noqa: E501
 
         :return: The receive_amount_ext of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :rtype: str
@@ -163,7 +163,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def receive_amount_ext(self, receive_amount_ext):
         """Sets the receive_amount_ext of this HodlerAirdropV4UserAirdropRecord.
 
-        额外空投金额（余币宝加成）  # noqa: E501
+        Additional airdrop amount (Yubibao bonus)  # noqa: E501
 
         :param receive_amount_ext: The receive_amount_ext of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :type: str
@@ -175,7 +175,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def delivery_timest(self):
         """Gets the delivery_timest of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
 
-        空投发放时间，格式 Y-m-d H:i:s，UTC；未发放时可能为空字符串  # noqa: E501
+        Airdrop distribution time, format Y-m-d H:i:s, UTC; may be an empty string when not distributed  # noqa: E501
 
         :return: The delivery_timest of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :rtype: str
@@ -186,7 +186,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def delivery_timest(self, delivery_timest):
         """Sets the delivery_timest of this HodlerAirdropV4UserAirdropRecord.
 
-        空投发放时间，格式 Y-m-d H:i:s，UTC；未发放时可能为空字符串  # noqa: E501
+        Airdrop distribution time, format Y-m-d H:i:s, UTC; may be an empty string when not distributed  # noqa: E501
 
         :param delivery_timest: The delivery_timest of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :type: str
@@ -200,7 +200,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def exchange(self):
         """Gets the exchange of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
 
-        自动兑换状态，0未兑换 1已兑换为GT  # noqa: E501
+        Automatic exchange status, 0 has not been exchanged, 1 has been exchanged for GT  # noqa: E501
 
         :return: The exchange of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :rtype: str
@@ -211,7 +211,7 @@ class HodlerAirdropV4UserAirdropRecord(object):
     def exchange(self, exchange):
         """Sets the exchange of this HodlerAirdropV4UserAirdropRecord.
 
-        自动兑换状态，0未兑换 1已兑换为GT  # noqa: E501
+        Automatic exchange status, 0 has not been exchanged, 1 has been exchanged for GT  # noqa: E501
 
         :param exchange: The exchange of this HodlerAirdropV4UserAirdropRecord.  # noqa: E501
         :type: str

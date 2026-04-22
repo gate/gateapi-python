@@ -118,7 +118,7 @@ class CandyDropV4ParticipationRecordCd05(object):
     def status(self):
         """Gets the status of this CandyDropV4ParticipationRecordCd05.  # noqa: E501
 
-        项目状态：ongoing/awaiting_draw/won/not_win  # noqa: E501
+        Project status: ongoing/awaiting_draw/won/not_win  # noqa: E501
 
         :return: The status of this CandyDropV4ParticipationRecordCd05.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class CandyDropV4ParticipationRecordCd05(object):
     def status(self, status):
         """Sets the status of this CandyDropV4ParticipationRecordCd05.
 
-        项目状态：ongoing/awaiting_draw/won/not_win  # noqa: E501
+        Project status: ongoing/awaiting_draw/won/not_win  # noqa: E501
 
         :param status: The status of this CandyDropV4ParticipationRecordCd05.  # noqa: E501
         :type: str
@@ -141,7 +141,7 @@ class CandyDropV4ParticipationRecordCd05(object):
     def register_time(self):
         """Gets the register_time of this CandyDropV4ParticipationRecordCd05.  # noqa: E501
 
-        参与时间（UTC格式化）  # noqa: E501
+        Participation time (UTC formatted)  # noqa: E501
 
         :return: The register_time of this CandyDropV4ParticipationRecordCd05.  # noqa: E501
         :rtype: str
@@ -152,7 +152,7 @@ class CandyDropV4ParticipationRecordCd05(object):
     def register_time(self, register_time):
         """Sets the register_time of this CandyDropV4ParticipationRecordCd05.
 
-        参与时间（UTC格式化）  # noqa: E501
+        Participation time (UTC formatted)  # noqa: E501
 
         :param register_time: The register_time of this CandyDropV4ParticipationRecordCd05.  # noqa: E501
         :type: str

@@ -67,7 +67,7 @@ class CandyDropV4TaskProgressItemCd04(object):
     def task_name(self):
         """Gets the task_name of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
 
-        任务主标题  # noqa: E501
+        Task main title  # noqa: E501
 
         :return: The task_name of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
         :rtype: str
@@ -78,7 +78,7 @@ class CandyDropV4TaskProgressItemCd04(object):
     def task_name(self, task_name):
         """Sets the task_name of this CandyDropV4TaskProgressItemCd04.
 
-        任务主标题  # noqa: E501
+        Task main title  # noqa: E501
 
         :param task_name: The task_name of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
         :type: str
@@ -90,7 +90,7 @@ class CandyDropV4TaskProgressItemCd04(object):
     def task_desc(self):
         """Gets the task_desc of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
 
-        任务副标题  # noqa: E501
+        Task subtitle  # noqa: E501
 
         :return: The task_desc of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class CandyDropV4TaskProgressItemCd04(object):
     def task_desc(self, task_desc):
         """Sets the task_desc of this CandyDropV4TaskProgressItemCd04.
 
-        任务副标题  # noqa: E501
+        Task subtitle  # noqa: E501
 
         :param task_desc: The task_desc of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class CandyDropV4TaskProgressItemCd04(object):
     def value(self):
         """Gets the value of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
 
-        任务进度数据（交易量/充值量等）  # noqa: E501
+        Task progress data (transaction volume/recharge volume, etc.)  # noqa: E501
 
         :return: The value of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class CandyDropV4TaskProgressItemCd04(object):
     def value(self, value):
         """Sets the value of this CandyDropV4TaskProgressItemCd04.
 
-        任务进度数据（交易量/充值量等）  # noqa: E501
+        Task progress data (transaction volume/recharge volume, etc.)  # noqa: E501
 
         :param value: The value of this CandyDropV4TaskProgressItemCd04.  # noqa: E501
         :type: str

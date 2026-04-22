@@ -91,7 +91,7 @@ class HodlerAirdropV4ErrorResponse(object):
     def message(self):
         """Gets the message of this HodlerAirdropV4ErrorResponse.  # noqa: E501
 
-        错误信息（多语言）  # noqa: E501
+        Error messages (multilingual)  # noqa: E501
 
         :return: The message of this HodlerAirdropV4ErrorResponse.  # noqa: E501
         :rtype: str
@@ -102,7 +102,7 @@ class HodlerAirdropV4ErrorResponse(object):
     def message(self, message):
         """Sets the message of this HodlerAirdropV4ErrorResponse.
 
-        错误信息（多语言）  # noqa: E501
+        Error messages (multilingual)  # noqa: E501
 
         :param message: The message of this HodlerAirdropV4ErrorResponse.  # noqa: E501
         :type: str

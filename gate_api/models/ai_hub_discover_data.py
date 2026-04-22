@@ -110,7 +110,7 @@ class AIHubDiscoverData(object):
     def unsupported_filters(self):
         """Gets the unsupported_filters of this AIHubDiscoverData.  # noqa: E501
 
-        本期不支持的筛选条件  # noqa: E501
+        Filter conditions not supported in this issue  # noqa: E501
 
         :return: The unsupported_filters of this AIHubDiscoverData.  # noqa: E501
         :rtype: list[str]
@@ -121,7 +121,7 @@ class AIHubDiscoverData(object):
     def unsupported_filters(self, unsupported_filters):
         """Sets the unsupported_filters of this AIHubDiscoverData.
 
-        本期不支持的筛选条件  # noqa: E501
+        Filter conditions not supported in this issue  # noqa: E501
 
         :param unsupported_filters: The unsupported_filters of this AIHubDiscoverData.  # noqa: E501
         :type: list[str]

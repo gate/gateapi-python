@@ -145,7 +145,7 @@ class HodlerAirdropV4ProjectItem(object):
     def asset(self):
         """Gets the asset of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        空投币种  # noqa: E501
+        Airdrop currency  # noqa: E501
 
         :return: The asset of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -156,7 +156,7 @@ class HodlerAirdropV4ProjectItem(object):
     def asset(self, asset):
         """Sets the asset of this HodlerAirdropV4ProjectItem.
 
-        空投币种  # noqa: E501
+        Airdrop currency  # noqa: E501
 
         :param asset: The asset of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -170,7 +170,7 @@ class HodlerAirdropV4ProjectItem(object):
     def status(self):
         """Gets the status of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        项目状态  # noqa: E501
+        Project status  # noqa: E501
 
         :return: The status of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -181,7 +181,7 @@ class HodlerAirdropV4ProjectItem(object):
     def status(self, status):
         """Sets the status of this HodlerAirdropV4ProjectItem.
 
-        项目状态  # noqa: E501
+        Project status  # noqa: E501
 
         :param status: The status of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -201,7 +201,7 @@ class HodlerAirdropV4ProjectItem(object):
     def total_amount(self):
         """Gets the total_amount of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        空投总量  # noqa: E501
+        Total airdrop amount  # noqa: E501
 
         :return: The total_amount of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -212,7 +212,7 @@ class HodlerAirdropV4ProjectItem(object):
     def total_amount(self, total_amount):
         """Sets the total_amount of this HodlerAirdropV4ProjectItem.
 
-        空投总量  # noqa: E501
+        Total airdrop amount  # noqa: E501
 
         :param total_amount: The total_amount of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -226,7 +226,7 @@ class HodlerAirdropV4ProjectItem(object):
     def open_timest(self):
         """Gets the open_timest of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        活动开始时间，格式 Y-m-d H:i:s，UTC  # noqa: E501
+        Event start time, format Y-m-d H:i:s, UTC  # noqa: E501
 
         :return: The open_timest of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -237,7 +237,7 @@ class HodlerAirdropV4ProjectItem(object):
     def open_timest(self, open_timest):
         """Sets the open_timest of this HodlerAirdropV4ProjectItem.
 
-        活动开始时间，格式 Y-m-d H:i:s，UTC  # noqa: E501
+        Event start time, format Y-m-d H:i:s, UTC  # noqa: E501
 
         :param open_timest: The open_timest of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -251,7 +251,7 @@ class HodlerAirdropV4ProjectItem(object):
     def close_timest(self):
         """Gets the close_timest of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        活动结束时间，格式 Y-m-d H:i:s，UTC  # noqa: E501
+        Event end time, format Y-m-d H:i:s, UTC  # noqa: E501
 
         :return: The close_timest of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -262,7 +262,7 @@ class HodlerAirdropV4ProjectItem(object):
     def close_timest(self, close_timest):
         """Sets the close_timest of this HodlerAirdropV4ProjectItem.
 
-        活动结束时间，格式 Y-m-d H:i:s，UTC  # noqa: E501
+        Event end time, format Y-m-d H:i:s, UTC  # noqa: E501
 
         :param close_timest: The close_timest of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -276,7 +276,7 @@ class HodlerAirdropV4ProjectItem(object):
     def per_gt_reward_token(self):
         """Gets the per_gt_reward_token of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        每枚GT可获得的空投币数量，计算中时返回空字符串  # noqa: E501
+        The number of airdrop coins that can be obtained for each GT. When the calculation is in progress, an empty string is returned.  # noqa: E501
 
         :return: The per_gt_reward_token of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -287,7 +287,7 @@ class HodlerAirdropV4ProjectItem(object):
     def per_gt_reward_token(self, per_gt_reward_token):
         """Sets the per_gt_reward_token of this HodlerAirdropV4ProjectItem.
 
-        每枚GT可获得的空投币数量，计算中时返回空字符串  # noqa: E501
+        The number of airdrop coins that can be obtained for each GT. When the calculation is in progress, an empty string is returned.  # noqa: E501
 
         :param per_gt_reward_token: The per_gt_reward_token of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -299,7 +299,7 @@ class HodlerAirdropV4ProjectItem(object):
     def user_count(self):
         """Gets the user_count of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        参与人数  # noqa: E501
+        Number of participants  # noqa: E501
 
         :return: The user_count of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -310,7 +310,7 @@ class HodlerAirdropV4ProjectItem(object):
     def user_count(self, user_count):
         """Sets the user_count of this HodlerAirdropV4ProjectItem.
 
-        参与人数  # noqa: E501
+        Number of participants  # noqa: E501
 
         :param user_count: The user_count of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str
@@ -322,7 +322,7 @@ class HodlerAirdropV4ProjectItem(object):
     def max_queue_amount(self):
         """Gets the max_queue_amount of this HodlerAirdropV4ProjectItem.  # noqa: E501
 
-        个人参与GT上限  # noqa: E501
+        Personal GT limit  # noqa: E501
 
         :return: The max_queue_amount of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :rtype: str
@@ -333,7 +333,7 @@ class HodlerAirdropV4ProjectItem(object):
     def max_queue_amount(self, max_queue_amount):
         """Sets the max_queue_amount of this HodlerAirdropV4ProjectItem.
 
-        个人参与GT上限  # noqa: E501
+        Personal GT limit  # noqa: E501
 
         :param max_queue_amount: The max_queue_amount of this HodlerAirdropV4ProjectItem.  # noqa: E501
         :type: str

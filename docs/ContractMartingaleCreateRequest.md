@@ -1,6 +1,6 @@
 # ContractMartingaleCreateRequest
 
-创建合约马丁策略的请求体。
+Create the request body of the contract Martin strategy.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

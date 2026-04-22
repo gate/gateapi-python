@@ -120,7 +120,7 @@ class InfiniteGridCreateParams(object):
     def price_floor(self):
         """Gets the price_floor of this InfiniteGridCreateParams.  # noqa: E501
 
-        价格地板  # noqa: E501
+        price floor  # noqa: E501
 
         :return: The price_floor of this InfiniteGridCreateParams.  # noqa: E501
         :rtype: str
@@ -131,7 +131,7 @@ class InfiniteGridCreateParams(object):
     def price_floor(self, price_floor):
         """Sets the price_floor of this InfiniteGridCreateParams.
 
-        价格地板  # noqa: E501
+        price floor  # noqa: E501
 
         :param price_floor: The price_floor of this InfiniteGridCreateParams.  # noqa: E501
         :type: str
@@ -145,7 +145,7 @@ class InfiniteGridCreateParams(object):
     def profit_per_grid(self):
         """Gets the profit_per_grid of this InfiniteGridCreateParams.  # noqa: E501
 
-        每格利润  # noqa: E501
+        Profit per square  # noqa: E501
 
         :return: The profit_per_grid of this InfiniteGridCreateParams.  # noqa: E501
         :rtype: str
@@ -156,7 +156,7 @@ class InfiniteGridCreateParams(object):
     def profit_per_grid(self, profit_per_grid):
         """Sets the profit_per_grid of this InfiniteGridCreateParams.
 
-        每格利润  # noqa: E501
+        Profit per square  # noqa: E501
 
         :param profit_per_grid: The profit_per_grid of this InfiniteGridCreateParams.  # noqa: E501
         :type: str

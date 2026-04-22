@@ -1344,7 +1344,7 @@ class MultiCollateralLoanApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param list[str] currencies: Specify currency name query array, separated by commas, maximum 100 items (required)
+        :param list[str] currencies: Specify currency name query array, separated by commas, maximum 100 (required)
         :param str vip_level: VIP level, defaults to 0 if not specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1370,7 +1370,7 @@ class MultiCollateralLoanApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param list[str] currencies: Specify currency name query array, separated by commas, maximum 100 items (required)
+        :param list[str] currencies: Specify currency name query array, separated by commas, maximum 100 (required)
         :param str vip_level: VIP level, defaults to 0 if not specified
         :param _return_http_data_only: response data without head status code
                                        and headers

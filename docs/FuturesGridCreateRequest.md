@@ -1,6 +1,6 @@
 # FuturesGridCreateRequest
 
-创建合约网格策略的请求体。
+Create the request body of the contract grid strategy.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

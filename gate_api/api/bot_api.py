@@ -37,7 +37,7 @@ class BotApi(object):
         self.api_client = api_client
 
     def get_ai_hub_strategy_recommend(self, **kwargs):  # noqa: E501
-        """获取 AIHub 策略推荐  # noqa: E501
+        """Get AIHub strategy recommendations  # noqa: E501
 
         discover 域唯一正式接口。  支持场景： - `top1` - `bundle` - `filter` - `refresh`  约束： - 主动推荐池仅包含 `spot_grid`、`futures_grid`、`spot_martingale` - 可返回但不主动推荐 `infinite_grid`、`margin_grid` - 不得返回 `contract_martingale`、`smart-position`、`spot-future-arbitrage` - `scene=filter` 时只允许按 `market`、`backtest_apr_gte`、`max_drawdown_lte` 过滤 - `scene=refresh` 通过 `refresh_recommendation_id` 承接刷新上下文；正式最小格式只要求 `strategy_type|market` - 若上游直接透传上一条推荐的 `recommendation_id`，其中第三段 `backtest_id` 当前会被忽略  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -46,19 +46,19 @@ class BotApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str market: 交易对，例如 `BTC_USDT`
-        :param str strategy_type: 推荐目标策略类型；`contract_martingale` 不允许
-        :param str direction: 行情方向
-        :param str invest_amount: 投入金额，字符串透传
-        :param str scene: 推荐场景；为空时 bot-service 可按实现逻辑自动推断
-        :param str refresh_recommendation_id: 推荐刷新上下文。`scene=refresh` 时使用；当 `scene` 为空但该字段存在时，bot-service 也会自动判定为 `refresh`。 正式最小格式为 `strategy_type|market`；若直接透传上一条推荐的 `recommendation_id`，第三段 `backtest_id` 会被忽略。
-        :param int limit: 返回数量；`scene=filter` 时实际结果最多 10 条
-        :param str max_drawdown_lte: 最大回撤上限
-        :param str backtest_apr_gte: 回测年化下限
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str market: Trading pair, such as `BTC_USDT`
+        :param str strategy_type: Recommended target policy type; `contract_martingale` not allowed
+        :param str direction: Market direction
+        :param str invest_amount: Investment amount, string transparent transmission
+        :param str scene: Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic.
+        :param str refresh_recommendation_id: It is recommended to refresh the context. Used when `scene=refresh` is used; when `scene` is empty but the field exists, bot-service will also automatically determine as `refresh`. The official minimum format is `strategy_type|market`; if the `recommendation_id` of the previous recommendation is directly passed through, the third paragraph `backtest_id` will be ignored.
+        :param int limit: Return quantity; when `scene=filter` is used, the actual results are up to 10
+        :param str max_drawdown_lte: Maximum drawdown limit
+        :param str backtest_apr_gte: Backtest annualized lower limit
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -74,7 +74,7 @@ class BotApi(object):
         return self.get_ai_hub_strategy_recommend_with_http_info(**kwargs)  # noqa: E501
 
     def get_ai_hub_strategy_recommend_with_http_info(self, **kwargs):  # noqa: E501
-        """获取 AIHub 策略推荐  # noqa: E501
+        """Get AIHub strategy recommendations  # noqa: E501
 
         discover 域唯一正式接口。  支持场景： - `top1` - `bundle` - `filter` - `refresh`  约束： - 主动推荐池仅包含 `spot_grid`、`futures_grid`、`spot_martingale` - 可返回但不主动推荐 `infinite_grid`、`margin_grid` - 不得返回 `contract_martingale`、`smart-position`、`spot-future-arbitrage` - `scene=filter` 时只允许按 `market`、`backtest_apr_gte`、`max_drawdown_lte` 过滤 - `scene=refresh` 通过 `refresh_recommendation_id` 承接刷新上下文；正式最小格式只要求 `strategy_type|market` - 若上游直接透传上一条推荐的 `recommendation_id`，其中第三段 `backtest_id` 当前会被忽略  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -83,19 +83,19 @@ class BotApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str market: 交易对，例如 `BTC_USDT`
-        :param str strategy_type: 推荐目标策略类型；`contract_martingale` 不允许
-        :param str direction: 行情方向
-        :param str invest_amount: 投入金额，字符串透传
-        :param str scene: 推荐场景；为空时 bot-service 可按实现逻辑自动推断
-        :param str refresh_recommendation_id: 推荐刷新上下文。`scene=refresh` 时使用；当 `scene` 为空但该字段存在时，bot-service 也会自动判定为 `refresh`。 正式最小格式为 `strategy_type|market`；若直接透传上一条推荐的 `recommendation_id`，第三段 `backtest_id` 会被忽略。
-        :param int limit: 返回数量；`scene=filter` 时实际结果最多 10 条
-        :param str max_drawdown_lte: 最大回撤上限
-        :param str backtest_apr_gte: 回测年化下限
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str market: Trading pair, such as `BTC_USDT`
+        :param str strategy_type: Recommended target policy type; `contract_martingale` not allowed
+        :param str direction: Market direction
+        :param str invest_amount: Investment amount, string transparent transmission
+        :param str scene: Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic.
+        :param str refresh_recommendation_id: It is recommended to refresh the context. Used when `scene=refresh` is used; when `scene` is empty but the field exists, bot-service will also automatically determine as `refresh`. The official minimum format is `strategy_type|market`; if the `recommendation_id` of the previous recommendation is directly passed through, the third paragraph `backtest_id` will be ignored.
+        :param int limit: Return quantity; when `scene=filter` is used, the actual results are up to 10
+        :param str max_drawdown_lte: Maximum drawdown limit
+        :param str backtest_apr_gte: Backtest annualized lower limit
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -209,9 +209,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_spot_grid_create(self, spot_grid_create_request, **kwargs):  # noqa: E501
-        """创建现货网格  # noqa: E501
+        """Create spot grid  # noqa: E501
 
-        根据传入参数创建现货网格策略。  # noqa: E501
+        Create a spot grid strategy based on the incoming parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_grid_create(spot_grid_create_request, async_req=True)
@@ -219,10 +219,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param SpotGridCreateRequest spot_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -238,9 +238,9 @@ class BotApi(object):
         return self.post_ai_hub_spot_grid_create_with_http_info(spot_grid_create_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_spot_grid_create_with_http_info(self, spot_grid_create_request, **kwargs):  # noqa: E501
-        """创建现货网格  # noqa: E501
+        """Create spot grid  # noqa: E501
 
-        根据传入参数创建现货网格策略。  # noqa: E501
+        Create a spot grid strategy based on the incoming parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_grid_create_with_http_info(spot_grid_create_request, async_req=True)
@@ -248,10 +248,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param SpotGridCreateRequest spot_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -347,9 +347,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_margin_grid_create(self, margin_grid_create_request, **kwargs):  # noqa: E501
-        """创建杠杆网格  # noqa: E501
+        """Create a lever grid  # noqa: E501
 
-        根据传入参数创建杠杆网格策略。  # noqa: E501
+        Create a leverage grid strategy based on the passed parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_margin_grid_create(margin_grid_create_request, async_req=True)
@@ -357,10 +357,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param MarginGridCreateRequest margin_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -376,9 +376,9 @@ class BotApi(object):
         return self.post_ai_hub_margin_grid_create_with_http_info(margin_grid_create_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_margin_grid_create_with_http_info(self, margin_grid_create_request, **kwargs):  # noqa: E501
-        """创建杠杆网格  # noqa: E501
+        """Create a lever grid  # noqa: E501
 
-        根据传入参数创建杠杆网格策略。  # noqa: E501
+        Create a leverage grid strategy based on the passed parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_margin_grid_create_with_http_info(margin_grid_create_request, async_req=True)
@@ -386,10 +386,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param MarginGridCreateRequest margin_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -485,9 +485,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_infinite_grid_create(self, infinite_grid_create_request, **kwargs):  # noqa: E501
-        """创建无限网格  # noqa: E501
+        """Create infinite grid  # noqa: E501
 
-        根据传入参数创建无限网格策略。  # noqa: E501
+        Create an infinite grid strategy based on passed parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_infinite_grid_create(infinite_grid_create_request, async_req=True)
@@ -495,10 +495,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param InfiniteGridCreateRequest infinite_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -514,9 +514,9 @@ class BotApi(object):
         return self.post_ai_hub_infinite_grid_create_with_http_info(infinite_grid_create_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_infinite_grid_create_with_http_info(self, infinite_grid_create_request, **kwargs):  # noqa: E501
-        """创建无限网格  # noqa: E501
+        """Create infinite grid  # noqa: E501
 
-        根据传入参数创建无限网格策略。  # noqa: E501
+        Create an infinite grid strategy based on passed parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_infinite_grid_create_with_http_info(infinite_grid_create_request, async_req=True)
@@ -524,10 +524,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param InfiniteGridCreateRequest infinite_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -623,9 +623,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_futures_grid_create(self, futures_grid_create_request, **kwargs):  # noqa: E501
-        """创建合约网格  # noqa: E501
+        """Create a contract grid  # noqa: E501
 
-        根据传入参数创建合约网格策略。  # noqa: E501
+        Create a contract grid strategy based on the incoming parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_futures_grid_create(futures_grid_create_request, async_req=True)
@@ -633,10 +633,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param FuturesGridCreateRequest futures_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -652,9 +652,9 @@ class BotApi(object):
         return self.post_ai_hub_futures_grid_create_with_http_info(futures_grid_create_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_futures_grid_create_with_http_info(self, futures_grid_create_request, **kwargs):  # noqa: E501
-        """创建合约网格  # noqa: E501
+        """Create a contract grid  # noqa: E501
 
-        根据传入参数创建合约网格策略。  # noqa: E501
+        Create a contract grid strategy based on the incoming parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_futures_grid_create_with_http_info(futures_grid_create_request, async_req=True)
@@ -662,10 +662,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param FuturesGridCreateRequest futures_grid_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -761,9 +761,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_spot_martingale_create(self, spot_martingale_create_request, **kwargs):  # noqa: E501
-        """创建现货马丁  # noqa: E501
+        """Create Spot Martin  # noqa: E501
 
-        根据传入参数创建现货马丁策略。  # noqa: E501
+        Create a spot Martin strategy based on the passed parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_martingale_create(spot_martingale_create_request, async_req=True)
@@ -771,10 +771,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param SpotMartingaleCreateRequest spot_martingale_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -790,9 +790,9 @@ class BotApi(object):
         return self.post_ai_hub_spot_martingale_create_with_http_info(spot_martingale_create_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_spot_martingale_create_with_http_info(self, spot_martingale_create_request, **kwargs):  # noqa: E501
-        """创建现货马丁  # noqa: E501
+        """Create Spot Martin  # noqa: E501
 
-        根据传入参数创建现货马丁策略。  # noqa: E501
+        Create a spot Martin strategy based on the passed parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_martingale_create_with_http_info(spot_martingale_create_request, async_req=True)
@@ -800,10 +800,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param SpotMartingaleCreateRequest spot_martingale_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -899,9 +899,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_contract_martingale_create(self, contract_martingale_create_request, **kwargs):  # noqa: E501
-        """创建合约马丁  # noqa: E501
+        """Create contract martin  # noqa: E501
 
-        根据传入参数创建合约马丁策略。  # noqa: E501
+        Create a contract Martin strategy based on the input parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_contract_martingale_create(contract_martingale_create_request, async_req=True)
@@ -909,10 +909,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param ContractMartingaleCreateRequest contract_martingale_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -928,9 +928,9 @@ class BotApi(object):
         return self.post_ai_hub_contract_martingale_create_with_http_info(contract_martingale_create_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_contract_martingale_create_with_http_info(self, contract_martingale_create_request, **kwargs):  # noqa: E501
-        """创建合约马丁  # noqa: E501
+        """Create contract martin  # noqa: E501
 
-        根据传入参数创建合约马丁策略。  # noqa: E501
+        Create a contract Martin strategy based on the input parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_contract_martingale_create_with_http_info(contract_martingale_create_request, async_req=True)
@@ -938,10 +938,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param ContractMartingaleCreateRequest contract_martingale_create_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1037,23 +1037,23 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def get_ai_hub_portfolio_running(self, **kwargs):  # noqa: E501
-        """查询运行中策略列表  # noqa: E501
+        """Query the list of running policies  # noqa: E501
 
-        查询当前用户运行中的 AIHub 策略列表，支持按策略类型、交易对和分页条件过滤。  # noqa: E501
+        Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_portfolio_running(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str strategy_type: 按策略类型过滤
-        :param str market: 按交易对过滤
-        :param int page: 页码，默认 1
-        :param int page_size: 分页大小，默认 20，最大 50
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str strategy_type: Filter by policy type
+        :param str market: Filter by trading pair
+        :param int page: Page number, default 1
+        :param int page_size: Paging size, default 20, maximum 50
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1069,23 +1069,23 @@ class BotApi(object):
         return self.get_ai_hub_portfolio_running_with_http_info(**kwargs)  # noqa: E501
 
     def get_ai_hub_portfolio_running_with_http_info(self, **kwargs):  # noqa: E501
-        """查询运行中策略列表  # noqa: E501
+        """Query the list of running policies  # noqa: E501
 
-        查询当前用户运行中的 AIHub 策略列表，支持按策略类型、交易对和分页条件过滤。  # noqa: E501
+        Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_portfolio_running_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str strategy_type: 按策略类型过滤
-        :param str market: 按交易对过滤
-        :param int page: 页码，默认 1
-        :param int page_size: 分页大小，默认 20，最大 50
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str strategy_type: Filter by policy type
+        :param str market: Filter by trading pair
+        :param int page: Page number, default 1
+        :param int page_size: Paging size, default 20, maximum 50
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1188,21 +1188,21 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def get_ai_hub_portfolio_detail(self, strategy_id, strategy_type, **kwargs):  # noqa: E501
-        """查询单策略详情  # noqa: E501
+        """Query order policy details  # noqa: E501
 
-        请求中必须同时传 `strategy_id` 与 `strategy_type`，其中 `strategy_type` 用于按策略类型分发到底层详情实现。  # noqa: E501
+        Both `strategy_id` and `strategy_type` must be passed in the request, where `strategy_type` is used to distribute to the underlying detailed implementation by strategy type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_portfolio_detail(strategy_id, strategy_type, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str strategy_id: 策略 ID (required)
-        :param str strategy_type: 策略类型；用于底层详情分发 (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str strategy_id: Policy ID (required)
+        :param str strategy_type: Policy type; used for underlying detail distribution (required)
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1218,21 +1218,21 @@ class BotApi(object):
         return self.get_ai_hub_portfolio_detail_with_http_info(strategy_id, strategy_type, **kwargs)  # noqa: E501
 
     def get_ai_hub_portfolio_detail_with_http_info(self, strategy_id, strategy_type, **kwargs):  # noqa: E501
-        """查询单策略详情  # noqa: E501
+        """Query order policy details  # noqa: E501
 
-        请求中必须同时传 `strategy_id` 与 `strategy_type`，其中 `strategy_type` 用于按策略类型分发到底层详情实现。  # noqa: E501
+        Both `strategy_id` and `strategy_type` must be passed in the request, where `strategy_type` is used to distribute to the underlying detailed implementation by strategy type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_portfolio_detail_with_http_info(strategy_id, strategy_type, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str strategy_id: 策略 ID (required)
-        :param str strategy_type: 策略类型；用于底层详情分发 (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str strategy_id: Policy ID (required)
+        :param str strategy_type: Policy type; used for underlying detail distribution (required)
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1331,9 +1331,9 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def post_ai_hub_portfolio_stop(self, ai_hub_portfolio_stop_request, **kwargs):  # noqa: E501
-        """终止单个运行中策略  # noqa: E501
+        """Terminate a single running policy  # noqa: E501
 
-        单次请求只允许终止一个策略。 风险提示与二次确认由 OpenClaw 上层承担；本接口只负责执行 stop。  # noqa: E501
+        Only one policy is allowed to be terminated per request. Risk warning and secondary confirmation are borne by the upper layer of OpenClaw; this interface is only responsible for executing stop.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_portfolio_stop(ai_hub_portfolio_stop_request, async_req=True)
@@ -1341,10 +1341,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param AIHubPortfolioStopRequest ai_hub_portfolio_stop_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1360,9 +1360,9 @@ class BotApi(object):
         return self.post_ai_hub_portfolio_stop_with_http_info(ai_hub_portfolio_stop_request, **kwargs)  # noqa: E501
 
     def post_ai_hub_portfolio_stop_with_http_info(self, ai_hub_portfolio_stop_request, **kwargs):  # noqa: E501
-        """终止单个运行中策略  # noqa: E501
+        """Terminate a single running policy  # noqa: E501
 
-        单次请求只允许终止一个策略。 风险提示与二次确认由 OpenClaw 上层承担；本接口只负责执行 stop。  # noqa: E501
+        Only one policy is allowed to be terminated per request. Risk warning and secondary confirmation are borne by the upper layer of OpenClaw; this interface is only responsible for executing stop.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_portfolio_stop_with_http_info(ai_hub_portfolio_stop_request, async_req=True)
@@ -1370,10 +1370,10 @@ class BotApi(object):
 
         :param bool async_req: execute request asynchronously
         :param AIHubPortfolioStopRequest ai_hub_portfolio_stop_request: (required)
-        :param str x_gate_service_id: 调用来源标识；如有需要由 APIv4 注入
-        :param str x_gate_app_lang: 语言上下文，例如 `zh-CN` / `en-US`
-        :param str x_request_id: 请求链路 ID；调用方可透传
-        :param str x_trace_id: trace header；可由 APIv4 统一生成
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

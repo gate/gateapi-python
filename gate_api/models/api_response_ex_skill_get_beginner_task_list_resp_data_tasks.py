@@ -143,7 +143,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def task_type(self):
         """Gets the task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
 
-        任务类型：1=KYC二级认证 2=现货 3=合约 4=邀请 5=量化 6=余币宝 7=startup 8=首次入金 10=注册任务 11=引导任务 23=下载任务  # noqa: E501
+        Task type: 1=KYC secondary certification 2=Spot 3=Contract 4=Invitation 5=Quantification 6=Yu Bibao 7=startup 8=First deposit 10=Registration task 11=Guide task 23=Download task  # noqa: E501
 
         :return: The task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :rtype: int
@@ -154,7 +154,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def task_type(self, task_type):
         """Sets the task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.
 
-        任务类型：1=KYC二级认证 2=现货 3=合约 4=邀请 5=量化 6=余币宝 7=startup 8=首次入金 10=注册任务 11=引导任务 23=下载任务  # noqa: E501
+        Task type: 1=KYC secondary certification 2=Spot 3=Contract 4=Invitation 5=Quantification 6=Yu Bibao 7=startup 8=First deposit 10=Registration task 11=Guide task 23=Download task  # noqa: E501
 
         :param task_type: The task_type of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :type: int
@@ -287,7 +287,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def status(self):
         """Gets the status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
 
-        任务状态：0=未领取（典型为待领取下载任务） 1=已领取/进行中 2=已完成待领奖 3=发奖中 4=已完成/已结算 5=已过期  # noqa: E501
+        Task status: 0=Not claimed (typically a download task waiting to be claimed) 1=Received/in progress 2=Completed and waiting to be claimed 3=Rewards in progress 4=Completed/settled 5=Expired  # noqa: E501
 
         :return: The status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :rtype: int
@@ -298,7 +298,7 @@ class ApiResponseExSkillGetBeginnerTaskListRespDataTasks(object):
     def status(self, status):
         """Sets the status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.
 
-        任务状态：0=未领取（典型为待领取下载任务） 1=已领取/进行中 2=已完成待领奖 3=发奖中 4=已完成/已结算 5=已过期  # noqa: E501
+        Task status: 0=Not claimed (typically a download task waiting to be claimed) 1=Received/in progress 2=Completed and waiting to be claimed 3=Rewards in progress 4=Completed/settled 5=Expired  # noqa: E501
 
         :param status: The status of this ApiResponseExSkillGetBeginnerTaskListRespDataTasks.  # noqa: E501
         :type: int

@@ -9,16 +9,16 @@ Method | HTTP request | Description
 [**redeem_launch_pool**](LaunchApi.md#redeem_launch_pool) | **POST** /launch/redeem | Redeem LaunchPool staked assets
 [**list_launch_pool_pledge_records**](LaunchApi.md#list_launch_pool_pledge_records) | **GET** /launch/user-pledge-records | Query user pledge records
 [**list_launch_pool_reward_records**](LaunchApi.md#list_launch_pool_reward_records) | **GET** /launch/get-user-reward-records | Query user reward records
-[**get_hodler_airdrop_project_list**](LaunchApi.md#get_hodler_airdrop_project_list) | **GET** /launch/hodler-airdrop/project-list | 查询HODLer Airdrop活动列表
-[**hodler_airdrop_order**](LaunchApi.md#hodler_airdrop_order) | **POST** /launch/hodler-airdrop/order | 参与HODLer Airdrop活动
-[**get_hodler_airdrop_user_order_records**](LaunchApi.md#get_hodler_airdrop_user_order_records) | **GET** /launch/hodler-airdrop/user-order-records | 查询HODLer Airdrop参与记录
-[**get_hodler_airdrop_user_airdrop_records**](LaunchApi.md#get_hodler_airdrop_user_airdrop_records) | **GET** /launch/hodler-airdrop/user-airdrop-records | 查询HODLer Airdrop空投记录
-[**get_candy_drop_activity_list_v4**](LaunchApi.md#get_candy_drop_activity_list_v4) | **GET** /launch/candydrop/activity-list | 查询活动列表
-[**register_candy_drop_v4**](LaunchApi.md#register_candy_drop_v4) | **POST** /launch/candydrop/register | 报名参与活动
-[**get_candy_drop_activity_rules_v4**](LaunchApi.md#get_candy_drop_activity_rules_v4) | **GET** /launch/candydrop/activity-rules | 查询活动规则
-[**get_candy_drop_task_progress_v4**](LaunchApi.md#get_candy_drop_task_progress_v4) | **GET** /launch/candydrop/task-progress | 查询任务完成进度
-[**get_candy_drop_participation_records_v4**](LaunchApi.md#get_candy_drop_participation_records_v4) | **GET** /launch/candydrop/participation-records | 查询参与记录
-[**get_candy_drop_airdrop_records_v4**](LaunchApi.md#get_candy_drop_airdrop_records_v4) | **GET** /launch/candydrop/airdrop-records | 查询空投记录
+[**get_hodler_airdrop_project_list**](LaunchApi.md#get_hodler_airdrop_project_list) | **GET** /launch/hodler-airdrop/project-list | Check the list of HODLer Airdrop activities
+[**hodler_airdrop_order**](LaunchApi.md#hodler_airdrop_order) | **POST** /launch/hodler-airdrop/order | Participate in the HODLer Airdrop event
+[**get_hodler_airdrop_user_order_records**](LaunchApi.md#get_hodler_airdrop_user_order_records) | **GET** /launch/hodler-airdrop/user-order-records | Check HODLer Airdrop participation records
+[**get_hodler_airdrop_user_airdrop_records**](LaunchApi.md#get_hodler_airdrop_user_airdrop_records) | **GET** /launch/hodler-airdrop/user-airdrop-records | Query HODLer Airdrop records
+[**get_candy_drop_activity_list_v4**](LaunchApi.md#get_candy_drop_activity_list_v4) | **GET** /launch/candydrop/activity-list | Query activity list
+[**register_candy_drop_v4**](LaunchApi.md#register_candy_drop_v4) | **POST** /launch/candydrop/register | Sign up for events
+[**get_candy_drop_activity_rules_v4**](LaunchApi.md#get_candy_drop_activity_rules_v4) | **GET** /launch/candydrop/activity-rules | Query activity rules
+[**get_candy_drop_task_progress_v4**](LaunchApi.md#get_candy_drop_task_progress_v4) | **GET** /launch/candydrop/task-progress | Query task completion progress
+[**get_candy_drop_participation_records_v4**](LaunchApi.md#get_candy_drop_participation_records_v4) | **GET** /launch/candydrop/participation-records | Query participation records
+[**get_candy_drop_airdrop_records_v4**](LaunchApi.md#get_candy_drop_airdrop_records_v4) | **GET** /launch/candydrop/airdrop-records | Query airdrop records
 
 
 # **list_launch_pool_projects**
@@ -399,9 +399,9 @@ Name | Type | Description  | Notes
 # **get_hodler_airdrop_project_list**
 > list[HodlerAirdropV4ProjectItem] get_hodler_airdrop_project_list(status=status, keyword=keyword, join=join, page=page, size=size)
 
-查询HODLer Airdrop活动列表
+Check the list of HODLer Airdrop activities
 
-获取HODLer Airdrop活动列表，支持按状态、币种/项目名称、参与情况筛选。此接口无需用户登录，登录用户可获取个人参与信息。
+Get the HODLer Airdrop activity list, which supports filtering by status, currency/project name, and participation status. This interface does not require user login, and logged in users can obtain personal participation information.
 
 ### Example
 
@@ -418,14 +418,14 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-status = 'status_example' # str | 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部 (optional)
-keyword = 'keyword_example' # str | 币种/项目名称关键词，模糊匹配 (optional)
-join = 0 # int | 参与情况筛选：0全部（默认），1仅已参与 (optional) (default to 0)
-page = 1 # int | 页码，默认1 (optional) (default to 1)
-size = 10 # int | 每页条数，默认10 (optional) (default to 10)
+status = 'status_example' # str | Activity status filtering, optional values: ACTIVE (in progress + preheating), UNDERWAY (in progress), PREHEAT (preheating), FINISH (ended), return all if not passed (optional)
+keyword = 'keyword_example' # str | Currency/project name keywords, fuzzy matching (optional)
+join = 0 # int | Participation filter: 0 all (default), 1 only participated (optional) (default to 0)
+page = 1 # int | Page number, default 1 (optional) (default to 1)
+size = 10 # int | Number of items per page, default 10 (optional) (default to 10)
 
 try:
-    # 查询HODLer Airdrop活动列表
+    # Check the list of HODLer Airdrop activities
     api_response = api_instance.get_hodler_airdrop_project_list(status=status, keyword=keyword, join=join, page=page, size=size)
     print(api_response)
 except GateApiException as ex:
@@ -438,11 +438,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **str**| 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部 | [optional] 
- **keyword** | **str**| 币种/项目名称关键词，模糊匹配 | [optional] 
- **join** | **int**| 参与情况筛选：0全部（默认），1仅已参与 | [optional] [default to 0]
- **page** | **int**| 页码，默认1 | [optional] [default to 1]
- **size** | **int**| 每页条数，默认10 | [optional] [default to 10]
+ **status** | **str**| Activity status filtering, optional values: ACTIVE (in progress + preheating), UNDERWAY (in progress), PREHEAT (preheating), FINISH (ended), return all if not passed | [optional] 
+ **keyword** | **str**| Currency/project name keywords, fuzzy matching | [optional] 
+ **join** | **int**| Participation filter: 0 all (default), 1 only participated | [optional] [default to 0]
+ **page** | **int**| Page number, default 1 | [optional] [default to 1]
+ **size** | **int**| Number of items per page, default 10 | [optional] [default to 10]
 
 ### Return type
 
@@ -468,9 +468,9 @@ No authorization required
 # **hodler_airdrop_order**
 > HodlerAirdropV4OrderResponse hodler_airdrop_order(hodler_airdrop_v4_order_request)
 
-参与HODLer Airdrop活动
+Participate in the HODLer Airdrop event
 
-参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+To participate in designated HODLer Airdrop activities, you need to hold GT. This interface requires user login authentication and must meet KYC requirements. It does not support sub-accounts and enterprise/institutional users.
 
 ### Example
 
@@ -499,7 +499,7 @@ api_instance = gate_api.LaunchApi(api_client)
 hodler_airdrop_v4_order_request = gate_api.HodlerAirdropV4OrderRequest() # HodlerAirdropV4OrderRequest | 
 
 try:
-    # 参与HODLer Airdrop活动
+    # Participate in the HODLer Airdrop event
     api_response = api_instance.hodler_airdrop_order(hodler_airdrop_v4_order_request)
     print(api_response)
 except GateApiException as ex:
@@ -530,18 +530,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功参与活动 |  -  |
-**400** | 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） |  -  |
-**401** | 用户未登录 |  -  |
+**200** | Successfully participated in the event |  -  |
+**400** | Incorrect request parameters or failed business verification (insufficient KYC, sub-account restrictions, enterprise user restrictions, etc.) |  -  |
+**401** | User is not logged in |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hodler_airdrop_user_order_records**
 > list[HodlerAirdropV4UserOrderRecord] get_hodler_airdrop_user_order_records(keyword=keyword, start_timest=start_timest, end_timest=end_timest, page=page, size=size)
 
-查询HODLer Airdrop参与记录
+Check HODLer Airdrop participation records
 
-查询用户的HODLer Airdrop参与记录，返回每个活动的有效持仓和空投金额。此接口需要用户登录认证。
+Query the user's HODLer Airdrop participation record and return the effective holdings and airdrop amount of each activity. This interface requires user login authentication.
 
 ### Example
 
@@ -567,14 +567,14 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-keyword = 'keyword_example' # str | 币种名称关键词筛选 (optional)
-start_timest = 56 # int | 开始时间戳（秒） (optional)
-end_timest = 56 # int | 结束时间戳（秒） (optional)
-page = 1 # int | 页码，默认1 (optional) (default to 1)
-size = 10 # int | 每页条数，默认10 (optional) (default to 10)
+keyword = 'keyword_example' # str | Currency name keyword filtering (optional)
+start_timest = 56 # int | Start timestamp (seconds) (optional)
+end_timest = 56 # int | end timestamp (seconds) (optional)
+page = 1 # int | Page number, default 1 (optional) (default to 1)
+size = 10 # int | Number of items per page, default 10 (optional) (default to 10)
 
 try:
-    # 查询HODLer Airdrop参与记录
+    # Check HODLer Airdrop participation records
     api_response = api_instance.get_hodler_airdrop_user_order_records(keyword=keyword, start_timest=start_timest, end_timest=end_timest, page=page, size=size)
     print(api_response)
 except GateApiException as ex:
@@ -587,11 +587,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyword** | **str**| 币种名称关键词筛选 | [optional] 
- **start_timest** | **int**| 开始时间戳（秒） | [optional] 
- **end_timest** | **int**| 结束时间戳（秒） | [optional] 
- **page** | **int**| 页码，默认1 | [optional] [default to 1]
- **size** | **int**| 每页条数，默认10 | [optional] [default to 10]
+ **keyword** | **str**| Currency name keyword filtering | [optional] 
+ **start_timest** | **int**| Start timestamp (seconds) | [optional] 
+ **end_timest** | **int**| end timestamp (seconds) | [optional] 
+ **page** | **int**| Page number, default 1 | [optional] [default to 1]
+ **size** | **int**| Number of items per page, default 10 | [optional] [default to 10]
 
 ### Return type
 
@@ -609,18 +609,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回参与记录列表 |  -  |
+**200** | Successfully returned the participation record list |  -  |
 **400** | Invalid request parameters |  -  |
-**401** | 用户未登录 |  -  |
+**401** | User is not logged in |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hodler_airdrop_user_airdrop_records**
 > list[HodlerAirdropV4UserAirdropRecord] get_hodler_airdrop_user_airdrop_records(keyword=keyword, start_timest=start_timest, end_timest=end_timest, page=page, size=size)
 
-查询HODLer Airdrop空投记录
+Query HODLer Airdrop records
 
-查询用户已获得的HODLer Airdrop空投发放记录，包含基础空投、额外空投和自动兑换状态。此接口需要用户登录认证。
+Query the HODLer Airdrop airdrop distribution record that the user has obtained, including basic airdrops, additional airdrops and automatic redemption status. This interface requires user login authentication.
 
 ### Example
 
@@ -646,14 +646,14 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-keyword = 'keyword_example' # str | 币种名称关键词筛选 (optional)
-start_timest = 56 # int | 开始时间戳（秒） (optional)
-end_timest = 56 # int | 结束时间戳（秒） (optional)
-page = 1 # int | 页码，默认1 (optional) (default to 1)
-size = 10 # int | 每页条数，默认10 (optional) (default to 10)
+keyword = 'keyword_example' # str | Currency name keyword filtering (optional)
+start_timest = 56 # int | Start timestamp (seconds) (optional)
+end_timest = 56 # int | end timestamp (seconds) (optional)
+page = 1 # int | Page number, default 1 (optional) (default to 1)
+size = 10 # int | Number of items per page, default 10 (optional) (default to 10)
 
 try:
-    # 查询HODLer Airdrop空投记录
+    # Query HODLer Airdrop records
     api_response = api_instance.get_hodler_airdrop_user_airdrop_records(keyword=keyword, start_timest=start_timest, end_timest=end_timest, page=page, size=size)
     print(api_response)
 except GateApiException as ex:
@@ -666,11 +666,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyword** | **str**| 币种名称关键词筛选 | [optional] 
- **start_timest** | **int**| 开始时间戳（秒） | [optional] 
- **end_timest** | **int**| 结束时间戳（秒） | [optional] 
- **page** | **int**| 页码，默认1 | [optional] [default to 1]
- **size** | **int**| 每页条数，默认10 | [optional] [default to 10]
+ **keyword** | **str**| Currency name keyword filtering | [optional] 
+ **start_timest** | **int**| Start timestamp (seconds) | [optional] 
+ **end_timest** | **int**| end timestamp (seconds) | [optional] 
+ **page** | **int**| Page number, default 1 | [optional] [default to 1]
+ **size** | **int**| Number of items per page, default 10 | [optional] [default to 10]
 
 ### Return type
 
@@ -688,18 +688,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回空投记录列表 |  -  |
+**200** | Successfully returns the airdrop record list |  -  |
 **400** | Invalid request parameters |  -  |
-**401** | 用户未登录 |  -  |
+**401** | User is not logged in |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_candy_drop_activity_list_v4**
 > list[CandyDropV4ActivityCd01] get_candy_drop_activity_list_v4(status=status, rule_name=rule_name, register_status=register_status, currency=currency, limit=limit, offset=offset)
 
-查询活动列表
+Query activity list
 
-支持多维度筛选 CandyDrop 活动，每次查询返回列表排序的前十条数据。不需要登录。
+Supports multi-dimensional filtering of CandyDrop activities, and each query returns the top ten data sorted by the list. No login required.
 
 ### Example
 
@@ -716,15 +716,15 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-status = 'status_example' # str | 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部 (optional)
-rule_name = 'rule_name_example' # str | 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF) (optional)
-register_status = 'register_status_example' # str | 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部 (optional)
-currency = 'currency_example' # str | 币种名称筛选 (optional)
-limit = 10 # int | 返回条数，默认10，最大30 (optional) (default to 10)
-offset = 0 # int | 偏移量，默认0 (optional) (default to 0)
+status = 'status_example' # str | Activity status filtering: ongoing (in progress), upcoming (about to start), ended (ended), if not passed, all will be returned (optional)
+rule_name = 'rule_name_example' # str | Task type filtering: spot (spot), futures (contract), deposit (recharge), invite (invitation), trading_bot (trading robot), simple_earn (Yu Bibao), first_deposit (first deposit), alpha (Alpha), flash_swap (flash swap), tradfi (TradFi), etf (ETF) (optional)
+register_status = 'register_status_example' # str | Participation status screening: registered (already participated), unregistered (not participated), if not passed, all will be returned (optional)
+currency = 'currency_example' # str | Currency name filter (optional)
+limit = 10 # int | Number of items returned, default 10, maximum 30 (optional) (default to 10)
+offset = 0 # int | Offset, default 0 (optional) (default to 0)
 
 try:
-    # 查询活动列表
+    # Query activity list
     api_response = api_instance.get_candy_drop_activity_list_v4(status=status, rule_name=rule_name, register_status=register_status, currency=currency, limit=limit, offset=offset)
     print(api_response)
 except GateApiException as ex:
@@ -737,12 +737,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **str**| 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部 | [optional] 
- **rule_name** | **str**| 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF) | [optional] 
- **register_status** | **str**| 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部 | [optional] 
- **currency** | **str**| 币种名称筛选 | [optional] 
- **limit** | **int**| 返回条数，默认10，最大30 | [optional] [default to 10]
- **offset** | **int**| 偏移量，默认0 | [optional] [default to 0]
+ **status** | **str**| Activity status filtering: ongoing (in progress), upcoming (about to start), ended (ended), if not passed, all will be returned | [optional] 
+ **rule_name** | **str**| Task type filtering: spot (spot), futures (contract), deposit (recharge), invite (invitation), trading_bot (trading robot), simple_earn (Yu Bibao), first_deposit (first deposit), alpha (Alpha), flash_swap (flash swap), tradfi (TradFi), etf (ETF) | [optional] 
+ **register_status** | **str**| Participation status screening: registered (already participated), unregistered (not participated), if not passed, all will be returned | [optional] 
+ **currency** | **str**| Currency name filter | [optional] 
+ **limit** | **int**| Number of items returned, default 10, maximum 30 | [optional] [default to 10]
+ **offset** | **int**| Offset, default 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -760,7 +760,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回活动列表数组 |  -  |
+**200** | Successfully returns the activity list array |  -  |
 **400** | Invalid request parameters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -768,9 +768,9 @@ No authorization required
 # **register_candy_drop_v4**
 > CandyDropV4RegisterRespCd02 register_candy_drop_v4(candy_drop_v4_register_req_cd02)
 
-报名参与活动
+Sign up for events
 
-报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+Sign up for select CandyDrop events. Login is required and API Key signature authentication is required.
 
 ### Example
 
@@ -799,7 +799,7 @@ api_instance = gate_api.LaunchApi(api_client)
 candy_drop_v4_register_req_cd02 = gate_api.CandyDropV4RegisterReqCd02() # CandyDropV4RegisterReqCd02 | 
 
 try:
-    # 报名参与活动
+    # Sign up for events
     api_response = api_instance.register_candy_drop_v4(candy_drop_v4_register_req_cd02)
     print(api_response)
 except GateApiException as ex:
@@ -830,7 +830,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 报名成功 |  -  |
+**200** | Registration successful |  -  |
 **400** | Request failed |  -  |
 **401** | User not authenticated |  -  |
 
@@ -839,9 +839,9 @@ Name | Type | Description  | Notes
 # **get_candy_drop_activity_rules_v4**
 > CandyDropV4ActivityRulesCd03 get_candy_drop_activity_rules_v4(activity_id=activity_id, currency=currency)
 
-查询活动规则
+Query activity rules
 
-查询特定活动的规则，包括奖池及对应任务数据。不需要登录。
+Query the rules of a specific activity, including prize pool and corresponding task data. No login required.
 
 ### Example
 
@@ -858,11 +858,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-activity_id = 56 # int | 活动ID，与 currency 二选一，至少须传其一 (optional)
-currency = 'currency_example' # str | 项目/币种名称，与 activity_id 二选一，至少须传其一 (optional)
+activity_id = 56 # int | Activity ID, choose one from currency, at least one of them must be passed (optional)
+currency = 'currency_example' # str | Project/currency name, choose one from activity_id, at least one of them must be passed (optional)
 
 try:
-    # 查询活动规则
+    # Query activity rules
     api_response = api_instance.get_candy_drop_activity_rules_v4(activity_id=activity_id, currency=currency)
     print(api_response)
 except GateApiException as ex:
@@ -875,8 +875,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activity_id** | **int**| 活动ID，与 currency 二选一，至少须传其一 | [optional] 
- **currency** | **str**| 项目/币种名称，与 activity_id 二选一，至少须传其一 | [optional] 
+ **activity_id** | **int**| Activity ID, choose one from currency, at least one of them must be passed | [optional] 
+ **currency** | **str**| Project/currency name, choose one from activity_id, at least one of them must be passed | [optional] 
 
 ### Return type
 
@@ -894,7 +894,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回活动规则 |  -  |
+**200** | Successful return to activity rules |  -  |
 **400** | Invalid request parameters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -902,9 +902,9 @@ No authorization required
 # **get_candy_drop_task_progress_v4**
 > CandyDropV4TaskProgressCd04 get_candy_drop_task_progress_v4(activity_id=activity_id, currency=currency)
 
-查询任务完成进度
+Query task completion progress
 
-查询进行中且已报名/参与的任务完成进度。需要登录。
+Check the completion progress of tasks that are in progress and have been registered/participated. Login required.
 
 ### Example
 
@@ -930,11 +930,11 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-activity_id = 56 # int | 活动ID，与 currency 二选一，至少须传其一 (optional)
-currency = 'currency_example' # str | 项目/币种名称，与 activity_id 二选一，至少须传其一 (optional)
+activity_id = 56 # int | Activity ID, choose one from currency, at least one of them must be passed (optional)
+currency = 'currency_example' # str | Project/currency name, choose one from activity_id, at least one of them must be passed (optional)
 
 try:
-    # 查询任务完成进度
+    # Query task completion progress
     api_response = api_instance.get_candy_drop_task_progress_v4(activity_id=activity_id, currency=currency)
     print(api_response)
 except GateApiException as ex:
@@ -947,8 +947,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activity_id** | **int**| 活动ID，与 currency 二选一，至少须传其一 | [optional] 
- **currency** | **str**| 项目/币种名称，与 activity_id 二选一，至少须传其一 | [optional] 
+ **activity_id** | **int**| Activity ID, choose one from currency, at least one of them must be passed | [optional] 
+ **currency** | **str**| Project/currency name, choose one from activity_id, at least one of them must be passed | [optional] 
 
 ### Return type
 
@@ -966,7 +966,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回任务进度 |  -  |
+**200** | Successfully return task progress |  -  |
 **400** | Invalid request parameters |  -  |
 **401** | User not authenticated |  -  |
 
@@ -975,9 +975,9 @@ Name | Type | Description  | Notes
 # **get_candy_drop_participation_records_v4**
 > list[CandyDropV4ParticipationRecordCd05] get_candy_drop_participation_records_v4(currency=currency, status=status, start_time=start_time, end_time=end_time, page=page, limit=limit)
 
-查询参与记录
+Query participation records
 
-查询用户的 CandyDrop 参与详情。需要登录。
+Query the user's CandyDrop participation details. Login required.
 
 ### Example
 
@@ -1003,15 +1003,15 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-currency = 'currency_example' # str | 币种名称筛选 (optional)
-status = 'status_example' # str | 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖) (optional)
-start_time = 56 # int | 开始时间（Unix 时间戳秒） (optional)
-end_time = 56 # int | 结束时间（Unix 时间戳秒） (optional)
-page = 1 # int | 页码，默认1 (optional) (default to 1)
-limit = 10 # int | 每页条数，默认10，最大30 (optional) (default to 10)
+currency = 'currency_example' # str | Currency name filter (optional)
+status = 'status_example' # str | Status filtering: ongoing (in progress), awaiting_draw (to be drawn), won (already won), not_win (not won) (optional)
+start_time = 56 # int | Start time (Unix timestamp seconds) (optional)
+end_time = 56 # int | End time (Unix timestamp seconds) (optional)
+page = 1 # int | Page number, default 1 (optional) (default to 1)
+limit = 10 # int | Number of items per page, default 10, maximum 30 (optional) (default to 10)
 
 try:
-    # 查询参与记录
+    # Query participation records
     api_response = api_instance.get_candy_drop_participation_records_v4(currency=currency, status=status, start_time=start_time, end_time=end_time, page=page, limit=limit)
     print(api_response)
 except GateApiException as ex:
@@ -1024,12 +1024,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| 币种名称筛选 | [optional] 
- **status** | **str**| 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖) | [optional] 
- **start_time** | **int**| 开始时间（Unix 时间戳秒） | [optional] 
- **end_time** | **int**| 结束时间（Unix 时间戳秒） | [optional] 
- **page** | **int**| 页码，默认1 | [optional] [default to 1]
- **limit** | **int**| 每页条数，默认10，最大30 | [optional] [default to 10]
+ **currency** | **str**| Currency name filter | [optional] 
+ **status** | **str**| Status filtering: ongoing (in progress), awaiting_draw (to be drawn), won (already won), not_win (not won) | [optional] 
+ **start_time** | **int**| Start time (Unix timestamp seconds) | [optional] 
+ **end_time** | **int**| End time (Unix timestamp seconds) | [optional] 
+ **page** | **int**| Page number, default 1 | [optional] [default to 1]
+ **limit** | **int**| Number of items per page, default 10, maximum 30 | [optional] [default to 10]
 
 ### Return type
 
@@ -1047,7 +1047,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回参与记录列表 |  -  |
+**200** | Successfully returned the participation record list |  -  |
 **400** | Invalid request parameters |  -  |
 **401** | User not authenticated |  -  |
 
@@ -1056,9 +1056,9 @@ Name | Type | Description  | Notes
 # **get_candy_drop_airdrop_records_v4**
 > list[CandyDropV4AirdropRecordCd06] get_candy_drop_airdrop_records_v4(currency=currency, start_time=start_time, end_time=end_time, page=page, limit=limit)
 
-查询空投记录
+Query airdrop records
 
-查询用户的 CandyDrop 空投详情。需要登录。
+Query the user's CandyDrop airdrop details. Login required.
 
 ### Example
 
@@ -1084,14 +1084,14 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.LaunchApi(api_client)
-currency = 'currency_example' # str | 币种名称筛选 (optional)
-start_time = 56 # int | 开始时间（Unix 时间戳秒） (optional)
-end_time = 56 # int | 结束时间（Unix 时间戳秒） (optional)
-page = 1 # int | 页码，默认1 (optional) (default to 1)
-limit = 10 # int | 每页条数，默认10，最大30 (optional) (default to 10)
+currency = 'currency_example' # str | Currency name filter (optional)
+start_time = 56 # int | Start time (Unix timestamp seconds) (optional)
+end_time = 56 # int | End time (Unix timestamp seconds) (optional)
+page = 1 # int | Page number, default 1 (optional) (default to 1)
+limit = 10 # int | Number of items per page, default 10, maximum 30 (optional) (default to 10)
 
 try:
-    # 查询空投记录
+    # Query airdrop records
     api_response = api_instance.get_candy_drop_airdrop_records_v4(currency=currency, start_time=start_time, end_time=end_time, page=page, limit=limit)
     print(api_response)
 except GateApiException as ex:
@@ -1104,11 +1104,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| 币种名称筛选 | [optional] 
- **start_time** | **int**| 开始时间（Unix 时间戳秒） | [optional] 
- **end_time** | **int**| 结束时间（Unix 时间戳秒） | [optional] 
- **page** | **int**| 页码，默认1 | [optional] [default to 1]
- **limit** | **int**| 每页条数，默认10，最大30 | [optional] [default to 10]
+ **currency** | **str**| Currency name filter | [optional] 
+ **start_time** | **int**| Start time (Unix timestamp seconds) | [optional] 
+ **end_time** | **int**| End time (Unix timestamp seconds) | [optional] 
+ **page** | **int**| Page number, default 1 | [optional] [default to 1]
+ **limit** | **int**| Number of items per page, default 10, maximum 30 | [optional] [default to 10]
 
 ### Return type
 
@@ -1126,7 +1126,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回空投记录列表 |  -  |
+**200** | Successfully returns the airdrop record list |  -  |
 **400** | Invalid request parameters |  -  |
 **401** | User not authenticated |  -  |
 

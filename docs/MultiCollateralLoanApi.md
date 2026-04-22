@@ -766,7 +766,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.MultiCollateralLoanApi(api_client)
-currencies = ['[\"BTC\",\"GT\"]'] # list[str] | Specify currency name query array, separated by commas, maximum 100 items
+currencies = ['[\"BTC\",\"GT\"]'] # list[str] | Specify currency name query array, separated by commas, maximum 100
 vip_level = '0' # str | VIP level, defaults to 0 if not specified (optional) (default to '0')
 
 try:
@@ -783,7 +783,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**list[str]**](str.md)| Specify currency name query array, separated by commas, maximum 100 items | 
+ **currencies** | [**list[str]**](str.md)| Specify currency name query array, separated by commas, maximum 100 | 
  **vip_level** | **str**| VIP level, defaults to 0 if not specified | [optional] [default to &#39;0&#39;]
 
 ### Return type

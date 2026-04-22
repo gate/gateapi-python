@@ -1,13 +1,13 @@
 # ApiResponseAssetSwapOrderPreviewV1
 
-资产配置优化-预览统一响应
+Asset allocation optimization-preview unified response
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** | 业务错误码，0 表示成功 | 
-**label** | **str** | 错误标识码，成功时为空字符串 | [optional] 
-**message** | **str** | 描述信息 | 
-**data** | **object** | 成功时为预览结果，失败时为 null | 
+**code** | **int** | Business error code, 0 means success | 
+**label** | **str** | Error identification code, empty string on success | [optional] 
+**message** | **str** | Description information | 
+**data** | **object** | Preview result when successful, null when failed | 
 **timestamp** | **int** | Server timestamp (milliseconds) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

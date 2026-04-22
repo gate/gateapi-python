@@ -104,7 +104,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def asset(self):
         """Gets the asset of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
 
-        空投币种  # noqa: E501
+        Airdrop currency  # noqa: E501
 
         :return: The asset of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :rtype: str
@@ -115,7 +115,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def asset(self, asset):
         """Sets the asset of this HodlerAirdropV4UserOrderRecord.
 
-        空投币种  # noqa: E501
+        Airdrop currency  # noqa: E501
 
         :param asset: The asset of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :type: str
@@ -129,7 +129,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def user_gt_avg_amount(self):
         """Gets the user_gt_avg_amount of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
 
-        有效持仓GT数量（参与活动时持有的GT平均数量）  # noqa: E501
+        Effective number of GT positions (average number of GT held when participating in the event)  # noqa: E501
 
         :return: The user_gt_avg_amount of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :rtype: str
@@ -140,7 +140,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def user_gt_avg_amount(self, user_gt_avg_amount):
         """Sets the user_gt_avg_amount of this HodlerAirdropV4UserOrderRecord.
 
-        有效持仓GT数量（参与活动时持有的GT平均数量）  # noqa: E501
+        Effective number of GT positions (average number of GT held when participating in the event)  # noqa: E501
 
         :param user_gt_avg_amount: The user_gt_avg_amount of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :type: str
@@ -152,7 +152,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def receive_amount_base(self):
         """Gets the receive_amount_base of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
 
-        基础空投金额，活动结束前为空字符串  # noqa: E501
+        Basic airdrop amount, it will be an empty string before the end of the activity  # noqa: E501
 
         :return: The receive_amount_base of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :rtype: str
@@ -163,7 +163,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def receive_amount_base(self, receive_amount_base):
         """Sets the receive_amount_base of this HodlerAirdropV4UserOrderRecord.
 
-        基础空投金额，活动结束前为空字符串  # noqa: E501
+        Basic airdrop amount, it will be an empty string before the end of the activity  # noqa: E501
 
         :param receive_amount_base: The receive_amount_base of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :type: str
@@ -175,7 +175,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def receive_amount_ext(self):
         """Gets the receive_amount_ext of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
 
-        额外空投金额（余币宝加成），活动结束前为空字符串  # noqa: E501
+        Additional airdrop amount (Yubibao bonus), it will be an empty string before the end of the event  # noqa: E501
 
         :return: The receive_amount_ext of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :rtype: str
@@ -186,7 +186,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def receive_amount_ext(self, receive_amount_ext):
         """Sets the receive_amount_ext of this HodlerAirdropV4UserOrderRecord.
 
-        额外空投金额（余币宝加成），活动结束前为空字符串  # noqa: E501
+        Additional airdrop amount (Yubibao bonus), it will be an empty string before the end of the event  # noqa: E501
 
         :param receive_amount_ext: The receive_amount_ext of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :type: str
@@ -198,7 +198,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def close_timest(self):
         """Gets the close_timest of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
 
-        活动结束时间，格式 Y-m-d H:i:s，UTC  # noqa: E501
+        Event end time, format Y-m-d H:i:s, UTC  # noqa: E501
 
         :return: The close_timest of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :rtype: str
@@ -209,7 +209,7 @@ class HodlerAirdropV4UserOrderRecord(object):
     def close_timest(self, close_timest):
         """Sets the close_timest of this HodlerAirdropV4UserOrderRecord.
 
-        活动结束时间，格式 Y-m-d H:i:s，UTC  # noqa: E501
+        Event end time, format Y-m-d H:i:s, UTC  # noqa: E501
 
         :param close_timest: The close_timest of this HodlerAirdropV4UserOrderRecord.  # noqa: E501
         :type: str

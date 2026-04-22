@@ -77,7 +77,7 @@ class ApiResponseExSkillClaimRewardResp(object):
     def code(self):
         """Gets the code of this ApiResponseExSkillClaimRewardResp.  # noqa: E501
 
-        业务错误码，0 表示成功  # noqa: E501
+        Business error code, 0 means success  # noqa: E501
 
         :return: The code of this ApiResponseExSkillClaimRewardResp.  # noqa: E501
         :rtype: int
@@ -88,7 +88,7 @@ class ApiResponseExSkillClaimRewardResp(object):
     def code(self, code):
         """Sets the code of this ApiResponseExSkillClaimRewardResp.
 
-        业务错误码，0 表示成功  # noqa: E501
+        Business error code, 0 means success  # noqa: E501
 
         :param code: The code of this ApiResponseExSkillClaimRewardResp.  # noqa: E501
         :type: int

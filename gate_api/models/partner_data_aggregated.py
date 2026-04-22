@@ -281,7 +281,7 @@ class PartnerDataAggregated(object):
     def business_type_desc(self):
         """Gets the business_type_desc of this PartnerDataAggregated.  # noqa: E501
 
-        Business type description. Allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi  # noqa: E501
+        Business type description; allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi  # noqa: E501
 
         :return: The business_type_desc of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -292,7 +292,7 @@ class PartnerDataAggregated(object):
     def business_type_desc(self, business_type_desc):
         """Sets the business_type_desc of this PartnerDataAggregated.
 
-        Business type description. Allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi  # noqa: E501
+        Business type description; allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi  # noqa: E501
 
         :param business_type_desc: The business_type_desc of this PartnerDataAggregated.  # noqa: E501
         :type: str

@@ -62,7 +62,7 @@ class ApiResponseExSkillClaimRewardRespData(object):
     def has_m_n_task(self):
         """Gets the has_m_n_task of this ApiResponseExSkillClaimRewardRespData.  # noqa: E501
 
-        是否为 m 选 n 奖池任务。为 true 时仅提示跳转，不实际发奖  # noqa: E501
+        Whether to choose n prize pool tasks for m. When it is true, it only prompts a jump and does not actually issue prizes.  # noqa: E501
 
         :return: The has_m_n_task of this ApiResponseExSkillClaimRewardRespData.  # noqa: E501
         :rtype: bool
@@ -73,7 +73,7 @@ class ApiResponseExSkillClaimRewardRespData(object):
     def has_m_n_task(self, has_m_n_task):
         """Sets the has_m_n_task of this ApiResponseExSkillClaimRewardRespData.
 
-        是否为 m 选 n 奖池任务。为 true 时仅提示跳转，不实际发奖  # noqa: E501
+        Whether to choose n prize pool tasks for m. When it is true, it only prompts a jump and does not actually issue prizes.  # noqa: E501
 
         :param has_m_n_task: The has_m_n_task of this ApiResponseExSkillClaimRewardRespData.  # noqa: E501
         :type: bool
@@ -85,7 +85,7 @@ class ApiResponseExSkillClaimRewardRespData(object):
     def coupon_full_name(self):
         """Gets the coupon_full_name of this ApiResponseExSkillClaimRewardRespData.  # noqa: E501
 
-        卡券奖励全称。非卡券奖励或无法解析时为空字符串  # noqa: E501
+        The full name of the card reward. It is an empty string when it is not a coupon reward or cannot be parsed.  # noqa: E501
 
         :return: The coupon_full_name of this ApiResponseExSkillClaimRewardRespData.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class ApiResponseExSkillClaimRewardRespData(object):
     def coupon_full_name(self, coupon_full_name):
         """Sets the coupon_full_name of this ApiResponseExSkillClaimRewardRespData.
 
-        卡券奖励全称。非卡券奖励或无法解析时为空字符串  # noqa: E501
+        The full name of the card reward. It is an empty string when it is not a coupon reward or cannot be parsed.  # noqa: E501
 
         :param coupon_full_name: The coupon_full_name of this ApiResponseExSkillClaimRewardRespData.  # noqa: E501
         :type: str

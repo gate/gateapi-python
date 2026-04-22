@@ -68,7 +68,7 @@ class Recommend(object):
     def balance(self):
         """Gets the balance of this Recommend.  # noqa: E501
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :return: The balance of this Recommend.  # noqa: E501
         :rtype: dict(str, str)
@@ -79,7 +79,7 @@ class Recommend(object):
     def balance(self, balance):
         """Sets the balance of this Recommend.
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :param balance: The balance of this Recommend.  # noqa: E501
         :type: dict(str, str)
@@ -93,7 +93,7 @@ class Recommend(object):
     def btc_faith(self):
         """Gets the btc_faith of this Recommend.  # noqa: E501
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :return: The btc_faith of this Recommend.  # noqa: E501
         :rtype: dict(str, str)
@@ -104,7 +104,7 @@ class Recommend(object):
     def btc_faith(self, btc_faith):
         """Sets the btc_faith of this Recommend.
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :param btc_faith: The btc_faith of this Recommend.  # noqa: E501
         :type: dict(str, str)
@@ -118,7 +118,7 @@ class Recommend(object):
     def conservative(self):
         """Gets the conservative of this Recommend.  # noqa: E501
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :return: The conservative of this Recommend.  # noqa: E501
         :rtype: dict(str, str)
@@ -129,7 +129,7 @@ class Recommend(object):
     def conservative(self, conservative):
         """Sets the conservative of this Recommend.
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :param conservative: The conservative of this Recommend.  # noqa: E501
         :type: dict(str, str)
@@ -143,7 +143,7 @@ class Recommend(object):
     def gt_faith(self):
         """Gets the gt_faith of this Recommend.  # noqa: E501
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :return: The gt_faith of this Recommend.  # noqa: E501
         :rtype: dict(str, str)
@@ -154,7 +154,7 @@ class Recommend(object):
     def gt_faith(self, gt_faith):
         """Sets the gt_faith of this Recommend.
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :param gt_faith: The gt_faith of this Recommend.  # noqa: E501
         :type: dict(str, str)

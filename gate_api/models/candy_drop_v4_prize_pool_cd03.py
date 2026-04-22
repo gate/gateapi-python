@@ -72,7 +72,7 @@ class CandyDropV4PrizePoolCd03(object):
     def prize_pool_type(self):
         """Gets the prize_pool_type of this CandyDropV4PrizePoolCd03.  # noqa: E501
 
-        奖池类型  # noqa: E501
+        Prize pool type  # noqa: E501
 
         :return: The prize_pool_type of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :rtype: int
@@ -83,7 +83,7 @@ class CandyDropV4PrizePoolCd03(object):
     def prize_pool_type(self, prize_pool_type):
         """Sets the prize_pool_type of this CandyDropV4PrizePoolCd03.
 
-        奖池类型  # noqa: E501
+        Prize pool type  # noqa: E501
 
         :param prize_pool_type: The prize_pool_type of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :type: int
@@ -95,7 +95,7 @@ class CandyDropV4PrizePoolCd03(object):
     def prize_all(self):
         """Gets the prize_all of this CandyDropV4PrizePoolCd03.  # noqa: E501
 
-        奖池总额度  # noqa: E501
+        Total prize pool amount  # noqa: E501
 
         :return: The prize_all of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :rtype: str
@@ -106,7 +106,7 @@ class CandyDropV4PrizePoolCd03(object):
     def prize_all(self, prize_all):
         """Sets the prize_all of this CandyDropV4PrizePoolCd03.
 
-        奖池总额度  # noqa: E501
+        Total prize pool amount  # noqa: E501
 
         :param prize_all: The prize_all of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :type: str
@@ -118,7 +118,7 @@ class CandyDropV4PrizePoolCd03(object):
     def prize_limit(self):
         """Gets the prize_limit of this CandyDropV4PrizePoolCd03.  # noqa: E501
 
-        每人瓜分上限  # noqa: E501
+        Maximum share per person  # noqa: E501
 
         :return: The prize_limit of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class CandyDropV4PrizePoolCd03(object):
     def prize_limit(self, prize_limit):
         """Sets the prize_limit of this CandyDropV4PrizePoolCd03.
 
-        每人瓜分上限  # noqa: E501
+        Maximum share per person  # noqa: E501
 
         :param prize_limit: The prize_limit of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :type: str
@@ -141,7 +141,7 @@ class CandyDropV4PrizePoolCd03(object):
     def tasks(self):
         """Gets the tasks of this CandyDropV4PrizePoolCd03.  # noqa: E501
 
-        任务列表  # noqa: E501
+        task list  # noqa: E501
 
         :return: The tasks of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :rtype: list[CandyDropV4TaskCd03]
@@ -152,7 +152,7 @@ class CandyDropV4PrizePoolCd03(object):
     def tasks(self, tasks):
         """Sets the tasks of this CandyDropV4PrizePoolCd03.
 
-        任务列表  # noqa: E501
+        task list  # noqa: E501
 
         :param tasks: The tasks of this CandyDropV4PrizePoolCd03.  # noqa: E501
         :type: list[CandyDropV4TaskCd03]

@@ -184,7 +184,7 @@ class AssetSwapFrontend(object):
     def default(self):
         """Gets the default of this AssetSwapFrontend.  # noqa: E501
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :return: The default of this AssetSwapFrontend.  # noqa: E501
         :rtype: dict(str, str)
@@ -195,7 +195,7 @@ class AssetSwapFrontend(object):
     def default(self, default):
         """Sets the default of this AssetSwapFrontend.
 
-        字符串键到字符串值的映射，对应 Go 的 map[string]string。  # noqa: E501
+        Mapping of string keys to string values, corresponding to Go's map[string]string.  # noqa: E501
 
         :param default: The default of this AssetSwapFrontend.  # noqa: E501
         :type: dict(str, str)
@@ -278,7 +278,7 @@ class AssetSwapFrontend(object):
     def recommend_v2(self):
         """Gets the recommend_v2 of this AssetSwapFrontend.  # noqa: E501
 
-        策略分组键到 RecommendV2Strategy 列表的映射。  # noqa: E501
+        Mapping of strategy grouping keys to RecommendV2Strategy lists.  # noqa: E501
 
         :return: The recommend_v2 of this AssetSwapFrontend.  # noqa: E501
         :rtype: dict(str, list[RecommendV2Strategy])
@@ -289,7 +289,7 @@ class AssetSwapFrontend(object):
     def recommend_v2(self, recommend_v2):
         """Sets the recommend_v2 of this AssetSwapFrontend.
 
-        策略分组键到 RecommendV2Strategy 列表的映射。  # noqa: E501
+        Mapping of strategy grouping keys to RecommendV2Strategy lists.  # noqa: E501
 
         :param recommend_v2: The recommend_v2 of this AssetSwapFrontend.  # noqa: E501
         :type: dict(str, list[RecommendV2Strategy])

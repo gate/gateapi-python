@@ -77,7 +77,7 @@ class CandyDropV4TaskProgressCd04(object):
     def currency(self):
         """Gets the currency of this CandyDropV4TaskProgressCd04.  # noqa: E501
 
-        项目/币种名称  # noqa: E501
+        Project/currency name  # noqa: E501
 
         :return: The currency of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :rtype: str
@@ -88,7 +88,7 @@ class CandyDropV4TaskProgressCd04(object):
     def currency(self, currency):
         """Sets the currency of this CandyDropV4TaskProgressCd04.
 
-        项目/币种名称  # noqa: E501
+        Project/currency name  # noqa: E501
 
         :param currency: The currency of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :type: str
@@ -100,7 +100,7 @@ class CandyDropV4TaskProgressCd04(object):
     def total_rewards(self):
         """Gets the total_rewards of this CandyDropV4TaskProgressCd04.  # noqa: E501
 
-        总奖池  # noqa: E501
+        total prize pool  # noqa: E501
 
         :return: The total_rewards of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :rtype: str
@@ -111,7 +111,7 @@ class CandyDropV4TaskProgressCd04(object):
     def total_rewards(self, total_rewards):
         """Sets the total_rewards of this CandyDropV4TaskProgressCd04.
 
-        总奖池  # noqa: E501
+        total prize pool  # noqa: E501
 
         :param total_rewards: The total_rewards of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :type: str
@@ -123,7 +123,7 @@ class CandyDropV4TaskProgressCd04(object):
     def start_time(self):
         """Gets the start_time of this CandyDropV4TaskProgressCd04.  # noqa: E501
 
-        活动开始时间（UTC格式化）  # noqa: E501
+        Event start time (UTC formatted)  # noqa: E501
 
         :return: The start_time of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class CandyDropV4TaskProgressCd04(object):
     def start_time(self, start_time):
         """Sets the start_time of this CandyDropV4TaskProgressCd04.
 
-        活动开始时间（UTC格式化）  # noqa: E501
+        Event start time (UTC formatted)  # noqa: E501
 
         :param start_time: The start_time of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :type: str
@@ -146,7 +146,7 @@ class CandyDropV4TaskProgressCd04(object):
     def end_time(self):
         """Gets the end_time of this CandyDropV4TaskProgressCd04.  # noqa: E501
 
-        活动结束时间（UTC格式化）  # noqa: E501
+        Event end time (UTC format)  # noqa: E501
 
         :return: The end_time of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :rtype: str
@@ -157,7 +157,7 @@ class CandyDropV4TaskProgressCd04(object):
     def end_time(self, end_time):
         """Sets the end_time of this CandyDropV4TaskProgressCd04.
 
-        活动结束时间（UTC格式化）  # noqa: E501
+        Event end time (UTC format)  # noqa: E501
 
         :param end_time: The end_time of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :type: str
@@ -169,7 +169,7 @@ class CandyDropV4TaskProgressCd04(object):
     def tasks(self):
         """Gets the tasks of this CandyDropV4TaskProgressCd04.  # noqa: E501
 
-        已领取任务的进度列表  # noqa: E501
+        Progress list of tasks received  # noqa: E501
 
         :return: The tasks of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :rtype: list[CandyDropV4TaskProgressItemCd04]
@@ -180,7 +180,7 @@ class CandyDropV4TaskProgressCd04(object):
     def tasks(self, tasks):
         """Sets the tasks of this CandyDropV4TaskProgressCd04.
 
-        已领取任务的进度列表  # noqa: E501
+        Progress list of tasks received  # noqa: E501
 
         :param tasks: The tasks of this CandyDropV4TaskProgressCd04.  # noqa: E501
         :type: list[CandyDropV4TaskProgressItemCd04]

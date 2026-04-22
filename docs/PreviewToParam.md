@@ -1,11 +1,11 @@
 # PreviewToParam
 
-**仅用于预览** `OrderPreviewV1Req.to`。目标币种 + **比例 ratio**。 **禁止**与下单 `CreateParam` 混淆：下单的 `to` 必须使用 **`amount`**，没有 `ratio` 字段。
+**For preview only** `OrderPreviewV1Req.to`. Target currency + **ratio ratio**. **Forbidden** is confused with the order `CreateParam`: the `to` of the order must be **`amount`**, and there is no `ratio` field.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**asset** | **str** | 目标币种符号；常与 config 中 &#x60;recommend_v2.*[].schemes[].name&#x60; 对应。 | 
-**ratio** | **str** | 该目标币种在组合中的权重比例，**十进制字符串**（如 &#x60;0.2&#x60;、&#x60;0.5&#x60;）。 常与 &#x60;GET /asset-swap/config&#x60; 的 &#x60;recommend_v2&#x60; 下某策略的 &#x60;schemes[].ratio&#x60; 一致。 | 
+**asset** | **str** | Target currency symbol; often corresponds to &#x60;recommend_v2.*[].schemes[].name&#x60; in config. | 
+**ratio** | **str** | The weight ratio of the target currency in the portfolio, **decimal string** (such as &#x60;0.2&#x60;, &#x60;0.5&#x60;). Often consistent with the &#x60;schemes[].ratio&#x60; of a strategy under &#x60;recommend_v2&#x60; of &#x60;GET /asset-swap/config&#x60;. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

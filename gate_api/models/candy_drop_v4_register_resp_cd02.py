@@ -57,7 +57,7 @@ class CandyDropV4RegisterRespCd02(object):
     def success(self):
         """Gets the success of this CandyDropV4RegisterRespCd02.  # noqa: E501
 
-        是否报名成功  # noqa: E501
+        Whether the registration is successful  # noqa: E501
 
         :return: The success of this CandyDropV4RegisterRespCd02.  # noqa: E501
         :rtype: bool
@@ -68,7 +68,7 @@ class CandyDropV4RegisterRespCd02(object):
     def success(self, success):
         """Sets the success of this CandyDropV4RegisterRespCd02.
 
-        是否报名成功  # noqa: E501
+        Whether the registration is successful  # noqa: E501
 
         :param success: The success of this CandyDropV4RegisterRespCd02.  # noqa: E501
         :type: bool

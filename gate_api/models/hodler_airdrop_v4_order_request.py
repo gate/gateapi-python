@@ -56,7 +56,7 @@ class HodlerAirdropV4OrderRequest(object):
     def hodler_id(self):
         """Gets the hodler_id of this HodlerAirdropV4OrderRequest.  # noqa: E501
 
-        活动ID，必填  # noqa: E501
+        Activity ID, required  # noqa: E501
 
         :return: The hodler_id of this HodlerAirdropV4OrderRequest.  # noqa: E501
         :rtype: int
@@ -67,7 +67,7 @@ class HodlerAirdropV4OrderRequest(object):
     def hodler_id(self, hodler_id):
         """Sets the hodler_id of this HodlerAirdropV4OrderRequest.
 
-        活动ID，必填  # noqa: E501
+        Activity ID, required  # noqa: E501
 
         :param hodler_id: The hodler_id of this HodlerAirdropV4OrderRequest.  # noqa: E501
         :type: int

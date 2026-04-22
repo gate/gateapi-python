@@ -1,6 +1,6 @@
 # SpotMartingaleCreateRequest
 
-创建现货马丁策略的请求体。
+Create the request body of the Spot Martin strategy.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

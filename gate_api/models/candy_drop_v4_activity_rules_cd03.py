@@ -77,7 +77,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def currency(self):
         """Gets the currency of this CandyDropV4ActivityRulesCd03.  # noqa: E501
 
-        项目/币种名称  # noqa: E501
+        Project/currency name  # noqa: E501
 
         :return: The currency of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :rtype: str
@@ -88,7 +88,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def currency(self, currency):
         """Sets the currency of this CandyDropV4ActivityRulesCd03.
 
-        项目/币种名称  # noqa: E501
+        Project/currency name  # noqa: E501
 
         :param currency: The currency of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :type: str
@@ -100,7 +100,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def total_rewards(self):
         """Gets the total_rewards of this CandyDropV4ActivityRulesCd03.  # noqa: E501
 
-        总奖池  # noqa: E501
+        total prize pool  # noqa: E501
 
         :return: The total_rewards of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :rtype: str
@@ -111,7 +111,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def total_rewards(self, total_rewards):
         """Sets the total_rewards of this CandyDropV4ActivityRulesCd03.
 
-        总奖池  # noqa: E501
+        total prize pool  # noqa: E501
 
         :param total_rewards: The total_rewards of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :type: str
@@ -123,7 +123,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def start_time(self):
         """Gets the start_time of this CandyDropV4ActivityRulesCd03.  # noqa: E501
 
-        活动开始时间（UTC格式化）  # noqa: E501
+        Event start time (UTC formatted)  # noqa: E501
 
         :return: The start_time of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def start_time(self, start_time):
         """Sets the start_time of this CandyDropV4ActivityRulesCd03.
 
-        活动开始时间（UTC格式化）  # noqa: E501
+        Event start time (UTC formatted)  # noqa: E501
 
         :param start_time: The start_time of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :type: str
@@ -146,7 +146,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def end_time(self):
         """Gets the end_time of this CandyDropV4ActivityRulesCd03.  # noqa: E501
 
-        活动结束时间（UTC格式化）  # noqa: E501
+        Event end time (UTC format)  # noqa: E501
 
         :return: The end_time of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :rtype: str
@@ -157,7 +157,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def end_time(self, end_time):
         """Sets the end_time of this CandyDropV4ActivityRulesCd03.
 
-        活动结束时间（UTC格式化）  # noqa: E501
+        Event end time (UTC format)  # noqa: E501
 
         :param end_time: The end_time of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :type: str
@@ -169,7 +169,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def prize_pools(self):
         """Gets the prize_pools of this CandyDropV4ActivityRulesCd03.  # noqa: E501
 
-        奖池列表  # noqa: E501
+        Prize pool list  # noqa: E501
 
         :return: The prize_pools of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :rtype: list[CandyDropV4PrizePoolCd03]
@@ -180,7 +180,7 @@ class CandyDropV4ActivityRulesCd03(object):
     def prize_pools(self, prize_pools):
         """Sets the prize_pools of this CandyDropV4ActivityRulesCd03.
 
-        奖池列表  # noqa: E501
+        Prize pool list  # noqa: E501
 
         :param prize_pools: The prize_pools of this CandyDropV4ActivityRulesCd03.  # noqa: E501
         :type: list[CandyDropV4PrizePoolCd03]

@@ -61,7 +61,7 @@ class CandyDropV4RegisterReqCd02(object):
     def activity_id(self):
         """Gets the activity_id of this CandyDropV4RegisterReqCd02.  # noqa: E501
 
-        活动ID（可选，与 currency 配合使用）  # noqa: E501
+        Activity ID (optional, used with currency)  # noqa: E501
 
         :return: The activity_id of this CandyDropV4RegisterReqCd02.  # noqa: E501
         :rtype: int
@@ -72,7 +72,7 @@ class CandyDropV4RegisterReqCd02(object):
     def activity_id(self, activity_id):
         """Sets the activity_id of this CandyDropV4RegisterReqCd02.
 
-        活动ID（可选，与 currency 配合使用）  # noqa: E501
+        Activity ID (optional, used with currency)  # noqa: E501
 
         :param activity_id: The activity_id of this CandyDropV4RegisterReqCd02.  # noqa: E501
         :type: int
@@ -84,7 +84,7 @@ class CandyDropV4RegisterReqCd02(object):
     def currency(self):
         """Gets the currency of this CandyDropV4RegisterReqCd02.  # noqa: E501
 
-        项目/币种名称（必填）  # noqa: E501
+        Project/currency name (required)  # noqa: E501
 
         :return: The currency of this CandyDropV4RegisterReqCd02.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class CandyDropV4RegisterReqCd02(object):
     def currency(self, currency):
         """Sets the currency of this CandyDropV4RegisterReqCd02.
 
-        项目/币种名称（必填）  # noqa: E501
+        Project/currency name (required)  # noqa: E501
 
         :param currency: The currency of this CandyDropV4RegisterReqCd02.  # noqa: E501
         :type: str

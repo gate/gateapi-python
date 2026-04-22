@@ -60,7 +60,7 @@ class OrderPreviewV1Req(object):
     def _from(self):
         """Gets the _from of this OrderPreviewV1Req.  # noqa: E501
 
-        卖出侧；每项为币种 + 换出数量 `amount`（字符串十进制）。  # noqa: E501
+        Sell ​​side; each item is the currency + the swap amount `amount` (string decimal).  # noqa: E501
 
         :return: The _from of this OrderPreviewV1Req.  # noqa: E501
         :rtype: list[PreviewFromParam]
@@ -71,7 +71,7 @@ class OrderPreviewV1Req(object):
     def _from(self, _from):
         """Sets the _from of this OrderPreviewV1Req.
 
-        卖出侧；每项为币种 + 换出数量 `amount`（字符串十进制）。  # noqa: E501
+        Sell ​​side; each item is the currency + the swap amount `amount` (string decimal).  # noqa: E501
 
         :param _from: The _from of this OrderPreviewV1Req.  # noqa: E501
         :type: list[PreviewFromParam]
@@ -85,7 +85,7 @@ class OrderPreviewV1Req(object):
     def to(self):
         """Gets the to of this OrderPreviewV1Req.  # noqa: E501
 
-        目标侧；每项为币种 + **比例** `ratio`（字符串十进制，如 `0.5`）。 典型来源：`GET /asset-swap/config` → `recommend_v2` 某分组下策略的 `schemes[].name` / `schemes[].ratio`。  # noqa: E501
+        Target side; each item is currency + **ratio** `ratio` (string decimal, such as `0.5`). Typical source: `GET /asset-swap/config` → `recommend_v2` `schemes[].name` / `schemes[].ratio` of the strategy under a certain group.  # noqa: E501
 
         :return: The to of this OrderPreviewV1Req.  # noqa: E501
         :rtype: list[PreviewToParam]
@@ -96,7 +96,7 @@ class OrderPreviewV1Req(object):
     def to(self, to):
         """Sets the to of this OrderPreviewV1Req.
 
-        目标侧；每项为币种 + **比例** `ratio`（字符串十进制，如 `0.5`）。 典型来源：`GET /asset-swap/config` → `recommend_v2` 某分组下策略的 `schemes[].name` / `schemes[].ratio`。  # noqa: E501
+        Target side; each item is currency + **ratio** `ratio` (string decimal, such as `0.5`). Typical source: `GET /asset-swap/config` → `recommend_v2` `schemes[].name` / `schemes[].ratio` of the strategy under a certain group.  # noqa: E501
 
         :param to: The to of this OrderPreviewV1Req.  # noqa: E501
         :type: list[PreviewToParam]

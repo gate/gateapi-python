@@ -60,7 +60,7 @@ class CreateParam(object):
     def asset(self):
         """Gets the asset of this CreateParam.  # noqa: E501
 
-        币种符号，与 `GET /asset-swap/asset/list` 及业务支持范围一致。  # noqa: E501
+        Currency symbol, consistent with `GET /asset-swap/asset/list` and business support scope.  # noqa: E501
 
         :return: The asset of this CreateParam.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class CreateParam(object):
     def asset(self, asset):
         """Sets the asset of this CreateParam.
 
-        币种符号，与 `GET /asset-swap/asset/list` 及业务支持范围一致。  # noqa: E501
+        Currency symbol, consistent with `GET /asset-swap/asset/list` and business support scope.  # noqa: E501
 
         :param asset: The asset of this CreateParam.  # noqa: E501
         :type: str
@@ -85,7 +85,7 @@ class CreateParam(object):
     def amount(self):
         """Gets the amount of this CreateParam.  # noqa: E501
 
-        该币种在本侧的数量，**十进制字符串**（非科学计数法）。`from` 表示卖出数量，`to` 表示目标侧数量。 与预览接口 `to[].ratio` 不同。  # noqa: E501
+        The quantity of this currency on this side, **decimal string** (non-scientific notation). `from` represents the selling quantity, and `to` represents the target side quantity. Different from preview interface `to[].ratio`.  # noqa: E501
 
         :return: The amount of this CreateParam.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class CreateParam(object):
     def amount(self, amount):
         """Sets the amount of this CreateParam.
 
-        该币种在本侧的数量，**十进制字符串**（非科学计数法）。`from` 表示卖出数量，`to` 表示目标侧数量。 与预览接口 `to[].ratio` 不同。  # noqa: E501
+        The quantity of this currency on this side, **decimal string** (non-scientific notation). `from` represents the selling quantity, and `to` represents the target side quantity. Different from preview interface `to[].ratio`.  # noqa: E501
 
         :param amount: The amount of this CreateParam.  # noqa: E501
         :type: str

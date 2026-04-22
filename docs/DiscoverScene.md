@@ -1,6 +1,6 @@
 # DiscoverScene
 
-策略推荐接口支持的场景枚举。
+Enumeration of scenarios supported by the policy recommendation interface.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

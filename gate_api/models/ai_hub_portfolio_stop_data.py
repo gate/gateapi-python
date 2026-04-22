@@ -114,7 +114,7 @@ class AIHubPortfolioStopData(object):
     def status(self):
         """Gets the status of this AIHubPortfolioStopData.  # noqa: E501
 
-        当前实现返回 `stopping`  # noqa: E501
+        The current implementation returns `stopping`  # noqa: E501
 
         :return: The status of this AIHubPortfolioStopData.  # noqa: E501
         :rtype: str
@@ -125,7 +125,7 @@ class AIHubPortfolioStopData(object):
     def status(self, status):
         """Sets the status of this AIHubPortfolioStopData.
 
-        当前实现返回 `stopping`  # noqa: E501
+        The current implementation returns `stopping`  # noqa: E501
 
         :param status: The status of this AIHubPortfolioStopData.  # noqa: E501
         :type: str

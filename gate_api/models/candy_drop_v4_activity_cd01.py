@@ -115,7 +115,7 @@ class CandyDropV4ActivityCd01(object):
     def currency(self):
         """Gets the currency of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        项目/币种名称  # noqa: E501
+        Project/currency name  # noqa: E501
 
         :return: The currency of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: str
@@ -126,7 +126,7 @@ class CandyDropV4ActivityCd01(object):
     def currency(self, currency):
         """Sets the currency of this CandyDropV4ActivityCd01.
 
-        项目/币种名称  # noqa: E501
+        Project/currency name  # noqa: E501
 
         :param currency: The currency of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: str
@@ -138,7 +138,7 @@ class CandyDropV4ActivityCd01(object):
     def total_rewards(self):
         """Gets the total_rewards of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        总奖池  # noqa: E501
+        total prize pool  # noqa: E501
 
         :return: The total_rewards of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: str
@@ -149,7 +149,7 @@ class CandyDropV4ActivityCd01(object):
     def total_rewards(self, total_rewards):
         """Sets the total_rewards of this CandyDropV4ActivityCd01.
 
-        总奖池  # noqa: E501
+        total prize pool  # noqa: E501
 
         :param total_rewards: The total_rewards of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: str
@@ -161,7 +161,7 @@ class CandyDropV4ActivityCd01(object):
     def start_time(self):
         """Gets the start_time of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        活动开始时间（UTC格式化）  # noqa: E501
+        Event start time (UTC formatted)  # noqa: E501
 
         :return: The start_time of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: str
@@ -172,7 +172,7 @@ class CandyDropV4ActivityCd01(object):
     def start_time(self, start_time):
         """Sets the start_time of this CandyDropV4ActivityCd01.
 
-        活动开始时间（UTC格式化）  # noqa: E501
+        Event start time (UTC formatted)  # noqa: E501
 
         :param start_time: The start_time of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: str
@@ -184,7 +184,7 @@ class CandyDropV4ActivityCd01(object):
     def end_time(self):
         """Gets the end_time of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        活动结束时间（UTC格式化）  # noqa: E501
+        Event end time (UTC format)  # noqa: E501
 
         :return: The end_time of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: str
@@ -195,7 +195,7 @@ class CandyDropV4ActivityCd01(object):
     def end_time(self, end_time):
         """Sets the end_time of this CandyDropV4ActivityCd01.
 
-        活动结束时间（UTC格式化）  # noqa: E501
+        Event end time (UTC format)  # noqa: E501
 
         :param end_time: The end_time of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: str
@@ -207,7 +207,7 @@ class CandyDropV4ActivityCd01(object):
     def rule_name(self):
         """Gets the rule_name of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        任务类型列表  # noqa: E501
+        Task type list  # noqa: E501
 
         :return: The rule_name of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: list[str]
@@ -218,7 +218,7 @@ class CandyDropV4ActivityCd01(object):
     def rule_name(self, rule_name):
         """Sets the rule_name of this CandyDropV4ActivityCd01.
 
-        任务类型列表  # noqa: E501
+        Task type list  # noqa: E501
 
         :param rule_name: The rule_name of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: list[str]
@@ -230,7 +230,7 @@ class CandyDropV4ActivityCd01(object):
     def participants(self):
         """Gets the participants of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        参与人数  # noqa: E501
+        Number of participants  # noqa: E501
 
         :return: The participants of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: int
@@ -241,7 +241,7 @@ class CandyDropV4ActivityCd01(object):
     def participants(self, participants):
         """Sets the participants of this CandyDropV4ActivityCd01.
 
-        参与人数  # noqa: E501
+        Number of participants  # noqa: E501
 
         :param participants: The participants of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: int
@@ -253,7 +253,7 @@ class CandyDropV4ActivityCd01(object):
     def user_max_rewards(self):
         """Gets the user_max_rewards of this CandyDropV4ActivityCd01.  # noqa: E501
 
-        最高可得奖励  # noqa: E501
+        Maximum reward available  # noqa: E501
 
         :return: The user_max_rewards of this CandyDropV4ActivityCd01.  # noqa: E501
         :rtype: str
@@ -264,7 +264,7 @@ class CandyDropV4ActivityCd01(object):
     def user_max_rewards(self, user_max_rewards):
         """Sets the user_max_rewards of this CandyDropV4ActivityCd01.
 
-        最高可得奖励  # noqa: E501
+        Maximum reward available  # noqa: E501
 
         :param user_max_rewards: The user_max_rewards of this CandyDropV4ActivityCd01.  # noqa: E501
         :type: str

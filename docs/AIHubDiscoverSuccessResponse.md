@@ -1,6 +1,6 @@
 # AIHubDiscoverSuccessResponse
 
-获取策略推荐成功时的响应体。
+Get the response body when the strategy recommendation is successful.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

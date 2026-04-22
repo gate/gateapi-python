@@ -142,7 +142,7 @@ class AIHubCreateData(object):
     def status(self):
         """Gets the status of this AIHubCreateData.  # noqa: E501
 
-        创建成功后的初始状态，通常为 `running`  # noqa: E501
+        The initial state after successful creation, usually `running`  # noqa: E501
 
         :return: The status of this AIHubCreateData.  # noqa: E501
         :rtype: str
@@ -153,7 +153,7 @@ class AIHubCreateData(object):
     def status(self, status):
         """Sets the status of this AIHubCreateData.
 
-        创建成功后的初始状态，通常为 `running`  # noqa: E501
+        The initial state after successful creation, usually `running`  # noqa: E501
 
         :param status: The status of this AIHubCreateData.  # noqa: E501
         :type: str

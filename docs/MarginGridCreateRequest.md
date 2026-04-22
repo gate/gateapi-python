@@ -1,6 +1,6 @@
 # MarginGridCreateRequest
 
-创建杠杆网格策略的请求体。
+Create the request body for the Leverage Grid strategy.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -176,7 +176,7 @@ class AIHubPortfolioDetailData(object):
     def base_info(self):
         """Gets the base_info of this AIHubPortfolioDetailData.  # noqa: E501
 
-        基础信息，字段按策略类型动态变化  # noqa: E501
+        Basic information, fields change dynamically according to strategy type  # noqa: E501
 
         :return: The base_info of this AIHubPortfolioDetailData.  # noqa: E501
         :rtype: dict(str, str)
@@ -187,7 +187,7 @@ class AIHubPortfolioDetailData(object):
     def base_info(self, base_info):
         """Sets the base_info of this AIHubPortfolioDetailData.
 
-        基础信息，字段按策略类型动态变化  # noqa: E501
+        Basic information, fields change dynamically according to strategy type  # noqa: E501
 
         :param base_info: The base_info of this AIHubPortfolioDetailData.  # noqa: E501
         :type: dict(str, str)
@@ -201,7 +201,7 @@ class AIHubPortfolioDetailData(object):
     def metrics(self):
         """Gets the metrics of this AIHubPortfolioDetailData.  # noqa: E501
 
-        指标信息，字段按策略类型动态变化  # noqa: E501
+        Indicator information, fields change dynamically according to strategy type  # noqa: E501
 
         :return: The metrics of this AIHubPortfolioDetailData.  # noqa: E501
         :rtype: dict(str, str)
@@ -212,7 +212,7 @@ class AIHubPortfolioDetailData(object):
     def metrics(self, metrics):
         """Sets the metrics of this AIHubPortfolioDetailData.
 
-        指标信息，字段按策略类型动态变化  # noqa: E501
+        Indicator information, fields change dynamically according to strategy type  # noqa: E501
 
         :param metrics: The metrics of this AIHubPortfolioDetailData.  # noqa: E501
         :type: dict(str, str)
@@ -226,7 +226,7 @@ class AIHubPortfolioDetailData(object):
     def position(self):
         """Gets the position of this AIHubPortfolioDetailData.  # noqa: E501
 
-        仓位或持仓信息，字段按策略类型动态变化  # noqa: E501
+        Position or position information, fields dynamically change according to strategy type  # noqa: E501
 
         :return: The position of this AIHubPortfolioDetailData.  # noqa: E501
         :rtype: dict(str, str)
@@ -237,7 +237,7 @@ class AIHubPortfolioDetailData(object):
     def position(self, position):
         """Sets the position of this AIHubPortfolioDetailData.
 
-        仓位或持仓信息，字段按策略类型动态变化  # noqa: E501
+        Position or position information, fields dynamically change according to strategy type  # noqa: E501
 
         :param position: The position of this AIHubPortfolioDetailData.  # noqa: E501
         :type: dict(str, str)

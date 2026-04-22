@@ -1,12 +1,12 @@
 # InfiniteGridCreateParams
 
-无限网格策略的创建参数。
+Creation parameters for infinite grid strategies.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **money** | **str** |  | 
-**price_floor** | **str** | 价格地板 | 
-**profit_per_grid** | **str** | 每格利润 | 
+**price_floor** | **str** | price floor | 
+**profit_per_grid** | **str** | Profit per square | 
 **grid_num** | **int** |  | 
 **price_type** | **int** |  | 
 **trigger_price** | **str** |  | [optional] 

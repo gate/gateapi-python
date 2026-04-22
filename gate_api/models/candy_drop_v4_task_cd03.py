@@ -67,7 +67,7 @@ class CandyDropV4TaskCd03(object):
     def task_name(self):
         """Gets the task_name of this CandyDropV4TaskCd03.  # noqa: E501
 
-        任务主标题  # noqa: E501
+        Task main title  # noqa: E501
 
         :return: The task_name of this CandyDropV4TaskCd03.  # noqa: E501
         :rtype: str
@@ -78,7 +78,7 @@ class CandyDropV4TaskCd03(object):
     def task_name(self, task_name):
         """Sets the task_name of this CandyDropV4TaskCd03.
 
-        任务主标题  # noqa: E501
+        Task main title  # noqa: E501
 
         :param task_name: The task_name of this CandyDropV4TaskCd03.  # noqa: E501
         :type: str
@@ -90,7 +90,7 @@ class CandyDropV4TaskCd03(object):
     def task_desc(self):
         """Gets the task_desc of this CandyDropV4TaskCd03.  # noqa: E501
 
-        任务副标题，无则返回 -  # noqa: E501
+        Task subtitle, if none is returned -  # noqa: E501
 
         :return: The task_desc of this CandyDropV4TaskCd03.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class CandyDropV4TaskCd03(object):
     def task_desc(self, task_desc):
         """Sets the task_desc of this CandyDropV4TaskCd03.
 
-        任务副标题，无则返回 -  # noqa: E501
+        Task subtitle, if none is returned -  # noqa: E501
 
         :param task_desc: The task_desc of this CandyDropV4TaskCd03.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class CandyDropV4TaskCd03(object):
     def exclusive_label(self):
         """Gets the exclusive_label of this CandyDropV4TaskCd03.  # noqa: E501
 
-        专属任务标签文案，未配置则返回 -  # noqa: E501
+        Exclusive task label copywriting, if not configured, it will return -  # noqa: E501
 
         :return: The exclusive_label of this CandyDropV4TaskCd03.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class CandyDropV4TaskCd03(object):
     def exclusive_label(self, exclusive_label):
         """Sets the exclusive_label of this CandyDropV4TaskCd03.
 
-        专属任务标签文案，未配置则返回 -  # noqa: E501
+        Exclusive task label copywriting, if not configured, it will return -  # noqa: E501
 
         :param exclusive_label: The exclusive_label of this CandyDropV4TaskCd03.  # noqa: E501
         :type: str

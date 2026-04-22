@@ -73,7 +73,7 @@ class ApiResponseAssetSwapListAssets(object):
     def code(self):
         """Gets the code of this ApiResponseAssetSwapListAssets.  # noqa: E501
 
-        业务错误码，0 表示成功  # noqa: E501
+        Business error code, 0 means success  # noqa: E501
 
         :return: The code of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :rtype: int
@@ -84,7 +84,7 @@ class ApiResponseAssetSwapListAssets(object):
     def code(self, code):
         """Sets the code of this ApiResponseAssetSwapListAssets.
 
-        业务错误码，0 表示成功  # noqa: E501
+        Business error code, 0 means success  # noqa: E501
 
         :param code: The code of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :type: int
@@ -98,7 +98,7 @@ class ApiResponseAssetSwapListAssets(object):
     def label(self):
         """Gets the label of this ApiResponseAssetSwapListAssets.  # noqa: E501
 
-        错误标识码，成功时为空字符串  # noqa: E501
+        Error identification code, empty string on success  # noqa: E501
 
         :return: The label of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :rtype: str
@@ -109,7 +109,7 @@ class ApiResponseAssetSwapListAssets(object):
     def label(self, label):
         """Sets the label of this ApiResponseAssetSwapListAssets.
 
-        错误标识码，成功时为空字符串  # noqa: E501
+        Error identification code, empty string on success  # noqa: E501
 
         :param label: The label of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :type: str
@@ -121,7 +121,7 @@ class ApiResponseAssetSwapListAssets(object):
     def message(self):
         """Gets the message of this ApiResponseAssetSwapListAssets.  # noqa: E501
 
-        描述信息  # noqa: E501
+        Description information  # noqa: E501
 
         :return: The message of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :rtype: str
@@ -132,7 +132,7 @@ class ApiResponseAssetSwapListAssets(object):
     def message(self, message):
         """Sets the message of this ApiResponseAssetSwapListAssets.
 
-        描述信息  # noqa: E501
+        Description information  # noqa: E501
 
         :param message: The message of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :type: str
@@ -146,7 +146,7 @@ class ApiResponseAssetSwapListAssets(object):
     def data(self):
         """Gets the data of this ApiResponseAssetSwapListAssets.  # noqa: E501
 
-        成功时为币种列表数据，失败时为 null  # noqa: E501
+        Currency list data on success, null on failure  # noqa: E501
 
         :return: The data of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :rtype: object
@@ -157,7 +157,7 @@ class ApiResponseAssetSwapListAssets(object):
     def data(self, data):
         """Sets the data of this ApiResponseAssetSwapListAssets.
 
-        成功时为币种列表数据，失败时为 null  # noqa: E501
+        Currency list data on success, null on failure  # noqa: E501
 
         :param data: The data of this ApiResponseAssetSwapListAssets.  # noqa: E501
         :type: object

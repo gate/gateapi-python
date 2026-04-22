@@ -244,7 +244,7 @@ class AIHubRecommendation(object):
     def strategy_params_preview(self):
         """Gets the strategy_params_preview of this AIHubRecommendation.  # noqa: E501
 
-        推荐参数预览；按策略类型动态变化  # noqa: E501
+        Recommended parameter preview; dynamic changes by strategy type  # noqa: E501
 
         :return: The strategy_params_preview of this AIHubRecommendation.  # noqa: E501
         :rtype: dict(str, str)
@@ -255,7 +255,7 @@ class AIHubRecommendation(object):
     def strategy_params_preview(self, strategy_params_preview):
         """Sets the strategy_params_preview of this AIHubRecommendation.
 
-        推荐参数预览；按策略类型动态变化  # noqa: E501
+        Recommended parameter preview; dynamic changes by strategy type  # noqa: E501
 
         :param strategy_params_preview: The strategy_params_preview of this AIHubRecommendation.  # noqa: E501
         :type: dict(str, str)

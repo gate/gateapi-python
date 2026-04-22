@@ -60,7 +60,7 @@ class PreviewToParam(object):
     def asset(self):
         """Gets the asset of this PreviewToParam.  # noqa: E501
 
-        目标币种符号；常与 config 中 `recommend_v2.*[].schemes[].name` 对应。  # noqa: E501
+        Target currency symbol; often corresponds to `recommend_v2.*[].schemes[].name` in config.  # noqa: E501
 
         :return: The asset of this PreviewToParam.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class PreviewToParam(object):
     def asset(self, asset):
         """Sets the asset of this PreviewToParam.
 
-        目标币种符号；常与 config 中 `recommend_v2.*[].schemes[].name` 对应。  # noqa: E501
+        Target currency symbol; often corresponds to `recommend_v2.*[].schemes[].name` in config.  # noqa: E501
 
         :param asset: The asset of this PreviewToParam.  # noqa: E501
         :type: str
@@ -85,7 +85,7 @@ class PreviewToParam(object):
     def ratio(self):
         """Gets the ratio of this PreviewToParam.  # noqa: E501
 
-        该目标币种在组合中的权重比例，**十进制字符串**（如 `0.2`、`0.5`）。 常与 `GET /asset-swap/config` 的 `recommend_v2` 下某策略的 `schemes[].ratio` 一致。  # noqa: E501
+        The weight ratio of the target currency in the portfolio, **decimal string** (such as `0.2`, `0.5`). Often consistent with the `schemes[].ratio` of a strategy under `recommend_v2` of `GET /asset-swap/config`.  # noqa: E501
 
         :return: The ratio of this PreviewToParam.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class PreviewToParam(object):
     def ratio(self, ratio):
         """Sets the ratio of this PreviewToParam.
 
-        该目标币种在组合中的权重比例，**十进制字符串**（如 `0.2`、`0.5`）。 常与 `GET /asset-swap/config` 的 `recommend_v2` 下某策略的 `schemes[].ratio` 一致。  # noqa: E501
+        The weight ratio of the target currency in the portfolio, **decimal string** (such as `0.2`, `0.5`). Often consistent with the `schemes[].ratio` of a strategy under `recommend_v2` of `GET /asset-swap/config`.  # noqa: E501
 
         :param ratio: The ratio of this PreviewToParam.  # noqa: E501
         :type: str

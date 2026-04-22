@@ -56,7 +56,7 @@ class HodlerAirdropV4OrderResponse(object):
     def interest_coin(self):
         """Gets the interest_coin of this HodlerAirdropV4OrderResponse.  # noqa: E501
 
-        获得空投的币种列表  # noqa: E501
+        Get the list of airdropped currencies  # noqa: E501
 
         :return: The interest_coin of this HodlerAirdropV4OrderResponse.  # noqa: E501
         :rtype: list[str]
@@ -67,7 +67,7 @@ class HodlerAirdropV4OrderResponse(object):
     def interest_coin(self, interest_coin):
         """Sets the interest_coin of this HodlerAirdropV4OrderResponse.
 
-        获得空投的币种列表  # noqa: E501
+        Get the list of airdropped currencies  # noqa: E501
 
         :param interest_coin: The interest_coin of this HodlerAirdropV4OrderResponse.  # noqa: E501
         :type: list[str]

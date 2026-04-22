@@ -1,6 +1,6 @@
 # MarginGridCreateParams
 
-杠杆网格策略的创建参数。
+Creation parameters for the Leverage Grid strategy.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

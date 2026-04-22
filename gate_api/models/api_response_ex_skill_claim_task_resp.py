@@ -77,7 +77,7 @@ class ApiResponseExSkillClaimTaskResp(object):
     def code(self):
         """Gets the code of this ApiResponseExSkillClaimTaskResp.  # noqa: E501
 
-        业务错误码，0 表示成功  # noqa: E501
+        Business error code, 0 means success  # noqa: E501
 
         :return: The code of this ApiResponseExSkillClaimTaskResp.  # noqa: E501
         :rtype: int
@@ -88,7 +88,7 @@ class ApiResponseExSkillClaimTaskResp(object):
     def code(self, code):
         """Sets the code of this ApiResponseExSkillClaimTaskResp.
 
-        业务错误码，0 表示成功  # noqa: E501
+        Business error code, 0 means success  # noqa: E501
 
         :param code: The code of this ApiResponseExSkillClaimTaskResp.  # noqa: E501
         :type: int
@@ -146,7 +146,7 @@ class ApiResponseExSkillClaimTaskResp(object):
     def data(self):
         """Gets the data of this ApiResponseExSkillClaimTaskResp.  # noqa: E501
 
-        成功时为空对象 {}  # noqa: E501
+        Empty object {} on success  # noqa: E501
 
         :return: The data of this ApiResponseExSkillClaimTaskResp.  # noqa: E501
         :rtype: object
@@ -157,7 +157,7 @@ class ApiResponseExSkillClaimTaskResp(object):
     def data(self, data):
         """Sets the data of this ApiResponseExSkillClaimTaskResp.
 
-        成功时为空对象 {}  # noqa: E501
+        Empty object {} on success  # noqa: E501
 
         :param data: The data of this ApiResponseExSkillClaimTaskResp.  # noqa: E501
         :type: object

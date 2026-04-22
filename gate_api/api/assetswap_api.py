@@ -376,7 +376,7 @@ class AssetswapApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param OrderCreateV1Req order_create_v1_req: 下单请求体（`OrderCreateV1Req`）。**无 `ratio` 字段**；`from`/`to` 每项仅 `asset` + `amount`。`to` 使用目标侧**数量** `amount`，与 preview 中 `to` 的 **ratio**（比例）语义不同，勿混用。 (required)
+        :param OrderCreateV1Req order_create_v1_req: Order request body (`OrderCreateV1Req`). **No `ratio` field**; `from`/`to` items are only `asset` + `amount`. `to` uses the target side **amount** `amount`, which is different from the **ratio** (ratio) semantics of `to` in preview, do not mix them. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -401,7 +401,7 @@ class AssetswapApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param OrderCreateV1Req order_create_v1_req: 下单请求体（`OrderCreateV1Req`）。**无 `ratio` 字段**；`from`/`to` 每项仅 `asset` + `amount`。`to` 使用目标侧**数量** `amount`，与 preview 中 `to` 的 **ratio**（比例）语义不同，勿混用。 (required)
+        :param OrderCreateV1Req order_create_v1_req: Order request body (`OrderCreateV1Req`). **No `ratio` field**; `from`/`to` items are only `asset` + `amount`. `to` uses the target side **amount** `amount`, which is different from the **ratio** (ratio) semantics of `to` in preview, do not mix them. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -634,7 +634,7 @@ class AssetswapApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param OrderPreviewV1Req order_preview_v1_req: 预览请求体。`to` 必须为 **ratio**；与 create 的 **amount** 语义不同。 (required)
+        :param OrderPreviewV1Req order_preview_v1_req: Preview the request body. `to` must be **ratio**; unlike create's **amount** semantics. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -659,7 +659,7 @@ class AssetswapApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param OrderPreviewV1Req order_preview_v1_req: 预览请求体。`to` 必须为 **ratio**；与 create 的 **amount** 语义不同。 (required)
+        :param OrderPreviewV1Req order_preview_v1_req: Preview the request body. `to` must be **ratio**; unlike create's **amount** semantics. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

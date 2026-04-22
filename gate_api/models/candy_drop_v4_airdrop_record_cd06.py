@@ -95,7 +95,7 @@ class CandyDropV4AirdropRecordCd06(object):
     def airdrop_time(self):
         """Gets the airdrop_time of this CandyDropV4AirdropRecordCd06.  # noqa: E501
 
-        空投时间（UTC格式化）  # noqa: E501
+        Airdrop time (UTC format)  # noqa: E501
 
         :return: The airdrop_time of this CandyDropV4AirdropRecordCd06.  # noqa: E501
         :rtype: str
@@ -106,7 +106,7 @@ class CandyDropV4AirdropRecordCd06(object):
     def airdrop_time(self, airdrop_time):
         """Sets the airdrop_time of this CandyDropV4AirdropRecordCd06.
 
-        空投时间（UTC格式化）  # noqa: E501
+        Airdrop time (UTC format)  # noqa: E501
 
         :param airdrop_time: The airdrop_time of this CandyDropV4AirdropRecordCd06.  # noqa: E501
         :type: str
@@ -118,7 +118,7 @@ class CandyDropV4AirdropRecordCd06(object):
     def rewards(self):
         """Gets the rewards of this CandyDropV4AirdropRecordCd06.  # noqa: E501
 
-        空投奖励  # noqa: E501
+        Airdrop rewards  # noqa: E501
 
         :return: The rewards of this CandyDropV4AirdropRecordCd06.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class CandyDropV4AirdropRecordCd06(object):
     def rewards(self, rewards):
         """Sets the rewards of this CandyDropV4AirdropRecordCd06.
 
-        空投奖励  # noqa: E501
+        Airdrop rewards  # noqa: E501
 
         :param rewards: The rewards of this CandyDropV4AirdropRecordCd06.  # noqa: E501
         :type: str
@@ -141,7 +141,7 @@ class CandyDropV4AirdropRecordCd06(object):
     def convert_amount(self):
         """Gets the convert_amount of this CandyDropV4AirdropRecordCd06.  # noqa: E501
 
-        自动兑换金额  # noqa: E501
+        Automatic exchange amount  # noqa: E501
 
         :return: The convert_amount of this CandyDropV4AirdropRecordCd06.  # noqa: E501
         :rtype: str
@@ -152,7 +152,7 @@ class CandyDropV4AirdropRecordCd06(object):
     def convert_amount(self, convert_amount):
         """Sets the convert_amount of this CandyDropV4AirdropRecordCd06.
 
-        自动兑换金额  # noqa: E501
+        Automatic exchange amount  # noqa: E501
 
         :param convert_amount: The convert_amount of this CandyDropV4AirdropRecordCd06.  # noqa: E501
         :type: str

@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**task_name** | **str** | 任务主标题 | [optional] 
-**task_desc** | **str** | 任务副标题 | [optional] 
-**value** | **str** | 任务进度数据（交易量/充值量等） | [optional] 
+**task_name** | **str** | Task main title | [optional] 
+**task_desc** | **str** | Task subtitle | [optional] 
+**value** | **str** | Task progress data (transaction volume/recharge volume, etc.) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_user_identity**](WelfareApi.md#get_user_identity) | **GET** /rewards/getUserIdentity | Get user identity
 [**get_beginner_task_list**](WelfareApi.md#get_beginner_task_list) | **GET** /rewards/getBeginnerTaskList | Get beginner task list
-[**claim_task**](WelfareApi.md#claim_task) | **POST** /rewards/claimTask | 领取任务
-[**claim_reward**](WelfareApi.md#claim_reward) | **POST** /rewards/claimReward | 领取任务奖励
+[**claim_task**](WelfareApi.md#claim_task) | **POST** /rewards/claimTask | Get the task
+[**claim_reward**](WelfareApi.md#claim_reward) | **POST** /rewards/claimReward | Receive mission rewards
 
 
 # **get_user_identity**
@@ -145,7 +145,7 @@ This endpoint does not need any parameter.
 # **claim_task**
 > ApiResponseExSkillClaimTaskResp claim_task(ex_skill_claim_task_req)
 
-领取任务
+Get the task
 
 领取单个福利任务。  当前主场景为新客下载任务领取，但接口本身支持新客注册、引导、进阶任务类型。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 风控校验（事件码 `task_center`） 4. 校验任务配置与任务中心任务 5. 校验是否已存在进行中任务 6. 若为下载任务，校验是否已下载 App 7. 写入 `welfare_user_tasks_xx` 8. 上报任务中心  风控透传字段： - 老字段：`user_id`、`ip`、`const_id`、`is_async`、`action`、`task_id` - 新增字段：`req_method`、`traceid` - 其中：   - `req_method` 来自 `X-Gate-Request-Source`   - `ip` 来自 `X-Gate-Ip`   - `traceid` 来自 `X-Gate-Trace-Id`   - `const_id` 固定为空字符串
 
@@ -176,7 +176,7 @@ api_instance = gate_api.WelfareApi(api_client)
 ex_skill_claim_task_req = gate_api.ExSkillClaimTaskReq() # ExSkillClaimTaskReq | 
 
 try:
-    # 领取任务
+    # Get the task
     api_response = api_instance.claim_task(ex_skill_claim_task_req)
     print(api_response)
 except GateApiException as ex:
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 # **claim_reward**
 > ApiResponseExSkillClaimRewardResp claim_reward(ex_skill_claim_reward_req)
 
-领取任务奖励
+Receive mission rewards
 
 领取单个福利任务奖励。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 查询 `welfare_user_tasks_xx`，要求任务状态为 `StatusDone(2)` 4. 风控校验（事件码 `index_page_check`） 5. 查询任务中心任务详情与奖励信息 6. 若奖励为 m 选 n 奖池，则返回 `has_m_n_task = true`，不实际发奖 7. 普通奖励则进入福利中心原领奖逻辑  风控透传字段： - 老字段：`user_id`、`ip`、`const_id`、`is_async` - 新增字段：`req_method`、`traceid` - 其中：   - `req_method` 来自 `X-Gate-Request-Source`   - `ip` 来自 `X-Gate-Ip`   - `traceid` 来自 `X-Gate-Trace-Id`   - `const_id` 固定为空字符串
 
@@ -246,7 +246,7 @@ api_instance = gate_api.WelfareApi(api_client)
 ex_skill_claim_reward_req = gate_api.ExSkillClaimRewardReq() # ExSkillClaimRewardReq | 
 
 try:
-    # 领取任务奖励
+    # Receive mission rewards
     api_response = api_instance.claim_reward(ex_skill_claim_reward_req)
     print(api_response)
 except GateApiException as ex:

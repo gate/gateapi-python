@@ -1,6 +1,6 @@
 # AIHubCreateSuccessResponse
 
-创建策略成功时的响应体。
+The response body when the creation strategy is successful.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
