@@ -56,7 +56,7 @@ class GetCounterpartyUserInfoRequest(object):
     def biz_uid(self):
         """Gets the biz_uid of this GetCounterpartyUserInfoRequest.  # noqa: E501
 
-        Counterparty UID (encrypted)  # noqa: E501
+        Counterparty crypto UID from order list or detail field `its_uid`.  # noqa: E501
 
         :return: The biz_uid of this GetCounterpartyUserInfoRequest.  # noqa: E501
         :rtype: str
@@ -67,7 +67,7 @@ class GetCounterpartyUserInfoRequest(object):
     def biz_uid(self, biz_uid):
         """Sets the biz_uid of this GetCounterpartyUserInfoRequest.
 
-        Counterparty UID (encrypted)  # noqa: E501
+        Counterparty crypto UID from order list or detail field `its_uid`.  # noqa: E501
 
         :param biz_uid: The biz_uid of this GetCounterpartyUserInfoRequest.  # noqa: E501
         :type: str

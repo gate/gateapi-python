@@ -164,6 +164,7 @@ class CrossexOrder(object):
     def user_id(self):
         """Gets the user_id of this CrossexOrder.  # noqa: E501
 
+        User ID  # noqa: E501
 
         :return: The user_id of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -174,6 +175,7 @@ class CrossexOrder(object):
     def user_id(self, user_id):
         """Sets the user_id of this CrossexOrder.
 
+        User ID  # noqa: E501
 
         :param user_id: The user_id of this CrossexOrder.  # noqa: E501
         :type: str
@@ -212,7 +214,7 @@ class CrossexOrder(object):
     def text(self):
         """Gets the text of this CrossexOrder.  # noqa: E501
 
-        Customer-defined order ID  # noqa: E501
+        Client-defined order ID.  # noqa: E501
 
         :return: The text of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -223,7 +225,7 @@ class CrossexOrder(object):
     def text(self, text):
         """Sets the text of this CrossexOrder.
 
-        Customer-defined order ID  # noqa: E501
+        Client-defined order ID.  # noqa: E501
 
         :param text: The text of this CrossexOrder.  # noqa: E501
         :type: str
@@ -237,7 +239,7 @@ class CrossexOrder(object):
     def state(self):
         """Gets the state of this CrossexOrder.  # noqa: E501
 
-        Order State:  NEW: The order is legal and waiting to be sent to the exchange  OPEN: The order has been placed on the orderbook of the exchange  PARTIALLY_FILLED: The order has been partially completed  FILLED: The order has been fully executed  FAIL: The order verification in CrossEx did not pass. Please check the order reason  REJECT：The order was rejected by the exchange. Please check the order reason  # noqa: E501
+        订单状态：  NEW：订单已通过校验，等待发送到交易所  OPEN：订单已挂在交易所订单簿上  PARTIALLY_FILLED：订单已部分成交  FILLED：订单已完全成交  FAIL：CrossEx 内部校验未通过，请查看 reason 字段了解失败原因  REJECT：订单被交易所拒绝，请查看 reason 字段了解失败原因  # noqa: E501
 
         :return: The state of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -248,7 +250,7 @@ class CrossexOrder(object):
     def state(self, state):
         """Sets the state of this CrossexOrder.
 
-        Order State:  NEW: The order is legal and waiting to be sent to the exchange  OPEN: The order has been placed on the orderbook of the exchange  PARTIALLY_FILLED: The order has been partially completed  FILLED: The order has been fully executed  FAIL: The order verification in CrossEx did not pass. Please check the order reason  REJECT：The order was rejected by the exchange. Please check the order reason  # noqa: E501
+        订单状态：  NEW：订单已通过校验，等待发送到交易所  OPEN：订单已挂在交易所订单簿上  PARTIALLY_FILLED：订单已部分成交  FILLED：订单已完全成交  FAIL：CrossEx 内部校验未通过，请查看 reason 字段了解失败原因  REJECT：订单被交易所拒绝，请查看 reason 字段了解失败原因  # noqa: E501
 
         :param state: The state of this CrossexOrder.  # noqa: E501
         :type: str
@@ -262,7 +264,7 @@ class CrossexOrder(object):
     def symbol(self):
         """Gets the symbol of this CrossexOrder.  # noqa: E501
 
-        Trading pair unique identifier ,example: BINANCE_SPOT_BTC_USDT, BINANCE_FUTURE_BTC_USDT  # noqa: E501
+        Unique trading pair identifiers, e.g. `BINANCE_SPOT_BTC_USDT`, `BINANCE_FUTURE_BTC_USDT`.  # noqa: E501
 
         :return: The symbol of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -273,7 +275,7 @@ class CrossexOrder(object):
     def symbol(self, symbol):
         """Sets the symbol of this CrossexOrder.
 
-        Trading pair unique identifier ,example: BINANCE_SPOT_BTC_USDT, BINANCE_FUTURE_BTC_USDT  # noqa: E501
+        Unique trading pair identifiers, e.g. `BINANCE_SPOT_BTC_USDT`, `BINANCE_FUTURE_BTC_USDT`.  # noqa: E501
 
         :param symbol: The symbol of this CrossexOrder.  # noqa: E501
         :type: str
@@ -287,7 +289,7 @@ class CrossexOrder(object):
     def side(self):
         """Gets the side of this CrossexOrder.  # noqa: E501
 
-        Side(BUY,SELL)  # noqa: E501
+        Side (`BUY` buy / `SELL` sell).  # noqa: E501
 
         :return: The side of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -298,7 +300,7 @@ class CrossexOrder(object):
     def side(self, side):
         """Sets the side of this CrossexOrder.
 
-        Side(BUY,SELL)  # noqa: E501
+        Side (`BUY` buy / `SELL` sell).  # noqa: E501
 
         :param side: The side of this CrossexOrder.  # noqa: E501
         :type: str
@@ -312,7 +314,7 @@ class CrossexOrder(object):
     def type(self):
         """Gets the type of this CrossexOrder.  # noqa: E501
 
-        Type(LIMIT, MARKET)  # noqa: E501
+        Order type (`LIMIT` limit / `MARKET` market).  # noqa: E501
 
         :return: The type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -323,7 +325,7 @@ class CrossexOrder(object):
     def type(self, type):
         """Sets the type of this CrossexOrder.
 
-        Type(LIMIT, MARKET)  # noqa: E501
+        Order type (`LIMIT` limit / `MARKET` market).  # noqa: E501
 
         :param type: The type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -337,7 +339,7 @@ class CrossexOrder(object):
     def attribute(self):
         """Gets the attribute of this CrossexOrder.  # noqa: E501
 
-        COMMON, LIQ, REDUCE, ADL  # noqa: E501
+        Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage).  # noqa: E501
 
         :return: The attribute of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -348,7 +350,7 @@ class CrossexOrder(object):
     def attribute(self, attribute):
         """Sets the attribute of this CrossexOrder.
 
-        COMMON, LIQ, REDUCE, ADL  # noqa: E501
+        Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage).  # noqa: E501
 
         :param attribute: The attribute of this CrossexOrder.  # noqa: E501
         :type: str
@@ -362,7 +364,7 @@ class CrossexOrder(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexOrder.  # noqa: E501
 
-        Exchange type(BINANCE,OKX,GATE,BYBIT)  # noqa: E501
+        Exchange type (`BINANCE` / `OKX` / `GATE` / `BYBIT`).  # noqa: E501
 
         :return: The exchange_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -373,7 +375,7 @@ class CrossexOrder(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexOrder.
 
-        Exchange type(BINANCE,OKX,GATE,BYBIT)  # noqa: E501
+        Exchange type (`BINANCE` / `OKX` / `GATE` / `BYBIT`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -387,7 +389,7 @@ class CrossexOrder(object):
     def business_type(self):
         """Gets the business_type of this CrossexOrder.  # noqa: E501
 
-        Business type(SPOT,FUTURE,MARGIN)  # noqa: E501
+        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
 
         :return: The business_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -398,7 +400,7 @@ class CrossexOrder(object):
     def business_type(self, business_type):
         """Sets the business_type of this CrossexOrder.
 
-        Business type(SPOT,FUTURE,MARGIN)  # noqa: E501
+        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
 
         :param business_type: The business_type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -412,7 +414,7 @@ class CrossexOrder(object):
     def qty(self):
         """Gets the qty of this CrossexOrder.  # noqa: E501
 
-        Order base quantity  # noqa: E501
+        Order quantity in the base currency.  # noqa: E501
 
         :return: The qty of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -423,7 +425,7 @@ class CrossexOrder(object):
     def qty(self, qty):
         """Sets the qty of this CrossexOrder.
 
-        Order base quantity  # noqa: E501
+        Order quantity in the base currency.  # noqa: E501
 
         :param qty: The qty of this CrossexOrder.  # noqa: E501
         :type: str
@@ -437,7 +439,7 @@ class CrossexOrder(object):
     def quote_qty(self):
         """Gets the quote_qty of this CrossexOrder.  # noqa: E501
 
-        Order quote quantity  # noqa: E501
+        Order quantity in the quote currency.  # noqa: E501
 
         :return: The quote_qty of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -448,7 +450,7 @@ class CrossexOrder(object):
     def quote_qty(self, quote_qty):
         """Sets the quote_qty of this CrossexOrder.
 
-        Order quote quantity  # noqa: E501
+        Order quantity in the quote currency.  # noqa: E501
 
         :param quote_qty: The quote_qty of this CrossexOrder.  # noqa: E501
         :type: str
@@ -462,7 +464,7 @@ class CrossexOrder(object):
     def price(self):
         """Gets the price of this CrossexOrder.  # noqa: E501
 
-        Order price  # noqa: E501
+        Order price.  # noqa: E501
 
         :return: The price of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -473,7 +475,7 @@ class CrossexOrder(object):
     def price(self, price):
         """Sets the price of this CrossexOrder.
 
-        Order price  # noqa: E501
+        Order price.  # noqa: E501
 
         :param price: The price of this CrossexOrder.  # noqa: E501
         :type: str
@@ -487,7 +489,7 @@ class CrossexOrder(object):
     def time_in_force(self):
         """Gets the time_in_force of this CrossexOrder.  # noqa: E501
 
-        Timeinforce (default GTC, enums:GTC,IOC,FOK,POC)  # noqa: E501
+        Time in force (default `GTC`; enum: `GTC` / `IOC` / `FOK` / `POC`).  # noqa: E501
 
         :return: The time_in_force of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -498,7 +500,7 @@ class CrossexOrder(object):
     def time_in_force(self, time_in_force):
         """Sets the time_in_force of this CrossexOrder.
 
-        Timeinforce (default GTC, enums:GTC,IOC,FOK,POC)  # noqa: E501
+        Time in force (default `GTC`; enum: `GTC` / `IOC` / `FOK` / `POC`).  # noqa: E501
 
         :param time_in_force: The time_in_force of this CrossexOrder.  # noqa: E501
         :type: str
@@ -512,7 +514,7 @@ class CrossexOrder(object):
     def executed_qty(self):
         """Gets the executed_qty of this CrossexOrder.  # noqa: E501
 
-        Executed quantity  # noqa: E501
+        Filled base amount.  # noqa: E501
 
         :return: The executed_qty of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -523,7 +525,7 @@ class CrossexOrder(object):
     def executed_qty(self, executed_qty):
         """Sets the executed_qty of this CrossexOrder.
 
-        Executed quantity  # noqa: E501
+        Filled base amount.  # noqa: E501
 
         :param executed_qty: The executed_qty of this CrossexOrder.  # noqa: E501
         :type: str
@@ -537,7 +539,7 @@ class CrossexOrder(object):
     def executed_amount(self):
         """Gets the executed_amount of this CrossexOrder.  # noqa: E501
 
-        Executed quote quantity  # noqa: E501
+        Filled quote amount.  # noqa: E501
 
         :return: The executed_amount of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -548,7 +550,7 @@ class CrossexOrder(object):
     def executed_amount(self, executed_amount):
         """Sets the executed_amount of this CrossexOrder.
 
-        Executed quote quantity  # noqa: E501
+        Filled quote amount.  # noqa: E501
 
         :param executed_amount: The executed_amount of this CrossexOrder.  # noqa: E501
         :type: str
@@ -562,7 +564,7 @@ class CrossexOrder(object):
     def executed_avg_price(self):
         """Gets the executed_avg_price of this CrossexOrder.  # noqa: E501
 
-        Average transaction price  # noqa: E501
+        Average Filled Price  # noqa: E501
 
         :return: The executed_avg_price of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -573,7 +575,7 @@ class CrossexOrder(object):
     def executed_avg_price(self, executed_avg_price):
         """Sets the executed_avg_price of this CrossexOrder.
 
-        Average transaction price  # noqa: E501
+        Average Filled Price  # noqa: E501
 
         :param executed_avg_price: The executed_avg_price of this CrossexOrder.  # noqa: E501
         :type: str
@@ -587,7 +589,7 @@ class CrossexOrder(object):
     def fee_coin(self):
         """Gets the fee_coin of this CrossexOrder.  # noqa: E501
 
-        Transaction fee coin  # noqa: E501
+        Fee currency  # noqa: E501
 
         :return: The fee_coin of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -598,7 +600,7 @@ class CrossexOrder(object):
     def fee_coin(self, fee_coin):
         """Sets the fee_coin of this CrossexOrder.
 
-        Transaction fee coin  # noqa: E501
+        Fee currency  # noqa: E501
 
         :param fee_coin: The fee_coin of this CrossexOrder.  # noqa: E501
         :type: str
@@ -612,7 +614,7 @@ class CrossexOrder(object):
     def fee(self):
         """Gets the fee of this CrossexOrder.  # noqa: E501
 
-        Transaction fee amount  # noqa: E501
+        Fee amount.  # noqa: E501
 
         :return: The fee of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -623,7 +625,7 @@ class CrossexOrder(object):
     def fee(self, fee):
         """Sets the fee of this CrossexOrder.
 
-        Transaction fee amount  # noqa: E501
+        Fee amount.  # noqa: E501
 
         :param fee: The fee of this CrossexOrder.  # noqa: E501
         :type: str
@@ -637,7 +639,7 @@ class CrossexOrder(object):
     def reduce_only(self):
         """Gets the reduce_only of this CrossexOrder.  # noqa: E501
 
-        Reduce position orders only, \"true\" or \"false\"  # noqa: E501
+        Reduce-only order (`\"true\"` or `\"false\"`).  # noqa: E501
 
         :return: The reduce_only of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -648,7 +650,7 @@ class CrossexOrder(object):
     def reduce_only(self, reduce_only):
         """Sets the reduce_only of this CrossexOrder.
 
-        Reduce position orders only, \"true\" or \"false\"  # noqa: E501
+        Reduce-only order (`\"true\"` or `\"false\"`).  # noqa: E501
 
         :param reduce_only: The reduce_only of this CrossexOrder.  # noqa: E501
         :type: str
@@ -662,7 +664,7 @@ class CrossexOrder(object):
     def leverage(self):
         """Gets the leverage of this CrossexOrder.  # noqa: E501
 
-        Order leverage  # noqa: E501
+        Order leverage multiplier.  # noqa: E501
 
         :return: The leverage of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -673,7 +675,7 @@ class CrossexOrder(object):
     def leverage(self, leverage):
         """Sets the leverage of this CrossexOrder.
 
-        Order leverage  # noqa: E501
+        Order leverage multiplier.  # noqa: E501
 
         :param leverage: The leverage of this CrossexOrder.  # noqa: E501
         :type: str
@@ -687,7 +689,7 @@ class CrossexOrder(object):
     def reason(self):
         """Gets the reason of this CrossexOrder.  # noqa: E501
 
-        Fail message  # noqa: E501
+        Failure reason description.  # noqa: E501
 
         :return: The reason of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -698,7 +700,7 @@ class CrossexOrder(object):
     def reason(self, reason):
         """Sets the reason of this CrossexOrder.
 
-        Fail message  # noqa: E501
+        Failure reason description.  # noqa: E501
 
         :param reason: The reason of this CrossexOrder.  # noqa: E501
         :type: str
@@ -712,7 +714,7 @@ class CrossexOrder(object):
     def last_executed_qty(self):
         """Gets the last_executed_qty of this CrossexOrder.  # noqa: E501
 
-        Last transaction quantity  # noqa: E501
+        Base quantity of the latest fill.  # noqa: E501
 
         :return: The last_executed_qty of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -723,7 +725,7 @@ class CrossexOrder(object):
     def last_executed_qty(self, last_executed_qty):
         """Sets the last_executed_qty of this CrossexOrder.
 
-        Last transaction quantity  # noqa: E501
+        Base quantity of the latest fill.  # noqa: E501
 
         :param last_executed_qty: The last_executed_qty of this CrossexOrder.  # noqa: E501
         :type: str
@@ -737,7 +739,7 @@ class CrossexOrder(object):
     def last_executed_price(self):
         """Gets the last_executed_price of this CrossexOrder.  # noqa: E501
 
-        Last transaction price  # noqa: E501
+        Price of the latest fill.  # noqa: E501
 
         :return: The last_executed_price of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -748,7 +750,7 @@ class CrossexOrder(object):
     def last_executed_price(self, last_executed_price):
         """Sets the last_executed_price of this CrossexOrder.
 
-        Last transaction price  # noqa: E501
+        Price of the latest fill.  # noqa: E501
 
         :param last_executed_price: The last_executed_price of this CrossexOrder.  # noqa: E501
         :type: str
@@ -762,7 +764,7 @@ class CrossexOrder(object):
     def last_executed_amount(self):
         """Gets the last_executed_amount of this CrossexOrder.  # noqa: E501
 
-        Last transaction amount  # noqa: E501
+        Quote amount of the latest fill.  # noqa: E501
 
         :return: The last_executed_amount of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -773,7 +775,7 @@ class CrossexOrder(object):
     def last_executed_amount(self, last_executed_amount):
         """Sets the last_executed_amount of this CrossexOrder.
 
-        Last transaction amount  # noqa: E501
+        Quote amount of the latest fill.  # noqa: E501
 
         :param last_executed_amount: The last_executed_amount of this CrossexOrder.  # noqa: E501
         :type: str
@@ -787,7 +789,7 @@ class CrossexOrder(object):
     def position_side(self):
         """Gets the position_side of this CrossexOrder.  # noqa: E501
 
-        Position side(NONE/LONG/SHORT)  # noqa: E501
+        Position side (`NONE` flat / `LONG` long / `SHORT` short).  # noqa: E501
 
         :return: The position_side of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -798,7 +800,7 @@ class CrossexOrder(object):
     def position_side(self, position_side):
         """Sets the position_side of this CrossexOrder.
 
-        Position side(NONE/LONG/SHORT)  # noqa: E501
+        Position side (`NONE` flat / `LONG` long / `SHORT` short).  # noqa: E501
 
         :param position_side: The position_side of this CrossexOrder.  # noqa: E501
         :type: str
@@ -812,7 +814,7 @@ class CrossexOrder(object):
     def create_time(self):
         """Gets the create_time of this CrossexOrder.  # noqa: E501
 
-        Create time  # noqa: E501
+        Created time  # noqa: E501
 
         :return: The create_time of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -823,7 +825,7 @@ class CrossexOrder(object):
     def create_time(self, create_time):
         """Sets the create_time of this CrossexOrder.
 
-        Create time  # noqa: E501
+        Created time  # noqa: E501
 
         :param create_time: The create_time of this CrossexOrder.  # noqa: E501
         :type: str

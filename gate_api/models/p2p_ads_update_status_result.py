@@ -57,7 +57,7 @@ class P2pAdsUpdateStatusResult(object):
     def status(self):
         """Gets the status of this P2pAdsUpdateStatusResult.  # noqa: E501
 
-        Ad status after successful update  # noqa: E501
+        Ad status after update: `1` listed; `3` delisted; `4` closed.  # noqa: E501
 
         :return: The status of this P2pAdsUpdateStatusResult.  # noqa: E501
         :rtype: int
@@ -68,7 +68,7 @@ class P2pAdsUpdateStatusResult(object):
     def status(self, status):
         """Sets the status of this P2pAdsUpdateStatusResult.
 
-        Ad status after successful update  # noqa: E501
+        Ad status after update: `1` listed; `3` delisted; `4` closed.  # noqa: E501
 
         :param status: The status of this P2pAdsUpdateStatusResult.  # noqa: E501
         :type: int

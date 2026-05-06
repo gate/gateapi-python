@@ -33,40 +33,102 @@ class P2pTransactionActionResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'timestamp': 'float',
+        'method': 'str',
         'code': 'int',
         'message': 'str',
-        'timestamp': 'int'
+        'data': 'object',
+        'version': 'str'
     }
 
     attribute_map = {
+        'timestamp': 'timestamp',
+        'method': 'method',
         'code': 'code',
         'message': 'message',
-        'timestamp': 'timestamp'
+        'data': 'data',
+        'version': 'version'
     }
 
-    def __init__(self, code=None, message=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, int, Configuration) -> None
+    def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
+        # type: (float, str, int, str, object, str, Configuration) -> None
         """P2pTransactionActionResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._timestamp = None
+        self._method = None
         self._code = None
         self._message = None
-        self._timestamp = None
+        self._data = None
+        self._version = None
         self.discriminator = None
 
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if method is not None:
+            self.method = method
         if code is not None:
             self.code = code
         if message is not None:
             self.message = message
-        if timestamp is not None:
-            self.timestamp = timestamp
+        if data is not None:
+            self.data = data
+        if version is not None:
+            self.version = version
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this P2pTransactionActionResponse.  # noqa: E501
+
+        Response timestamp.  # noqa: E501
+
+        :return: The timestamp of this P2pTransactionActionResponse.  # noqa: E501
+        :rtype: float
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this P2pTransactionActionResponse.
+
+        Response timestamp.  # noqa: E501
+
+        :param timestamp: The timestamp of this P2pTransactionActionResponse.  # noqa: E501
+        :type: float
+        """
+
+        self._timestamp = timestamp
+
+    @property
+    def method(self):
+        """Gets the method of this P2pTransactionActionResponse.  # noqa: E501
+
+        Placeholder for request method.  # noqa: E501
+
+        :return: The method of this P2pTransactionActionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._method
+
+    @method.setter
+    def method(self, method):
+        """Sets the method of this P2pTransactionActionResponse.
+
+        Placeholder for request method.  # noqa: E501
+
+        :param method: The method of this P2pTransactionActionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._method = method
 
     @property
     def code(self):
         """Gets the code of this P2pTransactionActionResponse.  # noqa: E501
 
+        Response code, 0 means success  # noqa: E501
 
         :return: The code of this P2pTransactionActionResponse.  # noqa: E501
         :rtype: int
@@ -77,6 +139,7 @@ class P2pTransactionActionResponse(object):
     def code(self, code):
         """Sets the code of this P2pTransactionActionResponse.
 
+        Response code, 0 means success  # noqa: E501
 
         :param code: The code of this P2pTransactionActionResponse.  # noqa: E501
         :type: int
@@ -88,6 +151,7 @@ class P2pTransactionActionResponse(object):
     def message(self):
         """Gets the message of this P2pTransactionActionResponse.  # noqa: E501
 
+        Response message  # noqa: E501
 
         :return: The message of this P2pTransactionActionResponse.  # noqa: E501
         :rtype: str
@@ -98,6 +162,7 @@ class P2pTransactionActionResponse(object):
     def message(self, message):
         """Sets the message of this P2pTransactionActionResponse.
 
+        Response message  # noqa: E501
 
         :param message: The message of this P2pTransactionActionResponse.  # noqa: E501
         :type: str
@@ -106,25 +171,50 @@ class P2pTransactionActionResponse(object):
         self._message = message
 
     @property
-    def timestamp(self):
-        """Gets the timestamp of this P2pTransactionActionResponse.  # noqa: E501
+    def data(self):
+        """Gets the data of this P2pTransactionActionResponse.  # noqa: E501
 
+        Empty object on success.  # noqa: E501
 
-        :return: The timestamp of this P2pTransactionActionResponse.  # noqa: E501
-        :rtype: int
+        :return: The data of this P2pTransactionActionResponse.  # noqa: E501
+        :rtype: object
         """
-        return self._timestamp
+        return self._data
 
-    @timestamp.setter
-    def timestamp(self, timestamp):
-        """Sets the timestamp of this P2pTransactionActionResponse.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this P2pTransactionActionResponse.
 
+        Empty object on success.  # noqa: E501
 
-        :param timestamp: The timestamp of this P2pTransactionActionResponse.  # noqa: E501
-        :type: int
+        :param data: The data of this P2pTransactionActionResponse.  # noqa: E501
+        :type: object
         """
 
-        self._timestamp = timestamp
+        self._data = data
+
+    @property
+    def version(self):
+        """Gets the version of this P2pTransactionActionResponse.  # noqa: E501
+
+        API version.  # noqa: E501
+
+        :return: The version of this P2pTransactionActionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this P2pTransactionActionResponse.
+
+        API version.  # noqa: E501
+
+        :param version: The version of this P2pTransactionActionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

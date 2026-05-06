@@ -53,7 +53,6 @@ class P2pAdDetail(object):
         'hide_rate': 'str',
         'trade_tips': 'str',
         'auto_reply': 'str',
-        'new_hand': 'str',
         'rate_ref_id': 'int',
         'rate_offset': 'float',
         'status': 'str',
@@ -63,17 +62,14 @@ class P2pAdDetail(object):
         'tier_limit': 'int',
         'reg_time_limit': 'int',
         'advertisers_limit': 'int',
-        'verified_limit': 'int',
         'min_completed_limit': 'int',
         'max_completed_limit': 'int',
         'user_orders_limit': 'int',
         'completed_rate_limit': 'float',
-        'user_country_limit': 'int',
         'limit_country_cn': 'str',
         'limit_country_en': 'str',
         'is_hedge': 'int',
-        'hide_payment': 'int',
-        'fee': 'int'
+        'hide_payment': 'int'
     }
 
     attribute_map = {
@@ -92,12 +88,11 @@ class P2pAdDetail(object):
         'locked_amount': 'locked_amount',
         'orderid': 'orderid',
         'timestamp': 'timestamp',
-        'currency_type': 'currencyType',
+        'currency_type': 'currency_type',
         'want_type': 'want_type',
         'hide_rate': 'hide_rate',
         'trade_tips': 'trade_tips',
         'auto_reply': 'auto_reply',
-        'new_hand': 'new_hand',
         'rate_ref_id': 'rate_ref_id',
         'rate_offset': 'rate_offset',
         'status': 'status',
@@ -107,21 +102,18 @@ class P2pAdDetail(object):
         'tier_limit': 'tier_limit',
         'reg_time_limit': 'reg_time_limit',
         'advertisers_limit': 'advertisers_limit',
-        'verified_limit': 'verified_limit',
         'min_completed_limit': 'min_completed_limit',
         'max_completed_limit': 'max_completed_limit',
         'user_orders_limit': 'user_orders_limit',
         'completed_rate_limit': 'completed_rate_limit',
-        'user_country_limit': 'user_country_limit',
         'limit_country_cn': 'limit_country_cn',
         'limit_country_en': 'limit_country_en',
         'is_hedge': 'is_hedge',
-        'hide_payment': 'hide_payment',
-        'fee': 'fee'
+        'hide_payment': 'hide_payment'
     }
 
-    def __init__(self, rate=None, type=None, amount=None, min_amount=None, max_amount=None, total=None, pay_ali=None, pay_bank=None, pay_paypal=None, pay_wechat=None, pay_type_num=None, pay_type_json=None, locked_amount=None, orderid=None, timestamp=None, currency_type=None, want_type=None, hide_rate=None, trade_tips=None, auto_reply=None, new_hand=None, rate_ref_id=None, rate_offset=None, status=None, rate_fixed=None, float_trend=None, expire_min=None, tier_limit=None, reg_time_limit=None, advertisers_limit=None, verified_limit=None, min_completed_limit=None, max_completed_limit=None, user_orders_limit=None, completed_rate_limit=None, user_country_limit=None, limit_country_cn=None, limit_country_en=None, is_hedge=None, hide_payment=None, fee=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, int, int, int, int, str, str, str, int, int, str, str, str, str, str, str, int, float, str, int, int, int, int, int, int, int, int, int, int, float, int, str, str, int, int, int, Configuration) -> None
+    def __init__(self, rate=None, type=None, amount=None, min_amount=None, max_amount=None, total=None, pay_ali=None, pay_bank=None, pay_paypal=None, pay_wechat=None, pay_type_num=None, pay_type_json=None, locked_amount=None, orderid=None, timestamp=None, currency_type=None, want_type=None, hide_rate=None, trade_tips=None, auto_reply=None, rate_ref_id=None, rate_offset=None, status=None, rate_fixed=None, float_trend=None, expire_min=None, tier_limit=None, reg_time_limit=None, advertisers_limit=None, min_completed_limit=None, max_completed_limit=None, user_orders_limit=None, completed_rate_limit=None, limit_country_cn=None, limit_country_en=None, is_hedge=None, hide_payment=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, int, int, int, int, str, str, str, int, int, str, str, str, str, str, int, float, str, int, int, int, int, int, int, int, int, int, float, str, str, int, int, Configuration) -> None
         """P2pAdDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -147,7 +139,6 @@ class P2pAdDetail(object):
         self._hide_rate = None
         self._trade_tips = None
         self._auto_reply = None
-        self._new_hand = None
         self._rate_ref_id = None
         self._rate_offset = None
         self._status = None
@@ -157,17 +148,14 @@ class P2pAdDetail(object):
         self._tier_limit = None
         self._reg_time_limit = None
         self._advertisers_limit = None
-        self._verified_limit = None
         self._min_completed_limit = None
         self._max_completed_limit = None
         self._user_orders_limit = None
         self._completed_rate_limit = None
-        self._user_country_limit = None
         self._limit_country_cn = None
         self._limit_country_en = None
         self._is_hedge = None
         self._hide_payment = None
-        self._fee = None
         self.discriminator = None
 
         if rate is not None:
@@ -210,8 +198,6 @@ class P2pAdDetail(object):
             self.trade_tips = trade_tips
         if auto_reply is not None:
             self.auto_reply = auto_reply
-        if new_hand is not None:
-            self.new_hand = new_hand
         if rate_ref_id is not None:
             self.rate_ref_id = rate_ref_id
         if rate_offset is not None:
@@ -230,8 +216,6 @@ class P2pAdDetail(object):
             self.reg_time_limit = reg_time_limit
         if advertisers_limit is not None:
             self.advertisers_limit = advertisers_limit
-        if verified_limit is not None:
-            self.verified_limit = verified_limit
         if min_completed_limit is not None:
             self.min_completed_limit = min_completed_limit
         if max_completed_limit is not None:
@@ -240,8 +224,6 @@ class P2pAdDetail(object):
             self.user_orders_limit = user_orders_limit
         if completed_rate_limit is not None:
             self.completed_rate_limit = completed_rate_limit
-        if user_country_limit is not None:
-            self.user_country_limit = user_country_limit
         if limit_country_cn is not None:
             self.limit_country_cn = limit_country_cn
         if limit_country_en is not None:
@@ -250,14 +232,12 @@ class P2pAdDetail(object):
             self.is_hedge = is_hedge
         if hide_payment is not None:
             self.hide_payment = hide_payment
-        if fee is not None:
-            self.fee = fee
 
     @property
     def rate(self):
         """Gets the rate of this P2pAdDetail.  # noqa: E501
 
-        Price  # noqa: E501
+        Advertisement price.  # noqa: E501
 
         :return: The rate of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -268,7 +248,7 @@ class P2pAdDetail(object):
     def rate(self, rate):
         """Sets the rate of this P2pAdDetail.
 
-        Price  # noqa: E501
+        Advertisement price.  # noqa: E501
 
         :param rate: The rate of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -280,7 +260,7 @@ class P2pAdDetail(object):
     def type(self):
         """Gets the type of this P2pAdDetail.  # noqa: E501
 
-        Buy/Sell order  # noqa: E501
+        Ad side: `buy` buy-crypto ad; `sell` sell-crypto ad.  # noqa: E501
 
         :return: The type of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -291,7 +271,7 @@ class P2pAdDetail(object):
     def type(self, type):
         """Sets the type of this P2pAdDetail.
 
-        Buy/Sell order  # noqa: E501
+        Ad side: `buy` buy-crypto ad; `sell` sell-crypto ad.  # noqa: E501
 
         :param type: The type of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -303,7 +283,7 @@ class P2pAdDetail(object):
     def amount(self):
         """Gets the amount of this P2pAdDetail.  # noqa: E501
 
-        Cryptocurrency amount  # noqa: E501
+        Remaining crypto amount on the ad.  # noqa: E501
 
         :return: The amount of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -314,7 +294,7 @@ class P2pAdDetail(object):
     def amount(self, amount):
         """Sets the amount of this P2pAdDetail.
 
-        Cryptocurrency amount  # noqa: E501
+        Remaining crypto amount on the ad.  # noqa: E501
 
         :param amount: The amount of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -326,7 +306,7 @@ class P2pAdDetail(object):
     def min_amount(self):
         """Gets the min_amount of this P2pAdDetail.  # noqa: E501
 
-        Minimum limit  # noqa: E501
+        Minimum trade amount in `want_type`.  # noqa: E501
 
         :return: The min_amount of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -337,7 +317,7 @@ class P2pAdDetail(object):
     def min_amount(self, min_amount):
         """Sets the min_amount of this P2pAdDetail.
 
-        Minimum limit  # noqa: E501
+        Minimum trade amount in `want_type`.  # noqa: E501
 
         :param min_amount: The min_amount of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -349,7 +329,7 @@ class P2pAdDetail(object):
     def max_amount(self):
         """Gets the max_amount of this P2pAdDetail.  # noqa: E501
 
-        Maximum limit  # noqa: E501
+        Maximum trade amount priced in `want_type`.  # noqa: E501
 
         :return: The max_amount of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -360,7 +340,7 @@ class P2pAdDetail(object):
     def max_amount(self, max_amount):
         """Sets the max_amount of this P2pAdDetail.
 
-        Maximum limit  # noqa: E501
+        Maximum trade amount priced in `want_type`.  # noqa: E501
 
         :param max_amount: The max_amount of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -395,7 +375,7 @@ class P2pAdDetail(object):
     def pay_ali(self):
         """Gets the pay_ali of this P2pAdDetail.  # noqa: E501
 
-        Whether Alipay payment is supported  # noqa: E501
+        Whether Alipay is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The pay_ali of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -406,7 +386,7 @@ class P2pAdDetail(object):
     def pay_ali(self, pay_ali):
         """Sets the pay_ali of this P2pAdDetail.
 
-        Whether Alipay payment is supported  # noqa: E501
+        Whether Alipay is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :param pay_ali: The pay_ali of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -418,7 +398,7 @@ class P2pAdDetail(object):
     def pay_bank(self):
         """Gets the pay_bank of this P2pAdDetail.  # noqa: E501
 
-        Whether bank payment is supported  # noqa: E501
+        Whether bank transfer is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The pay_bank of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -429,7 +409,7 @@ class P2pAdDetail(object):
     def pay_bank(self, pay_bank):
         """Sets the pay_bank of this P2pAdDetail.
 
-        Whether bank payment is supported  # noqa: E501
+        Whether bank transfer is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :param pay_bank: The pay_bank of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -441,7 +421,7 @@ class P2pAdDetail(object):
     def pay_paypal(self):
         """Gets the pay_paypal of this P2pAdDetail.  # noqa: E501
 
-        Whether PayPal payment is supported  # noqa: E501
+        Whether PayPal is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The pay_paypal of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -452,7 +432,7 @@ class P2pAdDetail(object):
     def pay_paypal(self, pay_paypal):
         """Sets the pay_paypal of this P2pAdDetail.
 
-        Whether PayPal payment is supported  # noqa: E501
+        Whether PayPal is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :param pay_paypal: The pay_paypal of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -464,7 +444,7 @@ class P2pAdDetail(object):
     def pay_wechat(self):
         """Gets the pay_wechat of this P2pAdDetail.  # noqa: E501
 
-        Whether WeChat payment is supported  # noqa: E501
+        Whether WeChat Pay is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The pay_wechat of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -475,7 +455,7 @@ class P2pAdDetail(object):
     def pay_wechat(self, pay_wechat):
         """Sets the pay_wechat of this P2pAdDetail.
 
-        Whether WeChat payment is supported  # noqa: E501
+        Whether WeChat Pay is supported. `1`: yes; `0`: no.  # noqa: E501
 
         :param pay_wechat: The pay_wechat of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -510,7 +490,7 @@ class P2pAdDetail(object):
     def pay_type_json(self):
         """Gets the pay_type_json of this P2pAdDetail.  # noqa: E501
 
-        Payment method list  # noqa: E501
+        JSON map of payment type -> payment method ID.  # noqa: E501
 
         :return: The pay_type_json of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -521,7 +501,7 @@ class P2pAdDetail(object):
     def pay_type_json(self, pay_type_json):
         """Sets the pay_type_json of this P2pAdDetail.
 
-        Payment method list  # noqa: E501
+        JSON map of payment type -> payment method ID.  # noqa: E501
 
         :param pay_type_json: The pay_type_json of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -602,7 +582,7 @@ class P2pAdDetail(object):
     def currency_type(self):
         """Gets the currency_type of this P2pAdDetail.  # noqa: E501
 
-        Cryptocurrency type  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The currency_type of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -613,7 +593,7 @@ class P2pAdDetail(object):
     def currency_type(self, currency_type):
         """Sets the currency_type of this P2pAdDetail.
 
-        Cryptocurrency type  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param currency_type: The currency_type of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -714,33 +694,10 @@ class P2pAdDetail(object):
         self._auto_reply = auto_reply
 
     @property
-    def new_hand(self):
-        """Gets the new_hand of this P2pAdDetail.  # noqa: E501
-
-        Merchant-friendly order  # noqa: E501
-
-        :return: The new_hand of this P2pAdDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._new_hand
-
-    @new_hand.setter
-    def new_hand(self, new_hand):
-        """Sets the new_hand of this P2pAdDetail.
-
-        Merchant-friendly order  # noqa: E501
-
-        :param new_hand: The new_hand of this P2pAdDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._new_hand = new_hand
-
-    @property
     def rate_ref_id(self):
         """Gets the rate_ref_id of this P2pAdDetail.  # noqa: E501
 
-        Floating price reference ID: 1=Platform reference price, 3=Spot reference price (≤0 means fixed price, >0 means floating price)  # noqa: E501
+        Floating reference: `1` platform; `2` Gate; `3` spot; `<= 0` means fixed price.  # noqa: E501
 
         :return: The rate_ref_id of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -751,7 +708,7 @@ class P2pAdDetail(object):
     def rate_ref_id(self, rate_ref_id):
         """Sets the rate_ref_id of this P2pAdDetail.
 
-        Floating price reference ID: 1=Platform reference price, 3=Spot reference price (≤0 means fixed price, >0 means floating price)  # noqa: E501
+        Floating reference: `1` platform; `2` Gate; `3` spot; `<= 0` means fixed price.  # noqa: E501
 
         :param rate_ref_id: The rate_ref_id of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -786,7 +743,7 @@ class P2pAdDetail(object):
     def status(self):
         """Gets the status of this P2pAdDetail.  # noqa: E501
 
-        Status  # noqa: E501
+        Ad status: `OPEN` listed; `OFFLIN` delisted; `CLOSED` closed; `CANCEL` canceled.  # noqa: E501
 
         :return: The status of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -797,7 +754,7 @@ class P2pAdDetail(object):
     def status(self, status):
         """Sets the status of this P2pAdDetail.
 
-        Status  # noqa: E501
+        Ad status: `OPEN` listed; `OFFLIN` delisted; `CLOSED` closed; `CANCEL` canceled.  # noqa: E501
 
         :param status: The status of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -809,7 +766,7 @@ class P2pAdDetail(object):
     def rate_fixed(self):
         """Gets the rate_fixed of this P2pAdDetail.  # noqa: E501
 
-        0=Floating, 1=Fixed  # noqa: E501
+        Price type: `0` floating; `1` fixed.  # noqa: E501
 
         :return: The rate_fixed of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -820,7 +777,7 @@ class P2pAdDetail(object):
     def rate_fixed(self, rate_fixed):
         """Sets the rate_fixed of this P2pAdDetail.
 
-        0=Floating, 1=Fixed  # noqa: E501
+        Price type: `0` floating; `1` fixed.  # noqa: E501
 
         :param rate_fixed: The rate_fixed of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -832,7 +789,7 @@ class P2pAdDetail(object):
     def float_trend(self):
         """Gets the float_trend of this P2pAdDetail.  # noqa: E501
 
-        0=Upward float, 1=Downward float  # noqa: E501
+        Floating direction: `0` markup; `1` markdown.  # noqa: E501
 
         :return: The float_trend of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -843,7 +800,7 @@ class P2pAdDetail(object):
     def float_trend(self, float_trend):
         """Sets the float_trend of this P2pAdDetail.
 
-        0=Upward float, 1=Downward float  # noqa: E501
+        Floating direction: `0` markup; `1` markdown.  # noqa: E501
 
         :param float_trend: The float_trend of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -924,7 +881,7 @@ class P2pAdDetail(object):
     def advertisers_limit(self):
         """Gets the advertisers_limit of this P2pAdDetail.  # noqa: E501
 
-        Do not trade with advertisers, advertiser limit: 0=No limit, 1=Limit  # noqa: E501
+        Whether trading with the advertiser is restricted. `0`: no; `1`: yes.  # noqa: E501
 
         :return: The advertisers_limit of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -935,36 +892,13 @@ class P2pAdDetail(object):
     def advertisers_limit(self, advertisers_limit):
         """Sets the advertisers_limit of this P2pAdDetail.
 
-        Do not trade with advertisers, advertiser limit: 0=No limit, 1=Limit  # noqa: E501
+        Whether trading with the advertiser is restricted. `0`: no; `1`: yes.  # noqa: E501
 
         :param advertisers_limit: The advertisers_limit of this P2pAdDetail.  # noqa: E501
         :type: int
         """
 
         self._advertisers_limit = advertisers_limit
-
-    @property
-    def verified_limit(self):
-        """Gets the verified_limit of this P2pAdDetail.  # noqa: E501
-
-        kyclimit  # noqa: E501
-
-        :return: The verified_limit of this P2pAdDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._verified_limit
-
-    @verified_limit.setter
-    def verified_limit(self, verified_limit):
-        """Sets the verified_limit of this P2pAdDetail.
-
-        kyclimit  # noqa: E501
-
-        :param verified_limit: The verified_limit of this P2pAdDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._verified_limit = verified_limit
 
     @property
     def min_completed_limit(self):
@@ -1059,29 +993,6 @@ class P2pAdDetail(object):
         self._completed_rate_limit = completed_rate_limit
 
     @property
-    def user_country_limit(self):
-        """Gets the user_country_limit of this P2pAdDetail.  # noqa: E501
-
-        KYC nationality restriction  # noqa: E501
-
-        :return: The user_country_limit of this P2pAdDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._user_country_limit
-
-    @user_country_limit.setter
-    def user_country_limit(self, user_country_limit):
-        """Sets the user_country_limit of this P2pAdDetail.
-
-        KYC nationality restriction  # noqa: E501
-
-        :param user_country_limit: The user_country_limit of this P2pAdDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._user_country_limit = user_country_limit
-
-    @property
     def limit_country_cn(self):
         """Gets the limit_country_cn of this P2pAdDetail.  # noqa: E501
 
@@ -1131,7 +1042,7 @@ class P2pAdDetail(object):
     def is_hedge(self):
         """Gets the is_hedge of this P2pAdDetail.  # noqa: E501
 
-        Whether auto delegation  # noqa: E501
+        Whether auto-delegation is enabled. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_hedge of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -1142,7 +1053,7 @@ class P2pAdDetail(object):
     def is_hedge(self, is_hedge):
         """Sets the is_hedge of this P2pAdDetail.
 
-        Whether auto delegation  # noqa: E501
+        Whether auto-delegation is enabled. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_hedge: The is_hedge of this P2pAdDetail.  # noqa: E501
         :type: int
@@ -1154,7 +1065,7 @@ class P2pAdDetail(object):
     def hide_payment(self):
         """Gets the hide_payment of this P2pAdDetail.  # noqa: E501
 
-        Whether to hide payment method  # noqa: E501
+        Whether payment methods are hidden. `1`: hidden; `0`: visible.  # noqa: E501
 
         :return: The hide_payment of this P2pAdDetail.  # noqa: E501
         :rtype: int
@@ -1165,36 +1076,13 @@ class P2pAdDetail(object):
     def hide_payment(self, hide_payment):
         """Sets the hide_payment of this P2pAdDetail.
 
-        Whether to hide payment method  # noqa: E501
+        Whether payment methods are hidden. `1`: hidden; `0`: visible.  # noqa: E501
 
         :param hide_payment: The hide_payment of this P2pAdDetail.  # noqa: E501
         :type: int
         """
 
         self._hide_payment = hide_payment
-
-    @property
-    def fee(self):
-        """Gets the fee of this P2pAdDetail.  # noqa: E501
-
-        fee  # noqa: E501
-
-        :return: The fee of this P2pAdDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._fee
-
-    @fee.setter
-    def fee(self, fee):
-        """Sets the fee of this P2pAdDetail.
-
-        fee  # noqa: E501
-
-        :param fee: The fee of this P2pAdDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._fee = fee
 
     def to_dict(self):
         """Returns the model properties as a dict"""

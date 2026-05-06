@@ -48,7 +48,6 @@ class PlaceBizPushOrder(object):
         'verified_limit': 'str',
         'reg_time_limit': 'str',
         'advertisers_limit': 'str',
-        'hide_payment': 'str',
         'expire_min': 'str',
         'trade_tips': 'str',
         'auto_reply': 'str',
@@ -59,7 +58,8 @@ class PlaceBizPushOrder(object):
         'user_order_limit': 'str',
         'rate_reference_id': 'str',
         'rate_offset': 'str',
-        'float_trend': 'str'
+        'float_trend': 'str',
+        'team_payment_uid': 'str'
     }
 
     attribute_map = {
@@ -78,7 +78,6 @@ class PlaceBizPushOrder(object):
         'verified_limit': 'verifiedLimit',
         'reg_time_limit': 'regTimeLimit',
         'advertisers_limit': 'advertisersLimit',
-        'hide_payment': 'hide_payment',
         'expire_min': 'expire_min',
         'trade_tips': 'trade_tips',
         'auto_reply': 'auto_reply',
@@ -89,10 +88,11 @@ class PlaceBizPushOrder(object):
         'user_order_limit': 'user_order_limit',
         'rate_reference_id': 'rateReferenceId',
         'rate_offset': 'rateOffset',
-        'float_trend': 'float_trend'
+        'float_trend': 'float_trend',
+        'team_payment_uid': 'team_payment_uid'
     }
 
-    def __init__(self, currency_type=None, exchange_type=None, type=None, unit_price=None, number=None, pay_type=None, pay_type_json=None, rate_fixed=None, oid=None, min_amount=None, max_amount=None, tier_limit=None, verified_limit=None, reg_time_limit=None, advertisers_limit=None, hide_payment=None, expire_min=None, trade_tips=None, auto_reply=None, min_completed_limit=None, max_completed_limit=None, completed_rate_limit=None, user_country_limit=None, user_order_limit=None, rate_reference_id=None, rate_offset=None, float_trend=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, currency_type=None, exchange_type=None, type=None, unit_price=None, number=None, pay_type=None, pay_type_json=None, rate_fixed=None, oid=None, min_amount=None, max_amount=None, tier_limit=None, verified_limit=None, reg_time_limit=None, advertisers_limit=None, expire_min=None, trade_tips=None, auto_reply=None, min_completed_limit=None, max_completed_limit=None, completed_rate_limit=None, user_country_limit=None, user_order_limit=None, rate_reference_id=None, rate_offset=None, float_trend=None, team_payment_uid=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """PlaceBizPushOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
@@ -114,7 +114,6 @@ class PlaceBizPushOrder(object):
         self._verified_limit = None
         self._reg_time_limit = None
         self._advertisers_limit = None
-        self._hide_payment = None
         self._expire_min = None
         self._trade_tips = None
         self._auto_reply = None
@@ -126,6 +125,7 @@ class PlaceBizPushOrder(object):
         self._rate_reference_id = None
         self._rate_offset = None
         self._float_trend = None
+        self._team_payment_uid = None
         self.discriminator = None
 
         self.currency_type = currency_type
@@ -150,8 +150,6 @@ class PlaceBizPushOrder(object):
             self.reg_time_limit = reg_time_limit
         if advertisers_limit is not None:
             self.advertisers_limit = advertisers_limit
-        if hide_payment is not None:
-            self.hide_payment = hide_payment
         if expire_min is not None:
             self.expire_min = expire_min
         if trade_tips is not None:
@@ -174,12 +172,14 @@ class PlaceBizPushOrder(object):
             self.rate_offset = rate_offset
         if float_trend is not None:
             self.float_trend = float_trend
+        if team_payment_uid is not None:
+            self.team_payment_uid = team_payment_uid
 
     @property
     def currency_type(self):
         """Gets the currency_type of this PlaceBizPushOrder.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The currency_type of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -190,7 +190,7 @@ class PlaceBizPushOrder(object):
     def currency_type(self, currency_type):
         """Sets the currency_type of this PlaceBizPushOrder.
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param currency_type: The currency_type of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -229,7 +229,7 @@ class PlaceBizPushOrder(object):
     def type(self):
         """Gets the type of this PlaceBizPushOrder.  # noqa: E501
 
-        Ad type: 0=Sell, 1=Buy, 2=Edit sell, 3=Edit buy  # noqa: E501
+        Ad operation type. `0`: publish sell ad; `1`: publish buy ad; `2`: edit sell ad; `3`: edit buy ad.  # noqa: E501
 
         :return: The type of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -240,13 +240,19 @@ class PlaceBizPushOrder(object):
     def type(self, type):
         """Sets the type of this PlaceBizPushOrder.
 
-        Ad type: 0=Sell, 1=Buy, 2=Edit sell, 3=Edit buy  # noqa: E501
+        Ad operation type. `0`: publish sell ad; `1`: publish buy ad; `2`: edit sell ad; `3`: edit buy ad.  # noqa: E501
 
         :param type: The type of this PlaceBizPushOrder.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["0", "1", "2", "3"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -254,7 +260,7 @@ class PlaceBizPushOrder(object):
     def unit_price(self):
         """Gets the unit_price of this PlaceBizPushOrder.  # noqa: E501
 
-        Unit price  # noqa: E501
+        Per-unit price in fixed-price mode.  # noqa: E501
 
         :return: The unit_price of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -265,7 +271,7 @@ class PlaceBizPushOrder(object):
     def unit_price(self, unit_price):
         """Sets the unit_price of this PlaceBizPushOrder.
 
-        Unit price  # noqa: E501
+        Per-unit price in fixed-price mode.  # noqa: E501
 
         :param unit_price: The unit_price of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -279,7 +285,7 @@ class PlaceBizPushOrder(object):
     def number(self):
         """Gets the number of this PlaceBizPushOrder.  # noqa: E501
 
-        Size  # noqa: E501
+        Ad amount priced in `currencyType`.  # noqa: E501
 
         :return: The number of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -290,7 +296,7 @@ class PlaceBizPushOrder(object):
     def number(self, number):
         """Sets the number of this PlaceBizPushOrder.
 
-        Size  # noqa: E501
+        Ad amount priced in `currencyType`.  # noqa: E501
 
         :param number: The number of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -304,7 +310,7 @@ class PlaceBizPushOrder(object):
     def pay_type(self):
         """Gets the pay_type of this PlaceBizPushOrder.  # noqa: E501
 
-        Payment method  # noqa: E501
+        Payment types, comma-separated; from pay type list `pay_type`, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :return: The pay_type of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -315,7 +321,7 @@ class PlaceBizPushOrder(object):
     def pay_type(self, pay_type):
         """Sets the pay_type of this PlaceBizPushOrder.
 
-        Payment method  # noqa: E501
+        Payment types, comma-separated; from pay type list `pay_type`, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :param pay_type: The pay_type of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -329,7 +335,7 @@ class PlaceBizPushOrder(object):
     def pay_type_json(self):
         """Gets the pay_type_json of this PlaceBizPushOrder.  # noqa: E501
 
-        Payment method JSON string  # noqa: E501
+        JSON map of payment type -> user's payment method ID.  # noqa: E501
 
         :return: The pay_type_json of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -340,7 +346,7 @@ class PlaceBizPushOrder(object):
     def pay_type_json(self, pay_type_json):
         """Sets the pay_type_json of this PlaceBizPushOrder.
 
-        Payment method JSON string  # noqa: E501
+        JSON map of payment type -> user's payment method ID.  # noqa: E501
 
         :param pay_type_json: The pay_type_json of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -352,7 +358,7 @@ class PlaceBizPushOrder(object):
     def rate_fixed(self):
         """Gets the rate_fixed of this PlaceBizPushOrder.  # noqa: E501
 
-        Price type: 0-Floating price, 1-Fixed price  # noqa: E501
+        Price type: `0` floating; `1` fixed.  # noqa: E501
 
         :return: The rate_fixed of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -363,7 +369,7 @@ class PlaceBizPushOrder(object):
     def rate_fixed(self, rate_fixed):
         """Sets the rate_fixed of this PlaceBizPushOrder.
 
-        Price type: 0-Floating price, 1-Fixed price  # noqa: E501
+        Price type: `0` floating; `1` fixed.  # noqa: E501
 
         :param rate_fixed: The rate_fixed of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -375,7 +381,7 @@ class PlaceBizPushOrder(object):
     def oid(self):
         """Gets the oid of this PlaceBizPushOrder.  # noqa: E501
 
-        Ad ID when editing  # noqa: E501
+        Pass ad ID when editing; omit or empty when publishing a new ad.  # noqa: E501
 
         :return: The oid of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -386,7 +392,7 @@ class PlaceBizPushOrder(object):
     def oid(self, oid):
         """Sets the oid of this PlaceBizPushOrder.
 
-        Ad ID when editing  # noqa: E501
+        Pass ad ID when editing; omit or empty when publishing a new ad.  # noqa: E501
 
         :param oid: The oid of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -398,7 +404,7 @@ class PlaceBizPushOrder(object):
     def min_amount(self):
         """Gets the min_amount of this PlaceBizPushOrder.  # noqa: E501
 
-        Minimum transaction amount per order  # noqa: E501
+        Minimum trade amount in `exchangeType`.  # noqa: E501
 
         :return: The min_amount of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -409,7 +415,7 @@ class PlaceBizPushOrder(object):
     def min_amount(self, min_amount):
         """Sets the min_amount of this PlaceBizPushOrder.
 
-        Minimum transaction amount per order  # noqa: E501
+        Minimum trade amount in `exchangeType`.  # noqa: E501
 
         :param min_amount: The min_amount of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -423,7 +429,7 @@ class PlaceBizPushOrder(object):
     def max_amount(self):
         """Gets the max_amount of this PlaceBizPushOrder.  # noqa: E501
 
-        Maximum transaction amount per order  # noqa: E501
+        Maximum amount per trade in `exchangeType` fiat units.  # noqa: E501
 
         :return: The max_amount of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -434,7 +440,7 @@ class PlaceBizPushOrder(object):
     def max_amount(self, max_amount):
         """Sets the max_amount of this PlaceBizPushOrder.
 
-        Maximum transaction amount per order  # noqa: E501
+        Maximum amount per trade in `exchangeType` fiat units.  # noqa: E501
 
         :param max_amount: The max_amount of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -448,7 +454,7 @@ class PlaceBizPushOrder(object):
     def tier_limit(self):
         """Gets the tier_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Order tier limit  # noqa: E501
+        Minimum counterparty VIP level; `0` means no requirement.  # noqa: E501
 
         :return: The tier_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -459,7 +465,7 @@ class PlaceBizPushOrder(object):
     def tier_limit(self, tier_limit):
         """Sets the tier_limit of this PlaceBizPushOrder.
 
-        Order tier limit  # noqa: E501
+        Minimum counterparty VIP level; `0` means no requirement.  # noqa: E501
 
         :param tier_limit: The tier_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -471,7 +477,7 @@ class PlaceBizPushOrder(object):
     def verified_limit(self):
         """Gets the verified_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Verification level limit  # noqa: E501
+        Minimum counterparty verification level; `0` means no limit.  # noqa: E501
 
         :return: The verified_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -482,7 +488,7 @@ class PlaceBizPushOrder(object):
     def verified_limit(self, verified_limit):
         """Sets the verified_limit of this PlaceBizPushOrder.
 
-        Verification level limit  # noqa: E501
+        Minimum counterparty verification level; `0` means no limit.  # noqa: E501
 
         :param verified_limit: The verified_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -494,7 +500,7 @@ class PlaceBizPushOrder(object):
     def reg_time_limit(self):
         """Gets the reg_time_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Registration time limit  # noqa: E501
+        Minimum counterparty account age in days; `0` means no limit.  # noqa: E501
 
         :return: The reg_time_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -505,7 +511,7 @@ class PlaceBizPushOrder(object):
     def reg_time_limit(self, reg_time_limit):
         """Sets the reg_time_limit of this PlaceBizPushOrder.
 
-        Registration time limit  # noqa: E501
+        Minimum counterparty account age in days; `0` means no limit.  # noqa: E501
 
         :param reg_time_limit: The reg_time_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -517,7 +523,7 @@ class PlaceBizPushOrder(object):
     def advertisers_limit(self):
         """Gets the advertisers_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Advertiser restriction  # noqa: E501
+        Whether trading with the advertiser is restricted. `0`: no; `1`: yes.  # noqa: E501
 
         :return: The advertisers_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -528,7 +534,7 @@ class PlaceBizPushOrder(object):
     def advertisers_limit(self, advertisers_limit):
         """Sets the advertisers_limit of this PlaceBizPushOrder.
 
-        Advertiser restriction  # noqa: E501
+        Whether trading with the advertiser is restricted. `0`: no; `1`: yes.  # noqa: E501
 
         :param advertisers_limit: The advertisers_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -537,33 +543,10 @@ class PlaceBizPushOrder(object):
         self._advertisers_limit = advertisers_limit
 
     @property
-    def hide_payment(self):
-        """Gets the hide_payment of this PlaceBizPushOrder.  # noqa: E501
-
-        Whether to hide payment method: 1=Yes, 0=No  # noqa: E501
-
-        :return: The hide_payment of this PlaceBizPushOrder.  # noqa: E501
-        :rtype: str
-        """
-        return self._hide_payment
-
-    @hide_payment.setter
-    def hide_payment(self, hide_payment):
-        """Sets the hide_payment of this PlaceBizPushOrder.
-
-        Whether to hide payment method: 1=Yes, 0=No  # noqa: E501
-
-        :param hide_payment: The hide_payment of this PlaceBizPushOrder.  # noqa: E501
-        :type: str
-        """
-
-        self._hide_payment = hide_payment
-
-    @property
     def expire_min(self):
         """Gets the expire_min of this PlaceBizPushOrder.  # noqa: E501
 
-        Ad expiration time (minutes)  # noqa: E501
+        Payment timeout in minutes.  # noqa: E501
 
         :return: The expire_min of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -574,7 +557,7 @@ class PlaceBizPushOrder(object):
     def expire_min(self, expire_min):
         """Sets the expire_min of this PlaceBizPushOrder.
 
-        Ad expiration time (minutes)  # noqa: E501
+        Payment timeout in minutes.  # noqa: E501
 
         :param expire_min: The expire_min of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -586,7 +569,7 @@ class PlaceBizPushOrder(object):
     def trade_tips(self):
         """Gets the trade_tips of this PlaceBizPushOrder.  # noqa: E501
 
-        Trading terms  # noqa: E501
+        Ad trading terms shown to the taker.  # noqa: E501
 
         :return: The trade_tips of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -597,7 +580,7 @@ class PlaceBizPushOrder(object):
     def trade_tips(self, trade_tips):
         """Sets the trade_tips of this PlaceBizPushOrder.
 
-        Trading terms  # noqa: E501
+        Ad trading terms shown to the taker.  # noqa: E501
 
         :param trade_tips: The trade_tips of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -609,7 +592,7 @@ class PlaceBizPushOrder(object):
     def auto_reply(self):
         """Gets the auto_reply of this PlaceBizPushOrder.  # noqa: E501
 
-        Auto reply  # noqa: E501
+        Auto-reply message after order creation.  # noqa: E501
 
         :return: The auto_reply of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -620,7 +603,7 @@ class PlaceBizPushOrder(object):
     def auto_reply(self, auto_reply):
         """Sets the auto_reply of this PlaceBizPushOrder.
 
-        Auto reply  # noqa: E501
+        Auto-reply message after order creation.  # noqa: E501
 
         :param auto_reply: The auto_reply of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -632,7 +615,7 @@ class PlaceBizPushOrder(object):
     def min_completed_limit(self):
         """Gets the min_completed_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Minimum limit of completed orders  # noqa: E501
+        Minimum completed orders for counterparty; `-1` unlimited.  # noqa: E501
 
         :return: The min_completed_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -643,7 +626,7 @@ class PlaceBizPushOrder(object):
     def min_completed_limit(self, min_completed_limit):
         """Sets the min_completed_limit of this PlaceBizPushOrder.
 
-        Minimum limit of completed orders  # noqa: E501
+        Minimum completed orders for counterparty; `-1` unlimited.  # noqa: E501
 
         :param min_completed_limit: The min_completed_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -655,7 +638,7 @@ class PlaceBizPushOrder(object):
     def max_completed_limit(self):
         """Gets the max_completed_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Maximum limit of completed orders  # noqa: E501
+        Maximum completed orders for counterparty; `-1` unlimited.  # noqa: E501
 
         :return: The max_completed_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -666,7 +649,7 @@ class PlaceBizPushOrder(object):
     def max_completed_limit(self, max_completed_limit):
         """Sets the max_completed_limit of this PlaceBizPushOrder.
 
-        Maximum limit of completed orders  # noqa: E501
+        Maximum completed orders for counterparty; `-1` unlimited.  # noqa: E501
 
         :param max_completed_limit: The max_completed_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -678,7 +661,7 @@ class PlaceBizPushOrder(object):
     def completed_rate_limit(self):
         """Gets the completed_rate_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        30-day completion rate limit  # noqa: E501
+        Counterparty minimum 30-day completion rate; `-1` means no limit.  # noqa: E501
 
         :return: The completed_rate_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -689,7 +672,7 @@ class PlaceBizPushOrder(object):
     def completed_rate_limit(self, completed_rate_limit):
         """Sets the completed_rate_limit of this PlaceBizPushOrder.
 
-        30-day completion rate limit  # noqa: E501
+        Counterparty minimum 30-day completion rate; `-1` means no limit.  # noqa: E501
 
         :param completed_rate_limit: The completed_rate_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -701,7 +684,7 @@ class PlaceBizPushOrder(object):
     def user_country_limit(self):
         """Gets the user_country_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        KYC nationality restriction  # noqa: E501
+        KYC nationality restriction; `-1` means no restriction.  # noqa: E501
 
         :return: The user_country_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -712,7 +695,7 @@ class PlaceBizPushOrder(object):
     def user_country_limit(self, user_country_limit):
         """Sets the user_country_limit of this PlaceBizPushOrder.
 
-        KYC nationality restriction  # noqa: E501
+        KYC nationality restriction; `-1` means no restriction.  # noqa: E501
 
         :param user_country_limit: The user_country_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -724,7 +707,7 @@ class PlaceBizPushOrder(object):
     def user_order_limit(self):
         """Gets the user_order_limit of this PlaceBizPushOrder.  # noqa: E501
 
-        Order count limit  # noqa: E501
+        Maximum concurrent orders allowed for the counterparty. `-1`: unlimited.  # noqa: E501
 
         :return: The user_order_limit of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -735,7 +718,7 @@ class PlaceBizPushOrder(object):
     def user_order_limit(self, user_order_limit):
         """Sets the user_order_limit of this PlaceBizPushOrder.
 
-        Order count limit  # noqa: E501
+        Maximum concurrent orders allowed for the counterparty. `-1`: unlimited.  # noqa: E501
 
         :param user_order_limit: The user_order_limit of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -747,7 +730,7 @@ class PlaceBizPushOrder(object):
     def rate_reference_id(self):
         """Gets the rate_reference_id of this PlaceBizPushOrder.  # noqa: E501
 
-        Reference exchange rate ID  # noqa: E501
+        Floating price reference. `1`: platform reference; `2`: Gate reference; `3`: spot reference.  # noqa: E501
 
         :return: The rate_reference_id of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -758,7 +741,7 @@ class PlaceBizPushOrder(object):
     def rate_reference_id(self, rate_reference_id):
         """Sets the rate_reference_id of this PlaceBizPushOrder.
 
-        Reference exchange rate ID  # noqa: E501
+        Floating price reference. `1`: platform reference; `2`: Gate reference; `3`: spot reference.  # noqa: E501
 
         :param rate_reference_id: The rate_reference_id of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -770,7 +753,7 @@ class PlaceBizPushOrder(object):
     def rate_offset(self):
         """Gets the rate_offset of this PlaceBizPushOrder.  # noqa: E501
 
-        Reference exchange rate offset  # noqa: E501
+        Absolute floating offset ratio, e.g. `0.5` means 0.5%.  # noqa: E501
 
         :return: The rate_offset of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -781,7 +764,7 @@ class PlaceBizPushOrder(object):
     def rate_offset(self, rate_offset):
         """Sets the rate_offset of this PlaceBizPushOrder.
 
-        Reference exchange rate offset  # noqa: E501
+        Absolute floating offset ratio, e.g. `0.5` means 0.5%.  # noqa: E501
 
         :param rate_offset: The rate_offset of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -793,7 +776,7 @@ class PlaceBizPushOrder(object):
     def float_trend(self):
         """Gets the float_trend of this PlaceBizPushOrder.  # noqa: E501
 
-        444  # noqa: E501
+        Floating direction: `0` markup; `1` markdown.  # noqa: E501
 
         :return: The float_trend of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -804,13 +787,36 @@ class PlaceBizPushOrder(object):
     def float_trend(self, float_trend):
         """Sets the float_trend of this PlaceBizPushOrder.
 
-        444  # noqa: E501
+        Floating direction: `0` markup; `1` markdown.  # noqa: E501
 
         :param float_trend: The float_trend of this PlaceBizPushOrder.  # noqa: E501
         :type: str
         """
 
         self._float_trend = float_trend
+
+    @property
+    def team_payment_uid(self):
+        """Gets the team_payment_uid of this PlaceBizPushOrder.  # noqa: E501
+
+        Team payee UID; optional for non-team merchants.  # noqa: E501
+
+        :return: The team_payment_uid of this PlaceBizPushOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._team_payment_uid
+
+    @team_payment_uid.setter
+    def team_payment_uid(self, team_payment_uid):
+        """Sets the team_payment_uid of this PlaceBizPushOrder.
+
+        Team payee UID; optional for non-team merchants.  # noqa: E501
+
+        :param team_payment_uid: The team_payment_uid of this PlaceBizPushOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._team_payment_uid = team_payment_uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

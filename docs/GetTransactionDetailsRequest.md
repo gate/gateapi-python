@@ -5,7 +5,7 @@ Get transaction details request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **txid** | **int** | Order ID | 
-**channel** | **str** | Empty or web3 | [optional] 
+**channel** | **str** | Channel tag: omit or empty for normal P2P; use &#x60;web3&#x60; for Web3 orders. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

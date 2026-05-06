@@ -60,7 +60,7 @@ class AdsUpdateStatus(object):
     def adv_no(self):
         """Gets the adv_no of this AdsUpdateStatus.  # noqa: E501
 
-        Ad ID  # noqa: E501
+        Advertisement ID.  # noqa: E501
 
         :return: The adv_no of this AdsUpdateStatus.  # noqa: E501
         :rtype: int
@@ -71,7 +71,7 @@ class AdsUpdateStatus(object):
     def adv_no(self, adv_no):
         """Sets the adv_no of this AdsUpdateStatus.
 
-        Ad ID  # noqa: E501
+        Advertisement ID.  # noqa: E501
 
         :param adv_no: The adv_no of this AdsUpdateStatus.  # noqa: E501
         :type: int
@@ -85,7 +85,7 @@ class AdsUpdateStatus(object):
     def adv_status(self):
         """Gets the adv_status of this AdsUpdateStatus.  # noqa: E501
 
-        Ad status: 1=Active, 3=Inactive, 4=Closed  # noqa: E501
+        Ad status. `1`: listed; `3`: delisted; `4`: closed.  # noqa: E501
 
         :return: The adv_status of this AdsUpdateStatus.  # noqa: E501
         :rtype: int
@@ -96,13 +96,19 @@ class AdsUpdateStatus(object):
     def adv_status(self, adv_status):
         """Sets the adv_status of this AdsUpdateStatus.
 
-        Ad status: 1=Active, 3=Inactive, 4=Closed  # noqa: E501
+        Ad status. `1`: listed; `3`: delisted; `4`: closed.  # noqa: E501
 
         :param adv_status: The adv_status of this AdsUpdateStatus.  # noqa: E501
         :type: int
         """
         if self.local_vars_configuration.client_side_validation and adv_status is None:  # noqa: E501
             raise ValueError("Invalid value for `adv_status`, must not be `None`")  # noqa: E501
+        allowed_values = [1, 3, 4]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and adv_status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `adv_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(adv_status, allowed_values)
+            )
 
         self._adv_status = adv_status
 

@@ -67,7 +67,7 @@ class P2pPaymentMethodAccount(object):
         'bankprov': 'bankprov',
         'bankaddr': 'bankaddr',
         'bankdesc': 'bankdesc',
-        'hold_uid': 'holdUid',
+        'hold_uid': 'hold_uid',
         'hold_username': 'hold_username',
         'real_name': 'real_name',
         'id': 'id',
@@ -323,7 +323,7 @@ class P2pPaymentMethodAccount(object):
     def bankaddr(self):
         """Gets the bankaddr of this P2pPaymentMethodAccount.  # noqa: E501
 
-        Bank card number  # noqa: E501
+        Bank card number or masked card number.  # noqa: E501
 
         :return: The bankaddr of this P2pPaymentMethodAccount.  # noqa: E501
         :rtype: str
@@ -334,7 +334,7 @@ class P2pPaymentMethodAccount(object):
     def bankaddr(self, bankaddr):
         """Sets the bankaddr of this P2pPaymentMethodAccount.
 
-        Bank card number  # noqa: E501
+        Bank card number or masked card number.  # noqa: E501
 
         :param bankaddr: The bankaddr of this P2pPaymentMethodAccount.  # noqa: E501
         :type: str
@@ -415,7 +415,7 @@ class P2pPaymentMethodAccount(object):
     def real_name(self):
         """Gets the real_name of this P2pPaymentMethodAccount.  # noqa: E501
 
-        userfirst name  # noqa: E501
+        User verified display name.  # noqa: E501
 
         :return: The real_name of this P2pPaymentMethodAccount.  # noqa: E501
         :rtype: str
@@ -426,7 +426,7 @@ class P2pPaymentMethodAccount(object):
     def real_name(self, real_name):
         """Sets the real_name of this P2pPaymentMethodAccount.
 
-        userfirst name  # noqa: E501
+        User verified display name.  # noqa: E501
 
         :param real_name: The real_name of this P2pPaymentMethodAccount.  # noqa: E501
         :type: str
@@ -553,7 +553,7 @@ class P2pPaymentMethodAccount(object):
     def account(self):
         """Gets the account of this P2pPaymentMethodAccount.  # noqa: E501
 
-        Payment method name  # noqa: E501
+        Payment account or masked payment account.  # noqa: E501
 
         :return: The account of this P2pPaymentMethodAccount.  # noqa: E501
         :rtype: str
@@ -564,7 +564,7 @@ class P2pPaymentMethodAccount(object):
     def account(self, account):
         """Sets the account of this P2pPaymentMethodAccount.
 
-        Payment method name  # noqa: E501
+        Payment account or masked payment account.  # noqa: E501
 
         :param account: The account of this P2pPaymentMethodAccount.  # noqa: E501
         :type: str

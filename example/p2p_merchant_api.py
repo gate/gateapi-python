@@ -71,7 +71,7 @@ def p2p_merchant_demo(run_config):
                 logger.info("Ad detail: %s", ad_detail)
         # Example when no my ads (replace with real adv_no):
         # ad_detail = api.p2p_merchant_books_ads_detail(
-        #     AdsDetailRequest(adv_no="2124287072")
+        #     AdsDetailRequest(adv_no="2124000001")
         # )
 
         # Place/edit ad (write op, use with care)
@@ -85,17 +85,17 @@ def p2p_merchant_demo(run_config):
         #         min_amount="100",
         #         max_amount="1000",
         #         pay_type="bank",
+        #         pay_type_json='{"bank":"10001"}',
         #         rate_fixed="1",
-        #         hide_payment="0",
-        #         expire_min="15",
-        #         trade_tips="Please pay within 15 minutes",
-        #         auto_reply="Auto reply example",
+        #         expire_min="20",
+        #         trade_tips="Please pay from an account under your own name.",
+        #         auto_reply="Please tap Paid after completing the transfer.",
         #     )
         # )
 
         # Update ad status: 1=active, 3=inactive, 4=closed
         # api.p2p_merchant_books_ads_update_status(
-        #     AdsUpdateStatus(adv_no=123456, adv_status=1)
+        #     AdsUpdateStatus(adv_no=2124000001, adv_status=3)
         # )
 
         # ============================================================
@@ -110,7 +110,7 @@ def p2p_merchant_demo(run_config):
                 order_tab="pending",
                 select_type="sell",
                 # status="OPEN",
-                # txid=40036321,
+                # txid=40000001,
                 # start_time=1700000000,
                 # end_time=1700086399,
             )
@@ -123,7 +123,7 @@ def p2p_merchant_demo(run_config):
                 fiat_currency="USD",
                 # select_type="sell",
                 # status="ACCEPT",
-                # txid=40036321,
+                # txid=40000001,
                 # start_time=1700000000,
                 # end_time=1700086399,
                 # query_dispute=0,
@@ -148,7 +148,7 @@ def p2p_merchant_demo(run_config):
             order_detail = api.p2p_merchant_transaction_get_transaction_details(
                 GetTransactionDetailsRequest(
                     txid=txid_for_detail,
-                    # channel="web3",
+                    # channel="",
                 )
             )
             logger.info("Order detail: %s", order_detail)
@@ -169,10 +169,10 @@ def p2p_merchant_demo(run_config):
             logger.info("Chat list: %s", chats)
         # Example when no orders (replace with real txid):
         # order_detail = api.p2p_merchant_transaction_get_transaction_details(
-        #     GetTransactionDetailsRequest(txid=40036321)
+        #     GetTransactionDetailsRequest(txid=40000001)
         # )
         # chats = api.p2p_merchant_chat_get_chats_list(
-        #     GetChatsListRequest(txid=40036321)
+        #     GetChatsListRequest(txid=40000001)
         # )
 
         # ============================================================
@@ -182,20 +182,20 @@ def p2p_merchant_demo(run_config):
 
         # Buyer confirms payment
         # api.p2p_merchant_transaction_confirm_payment(
-        #     ConfirmPayment(trade_id="40036321", payment_method="bank")
+        #     ConfirmPayment(txid="40000001", payment_method="bank")
         # )
 
         # Seller confirms receipt and release
         # api.p2p_merchant_transaction_confirm_receipt(
-        #     ConfirmReceipt(trade_id="40036321")
+        #     ConfirmReceipt(txid="40000001")
         # )
 
         # Cancel order
         # api.p2p_merchant_transaction_cancel(
         #     CancelOrder(
-        #         trade_id="40036321",
+        #         txid="40000001",
         #         reason_id="1",
-        #         reason_memo="I don't want to trade anymore.",
+        #         reason_memo="Canceled after agreement with the counterparty.",
         #     )
         # )
 
@@ -207,8 +207,8 @@ def p2p_merchant_demo(run_config):
         # Send text message (requires real txid)
         # api.p2p_merchant_chat_send_chat_message(
         #     SendChatMessageRequest(
-        #         txid=40036321,
-        #         message="Please complete the payment within 15 minutes.",
+        #         txid=40000001,
+        #         message="Payment completed, please check.",
         #         type=0,
         #     )
         # )
@@ -217,7 +217,7 @@ def p2p_merchant_demo(run_config):
         # api.p2p_merchant_chat_upload_chat_file(
         #     UploadChatFile(
         #         image_content_type="image/png",
-        #         base64_img="BASE64_STRING",
+        #         base64_img="iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB...",
         #     )
         # )
 

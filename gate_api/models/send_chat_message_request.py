@@ -90,7 +90,7 @@ class SendChatMessageRequest(object):
     def type(self):
         """Gets the type of this SendChatMessageRequest.  # noqa: E501
 
-        0=Text, 1=File (video or image), default is 0 if not provided  # noqa: E501
+        Message type: `0` text; `1` file (image or video); defaults to `0`.  # noqa: E501
 
         :return: The type of this SendChatMessageRequest.  # noqa: E501
         :rtype: int
@@ -101,11 +101,17 @@ class SendChatMessageRequest(object):
     def type(self, type):
         """Sets the type of this SendChatMessageRequest.
 
-        0=Text, 1=File (video or image), default is 0 if not provided  # noqa: E501
+        Message type: `0` text; `1` file (image or video); defaults to `0`.  # noqa: E501
 
         :param type: The type of this SendChatMessageRequest.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 
@@ -113,7 +119,7 @@ class SendChatMessageRequest(object):
     def message(self):
         """Gets the message of this SendChatMessageRequest.  # noqa: E501
 
-        Message content  # noqa: E501
+        Message body. For `type=0`, plain text up to 500 characters; for `type=1`, pass the `file_key` returned by `upload_chat_file`.  # noqa: E501
 
         :return: The message of this SendChatMessageRequest.  # noqa: E501
         :rtype: str
@@ -124,7 +130,7 @@ class SendChatMessageRequest(object):
     def message(self, message):
         """Sets the message of this SendChatMessageRequest.
 
-        Message content  # noqa: E501
+        Message body. For `type=0`, plain text up to 500 characters; for `type=1`, pass the `file_key` returned by `upload_chat_file`.  # noqa: E501
 
         :param message: The message of this SendChatMessageRequest.  # noqa: E501
         :type: str

@@ -1,14 +1,14 @@
 # InfiniteGridCreateParams
 
-Creation parameters for infinite grid strategies.
+无限网格策略的创建参数。  与 App 口径对齐：**仅** `money`、`price_floor`、`profit_per_grid` 为必填； `grid_num`、`price_type` 可选（不传时由服务端按默认处理）。
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **money** | **str** |  | 
 **price_floor** | **str** | price floor | 
 **profit_per_grid** | **str** | Profit per square | 
-**grid_num** | **int** |  | 
-**price_type** | **int** |  | 
+**grid_num** | **int** | Optional; may be omitted like in the app. | [optional] 
+**price_type** | **int** | Optional. &#x60;0&#x60; arithmetic grid; &#x60;1&#x60; geometric; omit for server defaults. | [optional] 
 **trigger_price** | **str** |  | [optional] 
 **stop_profit** | **str** |  | [optional] 
 **stop_loss** | **str** |  | [optional] 

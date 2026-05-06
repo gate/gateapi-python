@@ -64,7 +64,7 @@ class AdsListRequest(object):
     def asset(self):
         """Gets the asset of this AdsListRequest.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The asset of this AdsListRequest.  # noqa: E501
         :rtype: str
@@ -75,7 +75,7 @@ class AdsListRequest(object):
     def asset(self, asset):
         """Sets the asset of this AdsListRequest.
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param asset: The asset of this AdsListRequest.  # noqa: E501
         :type: str
@@ -114,7 +114,7 @@ class AdsListRequest(object):
     def trade_type(self):
         """Gets the trade_type of this AdsListRequest.  # noqa: E501
 
-        Buy/Sell, sell/buy  # noqa: E501
+        Ad side: `buy` buy-crypto ad; `sell` sell-crypto ad.  # noqa: E501
 
         :return: The trade_type of this AdsListRequest.  # noqa: E501
         :rtype: str
@@ -125,7 +125,7 @@ class AdsListRequest(object):
     def trade_type(self, trade_type):
         """Sets the trade_type of this AdsListRequest.
 
-        Buy/Sell, sell/buy  # noqa: E501
+        Ad side: `buy` buy-crypto ad; `sell` sell-crypto ad.  # noqa: E501
 
         :param trade_type: The trade_type of this AdsListRequest.  # noqa: E501
         :type: str

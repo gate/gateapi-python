@@ -4,7 +4,7 @@ Get ad details request
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**adv_no** | **str** |  | 
+**adv_no** | **str** | Advertisement ID. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

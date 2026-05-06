@@ -90,7 +90,7 @@ class GetPendingTransactionListRequest(object):
     def crypto_currency(self):
         """Gets the crypto_currency of this GetPendingTransactionListRequest.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The crypto_currency of this GetPendingTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class GetPendingTransactionListRequest(object):
     def crypto_currency(self, crypto_currency):
         """Sets the crypto_currency of this GetPendingTransactionListRequest.
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param crypto_currency: The crypto_currency of this GetPendingTransactionListRequest.  # noqa: E501
         :type: str
@@ -140,7 +140,7 @@ class GetPendingTransactionListRequest(object):
     def order_tab(self):
         """Gets the order_tab of this GetPendingTransactionListRequest.  # noqa: E501
 
-        Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        Order tab: `pending` in progress (`OPEN`, `PAID`, `LOCKED`, `TEMP`); `dispute` in dispute; default `pending`.  # noqa: E501
 
         :return: The order_tab of this GetPendingTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -151,11 +151,17 @@ class GetPendingTransactionListRequest(object):
     def order_tab(self, order_tab):
         """Sets the order_tab of this GetPendingTransactionListRequest.
 
-        Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))  # noqa: E501
+        Order tab: `pending` in progress (`OPEN`, `PAID`, `LOCKED`, `TEMP`); `dispute` in dispute; default `pending`.  # noqa: E501
 
         :param order_tab: The order_tab of this GetPendingTransactionListRequest.  # noqa: E501
         :type: str
         """
+        allowed_values = ["pending", "dispute"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and order_tab not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `order_tab` ({0}), must be one of {1}"  # noqa: E501
+                .format(order_tab, allowed_values)
+            )
 
         self._order_tab = order_tab
 
@@ -163,7 +169,7 @@ class GetPendingTransactionListRequest(object):
     def select_type(self):
         """Gets the select_type of this GetPendingTransactionListRequest.  # noqa: E501
 
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
+        Order side filter: `buy` buy orders; `sell` sell orders; empty: all.  # noqa: E501
 
         :return: The select_type of this GetPendingTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -174,7 +180,7 @@ class GetPendingTransactionListRequest(object):
     def select_type(self, select_type):
         """Sets the select_type of this GetPendingTransactionListRequest.
 
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
+        Order side filter: `buy` buy orders; `sell` sell orders; empty: all.  # noqa: E501
 
         :param select_type: The select_type of this GetPendingTransactionListRequest.  # noqa: E501
         :type: str
@@ -186,7 +192,7 @@ class GetPendingTransactionListRequest(object):
     def status(self):
         """Gets the status of this GetPendingTransactionListRequest.  # noqa: E501
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Order status filter. `open` unpaid (`OPEN`); `paid` paid (`PAID`); `locked` locked (`LOCKED`); `dispute` in dispute; empty or omitted uses the default range for `order_tab`.  # noqa: E501
 
         :return: The status of this GetPendingTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -197,7 +203,7 @@ class GetPendingTransactionListRequest(object):
     def status(self, status):
         """Sets the status of this GetPendingTransactionListRequest.
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Order status filter. `open` unpaid (`OPEN`); `paid` paid (`PAID`); `locked` locked (`LOCKED`); `dispute` in dispute; empty or omitted uses the default range for `order_tab`.  # noqa: E501
 
         :param status: The status of this GetPendingTransactionListRequest.  # noqa: E501
         :type: str

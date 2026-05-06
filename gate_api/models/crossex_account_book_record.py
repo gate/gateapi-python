@@ -36,7 +36,7 @@ class CrossexAccountBookRecord(object):
         'id': 'str',
         'user_id': 'str',
         'business_id': 'str',
-        'type': 'str',
+        'statement_type': 'str',
         'exchange_type': 'str',
         'coin': 'str',
         'change': 'str',
@@ -48,7 +48,7 @@ class CrossexAccountBookRecord(object):
         'id': 'id',
         'user_id': 'user_id',
         'business_id': 'business_id',
-        'type': 'type',
+        'statement_type': 'statement_type',
         'exchange_type': 'exchange_type',
         'coin': 'coin',
         'change': 'change',
@@ -56,7 +56,7 @@ class CrossexAccountBookRecord(object):
         'create_time': 'create_time'
     }
 
-    def __init__(self, id=None, user_id=None, business_id=None, type=None, exchange_type=None, coin=None, change=None, balance=None, create_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, user_id=None, business_id=None, statement_type=None, exchange_type=None, coin=None, change=None, balance=None, create_time=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
         """CrossexAccountBookRecord - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
@@ -66,7 +66,7 @@ class CrossexAccountBookRecord(object):
         self._id = None
         self._user_id = None
         self._business_id = None
-        self._type = None
+        self._statement_type = None
         self._exchange_type = None
         self._coin = None
         self._change = None
@@ -77,7 +77,7 @@ class CrossexAccountBookRecord(object):
         self.id = id
         self.user_id = user_id
         self.business_id = business_id
-        self.type = type
+        self.statement_type = statement_type
         self.exchange_type = exchange_type
         self.coin = coin
         self.change = change
@@ -160,29 +160,29 @@ class CrossexAccountBookRecord(object):
         self._business_id = business_id
 
     @property
-    def type(self):
-        """Gets the type of this CrossexAccountBookRecord.  # noqa: E501
+    def statement_type(self):
+        """Gets the statement_type of this CrossexAccountBookRecord.  # noqa: E501
 
-        Change type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` futures funding fee `LIQUIDATION_FEE` liquidation fee `TRANSFER_IN` transfer in `TRANSFER_OUT` transfer out `BANKRUPT_COMPENSATION` bankruptcy compensation `AUTO_REPAY` margin position auto-repay  # noqa: E501
+        Bill entry type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay  # noqa: E501
 
-        :return: The type of this CrossexAccountBookRecord.  # noqa: E501
+        :return: The statement_type of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
         """
-        return self._type
+        return self._statement_type
 
-    @type.setter
-    def type(self, type):
-        """Sets the type of this CrossexAccountBookRecord.
+    @statement_type.setter
+    def statement_type(self, statement_type):
+        """Sets the statement_type of this CrossexAccountBookRecord.
 
-        Change type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` futures funding fee `LIQUIDATION_FEE` liquidation fee `TRANSFER_IN` transfer in `TRANSFER_OUT` transfer out `BANKRUPT_COMPENSATION` bankruptcy compensation `AUTO_REPAY` margin position auto-repay  # noqa: E501
+        Bill entry type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay  # noqa: E501
 
-        :param type: The type of this CrossexAccountBookRecord.  # noqa: E501
+        :param statement_type: The statement_type of this CrossexAccountBookRecord.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and statement_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `statement_type`, must not be `None`")  # noqa: E501
 
-        self._type = type
+        self._statement_type = statement_type
 
     @property
     def exchange_type(self):

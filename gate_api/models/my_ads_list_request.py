@@ -67,7 +67,7 @@ class MyAdsListRequest(object):
     def asset(self):
         """Gets the asset of this MyAdsListRequest.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Crypto asset; omit to skip asset filter.  # noqa: E501
 
         :return: The asset of this MyAdsListRequest.  # noqa: E501
         :rtype: str
@@ -78,7 +78,7 @@ class MyAdsListRequest(object):
     def asset(self, asset):
         """Sets the asset of this MyAdsListRequest.
 
-        Cryptocurrency  # noqa: E501
+        Crypto asset; omit to skip asset filter.  # noqa: E501
 
         :param asset: The asset of this MyAdsListRequest.  # noqa: E501
         :type: str
@@ -90,7 +90,7 @@ class MyAdsListRequest(object):
     def fiat_unit(self):
         """Gets the fiat_unit of this MyAdsListRequest.  # noqa: E501
 
-        Fiat currency  # noqa: E501
+        Fiat currency; omit to skip fiat filter.  # noqa: E501
 
         :return: The fiat_unit of this MyAdsListRequest.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class MyAdsListRequest(object):
     def fiat_unit(self, fiat_unit):
         """Sets the fiat_unit of this MyAdsListRequest.
 
-        Fiat currency  # noqa: E501
+        Fiat currency; omit to skip fiat filter.  # noqa: E501
 
         :param fiat_unit: The fiat_unit of this MyAdsListRequest.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class MyAdsListRequest(object):
     def trade_type(self):
         """Gets the trade_type of this MyAdsListRequest.  # noqa: E501
 
-        Buy/Sell  # noqa: E501
+        Ad side: `buy` for buy-crypto ads, `sell` for sell-crypto ads; omit for all sides.  # noqa: E501
 
         :return: The trade_type of this MyAdsListRequest.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class MyAdsListRequest(object):
     def trade_type(self, trade_type):
         """Sets the trade_type of this MyAdsListRequest.
 
-        Buy/Sell  # noqa: E501
+        Ad side: `buy` for buy-crypto ads, `sell` for sell-crypto ads; omit for all sides.  # noqa: E501
 
         :param trade_type: The trade_type of this MyAdsListRequest.  # noqa: E501
         :type: str

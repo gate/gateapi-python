@@ -275,7 +275,7 @@ class P2pMerchantUserInfo(object):
     def email_verified(self):
         """Gets the email_verified of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether email is verified  # noqa: E501
+        Whether email is verified. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The email_verified of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: str
@@ -286,7 +286,7 @@ class P2pMerchantUserInfo(object):
     def email_verified(self, email_verified):
         """Sets the email_verified of this P2pMerchantUserInfo.
 
-        Whether email is verified  # noqa: E501
+        Whether email is verified. `1`: yes; `0`: no.  # noqa: E501
 
         :param email_verified: The email_verified of this P2pMerchantUserInfo.  # noqa: E501
         :type: str
@@ -298,7 +298,7 @@ class P2pMerchantUserInfo(object):
     def verified(self):
         """Gets the verified of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether KYC verification is completed  # noqa: E501
+        Whether KYC is completed. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The verified of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: str
@@ -309,7 +309,7 @@ class P2pMerchantUserInfo(object):
     def verified(self, verified):
         """Sets the verified of this P2pMerchantUserInfo.
 
-        Whether KYC verification is completed  # noqa: E501
+        Whether KYC is completed. `1`: yes; `0`: no.  # noqa: E501
 
         :param verified: The verified of this P2pMerchantUserInfo.  # noqa: E501
         :type: str
@@ -321,7 +321,7 @@ class P2pMerchantUserInfo(object):
     def has_phone(self):
         """Gets the has_phone of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether phone is bound  # noqa: E501
+        Whether a phone number is bound. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The has_phone of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: str
@@ -332,7 +332,7 @@ class P2pMerchantUserInfo(object):
     def has_phone(self, has_phone):
         """Sets the has_phone of this P2pMerchantUserInfo.
 
-        Whether phone is bound  # noqa: E501
+        Whether a phone number is bound. `1`: yes; `0`: no.  # noqa: E501
 
         :param has_phone: The has_phone of this P2pMerchantUserInfo.  # noqa: E501
         :type: str
@@ -574,7 +574,7 @@ class P2pMerchantUserInfo(object):
     def is_black(self):
         """Gets the is_black of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether blocked  # noqa: E501
+        Whether the user is blocked. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_black of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: int
@@ -585,7 +585,7 @@ class P2pMerchantUserInfo(object):
     def is_black(self, is_black):
         """Sets the is_black of this P2pMerchantUserInfo.
 
-        Whether blocked  # noqa: E501
+        Whether the user is blocked. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_black: The is_black of this P2pMerchantUserInfo.  # noqa: E501
         :type: int
@@ -597,7 +597,7 @@ class P2pMerchantUserInfo(object):
     def is_follow(self):
         """Gets the is_follow of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether following  # noqa: E501
+        Whether you follow this user. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_follow of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: int
@@ -608,7 +608,7 @@ class P2pMerchantUserInfo(object):
     def is_follow(self, is_follow):
         """Sets the is_follow of this P2pMerchantUserInfo.
 
-        Whether following  # noqa: E501
+        Whether you follow this user. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_follow: The is_follow of this P2pMerchantUserInfo.  # noqa: E501
         :type: int
@@ -620,7 +620,7 @@ class P2pMerchantUserInfo(object):
     def have_traded(self):
         """Gets the have_traded of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether traded with self  # noqa: E501
+        Whether you have traded with this user before. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The have_traded of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: int
@@ -631,7 +631,7 @@ class P2pMerchantUserInfo(object):
     def have_traded(self, have_traded):
         """Sets the have_traded of this P2pMerchantUserInfo.
 
-        Whether traded with self  # noqa: E501
+        Whether you have traded with this user before. `1`: yes; `0`: no.  # noqa: E501
 
         :param have_traded: The have_traded of this P2pMerchantUserInfo.  # noqa: E501
         :type: int
@@ -758,7 +758,7 @@ class P2pMerchantUserInfo(object):
     def need_replenish(self):
         """Gets the need_replenish of this P2pMerchantUserInfo.  # noqa: E501
 
-        Whether margin replenishment is needed  # noqa: E501
+        Whether additional margin is required. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The need_replenish of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: int
@@ -769,7 +769,7 @@ class P2pMerchantUserInfo(object):
     def need_replenish(self, need_replenish):
         """Sets the need_replenish of this P2pMerchantUserInfo.
 
-        Whether margin replenishment is needed  # noqa: E501
+        Whether additional margin is required. `1`: yes; `0`: no.  # noqa: E501
 
         :param need_replenish: The need_replenish of this P2pMerchantUserInfo.  # noqa: E501
         :type: int
@@ -802,7 +802,7 @@ class P2pMerchantUserInfo(object):
     def online_status(self):
         """Gets the online_status of this P2pMerchantUserInfo.  # noqa: E501
 
-        Merchant online status  # noqa: E501
+        Merchant online status: `1` online; `0` offline.  # noqa: E501
 
         :return: The online_status of this P2pMerchantUserInfo.  # noqa: E501
         :rtype: int
@@ -813,7 +813,7 @@ class P2pMerchantUserInfo(object):
     def online_status(self, online_status):
         """Sets the online_status of this P2pMerchantUserInfo.
 
-        Merchant online status  # noqa: E501
+        Merchant online status: `1` online; `0` offline.  # noqa: E501
 
         :param online_status: The online_status of this P2pMerchantUserInfo.  # noqa: E501
         :type: int

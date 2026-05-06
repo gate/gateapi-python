@@ -157,7 +157,7 @@ class P2pChatMessagePayload(object):
     def status(self):
         """Gets the status of this P2pChatMessagePayload.  # noqa: E501
 
-        Order status when message was sent  # noqa: E501
+        Order status when sending a message. Typical values: `OPEN`, `PAID`, `LOCKED`, `ACCEPT`, `BCLOSED`, `CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`.  # noqa: E501
 
         :return: The status of this P2pChatMessagePayload.  # noqa: E501
         :rtype: str
@@ -168,7 +168,7 @@ class P2pChatMessagePayload(object):
     def status(self, status):
         """Sets the status of this P2pChatMessagePayload.
 
-        Order status when message was sent  # noqa: E501
+        Order status when sending a message. Typical values: `OPEN`, `PAID`, `LOCKED`, `ACCEPT`, `BCLOSED`, `CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`.  # noqa: E501
 
         :param status: The status of this P2pChatMessagePayload.  # noqa: E501
         :type: str
@@ -226,7 +226,7 @@ class P2pChatMessagePayload(object):
     def reason_id(self):
         """Gets the reason_id of this P2pChatMessagePayload.  # noqa: E501
 
-        Cancellation reason ID  # noqa: E501
+        Cancel reason ID. `1` no longer want to buy; `2` cannot reach seller; `3` will not pay; `4` seller account not real; `5` payout account issue; `6` price mismatch; `7` mutually agreed cancel; `8` poor communication; `9` other; `10` seller cannot release with refund; `11` terms not met; `12` seller payout risk-controlled.  # noqa: E501
 
         :return: The reason_id of this P2pChatMessagePayload.  # noqa: E501
         :rtype: int
@@ -237,7 +237,7 @@ class P2pChatMessagePayload(object):
     def reason_id(self, reason_id):
         """Sets the reason_id of this P2pChatMessagePayload.
 
-        Cancellation reason ID  # noqa: E501
+        Cancel reason ID. `1` no longer want to buy; `2` cannot reach seller; `3` will not pay; `4` seller account not real; `5` payout account issue; `6` price mismatch; `7` mutually agreed cancel; `8` poor communication; `9` other; `10` seller cannot release with refund; `11` terms not met; `12` seller payout risk-controlled.  # noqa: E501
 
         :param reason_id: The reason_id of this P2pChatMessagePayload.  # noqa: E501
         :type: int
@@ -272,7 +272,7 @@ class P2pChatMessagePayload(object):
     def reason_memo(self):
         """Gets the reason_memo of this P2pChatMessagePayload.  # noqa: E501
 
-        Cancellation reason title  # noqa: E501
+        Cancel reason description.  # noqa: E501
 
         :return: The reason_memo of this P2pChatMessagePayload.  # noqa: E501
         :rtype: str
@@ -283,7 +283,7 @@ class P2pChatMessagePayload(object):
     def reason_memo(self, reason_memo):
         """Sets the reason_memo of this P2pChatMessagePayload.
 
-        Cancellation reason title  # noqa: E501
+        Cancel reason description.  # noqa: E501
 
         :param reason_memo: The reason_memo of this P2pChatMessagePayload.  # noqa: E501
         :type: str
@@ -318,7 +318,7 @@ class P2pChatMessagePayload(object):
     def seller_confirm(self):
         """Gets the seller_confirm of this P2pChatMessagePayload.  # noqa: E501
 
-        Whether seller confirmed the reason  # noqa: E501
+        Seller confirmation of cancel reason: `0` pending; `1` confirmed; `2` rejected.  # noqa: E501
 
         :return: The seller_confirm of this P2pChatMessagePayload.  # noqa: E501
         :rtype: int
@@ -329,7 +329,7 @@ class P2pChatMessagePayload(object):
     def seller_confirm(self, seller_confirm):
         """Sets the seller_confirm of this P2pChatMessagePayload.
 
-        Whether seller confirmed the reason  # noqa: E501
+        Seller confirmation of cancel reason: `0` pending; `1` confirmed; `2` rejected.  # noqa: E501
 
         :param seller_confirm: The seller_confirm of this P2pChatMessagePayload.  # noqa: E501
         :type: int
@@ -456,7 +456,7 @@ class P2pChatMessagePayload(object):
     def account(self):
         """Gets the account of this P2pChatMessagePayload.  # noqa: E501
 
-        Payment method name  # noqa: E501
+        Payment account or masked payment account.  # noqa: E501
 
         :return: The account of this P2pChatMessagePayload.  # noqa: E501
         :rtype: str
@@ -467,7 +467,7 @@ class P2pChatMessagePayload(object):
     def account(self, account):
         """Sets the account of this P2pChatMessagePayload.
 
-        Payment method name  # noqa: E501
+        Payment account or masked payment account.  # noqa: E501
 
         :param account: The account of this P2pChatMessagePayload.  # noqa: E501
         :type: str
@@ -594,7 +594,7 @@ class P2pChatMessagePayload(object):
     def is_delete(self):
         """Gets the is_delete of this P2pChatMessagePayload.  # noqa: E501
 
-        Whether deleted  # noqa: E501
+        Whether the payment method was deleted. `1`: deleted; `0`: not deleted.  # noqa: E501
 
         :return: The is_delete of this P2pChatMessagePayload.  # noqa: E501
         :rtype: int
@@ -605,7 +605,7 @@ class P2pChatMessagePayload(object):
     def is_delete(self, is_delete):
         """Sets the is_delete of this P2pChatMessagePayload.
 
-        Whether deleted  # noqa: E501
+        Whether the payment method was deleted. `1`: deleted; `0`: not deleted.  # noqa: E501
 
         :param is_delete: The is_delete of this P2pChatMessagePayload.  # noqa: E501
         :type: int

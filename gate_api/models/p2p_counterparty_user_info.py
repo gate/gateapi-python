@@ -170,7 +170,7 @@ class P2pCounterpartyUserInfo(object):
     def email_verified(self):
         """Gets the email_verified of this P2pCounterpartyUserInfo.  # noqa: E501
 
-        Whether email is verified  # noqa: E501
+        Whether email is verified. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The email_verified of this P2pCounterpartyUserInfo.  # noqa: E501
         :rtype: str
@@ -181,7 +181,7 @@ class P2pCounterpartyUserInfo(object):
     def email_verified(self, email_verified):
         """Sets the email_verified of this P2pCounterpartyUserInfo.
 
-        Whether email is verified  # noqa: E501
+        Whether email is verified. `1`: yes; `0`: no.  # noqa: E501
 
         :param email_verified: The email_verified of this P2pCounterpartyUserInfo.  # noqa: E501
         :type: str
@@ -193,7 +193,7 @@ class P2pCounterpartyUserInfo(object):
     def verified(self):
         """Gets the verified of this P2pCounterpartyUserInfo.  # noqa: E501
 
-        Whether KYC verification is completed  # noqa: E501
+        Whether KYC is completed. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The verified of this P2pCounterpartyUserInfo.  # noqa: E501
         :rtype: str
@@ -204,7 +204,7 @@ class P2pCounterpartyUserInfo(object):
     def verified(self, verified):
         """Sets the verified of this P2pCounterpartyUserInfo.
 
-        Whether KYC verification is completed  # noqa: E501
+        Whether KYC is completed. `1`: yes; `0`: no.  # noqa: E501
 
         :param verified: The verified of this P2pCounterpartyUserInfo.  # noqa: E501
         :type: str
@@ -216,7 +216,7 @@ class P2pCounterpartyUserInfo(object):
     def has_phone(self):
         """Gets the has_phone of this P2pCounterpartyUserInfo.  # noqa: E501
 
-        Whether phone is bound  # noqa: E501
+        Whether a phone number is bound. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The has_phone of this P2pCounterpartyUserInfo.  # noqa: E501
         :rtype: str
@@ -227,7 +227,7 @@ class P2pCounterpartyUserInfo(object):
     def has_phone(self, has_phone):
         """Sets the has_phone of this P2pCounterpartyUserInfo.
 
-        Whether phone is bound  # noqa: E501
+        Whether a phone number is bound. `1`: yes; `0`: no.  # noqa: E501
 
         :param has_phone: The has_phone of this P2pCounterpartyUserInfo.  # noqa: E501
         :type: str
@@ -446,7 +446,7 @@ class P2pCounterpartyUserInfo(object):
     def is_follow(self):
         """Gets the is_follow of this P2pCounterpartyUserInfo.  # noqa: E501
 
-        Whether following  # noqa: E501
+        Whether you follow this user. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_follow of this P2pCounterpartyUserInfo.  # noqa: E501
         :rtype: int
@@ -457,7 +457,7 @@ class P2pCounterpartyUserInfo(object):
     def is_follow(self, is_follow):
         """Sets the is_follow of this P2pCounterpartyUserInfo.
 
-        Whether following  # noqa: E501
+        Whether you follow this user. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_follow: The is_follow of this P2pCounterpartyUserInfo.  # noqa: E501
         :type: int
@@ -469,7 +469,7 @@ class P2pCounterpartyUserInfo(object):
     def have_traded(self):
         """Gets the have_traded of this P2pCounterpartyUserInfo.  # noqa: E501
 
-        Whether traded with self  # noqa: E501
+        Whether you have traded with this user before. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The have_traded of this P2pCounterpartyUserInfo.  # noqa: E501
         :rtype: int
@@ -480,7 +480,7 @@ class P2pCounterpartyUserInfo(object):
     def have_traded(self, have_traded):
         """Sets the have_traded of this P2pCounterpartyUserInfo.
 
-        Whether traded with self  # noqa: E501
+        Whether you have traded with this user before. `1`: yes; `0`: no.  # noqa: E501
 
         :param have_traded: The have_traded of this P2pCounterpartyUserInfo.  # noqa: E501
         :type: int

@@ -763,7 +763,7 @@ class BotApi(object):
     def post_ai_hub_spot_martingale_create(self, spot_martingale_create_request, **kwargs):  # noqa: E501
         """Create Spot Martin  # noqa: E501
 
-        Create a spot Martin strategy based on the passed parameters.  # noqa: E501
+        根据传入参数创建现货马丁策略。  止损口径与 App / `MartingaleBot` 一致： - 使用 **`create_params.stop_loss_per_cycle`**（每轮止损比例，小数字符串），**不要**使用 `stop_loss_price` 表达创建侧止损。 - 详情页展示的「止损价」由引擎按轮次计算；创建侧可选 **`create_params.trigger_price`**（触发价）。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_martingale_create(spot_martingale_create_request, async_req=True)
@@ -792,7 +792,7 @@ class BotApi(object):
     def post_ai_hub_spot_martingale_create_with_http_info(self, spot_martingale_create_request, **kwargs):  # noqa: E501
         """Create Spot Martin  # noqa: E501
 
-        Create a spot Martin strategy based on the passed parameters.  # noqa: E501
+        根据传入参数创建现货马丁策略。  止损口径与 App / `MartingaleBot` 一致： - 使用 **`create_params.stop_loss_per_cycle`**（每轮止损比例，小数字符串），**不要**使用 `stop_loss_price` 表达创建侧止损。 - 详情页展示的「止损价」由引擎按轮次计算；创建侧可选 **`create_params.trigger_price`**（触发价）。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_martingale_create_with_http_info(spot_martingale_create_request, async_req=True)

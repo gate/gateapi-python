@@ -86,6 +86,7 @@ class ContractMartingaleCreateParams(object):
     def invest_amount(self):
         """Gets the invest_amount of this ContractMartingaleCreateParams.  # noqa: E501
 
+        Margin allocated; the server converts it to initial contract size using live contract price, contract multiplier, and minimum lot size.  # noqa: E501
 
         :return: The invest_amount of this ContractMartingaleCreateParams.  # noqa: E501
         :rtype: str
@@ -96,6 +97,7 @@ class ContractMartingaleCreateParams(object):
     def invest_amount(self, invest_amount):
         """Sets the invest_amount of this ContractMartingaleCreateParams.
 
+        Margin allocated; the server converts it to initial contract size using live contract price, contract multiplier, and minimum lot size.  # noqa: E501
 
         :param invest_amount: The invest_amount of this ContractMartingaleCreateParams.  # noqa: E501
         :type: str
@@ -227,6 +229,7 @@ class ContractMartingaleCreateParams(object):
     def stop_loss_price(self):
         """Gets the stop_loss_price of this ContractMartingaleCreateParams.  # noqa: E501
 
+        Legacy field name. The AIHub `contract_martingale` creation path does not map this field today; follow contract martingale rules from the underlying API. MCP tooling must match bot-service behavior.  # noqa: E501
 
         :return: The stop_loss_price of this ContractMartingaleCreateParams.  # noqa: E501
         :rtype: str
@@ -237,6 +240,7 @@ class ContractMartingaleCreateParams(object):
     def stop_loss_price(self, stop_loss_price):
         """Sets the stop_loss_price of this ContractMartingaleCreateParams.
 
+        Legacy field name. The AIHub `contract_martingale` creation path does not map this field today; follow contract martingale rules from the underlying API. MCP tooling must match bot-service behavior.  # noqa: E501
 
         :param stop_loss_price: The stop_loss_price of this ContractMartingaleCreateParams.  # noqa: E501
         :type: str

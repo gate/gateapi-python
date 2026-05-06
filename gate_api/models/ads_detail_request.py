@@ -56,6 +56,7 @@ class AdsDetailRequest(object):
     def adv_no(self):
         """Gets the adv_no of this AdsDetailRequest.  # noqa: E501
 
+        Advertisement ID.  # noqa: E501
 
         :return: The adv_no of this AdsDetailRequest.  # noqa: E501
         :rtype: str
@@ -66,6 +67,7 @@ class AdsDetailRequest(object):
     def adv_no(self, adv_no):
         """Sets the adv_no of this AdsDetailRequest.
 
+        Advertisement ID.  # noqa: E501
 
         :param adv_no: The adv_no of this AdsDetailRequest.  # noqa: E501
         :type: str

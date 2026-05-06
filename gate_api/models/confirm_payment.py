@@ -33,56 +33,60 @@ class ConfirmPayment(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'trade_id': 'str',
+        'txid': 'str',
         'payment_method': 'str'
     }
 
     attribute_map = {
-        'trade_id': 'trade_id',
+        'txid': 'txid',
         'payment_method': 'payment_method'
     }
 
-    def __init__(self, trade_id=None, payment_method=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, txid=None, payment_method=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, Configuration) -> None
         """ConfirmPayment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._trade_id = None
+        self._txid = None
         self._payment_method = None
         self.discriminator = None
 
-        self.trade_id = trade_id
-        self.payment_method = payment_method
+        self.txid = txid
+        if payment_method is not None:
+            self.payment_method = payment_method
 
     @property
-    def trade_id(self):
-        """Gets the trade_id of this ConfirmPayment.  # noqa: E501
+    def txid(self):
+        """Gets the txid of this ConfirmPayment.  # noqa: E501
 
+        Order ID  # noqa: E501
 
-        :return: The trade_id of this ConfirmPayment.  # noqa: E501
+        :return: The txid of this ConfirmPayment.  # noqa: E501
         :rtype: str
         """
-        return self._trade_id
+        return self._txid
 
-    @trade_id.setter
-    def trade_id(self, trade_id):
-        """Sets the trade_id of this ConfirmPayment.
+    @txid.setter
+    def txid(self, txid):
+        """Sets the txid of this ConfirmPayment.
 
+        Order ID  # noqa: E501
 
-        :param trade_id: The trade_id of this ConfirmPayment.  # noqa: E501
+        :param txid: The txid of this ConfirmPayment.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and trade_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `trade_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
+            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
 
-        self._trade_id = trade_id
+        self._txid = txid
 
     @property
     def payment_method(self):
         """Gets the payment_method of this ConfirmPayment.  # noqa: E501
 
+        Payment type used for this payment; optional but must be among order-supported types. Use `supported_pay_types` on the order or `pay_type` list, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :return: The payment_method of this ConfirmPayment.  # noqa: E501
         :rtype: str
@@ -93,12 +97,11 @@ class ConfirmPayment(object):
     def payment_method(self, payment_method):
         """Sets the payment_method of this ConfirmPayment.
 
+        Payment type used for this payment; optional but must be among order-supported types. Use `supported_pay_types` on the order or `pay_type` list, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :param payment_method: The payment_method of this ConfirmPayment.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and payment_method is None:  # noqa: E501
-            raise ValueError("Invalid value for `payment_method`, must not be `None`")  # noqa: E501
 
         self._payment_method = payment_method
 

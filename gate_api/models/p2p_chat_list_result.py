@@ -174,7 +174,7 @@ class P2pChatListResult(object):
     def srvtm(self):
         """Gets the srvtm of this P2pChatListResult.  # noqa: E501
 
-        Timestamp of the latest message  # noqa: E501
+        Timestamp of the latest message.  # noqa: E501
 
         :return: The srvtm of this P2pChatListResult.  # noqa: E501
         :rtype: int
@@ -185,7 +185,7 @@ class P2pChatListResult(object):
     def srvtm(self, srvtm):
         """Sets the srvtm of this P2pChatListResult.
 
-        Timestamp of the latest message  # noqa: E501
+        Timestamp of the latest message.  # noqa: E501
 
         :param srvtm: The srvtm of this P2pChatListResult.  # noqa: E501
         :type: int
@@ -197,7 +197,7 @@ class P2pChatListResult(object):
     def order_status(self):
         """Gets the order_status of this P2pChatListResult.  # noqa: E501
 
-        Order Status  # noqa: E501
+        Raw order status in DB; typical values: `OPEN`, `PAID`, `LOCKED`, `ACCEPT`, `BCLOSED`, `CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`.  # noqa: E501
 
         :return: The order_status of this P2pChatListResult.  # noqa: E501
         :rtype: str
@@ -208,7 +208,7 @@ class P2pChatListResult(object):
     def order_status(self, order_status):
         """Sets the order_status of this P2pChatListResult.
 
-        Order Status  # noqa: E501
+        Raw order status in DB; typical values: `OPEN`, `PAID`, `LOCKED`, `ACCEPT`, `BCLOSED`, `CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`.  # noqa: E501
 
         :param order_status: The order_status of this P2pChatListResult.  # noqa: E501
         :type: str

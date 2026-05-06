@@ -86,7 +86,7 @@ class GetTransactionDetailsRequest(object):
     def channel(self):
         """Gets the channel of this GetTransactionDetailsRequest.  # noqa: E501
 
-        Empty or web3  # noqa: E501
+        Channel tag: omit or empty for normal P2P; use `web3` for Web3 orders.  # noqa: E501
 
         :return: The channel of this GetTransactionDetailsRequest.  # noqa: E501
         :rtype: str
@@ -97,7 +97,7 @@ class GetTransactionDetailsRequest(object):
     def channel(self, channel):
         """Sets the channel of this GetTransactionDetailsRequest.
 
-        Empty or web3  # noqa: E501
+        Channel tag: omit or empty for normal P2P; use `web3` for Web3 orders.  # noqa: E501
 
         :param channel: The channel of this GetTransactionDetailsRequest.  # noqa: E501
         :type: str

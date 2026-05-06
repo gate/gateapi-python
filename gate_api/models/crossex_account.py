@@ -430,6 +430,7 @@ class CrossexAccount(object):
     def assets(self):
         """Gets the assets of this CrossexAccount.  # noqa: E501
 
+        资产列表，按交易所与币种维度返回各账户余额、保证金及盈亏明细  # noqa: E501
 
         :return: The assets of this CrossexAccount.  # noqa: E501
         :rtype: list[CrossexAccountAsset]
@@ -440,6 +441,7 @@ class CrossexAccount(object):
     def assets(self, assets):
         """Sets the assets of this CrossexAccount.
 
+        资产列表，按交易所与币种维度返回各账户余额、保证金及盈亏明细  # noqa: E501
 
         :param assets: The assets of this CrossexAccount.  # noqa: E501
         :type: list[CrossexAccountAsset]

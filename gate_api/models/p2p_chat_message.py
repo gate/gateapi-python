@@ -43,9 +43,7 @@ class P2pChatMessage(object):
         'type': 'int',
         'pic': 'str',
         'file_key': 'str',
-        'file_type': 'str',
-        'width': 'str',
-        'height': 'str'
+        'file_type': 'str'
     }
 
     attribute_map = {
@@ -59,13 +57,11 @@ class P2pChatMessage(object):
         'type': 'type',
         'pic': 'pic',
         'file_key': 'file_key',
-        'file_type': 'file_type',
-        'width': 'width',
-        'height': 'height'
+        'file_type': 'file_type'
     }
 
-    def __init__(self, is_sell=None, msg_type=None, msg=None, username=None, timest=None, msg_obj=None, uid=None, type=None, pic=None, file_key=None, file_type=None, width=None, height=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, str, str, int, P2pChatMessagePayload, str, int, str, str, str, str, str, Configuration) -> None
+    def __init__(self, is_sell=None, msg_type=None, msg=None, username=None, timest=None, msg_obj=None, uid=None, type=None, pic=None, file_key=None, file_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, str, int, P2pChatMessagePayload, str, int, str, str, str, Configuration) -> None
         """P2pChatMessage - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,8 +78,6 @@ class P2pChatMessage(object):
         self._pic = None
         self._file_key = None
         self._file_type = None
-        self._width = None
-        self._height = None
         self.discriminator = None
 
         if is_sell is not None:
@@ -108,16 +102,12 @@ class P2pChatMessage(object):
             self.file_key = file_key
         if file_type is not None:
             self.file_type = file_type
-        if width is not None:
-            self.width = width
-        if height is not None:
-            self.height = height
 
     @property
     def is_sell(self):
         """Gets the is_sell of this P2pChatMessage.  # noqa: E501
 
-        Whether seller  # noqa: E501
+        Whether the current user is the seller. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_sell of this P2pChatMessage.  # noqa: E501
         :rtype: int
@@ -128,7 +118,7 @@ class P2pChatMessage(object):
     def is_sell(self, is_sell):
         """Sets the is_sell of this P2pChatMessage.
 
-        Whether seller  # noqa: E501
+        Whether the current user is the seller. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_sell: The is_sell of this P2pChatMessage.  # noqa: E501
         :type: int
@@ -140,7 +130,7 @@ class P2pChatMessage(object):
     def msg_type(self):
         """Gets the msg_type of this P2pChatMessage.  # noqa: E501
 
-        Message type  # noqa: E501
+        Message type: `0` text; `1` file; `2` template; `3` order-share; `4` payment-share; `5` status update.  # noqa: E501
 
         :return: The msg_type of this P2pChatMessage.  # noqa: E501
         :rtype: int
@@ -151,7 +141,7 @@ class P2pChatMessage(object):
     def msg_type(self, msg_type):
         """Sets the msg_type of this P2pChatMessage.
 
-        Message type  # noqa: E501
+        Message type: `0` text; `1` file; `2` template; `3` order-share; `4` payment-share; `5` status update.  # noqa: E501
 
         :param msg_type: The msg_type of this P2pChatMessage.  # noqa: E501
         :type: int
@@ -163,7 +153,7 @@ class P2pChatMessage(object):
     def msg(self):
         """Gets the msg of this P2pChatMessage.  # noqa: E501
 
-        Message content  # noqa: E501
+        Message content; for file messages, usually URL or file key.  # noqa: E501
 
         :return: The msg of this P2pChatMessage.  # noqa: E501
         :rtype: str
@@ -174,7 +164,7 @@ class P2pChatMessage(object):
     def msg(self, msg):
         """Sets the msg of this P2pChatMessage.
 
-        Message content  # noqa: E501
+        Message content; for file messages, usually URL or file key.  # noqa: E501
 
         :param msg: The msg of this P2pChatMessage.  # noqa: E501
         :type: str
@@ -253,7 +243,7 @@ class P2pChatMessage(object):
     def uid(self):
         """Gets the uid of this P2pChatMessage.  # noqa: E501
 
-        Message sender UID  # noqa: E501
+        Sender's crypto UID; system messages may use `System` or an empty string.  # noqa: E501
 
         :return: The uid of this P2pChatMessage.  # noqa: E501
         :rtype: str
@@ -264,7 +254,7 @@ class P2pChatMessage(object):
     def uid(self, uid):
         """Sets the uid of this P2pChatMessage.
 
-        Message sender UID  # noqa: E501
+        Sender's crypto UID; system messages may use `System` or an empty string.  # noqa: E501
 
         :param uid: The uid of this P2pChatMessage.  # noqa: E501
         :type: str
@@ -276,7 +266,7 @@ class P2pChatMessage(object):
     def type(self):
         """Gets the type of this P2pChatMessage.  # noqa: E501
 
-        Message type  # noqa: E501
+        Display type: `1` file message; `2` system message.  # noqa: E501
 
         :return: The type of this P2pChatMessage.  # noqa: E501
         :rtype: int
@@ -287,7 +277,7 @@ class P2pChatMessage(object):
     def type(self, type):
         """Sets the type of this P2pChatMessage.
 
-        Message type  # noqa: E501
+        Display type: `1` file message; `2` system message.  # noqa: E501
 
         :param type: The type of this P2pChatMessage.  # noqa: E501
         :type: int
@@ -345,7 +335,7 @@ class P2pChatMessage(object):
     def file_type(self):
         """Gets the file_type of this P2pChatMessage.  # noqa: E501
 
-        File type  # noqa: E501
+        File type: `image` for images, `video` for videos.  # noqa: E501
 
         :return: The file_type of this P2pChatMessage.  # noqa: E501
         :rtype: str
@@ -356,59 +346,13 @@ class P2pChatMessage(object):
     def file_type(self, file_type):
         """Sets the file_type of this P2pChatMessage.
 
-        File type  # noqa: E501
+        File type: `image` for images, `video` for videos.  # noqa: E501
 
         :param file_type: The file_type of this P2pChatMessage.  # noqa: E501
         :type: str
         """
 
         self._file_type = file_type
-
-    @property
-    def width(self):
-        """Gets the width of this P2pChatMessage.  # noqa: E501
-
-        Image width  # noqa: E501
-
-        :return: The width of this P2pChatMessage.  # noqa: E501
-        :rtype: str
-        """
-        return self._width
-
-    @width.setter
-    def width(self, width):
-        """Sets the width of this P2pChatMessage.
-
-        Image width  # noqa: E501
-
-        :param width: The width of this P2pChatMessage.  # noqa: E501
-        :type: str
-        """
-
-        self._width = width
-
-    @property
-    def height(self):
-        """Gets the height of this P2pChatMessage.  # noqa: E501
-
-        Image height  # noqa: E501
-
-        :return: The height of this P2pChatMessage.  # noqa: E501
-        :rtype: str
-        """
-        return self._height
-
-    @height.setter
-    def height(self, height):
-        """Sets the height of this P2pChatMessage.
-
-        Image height  # noqa: E501
-
-        :param height: The height of this P2pChatMessage.  # noqa: E501
-        :type: str
-        """
-
-        self._height = height
 
     def to_dict(self):
         """Returns the model properties as a dict"""

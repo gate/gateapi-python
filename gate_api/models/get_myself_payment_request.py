@@ -57,7 +57,7 @@ class GetMyselfPaymentRequest(object):
     def fiat(self):
         """Gets the fiat of this GetMyselfPaymentRequest.  # noqa: E501
 
-        Fiat currency  # noqa: E501
+        Fiat currency; omit to return all available payment methods.  # noqa: E501
 
         :return: The fiat of this GetMyselfPaymentRequest.  # noqa: E501
         :rtype: str
@@ -68,7 +68,7 @@ class GetMyselfPaymentRequest(object):
     def fiat(self, fiat):
         """Sets the fiat of this GetMyselfPaymentRequest.
 
-        Fiat currency  # noqa: E501
+        Fiat currency; omit to return all available payment methods.  # noqa: E501
 
         :param fiat: The fiat of this GetMyselfPaymentRequest.  # noqa: E501
         :type: str

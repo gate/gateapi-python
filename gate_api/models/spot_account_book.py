@@ -207,7 +207,7 @@ class SpotAccountBook(object):
     def type(self):
         """Gets the type of this SpotAccountBook.  # noqa: E501
 
-        Account book type. Please refer to [account book type](#accountbook-type) for more detail  # noqa: E501
+        Account change type; deprecated (see `code` for account change type encoding)  # noqa: E501
 
         :return: The type of this SpotAccountBook.  # noqa: E501
         :rtype: str
@@ -218,7 +218,7 @@ class SpotAccountBook(object):
     def type(self, type):
         """Sets the type of this SpotAccountBook.
 
-        Account book type. Please refer to [account book type](#accountbook-type) for more detail  # noqa: E501
+        Account change type; deprecated (see `code` for account change type encoding)  # noqa: E501
 
         :param type: The type of this SpotAccountBook.  # noqa: E501
         :type: str

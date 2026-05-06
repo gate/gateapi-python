@@ -41,15 +41,14 @@ class P2pTransactionDetail(object):
         'remain_pay_time': 'int',
         'currency_type': 'str',
         'want_type': 'str',
+        'symbol': 'str',
         'rate': 'str',
         'amount': 'str',
         'total': 'str',
         'status': 'str',
         'reason_id': 'str',
         'reason_desc': 'str',
-        'toast_id': 'int',
         'cancel_time': 'str',
-        'seller_confirm': 'int',
         'in_appeal': 'int',
         'dispute_time': 'int',
         'cancelable': 'int',
@@ -66,43 +65,20 @@ class P2pTransactionDetail(object):
         'show_wechat': 'str',
         'wename': 'str',
         'show_others': 'str',
-        'pay_others': 'list[str]',
+        'pay_others': 'list[P2pTransactionDetailPayOthers]',
         'sel_paytype': 'str',
         'its_uid': 'str',
-        'its_is_blue_vip': 'int',
-        'its_tier': 'int',
-        'its_avatar': 'str',
         'its_nickname': 'str',
         'its_realname': 'str',
-        'is_follow': 'int',
-        'is_black': 'int',
         'have_traded': 'int',
-        'appeal_unread': 'int',
         'appeal_allow_cancel': 'int',
         'appeal_verdict_has_open': 'str',
         'im_unread': 'int',
-        'message': 'str',
-        'score': 'str',
         'payment_voucher_url': 'list[str]',
-        'complete_number': 'int',
-        'complete_rate_month': 'str',
-        'check_journal_account': 'bool',
-        'show_journal_account': 'bool',
-        'is_freeze_guarantee': 'int',
-        'usdt_left_guarantee': 'str',
-        'guarantee_curr_type': 'str',
         'timest_paid': 'int',
-        'state': 'str',
-        'release_coin_switch': 'int',
         'own_realname': 'str',
-        'confirmation_use_time_month': 'int',
-        'is_risk_user': 'int',
-        'is_xt': 'int',
         'order_type': 'int',
-        'symbol': 'str',
         'is_show_receive': 'int',
-        'is_taker': 'int',
-        'is_online': 'int',
         'show_seller_contact_info': 'bool',
         'supported_pay_types': 'list[str]'
     }
@@ -114,17 +90,16 @@ class P2pTransactionDetail(object):
         'timest': 'timest',
         'last_pay_time': 'last_pay_time',
         'remain_pay_time': 'remain_pay_time',
-        'currency_type': 'currencyType',
+        'currency_type': 'currency_type',
         'want_type': 'want_type',
+        'symbol': 'symbol',
         'rate': 'rate',
         'amount': 'amount',
         'total': 'total',
         'status': 'status',
         'reason_id': 'reason_id',
         'reason_desc': 'reason_desc',
-        'toast_id': 'toast_id',
         'cancel_time': 'cancel_time',
-        'seller_confirm': 'seller_confirm',
         'in_appeal': 'in_appeal',
         'dispute_time': 'dispute_time',
         'cancelable': 'cancelable',
@@ -144,46 +119,23 @@ class P2pTransactionDetail(object):
         'pay_others': 'pay_others',
         'sel_paytype': 'sel_paytype',
         'its_uid': 'its_uid',
-        'its_is_blue_vip': 'its_is_blue_vip',
-        'its_tier': 'its_tier',
-        'its_avatar': 'its_avatar',
         'its_nickname': 'its_nickname',
         'its_realname': 'its_realname',
-        'is_follow': 'is_follow',
-        'is_black': 'is_black',
         'have_traded': 'have_traded',
-        'appeal_unread': 'appeal_unread',
         'appeal_allow_cancel': 'appeal_allow_cancel',
         'appeal_verdict_has_open': 'appeal_verdict_has_open',
         'im_unread': 'im_unread',
-        'message': 'message',
-        'score': 'score',
         'payment_voucher_url': 'payment_voucher_url',
-        'complete_number': 'complete_number',
-        'complete_rate_month': 'complete_rate_month',
-        'check_journal_account': 'check_journal_account',
-        'show_journal_account': 'show_journal_account',
-        'is_freeze_guarantee': 'is_freeze_guarantee',
-        'usdt_left_guarantee': 'usdt_left_guarantee',
-        'guarantee_curr_type': 'guarantee_curr_type',
         'timest_paid': 'timest_paid',
-        'state': 'state',
-        'release_coin_switch': 'release_coin_switch',
         'own_realname': 'own_realname',
-        'confirmation_use_time_month': 'confirmation_use_time_month',
-        'is_risk_user': 'is_risk_user',
-        'is_xt': 'is_xt',
         'order_type': 'order_type',
-        'symbol': 'symbol',
         'is_show_receive': 'is_show_receive',
-        'is_taker': 'is_taker',
-        'is_online': 'is_online',
         'show_seller_contact_info': 'show_seller_contact_info',
         'supported_pay_types': 'supported_pay_types'
     }
 
-    def __init__(self, is_sell=None, txid=None, orderid=None, timest=None, last_pay_time=None, remain_pay_time=None, currency_type=None, want_type=None, rate=None, amount=None, total=None, status=None, reason_id=None, reason_desc=None, toast_id=None, cancel_time=None, seller_confirm=None, in_appeal=None, dispute_time=None, cancelable=None, hide_payment=None, trade_tips=None, show_bank=None, bankname=None, bankbranch=None, bankid=None, bank_holder_realname=None, show_ali=None, aliname=None, is_alicode=None, show_wechat=None, wename=None, show_others=None, pay_others=None, sel_paytype=None, its_uid=None, its_is_blue_vip=None, its_tier=None, its_avatar=None, its_nickname=None, its_realname=None, is_follow=None, is_black=None, have_traded=None, appeal_unread=None, appeal_allow_cancel=None, appeal_verdict_has_open=None, im_unread=None, message=None, score=None, payment_voucher_url=None, complete_number=None, complete_rate_month=None, check_journal_account=None, show_journal_account=None, is_freeze_guarantee=None, usdt_left_guarantee=None, guarantee_curr_type=None, timest_paid=None, state=None, release_coin_switch=None, own_realname=None, confirmation_use_time_month=None, is_risk_user=None, is_xt=None, order_type=None, symbol=None, is_show_receive=None, is_taker=None, is_online=None, show_seller_contact_info=None, supported_pay_types=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, int, int, int, str, str, str, str, str, str, str, str, int, str, int, int, int, int, int, str, str, str, str, str, str, str, str, int, str, str, str, list[str], str, str, int, int, str, str, str, int, int, int, int, int, str, int, str, str, list[str], int, str, bool, bool, int, str, str, int, str, int, str, int, int, int, int, str, int, int, int, bool, list[str], Configuration) -> None
+    def __init__(self, is_sell=None, txid=None, orderid=None, timest=None, last_pay_time=None, remain_pay_time=None, currency_type=None, want_type=None, symbol=None, rate=None, amount=None, total=None, status=None, reason_id=None, reason_desc=None, cancel_time=None, in_appeal=None, dispute_time=None, cancelable=None, hide_payment=None, trade_tips=None, show_bank=None, bankname=None, bankbranch=None, bankid=None, bank_holder_realname=None, show_ali=None, aliname=None, is_alicode=None, show_wechat=None, wename=None, show_others=None, pay_others=None, sel_paytype=None, its_uid=None, its_nickname=None, its_realname=None, have_traded=None, appeal_allow_cancel=None, appeal_verdict_has_open=None, im_unread=None, payment_voucher_url=None, timest_paid=None, own_realname=None, order_type=None, is_show_receive=None, show_seller_contact_info=None, supported_pay_types=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, int, int, int, int, str, str, str, str, str, str, str, str, str, str, int, int, int, int, str, str, str, str, str, str, str, str, int, str, str, str, list[P2pTransactionDetailPayOthers], str, str, str, str, int, int, str, int, list[str], int, str, int, int, bool, list[str], Configuration) -> None
         """P2pTransactionDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -197,15 +149,14 @@ class P2pTransactionDetail(object):
         self._remain_pay_time = None
         self._currency_type = None
         self._want_type = None
+        self._symbol = None
         self._rate = None
         self._amount = None
         self._total = None
         self._status = None
         self._reason_id = None
         self._reason_desc = None
-        self._toast_id = None
         self._cancel_time = None
-        self._seller_confirm = None
         self._in_appeal = None
         self._dispute_time = None
         self._cancelable = None
@@ -225,40 +176,17 @@ class P2pTransactionDetail(object):
         self._pay_others = None
         self._sel_paytype = None
         self._its_uid = None
-        self._its_is_blue_vip = None
-        self._its_tier = None
-        self._its_avatar = None
         self._its_nickname = None
         self._its_realname = None
-        self._is_follow = None
-        self._is_black = None
         self._have_traded = None
-        self._appeal_unread = None
         self._appeal_allow_cancel = None
         self._appeal_verdict_has_open = None
         self._im_unread = None
-        self._message = None
-        self._score = None
         self._payment_voucher_url = None
-        self._complete_number = None
-        self._complete_rate_month = None
-        self._check_journal_account = None
-        self._show_journal_account = None
-        self._is_freeze_guarantee = None
-        self._usdt_left_guarantee = None
-        self._guarantee_curr_type = None
         self._timest_paid = None
-        self._state = None
-        self._release_coin_switch = None
         self._own_realname = None
-        self._confirmation_use_time_month = None
-        self._is_risk_user = None
-        self._is_xt = None
         self._order_type = None
-        self._symbol = None
         self._is_show_receive = None
-        self._is_taker = None
-        self._is_online = None
         self._show_seller_contact_info = None
         self._supported_pay_types = None
         self.discriminator = None
@@ -279,6 +207,8 @@ class P2pTransactionDetail(object):
             self.currency_type = currency_type
         if want_type is not None:
             self.want_type = want_type
+        if symbol is not None:
+            self.symbol = symbol
         if rate is not None:
             self.rate = rate
         if amount is not None:
@@ -291,12 +221,8 @@ class P2pTransactionDetail(object):
             self.reason_id = reason_id
         if reason_desc is not None:
             self.reason_desc = reason_desc
-        if toast_id is not None:
-            self.toast_id = toast_id
         if cancel_time is not None:
             self.cancel_time = cancel_time
-        if seller_confirm is not None:
-            self.seller_confirm = seller_confirm
         if in_appeal is not None:
             self.in_appeal = in_appeal
         if dispute_time is not None:
@@ -335,74 +261,28 @@ class P2pTransactionDetail(object):
             self.sel_paytype = sel_paytype
         if its_uid is not None:
             self.its_uid = its_uid
-        if its_is_blue_vip is not None:
-            self.its_is_blue_vip = its_is_blue_vip
-        if its_tier is not None:
-            self.its_tier = its_tier
-        if its_avatar is not None:
-            self.its_avatar = its_avatar
         if its_nickname is not None:
             self.its_nickname = its_nickname
         if its_realname is not None:
             self.its_realname = its_realname
-        if is_follow is not None:
-            self.is_follow = is_follow
-        if is_black is not None:
-            self.is_black = is_black
         if have_traded is not None:
             self.have_traded = have_traded
-        if appeal_unread is not None:
-            self.appeal_unread = appeal_unread
         if appeal_allow_cancel is not None:
             self.appeal_allow_cancel = appeal_allow_cancel
         if appeal_verdict_has_open is not None:
             self.appeal_verdict_has_open = appeal_verdict_has_open
         if im_unread is not None:
             self.im_unread = im_unread
-        if message is not None:
-            self.message = message
-        if score is not None:
-            self.score = score
         if payment_voucher_url is not None:
             self.payment_voucher_url = payment_voucher_url
-        if complete_number is not None:
-            self.complete_number = complete_number
-        if complete_rate_month is not None:
-            self.complete_rate_month = complete_rate_month
-        if check_journal_account is not None:
-            self.check_journal_account = check_journal_account
-        if show_journal_account is not None:
-            self.show_journal_account = show_journal_account
-        if is_freeze_guarantee is not None:
-            self.is_freeze_guarantee = is_freeze_guarantee
-        if usdt_left_guarantee is not None:
-            self.usdt_left_guarantee = usdt_left_guarantee
-        if guarantee_curr_type is not None:
-            self.guarantee_curr_type = guarantee_curr_type
         if timest_paid is not None:
             self.timest_paid = timest_paid
-        if state is not None:
-            self.state = state
-        if release_coin_switch is not None:
-            self.release_coin_switch = release_coin_switch
         if own_realname is not None:
             self.own_realname = own_realname
-        if confirmation_use_time_month is not None:
-            self.confirmation_use_time_month = confirmation_use_time_month
-        if is_risk_user is not None:
-            self.is_risk_user = is_risk_user
-        if is_xt is not None:
-            self.is_xt = is_xt
         if order_type is not None:
             self.order_type = order_type
-        if symbol is not None:
-            self.symbol = symbol
         if is_show_receive is not None:
             self.is_show_receive = is_show_receive
-        if is_taker is not None:
-            self.is_taker = is_taker
-        if is_online is not None:
-            self.is_online = is_online
         if show_seller_contact_info is not None:
             self.show_seller_contact_info = show_seller_contact_info
         if supported_pay_types is not None:
@@ -412,7 +292,7 @@ class P2pTransactionDetail(object):
     def is_sell(self):
         """Gets the is_sell of this P2pTransactionDetail.  # noqa: E501
 
-        Whether sell order  # noqa: E501
+        Whether the current user is the seller. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_sell of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -423,7 +303,7 @@ class P2pTransactionDetail(object):
     def is_sell(self, is_sell):
         """Sets the is_sell of this P2pTransactionDetail.
 
-        Whether sell order  # noqa: E501
+        Whether the current user is the seller. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_sell: The is_sell of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -527,7 +407,7 @@ class P2pTransactionDetail(object):
     def remain_pay_time(self):
         """Gets the remain_pay_time of this P2pTransactionDetail.  # noqa: E501
 
-        Remaining payment time  # noqa: E501
+        Seconds left to pay; `<= 0` means overdue.  # noqa: E501
 
         :return: The remain_pay_time of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -538,7 +418,7 @@ class P2pTransactionDetail(object):
     def remain_pay_time(self, remain_pay_time):
         """Sets the remain_pay_time of this P2pTransactionDetail.
 
-        Remaining payment time  # noqa: E501
+        Seconds left to pay; `<= 0` means overdue.  # noqa: E501
 
         :param remain_pay_time: The remain_pay_time of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -550,7 +430,7 @@ class P2pTransactionDetail(object):
     def currency_type(self):
         """Gets the currency_type of this P2pTransactionDetail.  # noqa: E501
 
-        Cryptocurrency type  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The currency_type of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -561,7 +441,7 @@ class P2pTransactionDetail(object):
     def currency_type(self, currency_type):
         """Sets the currency_type of this P2pTransactionDetail.
 
-        Cryptocurrency type  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param currency_type: The currency_type of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -573,7 +453,7 @@ class P2pTransactionDetail(object):
     def want_type(self):
         """Gets the want_type of this P2pTransactionDetail.  # noqa: E501
 
-        Fiat currency type  # noqa: E501
+        Fiat currency  # noqa: E501
 
         :return: The want_type of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -584,7 +464,7 @@ class P2pTransactionDetail(object):
     def want_type(self, want_type):
         """Sets the want_type of this P2pTransactionDetail.
 
-        Fiat currency type  # noqa: E501
+        Fiat currency  # noqa: E501
 
         :param want_type: The want_type of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -593,10 +473,33 @@ class P2pTransactionDetail(object):
         self._want_type = want_type
 
     @property
+    def symbol(self):
+        """Gets the symbol of this P2pTransactionDetail.  # noqa: E501
+
+        Fiat currency symbol  # noqa: E501
+
+        :return: The symbol of this P2pTransactionDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._symbol
+
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this P2pTransactionDetail.
+
+        Fiat currency symbol  # noqa: E501
+
+        :param symbol: The symbol of this P2pTransactionDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._symbol = symbol
+
+    @property
     def rate(self):
         """Gets the rate of this P2pTransactionDetail.  # noqa: E501
 
-        Price  # noqa: E501
+        Order price in `want_type` units.  # noqa: E501
 
         :return: The rate of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -607,7 +510,7 @@ class P2pTransactionDetail(object):
     def rate(self, rate):
         """Sets the rate of this P2pTransactionDetail.
 
-        Price  # noqa: E501
+        Order price in `want_type` units.  # noqa: E501
 
         :param rate: The rate of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -619,7 +522,7 @@ class P2pTransactionDetail(object):
     def amount(self):
         """Gets the amount of this P2pTransactionDetail.  # noqa: E501
 
-        Size  # noqa: E501
+        Order size in cryptocurrency.  # noqa: E501
 
         :return: The amount of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -630,7 +533,7 @@ class P2pTransactionDetail(object):
     def amount(self, amount):
         """Sets the amount of this P2pTransactionDetail.
 
-        Size  # noqa: E501
+        Order size in cryptocurrency.  # noqa: E501
 
         :param amount: The amount of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -642,7 +545,7 @@ class P2pTransactionDetail(object):
     def total(self):
         """Gets the total of this P2pTransactionDetail.  # noqa: E501
 
-        Fiat amount  # noqa: E501
+        Total fiat amount of the order.  # noqa: E501
 
         :return: The total of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -653,7 +556,7 @@ class P2pTransactionDetail(object):
     def total(self, total):
         """Sets the total of this P2pTransactionDetail.
 
-        Fiat amount  # noqa: E501
+        Total fiat amount of the order.  # noqa: E501
 
         :param total: The total of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -665,7 +568,7 @@ class P2pTransactionDetail(object):
     def status(self):
         """Gets the status of this P2pTransactionDetail.  # noqa: E501
 
-        Order Status  # noqa: E501
+        Display status: `unpay` unpaid; `hide_payment` unpaid with payment info hidden; `paid` buyer paid; `unconfirmed` awaiting seller confirmation; `locked` locked; `finished` done; `cancel` canceled; `expired` expired; `bclosed` arbitration filled; `sclosed` arbitration canceled.  # noqa: E501
 
         :return: The status of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -676,7 +579,7 @@ class P2pTransactionDetail(object):
     def status(self, status):
         """Sets the status of this P2pTransactionDetail.
 
-        Order Status  # noqa: E501
+        Display status: `unpay` unpaid; `hide_payment` unpaid with payment info hidden; `paid` buyer paid; `unconfirmed` awaiting seller confirmation; `locked` locked; `finished` done; `cancel` canceled; `expired` expired; `bclosed` arbitration filled; `sclosed` arbitration canceled.  # noqa: E501
 
         :param status: The status of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -688,7 +591,7 @@ class P2pTransactionDetail(object):
     def reason_id(self):
         """Gets the reason_id of this P2pTransactionDetail.  # noqa: E501
 
-        Cancellation reason ID  # noqa: E501
+        Cancel reason ID; empty string means none. Examples: `1` no longer want to buy; `2` cannot reach seller; `3` will not pay; `4` seller did not provide a real account; `6` price/amount mismatch; `9` other; `10` seller cannot release and refund issued; `11` terms not met; `12` seller payout account risk-controlled.  # noqa: E501
 
         :return: The reason_id of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -699,7 +602,7 @@ class P2pTransactionDetail(object):
     def reason_id(self, reason_id):
         """Sets the reason_id of this P2pTransactionDetail.
 
-        Cancellation reason ID  # noqa: E501
+        Cancel reason ID; empty string means none. Examples: `1` no longer want to buy; `2` cannot reach seller; `3` will not pay; `4` seller did not provide a real account; `6` price/amount mismatch; `9` other; `10` seller cannot release and refund issued; `11` terms not met; `12` seller payout account risk-controlled.  # noqa: E501
 
         :param reason_id: The reason_id of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -711,7 +614,7 @@ class P2pTransactionDetail(object):
     def reason_desc(self):
         """Gets the reason_desc of this P2pTransactionDetail.  # noqa: E501
 
-        Cancellation reason  # noqa: E501
+        Cancel reason description.  # noqa: E501
 
         :return: The reason_desc of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -722,36 +625,13 @@ class P2pTransactionDetail(object):
     def reason_desc(self, reason_desc):
         """Sets the reason_desc of this P2pTransactionDetail.
 
-        Cancellation reason  # noqa: E501
+        Cancel reason description.  # noqa: E501
 
         :param reason_desc: The reason_desc of this P2pTransactionDetail.  # noqa: E501
         :type: str
         """
 
         self._reason_desc = reason_desc
-
-    @property
-    def toast_id(self):
-        """Gets the toast_id of this P2pTransactionDetail.  # noqa: E501
-
-        Popup ID  # noqa: E501
-
-        :return: The toast_id of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._toast_id
-
-    @toast_id.setter
-    def toast_id(self, toast_id):
-        """Sets the toast_id of this P2pTransactionDetail.
-
-        Popup ID  # noqa: E501
-
-        :param toast_id: The toast_id of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._toast_id = toast_id
 
     @property
     def cancel_time(self):
@@ -777,33 +657,10 @@ class P2pTransactionDetail(object):
         self._cancel_time = cancel_time
 
     @property
-    def seller_confirm(self):
-        """Gets the seller_confirm of this P2pTransactionDetail.  # noqa: E501
-
-        Whether seller confirmed the reason  # noqa: E501
-
-        :return: The seller_confirm of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._seller_confirm
-
-    @seller_confirm.setter
-    def seller_confirm(self, seller_confirm):
-        """Sets the seller_confirm of this P2pTransactionDetail.
-
-        Whether seller confirmed the reason  # noqa: E501
-
-        :param seller_confirm: The seller_confirm of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._seller_confirm = seller_confirm
-
-    @property
     def in_appeal(self):
         """Gets the in_appeal of this P2pTransactionDetail.  # noqa: E501
 
-        Whether in dispute  # noqa: E501
+        Whether a dispute is active. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The in_appeal of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -814,7 +671,7 @@ class P2pTransactionDetail(object):
     def in_appeal(self, in_appeal):
         """Sets the in_appeal of this P2pTransactionDetail.
 
-        Whether in dispute  # noqa: E501
+        Whether a dispute is active. `1`: yes; `0`: no.  # noqa: E501
 
         :param in_appeal: The in_appeal of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -826,7 +683,7 @@ class P2pTransactionDetail(object):
     def dispute_time(self):
         """Gets the dispute_time of this P2pTransactionDetail.  # noqa: E501
 
-        Appeal time limit  # noqa: E501
+        Earliest timestamp when a dispute may be opened.  # noqa: E501
 
         :return: The dispute_time of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -837,7 +694,7 @@ class P2pTransactionDetail(object):
     def dispute_time(self, dispute_time):
         """Sets the dispute_time of this P2pTransactionDetail.
 
-        Appeal time limit  # noqa: E501
+        Earliest timestamp when a dispute may be opened.  # noqa: E501
 
         :param dispute_time: The dispute_time of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -849,7 +706,7 @@ class P2pTransactionDetail(object):
     def cancelable(self):
         """Gets the cancelable of this P2pTransactionDetail.  # noqa: E501
 
-        Whether order cancellation is allowed  # noqa: E501
+        Whether cancellation is allowed. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The cancelable of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -860,7 +717,7 @@ class P2pTransactionDetail(object):
     def cancelable(self, cancelable):
         """Sets the cancelable of this P2pTransactionDetail.
 
-        Whether order cancellation is allowed  # noqa: E501
+        Whether cancellation is allowed. `1`: yes; `0`: no.  # noqa: E501
 
         :param cancelable: The cancelable of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -872,7 +729,7 @@ class P2pTransactionDetail(object):
     def hide_payment(self):
         """Gets the hide_payment of this P2pTransactionDetail.  # noqa: E501
 
-        Whether to hide payment method  # noqa: E501
+        Whether payment methods are hidden. `1`: hidden; `0`: visible.  # noqa: E501
 
         :return: The hide_payment of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -883,7 +740,7 @@ class P2pTransactionDetail(object):
     def hide_payment(self, hide_payment):
         """Sets the hide_payment of this P2pTransactionDetail.
 
-        Whether to hide payment method  # noqa: E501
+        Whether payment methods are hidden. `1`: hidden; `0`: visible.  # noqa: E501
 
         :param hide_payment: The hide_payment of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -918,7 +775,7 @@ class P2pTransactionDetail(object):
     def show_bank(self):
         """Gets the show_bank of this P2pTransactionDetail.  # noqa: E501
 
-        Whether to display bank  # noqa: E501
+        Whether to show bank transfer details. `1`: show; `0`: hide.  # noqa: E501
 
         :return: The show_bank of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -929,7 +786,7 @@ class P2pTransactionDetail(object):
     def show_bank(self, show_bank):
         """Sets the show_bank of this P2pTransactionDetail.
 
-        Whether to display bank  # noqa: E501
+        Whether to show bank transfer details. `1`: show; `0`: hide.  # noqa: E501
 
         :param show_bank: The show_bank of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -987,7 +844,7 @@ class P2pTransactionDetail(object):
     def bankid(self):
         """Gets the bankid of this P2pTransactionDetail.  # noqa: E501
 
-        Bank ID  # noqa: E501
+        Bank account or masked account.  # noqa: E501
 
         :return: The bankid of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -998,7 +855,7 @@ class P2pTransactionDetail(object):
     def bankid(self, bankid):
         """Sets the bankid of this P2pTransactionDetail.
 
-        Bank ID  # noqa: E501
+        Bank account or masked account.  # noqa: E501
 
         :param bankid: The bankid of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1033,7 +890,7 @@ class P2pTransactionDetail(object):
     def show_ali(self):
         """Gets the show_ali of this P2pTransactionDetail.  # noqa: E501
 
-        Whether to display Alipay  # noqa: E501
+        Whether to show Alipay details. `1`: show; `0`: hide.  # noqa: E501
 
         :return: The show_ali of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1044,7 +901,7 @@ class P2pTransactionDetail(object):
     def show_ali(self, show_ali):
         """Sets the show_ali of this P2pTransactionDetail.
 
-        Whether to display Alipay  # noqa: E501
+        Whether to show Alipay details. `1`: show; `0`: hide.  # noqa: E501
 
         :param show_ali: The show_ali of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1079,7 +936,7 @@ class P2pTransactionDetail(object):
     def is_alicode(self):
         """Gets the is_alicode of this P2pTransactionDetail.  # noqa: E501
 
-        Whether Alipay QR code exists  # noqa: E501
+        Whether an Alipay QR exists. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_alicode of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1090,7 +947,7 @@ class P2pTransactionDetail(object):
     def is_alicode(self, is_alicode):
         """Sets the is_alicode of this P2pTransactionDetail.
 
-        Whether Alipay QR code exists  # noqa: E501
+        Whether an Alipay QR exists. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_alicode: The is_alicode of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -1102,7 +959,7 @@ class P2pTransactionDetail(object):
     def show_wechat(self):
         """Gets the show_wechat of this P2pTransactionDetail.  # noqa: E501
 
-        Whether to display WeChat  # noqa: E501
+        Whether to show WeChat details. `1`: show; `0`: hide.  # noqa: E501
 
         :return: The show_wechat of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1113,7 +970,7 @@ class P2pTransactionDetail(object):
     def show_wechat(self, show_wechat):
         """Sets the show_wechat of this P2pTransactionDetail.
 
-        Whether to display WeChat  # noqa: E501
+        Whether to show WeChat details. `1`: show; `0`: hide.  # noqa: E501
 
         :param show_wechat: The show_wechat of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1148,7 +1005,7 @@ class P2pTransactionDetail(object):
     def show_others(self):
         """Gets the show_others of this P2pTransactionDetail.  # noqa: E501
 
-        Whether to display other payment methods  # noqa: E501
+        Whether to show other payment methods. `1`: show; `0`: hide.  # noqa: E501
 
         :return: The show_others of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1159,7 +1016,7 @@ class P2pTransactionDetail(object):
     def show_others(self, show_others):
         """Sets the show_others of this P2pTransactionDetail.
 
-        Whether to display other payment methods  # noqa: E501
+        Whether to show other payment methods. `1`: show; `0`: hide.  # noqa: E501
 
         :param show_others: The show_others of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1174,7 +1031,7 @@ class P2pTransactionDetail(object):
         Other payment methods  # noqa: E501
 
         :return: The pay_others of this P2pTransactionDetail.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[P2pTransactionDetailPayOthers]
         """
         return self._pay_others
 
@@ -1185,7 +1042,7 @@ class P2pTransactionDetail(object):
         Other payment methods  # noqa: E501
 
         :param pay_others: The pay_others of this P2pTransactionDetail.  # noqa: E501
-        :type: list[str]
+        :type: list[P2pTransactionDetailPayOthers]
         """
 
         self._pay_others = pay_others
@@ -1194,7 +1051,7 @@ class P2pTransactionDetail(object):
     def sel_paytype(self):
         """Gets the sel_paytype of this P2pTransactionDetail.  # noqa: E501
 
-        Payment type  # noqa: E501
+        Selected payment type for this order, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :return: The sel_paytype of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1205,7 +1062,7 @@ class P2pTransactionDetail(object):
     def sel_paytype(self, sel_paytype):
         """Sets the sel_paytype of this P2pTransactionDetail.
 
-        Payment type  # noqa: E501
+        Selected payment type for this order, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :param sel_paytype: The sel_paytype of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1217,7 +1074,7 @@ class P2pTransactionDetail(object):
     def its_uid(self):
         """Gets the its_uid of this P2pTransactionDetail.  # noqa: E501
 
-        Counterparty UID  # noqa: E501
+        Counterparty crypto UID.  # noqa: E501
 
         :return: The its_uid of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1228,82 +1085,13 @@ class P2pTransactionDetail(object):
     def its_uid(self, its_uid):
         """Sets the its_uid of this P2pTransactionDetail.
 
-        Counterparty UID  # noqa: E501
+        Counterparty crypto UID.  # noqa: E501
 
         :param its_uid: The its_uid of this P2pTransactionDetail.  # noqa: E501
         :type: str
         """
 
         self._its_uid = its_uid
-
-    @property
-    def its_is_blue_vip(self):
-        """Gets the its_is_blue_vip of this P2pTransactionDetail.  # noqa: E501
-
-        Whether counterparty is Blue V  # noqa: E501
-
-        :return: The its_is_blue_vip of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._its_is_blue_vip
-
-    @its_is_blue_vip.setter
-    def its_is_blue_vip(self, its_is_blue_vip):
-        """Sets the its_is_blue_vip of this P2pTransactionDetail.
-
-        Whether counterparty is Blue V  # noqa: E501
-
-        :param its_is_blue_vip: The its_is_blue_vip of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._its_is_blue_vip = its_is_blue_vip
-
-    @property
-    def its_tier(self):
-        """Gets the its_tier of this P2pTransactionDetail.  # noqa: E501
-
-        Counterparty VIP tier  # noqa: E501
-
-        :return: The its_tier of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._its_tier
-
-    @its_tier.setter
-    def its_tier(self, its_tier):
-        """Sets the its_tier of this P2pTransactionDetail.
-
-        Counterparty VIP tier  # noqa: E501
-
-        :param its_tier: The its_tier of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._its_tier = its_tier
-
-    @property
-    def its_avatar(self):
-        """Gets the its_avatar of this P2pTransactionDetail.  # noqa: E501
-
-        Counterparty avatar  # noqa: E501
-
-        :return: The its_avatar of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._its_avatar
-
-    @its_avatar.setter
-    def its_avatar(self, its_avatar):
-        """Sets the its_avatar of this P2pTransactionDetail.
-
-        Counterparty avatar  # noqa: E501
-
-        :param its_avatar: The its_avatar of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._its_avatar = its_avatar
 
     @property
     def its_nickname(self):
@@ -1332,7 +1120,7 @@ class P2pTransactionDetail(object):
     def its_realname(self):
         """Gets the its_realname of this P2pTransactionDetail.  # noqa: E501
 
-        Counterparty username  # noqa: E501
+        Counterparty real name or verified display name.  # noqa: E501
 
         :return: The its_realname of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1343,7 +1131,7 @@ class P2pTransactionDetail(object):
     def its_realname(self, its_realname):
         """Sets the its_realname of this P2pTransactionDetail.
 
-        Counterparty username  # noqa: E501
+        Counterparty real name or verified display name.  # noqa: E501
 
         :param its_realname: The its_realname of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1352,56 +1140,10 @@ class P2pTransactionDetail(object):
         self._its_realname = its_realname
 
     @property
-    def is_follow(self):
-        """Gets the is_follow of this P2pTransactionDetail.  # noqa: E501
-
-        Whether following  # noqa: E501
-
-        :return: The is_follow of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_follow
-
-    @is_follow.setter
-    def is_follow(self, is_follow):
-        """Sets the is_follow of this P2pTransactionDetail.
-
-        Whether following  # noqa: E501
-
-        :param is_follow: The is_follow of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_follow = is_follow
-
-    @property
-    def is_black(self):
-        """Gets the is_black of this P2pTransactionDetail.  # noqa: E501
-
-        Whether blocked  # noqa: E501
-
-        :return: The is_black of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_black
-
-    @is_black.setter
-    def is_black(self, is_black):
-        """Sets the is_black of this P2pTransactionDetail.
-
-        Whether blocked  # noqa: E501
-
-        :param is_black: The is_black of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_black = is_black
-
-    @property
     def have_traded(self):
         """Gets the have_traded of this P2pTransactionDetail.  # noqa: E501
 
-        Whether traded before  # noqa: E501
+        Whether you traded with the counterparty before. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The have_traded of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1412,7 +1154,7 @@ class P2pTransactionDetail(object):
     def have_traded(self, have_traded):
         """Sets the have_traded of this P2pTransactionDetail.
 
-        Whether traded before  # noqa: E501
+        Whether you traded with the counterparty before. `1`: yes; `0`: no.  # noqa: E501
 
         :param have_traded: The have_traded of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -1421,33 +1163,10 @@ class P2pTransactionDetail(object):
         self._have_traded = have_traded
 
     @property
-    def appeal_unread(self):
-        """Gets the appeal_unread of this P2pTransactionDetail.  # noqa: E501
-
-        Unread appeals  # noqa: E501
-
-        :return: The appeal_unread of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._appeal_unread
-
-    @appeal_unread.setter
-    def appeal_unread(self, appeal_unread):
-        """Sets the appeal_unread of this P2pTransactionDetail.
-
-        Unread appeals  # noqa: E501
-
-        :param appeal_unread: The appeal_unread of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._appeal_unread = appeal_unread
-
-    @property
     def appeal_allow_cancel(self):
         """Gets the appeal_allow_cancel of this P2pTransactionDetail.  # noqa: E501
 
-        Whether appeal cancellation is allowed  # noqa: E501
+        Whether the dispute can be withdrawn. `1`: allowed; `0`: not allowed.  # noqa: E501
 
         :return: The appeal_allow_cancel of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1458,7 +1177,7 @@ class P2pTransactionDetail(object):
     def appeal_allow_cancel(self, appeal_allow_cancel):
         """Sets the appeal_allow_cancel of this P2pTransactionDetail.
 
-        Whether appeal cancellation is allowed  # noqa: E501
+        Whether the dispute can be withdrawn. `1`: allowed; `0`: not allowed.  # noqa: E501
 
         :param appeal_allow_cancel: The appeal_allow_cancel of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -1470,7 +1189,7 @@ class P2pTransactionDetail(object):
     def appeal_verdict_has_open(self):
         """Gets the appeal_verdict_has_open of this P2pTransactionDetail.  # noqa: E501
 
-        Appeal result (including pending appeals)  # noqa: E501
+        Dispute outcome or in-dispute notice text.  # noqa: E501
 
         :return: The appeal_verdict_has_open of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1481,7 +1200,7 @@ class P2pTransactionDetail(object):
     def appeal_verdict_has_open(self, appeal_verdict_has_open):
         """Sets the appeal_verdict_has_open of this P2pTransactionDetail.
 
-        Appeal result (including pending appeals)  # noqa: E501
+        Dispute outcome or in-dispute notice text.  # noqa: E501
 
         :param appeal_verdict_has_open: The appeal_verdict_has_open of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1493,7 +1212,7 @@ class P2pTransactionDetail(object):
     def im_unread(self):
         """Gets the im_unread of this P2pTransactionDetail.  # noqa: E501
 
-        IM unread  # noqa: E501
+        Unread chat message count.  # noqa: E501
 
         :return: The im_unread of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1504,59 +1223,13 @@ class P2pTransactionDetail(object):
     def im_unread(self, im_unread):
         """Sets the im_unread of this P2pTransactionDetail.
 
-        IM unread  # noqa: E501
+        Unread chat message count.  # noqa: E501
 
         :param im_unread: The im_unread of this P2pTransactionDetail.  # noqa: E501
         :type: int
         """
 
         self._im_unread = im_unread
-
-    @property
-    def message(self):
-        """Gets the message of this P2pTransactionDetail.  # noqa: E501
-
-        Review content  # noqa: E501
-
-        :return: The message of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._message
-
-    @message.setter
-    def message(self, message):
-        """Sets the message of this P2pTransactionDetail.
-
-        Review content  # noqa: E501
-
-        :param message: The message of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._message = message
-
-    @property
-    def score(self):
-        """Gets the score of this P2pTransactionDetail.  # noqa: E501
-
-        Rating  # noqa: E501
-
-        :return: The score of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._score
-
-    @score.setter
-    def score(self, score):
-        """Sets the score of this P2pTransactionDetail.
-
-        Rating  # noqa: E501
-
-        :param score: The score of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._score = score
 
     @property
     def payment_voucher_url(self):
@@ -1582,171 +1255,10 @@ class P2pTransactionDetail(object):
         self._payment_voucher_url = payment_voucher_url
 
     @property
-    def complete_number(self):
-        """Gets the complete_number of this P2pTransactionDetail.  # noqa: E501
-
-        Counterparty transaction volume  # noqa: E501
-
-        :return: The complete_number of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._complete_number
-
-    @complete_number.setter
-    def complete_number(self, complete_number):
-        """Sets the complete_number of this P2pTransactionDetail.
-
-        Counterparty transaction volume  # noqa: E501
-
-        :param complete_number: The complete_number of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._complete_number = complete_number
-
-    @property
-    def complete_rate_month(self):
-        """Gets the complete_rate_month of this P2pTransactionDetail.  # noqa: E501
-
-        Counterparty completion rate  # noqa: E501
-
-        :return: The complete_rate_month of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._complete_rate_month
-
-    @complete_rate_month.setter
-    def complete_rate_month(self, complete_rate_month):
-        """Sets the complete_rate_month of this P2pTransactionDetail.
-
-        Counterparty completion rate  # noqa: E501
-
-        :param complete_rate_month: The complete_rate_month of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._complete_rate_month = complete_rate_month
-
-    @property
-    def check_journal_account(self):
-        """Gets the check_journal_account of this P2pTransactionDetail.  # noqa: E501
-
-        Whether transaction record is verified  # noqa: E501
-
-        :return: The check_journal_account of this P2pTransactionDetail.  # noqa: E501
-        :rtype: bool
-        """
-        return self._check_journal_account
-
-    @check_journal_account.setter
-    def check_journal_account(self, check_journal_account):
-        """Sets the check_journal_account of this P2pTransactionDetail.
-
-        Whether transaction record is verified  # noqa: E501
-
-        :param check_journal_account: The check_journal_account of this P2pTransactionDetail.  # noqa: E501
-        :type: bool
-        """
-
-        self._check_journal_account = check_journal_account
-
-    @property
-    def show_journal_account(self):
-        """Gets the show_journal_account of this P2pTransactionDetail.  # noqa: E501
-
-        Whether to display transaction records  # noqa: E501
-
-        :return: The show_journal_account of this P2pTransactionDetail.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_journal_account
-
-    @show_journal_account.setter
-    def show_journal_account(self, show_journal_account):
-        """Sets the show_journal_account of this P2pTransactionDetail.
-
-        Whether to display transaction records  # noqa: E501
-
-        :param show_journal_account: The show_journal_account of this P2pTransactionDetail.  # noqa: E501
-        :type: bool
-        """
-
-        self._show_journal_account = show_journal_account
-
-    @property
-    def is_freeze_guarantee(self):
-        """Gets the is_freeze_guarantee of this P2pTransactionDetail.  # noqa: E501
-
-        Whether margin is frozen  # noqa: E501
-
-        :return: The is_freeze_guarantee of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_freeze_guarantee
-
-    @is_freeze_guarantee.setter
-    def is_freeze_guarantee(self, is_freeze_guarantee):
-        """Sets the is_freeze_guarantee of this P2pTransactionDetail.
-
-        Whether margin is frozen  # noqa: E501
-
-        :param is_freeze_guarantee: The is_freeze_guarantee of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_freeze_guarantee = is_freeze_guarantee
-
-    @property
-    def usdt_left_guarantee(self):
-        """Gets the usdt_left_guarantee of this P2pTransactionDetail.  # noqa: E501
-
-        Remaining USDT margin  # noqa: E501
-
-        :return: The usdt_left_guarantee of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._usdt_left_guarantee
-
-    @usdt_left_guarantee.setter
-    def usdt_left_guarantee(self, usdt_left_guarantee):
-        """Sets the usdt_left_guarantee of this P2pTransactionDetail.
-
-        Remaining USDT margin  # noqa: E501
-
-        :param usdt_left_guarantee: The usdt_left_guarantee of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._usdt_left_guarantee = usdt_left_guarantee
-
-    @property
-    def guarantee_curr_type(self):
-        """Gets the guarantee_curr_type of this P2pTransactionDetail.  # noqa: E501
-
-        Margin currency type  # noqa: E501
-
-        :return: The guarantee_curr_type of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._guarantee_curr_type
-
-    @guarantee_curr_type.setter
-    def guarantee_curr_type(self, guarantee_curr_type):
-        """Sets the guarantee_curr_type of this P2pTransactionDetail.
-
-        Margin currency type  # noqa: E501
-
-        :param guarantee_curr_type: The guarantee_curr_type of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._guarantee_curr_type = guarantee_curr_type
-
-    @property
     def timest_paid(self):
         """Gets the timest_paid of this P2pTransactionDetail.  # noqa: E501
 
-        Payment time  # noqa: E501
+        Timestamp when the buyer confirmed payment.  # noqa: E501
 
         :return: The timest_paid of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1757,7 +1269,7 @@ class P2pTransactionDetail(object):
     def timest_paid(self, timest_paid):
         """Sets the timest_paid of this P2pTransactionDetail.
 
-        Payment time  # noqa: E501
+        Timestamp when the buyer confirmed payment.  # noqa: E501
 
         :param timest_paid: The timest_paid of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -1766,56 +1278,10 @@ class P2pTransactionDetail(object):
         self._timest_paid = timest_paid
 
     @property
-    def state(self):
-        """Gets the state of this P2pTransactionDetail.  # noqa: E501
-
-        Order Status  # noqa: E501
-
-        :return: The state of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._state
-
-    @state.setter
-    def state(self, state):
-        """Sets the state of this P2pTransactionDetail.
-
-        Order Status  # noqa: E501
-
-        :param state: The state of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._state = state
-
-    @property
-    def release_coin_switch(self):
-        """Gets the release_coin_switch of this P2pTransactionDetail.  # noqa: E501
-
-        Coin release switch configuration  # noqa: E501
-
-        :return: The release_coin_switch of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._release_coin_switch
-
-    @release_coin_switch.setter
-    def release_coin_switch(self, release_coin_switch):
-        """Sets the release_coin_switch of this P2pTransactionDetail.
-
-        Coin release switch configuration  # noqa: E501
-
-        :param release_coin_switch: The release_coin_switch of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._release_coin_switch = release_coin_switch
-
-    @property
     def own_realname(self):
         """Gets the own_realname of this P2pTransactionDetail.  # noqa: E501
 
-        Username  # noqa: E501
+        Current user's real name or verified display name.  # noqa: E501
 
         :return: The own_realname of this P2pTransactionDetail.  # noqa: E501
         :rtype: str
@@ -1826,7 +1292,7 @@ class P2pTransactionDetail(object):
     def own_realname(self, own_realname):
         """Sets the own_realname of this P2pTransactionDetail.
 
-        Username  # noqa: E501
+        Current user's real name or verified display name.  # noqa: E501
 
         :param own_realname: The own_realname of this P2pTransactionDetail.  # noqa: E501
         :type: str
@@ -1835,79 +1301,10 @@ class P2pTransactionDetail(object):
         self._own_realname = own_realname
 
     @property
-    def confirmation_use_time_month(self):
-        """Gets the confirmation_use_time_month of this P2pTransactionDetail.  # noqa: E501
-
-        Average confirmation time in last 30 days  # noqa: E501
-
-        :return: The confirmation_use_time_month of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._confirmation_use_time_month
-
-    @confirmation_use_time_month.setter
-    def confirmation_use_time_month(self, confirmation_use_time_month):
-        """Sets the confirmation_use_time_month of this P2pTransactionDetail.
-
-        Average confirmation time in last 30 days  # noqa: E501
-
-        :param confirmation_use_time_month: The confirmation_use_time_month of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._confirmation_use_time_month = confirmation_use_time_month
-
-    @property
-    def is_risk_user(self):
-        """Gets the is_risk_user of this P2pTransactionDetail.  # noqa: E501
-
-        Whether risk user  # noqa: E501
-
-        :return: The is_risk_user of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_risk_user
-
-    @is_risk_user.setter
-    def is_risk_user(self, is_risk_user):
-        """Sets the is_risk_user of this P2pTransactionDetail.
-
-        Whether risk user  # noqa: E501
-
-        :param is_risk_user: The is_risk_user of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_risk_user = is_risk_user
-
-    @property
-    def is_xt(self):
-        """Gets the is_xt of this P2pTransactionDetail.  # noqa: E501
-
-        Whether XT order  # noqa: E501
-
-        :return: The is_xt of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_xt
-
-    @is_xt.setter
-    def is_xt(self, is_xt):
-        """Sets the is_xt of this P2pTransactionDetail.
-
-        Whether XT order  # noqa: E501
-
-        :param is_xt: The is_xt of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_xt = is_xt
-
-    @property
     def order_type(self):
         """Gets the order_type of this P2pTransactionDetail.  # noqa: E501
 
-        Order Type  # noqa: E501
+        Order type: `1` standard; `2` partner; `3` flash swap; `4` Web3.  # noqa: E501
 
         :return: The order_type of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1918,7 +1315,7 @@ class P2pTransactionDetail(object):
     def order_type(self, order_type):
         """Sets the order_type of this P2pTransactionDetail.
 
-        Order Type  # noqa: E501
+        Order type: `1` standard; `2` partner; `3` flash swap; `4` Web3.  # noqa: E501
 
         :param order_type: The order_type of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -1927,33 +1324,10 @@ class P2pTransactionDetail(object):
         self._order_type = order_type
 
     @property
-    def symbol(self):
-        """Gets the symbol of this P2pTransactionDetail.  # noqa: E501
-
-        Fiat currency symbol  # noqa: E501
-
-        :return: The symbol of this P2pTransactionDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._symbol
-
-    @symbol.setter
-    def symbol(self, symbol):
-        """Sets the symbol of this P2pTransactionDetail.
-
-        Fiat currency symbol  # noqa: E501
-
-        :param symbol: The symbol of this P2pTransactionDetail.  # noqa: E501
-        :type: str
-        """
-
-        self._symbol = symbol
-
-    @property
     def is_show_receive(self):
         """Gets the is_show_receive of this P2pTransactionDetail.  # noqa: E501
 
-        Whether to show confirm receipt during appeal  # noqa: E501
+        Whether to show confirm-receipt during dispute. `1`: show; `0`: hide.  # noqa: E501
 
         :return: The is_show_receive of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -1964,59 +1338,13 @@ class P2pTransactionDetail(object):
     def is_show_receive(self, is_show_receive):
         """Sets the is_show_receive of this P2pTransactionDetail.
 
-        Whether to show confirm receipt during appeal  # noqa: E501
+        Whether to show confirm-receipt during dispute. `1`: show; `0`: hide.  # noqa: E501
 
         :param is_show_receive: The is_show_receive of this P2pTransactionDetail.  # noqa: E501
         :type: int
         """
 
         self._is_show_receive = is_show_receive
-
-    @property
-    def is_taker(self):
-        """Gets the is_taker of this P2pTransactionDetail.  # noqa: E501
-
-        Whether regular user  # noqa: E501
-
-        :return: The is_taker of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_taker
-
-    @is_taker.setter
-    def is_taker(self, is_taker):
-        """Sets the is_taker of this P2pTransactionDetail.
-
-        Whether regular user  # noqa: E501
-
-        :param is_taker: The is_taker of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_taker = is_taker
-
-    @property
-    def is_online(self):
-        """Gets the is_online of this P2pTransactionDetail.  # noqa: E501
-
-        Merchant online status  # noqa: E501
-
-        :return: The is_online of this P2pTransactionDetail.  # noqa: E501
-        :rtype: int
-        """
-        return self._is_online
-
-    @is_online.setter
-    def is_online(self, is_online):
-        """Sets the is_online of this P2pTransactionDetail.
-
-        Merchant online status  # noqa: E501
-
-        :param is_online: The is_online of this P2pTransactionDetail.  # noqa: E501
-        :type: int
-        """
-
-        self._is_online = is_online
 
     @property
     def show_seller_contact_info(self):
@@ -2045,7 +1373,7 @@ class P2pTransactionDetail(object):
     def supported_pay_types(self):
         """Gets the supported_pay_types of this P2pTransactionDetail.  # noqa: E501
 
-        Payment methods supported by current order  # noqa: E501
+        Supported payment method types for the order, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :return: The supported_pay_types of this P2pTransactionDetail.  # noqa: E501
         :rtype: list[str]
@@ -2056,7 +1384,7 @@ class P2pTransactionDetail(object):
     def supported_pay_types(self, supported_pay_types):
         """Sets the supported_pay_types of this P2pTransactionDetail.
 
-        Payment methods supported by current order  # noqa: E501
+        Supported payment method types for the order, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
 
         :param supported_pay_types: The supported_pay_types of this P2pTransactionDetail.  # noqa: E501
         :type: list[str]

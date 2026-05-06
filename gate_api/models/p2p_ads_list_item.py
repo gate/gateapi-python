@@ -207,7 +207,7 @@ class P2pAdsListItem(object):
     def max_single_trans_amount(self):
         """Gets the max_single_trans_amount of this P2pAdsListItem.  # noqa: E501
 
-        Maximum Cryptocurrency Amount  # noqa: E501
+        Maximum crypto size per trade.  # noqa: E501
 
         :return: The max_single_trans_amount of this P2pAdsListItem.  # noqa: E501
         :rtype: str
@@ -218,7 +218,7 @@ class P2pAdsListItem(object):
     def max_single_trans_amount(self, max_single_trans_amount):
         """Sets the max_single_trans_amount of this P2pAdsListItem.
 
-        Maximum Cryptocurrency Amount  # noqa: E501
+        Maximum crypto size per trade.  # noqa: E501
 
         :param max_single_trans_amount: The max_single_trans_amount of this P2pAdsListItem.  # noqa: E501
         :type: str
@@ -230,7 +230,7 @@ class P2pAdsListItem(object):
     def min_single_trans_amount(self):
         """Gets the min_single_trans_amount of this P2pAdsListItem.  # noqa: E501
 
-        Minimum Cryptocurrency Amount  # noqa: E501
+        Minimum crypto size per trade.  # noqa: E501
 
         :return: The min_single_trans_amount of this P2pAdsListItem.  # noqa: E501
         :rtype: str
@@ -241,7 +241,7 @@ class P2pAdsListItem(object):
     def min_single_trans_amount(self, min_single_trans_amount):
         """Sets the min_single_trans_amount of this P2pAdsListItem.
 
-        Minimum Cryptocurrency Amount  # noqa: E501
+        Minimum crypto size per trade.  # noqa: E501
 
         :param min_single_trans_amount: The min_single_trans_amount of this P2pAdsListItem.  # noqa: E501
         :type: str

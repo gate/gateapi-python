@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 Create Spot Martin
 
-Create a spot Martin strategy based on the passed parameters.
+根据传入参数创建现货马丁策略。  止损口径与 App / `MartingaleBot` 一致： - 使用 **`create_params.stop_loss_per_cycle`**（每轮止损比例，小数字符串），**不要**使用 `stop_loss_price` 表达创建侧止损。 - 详情页展示的「止损价」由引擎按轮次计算；创建侧可选 **`create_params.trigger_price`**（触发价）。
 
 ### Example
 

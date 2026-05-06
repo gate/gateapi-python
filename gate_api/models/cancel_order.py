@@ -33,62 +33,65 @@ class CancelOrder(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'trade_id': 'str',
+        'txid': 'str',
         'reason_id': 'str',
         'reason_memo': 'str'
     }
 
     attribute_map = {
-        'trade_id': 'trade_id',
+        'txid': 'txid',
         'reason_id': 'reason_id',
         'reason_memo': 'reason_memo'
     }
 
-    def __init__(self, trade_id=None, reason_id=None, reason_memo=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, txid=None, reason_id=None, reason_memo=None, local_vars_configuration=None):  # noqa: E501
         # type: (str, str, str, Configuration) -> None
         """CancelOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._trade_id = None
+        self._txid = None
         self._reason_id = None
         self._reason_memo = None
         self.discriminator = None
 
-        self.trade_id = trade_id
+        self.txid = txid
         if reason_id is not None:
             self.reason_id = reason_id
         if reason_memo is not None:
             self.reason_memo = reason_memo
 
     @property
-    def trade_id(self):
-        """Gets the trade_id of this CancelOrder.  # noqa: E501
+    def txid(self):
+        """Gets the txid of this CancelOrder.  # noqa: E501
 
+        Order ID  # noqa: E501
 
-        :return: The trade_id of this CancelOrder.  # noqa: E501
+        :return: The txid of this CancelOrder.  # noqa: E501
         :rtype: str
         """
-        return self._trade_id
+        return self._txid
 
-    @trade_id.setter
-    def trade_id(self, trade_id):
-        """Sets the trade_id of this CancelOrder.
+    @txid.setter
+    def txid(self, txid):
+        """Sets the txid of this CancelOrder.
 
+        Order ID  # noqa: E501
 
-        :param trade_id: The trade_id of this CancelOrder.  # noqa: E501
+        :param txid: The txid of this CancelOrder.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and trade_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `trade_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
+            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
 
-        self._trade_id = trade_id
+        self._txid = txid
 
     @property
     def reason_id(self):
         """Gets the reason_id of this CancelOrder.  # noqa: E501
 
+        Cancel reason ID. `1` no longer want to buy; `2` cannot reach seller; `3` will not pay; `4` seller account not real; `5` payout account issue; `6` price mismatch; `7` mutually agreed cancel; `8` poor communication; `9` other; `10` seller cannot release with refund; `11` terms not met; `12` seller payout risk-controlled.  # noqa: E501
 
         :return: The reason_id of this CancelOrder.  # noqa: E501
         :rtype: str
@@ -99,6 +102,7 @@ class CancelOrder(object):
     def reason_id(self, reason_id):
         """Sets the reason_id of this CancelOrder.
 
+        Cancel reason ID. `1` no longer want to buy; `2` cannot reach seller; `3` will not pay; `4` seller account not real; `5` payout account issue; `6` price mismatch; `7` mutually agreed cancel; `8` poor communication; `9` other; `10` seller cannot release with refund; `11` terms not met; `12` seller payout risk-controlled.  # noqa: E501
 
         :param reason_id: The reason_id of this CancelOrder.  # noqa: E501
         :type: str
@@ -110,6 +114,7 @@ class CancelOrder(object):
     def reason_memo(self):
         """Gets the reason_memo of this CancelOrder.  # noqa: E501
 
+        Extra cancel notes when `reason_id` is `9` or explanation is required.  # noqa: E501
 
         :return: The reason_memo of this CancelOrder.  # noqa: E501
         :rtype: str
@@ -120,6 +125,7 @@ class CancelOrder(object):
     def reason_memo(self, reason_memo):
         """Sets the reason_memo of this CancelOrder.
 
+        Extra cancel notes when `reason_id` is `9` or explanation is required.  # noqa: E501
 
         :param reason_memo: The reason_memo of this CancelOrder.  # noqa: E501
         :type: str

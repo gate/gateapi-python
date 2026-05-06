@@ -100,7 +100,7 @@ class GetCompletedTransactionListRequest(object):
     def crypto_currency(self):
         """Gets the crypto_currency of this GetCompletedTransactionListRequest.  # noqa: E501
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The crypto_currency of this GetCompletedTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -111,7 +111,7 @@ class GetCompletedTransactionListRequest(object):
     def crypto_currency(self, crypto_currency):
         """Sets the crypto_currency of this GetCompletedTransactionListRequest.
 
-        Cryptocurrency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param crypto_currency: The crypto_currency of this GetCompletedTransactionListRequest.  # noqa: E501
         :type: str
@@ -150,7 +150,7 @@ class GetCompletedTransactionListRequest(object):
     def select_type(self):
         """Gets the select_type of this GetCompletedTransactionListRequest.  # noqa: E501
 
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
+        Order side filter: `buy` buy orders; `sell` sell orders; empty: all.  # noqa: E501
 
         :return: The select_type of this GetCompletedTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -161,7 +161,7 @@ class GetCompletedTransactionListRequest(object):
     def select_type(self, select_type):
         """Sets the select_type of this GetCompletedTransactionListRequest.
 
-        Buy/Sell (sell=Sell, buy=Buy, others=All)  # noqa: E501
+        Order side filter: `buy` buy orders; `sell` sell orders; empty: all.  # noqa: E501
 
         :param select_type: The select_type of this GetCompletedTransactionListRequest.  # noqa: E501
         :type: str
@@ -173,7 +173,7 @@ class GetCompletedTransactionListRequest(object):
     def status(self):
         """Gets the status of this GetCompletedTransactionListRequest.  # noqa: E501
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Order status filter. `closed`: filled (`ACCEPT`, `BCLOSED`); `cancel`: canceled (`CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`); `locked`: locked (`LOCKED`); `open`: unpaid (`OPEN`); `paid`: paid (`PAID`); `completed`: finished or canceled (`CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`, `ACCEPT`, `BCLOSED`); Empty or omitted uses the endpoint default range.  # noqa: E501
 
         :return: The status of this GetCompletedTransactionListRequest.  # noqa: E501
         :rtype: str
@@ -184,7 +184,7 @@ class GetCompletedTransactionListRequest(object):
     def status(self, status):
         """Sets the status of this GetCompletedTransactionListRequest.
 
-        Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)  # noqa: E501
+        Order status filter. `closed`: filled (`ACCEPT`, `BCLOSED`); `cancel`: canceled (`CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`); `locked`: locked (`LOCKED`); `open`: unpaid (`OPEN`); `paid`: paid (`PAID`); `completed`: finished or canceled (`CANCEL`, `BECANCEL`, `SCLOSED`, `SCANCEL`, `ACCEPT`, `BCLOSED`); Empty or omitted uses the endpoint default range.  # noqa: E501
 
         :param status: The status of this GetCompletedTransactionListRequest.  # noqa: E501
         :type: str
@@ -265,7 +265,7 @@ class GetCompletedTransactionListRequest(object):
     def query_dispute(self):
         """Gets the query_dispute of this GetCompletedTransactionListRequest.  # noqa: E501
 
-        1: Include appeal status, 0: None  # noqa: E501
+        Whether to flag dispute status in the response. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The query_dispute of this GetCompletedTransactionListRequest.  # noqa: E501
         :rtype: int
@@ -276,7 +276,7 @@ class GetCompletedTransactionListRequest(object):
     def query_dispute(self, query_dispute):
         """Sets the query_dispute of this GetCompletedTransactionListRequest.
 
-        1: Include appeal status, 0: None  # noqa: E501
+        Whether to flag dispute status in the response. `1`: yes; `0`: no.  # noqa: E501
 
         :param query_dispute: The query_dispute of this GetCompletedTransactionListRequest.  # noqa: E501
         :type: int
@@ -288,7 +288,7 @@ class GetCompletedTransactionListRequest(object):
     def page(self):
         """Gets the page of this GetCompletedTransactionListRequest.  # noqa: E501
 
-        page number  # noqa: E501
+        Page number starting at 1; values below 1 are treated as 1.  # noqa: E501
 
         :return: The page of this GetCompletedTransactionListRequest.  # noqa: E501
         :rtype: int
@@ -299,7 +299,7 @@ class GetCompletedTransactionListRequest(object):
     def page(self, page):
         """Sets the page of this GetCompletedTransactionListRequest.
 
-        page number  # noqa: E501
+        Page number starting at 1; values below 1 are treated as 1.  # noqa: E501
 
         :param page: The page of this GetCompletedTransactionListRequest.  # noqa: E501
         :type: int
@@ -311,7 +311,7 @@ class GetCompletedTransactionListRequest(object):
     def per_page(self):
         """Gets the per_page of this GetCompletedTransactionListRequest.  # noqa: E501
 
-        Number of orders per page  # noqa: E501
+        Orders per page; default 10, max 200.  # noqa: E501
 
         :return: The per_page of this GetCompletedTransactionListRequest.  # noqa: E501
         :rtype: int
@@ -322,7 +322,7 @@ class GetCompletedTransactionListRequest(object):
     def per_page(self, per_page):
         """Sets the per_page of this GetCompletedTransactionListRequest.
 
-        Number of orders per page  # noqa: E501
+        Orders per page; default 10, max 200.  # noqa: E501
 
         :param per_page: The per_page of this GetCompletedTransactionListRequest.  # noqa: E501
         :type: int

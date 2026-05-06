@@ -1729,7 +1729,7 @@ class WalletApi(object):
         :param str currency: Currency (required)
         :param str chain: Chain name
         :param str limit: Maximum number returned, up to 100
-        :param int page: Page number
+        :param int page: page number
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1756,7 +1756,7 @@ class WalletApi(object):
         :param str currency: Currency (required)
         :param str chain: Chain name
         :param str limit: Maximum number returned, up to 100
-        :param int page: Page number
+        :param int page: page number
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

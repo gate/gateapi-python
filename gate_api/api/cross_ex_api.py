@@ -37,7 +37,7 @@ class CrossExApi(object):
         self.api_client = api_client
 
     def list_crossex_rule_symbols(self, **kwargs):  # noqa: E501
-        """[Public Interface] Query Trading Pair Information  # noqa: E501
+        """查询币对信息  # noqa: E501
 
         Query Trading Pair Information  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -62,7 +62,7 @@ class CrossExApi(object):
         return self.list_crossex_rule_symbols_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_rule_symbols_with_http_info(self, **kwargs):  # noqa: E501
-        """[Public Interface] Query Trading Pair Information  # noqa: E501
+        """查询币对信息  # noqa: E501
 
         Query Trading Pair Information  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -147,7 +147,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_rule_risk_limits(self, symbols, **kwargs):  # noqa: E501
-        """[Public Interface] Query Risk Limit Information  # noqa: E501
+        """查询风险限额信息  # noqa: E501
 
         Query risk limit information for futures/margin trading pairs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -172,7 +172,7 @@ class CrossExApi(object):
         return self.list_crossex_rule_risk_limits_with_http_info(symbols, **kwargs)  # noqa: E501
 
     def list_crossex_rule_risk_limits_with_http_info(self, symbols, **kwargs):  # noqa: E501
-        """[Public Interface] Query Risk Limit Information  # noqa: E501
+        """查询风险限额信息  # noqa: E501
 
         Query risk limit information for futures/margin trading pairs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -261,7 +261,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_transfer_coins(self, **kwargs):  # noqa: E501
-        """[Public Interface] Query Supported Transfer Currencies  # noqa: E501
+        """查询划转币种支持  # noqa: E501
 
         Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -286,7 +286,7 @@ class CrossExApi(object):
         return self.list_crossex_transfer_coins_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_transfer_coins_with_http_info(self, **kwargs):  # noqa: E501
-        """[Public Interface] Query Supported Transfer Currencies  # noqa: E501
+        """查询划转币种支持  # noqa: E501
 
         Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3450,6 +3450,7 @@ class CrossExApi(object):
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
         :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str statement_type: Bill entry type.
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3479,6 +3480,7 @@ class CrossExApi(object):
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
         :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str statement_type: Bill entry type.
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _return_http_data_only: response data without head status code
@@ -3501,6 +3503,7 @@ class CrossExApi(object):
             'page',
             'limit',
             'coin',
+            'statement_type',
             '_from',
             'to'
         ]
@@ -3533,6 +3536,8 @@ class CrossExApi(object):
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'coin' in local_var_params and local_var_params['coin'] is not None:  # noqa: E501
             query_params.append(('coin', local_var_params['coin']))  # noqa: E501
+        if 'statement_type' in local_var_params and local_var_params['statement_type'] is not None:  # noqa: E501
+            query_params.append(('statement_type', local_var_params['statement_type']))  # noqa: E501
         if '_from' in local_var_params and local_var_params['_from'] is not None:  # noqa: E501
             query_params.append(('from', local_var_params['_from']))  # noqa: E501
         if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
@@ -3568,7 +3573,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_coin_discount_rate(self, **kwargs):  # noqa: E501
-        """Query currency discount rate (discount rate of margin currency in isolated exchange mode)  # noqa: E501
+        """Query Currency Discount Rate  # noqa: E501
 
         Rate Limit: 200 requests per 10 seconds  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3594,7 +3599,7 @@ class CrossExApi(object):
         return self.list_crossex_coin_discount_rate_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_coin_discount_rate_with_http_info(self, **kwargs):  # noqa: E501
-        """Query currency discount rate (discount rate of margin currency in isolated exchange mode)  # noqa: E501
+        """Query Currency Discount Rate  # noqa: E501
 
         Rate Limit: 200 requests per 10 seconds  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

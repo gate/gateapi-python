@@ -56,7 +56,8 @@ class GetChatsListRequest(object):
         self._firstreceived = None
         self.discriminator = None
 
-        self.txid = txid
+        if txid is not None:
+            self.txid = txid
         if lastreceived is not None:
             self.lastreceived = lastreceived
         if firstreceived is not None:
@@ -66,7 +67,7 @@ class GetChatsListRequest(object):
     def txid(self):
         """Gets the txid of this GetChatsListRequest.  # noqa: E501
 
-        Order ID  # noqa: E501
+        Order ID; omit or `0` to return the latest order with chat for the user.  # noqa: E501
 
         :return: The txid of this GetChatsListRequest.  # noqa: E501
         :rtype: int
@@ -77,13 +78,11 @@ class GetChatsListRequest(object):
     def txid(self, txid):
         """Sets the txid of this GetChatsListRequest.
 
-        Order ID  # noqa: E501
+        Order ID; omit or `0` to return the latest order with chat for the user.  # noqa: E501
 
         :param txid: The txid of this GetChatsListRequest.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and txid is None:  # noqa: E501
-            raise ValueError("Invalid value for `txid`, must not be `None`")  # noqa: E501
 
         self._txid = txid
 
@@ -91,7 +90,7 @@ class GetChatsListRequest(object):
     def lastreceived(self):
         """Gets the lastreceived of this GetChatsListRequest.  # noqa: E501
 
-        Pagination timestamp (forward)  # noqa: E501
+        Timestamp of the last received message for backward incremental fetch; omit on first load.  # noqa: E501
 
         :return: The lastreceived of this GetChatsListRequest.  # noqa: E501
         :rtype: int
@@ -102,7 +101,7 @@ class GetChatsListRequest(object):
     def lastreceived(self, lastreceived):
         """Sets the lastreceived of this GetChatsListRequest.
 
-        Pagination timestamp (forward)  # noqa: E501
+        Timestamp of the last received message for backward incremental fetch; omit on first load.  # noqa: E501
 
         :param lastreceived: The lastreceived of this GetChatsListRequest.  # noqa: E501
         :type: int
@@ -114,7 +113,7 @@ class GetChatsListRequest(object):
     def firstreceived(self):
         """Gets the firstreceived of this GetChatsListRequest.  # noqa: E501
 
-        Pagination timestamp (backward)  # noqa: E501
+        Timestamp of first received message for paging backward; omit on first load.  # noqa: E501
 
         :return: The firstreceived of this GetChatsListRequest.  # noqa: E501
         :rtype: int
@@ -125,7 +124,7 @@ class GetChatsListRequest(object):
     def firstreceived(self, firstreceived):
         """Sets the firstreceived of this GetChatsListRequest.
 
-        Pagination timestamp (backward)  # noqa: E501
+        Timestamp of first received message for paging backward; omit on first load.  # noqa: E501
 
         :param firstreceived: The firstreceived of this GetChatsListRequest.  # noqa: E501
         :type: int

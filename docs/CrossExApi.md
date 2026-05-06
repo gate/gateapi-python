@@ -4,9 +4,9 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_crossex_rule_symbols**](CrossExApi.md#list_crossex_rule_symbols) | **GET** /crossex/rule/symbols | [Public Interface] Query Trading Pair Information
-[**list_crossex_rule_risk_limits**](CrossExApi.md#list_crossex_rule_risk_limits) | **GET** /crossex/rule/risk_limits | [Public Interface] Query Risk Limit Information
-[**list_crossex_transfer_coins**](CrossExApi.md#list_crossex_transfer_coins) | **GET** /crossex/transfers/coin | [Public Interface] Query Supported Transfer Currencies
+[**list_crossex_rule_symbols**](CrossExApi.md#list_crossex_rule_symbols) | **GET** /crossex/rule/symbols | 查询币对信息
+[**list_crossex_rule_risk_limits**](CrossExApi.md#list_crossex_rule_risk_limits) | **GET** /crossex/rule/risk_limits | 查询风险限额信息
+[**list_crossex_transfer_coins**](CrossExApi.md#list_crossex_transfer_coins) | **GET** /crossex/transfers/coin | 查询划转币种支持
 [**list_crossex_transfers**](CrossExApi.md#list_crossex_transfers) | **GET** /crossex/transfers | Query Fund Transfer History
 [**create_crossex_transfer**](CrossExApi.md#create_crossex_transfer) | **POST** /crossex/transfers | Fund Transfer
 [**create_crossex_order**](CrossExApi.md#create_crossex_order) | **POST** /crossex/orders | Create an order
@@ -34,13 +34,13 @@ Method | HTTP request | Description
 [**list_crossex_history_margin_interests**](CrossExApi.md#list_crossex_history_margin_interests) | **GET** /crossex/history_margin_interests | Query Leveraged Interest Deduction History
 [**list_crossex_history_trades**](CrossExApi.md#list_crossex_history_trades) | **GET** /crossex/history_trades | queryfilledhistory
 [**list_crossex_account_book**](CrossExApi.md#list_crossex_account_book) | **GET** /crossex/account_book | Query Account Asset Change History
-[**list_crossex_coin_discount_rate**](CrossExApi.md#list_crossex_coin_discount_rate) | **GET** /crossex/coin_discount_rate | Query currency discount rate (discount rate of margin currency in isolated exchange mode)
+[**list_crossex_coin_discount_rate**](CrossExApi.md#list_crossex_coin_discount_rate) | **GET** /crossex/coin_discount_rate | Query Currency Discount Rate
 
 
 # **list_crossex_rule_symbols**
 > list[Symbol] list_crossex_rule_symbols(symbols=symbols)
 
-[Public Interface] Query Trading Pair Information
+查询币对信息
 
 Query Trading Pair Information
 
@@ -62,7 +62,7 @@ api_instance = gate_api.CrossExApi(api_client)
 symbols = 'symbols_example' # str | 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
 
 try:
-    # [Public Interface] Query Trading Pair Information
+    # 查询币对信息
     api_response = api_instance.list_crossex_rule_symbols(symbols=symbols)
     print(api_response)
 except GateApiException as ex:
@@ -100,7 +100,7 @@ No authorization required
 # **list_crossex_rule_risk_limits**
 > list[CrossexRiskLimit] list_crossex_rule_risk_limits(symbols)
 
-[Public Interface] Query Risk Limit Information
+查询风险限额信息
 
 Query risk limit information for futures/margin trading pairs
 
@@ -122,7 +122,7 @@ api_instance = gate_api.CrossExApi(api_client)
 symbols = 'BINANCE_FUTURE_AAVE_USDT' # str | Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT
 
 try:
-    # [Public Interface] Query Risk Limit Information
+    # 查询风险限额信息
     api_response = api_instance.list_crossex_rule_risk_limits(symbols)
     print(api_response)
 except GateApiException as ex:
@@ -160,7 +160,7 @@ No authorization required
 # **list_crossex_transfer_coins**
 > list[CrossexTransferCoin] list_crossex_transfer_coins(coin=coin)
 
-[Public Interface] Query Supported Transfer Currencies
+查询划转币种支持
 
 Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
 
@@ -182,7 +182,7 @@ api_instance = gate_api.CrossExApi(api_client)
 coin = 'BTC' # str | Currency (optional)
 
 try:
-    # [Public Interface] Query Supported Transfer Currencies
+    # 查询划转币种支持
     api_response = api_instance.list_crossex_transfer_coins(coin=coin)
     print(api_response)
 except GateApiException as ex:
@@ -253,7 +253,7 @@ order_id = '38083797492939266' # str | Supports querying by the order ID returne
 _from = 1750681141933 # int | Start timestamp for the query (optional)
 to = 1750681141933 # int | End timestamp for the query, defaults to current time if not specified (optional)
 page = 1 # int | Page number (optional)
-limit = 10,20,30 # int | Maximum number returned by list, max 1000 (optional)
+limit = 100 # int | Maximum number returned by list, max 1000 (optional)
 
 try:
     # Query Fund Transfer History
@@ -1644,7 +1644,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CrossExApi(api_client)
 symbol = 'BINANCE_FUTURE_ADA_USDT' # str | Trading Pair (optional)
 exchange_type = 'BINANCE' # str | Exchange (optional)
-business_type = 'FUTURE、MARGIN' # str | Business Type (optional)
+business_type = 'FUTURE' # str | Business Type (optional)
 
 try:
     # Query All Current Open Orders
@@ -2072,7 +2072,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_account_book**
-> list[CrossexAccountBookRecord] list_crossex_account_book(page=page, limit=limit, coin=coin, _from=_from, to=to)
+> list[CrossexAccountBookRecord] list_crossex_account_book(page=page, limit=limit, coin=coin, statement_type=statement_type, _from=_from, to=to)
 
 Query Account Asset Change History
 
@@ -2105,12 +2105,13 @@ api_instance = gate_api.CrossExApi(api_client)
 page = 56 # int | Page number (optional)
 limit = 56 # int | Maximum number returned by list, max 1000 (optional)
 coin = 'coin_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+statement_type = 'statement_type_example' # str | Bill entry type. (optional)
 _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
 
 try:
     # Query Account Asset Change History
-    api_response = api_instance.list_crossex_account_book(page=page, limit=limit, coin=coin, _from=_from, to=to)
+    api_response = api_instance.list_crossex_account_book(page=page, limit=limit, coin=coin, statement_type=statement_type, _from=_from, to=to)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -2125,6 +2126,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional] 
  **limit** | **int**| Maximum number returned by list, max 1000 | [optional] 
  **coin** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
+ **statement_type** | **str**| Bill entry type. | [optional] 
  **_from** | **int**| Start Millisecond Timestamp | [optional] 
  **to** | **int**| End Millisecond Timestamp | [optional] 
 
@@ -2151,7 +2153,7 @@ Name | Type | Description  | Notes
 # **list_crossex_coin_discount_rate**
 > list[CrossexCoinDiscountRate] list_crossex_coin_discount_rate(coin=coin, exchange_type=exchange_type)
 
-Query currency discount rate (discount rate of margin currency in isolated exchange mode)
+Query Currency Discount Rate
 
 Rate Limit: 200 requests per 10 seconds
 
@@ -2183,7 +2185,7 @@ coin = 'SOL' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To
 exchange_type = 'OKX' # str | OKX/GATE/BINANCE/BYBIT (optional)
 
 try:
-    # Query currency discount rate (discount rate of margin currency in isolated exchange mode)
+    # Query Currency Discount Rate
     api_response = api_instance.list_crossex_coin_discount_rate(coin=coin, exchange_type=exchange_type)
     print(api_response)
 except GateApiException as ex:

@@ -60,7 +60,7 @@ class UploadChatFile(object):
     def image_content_type(self):
         """Gets the image_content_type of this UploadChatFile.  # noqa: E501
 
-        File type, currently only images and videos are supported  # noqa: E501
+        File MIME type: supports `image/jpeg`, `image/jpg`, `image/png`, `video/mp4`.  # noqa: E501
 
         :return: The image_content_type of this UploadChatFile.  # noqa: E501
         :rtype: str
@@ -71,13 +71,19 @@ class UploadChatFile(object):
     def image_content_type(self, image_content_type):
         """Sets the image_content_type of this UploadChatFile.
 
-        File type, currently only images and videos are supported  # noqa: E501
+        File MIME type: supports `image/jpeg`, `image/jpg`, `image/png`, `video/mp4`.  # noqa: E501
 
         :param image_content_type: The image_content_type of this UploadChatFile.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and image_content_type is None:  # noqa: E501
             raise ValueError("Invalid value for `image_content_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["image/jpeg", "image/jpg", "image/png", "video/mp4"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and image_content_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `image_content_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(image_content_type, allowed_values)
+            )
 
         self._image_content_type = image_content_type
 
@@ -85,7 +91,7 @@ class UploadChatFile(object):
     def base64_img(self):
         """Gets the base64_img of this UploadChatFile.  # noqa: E501
 
-        File content (base64 encoded)  # noqa: E501
+        Base64 file content; max 20 MB.  # noqa: E501
 
         :return: The base64_img of this UploadChatFile.  # noqa: E501
         :rtype: str
@@ -96,7 +102,7 @@ class UploadChatFile(object):
     def base64_img(self, base64_img):
         """Sets the base64_img of this UploadChatFile.
 
-        File content (base64 encoded)  # noqa: E501
+        Base64 file content; max 20 MB.  # noqa: E501
 
         :param base64_img: The base64_img of this UploadChatFile.  # noqa: E501
         :type: str

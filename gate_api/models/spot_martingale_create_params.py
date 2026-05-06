@@ -37,7 +37,8 @@ class SpotMartingaleCreateParams(object):
         'price_deviation': 'str',
         'max_orders': 'int',
         'take_profit_ratio': 'str',
-        'stop_loss_price': 'str',
+        'stop_loss_per_cycle': 'str',
+        'trigger_price': 'str',
         'profit_sharing_ratio': 'str'
     }
 
@@ -46,12 +47,13 @@ class SpotMartingaleCreateParams(object):
         'price_deviation': 'price_deviation',
         'max_orders': 'max_orders',
         'take_profit_ratio': 'take_profit_ratio',
-        'stop_loss_price': 'stop_loss_price',
+        'stop_loss_per_cycle': 'stop_loss_per_cycle',
+        'trigger_price': 'trigger_price',
         'profit_sharing_ratio': 'profit_sharing_ratio'
     }
 
-    def __init__(self, invest_amount=None, price_deviation=None, max_orders=None, take_profit_ratio=None, stop_loss_price=None, profit_sharing_ratio=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, int, str, str, str, Configuration) -> None
+    def __init__(self, invest_amount=None, price_deviation=None, max_orders=None, take_profit_ratio=None, stop_loss_per_cycle=None, trigger_price=None, profit_sharing_ratio=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, int, str, str, str, str, Configuration) -> None
         """SpotMartingaleCreateParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,7 +63,8 @@ class SpotMartingaleCreateParams(object):
         self._price_deviation = None
         self._max_orders = None
         self._take_profit_ratio = None
-        self._stop_loss_price = None
+        self._stop_loss_per_cycle = None
+        self._trigger_price = None
         self._profit_sharing_ratio = None
         self.discriminator = None
 
@@ -69,8 +72,10 @@ class SpotMartingaleCreateParams(object):
         self.price_deviation = price_deviation
         self.max_orders = max_orders
         self.take_profit_ratio = take_profit_ratio
-        if stop_loss_price is not None:
-            self.stop_loss_price = stop_loss_price
+        if stop_loss_per_cycle is not None:
+            self.stop_loss_per_cycle = stop_loss_per_cycle
+        if trigger_price is not None:
+            self.trigger_price = trigger_price
         if profit_sharing_ratio is not None:
             self.profit_sharing_ratio = profit_sharing_ratio
 
@@ -101,6 +106,7 @@ class SpotMartingaleCreateParams(object):
     def price_deviation(self):
         """Gets the price_deviation of this SpotMartingaleCreateParams.  # noqa: E501
 
+        Add-position deviation ratio as a decimal string (e.g. a 2% drop is `0.02`).  # noqa: E501
 
         :return: The price_deviation of this SpotMartingaleCreateParams.  # noqa: E501
         :rtype: str
@@ -111,6 +117,7 @@ class SpotMartingaleCreateParams(object):
     def price_deviation(self, price_deviation):
         """Sets the price_deviation of this SpotMartingaleCreateParams.
 
+        Add-position deviation ratio as a decimal string (e.g. a 2% drop is `0.02`).  # noqa: E501
 
         :param price_deviation: The price_deviation of this SpotMartingaleCreateParams.  # noqa: E501
         :type: str
@@ -150,6 +157,7 @@ class SpotMartingaleCreateParams(object):
     def take_profit_ratio(self):
         """Gets the take_profit_ratio of this SpotMartingaleCreateParams.  # noqa: E501
 
+        Take-profit ratio per round as a decimal string.  # noqa: E501
 
         :return: The take_profit_ratio of this SpotMartingaleCreateParams.  # noqa: E501
         :rtype: str
@@ -160,6 +168,7 @@ class SpotMartingaleCreateParams(object):
     def take_profit_ratio(self, take_profit_ratio):
         """Sets the take_profit_ratio of this SpotMartingaleCreateParams.
 
+        Take-profit ratio per round as a decimal string.  # noqa: E501
 
         :param take_profit_ratio: The take_profit_ratio of this SpotMartingaleCreateParams.  # noqa: E501
         :type: str
@@ -170,25 +179,50 @@ class SpotMartingaleCreateParams(object):
         self._take_profit_ratio = take_profit_ratio
 
     @property
-    def stop_loss_price(self):
-        """Gets the stop_loss_price of this SpotMartingaleCreateParams.  # noqa: E501
+    def stop_loss_per_cycle(self):
+        """Gets the stop_loss_per_cycle of this SpotMartingaleCreateParams.  # noqa: E501
 
+        Stop-loss ratio per round as a decimal string; optional; aligned with app `stop_loss_per_cycle`.  # noqa: E501
 
-        :return: The stop_loss_price of this SpotMartingaleCreateParams.  # noqa: E501
+        :return: The stop_loss_per_cycle of this SpotMartingaleCreateParams.  # noqa: E501
         :rtype: str
         """
-        return self._stop_loss_price
+        return self._stop_loss_per_cycle
 
-    @stop_loss_price.setter
-    def stop_loss_price(self, stop_loss_price):
-        """Sets the stop_loss_price of this SpotMartingaleCreateParams.
+    @stop_loss_per_cycle.setter
+    def stop_loss_per_cycle(self, stop_loss_per_cycle):
+        """Sets the stop_loss_per_cycle of this SpotMartingaleCreateParams.
 
+        Stop-loss ratio per round as a decimal string; optional; aligned with app `stop_loss_per_cycle`.  # noqa: E501
 
-        :param stop_loss_price: The stop_loss_price of this SpotMartingaleCreateParams.  # noqa: E501
+        :param stop_loss_per_cycle: The stop_loss_per_cycle of this SpotMartingaleCreateParams.  # noqa: E501
         :type: str
         """
 
-        self._stop_loss_price = stop_loss_price
+        self._stop_loss_per_cycle = stop_loss_per_cycle
+
+    @property
+    def trigger_price(self):
+        """Gets the trigger_price of this SpotMartingaleCreateParams.  # noqa: E501
+
+        Trigger price; optional.  # noqa: E501
+
+        :return: The trigger_price of this SpotMartingaleCreateParams.  # noqa: E501
+        :rtype: str
+        """
+        return self._trigger_price
+
+    @trigger_price.setter
+    def trigger_price(self, trigger_price):
+        """Sets the trigger_price of this SpotMartingaleCreateParams.
+
+        Trigger price; optional.  # noqa: E501
+
+        :param trigger_price: The trigger_price of this SpotMartingaleCreateParams.  # noqa: E501
+        :type: str
+        """
+
+        self._trigger_price = trigger_price
 
     @property
     def profit_sharing_ratio(self):

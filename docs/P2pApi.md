@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_place_biz_push_order**
-> object p2p_merchant_books_place_biz_push_order(place_biz_push_order)
+> P2pMerchantBooksPlaceBizPushOrderResponse p2p_merchant_books_place_biz_push_order(place_biz_push_order)
 
 Publish ad order
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**P2pMerchantBooksPlaceBizPushOrderResponse**](P2pMerchantBooksPlaceBizPushOrderResponse.md)
 
 ### Authorization
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_books_ads_update_status**
-> P2pAdsUpdateStatusResponse p2p_merchant_books_ads_update_status(ads_update_status, trade_type=trade_type)
+> P2pAdsUpdateStatusResponse p2p_merchant_books_ads_update_status(ads_update_status)
 
 Update ad status
 
@@ -719,11 +719,10 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.P2pApi(api_client)
 ads_update_status = gate_api.AdsUpdateStatus() # AdsUpdateStatus | 
-trade_type = 'sell' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
 
 try:
     # Update ad status
-    api_response = api_instance.p2p_merchant_books_ads_update_status(ads_update_status, trade_type=trade_type)
+    api_response = api_instance.p2p_merchant_books_ads_update_status(ads_update_status)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -736,7 +735,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ads_update_status** | [**AdsUpdateStatus**](AdsUpdateStatus.md)|  | 
- **trade_type** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
 
 ### Return type
 

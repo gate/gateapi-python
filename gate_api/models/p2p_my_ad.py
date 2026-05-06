@@ -247,7 +247,7 @@ class P2pMyAd(object):
     def type(self):
         """Gets the type of this P2pMyAd.  # noqa: E501
 
-        Ad buy/sell direction  # noqa: E501
+        Ad side: `buy` buy-crypto ad; `sell` sell-crypto ad.  # noqa: E501
 
         :return: The type of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -258,7 +258,7 @@ class P2pMyAd(object):
     def type(self, type):
         """Sets the type of this P2pMyAd.
 
-        Ad buy/sell direction  # noqa: E501
+        Ad side: `buy` buy-crypto ad; `sell` sell-crypto ad.  # noqa: E501
 
         :param type: The type of this P2pMyAd.  # noqa: E501
         :type: str
@@ -316,7 +316,7 @@ class P2pMyAd(object):
     def amount(self):
         """Gets the amount of this P2pMyAd.  # noqa: E501
 
-        Remaining cryptocurrency amount of ad  # noqa: E501
+        Remaining crypto amount on the ad.  # noqa: E501
 
         :return: The amount of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -327,7 +327,7 @@ class P2pMyAd(object):
     def amount(self, amount):
         """Sets the amount of this P2pMyAd.
 
-        Remaining cryptocurrency amount of ad  # noqa: E501
+        Remaining crypto amount on the ad.  # noqa: E501
 
         :param amount: The amount of this P2pMyAd.  # noqa: E501
         :type: str
@@ -477,7 +477,7 @@ class P2pMyAd(object):
     def pay_type_json(self):
         """Gets the pay_type_json of this P2pMyAd.  # noqa: E501
 
-        Payment method configuration details  # noqa: E501
+        JSON map of payment type -> payment method ID.  # noqa: E501
 
         :return: The pay_type_json of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -488,7 +488,7 @@ class P2pMyAd(object):
     def pay_type_json(self, pay_type_json):
         """Sets the pay_type_json of this P2pMyAd.
 
-        Payment method configuration details  # noqa: E501
+        JSON map of payment type -> payment method ID.  # noqa: E501
 
         :param pay_type_json: The pay_type_json of this P2pMyAd.  # noqa: E501
         :type: str
@@ -546,7 +546,7 @@ class P2pMyAd(object):
     def advertisers_limit(self):
         """Gets the advertisers_limit of this P2pMyAd.  # noqa: E501
 
-        Whether merchant trading restriction is allowed  # noqa: E501
+        Whether trading with the advertiser is restricted. `0`: no; `1`: yes.  # noqa: E501
 
         :return: The advertisers_limit of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -557,7 +557,7 @@ class P2pMyAd(object):
     def advertisers_limit(self, advertisers_limit):
         """Sets the advertisers_limit of this P2pMyAd.
 
-        Whether merchant trading restriction is allowed  # noqa: E501
+        Whether trading with the advertiser is restricted. `0`: no; `1`: yes.  # noqa: E501
 
         :param advertisers_limit: The advertisers_limit of this P2pMyAd.  # noqa: E501
         :type: int
@@ -730,7 +730,7 @@ class P2pMyAd(object):
     def hide_payment(self):
         """Gets the hide_payment of this P2pMyAd.  # noqa: E501
 
-        Whether to hide payment method  # noqa: E501
+        Whether payment methods are hidden. `1`: hidden; `0`: visible.  # noqa: E501
 
         :return: The hide_payment of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -741,7 +741,7 @@ class P2pMyAd(object):
     def hide_payment(self, hide_payment):
         """Sets the hide_payment of this P2pMyAd.
 
-        Whether to hide payment method  # noqa: E501
+        Whether payment methods are hidden. `1`: hidden; `0`: visible.  # noqa: E501
 
         :param hide_payment: The hide_payment of this P2pMyAd.  # noqa: E501
         :type: str
@@ -753,7 +753,7 @@ class P2pMyAd(object):
     def currency_type(self):
         """Gets the currency_type of this P2pMyAd.  # noqa: E501
 
-        Digital currency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :return: The currency_type of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -764,7 +764,7 @@ class P2pMyAd(object):
     def currency_type(self, currency_type):
         """Sets the currency_type of this P2pMyAd.
 
-        Digital currency  # noqa: E501
+        Cryptocurrency symbol.  # noqa: E501
 
         :param currency_type: The currency_type of this P2pMyAd.  # noqa: E501
         :type: str
@@ -822,7 +822,7 @@ class P2pMyAd(object):
     def new_hand(self):
         """Gets the new_hand of this P2pMyAd.  # noqa: E501
 
-        Special ad type  # noqa: E501
+        Special ad type. `0` normal; `1` newcomer guide; `2` newcomer discount; `3` featured promo; `4` KOL ad; `5` coupon ad.  # noqa: E501
 
         :return: The new_hand of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -833,7 +833,7 @@ class P2pMyAd(object):
     def new_hand(self, new_hand):
         """Sets the new_hand of this P2pMyAd.
 
-        Special ad type  # noqa: E501
+        Special ad type. `0` normal; `1` newcomer guide; `2` newcomer discount; `3` featured promo; `4` KOL ad; `5` coupon ad.  # noqa: E501
 
         :param new_hand: The new_hand of this P2pMyAd.  # noqa: E501
         :type: int
@@ -845,7 +845,7 @@ class P2pMyAd(object):
     def id(self):
         """Gets the id of this P2pMyAd.  # noqa: E501
 
-        Ad ID  # noqa: E501
+        Advertisement ID.  # noqa: E501
 
         :return: The id of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -856,7 +856,7 @@ class P2pMyAd(object):
     def id(self, id):
         """Sets the id of this P2pMyAd.
 
-        Ad ID  # noqa: E501
+        Advertisement ID.  # noqa: E501
 
         :param id: The id of this P2pMyAd.  # noqa: E501
         :type: str
@@ -868,7 +868,7 @@ class P2pMyAd(object):
     def status(self):
         """Gets the status of this P2pMyAd.  # noqa: E501
 
-        Ad status  # noqa: E501
+        Ad status: `OPEN` listed; `OFFLIN` delisted; `CLOSED` closed; `CANCEL` canceled.  # noqa: E501
 
         :return: The status of this P2pMyAd.  # noqa: E501
         :rtype: str
@@ -879,7 +879,7 @@ class P2pMyAd(object):
     def status(self, status):
         """Sets the status of this P2pMyAd.
 
-        Ad status  # noqa: E501
+        Ad status: `OPEN` listed; `OFFLIN` delisted; `CLOSED` closed; `CANCEL` canceled.  # noqa: E501
 
         :param status: The status of this P2pMyAd.  # noqa: E501
         :type: str
@@ -937,7 +937,7 @@ class P2pMyAd(object):
     def is_out_time(self):
         """Gets the is_out_time of this P2pMyAd.  # noqa: E501
 
-        Whether ad is currently expired  # noqa: E501
+        Whether the ad timed out. `1`: timed out; `0`: not yet.  # noqa: E501
 
         :return: The is_out_time of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -948,7 +948,7 @@ class P2pMyAd(object):
     def is_out_time(self, is_out_time):
         """Sets the is_out_time of this P2pMyAd.
 
-        Whether ad is currently expired  # noqa: E501
+        Whether the ad timed out. `1`: timed out; `0`: not yet.  # noqa: E501
 
         :param is_out_time: The is_out_time of this P2pMyAd.  # noqa: E501
         :type: int
@@ -960,7 +960,7 @@ class P2pMyAd(object):
     def rate_ref_id(self):
         """Gets the rate_ref_id of this P2pMyAd.  # noqa: E501
 
-        Floating price reference configuration  # noqa: E501
+        Floating reference: `1` platform; `2` Gate; `3` spot; `<= 0` means fixed price.  # noqa: E501
 
         :return: The rate_ref_id of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -971,7 +971,7 @@ class P2pMyAd(object):
     def rate_ref_id(self, rate_ref_id):
         """Sets the rate_ref_id of this P2pMyAd.
 
-        Floating price reference configuration  # noqa: E501
+        Floating reference: `1` platform; `2` Gate; `3` spot; `<= 0` means fixed price.  # noqa: E501
 
         :param rate_ref_id: The rate_ref_id of this P2pMyAd.  # noqa: E501
         :type: int
@@ -1006,7 +1006,7 @@ class P2pMyAd(object):
     def rate_fixed(self):
         """Gets the rate_fixed of this P2pMyAd.  # noqa: E501
 
-        Reference price type: 0=Floating, 1=Fixed  # noqa: E501
+        Price type: `0` floating; `1` fixed.  # noqa: E501
 
         :return: The rate_fixed of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -1017,7 +1017,7 @@ class P2pMyAd(object):
     def rate_fixed(self, rate_fixed):
         """Sets the rate_fixed of this P2pMyAd.
 
-        Reference price type: 0=Floating, 1=Fixed  # noqa: E501
+        Price type: `0` floating; `1` fixed.  # noqa: E501
 
         :param rate_fixed: The rate_fixed of this P2pMyAd.  # noqa: E501
         :type: int
@@ -1029,7 +1029,7 @@ class P2pMyAd(object):
     def float_trend(self):
         """Gets the float_trend of this P2pMyAd.  # noqa: E501
 
-        Floating order direction  # noqa: E501
+        Floating direction: `0` markup; `1` markdown.  # noqa: E501
 
         :return: The float_trend of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -1040,7 +1040,7 @@ class P2pMyAd(object):
     def float_trend(self, float_trend):
         """Sets the float_trend of this P2pMyAd.
 
-        Floating order direction  # noqa: E501
+        Floating direction: `0` markup; `1` markdown.  # noqa: E501
 
         :param float_trend: The float_trend of this P2pMyAd.  # noqa: E501
         :type: int
@@ -1052,7 +1052,7 @@ class P2pMyAd(object):
     def in_dispute(self):
         """Gets the in_dispute of this P2pMyAd.  # noqa: E501
 
-        Whether ad has disputed transactions  # noqa: E501
+        Whether the ad had a disputed trade. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The in_dispute of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -1063,7 +1063,7 @@ class P2pMyAd(object):
     def in_dispute(self, in_dispute):
         """Sets the in_dispute of this P2pMyAd.
 
-        Whether ad has disputed transactions  # noqa: E501
+        Whether the ad had a disputed trade. `1`: yes; `0`: no.  # noqa: E501
 
         :param in_dispute: The in_dispute of this P2pMyAd.  # noqa: E501
         :type: int
@@ -1121,7 +1121,7 @@ class P2pMyAd(object):
     def is_hedge(self):
         """Gets the is_hedge of this P2pMyAd.  # noqa: E501
 
-        Auto delegation  # noqa: E501
+        Whether auto-delegation is enabled. `1`: yes; `0`: no.  # noqa: E501
 
         :return: The is_hedge of this P2pMyAd.  # noqa: E501
         :rtype: int
@@ -1132,7 +1132,7 @@ class P2pMyAd(object):
     def is_hedge(self, is_hedge):
         """Sets the is_hedge of this P2pMyAd.
 
-        Auto delegation  # noqa: E501
+        Whether auto-delegation is enabled. `1`: yes; `0`: no.  # noqa: E501
 
         :param is_hedge: The is_hedge of this P2pMyAd.  # noqa: E501
         :type: int

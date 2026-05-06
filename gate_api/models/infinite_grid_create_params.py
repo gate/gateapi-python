@@ -80,8 +80,10 @@ class InfiniteGridCreateParams(object):
         self.money = money
         self.price_floor = price_floor
         self.profit_per_grid = profit_per_grid
-        self.grid_num = grid_num
-        self.price_type = price_type
+        if grid_num is not None:
+            self.grid_num = grid_num
+        if price_type is not None:
+            self.price_type = price_type
         if trigger_price is not None:
             self.trigger_price = trigger_price
         if stop_profit is not None:
@@ -170,6 +172,7 @@ class InfiniteGridCreateParams(object):
     def grid_num(self):
         """Gets the grid_num of this InfiniteGridCreateParams.  # noqa: E501
 
+        Optional; may be omitted like in the app.  # noqa: E501
 
         :return: The grid_num of this InfiniteGridCreateParams.  # noqa: E501
         :rtype: int
@@ -180,12 +183,11 @@ class InfiniteGridCreateParams(object):
     def grid_num(self, grid_num):
         """Sets the grid_num of this InfiniteGridCreateParams.
 
+        Optional; may be omitted like in the app.  # noqa: E501
 
         :param grid_num: The grid_num of this InfiniteGridCreateParams.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and grid_num is None:  # noqa: E501
-            raise ValueError("Invalid value for `grid_num`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 grid_num is not None and grid_num < 1):  # noqa: E501
             raise ValueError("Invalid value for `grid_num`, must be a value greater than or equal to `1`")  # noqa: E501
@@ -196,6 +198,7 @@ class InfiniteGridCreateParams(object):
     def price_type(self):
         """Gets the price_type of this InfiniteGridCreateParams.  # noqa: E501
 
+        Optional. `0` arithmetic grid; `1` geometric; omit for server defaults.  # noqa: E501
 
         :return: The price_type of this InfiniteGridCreateParams.  # noqa: E501
         :rtype: int
@@ -206,12 +209,11 @@ class InfiniteGridCreateParams(object):
     def price_type(self, price_type):
         """Sets the price_type of this InfiniteGridCreateParams.
 
+        Optional. `0` arithmetic grid; `1` geometric; omit for server defaults.  # noqa: E501
 
         :param price_type: The price_type of this InfiniteGridCreateParams.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and price_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `price_type`, must not be `None`")  # noqa: E501
         allowed_values = [0, 1]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and price_type not in allowed_values:  # noqa: E501
             raise ValueError(

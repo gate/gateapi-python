@@ -37,9 +37,9 @@ class AIHubPortfolioDetailData(object):
         'strategy_type': 'StrategyType',
         'market': 'str',
         'status': 'str',
-        'base_info': 'dict(str, str)',
-        'metrics': 'dict(str, str)',
-        'position': 'dict(str, str)',
+        'base_info': 'AIHubPortfolioBaseInfo',
+        'metrics': 'AIHubPortfolioMetrics',
+        'position': 'AIHubPortfolioPosition',
         'stop_supported': 'bool'
     }
 
@@ -55,7 +55,7 @@ class AIHubPortfolioDetailData(object):
     }
 
     def __init__(self, strategy_id=None, strategy_type=None, market=None, status=None, base_info=None, metrics=None, position=None, stop_supported=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, str, str, dict(str, str), dict(str, str), dict(str, str), bool, Configuration) -> None
+        # type: (str, StrategyType, str, str, AIHubPortfolioBaseInfo, AIHubPortfolioMetrics, AIHubPortfolioPosition, bool, Configuration) -> None
         """AIHubPortfolioDetailData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -176,10 +176,9 @@ class AIHubPortfolioDetailData(object):
     def base_info(self):
         """Gets the base_info of this AIHubPortfolioDetailData.  # noqa: E501
 
-        Basic information, fields change dynamically according to strategy type  # noqa: E501
 
         :return: The base_info of this AIHubPortfolioDetailData.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: AIHubPortfolioBaseInfo
         """
         return self._base_info
 
@@ -187,10 +186,9 @@ class AIHubPortfolioDetailData(object):
     def base_info(self, base_info):
         """Sets the base_info of this AIHubPortfolioDetailData.
 
-        Basic information, fields change dynamically according to strategy type  # noqa: E501
 
         :param base_info: The base_info of this AIHubPortfolioDetailData.  # noqa: E501
-        :type: dict(str, str)
+        :type: AIHubPortfolioBaseInfo
         """
         if self.local_vars_configuration.client_side_validation and base_info is None:  # noqa: E501
             raise ValueError("Invalid value for `base_info`, must not be `None`")  # noqa: E501
@@ -201,10 +199,9 @@ class AIHubPortfolioDetailData(object):
     def metrics(self):
         """Gets the metrics of this AIHubPortfolioDetailData.  # noqa: E501
 
-        Indicator information, fields change dynamically according to strategy type  # noqa: E501
 
         :return: The metrics of this AIHubPortfolioDetailData.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: AIHubPortfolioMetrics
         """
         return self._metrics
 
@@ -212,10 +209,9 @@ class AIHubPortfolioDetailData(object):
     def metrics(self, metrics):
         """Sets the metrics of this AIHubPortfolioDetailData.
 
-        Indicator information, fields change dynamically according to strategy type  # noqa: E501
 
         :param metrics: The metrics of this AIHubPortfolioDetailData.  # noqa: E501
-        :type: dict(str, str)
+        :type: AIHubPortfolioMetrics
         """
         if self.local_vars_configuration.client_side_validation and metrics is None:  # noqa: E501
             raise ValueError("Invalid value for `metrics`, must not be `None`")  # noqa: E501
@@ -226,10 +222,9 @@ class AIHubPortfolioDetailData(object):
     def position(self):
         """Gets the position of this AIHubPortfolioDetailData.  # noqa: E501
 
-        Position or position information, fields dynamically change according to strategy type  # noqa: E501
 
         :return: The position of this AIHubPortfolioDetailData.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: AIHubPortfolioPosition
         """
         return self._position
 
@@ -237,10 +232,9 @@ class AIHubPortfolioDetailData(object):
     def position(self, position):
         """Sets the position of this AIHubPortfolioDetailData.
 
-        Position or position information, fields dynamically change according to strategy type  # noqa: E501
 
         :param position: The position of this AIHubPortfolioDetailData.  # noqa: E501
-        :type: dict(str, str)
+        :type: AIHubPortfolioPosition
         """
 
         self._position = position

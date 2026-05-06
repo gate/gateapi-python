@@ -108,7 +108,7 @@ class Symbol(object):
     def symbol(self):
         """Gets the symbol of this Symbol.  # noqa: E501
 
-        ExchangeType_BusinessType_Base_Counter  # noqa: E501
+        Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.  # noqa: E501
 
         :return: The symbol of this Symbol.  # noqa: E501
         :rtype: str
@@ -119,7 +119,7 @@ class Symbol(object):
     def symbol(self, symbol):
         """Sets the symbol of this Symbol.
 
-        ExchangeType_BusinessType_Base_Counter  # noqa: E501
+        Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.  # noqa: E501
 
         :param symbol: The symbol of this Symbol.  # noqa: E501
         :type: str
@@ -133,7 +133,7 @@ class Symbol(object):
     def exchange_type(self):
         """Gets the exchange_type of this Symbol.  # noqa: E501
 
-        BINANCE,OKX,GATE,BYBIT,CROSSEX  # noqa: E501
+        Exchange type (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `CROSSEX`).  # noqa: E501
 
         :return: The exchange_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -144,7 +144,7 @@ class Symbol(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this Symbol.
 
-        BINANCE,OKX,GATE,BYBIT,CROSSEX  # noqa: E501
+        Exchange type (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `CROSSEX`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this Symbol.  # noqa: E501
         :type: str
@@ -158,7 +158,7 @@ class Symbol(object):
     def business_type(self):
         """Gets the business_type of this Symbol.  # noqa: E501
 
-        SPOT, FUTURE, MARGIN  # noqa: E501
+        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
 
         :return: The business_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -169,7 +169,7 @@ class Symbol(object):
     def business_type(self, business_type):
         """Sets the business_type of this Symbol.
 
-        SPOT, FUTURE, MARGIN  # noqa: E501
+        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
 
         :param business_type: The business_type of this Symbol.  # noqa: E501
         :type: str
@@ -183,7 +183,7 @@ class Symbol(object):
     def state(self):
         """Gets the state of this Symbol.  # noqa: E501
 
-        live/suspend  # noqa: E501
+        Status (`live` running / `suspend` paused).  # noqa: E501
 
         :return: The state of this Symbol.  # noqa: E501
         :rtype: str
@@ -194,7 +194,7 @@ class Symbol(object):
     def state(self, state):
         """Sets the state of this Symbol.
 
-        live/suspend  # noqa: E501
+        Status (`live` running / `suspend` paused).  # noqa: E501
 
         :param state: The state of this Symbol.  # noqa: E501
         :type: str
@@ -208,7 +208,7 @@ class Symbol(object):
     def min_size(self):
         """Gets the min_size of this Symbol.  # noqa: E501
 
-        Minimum order quantity  # noqa: E501
+        Minimum order size allowed by the contract  # noqa: E501
 
         :return: The min_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -219,7 +219,7 @@ class Symbol(object):
     def min_size(self, min_size):
         """Sets the min_size of this Symbol.
 
-        Minimum order quantity  # noqa: E501
+        Minimum order size allowed by the contract  # noqa: E501
 
         :param min_size: The min_size of this Symbol.  # noqa: E501
         :type: str
@@ -233,7 +233,7 @@ class Symbol(object):
     def min_notional(self):
         """Gets the min_notional of this Symbol.  # noqa: E501
 
-        Minimum order value  # noqa: E501
+        Minimum Order Value  # noqa: E501
 
         :return: The min_notional of this Symbol.  # noqa: E501
         :rtype: str
@@ -244,7 +244,7 @@ class Symbol(object):
     def min_notional(self, min_notional):
         """Sets the min_notional of this Symbol.
 
-        Minimum order value  # noqa: E501
+        Minimum Order Value  # noqa: E501
 
         :param min_notional: The min_notional of this Symbol.  # noqa: E501
         :type: str
@@ -258,7 +258,7 @@ class Symbol(object):
     def lot_size(self):
         """Gets the lot_size of this Symbol.  # noqa: E501
 
-        Quantity step size  # noqa: E501
+        Quantity Step  # noqa: E501
 
         :return: The lot_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -269,7 +269,7 @@ class Symbol(object):
     def lot_size(self, lot_size):
         """Sets the lot_size of this Symbol.
 
-        Quantity step size  # noqa: E501
+        Quantity Step  # noqa: E501
 
         :param lot_size: The lot_size of this Symbol.  # noqa: E501
         :type: str
@@ -283,7 +283,7 @@ class Symbol(object):
     def tick_size(self):
         """Gets the tick_size of this Symbol.  # noqa: E501
 
-        Price step size  # noqa: E501
+        Price Step  # noqa: E501
 
         :return: The tick_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -294,7 +294,7 @@ class Symbol(object):
     def tick_size(self, tick_size):
         """Sets the tick_size of this Symbol.
 
-        Price step size  # noqa: E501
+        Price Step  # noqa: E501
 
         :param tick_size: The tick_size of this Symbol.  # noqa: E501
         :type: str
@@ -308,7 +308,7 @@ class Symbol(object):
     def max_num_orders(self):
         """Gets the max_num_orders of this Symbol.  # noqa: E501
 
-        Maximum number of pending orders  # noqa: E501
+        maximumopen orderamount  # noqa: E501
 
         :return: The max_num_orders of this Symbol.  # noqa: E501
         :rtype: str
@@ -319,7 +319,7 @@ class Symbol(object):
     def max_num_orders(self, max_num_orders):
         """Sets the max_num_orders of this Symbol.
 
-        Maximum number of pending orders  # noqa: E501
+        maximumopen orderamount  # noqa: E501
 
         :param max_num_orders: The max_num_orders of this Symbol.  # noqa: E501
         :type: str
@@ -333,7 +333,7 @@ class Symbol(object):
     def max_market_size(self):
         """Gets the max_market_size of this Symbol.  # noqa: E501
 
-        Maximum order quantity at market price  # noqa: E501
+        Maximum Market Order Quantity  # noqa: E501
 
         :return: The max_market_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -344,7 +344,7 @@ class Symbol(object):
     def max_market_size(self, max_market_size):
         """Sets the max_market_size of this Symbol.
 
-        Maximum order quantity at market price  # noqa: E501
+        Maximum Market Order Quantity  # noqa: E501
 
         :param max_market_size: The max_market_size of this Symbol.  # noqa: E501
         :type: str
@@ -358,7 +358,7 @@ class Symbol(object):
     def max_limit_size(self):
         """Gets the max_limit_size of this Symbol.  # noqa: E501
 
-        Maximum order quantity at limit price  # noqa: E501
+        Maximum order quantity for limit orders.  # noqa: E501
 
         :return: The max_limit_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -369,7 +369,7 @@ class Symbol(object):
     def max_limit_size(self, max_limit_size):
         """Sets the max_limit_size of this Symbol.
 
-        Maximum order quantity at limit price  # noqa: E501
+        Maximum order quantity for limit orders.  # noqa: E501
 
         :param max_limit_size: The max_limit_size of this Symbol.  # noqa: E501
         :type: str
@@ -383,7 +383,7 @@ class Symbol(object):
     def contract_size(self):
         """Gets the contract_size of this Symbol.  # noqa: E501
 
-        contract multiplier  # noqa: E501
+        Contract Multiplier  # noqa: E501
 
         :return: The contract_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -394,7 +394,7 @@ class Symbol(object):
     def contract_size(self, contract_size):
         """Sets the contract_size of this Symbol.
 
-        contract multiplier  # noqa: E501
+        Contract Multiplier  # noqa: E501
 
         :param contract_size: The contract_size of this Symbol.  # noqa: E501
         :type: str
@@ -408,7 +408,7 @@ class Symbol(object):
     def liquidation_fee(self):
         """Gets the liquidation_fee of this Symbol.  # noqa: E501
 
-        Liquidation rate  # noqa: E501
+        Liquidation Fee Rate  # noqa: E501
 
         :return: The liquidation_fee of this Symbol.  # noqa: E501
         :rtype: str
@@ -419,7 +419,7 @@ class Symbol(object):
     def liquidation_fee(self, liquidation_fee):
         """Sets the liquidation_fee of this Symbol.
 
-        Liquidation rate  # noqa: E501
+        Liquidation Fee Rate  # noqa: E501
 
         :param liquidation_fee: The liquidation_fee of this Symbol.  # noqa: E501
         :type: str
@@ -433,7 +433,7 @@ class Symbol(object):
     def delist_time(self):
         """Gets the delist_time of this Symbol.  # noqa: E501
 
-        Millisecond timestamp,0 is normal  # noqa: E501
+        Millisecond timestamp; `0` means not delisted.  # noqa: E501
 
         :return: The delist_time of this Symbol.  # noqa: E501
         :rtype: str
@@ -444,7 +444,7 @@ class Symbol(object):
     def delist_time(self, delist_time):
         """Sets the delist_time of this Symbol.
 
-        Millisecond timestamp,0 is normal  # noqa: E501
+        Millisecond timestamp; `0` means not delisted.  # noqa: E501
 
         :param delist_time: The delist_time of this Symbol.  # noqa: E501
         :type: str

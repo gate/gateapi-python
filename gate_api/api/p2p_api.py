@@ -1080,7 +1080,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: object
+        :rtype: gate_api.P2pMerchantBooksPlaceBizPushOrderResponse
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1106,7 +1106,7 @@ class P2pApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.P2pMerchantBooksPlaceBizPushOrderResponse, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1171,7 +1171,7 @@ class P2pApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='P2pMerchantBooksPlaceBizPushOrderResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1189,7 +1189,6 @@ class P2pApi(object):
 
         :param bool async_req: execute request asynchronously
         :param AdsUpdateStatus ads_update_status: (required)
-        :param str trade_type: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1214,7 +1213,6 @@ class P2pApi(object):
 
         :param bool async_req: execute request asynchronously
         :param AdsUpdateStatus ads_update_status: (required)
-        :param str trade_type: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1232,8 +1230,7 @@ class P2pApi(object):
         local_var_params = locals()
 
         all_params = [
-            'ads_update_status',
-            'trade_type'
+            'ads_update_status'
         ]
         all_params.extend(
             [
@@ -1262,8 +1259,6 @@ class P2pApi(object):
         path_params = {}
 
         query_params = []
-        if 'trade_type' in local_var_params and local_var_params['trade_type'] is not None:  # noqa: E501
-            query_params.append(('trade_type', local_var_params['trade_type']))  # noqa: E501
 
         header_params = {}
 

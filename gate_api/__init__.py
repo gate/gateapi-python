@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.71"
+__version__ = "7.2.78"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -59,8 +59,11 @@ from gate_api.models.ai_hub_create_data import AIHubCreateData
 from gate_api.models.ai_hub_create_success_response import AIHubCreateSuccessResponse
 from gate_api.models.ai_hub_discover_data import AIHubDiscoverData
 from gate_api.models.ai_hub_discover_success_response import AIHubDiscoverSuccessResponse
+from gate_api.models.ai_hub_portfolio_base_info import AIHubPortfolioBaseInfo
 from gate_api.models.ai_hub_portfolio_detail_data import AIHubPortfolioDetailData
 from gate_api.models.ai_hub_portfolio_detail_success_response import AIHubPortfolioDetailSuccessResponse
+from gate_api.models.ai_hub_portfolio_metrics import AIHubPortfolioMetrics
+from gate_api.models.ai_hub_portfolio_position import AIHubPortfolioPosition
 from gate_api.models.ai_hub_portfolio_running_data import AIHubPortfolioRunningData
 from gate_api.models.ai_hub_portfolio_running_item import AIHubPortfolioRunningItem
 from gate_api.models.ai_hub_portfolio_running_success_response import AIHubPortfolioRunningSuccessResponse
@@ -513,6 +516,7 @@ from gate_api.models.p2p_chat_message import P2pChatMessage
 from gate_api.models.p2p_chat_message_payload import P2pChatMessagePayload
 from gate_api.models.p2p_counterparty_user_info import P2pCounterpartyUserInfo
 from gate_api.models.p2p_counterparty_user_info_response import P2pCounterpartyUserInfoResponse
+from gate_api.models.p2p_merchant_books_place_biz_push_order_response import P2pMerchantBooksPlaceBizPushOrderResponse
 from gate_api.models.p2p_merchant_market_info import P2pMerchantMarketInfo
 from gate_api.models.p2p_merchant_user_info import P2pMerchantUserInfo
 from gate_api.models.p2p_merchant_user_info_response import P2pMerchantUserInfoResponse
@@ -527,10 +531,12 @@ from gate_api.models.p2p_send_chat_message_result import P2pSendChatMessageResul
 from gate_api.models.p2p_transaction_action_response import P2pTransactionActionResponse
 from gate_api.models.p2p_transaction_convert_info import P2pTransactionConvertInfo
 from gate_api.models.p2p_transaction_detail import P2pTransactionDetail
+from gate_api.models.p2p_transaction_detail_pay_others import P2pTransactionDetailPayOthers
 from gate_api.models.p2p_transaction_detail_response import P2pTransactionDetailResponse
 from gate_api.models.p2p_transaction_list_item import P2pTransactionListItem
 from gate_api.models.p2p_transaction_list_response import P2pTransactionListResponse
 from gate_api.models.p2p_transaction_list_result import P2pTransactionListResult
+from gate_api.models.p2p_transaction_list_result_pay_others import P2pTransactionListResultPayOthers
 from gate_api.models.p2p_transaction_time_marker import P2pTransactionTimeMarker
 from gate_api.models.p2p_upload_chat_file_response import P2pUploadChatFileResponse
 from gate_api.models.p2p_upload_chat_file_result import P2pUploadChatFileResult

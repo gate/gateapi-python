@@ -1045,7 +1045,7 @@ api_instance = gate_api.WalletApi(api_client)
 currency = 'USDT' # str | Currency
 chain = '' # str | Chain name (optional) (default to '')
 limit = '50' # str | Maximum number returned, up to 100 (optional) (default to '50')
-page = 1 # int | Page number (optional) (default to 1)
+page = 1 # int | page number (optional) (default to 1)
 
 try:
     # Query withdrawal address whitelist
@@ -1064,7 +1064,7 @@ Name | Type | Description  | Notes
  **currency** | **str**| Currency | 
  **chain** | **str**| Chain name | [optional] [default to &#39;&#39;]
  **limit** | **str**| Maximum number returned, up to 100 | [optional] [default to &#39;50&#39;]
- **page** | **int**| Page number | [optional] [default to 1]
+ **page** | **int**| page number | [optional] [default to 1]
 
 ### Return type
 

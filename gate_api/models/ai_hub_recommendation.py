@@ -40,7 +40,7 @@ class AIHubRecommendation(object):
         'backtest_apr': 'str',
         'max_drawdown': 'str',
         'summary': 'str',
-        'strategy_params_preview': 'dict(str, str)'
+        'strategy_params_preview': 'str'
     }
 
     attribute_map = {
@@ -55,7 +55,7 @@ class AIHubRecommendation(object):
     }
 
     def __init__(self, recommendation_id=None, market=None, strategy_type=None, strategy_name=None, backtest_apr=None, max_drawdown=None, summary=None, strategy_params_preview=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, StrategyType, str, str, str, str, dict(str, str), Configuration) -> None
+        # type: (str, str, StrategyType, str, str, str, str, str, Configuration) -> None
         """AIHubRecommendation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -244,10 +244,10 @@ class AIHubRecommendation(object):
     def strategy_params_preview(self):
         """Gets the strategy_params_preview of this AIHubRecommendation.  # noqa: E501
 
-        Recommended parameter preview; dynamic changes by strategy type  # noqa: E501
+        Recommended-parameter preview as JSON text (string-encoded so clients deserialize it consistently). The value is a serialized JSON object whose structure varies by strategy type; callers or upper-layer models must parse it.  # noqa: E501
 
         :return: The strategy_params_preview of this AIHubRecommendation.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: str
         """
         return self._strategy_params_preview
 
@@ -255,10 +255,10 @@ class AIHubRecommendation(object):
     def strategy_params_preview(self, strategy_params_preview):
         """Sets the strategy_params_preview of this AIHubRecommendation.
 
-        Recommended parameter preview; dynamic changes by strategy type  # noqa: E501
+        Recommended-parameter preview as JSON text (string-encoded so clients deserialize it consistently). The value is a serialized JSON object whose structure varies by strategy type; callers or upper-layer models must parse it.  # noqa: E501
 
         :param strategy_params_preview: The strategy_params_preview of this AIHubRecommendation.  # noqa: E501
-        :type: dict(str, str)
+        :type: str
         """
 
         self._strategy_params_preview = strategy_params_preview

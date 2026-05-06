@@ -532,7 +532,7 @@ class Order(object):
     def amount(self):
         """Gets the amount of this Order.  # noqa: E501
 
-        交易数量 `type`为`limit`时，指交易货币，即需要交易的货币，如`BTC_USDT`中指`BTC`。 `type`为`market`时，根据买卖不同指代不同 - `side` : `buy` 指代计价货币，`BTC_USDT`中指`USDT` - `side` : `sell` 指代交易货币，`BTC_USDT`中指`BTC`  # noqa: E501
+        Trade amount When `type` is `limit`, this is the base currency to trade (the currency being bought or sold), e.g. `BTC` in `BTC_USDT`. When `type` is `market`, the meaning depends on the side: - `side`: `buy` refers to the quote currency, e.g. `USDT` in `BTC_USDT` - `side`: `sell` refers to the base currency, e.g. `BTC` in `BTC_USDT`  # noqa: E501
 
         :return: The amount of this Order.  # noqa: E501
         :rtype: str
@@ -543,7 +543,7 @@ class Order(object):
     def amount(self, amount):
         """Sets the amount of this Order.
 
-        交易数量 `type`为`limit`时，指交易货币，即需要交易的货币，如`BTC_USDT`中指`BTC`。 `type`为`market`时，根据买卖不同指代不同 - `side` : `buy` 指代计价货币，`BTC_USDT`中指`USDT` - `side` : `sell` 指代交易货币，`BTC_USDT`中指`BTC`  # noqa: E501
+        Trade amount When `type` is `limit`, this is the base currency to trade (the currency being bought or sold), e.g. `BTC` in `BTC_USDT`. When `type` is `market`, the meaning depends on the side: - `side`: `buy` refers to the quote currency, e.g. `USDT` in `BTC_USDT` - `side`: `sell` refers to the base currency, e.g. `BTC` in `BTC_USDT`  # noqa: E501
 
         :param amount: The amount of this Order.  # noqa: E501
         :type: str
