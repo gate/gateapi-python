@@ -164,6 +164,134 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def list_futures_contracts_all(self, settle, **kwargs):  # noqa: E501
+        """Query all contract information (including delisted)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_futures_contracts_all(settle, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param int limit: Maximum number of records returned in a single list
+        :param int offset: List offset, starting from 0
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.Contract]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_futures_contracts_all_with_http_info(settle, **kwargs)  # noqa: E501
+
+    def list_futures_contracts_all_with_http_info(self, settle, **kwargs):  # noqa: E501
+        """Query all contract information (including delisted)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_futures_contracts_all_with_http_info(settle, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param int limit: Maximum number of records returned in a single list
+        :param int offset: List offset, starting from 0
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.Contract], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'limit',
+            'offset'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_futures_contracts_all" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `list_futures_contracts_all`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_futures_contracts_all`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_futures_contracts_all`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `offset` when calling `list_futures_contracts_all`, must be a value greater than or equal to `0`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/contracts_all', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Contract]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_futures_contract(self, settle, contract, **kwargs):  # noqa: E501
         """Query single contract information  # noqa: E501
 
@@ -4588,6 +4716,7 @@ class FuturesApi(object):
         :param str settle: Settle currency (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param str contract: Contract Identifier; if specified, only cancel pending orders related to this contract
+        :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
         :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
         :param bool exclude_reduce_only: Whether to exclude reduce-only orders
         :param str text: Remark for order cancellation
@@ -4618,6 +4747,7 @@ class FuturesApi(object):
         :param str settle: Settle currency (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param str contract: Contract Identifier; if specified, only cancel pending orders related to this contract
+        :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
         :param str side: Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
         :param bool exclude_reduce_only: Whether to exclude reduce-only orders
         :param str text: Remark for order cancellation
@@ -4641,6 +4771,7 @@ class FuturesApi(object):
             'settle',
             'x_gate_exptime',
             'contract',
+            'action_mode',
             'side',
             'exclude_reduce_only',
             'text'
@@ -4676,6 +4807,8 @@ class FuturesApi(object):
         query_params = []
         if 'contract' in local_var_params and local_var_params['contract'] is not None:  # noqa: E501
             query_params.append(('contract', local_var_params['contract']))  # noqa: E501
+        if 'action_mode' in local_var_params and local_var_params['action_mode'] is not None:  # noqa: E501
+            query_params.append(('action_mode', local_var_params['action_mode']))  # noqa: E501
         if 'side' in local_var_params and local_var_params['side'] is not None:  # noqa: E501
             query_params.append(('side', local_var_params['side']))  # noqa: E501
         if 'exclude_reduce_only' in local_var_params and local_var_params['exclude_reduce_only'] is not None:  # noqa: E501
@@ -5263,6 +5396,7 @@ class FuturesApi(object):
         :param str settle: Settle currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5289,6 +5423,7 @@ class FuturesApi(object):
         :param str settle: Settle currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5308,7 +5443,8 @@ class FuturesApi(object):
         all_params = [
             'settle',
             'order_id',
-            'x_gate_exptime'
+            'x_gate_exptime',
+            'action_mode'
         ]
         all_params.extend(
             [
@@ -5345,6 +5481,8 @@ class FuturesApi(object):
             path_params['order_id'] = local_var_params['order_id']  # noqa: E501
 
         query_params = []
+        if 'action_mode' in local_var_params and local_var_params['action_mode'] is not None:  # noqa: E501
+            query_params.append(('action_mode', local_var_params['action_mode']))  # noqa: E501
 
         header_params = {}
         if 'x_gate_exptime' in local_var_params:
@@ -7806,6 +7944,674 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_chase_order(self, settle, create_chase_order_req, **kwargs):  # noqa: E501
+        """Create a chase order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_chase_order(settle, create_chase_order_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param CreateChaseOrderReq create_chase_order_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CreateChaseOrderResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_chase_order_with_http_info(settle, create_chase_order_req, **kwargs)  # noqa: E501
+
+    def create_chase_order_with_http_info(self, settle, create_chase_order_req, **kwargs):  # noqa: E501
+        """Create a chase order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_chase_order_with_http_info(settle, create_chase_order_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param CreateChaseOrderReq create_chase_order_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CreateChaseOrderResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'create_chase_order_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_chase_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `create_chase_order`")  # noqa: E501
+        # verify the required parameter 'create_chase_order_req' is set
+        if self.api_client.client_side_validation and ('create_chase_order_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_chase_order_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `create_chase_order_req` when calling `create_chase_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_chase_order_req' in local_var_params:
+            body_params = local_var_params['create_chase_order_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/autoorder/v1/chase/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateChaseOrderResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def stop_chase_order(self, settle, stop_chase_order_req, **kwargs):  # noqa: E501
+        """Stop a chase order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.stop_chase_order(settle, stop_chase_order_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param StopChaseOrderReq stop_chase_order_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.StopChaseOrderResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.stop_chase_order_with_http_info(settle, stop_chase_order_req, **kwargs)  # noqa: E501
+
+    def stop_chase_order_with_http_info(self, settle, stop_chase_order_req, **kwargs):  # noqa: E501
+        """Stop a chase order  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.stop_chase_order_with_http_info(settle, stop_chase_order_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param StopChaseOrderReq stop_chase_order_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.StopChaseOrderResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'stop_chase_order_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method stop_chase_order" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `stop_chase_order`")  # noqa: E501
+        # verify the required parameter 'stop_chase_order_req' is set
+        if self.api_client.client_side_validation and ('stop_chase_order_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['stop_chase_order_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `stop_chase_order_req` when calling `stop_chase_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'stop_chase_order_req' in local_var_params:
+            body_params = local_var_params['stop_chase_order_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/autoorder/v1/chase/stop', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='StopChaseOrderResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def stop_all_chase_orders(self, settle, stop_all_chase_orders_req, **kwargs):  # noqa: E501
+        """Stop chase orders in batch  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.stop_all_chase_orders(settle, stop_all_chase_orders_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param StopAllChaseOrdersReq stop_all_chase_orders_req: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.StopAllChaseOrdersResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.stop_all_chase_orders_with_http_info(settle, stop_all_chase_orders_req, **kwargs)  # noqa: E501
+
+    def stop_all_chase_orders_with_http_info(self, settle, stop_all_chase_orders_req, **kwargs):  # noqa: E501
+        """Stop chase orders in batch  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.stop_all_chase_orders_with_http_info(settle, stop_all_chase_orders_req, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param StopAllChaseOrdersReq stop_all_chase_orders_req: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.StopAllChaseOrdersResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'stop_all_chase_orders_req'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method stop_all_chase_orders" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `stop_all_chase_orders`")  # noqa: E501
+        # verify the required parameter 'stop_all_chase_orders_req' is set
+        if self.api_client.client_side_validation and ('stop_all_chase_orders_req' not in local_var_params or  # noqa: E501
+                                                        local_var_params['stop_all_chase_orders_req'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `stop_all_chase_orders_req` when calling `stop_all_chase_orders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'stop_all_chase_orders_req' in local_var_params:
+            body_params = local_var_params['stop_all_chase_orders_req']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/autoorder/v1/chase/stop_all', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='StopAllChaseOrdersResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_chase_orders(self, settle, sort_by, **kwargs):  # noqa: E501
+        """List chase orders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_chase_orders(settle, sort_by, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param int sort_by: Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
+        :param str contract: Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
+        :param bool is_finished: true to query finished orders, false to query in-progress orders
+        :param int start_at: Lower time bound for the history list, paired with end_at. Required when is_finished is true
+        :param int end_at: Upper time bound for the history list, paired with start_at. Required when is_finished is true
+        :param int page_num: Page number, starting from 1
+        :param int page_size: Page size; must be between 1 and 100
+        :param bool hide_cancel: When true, cancelled orders are hidden in the list
+        :param int reduce_only: OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag
+        :param int side: Filter by long/short side: 1 long, 2 short
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.GetChaseOrdersResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_chase_orders_with_http_info(settle, sort_by, **kwargs)  # noqa: E501
+
+    def get_chase_orders_with_http_info(self, settle, sort_by, **kwargs):  # noqa: E501
+        """List chase orders  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_chase_orders_with_http_info(settle, sort_by, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param int sort_by: Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
+        :param str contract: Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
+        :param bool is_finished: true to query finished orders, false to query in-progress orders
+        :param int start_at: Lower time bound for the history list, paired with end_at. Required when is_finished is true
+        :param int end_at: Upper time bound for the history list, paired with start_at. Required when is_finished is true
+        :param int page_num: Page number, starting from 1
+        :param int page_size: Page size; must be between 1 and 100
+        :param bool hide_cancel: When true, cancelled orders are hidden in the list
+        :param int reduce_only: OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag
+        :param int side: Filter by long/short side: 1 long, 2 short
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.GetChaseOrdersResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'sort_by',
+            'contract',
+            'is_finished',
+            'start_at',
+            'end_at',
+            'page_num',
+            'page_size',
+            'hide_cancel',
+            'reduce_only',
+            'side'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_chase_orders" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `get_chase_orders`")  # noqa: E501
+        # verify the required parameter 'sort_by' is set
+        if self.api_client.client_side_validation and ('sort_by' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sort_by'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sort_by` when calling `get_chase_orders`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_num' in local_var_params and local_var_params['page_num'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_num` when calling `get_chase_orders`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_chase_orders`, must be a value less than or equal to `100`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_chase_orders`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+        if 'contract' in local_var_params and local_var_params['contract'] is not None:  # noqa: E501
+            query_params.append(('contract', local_var_params['contract']))  # noqa: E501
+        if 'is_finished' in local_var_params and local_var_params['is_finished'] is not None:  # noqa: E501
+            query_params.append(('is_finished', local_var_params['is_finished']))  # noqa: E501
+        if 'start_at' in local_var_params and local_var_params['start_at'] is not None:  # noqa: E501
+            query_params.append(('start_at', local_var_params['start_at']))  # noqa: E501
+        if 'end_at' in local_var_params and local_var_params['end_at'] is not None:  # noqa: E501
+            query_params.append(('end_at', local_var_params['end_at']))  # noqa: E501
+        if 'page_num' in local_var_params and local_var_params['page_num'] is not None:  # noqa: E501
+            query_params.append(('page_num', local_var_params['page_num']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
+        if 'sort_by' in local_var_params and local_var_params['sort_by'] is not None:  # noqa: E501
+            query_params.append(('sort_by', local_var_params['sort_by']))  # noqa: E501
+        if 'hide_cancel' in local_var_params and local_var_params['hide_cancel'] is not None:  # noqa: E501
+            query_params.append(('hide_cancel', local_var_params['hide_cancel']))  # noqa: E501
+        if 'reduce_only' in local_var_params and local_var_params['reduce_only'] is not None:  # noqa: E501
+            query_params.append(('reduce_only', local_var_params['reduce_only']))  # noqa: E501
+        if 'side' in local_var_params and local_var_params['side'] is not None:  # noqa: E501
+            query_params.append(('side', local_var_params['side']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/autoorder/v1/chase/list', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetChaseOrdersResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_chase_order_detail(self, settle, id, **kwargs):  # noqa: E501
+        """Get chase order detail  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_chase_order_detail(settle, id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str id: Order ID, must be a non-zero positive integer (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.GetChaseOrderDetailResp
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_chase_order_detail_with_http_info(settle, id, **kwargs)  # noqa: E501
+
+    def get_chase_order_detail_with_http_info(self, settle, id, **kwargs):  # noqa: E501
+        """Get chase order detail  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_chase_order_detail_with_http_info(settle, id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Settle currency (required)
+        :param str id: Order ID, must be a non-zero positive integer (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.GetChaseOrderDetailResp, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_chase_order_detail" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `get_chase_order_detail`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_chase_order_detail`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+        if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/autoorder/v1/chase/detail', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetChaseOrderDetailResp',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_price_triggered_orders(self, settle, status, **kwargs):  # noqa: E501
         """Query auto order list  # noqa: E501
 
@@ -8432,17 +9238,16 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_price_triggered_order(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
+    def update_price_triggered_order(self, settle, futures_update_price_triggered_order, **kwargs):  # noqa: E501
         """Modify a Single Auto Order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_price_triggered_order(settle, order_id, futures_update_price_triggered_order, async_req=True)
+        >>> thread = api.update_price_triggered_order(settle, futures_update_price_triggered_order, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param int order_id: ID returned when order is successfully created (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8456,19 +9261,18 @@ class FuturesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_price_triggered_order_with_http_info(settle, order_id, futures_update_price_triggered_order, **kwargs)  # noqa: E501
+        return self.update_price_triggered_order_with_http_info(settle, futures_update_price_triggered_order, **kwargs)  # noqa: E501
 
-    def update_price_triggered_order_with_http_info(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
+    def update_price_triggered_order_with_http_info(self, settle, futures_update_price_triggered_order, **kwargs):  # noqa: E501
         """Modify a Single Auto Order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_price_triggered_order_with_http_info(settle, order_id, futures_update_price_triggered_order, async_req=True)
+        >>> thread = api.update_price_triggered_order_with_http_info(settle, futures_update_price_triggered_order, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
-        :param int order_id: ID returned when order is successfully created (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8488,7 +9292,6 @@ class FuturesApi(object):
 
         all_params = [
             'settle',
-            'order_id',
             'futures_update_price_triggered_order'
         ]
         all_params.extend(
@@ -8512,10 +9315,6 @@ class FuturesApi(object):
         if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
                                                         local_var_params['settle'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `settle` when calling `update_price_triggered_order`")  # noqa: E501
-        # verify the required parameter 'order_id' is set
-        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['order_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `order_id` when calling `update_price_triggered_order`")  # noqa: E501
         # verify the required parameter 'futures_update_price_triggered_order' is set
         if self.api_client.client_side_validation and ('futures_update_price_triggered_order' not in local_var_params or  # noqa: E501
                                                         local_var_params['futures_update_price_triggered_order'] is None):  # noqa: E501
@@ -8526,8 +9325,6 @@ class FuturesApi(object):
         path_params = {}
         if 'settle' in local_var_params:
             path_params['settle'] = local_var_params['settle']  # noqa: E501
-        if 'order_id' in local_var_params:
-            path_params['order_id'] = local_var_params['order_id']  # noqa: E501
 
         query_params = []
 
@@ -8551,7 +9348,7 @@ class FuturesApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/futures/{settle}/price_orders/amend/{order_id}', 'PUT',
+            '/futures/{settle}/price_orders/amend', 'PUT',
             path_params,
             query_params,
             header_params,

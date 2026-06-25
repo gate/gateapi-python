@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rebate_amount** | **str** | 返佣金额，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
-**trade_volume** | **str** | 交易量，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
-**net_fee** | **str** | 净手续费，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
+**rebate_amount** | **str** | Rebate amount as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
+**trade_volume** | **str** | Trading volume as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
+**net_fee** | **str** | Net fee as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
 **customer_count** | **int** | Customer count (invited users) | 
-**trading_user_count** | **str** | 交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type&#x3D;0（全部）时返回具体数值，其他业务类型返回 null | 
+**trading_user_count** | **str** | Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type&#x3D;0(all), and returns nullfor other business types. | 
 **time_range_desc** | **str** | Time range description | 
 **business_type** | **int** | Business Type | 
 **business_type_desc** | **str** | Business type description; allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi | 

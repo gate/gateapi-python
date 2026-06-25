@@ -1,6 +1,6 @@
 # SpotMartingaleCreateParams
 
-现货马丁策略的创建参数（对应 `MartingaleBot` 序列化字段）。  - **止损**：使用 `stop_loss_per_cycle`（每轮止损比例），与 App 一致；**不使用** `stop_loss_price`。 - 可选 **`trigger_price`**：触发价。 - `stop_loss_per_cycle` 若传入且大于 0，服务端校验区间约为 `0.001`～`0.9999`（与 `check_martingale` 一致）。
+Spot martingale creation parameters (serialized fields aligned with `MartingaleBot`). - **Stop-loss**: use `stop_loss_per_cycle` (ratio per round), same as the app; **do not** use `stop_loss_price`. - Optional **`trigger_price`**: trigger price. - If `stop_loss_per_cycle` is passed and > 0, the server validates roughly between `0.001` and `0.9999` (same as `check_martingale`).
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

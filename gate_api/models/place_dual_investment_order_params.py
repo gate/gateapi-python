@@ -90,7 +90,7 @@ class PlaceDualInvestmentOrderParams(object):
     def amount(self):
         """Gets the amount of this PlaceDualInvestmentOrderParams.  # noqa: E501
 
-        Subscription amount, mutually exclusive with copies field  # noqa: E501
+        Subscription amount  # noqa: E501
 
         :return: The amount of this PlaceDualInvestmentOrderParams.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class PlaceDualInvestmentOrderParams(object):
     def amount(self, amount):
         """Sets the amount of this PlaceDualInvestmentOrderParams.
 
-        Subscription amount, mutually exclusive with copies field  # noqa: E501
+        Subscription amount  # noqa: E501
 
         :param amount: The amount of this PlaceDualInvestmentOrderParams.  # noqa: E501
         :type: str

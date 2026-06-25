@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**list_sub_account_margin_balances**](WalletApi.md#list_sub_account_margin_balances) | **GET** /wallet/sub_account_margin_balances | Query sub-account isolated margin account balance information
 [**list_sub_account_futures_balances**](WalletApi.md#list_sub_account_futures_balances) | **GET** /wallet/sub_account_futures_balances | Query sub-account perpetual futures account balance information
 [**list_sub_account_cross_margin_balances**](WalletApi.md#list_sub_account_cross_margin_balances) | **GET** /wallet/sub_account_cross_margin_balances | Query sub-account cross margin account balance information
-[**list_saved_address**](WalletApi.md#list_saved_address) | **GET** /wallet/saved_address | Query withdrawal address whitelist
+[**list_saved_address**](WalletApi.md#list_saved_address) | **GET** /wallet/saved_address | Query saved address
 [**get_trade_fee**](WalletApi.md#get_trade_fee) | **GET** /wallet/fee | Query personal trading fees
 [**get_total_balance**](WalletApi.md#get_total_balance) | **GET** /wallet/total_balance | Query personal account totals
 [**list_small_balance**](WalletApi.md#list_small_balance) | **GET** /wallet/small_balance | Get list of convertible small balance currencies
@@ -1014,9 +1014,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_saved_address**
-> list[SavedAddress] list_saved_address(currency, chain=chain, limit=limit, page=page)
+> list[SavedAddress] list_saved_address(currency=currency, chain=chain, verified=verified, limit=limit, page=page)
 
-Query withdrawal address whitelist
+Query saved address
 
 ### Example
 
@@ -1042,14 +1042,15 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.WalletApi(api_client)
-currency = 'USDT' # str | Currency
+currency = 'USDT' # str | Currency (optional)
 chain = '' # str | Chain name (optional) (default to '')
+verified = '' # str | 1 means verified address, 0 means normal address, empty string means no limit (optional) (default to '')
 limit = '50' # str | Maximum number returned, up to 100 (optional) (default to '50')
 page = 1 # int | page number (optional) (default to 1)
 
 try:
-    # Query withdrawal address whitelist
-    api_response = api_instance.list_saved_address(currency, chain=chain, limit=limit, page=page)
+    # Query saved address
+    api_response = api_instance.list_saved_address(currency=currency, chain=chain, verified=verified, limit=limit, page=page)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1061,8 +1062,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| Currency | 
+ **currency** | **str**| Currency | [optional] 
  **chain** | **str**| Chain name | [optional] [default to &#39;&#39;]
+ **verified** | **str**| 1 means verified address, 0 means normal address, empty string means no limit | [optional] [default to &#39;&#39;]
  **limit** | **str**| Maximum number returned, up to 100 | [optional] [default to &#39;50&#39;]
  **page** | **int**| page number | [optional] [default to 1]
 

@@ -62,7 +62,9 @@ class FuturesOrderTimerange(object):
         'amend_text': 'str',
         'pid': 'int',
         'market_order_slip_ratio': 'str',
-        'pos_margin_mode': 'str'
+        'pos_margin_mode': 'str',
+        'tpsl_tp_trigger_price': 'str',
+        'tpsl_sl_trigger_price': 'str'
     }
 
     attribute_map = {
@@ -95,11 +97,13 @@ class FuturesOrderTimerange(object):
         'amend_text': 'amend_text',
         'pid': 'pid',
         'market_order_slip_ratio': 'market_order_slip_ratio',
-        'pos_margin_mode': 'pos_margin_mode'
+        'pos_margin_mode': 'pos_margin_mode',
+        'tpsl_tp_trigger_price': 'tpsl_tp_trigger_price',
+        'tpsl_sl_trigger_price': 'tpsl_sl_trigger_price'
     }
 
-    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, market_order_slip_ratio=None, pos_margin_mode=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, float, str, str, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, Configuration) -> None
+    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, market_order_slip_ratio=None, pos_margin_mode=None, tpsl_tp_trigger_price=None, tpsl_sl_trigger_price=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, float, str, str, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, str, str, Configuration) -> None
         """FuturesOrderTimerange - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,6 +139,8 @@ class FuturesOrderTimerange(object):
         self._pid = None
         self._market_order_slip_ratio = None
         self._pos_margin_mode = None
+        self._tpsl_tp_trigger_price = None
+        self._tpsl_sl_trigger_price = None
         self.discriminator = None
 
         if id is not None:
@@ -194,6 +200,10 @@ class FuturesOrderTimerange(object):
             self.market_order_slip_ratio = market_order_slip_ratio
         if pos_margin_mode is not None:
             self.pos_margin_mode = pos_margin_mode
+        if tpsl_tp_trigger_price is not None:
+            self.tpsl_tp_trigger_price = tpsl_tp_trigger_price
+        if tpsl_sl_trigger_price is not None:
+            self.tpsl_sl_trigger_price = tpsl_sl_trigger_price
 
     @property
     def id(self):
@@ -920,6 +930,52 @@ class FuturesOrderTimerange(object):
         """
 
         self._pos_margin_mode = pos_margin_mode
+
+    @property
+    def tpsl_tp_trigger_price(self):
+        """Gets the tpsl_tp_trigger_price of this FuturesOrderTimerange.  # noqa: E501
+
+        Take profit price  # noqa: E501
+
+        :return: The tpsl_tp_trigger_price of this FuturesOrderTimerange.  # noqa: E501
+        :rtype: str
+        """
+        return self._tpsl_tp_trigger_price
+
+    @tpsl_tp_trigger_price.setter
+    def tpsl_tp_trigger_price(self, tpsl_tp_trigger_price):
+        """Sets the tpsl_tp_trigger_price of this FuturesOrderTimerange.
+
+        Take profit price  # noqa: E501
+
+        :param tpsl_tp_trigger_price: The tpsl_tp_trigger_price of this FuturesOrderTimerange.  # noqa: E501
+        :type: str
+        """
+
+        self._tpsl_tp_trigger_price = tpsl_tp_trigger_price
+
+    @property
+    def tpsl_sl_trigger_price(self):
+        """Gets the tpsl_sl_trigger_price of this FuturesOrderTimerange.  # noqa: E501
+
+        Stop loss price  # noqa: E501
+
+        :return: The tpsl_sl_trigger_price of this FuturesOrderTimerange.  # noqa: E501
+        :rtype: str
+        """
+        return self._tpsl_sl_trigger_price
+
+    @tpsl_sl_trigger_price.setter
+    def tpsl_sl_trigger_price(self, tpsl_sl_trigger_price):
+        """Sets the tpsl_sl_trigger_price of this FuturesOrderTimerange.
+
+        Stop loss price  # noqa: E501
+
+        :param tpsl_sl_trigger_price: The tpsl_sl_trigger_price of this FuturesOrderTimerange.  # noqa: E501
+        :type: str
+        """
+
+        self._tpsl_sl_trigger_price = tpsl_sl_trigger_price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,6 +36,9 @@ class Position(object):
         'user': 'int',
         'contract': 'str',
         'size': 'str',
+        'hedge_status': 'str',
+        'hedged_size': 'str',
+        'unhedged_size': 'str',
         'leverage': 'str',
         'risk_limit': 'str',
         'leverage_max': 'str',
@@ -75,6 +78,9 @@ class Position(object):
         'user': 'user',
         'contract': 'contract',
         'size': 'size',
+        'hedge_status': 'hedge_status',
+        'hedged_size': 'hedged_size',
+        'unhedged_size': 'unhedged_size',
         'leverage': 'leverage',
         'risk_limit': 'risk_limit',
         'leverage_max': 'leverage_max',
@@ -110,8 +116,8 @@ class Position(object):
         'lever': 'lever'
     }
 
-    def __init__(self, user=None, contract=None, size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, pid=None, pos_margin_mode=None, lever=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, str, str, Configuration) -> None
+    def __init__(self, user=None, contract=None, size=None, hedge_status=None, hedged_size=None, unhedged_size=None, leverage=None, risk_limit=None, leverage_max=None, maintenance_rate=None, value=None, margin=None, entry_price=None, liq_price=None, mark_price=None, initial_margin=None, maintenance_margin=None, unrealised_pnl=None, realised_pnl=None, pnl_pnl=None, pnl_fund=None, pnl_fee=None, history_pnl=None, last_close_pnl=None, realised_point=None, history_point=None, adl_ranking=None, pending_orders=None, close_order=None, mode=None, cross_leverage_limit=None, update_time=None, update_id=None, open_time=None, risk_limit_table=None, average_maintenance_rate=None, pid=None, pos_margin_mode=None, lever=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, int, PositionCloseOrder, str, str, int, int, int, str, str, int, str, str, Configuration) -> None
         """Position - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -120,6 +126,9 @@ class Position(object):
         self._user = None
         self._contract = None
         self._size = None
+        self._hedge_status = None
+        self._hedged_size = None
+        self._unhedged_size = None
         self._leverage = None
         self._risk_limit = None
         self._leverage_max = None
@@ -161,6 +170,12 @@ class Position(object):
             self.contract = contract
         if size is not None:
             self.size = size
+        if hedge_status is not None:
+            self.hedge_status = hedge_status
+        if hedged_size is not None:
+            self.hedged_size = hedged_size
+        if unhedged_size is not None:
+            self.unhedged_size = unhedged_size
         if leverage is not None:
             self.leverage = leverage
         if risk_limit is not None:
@@ -295,6 +310,81 @@ class Position(object):
         """
 
         self._size = size
+
+    @property
+    def hedge_status(self):
+        """Gets the hedge_status of this Position.  # noqa: E501
+
+        The hedging status of the position under the Delta-neutral strategy. Including:  - `partial_hedged`: partially hedged - `full_hedged`: fully hedged  # noqa: E501
+
+        :return: The hedge_status of this Position.  # noqa: E501
+        :rtype: str
+        """
+        return self._hedge_status
+
+    @hedge_status.setter
+    def hedge_status(self, hedge_status):
+        """Sets the hedge_status of this Position.
+
+        The hedging status of the position under the Delta-neutral strategy. Including:  - `partial_hedged`: partially hedged - `full_hedged`: fully hedged  # noqa: E501
+
+        :param hedge_status: The hedge_status of this Position.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["partial_hedged", "full_hedged"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and hedge_status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hedge_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(hedge_status, allowed_values)
+            )
+
+        self._hedge_status = hedge_status
+
+    @property
+    def hedged_size(self):
+        """Gets the hedged_size of this Position.  # noqa: E501
+
+        The hedged position size under the Delta-neutral strategy.  # noqa: E501
+
+        :return: The hedged_size of this Position.  # noqa: E501
+        :rtype: str
+        """
+        return self._hedged_size
+
+    @hedged_size.setter
+    def hedged_size(self, hedged_size):
+        """Sets the hedged_size of this Position.
+
+        The hedged position size under the Delta-neutral strategy.  # noqa: E501
+
+        :param hedged_size: The hedged_size of this Position.  # noqa: E501
+        :type: str
+        """
+
+        self._hedged_size = hedged_size
+
+    @property
+    def unhedged_size(self):
+        """Gets the unhedged_size of this Position.  # noqa: E501
+
+        The unhedged position size under the Delta-neutral strategy, calculated as `max(abs(size) - abs(hedged_size), 0)`.  # noqa: E501
+
+        :return: The unhedged_size of this Position.  # noqa: E501
+        :rtype: str
+        """
+        return self._unhedged_size
+
+    @unhedged_size.setter
+    def unhedged_size(self, unhedged_size):
+        """Sets the unhedged_size of this Position.
+
+        The unhedged position size under the Delta-neutral strategy, calculated as `max(abs(size) - abs(hedged_size), 0)`.  # noqa: E501
+
+        :param unhedged_size: The unhedged_size of this Position.  # noqa: E501
+        :type: str
+        """
+
+        self._unhedged_size = unhedged_size
 
     @property
     def leverage(self):

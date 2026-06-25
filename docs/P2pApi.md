@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**p2p_merchant_account_get_user_info**](P2pApi.md#p2p_merchant_account_get_user_info) | **POST** /p2p/merchant/account/get_user_info | Get account information
 [**p2p_merchant_account_get_counterparty_user_info**](P2pApi.md#p2p_merchant_account_get_counterparty_user_info) | **POST** /p2p/merchant/account/get_counterparty_user_info | Get counterparty information
 [**p2p_merchant_account_get_myself_payment**](P2pApi.md#p2p_merchant_account_get_myself_payment) | **POST** /p2p/merchant/account/get_myself_payment | Get payment method list
+[**p2p_merchant_account_set_merchant_work_hours**](P2pApi.md#p2p_merchant_account_set_merchant_work_hours) | **POST** /p2p/merchant/account/set_merchant_work_hours | Set merchant working status and custom working hours
 [**p2p_merchant_transaction_get_pending_transaction_list**](P2pApi.md#p2p_merchant_transaction_get_pending_transaction_list) | **POST** /p2p/merchant/transaction/get_pending_transaction_list | Get pending orders
 [**p2p_merchant_transaction_get_completed_transaction_list**](P2pApi.md#p2p_merchant_transaction_get_completed_transaction_list) | **POST** /p2p/merchant/transaction/get_completed_transaction_list | Get all/historical orders
 [**p2p_merchant_transaction_get_transaction_details**](P2pApi.md#p2p_merchant_transaction_get_transaction_details) | **POST** /p2p/merchant/transaction/get_transaction_details | Query order details
@@ -203,6 +204,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**P2pPaymentMethodsResponse**](P2pPaymentMethodsResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **p2p_merchant_account_set_merchant_work_hours**
+> P2pMerchantWorkHoursResponse p2p_merchant_account_set_merchant_work_hours(set_merchant_work_hours_request)
+
+Set merchant working status and custom working hours
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.P2pApi(api_client)
+set_merchant_work_hours_request = gate_api.SetMerchantWorkHoursRequest() # SetMerchantWorkHoursRequest | 
+
+try:
+    # Set merchant working status and custom working hours
+    api_response = api_instance.p2p_merchant_account_set_merchant_work_hours(set_merchant_work_hours_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling P2pApi->p2p_merchant_account_set_merchant_work_hours: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **set_merchant_work_hours_request** | [**SetMerchantWorkHoursRequest**](SetMerchantWorkHoursRequest.md)|  | 
+
+### Return type
+
+[**P2pMerchantWorkHoursResponse**](P2pMerchantWorkHoursResponse.md)
 
 ### Authorization
 
@@ -627,6 +695,8 @@ Name | Type | Description  | Notes
 
 Publish ad order
 
+When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.
+
 ### Example
 
 * Api Key Authentication (apiv4):
@@ -1030,6 +1100,8 @@ Name | Type | Description  | Notes
 > P2pSendChatMessageResponse p2p_merchant_chat_send_chat_message(send_chat_message_request)
 
 Send text message
+
+Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type=1 and toast_msg.
 
 ### Example
 

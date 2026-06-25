@@ -42,6 +42,7 @@ class OtcOrderDetail(object):
         'crypto_amount': 'str',
         'rate': 'str',
         'transfer_remark': 'str',
+        'reference_code': 'str',
         'status': 'str',
         'db_status': 'str',
         'create_time': 'str',
@@ -61,6 +62,7 @@ class OtcOrderDetail(object):
         'crypto_amount': 'crypto_amount',
         'rate': 'rate',
         'transfer_remark': 'transfer_remark',
+        'reference_code': 'reference_code',
         'status': 'status',
         'db_status': 'db_status',
         'create_time': 'create_time',
@@ -70,8 +72,8 @@ class OtcOrderDetail(object):
         'trade_no': 'trade_no'
     }
 
-    def __init__(self, order_id=None, uid=None, type=None, fiat_currency=None, fiat_amount=None, crypto_currency=None, crypto_amount=None, rate=None, transfer_remark=None, status=None, db_status=None, create_time=None, memo=None, side=None, promotion_code=None, trade_no=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, order_id=None, uid=None, type=None, fiat_currency=None, fiat_amount=None, crypto_currency=None, crypto_amount=None, rate=None, transfer_remark=None, reference_code=None, status=None, db_status=None, create_time=None, memo=None, side=None, promotion_code=None, trade_no=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """OtcOrderDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class OtcOrderDetail(object):
         self._crypto_amount = None
         self._rate = None
         self._transfer_remark = None
+        self._reference_code = None
         self._status = None
         self._db_status = None
         self._create_time = None
@@ -104,6 +107,8 @@ class OtcOrderDetail(object):
         self.crypto_amount = crypto_amount
         self.rate = rate
         self.transfer_remark = transfer_remark
+        if reference_code is not None:
+            self.reference_code = reference_code
         self.status = status
         self.db_status = db_status
         self.create_time = create_time
@@ -316,7 +321,7 @@ class OtcOrderDetail(object):
     def transfer_remark(self):
         """Gets the transfer_remark of this OtcOrderDetail.  # noqa: E501
 
-        Remark  # noqa: E501
+        Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)  # noqa: E501
 
         :return: The transfer_remark of this OtcOrderDetail.  # noqa: E501
         :rtype: str
@@ -327,7 +332,7 @@ class OtcOrderDetail(object):
     def transfer_remark(self, transfer_remark):
         """Sets the transfer_remark of this OtcOrderDetail.
 
-        Remark  # noqa: E501
+        Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)  # noqa: E501
 
         :param transfer_remark: The transfer_remark of this OtcOrderDetail.  # noqa: E501
         :type: str
@@ -336,6 +341,29 @@ class OtcOrderDetail(object):
             raise ValueError("Invalid value for `transfer_remark`, must not be `None`")  # noqa: E501
 
         self._transfer_remark = transfer_remark
+
+    @property
+    def reference_code(self):
+        """Gets the reference_code of this OtcOrderDetail.  # noqa: E501
+
+        Unique bank transfer reference code for deposit buy orders (SGB deposit scenario; mutually exclusive with transfer_remark)  # noqa: E501
+
+        :return: The reference_code of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._reference_code
+
+    @reference_code.setter
+    def reference_code(self, reference_code):
+        """Sets the reference_code of this OtcOrderDetail.
+
+        Unique bank transfer reference code for deposit buy orders (SGB deposit scenario; mutually exclusive with transfer_remark)  # noqa: E501
+
+        :param reference_code: The reference_code of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._reference_code = reference_code
 
     @property
     def status(self):

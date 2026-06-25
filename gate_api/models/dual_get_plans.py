@@ -39,10 +39,8 @@ class DualGetPlans(object):
         'exercise_currency': 'str',
         'exercise_price': 'float',
         'delivery_time': 'int',
-        'min_copies': 'int',
-        'max_copies': 'int',
-        'per_value': 'str',
         'apy_display': 'str',
+        'min_amount': 'str',
         'start_time': 'int',
         'end_time': 'int',
         'status': 'str'
@@ -55,17 +53,15 @@ class DualGetPlans(object):
         'exercise_currency': 'exercise_currency',
         'exercise_price': 'exercise_price',
         'delivery_time': 'delivery_time',
-        'min_copies': 'min_copies',
-        'max_copies': 'max_copies',
-        'per_value': 'per_value',
         'apy_display': 'apy_display',
+        'min_amount': 'min_amount',
         'start_time': 'start_time',
         'end_time': 'end_time',
         'status': 'status'
     }
 
-    def __init__(self, id=None, instrument_name=None, invest_currency=None, exercise_currency=None, exercise_price=None, delivery_time=None, min_copies=None, max_copies=None, per_value=None, apy_display=None, start_time=None, end_time=None, status=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, float, int, int, int, str, str, int, int, str, Configuration) -> None
+    def __init__(self, id=None, instrument_name=None, invest_currency=None, exercise_currency=None, exercise_price=None, delivery_time=None, apy_display=None, min_amount=None, start_time=None, end_time=None, status=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, float, int, str, str, int, int, str, Configuration) -> None
         """DualGetPlans - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,10 +73,8 @@ class DualGetPlans(object):
         self._exercise_currency = None
         self._exercise_price = None
         self._delivery_time = None
-        self._min_copies = None
-        self._max_copies = None
-        self._per_value = None
         self._apy_display = None
+        self._min_amount = None
         self._start_time = None
         self._end_time = None
         self._status = None
@@ -98,14 +92,10 @@ class DualGetPlans(object):
             self.exercise_price = exercise_price
         if delivery_time is not None:
             self.delivery_time = delivery_time
-        if min_copies is not None:
-            self.min_copies = min_copies
-        if max_copies is not None:
-            self.max_copies = max_copies
-        if per_value is not None:
-            self.per_value = per_value
         if apy_display is not None:
             self.apy_display = apy_display
+        if min_amount is not None:
+            self.min_amount = min_amount
         if start_time is not None:
             self.start_time = start_time
         if end_time is not None:
@@ -252,75 +242,6 @@ class DualGetPlans(object):
         self._delivery_time = delivery_time
 
     @property
-    def min_copies(self):
-        """Gets the min_copies of this DualGetPlans.  # noqa: E501
-
-        Minimum share count  # noqa: E501
-
-        :return: The min_copies of this DualGetPlans.  # noqa: E501
-        :rtype: int
-        """
-        return self._min_copies
-
-    @min_copies.setter
-    def min_copies(self, min_copies):
-        """Sets the min_copies of this DualGetPlans.
-
-        Minimum share count  # noqa: E501
-
-        :param min_copies: The min_copies of this DualGetPlans.  # noqa: E501
-        :type: int
-        """
-
-        self._min_copies = min_copies
-
-    @property
-    def max_copies(self):
-        """Gets the max_copies of this DualGetPlans.  # noqa: E501
-
-        Maximum share count  # noqa: E501
-
-        :return: The max_copies of this DualGetPlans.  # noqa: E501
-        :rtype: int
-        """
-        return self._max_copies
-
-    @max_copies.setter
-    def max_copies(self, max_copies):
-        """Sets the max_copies of this DualGetPlans.
-
-        Maximum share count  # noqa: E501
-
-        :param max_copies: The max_copies of this DualGetPlans.  # noqa: E501
-        :type: int
-        """
-
-        self._max_copies = max_copies
-
-    @property
-    def per_value(self):
-        """Gets the per_value of this DualGetPlans.  # noqa: E501
-
-        Value Per Unit (deprecated)  # noqa: E501
-
-        :return: The per_value of this DualGetPlans.  # noqa: E501
-        :rtype: str
-        """
-        return self._per_value
-
-    @per_value.setter
-    def per_value(self, per_value):
-        """Sets the per_value of this DualGetPlans.
-
-        Value Per Unit (deprecated)  # noqa: E501
-
-        :param per_value: The per_value of this DualGetPlans.  # noqa: E501
-        :type: str
-        """
-
-        self._per_value = per_value
-
-    @property
     def apy_display(self):
         """Gets the apy_display of this DualGetPlans.  # noqa: E501
 
@@ -342,6 +263,29 @@ class DualGetPlans(object):
         """
 
         self._apy_display = apy_display
+
+    @property
+    def min_amount(self):
+        """Gets the min_amount of this DualGetPlans.  # noqa: E501
+
+        Minimum investment amount  # noqa: E501
+
+        :return: The min_amount of this DualGetPlans.  # noqa: E501
+        :rtype: str
+        """
+        return self._min_amount
+
+    @min_amount.setter
+    def min_amount(self, min_amount):
+        """Sets the min_amount of this DualGetPlans.
+
+        Minimum investment amount  # noqa: E501
+
+        :param min_amount: The min_amount of this DualGetPlans.  # noqa: E501
+        :type: str
+        """
+
+        self._min_amount = min_amount
 
     @property
     def start_time(self):
@@ -393,7 +337,7 @@ class DualGetPlans(object):
     def status(self):
         """Gets the status of this DualGetPlans.  # noqa: E501
 
-        状态:  `NOTSTARTED`-未开始 `ONGOING`-进行中 `ENDED`-已结束  # noqa: E501
+        Status:  `NOTSTARTED` - Not started `ONGOING` - In progress `ENDED` - Ended  # noqa: E501
 
         :return: The status of this DualGetPlans.  # noqa: E501
         :rtype: str
@@ -404,7 +348,7 @@ class DualGetPlans(object):
     def status(self, status):
         """Sets the status of this DualGetPlans.
 
-        状态:  `NOTSTARTED`-未开始 `ONGOING`-进行中 `ENDED`-已结束  # noqa: E501
+        Status:  `NOTSTARTED` - Not started `ONGOING` - In progress `ENDED` - Ended  # noqa: E501
 
         :param status: The status of this DualGetPlans.  # noqa: E501
         :type: str

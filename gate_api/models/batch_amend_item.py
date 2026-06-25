@@ -39,7 +39,9 @@ class BatchAmendItem(object):
         'amount': 'str',
         'price': 'str',
         'amend_text': 'str',
-        'action_mode': 'str'
+        'action_mode': 'str',
+        'stop_profit': 'SpotOrderStopProfit',
+        'stop_loss': 'SpotOrderStopLoss'
     }
 
     attribute_map = {
@@ -49,11 +51,13 @@ class BatchAmendItem(object):
         'amount': 'amount',
         'price': 'price',
         'amend_text': 'amend_text',
-        'action_mode': 'action_mode'
+        'action_mode': 'action_mode',
+        'stop_profit': 'stop_profit',
+        'stop_loss': 'stop_loss'
     }
 
-    def __init__(self, order_id=None, currency_pair=None, account=None, amount=None, price=None, amend_text=None, action_mode=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, order_id=None, currency_pair=None, account=None, amount=None, price=None, amend_text=None, action_mode=None, stop_profit=None, stop_loss=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, Configuration) -> None
         """BatchAmendItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +70,8 @@ class BatchAmendItem(object):
         self._price = None
         self._amend_text = None
         self._action_mode = None
+        self._stop_profit = None
+        self._stop_loss = None
         self.discriminator = None
 
         self.order_id = order_id
@@ -80,6 +86,10 @@ class BatchAmendItem(object):
             self.amend_text = amend_text
         if action_mode is not None:
             self.action_mode = action_mode
+        if stop_profit is not None:
+            self.stop_profit = stop_profit
+        if stop_loss is not None:
+            self.stop_loss = stop_loss
 
     @property
     def order_id(self):
@@ -248,6 +258,48 @@ class BatchAmendItem(object):
         """
 
         self._action_mode = action_mode
+
+    @property
+    def stop_profit(self):
+        """Gets the stop_profit of this BatchAmendItem.  # noqa: E501
+
+
+        :return: The stop_profit of this BatchAmendItem.  # noqa: E501
+        :rtype: SpotOrderStopProfit
+        """
+        return self._stop_profit
+
+    @stop_profit.setter
+    def stop_profit(self, stop_profit):
+        """Sets the stop_profit of this BatchAmendItem.
+
+
+        :param stop_profit: The stop_profit of this BatchAmendItem.  # noqa: E501
+        :type: SpotOrderStopProfit
+        """
+
+        self._stop_profit = stop_profit
+
+    @property
+    def stop_loss(self):
+        """Gets the stop_loss of this BatchAmendItem.  # noqa: E501
+
+
+        :return: The stop_loss of this BatchAmendItem.  # noqa: E501
+        :rtype: SpotOrderStopLoss
+        """
+        return self._stop_loss
+
+    @stop_loss.setter
+    def stop_loss(self, stop_loss):
+        """Sets the stop_loss of this BatchAmendItem.
+
+
+        :param stop_loss: The stop_loss of this BatchAmendItem.  # noqa: E501
+        :type: SpotOrderStopLoss
+        """
+
+        self._stop_loss = stop_loss
 
     def to_dict(self):
         """Returns the model properties as a dict"""

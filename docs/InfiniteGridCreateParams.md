@@ -1,6 +1,6 @@
 # InfiniteGridCreateParams
 
-无限网格策略的创建参数。  与 App 口径对齐：**仅** `money`、`price_floor`、`profit_per_grid` 为必填； `grid_num`、`price_type` 可选（不传时由服务端按默认处理）。
+Infinite grid creation parameters. Aligned with the app: **`money`**, **`price_floor`**, and **`profit_per_grid`** are required; `grid_num` and `price_type` are optional (defaults applied server-side when omitted).
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

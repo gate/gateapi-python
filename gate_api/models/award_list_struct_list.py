@@ -238,7 +238,7 @@ class AwardListStructList(object):
     def status(self):
         """Gets the status of this AwardListStructList.  # noqa: E501
 
-        Status  # noqa: E501
+        Status. 4 - success  # noqa: E501
 
         :return: The status of this AwardListStructList.  # noqa: E501
         :rtype: int
@@ -249,7 +249,7 @@ class AwardListStructList(object):
     def status(self, status):
         """Sets the status of this AwardListStructList.
 
-        Status  # noqa: E501
+        Status. 4 - success  # noqa: E501
 
         :param status: The status of this AwardListStructList.  # noqa: E501
         :type: int

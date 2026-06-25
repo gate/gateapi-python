@@ -1717,17 +1717,18 @@ class WalletApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_saved_address(self, currency, **kwargs):  # noqa: E501
-        """Query withdrawal address whitelist  # noqa: E501
+    def list_saved_address(self, **kwargs):  # noqa: E501
+        """Query saved address  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_saved_address(currency, async_req=True)
+        >>> thread = api.list_saved_address(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Currency (required)
+        :param str currency: Currency
         :param str chain: Chain name
+        :param str verified: 1 means verified address, 0 means normal address, empty string means no limit
         :param str limit: Maximum number returned, up to 100
         :param int page: page number
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1742,19 +1743,20 @@ class WalletApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_saved_address_with_http_info(currency, **kwargs)  # noqa: E501
+        return self.list_saved_address_with_http_info(**kwargs)  # noqa: E501
 
-    def list_saved_address_with_http_info(self, currency, **kwargs):  # noqa: E501
-        """Query withdrawal address whitelist  # noqa: E501
+    def list_saved_address_with_http_info(self, **kwargs):  # noqa: E501
+        """Query saved address  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_saved_address_with_http_info(currency, async_req=True)
+        >>> thread = api.list_saved_address_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Currency (required)
+        :param str currency: Currency
         :param str chain: Chain name
+        :param str verified: 1 means verified address, 0 means normal address, empty string means no limit
         :param str limit: Maximum number returned, up to 100
         :param int page: page number
         :param _return_http_data_only: response data without head status code
@@ -1776,6 +1778,7 @@ class WalletApi(object):
         all_params = [
             'currency',
             'chain',
+            'verified',
             'limit',
             'page'
         ]
@@ -1796,10 +1799,6 @@ class WalletApi(object):
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
-        # verify the required parameter 'currency' is set
-        if self.api_client.client_side_validation and ('currency' not in local_var_params or  # noqa: E501
-                                                        local_var_params['currency'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `currency` when calling `list_saved_address`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `list_saved_address`, must be a value greater than or equal to `1`")  # noqa: E501
@@ -1812,6 +1811,8 @@ class WalletApi(object):
             query_params.append(('currency', local_var_params['currency']))  # noqa: E501
         if 'chain' in local_var_params and local_var_params['chain'] is not None:  # noqa: E501
             query_params.append(('chain', local_var_params['chain']))  # noqa: E501
+        if 'verified' in local_var_params and local_var_params['verified'] is not None:  # noqa: E501
+            query_params.append(('verified', local_var_params['verified']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501

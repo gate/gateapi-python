@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**list_futures_contracts**](FuturesApi.md#list_futures_contracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
+[**list_futures_contracts_all**](FuturesApi.md#list_futures_contracts_all) | **GET** /futures/{settle}/contracts_all | Query all contract information (including delisted)
 [**get_futures_contract**](FuturesApi.md#get_futures_contract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 [**list_futures_order_book**](FuturesApi.md#list_futures_order_book) | **GET** /futures/{settle}/order_book | Query futures market depth information
 [**list_futures_trades**](FuturesApi.md#list_futures_trades) | **GET** /futures/{settle}/trades | Futures market transaction records
@@ -62,12 +63,17 @@ Method | HTTP request | Description
 [**get_trail_order_detail**](FuturesApi.md#get_trail_order_detail) | **GET** /futures/{settle}/autoorder/v1/trail/detail | Get trail order details
 [**update_trail_order**](FuturesApi.md#update_trail_order) | **POST** /futures/{settle}/autoorder/v1/trail/update | Update trail order
 [**get_trail_order_change_log**](FuturesApi.md#get_trail_order_change_log) | **GET** /futures/{settle}/autoorder/v1/trail/change_log | Get trail order user modification records
+[**create_chase_order**](FuturesApi.md#create_chase_order) | **POST** /futures/{settle}/autoorder/v1/chase/create | Create a chase order
+[**stop_chase_order**](FuturesApi.md#stop_chase_order) | **POST** /futures/{settle}/autoorder/v1/chase/stop | Stop a chase order
+[**stop_all_chase_orders**](FuturesApi.md#stop_all_chase_orders) | **POST** /futures/{settle}/autoorder/v1/chase/stop_all | Stop chase orders in batch
+[**get_chase_orders**](FuturesApi.md#get_chase_orders) | **GET** /futures/{settle}/autoorder/v1/chase/list | List chase orders
+[**get_chase_order_detail**](FuturesApi.md#get_chase_order_detail) | **GET** /futures/{settle}/autoorder/v1/chase/detail | Get chase order detail
 [**list_price_triggered_orders**](FuturesApi.md#list_price_triggered_orders) | **GET** /futures/{settle}/price_orders | Query auto order list
 [**create_price_triggered_order**](FuturesApi.md#create_price_triggered_order) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 [**cancel_price_triggered_order_list**](FuturesApi.md#cancel_price_triggered_order_list) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**get_price_triggered_order**](FuturesApi.md#get_price_triggered_order) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 [**cancel_price_triggered_order**](FuturesApi.md#cancel_price_triggered_order) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
-[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
+[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/amend | Modify a Single Auto Order
 
 
 # **list_futures_contracts**
@@ -102,6 +108,68 @@ except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
 except ApiException as e:
     print("Exception when calling FuturesApi->list_futures_contracts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**list[Contract]**](Contract.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_futures_contracts_all**
+> list[Contract] list_futures_contracts_all(settle, limit=limit, offset=offset)
+
+Query all contract information (including delisted)
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+
+try:
+    # Query all contract information (including delisted)
+    api_response = api_instance.list_futures_contracts_all(settle, limit=limit, offset=offset)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->list_futures_contracts_all: %s\n" % e)
 ```
 
 ### Parameters
@@ -2445,7 +2513,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_futures_orders**
-> list[FuturesOrder] cancel_futures_orders(settle, x_gate_exptime=x_gate_exptime, contract=contract, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
+> list[FuturesOrder] cancel_futures_orders(settle, x_gate_exptime=x_gate_exptime, contract=contract, action_mode=action_mode, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
 
 Cancel all orders with 'open' status
 
@@ -2478,13 +2546,14 @@ api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 contract = 'BTC_USDT' # str | Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
+action_mode = 'ACK' # str | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default) (optional)
 side = 'ask' # str | Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
 exclude_reduce_only = False # bool | Whether to exclude reduce-only orders (optional) (default to False)
 text = 'cancel by user' # str | Remark for order cancellation (optional)
 
 try:
     # Cancel all orders with 'open' status
-    api_response = api_instance.cancel_futures_orders(settle, x_gate_exptime=x_gate_exptime, contract=contract, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
+    api_response = api_instance.cancel_futures_orders(settle, x_gate_exptime=x_gate_exptime, contract=contract, action_mode=action_mode, side=side, exclude_reduce_only=exclude_reduce_only, text=text)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -2499,6 +2568,7 @@ Name | Type | Description  | Notes
  **settle** | **str**| Settle currency | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
  **contract** | **str**| Contract Identifier; if specified, only cancel pending orders related to this contract | [optional] 
+ **action_mode** | **str**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional] 
  **side** | **str**| Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders | [optional] 
  **exclude_reduce_only** | **bool**| Whether to exclude reduce-only orders | [optional] [default to False]
  **text** | **str**| Remark for order cancellation | [optional] 
@@ -2818,7 +2888,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel_futures_order**
-> FuturesOrder cancel_futures_order(settle, order_id, x_gate_exptime=x_gate_exptime)
+> FuturesOrder cancel_futures_order(settle, order_id, x_gate_exptime=x_gate_exptime, action_mode=action_mode)
 
 Cancel single order
 
@@ -2849,10 +2919,11 @@ api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
 order_id = '12345' # str | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+action_mode = 'ACK' # str | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default) (optional)
 
 try:
     # Cancel single order
-    api_response = api_instance.cancel_futures_order(settle, order_id, x_gate_exptime=x_gate_exptime)
+    api_response = api_instance.cancel_futures_order(settle, order_id, x_gate_exptime=x_gate_exptime, action_mode=action_mode)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -2867,6 +2938,7 @@ Name | Type | Description  | Notes
  **settle** | **str**| Settle currency | 
  **order_id** | **str**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **action_mode** | **str**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional] 
 
 ### Return type
 
@@ -4215,6 +4287,369 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_chase_order**
+> CreateChaseOrderResp create_chase_order(settle, create_chase_order_req)
+
+Create a chase order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+create_chase_order_req = gate_api.CreateChaseOrderReq() # CreateChaseOrderReq | 
+
+try:
+    # Create a chase order
+    api_response = api_instance.create_chase_order(settle, create_chase_order_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->create_chase_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **create_chase_order_req** | [**CreateChaseOrderReq**](CreateChaseOrderReq.md)|  | 
+
+### Return type
+
+[**CreateChaseOrderResp**](CreateChaseOrderResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stop_chase_order**
+> StopChaseOrderResp stop_chase_order(settle, stop_chase_order_req)
+
+Stop a chase order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+stop_chase_order_req = gate_api.StopChaseOrderReq() # StopChaseOrderReq | 
+
+try:
+    # Stop a chase order
+    api_response = api_instance.stop_chase_order(settle, stop_chase_order_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->stop_chase_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **stop_chase_order_req** | [**StopChaseOrderReq**](StopChaseOrderReq.md)|  | 
+
+### Return type
+
+[**StopChaseOrderResp**](StopChaseOrderResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stop_all_chase_orders**
+> StopAllChaseOrdersResp stop_all_chase_orders(settle, stop_all_chase_orders_req)
+
+Stop chase orders in batch
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+stop_all_chase_orders_req = gate_api.StopAllChaseOrdersReq() # StopAllChaseOrdersReq | 
+
+try:
+    # Stop chase orders in batch
+    api_response = api_instance.stop_all_chase_orders(settle, stop_all_chase_orders_req)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->stop_all_chase_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **stop_all_chase_orders_req** | [**StopAllChaseOrdersReq**](StopAllChaseOrdersReq.md)|  | 
+
+### Return type
+
+[**StopAllChaseOrdersResp**](StopAllChaseOrdersResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_chase_orders**
+> GetChaseOrdersResp get_chase_orders(settle, sort_by, contract=contract, is_finished=is_finished, start_at=start_at, end_at=end_at, page_num=page_num, page_size=page_size, hide_cancel=hide_cancel, reduce_only=reduce_only, side=side)
+
+List chase orders
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+sort_by = 56 # int | Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0
+contract = 'contract_example' # str | Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase (optional)
+is_finished = True # bool | true to query finished orders, false to query in-progress orders (optional)
+start_at = 56 # int | Lower time bound for the history list, paired with end_at. Required when is_finished is true (optional)
+end_at = 56 # int | Upper time bound for the history list, paired with start_at. Required when is_finished is true (optional)
+page_num = 56 # int | Page number, starting from 1 (optional)
+page_size = 56 # int | Page size; must be between 1 and 100 (optional)
+hide_cancel = True # bool | When true, cancelled orders are hidden in the list (optional)
+reduce_only = 56 # int | OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag (optional)
+side = 56 # int | Filter by long/short side: 1 long, 2 short (optional)
+
+try:
+    # List chase orders
+    api_response = api_instance.get_chase_orders(settle, sort_by, contract=contract, is_finished=is_finished, start_at=start_at, end_at=end_at, page_num=page_num, page_size=page_size, hide_cancel=hide_cancel, reduce_only=reduce_only, side=side)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->get_chase_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **sort_by** | **int**| Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 | 
+ **contract** | **str**| Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase | [optional] 
+ **is_finished** | **bool**| true to query finished orders, false to query in-progress orders | [optional] 
+ **start_at** | **int**| Lower time bound for the history list, paired with end_at. Required when is_finished is true | [optional] 
+ **end_at** | **int**| Upper time bound for the history list, paired with start_at. Required when is_finished is true | [optional] 
+ **page_num** | **int**| Page number, starting from 1 | [optional] 
+ **page_size** | **int**| Page size; must be between 1 and 100 | [optional] 
+ **hide_cancel** | **bool**| When true, cancelled orders are hidden in the list | [optional] 
+ **reduce_only** | **int**| OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag | [optional] 
+ **side** | **int**| Filter by long/short side: 1 long, 2 short | [optional] 
+
+### Return type
+
+[**GetChaseOrdersResp**](GetChaseOrdersResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_chase_order_detail**
+> GetChaseOrderDetailResp get_chase_order_detail(settle, id)
+
+Get chase order detail
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Settle currency
+id = 'id_example' # str | Order ID, must be a non-zero positive integer
+
+try:
+    # Get chase order detail
+    api_response = api_instance.get_chase_order_detail(settle, id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->get_chase_order_detail: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Settle currency | 
+ **id** | **str**| Order ID, must be a non-zero positive integer | 
+
+### Return type
+
+[**GetChaseOrderDetailResp**](GetChaseOrderDetailResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_price_triggered_orders**
 > list[FuturesPriceTriggeredOrder] list_price_triggered_orders(settle, status, contract=contract, limit=limit, offset=offset)
 
@@ -4567,7 +5002,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_price_triggered_order**
-> TriggerOrderResponse update_price_triggered_order(settle, order_id, futures_update_price_triggered_order)
+> TriggerOrderResponse update_price_triggered_order(settle, futures_update_price_triggered_order)
 
 Modify a Single Auto Order
 
@@ -4596,12 +5031,11 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
-order_id = 56 # int | ID returned when order is successfully created
 futures_update_price_triggered_order = gate_api.FuturesUpdatePriceTriggeredOrder() # FuturesUpdatePriceTriggeredOrder | 
 
 try:
     # Modify a Single Auto Order
-    api_response = api_instance.update_price_triggered_order(settle, order_id, futures_update_price_triggered_order)
+    api_response = api_instance.update_price_triggered_order(settle, futures_update_price_triggered_order)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -4614,7 +5048,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
- **order_id** | **int**| ID returned when order is successfully created | 
  **futures_update_price_triggered_order** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  | 
 
 ### Return type

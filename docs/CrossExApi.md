@@ -4,9 +4,9 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_crossex_rule_symbols**](CrossExApi.md#list_crossex_rule_symbols) | **GET** /crossex/rule/symbols | 查询币对信息
-[**list_crossex_rule_risk_limits**](CrossExApi.md#list_crossex_rule_risk_limits) | **GET** /crossex/rule/risk_limits | 查询风险限额信息
-[**list_crossex_transfer_coins**](CrossExApi.md#list_crossex_transfer_coins) | **GET** /crossex/transfers/coin | 查询划转币种支持
+[**list_crossex_rule_symbols**](CrossExApi.md#list_crossex_rule_symbols) | **GET** /crossex/rule/symbols | Query symbol information
+[**list_crossex_rule_risk_limits**](CrossExApi.md#list_crossex_rule_risk_limits) | **GET** /crossex/rule/risk_limits | Query risk limit information
+[**list_crossex_transfer_coins**](CrossExApi.md#list_crossex_transfer_coins) | **GET** /crossex/transfers/coin | Query supported transfer currencies
 [**list_crossex_transfers**](CrossExApi.md#list_crossex_transfers) | **GET** /crossex/transfers | Query Fund Transfer History
 [**create_crossex_transfer**](CrossExApi.md#create_crossex_transfer) | **POST** /crossex/transfers | Fund Transfer
 [**create_crossex_order**](CrossExApi.md#create_crossex_order) | **POST** /crossex/orders | Create an order
@@ -40,7 +40,7 @@ Method | HTTP request | Description
 # **list_crossex_rule_symbols**
 > list[Symbol] list_crossex_rule_symbols(symbols=symbols)
 
-查询币对信息
+Query symbol information
 
 Query Trading Pair Information
 
@@ -59,10 +59,10 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-symbols = 'symbols_example' # str | 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
+symbols = 'symbols_example' # str | List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
 
 try:
-    # 查询币对信息
+    # Query symbol information
     api_response = api_instance.list_crossex_rule_symbols(symbols=symbols)
     print(api_response)
 except GateApiException as ex:
@@ -75,7 +75,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **str**| 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional] 
+ **symbols** | **str**| List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional] 
 
 ### Return type
 
@@ -100,7 +100,7 @@ No authorization required
 # **list_crossex_rule_risk_limits**
 > list[CrossexRiskLimit] list_crossex_rule_risk_limits(symbols)
 
-查询风险限额信息
+Query risk limit information
 
 Query risk limit information for futures/margin trading pairs
 
@@ -122,7 +122,7 @@ api_instance = gate_api.CrossExApi(api_client)
 symbols = 'BINANCE_FUTURE_AAVE_USDT' # str | Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT
 
 try:
-    # 查询风险限额信息
+    # Query risk limit information
     api_response = api_instance.list_crossex_rule_risk_limits(symbols)
     print(api_response)
 except GateApiException as ex:
@@ -160,7 +160,7 @@ No authorization required
 # **list_crossex_transfer_coins**
 > list[CrossexTransferCoin] list_crossex_transfer_coins(coin=coin)
 
-查询划转币种支持
+Query supported transfer currencies
 
 Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
 
@@ -179,10 +179,10 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-coin = 'BTC' # str | Currency (optional)
+coin = 'BTC' # str | Query by specified currency name (optional)
 
 try:
-    # 查询划转币种支持
+    # Query supported transfer currencies
     api_response = api_instance.list_crossex_transfer_coins(coin=coin)
     print(api_response)
 except GateApiException as ex:
@@ -195,7 +195,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coin** | **str**| Currency | [optional] 
+ **coin** | **str**| Query by specified currency name | [optional] 
 
 ### Return type
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 Fund Transfer
 
-Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either `from` or `to` must be `SPOT`, and the other side must be `CROSSEX`.   If `CROSSEX_${exchange_type}` (e.g. `CROSSEX_GATE`) is provided, it will be automatically treated as `CROSSEX`. - In isolated exchange mode, when transferring USDT, either `from` or `to` must be `CROSSEX_${exchange_type}`, and the other side must be `SPOT` or `CROSSEX_${exchange_type}`.   If `CROSSEX` is provided, it will be automatically treated as `CROSSEX_GATE`. - When transferring non-USDT assets to or from CrossEx, neither `from` nor `to` can be `CROSSEX`; `CROSSEX_${exchange_type}` must be explicitly specified. - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}` accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE`
+Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either `from` or `to` must be `SPOT`, and the other side must be `CROSSEX`.   If `CROSSEX_${exchange_type}` (e.g. `CROSSEX_GATE`) is provided, it will be automatically treated as `CROSSEX`. - In isolated exchange mode, when transferring USDT, either `from` or `to` must be `CROSSEX_${exchange_type}`, and the other side must be `SPOT` or `CROSSEX_${exchange_type}`.   If `CROSSEX` is provided, it will be automatically treated as `CROSSEX_GATE`. - When transferring non-USDT assets to or from CrossEx, neither `from` nor `to` can be `CROSSEX`; `CROSSEX_${exchange_type}` must be explicitly specified. - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}` accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE` - When either side of the transfer is `CROSSEX_KRAKEN`, only USDT is supported for now. - When either side of the transfer is `CROSSEX_HYPERLIQUID`, the other side must be `SPOT`, and only USDC is supported.
 
 ### Example
 
@@ -812,7 +812,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-exchange_type = 'BINANCE,OKX,GATE,BYBIT' # str | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID' # str | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`). (optional)
 
 try:
     # Query Account Assets
@@ -828,7 +828,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_type** | **str**| Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) | [optional] 
+ **exchange_type** | **str**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;). | [optional] 
 
 ### Return type
 
@@ -1295,8 +1295,8 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-coin = 'SOL' # str | Currency (optional)
-exchange_type = 'BINANCE,OKX,GATE,BYBIT' # str | Exchange (optional)
+coin = 'SOL' # str | Query by specified currency name (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID' # str | Exchange (optional)
 
 try:
     # Query margin asset interest rates
@@ -1312,7 +1312,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coin** | **str**| Currency | [optional] 
+ **coin** | **str**| Query by specified currency name | [optional] 
  **exchange_type** | **str**| Exchange | [optional] 
 
 ### Return type
@@ -1432,7 +1432,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 symbol = 'BINANCE_FUTURE_ADA_USDT' # str | Trading Pair (optional)
-exchange_type = 'BINANCE,OKX,GATE,BYBIT' # str | Exchange (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID' # str | Exchange (optional)
 
 try:
     # Query Contract Positions
@@ -1685,7 +1685,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_history_orders**
-> list[CrossexOrder] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+> list[CrossexOrder] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to, attributes=attributes)
 
 queryorderhistory
 
@@ -1717,13 +1717,14 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CrossExApi(api_client)
 page = 56 # int | Page number (optional)
 limit = 56 # int | Maximum number of records returned in a single list (optional)
-symbol = 'symbol_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+symbol = 'symbol_example' # str | Currency pair (optional)
 _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
+attributes = 'attributes_example' # str | Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement). Multiple values, comma-separated. (optional)
 
 try:
     # queryorderhistory
-    api_response = api_instance.list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
+    api_response = api_instance.list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to, attributes=attributes)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1737,9 +1738,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] 
- **symbol** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
+ **symbol** | **str**| Currency pair | [optional] 
  **_from** | **int**| Start Millisecond Timestamp | [optional] 
  **to** | **int**| End Millisecond Timestamp | [optional] 
+ **attributes** | **str**| Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage / &#x60;SETTLEMENT&#x60; delisting settlement). Multiple values, comma-separated. | [optional] 
 
 ### Return type
 
@@ -1794,7 +1796,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CrossExApi(api_client)
 page = 56 # int | Page number (optional)
 limit = 56 # int | Maximum number returned by list, max 1000 (optional)
-symbol = 'symbol_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+symbol = 'symbol_example' # str | Currency pair (optional)
 _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
 
@@ -1814,7 +1816,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] 
  **limit** | **int**| Maximum number returned by list, max 1000 | [optional] 
- **symbol** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
+ **symbol** | **str**| Currency pair | [optional] 
  **_from** | **int**| Start Millisecond Timestamp | [optional] 
  **to** | **int**| End Millisecond Timestamp | [optional] 
 
@@ -1871,7 +1873,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CrossExApi(api_client)
 page = 56 # int | Page number (optional)
 limit = 56 # int | Maximum number returned by list, max 1000 (optional)
-symbol = 'symbol_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+symbol = 'symbol_example' # str | Currency pair (optional)
 _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
 
@@ -1891,7 +1893,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] 
  **limit** | **int**| Maximum number returned by list, max 1000 | [optional] 
- **symbol** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
+ **symbol** | **str**| Currency pair | [optional] 
  **_from** | **int**| Start Millisecond Timestamp | [optional] 
  **to** | **int**| End Millisecond Timestamp | [optional] 
 
@@ -1946,7 +1948,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-symbol = 'symbol_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+symbol = 'symbol_example' # str | Currency pair (optional)
 _from = 56 # int | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
 to = 56 # int | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
 page = 56 # int | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
@@ -1967,7 +1969,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbol** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
+ **symbol** | **str**| Currency pair | [optional] 
  **_from** | **int**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
  **to** | **int**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
  **page** | **int**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
@@ -2027,7 +2029,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CrossExApi(api_client)
 page = 56 # int | Page number (optional)
 limit = 56 # int | Maximum number returned by list, max 1000 (optional)
-symbol = 'symbol_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+symbol = 'symbol_example' # str | Currency pair (optional)
 _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
 
@@ -2047,7 +2049,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] 
  **limit** | **int**| Maximum number returned by list, max 1000 | [optional] 
- **symbol** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
+ **symbol** | **str**| Currency pair | [optional] 
  **_from** | **int**| Start Millisecond Timestamp | [optional] 
  **to** | **int**| End Millisecond Timestamp | [optional] 
 
@@ -2104,8 +2106,8 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CrossExApi(api_client)
 page = 56 # int | Page number (optional)
 limit = 56 # int | Maximum number returned by list, max 1000 (optional)
-coin = 'coin_example' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
-statement_type = 'statement_type_example' # str | Bill entry type. (optional)
+coin = 'coin_example' # str | Query by specified currency name (optional)
+statement_type = 'statement_type_example' # str | Bill entry type. The filter accepts the same values returned in the response. (optional)
 _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
 
@@ -2125,8 +2127,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number | [optional] 
  **limit** | **int**| Maximum number returned by list, max 1000 | [optional] 
- **coin** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
- **statement_type** | **str**| Bill entry type. | [optional] 
+ **coin** | **str**| Query by specified currency name | [optional] 
+ **statement_type** | **str**| Bill entry type. The filter accepts the same values returned in the response. | [optional] 
  **_from** | **int**| Start Millisecond Timestamp | [optional] 
  **to** | **int**| End Millisecond Timestamp | [optional] 
 
@@ -2181,8 +2183,8 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-coin = 'SOL' # str | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
-exchange_type = 'OKX' # str | OKX/GATE/BINANCE/BYBIT (optional)
+coin = 'SOL' # str | Query by specified currency name (optional)
+exchange_type = 'OKX' # str | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID (optional)
 
 try:
     # Query Currency Discount Rate
@@ -2198,8 +2200,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coin** | **str**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional] 
- **exchange_type** | **str**| OKX/GATE/BINANCE/BYBIT | [optional] 
+ **coin** | **str**| Query by specified currency name | [optional] 
+ **exchange_type** | **str**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID | [optional] 
 
 ### Return type
 

@@ -62,7 +62,12 @@ class FuturesOrder(object):
         'amend_text': 'str',
         'pid': 'int',
         'market_order_slip_ratio': 'str',
-        'pos_margin_mode': 'str'
+        'pos_margin_mode': 'str',
+        'action_mode': 'str',
+        'tpsl_tp_trigger_price': 'str',
+        'tpsl_sl_trigger_price': 'str',
+        'tpsl_tp_bbo_type': 'str',
+        'tpsl_sl_bbo_type': 'str'
     }
 
     attribute_map = {
@@ -95,11 +100,16 @@ class FuturesOrder(object):
         'amend_text': 'amend_text',
         'pid': 'pid',
         'market_order_slip_ratio': 'market_order_slip_ratio',
-        'pos_margin_mode': 'pos_margin_mode'
+        'pos_margin_mode': 'pos_margin_mode',
+        'action_mode': 'action_mode',
+        'tpsl_tp_trigger_price': 'tpsl_tp_trigger_price',
+        'tpsl_sl_trigger_price': 'tpsl_sl_trigger_price',
+        'tpsl_tp_bbo_type': 'tpsl_tp_bbo_type',
+        'tpsl_sl_bbo_type': 'tpsl_sl_bbo_type'
     }
 
-    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, market_order_slip_ratio=None, pos_margin_mode=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, Configuration) -> None
+    def __init__(self, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_id=None, stp_act=None, amend_text=None, pid=None, market_order_slip_ratio=None, pos_margin_mode=None, action_mode=None, tpsl_tp_trigger_price=None, tpsl_sl_trigger_price=None, tpsl_tp_bbo_type=None, tpsl_sl_bbo_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, int, str, str, int, str, str, str, str, str, str, str, Configuration) -> None
         """FuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,6 +145,11 @@ class FuturesOrder(object):
         self._pid = None
         self._market_order_slip_ratio = None
         self._pos_margin_mode = None
+        self._action_mode = None
+        self._tpsl_tp_trigger_price = None
+        self._tpsl_sl_trigger_price = None
+        self._tpsl_tp_bbo_type = None
+        self._tpsl_sl_bbo_type = None
         self.discriminator = None
 
         if id is not None:
@@ -194,6 +209,16 @@ class FuturesOrder(object):
             self.market_order_slip_ratio = market_order_slip_ratio
         if pos_margin_mode is not None:
             self.pos_margin_mode = pos_margin_mode
+        if action_mode is not None:
+            self.action_mode = action_mode
+        if tpsl_tp_trigger_price is not None:
+            self.tpsl_tp_trigger_price = tpsl_tp_trigger_price
+        if tpsl_sl_trigger_price is not None:
+            self.tpsl_sl_trigger_price = tpsl_sl_trigger_price
+        if tpsl_tp_bbo_type is not None:
+            self.tpsl_tp_bbo_type = tpsl_tp_bbo_type
+        if tpsl_sl_bbo_type is not None:
+            self.tpsl_sl_bbo_type = tpsl_sl_bbo_type
 
     @property
     def id(self):
@@ -920,6 +945,121 @@ class FuturesOrder(object):
         """
 
         self._pos_margin_mode = pos_margin_mode
+
+    @property
+    def action_mode(self):
+        """Gets the action_mode of this FuturesOrder.  # noqa: E501
+
+        Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)  # noqa: E501
+
+        :return: The action_mode of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_mode
+
+    @action_mode.setter
+    def action_mode(self, action_mode):
+        """Sets the action_mode of this FuturesOrder.
+
+        Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)  # noqa: E501
+
+        :param action_mode: The action_mode of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._action_mode = action_mode
+
+    @property
+    def tpsl_tp_trigger_price(self):
+        """Gets the tpsl_tp_trigger_price of this FuturesOrder.  # noqa: E501
+
+        Take profit price  # noqa: E501
+
+        :return: The tpsl_tp_trigger_price of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._tpsl_tp_trigger_price
+
+    @tpsl_tp_trigger_price.setter
+    def tpsl_tp_trigger_price(self, tpsl_tp_trigger_price):
+        """Sets the tpsl_tp_trigger_price of this FuturesOrder.
+
+        Take profit price  # noqa: E501
+
+        :param tpsl_tp_trigger_price: The tpsl_tp_trigger_price of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._tpsl_tp_trigger_price = tpsl_tp_trigger_price
+
+    @property
+    def tpsl_sl_trigger_price(self):
+        """Gets the tpsl_sl_trigger_price of this FuturesOrder.  # noqa: E501
+
+        Stop loss price  # noqa: E501
+
+        :return: The tpsl_sl_trigger_price of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._tpsl_sl_trigger_price
+
+    @tpsl_sl_trigger_price.setter
+    def tpsl_sl_trigger_price(self, tpsl_sl_trigger_price):
+        """Sets the tpsl_sl_trigger_price of this FuturesOrder.
+
+        Stop loss price  # noqa: E501
+
+        :param tpsl_sl_trigger_price: The tpsl_sl_trigger_price of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._tpsl_sl_trigger_price = tpsl_sl_trigger_price
+
+    @property
+    def tpsl_tp_bbo_type(self):
+        """Gets the tpsl_tp_bbo_type of this FuturesOrder.  # noqa: E501
+
+        Take profit BBO type  # noqa: E501
+
+        :return: The tpsl_tp_bbo_type of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._tpsl_tp_bbo_type
+
+    @tpsl_tp_bbo_type.setter
+    def tpsl_tp_bbo_type(self, tpsl_tp_bbo_type):
+        """Sets the tpsl_tp_bbo_type of this FuturesOrder.
+
+        Take profit BBO type  # noqa: E501
+
+        :param tpsl_tp_bbo_type: The tpsl_tp_bbo_type of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._tpsl_tp_bbo_type = tpsl_tp_bbo_type
+
+    @property
+    def tpsl_sl_bbo_type(self):
+        """Gets the tpsl_sl_bbo_type of this FuturesOrder.  # noqa: E501
+
+        Stop loss BBO type  # noqa: E501
+
+        :return: The tpsl_sl_bbo_type of this FuturesOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._tpsl_sl_bbo_type
+
+    @tpsl_sl_bbo_type.setter
+    def tpsl_sl_bbo_type(self, tpsl_sl_bbo_type):
+        """Sets the tpsl_sl_bbo_type of this FuturesOrder.
+
+        Stop loss BBO type  # noqa: E501
+
+        :param tpsl_sl_bbo_type: The tpsl_sl_bbo_type of this FuturesOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._tpsl_sl_bbo_type = tpsl_sl_bbo_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,24 +33,38 @@ class OtcMarkOrderPaidRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'order_id': 'str'
+        'order_id': 'str',
+        'client_order_id': 'str',
+        'payment_receipt_file_key': 'str',
+        'payment_receipt': 'str'
     }
 
     attribute_map = {
-        'order_id': 'order_id'
+        'order_id': 'order_id',
+        'client_order_id': 'client_order_id',
+        'payment_receipt_file_key': 'payment_receipt_file_key',
+        'payment_receipt': 'payment_receipt'
     }
 
-    def __init__(self, order_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, Configuration) -> None
+    def __init__(self, order_id=None, client_order_id=None, payment_receipt_file_key=None, payment_receipt=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, Configuration) -> None
         """OtcMarkOrderPaidRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._order_id = None
+        self._client_order_id = None
+        self._payment_receipt_file_key = None
+        self._payment_receipt = None
         self.discriminator = None
 
         self.order_id = order_id
+        if client_order_id is not None:
+            self.client_order_id = client_order_id
+        self.payment_receipt_file_key = payment_receipt_file_key
+        if payment_receipt is not None:
+            self.payment_receipt = payment_receipt
 
     @property
     def order_id(self):
@@ -76,6 +90,77 @@ class OtcMarkOrderPaidRequest(object):
             raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
         self._order_id = order_id
+
+    @property
+    def client_order_id(self):
+        """Gets the client_order_id of this OtcMarkOrderPaidRequest.  # noqa: E501
+
+        Client order ID (used by some gateway/Inner Pay paths, optional)  # noqa: E501
+
+        :return: The client_order_id of this OtcMarkOrderPaidRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._client_order_id
+
+    @client_order_id.setter
+    def client_order_id(self, client_order_id):
+        """Sets the client_order_id of this OtcMarkOrderPaidRequest.
+
+        Client order ID (used by some gateway/Inner Pay paths, optional)  # noqa: E501
+
+        :param client_order_id: The client_order_id of this OtcMarkOrderPaidRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._client_order_id = client_order_id
+
+    @property
+    def payment_receipt_file_key(self):
+        """Gets the payment_receipt_file_key of this OtcMarkOrderPaidRequest.  # noqa: E501
+
+        User payment receipt: **required**. Stored as a file_key. Single file; jpg/jpeg/png/pdf; ≤4MB.  # noqa: E501
+
+        :return: The payment_receipt_file_key of this OtcMarkOrderPaidRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._payment_receipt_file_key
+
+    @payment_receipt_file_key.setter
+    def payment_receipt_file_key(self, payment_receipt_file_key):
+        """Sets the payment_receipt_file_key of this OtcMarkOrderPaidRequest.
+
+        User payment receipt: **required**. Stored as a file_key. Single file; jpg/jpeg/png/pdf; ≤4MB.  # noqa: E501
+
+        :param payment_receipt_file_key: The payment_receipt_file_key of this OtcMarkOrderPaidRequest.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and payment_receipt_file_key is None:  # noqa: E501
+            raise ValueError("Invalid value for `payment_receipt_file_key`, must not be `None`")  # noqa: E501
+
+        self._payment_receipt_file_key = payment_receipt_file_key
+
+    @property
+    def payment_receipt(self):
+        """Gets the payment_receipt of this OtcMarkOrderPaidRequest.  # noqa: E501
+
+        Alias compatible with `payment_receipt_file_key` (depends on the gateway's external field name)  # noqa: E501
+
+        :return: The payment_receipt of this OtcMarkOrderPaidRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._payment_receipt
+
+    @payment_receipt.setter
+    def payment_receipt(self, payment_receipt):
+        """Sets the payment_receipt of this OtcMarkOrderPaidRequest.
+
+        Alias compatible with `payment_receipt_file_key` (depends on the gateway's external field name)  # noqa: E501
+
+        :param payment_receipt: The payment_receipt of this OtcMarkOrderPaidRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._payment_receipt = payment_receipt
 
     def to_dict(self):
         """Returns the model properties as a dict"""

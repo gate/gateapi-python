@@ -41,6 +41,7 @@ class DepositRecord(object):
         'address': 'str',
         'memo': 'str',
         'status': 'str',
+        'refund_status': 'str',
         'chain': 'str'
     }
 
@@ -53,11 +54,12 @@ class DepositRecord(object):
         'address': 'address',
         'memo': 'memo',
         'status': 'status',
+        'refund_status': 'refund_status',
         'chain': 'chain'
     }
 
-    def __init__(self, id=None, txid=None, timestamp=None, amount=None, currency=None, address=None, memo=None, status=None, chain=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, id=None, txid=None, timestamp=None, amount=None, currency=None, address=None, memo=None, status=None, refund_status=None, chain=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """DepositRecord - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class DepositRecord(object):
         self._address = None
         self._memo = None
         self._status = None
+        self._refund_status = None
         self._chain = None
         self.discriminator = None
 
@@ -88,6 +91,8 @@ class DepositRecord(object):
             self.memo = memo
         if status is not None:
             self.status = status
+        if refund_status is not None:
+            self.refund_status = refund_status
         self.chain = chain
 
     @property
@@ -277,6 +282,29 @@ class DepositRecord(object):
         """
 
         self._status = status
+
+    @property
+    def refund_status(self):
+        """Gets the refund_status of this DepositRecord.  # noqa: E501
+
+        Blocked deposit refund status. This field is returned only when the deposit record has a blocked deposit refund record with a non-empty refund status. Not returned when there is no refund record or the refund status is empty - REFUNDING: Refund in progress - REFUNDED: Refund completed - REFUND_FAILED: Refund failed - REJECTED: Refund rejected  # noqa: E501
+
+        :return: The refund_status of this DepositRecord.  # noqa: E501
+        :rtype: str
+        """
+        return self._refund_status
+
+    @refund_status.setter
+    def refund_status(self, refund_status):
+        """Sets the refund_status of this DepositRecord.
+
+        Blocked deposit refund status. This field is returned only when the deposit record has a blocked deposit refund record with a non-empty refund status. Not returned when there is no refund record or the refund status is empty - REFUNDING: Refund in progress - REFUNDED: Refund completed - REFUND_FAILED: Refund failed - REJECTED: Refund rejected  # noqa: E501
+
+        :param refund_status: The refund_status of this DepositRecord.  # noqa: E501
+        :type: str
+        """
+
+        self._refund_status = refund_status
 
     @property
     def chain(self):

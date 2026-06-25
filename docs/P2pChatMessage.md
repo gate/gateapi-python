@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **pic** | **str** | File link | [optional] 
 **file_key** | **str** | File key | [optional] 
 **file_type** | **str** | File type: &#x60;image&#x60; for images, &#x60;video&#x60; for videos. | [optional] 
+**risk_type** | **int** | Risk control display type. 1: off-platform traffic diversion risk; returned when a text message hits risk control | [optional] 
+**toast_msg** | **str** | Risk control prompt message; returned only when risk_type&#x3D;1 | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

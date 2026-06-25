@@ -37,7 +37,7 @@ class P2pMerchantBooksPlaceBizPushOrderResponse(object):
         'method': 'str',
         'code': 'int',
         'message': 'str',
-        'data': 'object',
+        'data': 'P2pMerchantBooksPlaceBizPushOrderResponseData',
         'version': 'str'
     }
 
@@ -51,7 +51,7 @@ class P2pMerchantBooksPlaceBizPushOrderResponse(object):
     }
 
     def __init__(self, timestamp=None, method=None, code=None, message=None, data=None, version=None, local_vars_configuration=None):  # noqa: E501
-        # type: (float, str, int, str, object, str, Configuration) -> None
+        # type: (float, str, int, str, P2pMerchantBooksPlaceBizPushOrderResponseData, str, Configuration) -> None
         """P2pMerchantBooksPlaceBizPushOrderResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -128,7 +128,7 @@ class P2pMerchantBooksPlaceBizPushOrderResponse(object):
     def code(self):
         """Gets the code of this P2pMerchantBooksPlaceBizPushOrderResponse.  # noqa: E501
 
-        Response code, 0 means success  # noqa: E501
+        Response code. 0 means success; 70305102 means the advertisement trade terms or auto reply hit off-platform traffic diversion risk control  # noqa: E501
 
         :return: The code of this P2pMerchantBooksPlaceBizPushOrderResponse.  # noqa: E501
         :rtype: int
@@ -139,7 +139,7 @@ class P2pMerchantBooksPlaceBizPushOrderResponse(object):
     def code(self, code):
         """Sets the code of this P2pMerchantBooksPlaceBizPushOrderResponse.
 
-        Response code, 0 means success  # noqa: E501
+        Response code. 0 means success; 70305102 means the advertisement trade terms or auto reply hit off-platform traffic diversion risk control  # noqa: E501
 
         :param code: The code of this P2pMerchantBooksPlaceBizPushOrderResponse.  # noqa: E501
         :type: int
@@ -174,10 +174,9 @@ class P2pMerchantBooksPlaceBizPushOrderResponse(object):
     def data(self):
         """Gets the data of this P2pMerchantBooksPlaceBizPushOrderResponse.  # noqa: E501
 
-        Empty object on successful publish or edit.  # noqa: E501
 
         :return: The data of this P2pMerchantBooksPlaceBizPushOrderResponse.  # noqa: E501
-        :rtype: object
+        :rtype: P2pMerchantBooksPlaceBizPushOrderResponseData
         """
         return self._data
 
@@ -185,10 +184,9 @@ class P2pMerchantBooksPlaceBizPushOrderResponse(object):
     def data(self, data):
         """Sets the data of this P2pMerchantBooksPlaceBizPushOrderResponse.
 
-        Empty object on successful publish or edit.  # noqa: E501
 
         :param data: The data of this P2pMerchantBooksPlaceBizPushOrderResponse.  # noqa: E501
-        :type: object
+        :type: P2pMerchantBooksPlaceBizPushOrderResponseData
         """
 
         self._data = data

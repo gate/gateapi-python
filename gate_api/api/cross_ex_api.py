@@ -37,7 +37,7 @@ class CrossExApi(object):
         self.api_client = api_client
 
     def list_crossex_rule_symbols(self, **kwargs):  # noqa: E501
-        """查询币对信息  # noqa: E501
+        """Query symbol information  # noqa: E501
 
         Query Trading Pair Information  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -46,7 +46,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbols: 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        :param str symbols: List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -62,7 +62,7 @@ class CrossExApi(object):
         return self.list_crossex_rule_symbols_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_rule_symbols_with_http_info(self, **kwargs):  # noqa: E501
-        """查询币对信息  # noqa: E501
+        """Query symbol information  # noqa: E501
 
         Query Trading Pair Information  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -71,7 +71,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbols: 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        :param str symbols: List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -147,7 +147,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_rule_risk_limits(self, symbols, **kwargs):  # noqa: E501
-        """查询风险限额信息  # noqa: E501
+        """Query risk limit information  # noqa: E501
 
         Query risk limit information for futures/margin trading pairs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -172,7 +172,7 @@ class CrossExApi(object):
         return self.list_crossex_rule_risk_limits_with_http_info(symbols, **kwargs)  # noqa: E501
 
     def list_crossex_rule_risk_limits_with_http_info(self, symbols, **kwargs):  # noqa: E501
-        """查询风险限额信息  # noqa: E501
+        """Query risk limit information  # noqa: E501
 
         Query risk limit information for futures/margin trading pairs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -261,7 +261,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_transfer_coins(self, **kwargs):  # noqa: E501
-        """查询划转币种支持  # noqa: E501
+        """Query supported transfer currencies  # noqa: E501
 
         Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -270,7 +270,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str coin: Currency
+        :param str coin: Query by specified currency name
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -286,7 +286,7 @@ class CrossExApi(object):
         return self.list_crossex_transfer_coins_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_transfer_coins_with_http_info(self, **kwargs):  # noqa: E501
-        """查询划转币种支持  # noqa: E501
+        """Query supported transfer currencies  # noqa: E501
 
         Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -295,7 +295,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str coin: Currency
+        :param str coin: Query by specified currency name
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -508,7 +508,7 @@ class CrossExApi(object):
     def create_crossex_transfer(self, **kwargs):  # noqa: E501
         """Fund Transfer  # noqa: E501
 
-        Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either `from` or `to` must be `SPOT`, and the other side must be `CROSSEX`.   If `CROSSEX_${exchange_type}` (e.g. `CROSSEX_GATE`) is provided, it will be automatically treated as `CROSSEX`. - In isolated exchange mode, when transferring USDT, either `from` or `to` must be `CROSSEX_${exchange_type}`, and the other side must be `SPOT` or `CROSSEX_${exchange_type}`.   If `CROSSEX` is provided, it will be automatically treated as `CROSSEX_GATE`. - When transferring non-USDT assets to or from CrossEx, neither `from` nor `to` can be `CROSSEX`; `CROSSEX_${exchange_type}` must be explicitly specified. - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}` accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE`  # noqa: E501
+        Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either `from` or `to` must be `SPOT`, and the other side must be `CROSSEX`.   If `CROSSEX_${exchange_type}` (e.g. `CROSSEX_GATE`) is provided, it will be automatically treated as `CROSSEX`. - In isolated exchange mode, when transferring USDT, either `from` or `to` must be `CROSSEX_${exchange_type}`, and the other side must be `SPOT` or `CROSSEX_${exchange_type}`.   If `CROSSEX` is provided, it will be automatically treated as `CROSSEX_GATE`. - When transferring non-USDT assets to or from CrossEx, neither `from` nor `to` can be `CROSSEX`; `CROSSEX_${exchange_type}` must be explicitly specified. - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}` accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE` - When either side of the transfer is `CROSSEX_KRAKEN`, only USDT is supported for now. - When either side of the transfer is `CROSSEX_HYPERLIQUID`, the other side must be `SPOT`, and only USDC is supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_crossex_transfer(async_req=True)
@@ -533,7 +533,7 @@ class CrossExApi(object):
     def create_crossex_transfer_with_http_info(self, **kwargs):  # noqa: E501
         """Fund Transfer  # noqa: E501
 
-        Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either `from` or `to` must be `SPOT`, and the other side must be `CROSSEX`.   If `CROSSEX_${exchange_type}` (e.g. `CROSSEX_GATE`) is provided, it will be automatically treated as `CROSSEX`. - In isolated exchange mode, when transferring USDT, either `from` or `to` must be `CROSSEX_${exchange_type}`, and the other side must be `SPOT` or `CROSSEX_${exchange_type}`.   If `CROSSEX` is provided, it will be automatically treated as `CROSSEX_GATE`. - When transferring non-USDT assets to or from CrossEx, neither `from` nor `to` can be `CROSSEX`; `CROSSEX_${exchange_type}` must be explicitly specified. - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}` accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE`  # noqa: E501
+        Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either `from` or `to` must be `SPOT`, and the other side must be `CROSSEX`.   If `CROSSEX_${exchange_type}` (e.g. `CROSSEX_GATE`) is provided, it will be automatically treated as `CROSSEX`. - In isolated exchange mode, when transferring USDT, either `from` or `to` must be `CROSSEX_${exchange_type}`, and the other side must be `SPOT` or `CROSSEX_${exchange_type}`.   If `CROSSEX` is provided, it will be automatically treated as `CROSSEX_GATE`. - When transferring non-USDT assets to or from CrossEx, neither `from` nor `to` can be `CROSSEX`; `CROSSEX_${exchange_type}` must be explicitly specified. - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}` accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE` - When either side of the transfer is `CROSSEX_KRAKEN`, only USDT is supported for now. - When either side of the transfer is `CROSSEX_HYPERLIQUID`, the other side must be `SPOT`, and only USDC is supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_crossex_transfer_with_http_info(async_req=True)
@@ -1322,7 +1322,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str exchange_type: Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
+        :param str exchange_type: Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1347,7 +1347,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str exchange_type: Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
+        :param str exchange_type: Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2108,7 +2108,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str coin: Currency
+        :param str coin: Query by specified currency name
         :param str exchange_type: Exchange
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2134,7 +2134,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str coin: Currency
+        :param str coin: Query by specified currency name
         :param str exchange_type: Exchange
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2794,9 +2794,10 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
+        :param str attributes: Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement). Multiple values, comma-separated.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2823,9 +2824,10 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number of records returned in a single list
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
+        :param str attributes: Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement). Multiple values, comma-separated.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2847,7 +2849,8 @@ class CrossExApi(object):
             'limit',
             'symbol',
             '_from',
-            'to'
+            'to',
+            'attributes'
         ]
         all_params.extend(
             [
@@ -2882,6 +2885,8 @@ class CrossExApi(object):
             query_params.append(('from', local_var_params['_from']))  # noqa: E501
         if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
             query_params.append(('to', local_var_params['to']))  # noqa: E501
+        if 'attributes' in local_var_params and local_var_params['attributes'] is not None:  # noqa: E501
+            query_params.append(('attributes', local_var_params['attributes']))  # noqa: E501
 
         header_params = {}
 
@@ -2924,7 +2929,7 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2953,7 +2958,7 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _return_http_data_only: response data without head status code
@@ -3054,7 +3059,7 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3083,7 +3088,7 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _return_http_data_only: response data without head status code
@@ -3182,7 +3187,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param int to: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param int page: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
@@ -3212,7 +3217,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param int to: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         :param int page: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
@@ -3319,7 +3324,7 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3348,7 +3353,7 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str symbol: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        :param str symbol: Currency pair
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _return_http_data_only: response data without head status code
@@ -3449,8 +3454,8 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        :param str statement_type: Bill entry type.
+        :param str coin: Query by specified currency name
+        :param str statement_type: Bill entry type. The filter accepts the same values returned in the response.
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3479,8 +3484,8 @@ class CrossExApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number
         :param int limit: Maximum number returned by list, max 1000
-        :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        :param str statement_type: Bill entry type.
+        :param str coin: Query by specified currency name
+        :param str statement_type: Bill entry type. The filter accepts the same values returned in the response.
         :param int _from: Start Millisecond Timestamp
         :param int to: End Millisecond Timestamp
         :param _return_http_data_only: response data without head status code
@@ -3582,8 +3587,8 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        :param str exchange_type: OKX/GATE/BINANCE/BYBIT
+        :param str coin: Query by specified currency name
+        :param str exchange_type: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3608,8 +3613,8 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str coin: Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        :param str exchange_type: OKX/GATE/BINANCE/BYBIT
+        :param str coin: Query by specified currency name
+        :param str exchange_type: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

@@ -48,6 +48,7 @@ class OtcOrderListItem(object):
         'crypto_amount': 'str',
         'rate': 'str',
         'transfer_remark': 'str',
+        'reference_code': 'str',
         'gate_bank_account_iban': 'str',
         'promotion_code': 'str'
     }
@@ -68,12 +69,13 @@ class OtcOrderListItem(object):
         'crypto_amount': 'crypto_amount',
         'rate': 'rate',
         'transfer_remark': 'transfer_remark',
+        'reference_code': 'reference_code',
         'gate_bank_account_iban': 'gate_bank_account_iban',
         'promotion_code': 'promotion_code'
     }
 
-    def __init__(self, time=None, timestamp=None, order_id=None, trade_no=None, type=None, status=None, db_status=None, fiat_currency=None, fiat_currency_info=None, fiat_amount=None, crypto_currency=None, crypto_currency_info=None, crypto_amount=None, rate=None, transfer_remark=None, gate_bank_account_iban=None, promotion_code=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, int, str, str, str, str, str, str, OtcOrderListFiatCurrencyInfo, str, str, OtcOrderListCryptoCurrencyInfo, str, str, str, str, str, Configuration) -> None
+    def __init__(self, time=None, timestamp=None, order_id=None, trade_no=None, type=None, status=None, db_status=None, fiat_currency=None, fiat_currency_info=None, fiat_amount=None, crypto_currency=None, crypto_currency_info=None, crypto_amount=None, rate=None, transfer_remark=None, reference_code=None, gate_bank_account_iban=None, promotion_code=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, str, str, str, str, str, str, OtcOrderListFiatCurrencyInfo, str, str, OtcOrderListCryptoCurrencyInfo, str, str, str, str, str, str, Configuration) -> None
         """OtcOrderListItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,6 +96,7 @@ class OtcOrderListItem(object):
         self._crypto_amount = None
         self._rate = None
         self._transfer_remark = None
+        self._reference_code = None
         self._gate_bank_account_iban = None
         self._promotion_code = None
         self.discriminator = None
@@ -128,6 +131,8 @@ class OtcOrderListItem(object):
             self.rate = rate
         if transfer_remark is not None:
             self.transfer_remark = transfer_remark
+        if reference_code is not None:
+            self.reference_code = reference_code
         if gate_bank_account_iban is not None:
             self.gate_bank_account_iban = gate_bank_account_iban
         if promotion_code is not None:
@@ -453,7 +458,7 @@ class OtcOrderListItem(object):
     def transfer_remark(self):
         """Gets the transfer_remark of this OtcOrderListItem.  # noqa: E501
 
-        Remark  # noqa: E501
+        Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)  # noqa: E501
 
         :return: The transfer_remark of this OtcOrderListItem.  # noqa: E501
         :rtype: str
@@ -464,13 +469,36 @@ class OtcOrderListItem(object):
     def transfer_remark(self, transfer_remark):
         """Sets the transfer_remark of this OtcOrderListItem.
 
-        Remark  # noqa: E501
+        Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)  # noqa: E501
 
         :param transfer_remark: The transfer_remark of this OtcOrderListItem.  # noqa: E501
         :type: str
         """
 
         self._transfer_remark = transfer_remark
+
+    @property
+    def reference_code(self):
+        """Gets the reference_code of this OtcOrderListItem.  # noqa: E501
+
+        Unique bank transfer reference code for deposit buy orders (SGB deposit scenario)  # noqa: E501
+
+        :return: The reference_code of this OtcOrderListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._reference_code
+
+    @reference_code.setter
+    def reference_code(self, reference_code):
+        """Sets the reference_code of this OtcOrderListItem.
+
+        Unique bank transfer reference code for deposit buy orders (SGB deposit scenario)  # noqa: E501
+
+        :param reference_code: The reference_code of this OtcOrderListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._reference_code = reference_code
 
     @property
     def gate_bank_account_iban(self):

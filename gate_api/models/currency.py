@@ -393,7 +393,7 @@ class Currency(object):
     def category(self):
         """Gets the category of this Currency.  # noqa: E501
 
-        币种分类  - stocks: 股票 - metals: 金属 - indices: 指数 - forex: 外汇 - commodities: 大宗商品  # noqa: E501
+        Currency categories - stocks: Stocks - metals: Metals - indices: Indices - forex: Forex - commodities: Commodities  # noqa: E501
 
         :return: The category of this Currency.  # noqa: E501
         :rtype: list[str]
@@ -404,7 +404,7 @@ class Currency(object):
     def category(self, category):
         """Sets the category of this Currency.
 
-        币种分类  - stocks: 股票 - metals: 金属 - indices: 指数 - forex: 外汇 - commodities: 大宗商品  # noqa: E501
+        Currency categories - stocks: Stocks - metals: Metals - indices: Indices - forex: Forex - commodities: Commodities  # noqa: E501
 
         :param category: The category of this Currency.  # noqa: E501
         :type: list[str]

@@ -239,7 +239,7 @@ class CrossexOrder(object):
     def state(self):
         """Gets the state of this CrossexOrder.  # noqa: E501
 
-        订单状态：  NEW：订单已通过校验，等待发送到交易所  OPEN：订单已挂在交易所订单簿上  PARTIALLY_FILLED：订单已部分成交  FILLED：订单已完全成交  FAIL：CrossEx 内部校验未通过，请查看 reason 字段了解失败原因  REJECT：订单被交易所拒绝，请查看 reason 字段了解失败原因  # noqa: E501
+        Order status:  NEW: Validated and queued to be sent to the exchange.  OPEN: Resting on the exchange order book.  PARTIALLY_FILLED: Partially filled.  FILLED: Fully filled.  FAIL: CrossEx internal validation failed; see the `reason` field for details.  REJECT: Rejected by the exchange; see the `reason` field for details.  # noqa: E501
 
         :return: The state of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -250,7 +250,7 @@ class CrossexOrder(object):
     def state(self, state):
         """Sets the state of this CrossexOrder.
 
-        订单状态：  NEW：订单已通过校验，等待发送到交易所  OPEN：订单已挂在交易所订单簿上  PARTIALLY_FILLED：订单已部分成交  FILLED：订单已完全成交  FAIL：CrossEx 内部校验未通过，请查看 reason 字段了解失败原因  REJECT：订单被交易所拒绝，请查看 reason 字段了解失败原因  # noqa: E501
+        Order status:  NEW: Validated and queued to be sent to the exchange.  OPEN: Resting on the exchange order book.  PARTIALLY_FILLED: Partially filled.  FILLED: Fully filled.  FAIL: CrossEx internal validation failed; see the `reason` field for details.  REJECT: Rejected by the exchange; see the `reason` field for details.  # noqa: E501
 
         :param state: The state of this CrossexOrder.  # noqa: E501
         :type: str
@@ -339,7 +339,7 @@ class CrossexOrder(object):
     def attribute(self):
         """Gets the attribute of this CrossexOrder.  # noqa: E501
 
-        Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage).  # noqa: E501
+        Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement).  # noqa: E501
 
         :return: The attribute of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -350,7 +350,7 @@ class CrossexOrder(object):
     def attribute(self, attribute):
         """Sets the attribute of this CrossexOrder.
 
-        Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage).  # noqa: E501
+        Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement).  # noqa: E501
 
         :param attribute: The attribute of this CrossexOrder.  # noqa: E501
         :type: str
@@ -364,7 +364,7 @@ class CrossexOrder(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexOrder.  # noqa: E501
 
-        Exchange type (`BINANCE` / `OKX` / `GATE` / `BYBIT`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).  # noqa: E501
 
         :return: The exchange_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -375,7 +375,7 @@ class CrossexOrder(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexOrder.
 
-        Exchange type (`BINANCE` / `OKX` / `GATE` / `BYBIT`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexOrder.  # noqa: E501
         :type: str

@@ -287,7 +287,7 @@ class OtcOrderRequest(object):
     def bank_id(self):
         """Gets the bank_id of this OtcOrderRequest.  # noqa: E501
 
-        Bank card ID used for the order (retrieved via the default bank card API)  # noqa: E501
+        The bank card ID used for placing the order; select it from the list returned by `GET /otc/bank_list` (or `GET /otc/bank/list`); the default card has `is_default=1`  # noqa: E501
 
         :return: The bank_id of this OtcOrderRequest.  # noqa: E501
         :rtype: str
@@ -298,7 +298,7 @@ class OtcOrderRequest(object):
     def bank_id(self, bank_id):
         """Sets the bank_id of this OtcOrderRequest.
 
-        Bank card ID used for the order (retrieved via the default bank card API)  # noqa: E501
+        The bank card ID used for placing the order; select it from the list returned by `GET /otc/bank_list` (or `GET /otc/bank/list`); the default card has `is_default=1`  # noqa: E501
 
         :param bank_id: The bank_id of this OtcOrderRequest.  # noqa: E501
         :type: str

@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **funding_rate_limit** | **str** | Upper and lower limits of funding rate | [optional] 
 **contract_type** | **str** | Contract classification type, e.g. stocks, metals, indices, forex, commodities, etc. | [optional] 
 **funding_impact_value** | **str** | Funding rate depth impact value | [optional] 
+**enable_circuit_breaker** | **bool** | Whether the newly launched contract activates mark price circuit breaker (If the platform intends to activate this mechanism for a newly launched contract market to prevent significant price fluctuations and excessive liquidations after launch, an advance announcement will be made). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

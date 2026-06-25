@@ -33,25 +33,81 @@ class PositionHistoryListData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'total': 'int',
+        'total_page': 'int',
         'list': 'list[PositionHistoryListDataList]'
     }
 
     attribute_map = {
+        'total': 'total',
+        'total_page': 'total_page',
         'list': 'list'
     }
 
-    def __init__(self, list=None, local_vars_configuration=None):  # noqa: E501
-        # type: (list[PositionHistoryListDataList], Configuration) -> None
+    def __init__(self, total=None, total_page=None, list=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, list[PositionHistoryListDataList], Configuration) -> None
         """PositionHistoryListData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._total = None
+        self._total_page = None
         self._list = None
         self.discriminator = None
 
+        if total is not None:
+            self.total = total
+        if total_page is not None:
+            self.total_page = total_page
         if list is not None:
             self.list = list
+
+    @property
+    def total(self):
+        """Gets the total of this PositionHistoryListData.  # noqa: E501
+
+        Total amount  # noqa: E501
+
+        :return: The total of this PositionHistoryListData.  # noqa: E501
+        :rtype: int
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this PositionHistoryListData.
+
+        Total amount  # noqa: E501
+
+        :param total: The total of this PositionHistoryListData.  # noqa: E501
+        :type: int
+        """
+
+        self._total = total
+
+    @property
+    def total_page(self):
+        """Gets the total_page of this PositionHistoryListData.  # noqa: E501
+
+        Total pages  # noqa: E501
+
+        :return: The total_page of this PositionHistoryListData.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_page
+
+    @total_page.setter
+    def total_page(self, total_page):
+        """Sets the total_page of this PositionHistoryListData.
+
+        Total pages  # noqa: E501
+
+        :param total_page: The total_page of this PositionHistoryListData.  # noqa: E501
+        :type: int
+        """
+
+        self._total_page = total_page
 
     @property
     def list(self):

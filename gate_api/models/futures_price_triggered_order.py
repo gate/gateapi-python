@@ -45,7 +45,8 @@ class FuturesPriceTriggeredOrder(object):
         'finish_as': 'str',
         'reason': 'str',
         'order_type': 'str',
-        'me_order_id': 'int'
+        'me_order_id': 'int',
+        'pos_margin_mode': 'str'
     }
 
     attribute_map = {
@@ -61,11 +62,12 @@ class FuturesPriceTriggeredOrder(object):
         'finish_as': 'finish_as',
         'reason': 'reason',
         'order_type': 'order_type',
-        'me_order_id': 'me_order_id'
+        'me_order_id': 'me_order_id',
+        'pos_margin_mode': 'pos_margin_mode'
     }
 
-    def __init__(self, initial=None, trigger=None, id=None, id_string=None, user=None, create_time=None, finish_time=None, trade_id=None, status=None, finish_as=None, reason=None, order_type=None, me_order_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (FuturesInitialOrder, FuturesPriceTrigger, int, str, int, float, float, int, str, str, str, str, int, Configuration) -> None
+    def __init__(self, initial=None, trigger=None, id=None, id_string=None, user=None, create_time=None, finish_time=None, trade_id=None, status=None, finish_as=None, reason=None, order_type=None, me_order_id=None, pos_margin_mode=None, local_vars_configuration=None):  # noqa: E501
+        # type: (FuturesInitialOrder, FuturesPriceTrigger, int, str, int, float, float, int, str, str, str, str, int, str, Configuration) -> None
         """FuturesPriceTriggeredOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class FuturesPriceTriggeredOrder(object):
         self._reason = None
         self._order_type = None
         self._me_order_id = None
+        self._pos_margin_mode = None
         self.discriminator = None
 
         self.initial = initial
@@ -110,6 +113,8 @@ class FuturesPriceTriggeredOrder(object):
             self.order_type = order_type
         if me_order_id is not None:
             self.me_order_id = me_order_id
+        if pos_margin_mode is not None:
+            self.pos_margin_mode = pos_margin_mode
 
     @property
     def initial(self):
@@ -421,6 +426,35 @@ class FuturesPriceTriggeredOrder(object):
         """
 
         self._me_order_id = me_order_id
+
+    @property
+    def pos_margin_mode(self):
+        """Gets the pos_margin_mode of this FuturesPriceTriggeredOrder.  # noqa: E501
+
+        Position margin mode: `isolated` (isolated margin) or `cross` (cross margin). Returned by the server in simple split-position mode; when writing, use only the values below.  # noqa: E501
+
+        :return: The pos_margin_mode of this FuturesPriceTriggeredOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._pos_margin_mode
+
+    @pos_margin_mode.setter
+    def pos_margin_mode(self, pos_margin_mode):
+        """Sets the pos_margin_mode of this FuturesPriceTriggeredOrder.
+
+        Position margin mode: `isolated` (isolated margin) or `cross` (cross margin). Returned by the server in simple split-position mode; when writing, use only the values below.  # noqa: E501
+
+        :param pos_margin_mode: The pos_margin_mode of this FuturesPriceTriggeredOrder.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["isolated", "cross"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and pos_margin_mode not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `pos_margin_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(pos_margin_mode, allowed_values)
+            )
+
+        self._pos_margin_mode = pos_margin_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

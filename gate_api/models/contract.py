@@ -79,7 +79,8 @@ class Contract(object):
         'market_order_size_max': 'str',
         'funding_rate_limit': 'str',
         'contract_type': 'str',
-        'funding_impact_value': 'str'
+        'funding_impact_value': 'str',
+        'enable_circuit_breaker': 'bool'
     }
 
     attribute_map = {
@@ -129,11 +130,12 @@ class Contract(object):
         'market_order_size_max': 'market_order_size_max',
         'funding_rate_limit': 'funding_rate_limit',
         'contract_type': 'contract_type',
-        'funding_impact_value': 'funding_impact_value'
+        'funding_impact_value': 'funding_impact_value',
+        'enable_circuit_breaker': 'enable_circuit_breaker'
     }
 
-    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, interest_rate=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, enable_decimal=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, market_order_slip_ratio=None, market_order_size_max=None, funding_rate_limit=None, contract_type=None, funding_impact_value=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, bool, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, str, str, str, str, Configuration) -> None
+    def __init__(self, name=None, type=None, quanto_multiplier=None, leverage_min=None, leverage_max=None, maintenance_rate=None, mark_type=None, mark_price=None, index_price=None, last_price=None, maker_fee_rate=None, taker_fee_rate=None, order_price_round=None, mark_price_round=None, funding_rate=None, funding_interval=None, funding_next_apply=None, risk_limit_base=None, interest_rate=None, risk_limit_step=None, risk_limit_max=None, order_size_min=None, enable_decimal=None, order_size_max=None, order_price_deviate=None, ref_discount_rate=None, ref_rebate_rate=None, orderbook_id=None, trade_id=None, trade_size=None, position_size=None, config_change_time=None, in_delisting=None, orders_limit=None, enable_bonus=None, enable_credit=None, create_time=None, funding_cap_ratio=None, status=None, launch_time=None, delisting_time=None, delisted_time=None, market_order_slip_ratio=None, market_order_size_max=None, funding_rate_limit=None, contract_type=None, funding_impact_value=None, enable_circuit_breaker=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, float, str, str, str, str, str, bool, str, str, str, str, int, int, str, str, float, bool, int, bool, bool, float, str, str, int, int, int, str, str, str, str, str, bool, Configuration) -> None
         """Contract - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -186,6 +188,7 @@ class Contract(object):
         self._funding_rate_limit = None
         self._contract_type = None
         self._funding_impact_value = None
+        self._enable_circuit_breaker = None
         self.discriminator = None
 
         if name is not None:
@@ -282,6 +285,8 @@ class Contract(object):
             self.contract_type = contract_type
         if funding_impact_value is not None:
             self.funding_impact_value = funding_impact_value
+        if enable_circuit_breaker is not None:
+            self.enable_circuit_breaker = enable_circuit_breaker
 
     @property
     def name(self):
@@ -1375,6 +1380,29 @@ class Contract(object):
         """
 
         self._funding_impact_value = funding_impact_value
+
+    @property
+    def enable_circuit_breaker(self):
+        """Gets the enable_circuit_breaker of this Contract.  # noqa: E501
+
+        Whether the newly launched contract activates mark price circuit breaker (If the platform intends to activate this mechanism for a newly launched contract market to prevent significant price fluctuations and excessive liquidations after launch, an advance announcement will be made).  # noqa: E501
+
+        :return: The enable_circuit_breaker of this Contract.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_circuit_breaker
+
+    @enable_circuit_breaker.setter
+    def enable_circuit_breaker(self, enable_circuit_breaker):
+        """Sets the enable_circuit_breaker of this Contract.
+
+        Whether the newly launched contract activates mark price circuit breaker (If the platform intends to activate this mechanism for a newly launched contract market to prevent significant price fluctuations and excessive liquidations after launch, an advance announcement will be made).  # noqa: E501
+
+        :param enable_circuit_breaker: The enable_circuit_breaker of this Contract.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_circuit_breaker = enable_circuit_breaker
 
     def to_dict(self):
         """Returns the model properties as a dict"""

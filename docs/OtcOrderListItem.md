@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **crypto_currency_info** | [**OtcOrderListCryptoCurrencyInfo**](OtcOrderListCryptoCurrencyInfo.md) |  | [optional] 
 **crypto_amount** | **str** | Stablecoin amount | [optional] 
 **rate** | **str** | Exchange rate | [optional] 
-**transfer_remark** | **str** | Remark | [optional] 
+**transfer_remark** | **str** | Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code) | [optional] 
+**reference_code** | **str** | Unique bank transfer reference code for deposit buy orders (SGB deposit scenario) | [optional] 
 **gate_bank_account_iban** | **str** | Bank account | [optional] 
 **promotion_code** | **str** | Promotion code | [optional] 
 

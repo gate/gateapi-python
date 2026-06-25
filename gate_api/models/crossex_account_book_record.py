@@ -163,7 +163,7 @@ class CrossexAccountBookRecord(object):
     def statement_type(self):
         """Gets the statement_type of this CrossexAccountBookRecord.  # noqa: E501
 
-        Bill entry type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay  # noqa: E501
+        Bill entry type. `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay `INTEREST_ISOLATED` isolated-venue interest entry `ACCOUNT_MODE_CHANGE` account mode switch entry `KRAKEN_CONVERSION` conversion of other margin coins to cover a negative KRAKEN_USD balance `OTHER` other  # noqa: E501
 
         :return: The statement_type of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
@@ -174,7 +174,7 @@ class CrossexAccountBookRecord(object):
     def statement_type(self, statement_type):
         """Sets the statement_type of this CrossexAccountBookRecord.
 
-        Bill entry type | `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay  # noqa: E501
+        Bill entry type. `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay `INTEREST_ISOLATED` isolated-venue interest entry `ACCOUNT_MODE_CHANGE` account mode switch entry `KRAKEN_CONVERSION` conversion of other margin coins to cover a negative KRAKEN_USD balance `OTHER` other  # noqa: E501
 
         :param statement_type: The statement_type of this CrossexAccountBookRecord.  # noqa: E501
         :type: str

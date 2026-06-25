@@ -390,118 +390,13 @@ class OTCApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_user_default_bank(self, **kwargs):  # noqa: E501
-        """Get user's default bank account information  # noqa: E501
-
-        Get user's default bank account information for order placement  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_user_default_bank(async_req=True)
-        >>> result = thread.get()
-
-        :param bool async_req: execute request asynchronously
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :rtype: gate_api.OtcUserDefaultBankResponse
-        :return: If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_user_default_bank_with_http_info(**kwargs)  # noqa: E501
-
-    def get_user_default_bank_with_http_info(self, **kwargs):  # noqa: E501
-        """Get user's default bank account information  # noqa: E501
-
-        Get user's default bank account information for order placement  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_user_default_bank_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param bool async_req: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :rtype: tuple(gate_api.OtcUserDefaultBankResponse, status_code(int), headers(HTTPHeaderDict))
-        :return: If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for k, v in six.iteritems(local_var_params['kwargs']):
-            if k not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_user_default_bank" % k
-                )
-            local_var_params[k] = v
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiv4']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/otc/get_user_def_bank', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='OtcUserDefaultBankResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_bank_list(self, **kwargs):  # noqa: E501
+    def get_bank_list_inner_path(self, **kwargs):  # noqa: E501
         """Get user bank card list  # noqa: E501
 
-        Get user bank card list for selecting bank card when placing orders  # noqa: E501
+        Retrieve the user's bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field `is_default` (1=default); there is no need to call the deprecated standalone \"default bank card\" endpoint. Corresponding Inner: `GET /bank_list` or `GET /bank/list`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_bank_list(async_req=True)
+        >>> thread = api.get_bank_list_inner_path(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
@@ -517,15 +412,15 @@ class OTCApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_bank_list_with_http_info(**kwargs)  # noqa: E501
+        return self.get_bank_list_inner_path_with_http_info(**kwargs)  # noqa: E501
 
-    def get_bank_list_with_http_info(self, **kwargs):  # noqa: E501
+    def get_bank_list_inner_path_with_http_info(self, **kwargs):  # noqa: E501
         """Get user bank card list  # noqa: E501
 
-        Get user bank card list for selecting bank card when placing orders  # noqa: E501
+        Retrieve the user's bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field `is_default` (1=default); there is no need to call the deprecated standalone \"default bank card\" endpoint. Corresponding Inner: `GET /bank_list` or `GET /bank/list`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_bank_list_with_http_info(async_req=True)
+        >>> thread = api.get_bank_list_inner_path_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
@@ -560,7 +455,7 @@ class OTCApi(object):
             if k not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_bank_list" % k
+                    " to method get_bank_list_inner_path" % k
                 )
             local_var_params[k] = v
         del local_var_params['kwargs']
@@ -585,7 +480,7 @@ class OTCApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/otc/bank_list', 'GET',
+            '/otc/bank/list', 'GET',
             path_params,
             query_params,
             header_params,
@@ -600,10 +495,861 @@ class OTCApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mark_otc_order_paid(self, otc_mark_order_paid_request, **kwargs):  # noqa: E501
-        """Mark fiat order as paid  # noqa: E501
+    def create_otc_bank(self, bank_account_name, bank_name, bank_country, bank_address, iban, swift, documentation_file, **kwargs):  # noqa: E501
+        """Create bank card  # noqa: E501
 
-        Mark fiat order as paid  # noqa: E501
+        Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (`status` pending) and require subsequent supplementary materials. Corresponding Inner: `POST /bank/create`. Fields and protocol are subject to the production form/gateway; in some environments `bank_account_name` is passed Base64-encoded, see the integration notes for details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_otc_bank(bank_account_name, bank_name, bank_country, bank_address, iban, swift, documentation_file, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_account_name: (required)
+        :param str bank_name: (required)
+        :param str bank_country: (required)
+        :param str bank_address: (required)
+        :param str iban: (required)
+        :param str swift: (required)
+        :param file documentation_file: Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+        :param str remittance_line_number:
+        :param str agent_bank_name:
+        :param str agent_bank_swift:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OtcBankCreateResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_otc_bank_with_http_info(bank_account_name, bank_name, bank_country, bank_address, iban, swift, documentation_file, **kwargs)  # noqa: E501
+
+    def create_otc_bank_with_http_info(self, bank_account_name, bank_name, bank_country, bank_address, iban, swift, documentation_file, **kwargs):  # noqa: E501
+        """Create bank card  # noqa: E501
+
+        Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (`status` pending) and require subsequent supplementary materials. Corresponding Inner: `POST /bank/create`. Fields and protocol are subject to the production form/gateway; in some environments `bank_account_name` is passed Base64-encoded, see the integration notes for details.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_otc_bank_with_http_info(bank_account_name, bank_name, bank_country, bank_address, iban, swift, documentation_file, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_account_name: (required)
+        :param str bank_name: (required)
+        :param str bank_country: (required)
+        :param str bank_address: (required)
+        :param str iban: (required)
+        :param str swift: (required)
+        :param file documentation_file: Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+        :param str remittance_line_number:
+        :param str agent_bank_name:
+        :param str agent_bank_swift:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OtcBankCreateResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'bank_account_name',
+            'bank_name',
+            'bank_country',
+            'bank_address',
+            'iban',
+            'swift',
+            'documentation_file',
+            'remittance_line_number',
+            'agent_bank_name',
+            'agent_bank_swift'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_otc_bank" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'bank_account_name' is set
+        if self.api_client.client_side_validation and ('bank_account_name' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_account_name'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_account_name` when calling `create_otc_bank`")  # noqa: E501
+        # verify the required parameter 'bank_name' is set
+        if self.api_client.client_side_validation and ('bank_name' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_name'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_name` when calling `create_otc_bank`")  # noqa: E501
+        # verify the required parameter 'bank_country' is set
+        if self.api_client.client_side_validation and ('bank_country' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_country'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_country` when calling `create_otc_bank`")  # noqa: E501
+        # verify the required parameter 'bank_address' is set
+        if self.api_client.client_side_validation and ('bank_address' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_address'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_address` when calling `create_otc_bank`")  # noqa: E501
+        # verify the required parameter 'iban' is set
+        if self.api_client.client_side_validation and ('iban' not in local_var_params or  # noqa: E501
+                                                        local_var_params['iban'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `iban` when calling `create_otc_bank`")  # noqa: E501
+        # verify the required parameter 'swift' is set
+        if self.api_client.client_side_validation and ('swift' not in local_var_params or  # noqa: E501
+                                                        local_var_params['swift'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `swift` when calling `create_otc_bank`")  # noqa: E501
+        # verify the required parameter 'documentation_file' is set
+        if self.api_client.client_side_validation and ('documentation_file' not in local_var_params or  # noqa: E501
+                                                        local_var_params['documentation_file'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `documentation_file` when calling `create_otc_bank`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'bank_account_name' in local_var_params:
+            form_params.append(('bank_account_name', local_var_params['bank_account_name']))  # noqa: E501
+        if 'bank_name' in local_var_params:
+            form_params.append(('bank_name', local_var_params['bank_name']))  # noqa: E501
+        if 'bank_country' in local_var_params:
+            form_params.append(('bank_country', local_var_params['bank_country']))  # noqa: E501
+        if 'bank_address' in local_var_params:
+            form_params.append(('bank_address', local_var_params['bank_address']))  # noqa: E501
+        if 'iban' in local_var_params:
+            form_params.append(('iban', local_var_params['iban']))  # noqa: E501
+        if 'swift' in local_var_params:
+            form_params.append(('swift', local_var_params['swift']))  # noqa: E501
+        if 'remittance_line_number' in local_var_params:
+            form_params.append(('remittance_line_number', local_var_params['remittance_line_number']))  # noqa: E501
+        if 'agent_bank_name' in local_var_params:
+            form_params.append(('agent_bank_name', local_var_params['agent_bank_name']))  # noqa: E501
+        if 'agent_bank_swift' in local_var_params:
+            form_params.append(('agent_bank_swift', local_var_params['agent_bank_swift']))  # noqa: E501
+        if 'documentation_file' in local_var_params:
+            local_var_files['documentation_file'] = local_var_params['documentation_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OtcBankCreateResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_otc_bank(self, otc_bank_id_request, **kwargs):  # noqa: E501
+        """Delete bank card  # noqa: E501
+
+        Delete the specified bank card. Corresponds to Inner: `POST /bank/delete`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_otc_bank(otc_bank_id_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param OtcBankIdRequest otc_bank_id_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OtcActionResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_otc_bank_with_http_info(otc_bank_id_request, **kwargs)  # noqa: E501
+
+    def delete_otc_bank_with_http_info(self, otc_bank_id_request, **kwargs):  # noqa: E501
+        """Delete bank card  # noqa: E501
+
+        Delete the specified bank card. Corresponds to Inner: `POST /bank/delete`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_otc_bank_with_http_info(otc_bank_id_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param OtcBankIdRequest otc_bank_id_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'otc_bank_id_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_otc_bank" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'otc_bank_id_request' is set
+        if self.api_client.client_side_validation and ('otc_bank_id_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['otc_bank_id_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `otc_bank_id_request` when calling `delete_otc_bank`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'otc_bank_id_request' in local_var_params:
+            body_params = local_var_params['otc_bank_id_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank/delete', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OtcActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def set_default_otc_bank(self, otc_bank_id_request, **kwargs):  # noqa: E501
+        """Set default bank card  # noqa: E501
+
+        Set the specified bank card as default. Corresponds to Inner: `POST /bank/set_default`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_default_otc_bank(otc_bank_id_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param OtcBankIdRequest otc_bank_id_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OtcActionResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_default_otc_bank_with_http_info(otc_bank_id_request, **kwargs)  # noqa: E501
+
+    def set_default_otc_bank_with_http_info(self, otc_bank_id_request, **kwargs):  # noqa: E501
+        """Set default bank card  # noqa: E501
+
+        Set the specified bank card as default. Corresponds to Inner: `POST /bank/set_default`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_default_otc_bank_with_http_info(otc_bank_id_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param OtcBankIdRequest otc_bank_id_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'otc_bank_id_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_default_otc_bank" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'otc_bank_id_request' is set
+        if self.api_client.client_side_validation and ('otc_bank_id_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['otc_bank_id_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `otc_bank_id_request` when calling `set_default_otc_bank`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'otc_bank_id_request' in local_var_params:
+            body_params = local_var_params['otc_bank_id_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank/set_default', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OtcActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_otc_bank_supplement_checklist(self, bank_id, **kwargs):  # noqa: E501
+        """Query the checklist of materials to supplement for a bank card  # noqa: E501
+
+        **①** `bank_id` must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user's **passed professional verification type** (personal/enterprise). Corresponding Inner: `GET /bank/bank_supplement_checklist`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_otc_bank_supplement_checklist(bank_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_id: Bank card ID (otc_rds / the id returned by the list endpoint). (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OtcBankSupplementChecklistResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_otc_bank_supplement_checklist_with_http_info(bank_id, **kwargs)  # noqa: E501
+
+    def get_otc_bank_supplement_checklist_with_http_info(self, bank_id, **kwargs):  # noqa: E501
+        """Query the checklist of materials to supplement for a bank card  # noqa: E501
+
+        **①** `bank_id` must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user's **passed professional verification type** (personal/enterprise). Corresponding Inner: `GET /bank/bank_supplement_checklist`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_otc_bank_supplement_checklist_with_http_info(bank_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_id: Bank card ID (otc_rds / the id returned by the list endpoint). (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OtcBankSupplementChecklistResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'bank_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_otc_bank_supplement_checklist" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'bank_id' is set
+        if self.api_client.client_side_validation and ('bank_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_id` when calling `get_otc_bank_supplement_checklist`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'bank_id' in local_var_params and local_var_params['bank_id'] is not None:  # noqa: E501
+            query_params.append(('bank_id', local_var_params['bank_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank/bank_supplement_checklist', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OtcBankSupplementChecklistResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def submit_otc_bank_personal_supplement(self, bank_id, id_document_front, id_document_back, address_proof, **kwargs):  # noqa: E501
+        """Submit Bank Card Supplement Materials (Personal)  # noqa: E501
+
+        **Personal professional verification (type=1)** users submit non-same-person/supplementary materials. Must match `user_type=personal` returned by `GET /otc/bank/bank_supplement_checklist?bank_id=`, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist `code` (`id_document_front`, `id_document_back`, `address_proof`).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.submit_otc_bank_personal_supplement(bank_id, id_document_front, id_document_back, address_proof, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_id: (required)
+        :param str id_document_front: ID document front-side file content (multipart file field, binary/Base64) (required)
+        :param str id_document_back: ID document back-side file content (multipart file field, binary/Base64) (required)
+        :param str address_proof: Proof-of-address file content (multipart file field, binary/Base64) (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OtcActionResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.submit_otc_bank_personal_supplement_with_http_info(bank_id, id_document_front, id_document_back, address_proof, **kwargs)  # noqa: E501
+
+    def submit_otc_bank_personal_supplement_with_http_info(self, bank_id, id_document_front, id_document_back, address_proof, **kwargs):  # noqa: E501
+        """Submit Bank Card Supplement Materials (Personal)  # noqa: E501
+
+        **Personal professional verification (type=1)** users submit non-same-person/supplementary materials. Must match `user_type=personal` returned by `GET /otc/bank/bank_supplement_checklist?bank_id=`, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist `code` (`id_document_front`, `id_document_back`, `address_proof`).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.submit_otc_bank_personal_supplement_with_http_info(bank_id, id_document_front, id_document_back, address_proof, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_id: (required)
+        :param str id_document_front: ID document front-side file content (multipart file field, binary/Base64) (required)
+        :param str id_document_back: ID document back-side file content (multipart file field, binary/Base64) (required)
+        :param str address_proof: Proof-of-address file content (multipart file field, binary/Base64) (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'bank_id',
+            'id_document_front',
+            'id_document_back',
+            'address_proof'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method submit_otc_bank_personal_supplement" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'bank_id' is set
+        if self.api_client.client_side_validation and ('bank_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_id` when calling `submit_otc_bank_personal_supplement`")  # noqa: E501
+        # verify the required parameter 'id_document_front' is set
+        if self.api_client.client_side_validation and ('id_document_front' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_document_front'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id_document_front` when calling `submit_otc_bank_personal_supplement`")  # noqa: E501
+        # verify the required parameter 'id_document_back' is set
+        if self.api_client.client_side_validation and ('id_document_back' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id_document_back'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id_document_back` when calling `submit_otc_bank_personal_supplement`")  # noqa: E501
+        # verify the required parameter 'address_proof' is set
+        if self.api_client.client_side_validation and ('address_proof' not in local_var_params or  # noqa: E501
+                                                        local_var_params['address_proof'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `address_proof` when calling `submit_otc_bank_personal_supplement`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'bank_id' in local_var_params:
+            form_params.append(('bank_id', local_var_params['bank_id']))  # noqa: E501
+        if 'id_document_front' in local_var_params:
+            form_params.append(('id_document_front', local_var_params['id_document_front']))  # noqa: E501
+        if 'id_document_back' in local_var_params:
+            form_params.append(('id_document_back', local_var_params['id_document_back']))  # noqa: E501
+        if 'address_proof' in local_var_params:
+            form_params.append(('address_proof', local_var_params['address_proof']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank/personal/bank_supplement', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OtcActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def submit_otc_bank_enterprise_supplement(self, bank_id, certificate, share_holders, passport, share_holding_structure, **kwargs):  # noqa: E501
+        """Submit Bank Card Supplement Materials (Enterprise)  # noqa: E501
+
+        **Enterprise professional verification (type=2)** users submit supplementary materials. Must match `user_type=enterprise` returned by the checklist. **multipart** file field names: `certificate`, `share_holders`, `passport`, `share_holding_structure`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.submit_otc_bank_enterprise_supplement(bank_id, certificate, share_holders, passport, share_holding_structure, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_id: (required)
+        :param str certificate: Business license / registration certificate file content (multipart file field, binary/Base64) (required)
+        :param str share_holders: Register of shareholders file content (multipart file field, binary/Base64) (required)
+        :param str passport: Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
+        :param str share_holding_structure: Ownership structure chart file content (multipart file field, binary/Base64) (required)
+        :param str uid:
+        :param str funds_statement: Proof-of-funds file content (multipart file field, binary/Base64, optional)
+        :param str additional: Other supplementary material file content (multipart file field, binary/Base64, optional)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OtcActionResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.submit_otc_bank_enterprise_supplement_with_http_info(bank_id, certificate, share_holders, passport, share_holding_structure, **kwargs)  # noqa: E501
+
+    def submit_otc_bank_enterprise_supplement_with_http_info(self, bank_id, certificate, share_holders, passport, share_holding_structure, **kwargs):  # noqa: E501
+        """Submit Bank Card Supplement Materials (Enterprise)  # noqa: E501
+
+        **Enterprise professional verification (type=2)** users submit supplementary materials. Must match `user_type=enterprise` returned by the checklist. **multipart** file field names: `certificate`, `share_holders`, `passport`, `share_holding_structure`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.submit_otc_bank_enterprise_supplement_with_http_info(bank_id, certificate, share_holders, passport, share_holding_structure, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str bank_id: (required)
+        :param str certificate: Business license / registration certificate file content (multipart file field, binary/Base64) (required)
+        :param str share_holders: Register of shareholders file content (multipart file field, binary/Base64) (required)
+        :param str passport: Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
+        :param str share_holding_structure: Ownership structure chart file content (multipart file field, binary/Base64) (required)
+        :param str uid:
+        :param str funds_statement: Proof-of-funds file content (multipart file field, binary/Base64, optional)
+        :param str additional: Other supplementary material file content (multipart file field, binary/Base64, optional)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OtcActionResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'bank_id',
+            'certificate',
+            'share_holders',
+            'passport',
+            'share_holding_structure',
+            'uid',
+            'funds_statement',
+            'additional'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method submit_otc_bank_enterprise_supplement" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'bank_id' is set
+        if self.api_client.client_side_validation and ('bank_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['bank_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `bank_id` when calling `submit_otc_bank_enterprise_supplement`")  # noqa: E501
+        # verify the required parameter 'certificate' is set
+        if self.api_client.client_side_validation and ('certificate' not in local_var_params or  # noqa: E501
+                                                        local_var_params['certificate'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `certificate` when calling `submit_otc_bank_enterprise_supplement`")  # noqa: E501
+        # verify the required parameter 'share_holders' is set
+        if self.api_client.client_side_validation and ('share_holders' not in local_var_params or  # noqa: E501
+                                                        local_var_params['share_holders'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `share_holders` when calling `submit_otc_bank_enterprise_supplement`")  # noqa: E501
+        # verify the required parameter 'passport' is set
+        if self.api_client.client_side_validation and ('passport' not in local_var_params or  # noqa: E501
+                                                        local_var_params['passport'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `passport` when calling `submit_otc_bank_enterprise_supplement`")  # noqa: E501
+        # verify the required parameter 'share_holding_structure' is set
+        if self.api_client.client_side_validation and ('share_holding_structure' not in local_var_params or  # noqa: E501
+                                                        local_var_params['share_holding_structure'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `share_holding_structure` when calling `submit_otc_bank_enterprise_supplement`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'uid' in local_var_params:
+            form_params.append(('uid', local_var_params['uid']))  # noqa: E501
+        if 'bank_id' in local_var_params:
+            form_params.append(('bank_id', local_var_params['bank_id']))  # noqa: E501
+        if 'certificate' in local_var_params:
+            form_params.append(('certificate', local_var_params['certificate']))  # noqa: E501
+        if 'share_holders' in local_var_params:
+            form_params.append(('share_holders', local_var_params['share_holders']))  # noqa: E501
+        if 'passport' in local_var_params:
+            form_params.append(('passport', local_var_params['passport']))  # noqa: E501
+        if 'share_holding_structure' in local_var_params:
+            form_params.append(('share_holding_structure', local_var_params['share_holding_structure']))  # noqa: E501
+        if 'funds_statement' in local_var_params:
+            form_params.append(('funds_statement', local_var_params['funds_statement']))  # noqa: E501
+        if 'additional' in local_var_params:
+            form_params.append(('additional', local_var_params['additional']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/otc/bank/enterprise/bank_supplement', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OtcActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def mark_otc_order_paid(self, otc_mark_order_paid_request, **kwargs):  # noqa: E501
+        """Mark fiat order as paid (deposit confirmation)  # noqa: E501
+
+        Mark a fiat buy order as paid (deposit confirmation). **The user's payment receipt must be uploaded**: `payment_receipt_file_key` is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name `payment_receipt` is subject to the gateway/production environment. For the persisted field, see `otc_trade_record.payment_receipt_file_key`. The Pay Inner path is `POST .../pay/order_set_paid` (orders are usually associated via `client_order_id`); this OpenAPI path maps to Inner `POST /order/paid` and still uses `order_id` as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_otc_order_paid(otc_mark_order_paid_request, async_req=True)
@@ -626,9 +1372,9 @@ class OTCApi(object):
         return self.mark_otc_order_paid_with_http_info(otc_mark_order_paid_request, **kwargs)  # noqa: E501
 
     def mark_otc_order_paid_with_http_info(self, otc_mark_order_paid_request, **kwargs):  # noqa: E501
-        """Mark fiat order as paid  # noqa: E501
+        """Mark fiat order as paid (deposit confirmation)  # noqa: E501
 
-        Mark fiat order as paid  # noqa: E501
+        Mark a fiat buy order as paid (deposit confirmation). **The user's payment receipt must be uploaded**: `payment_receipt_file_key` is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name `payment_receipt` is subject to the gateway/production environment. For the persisted field, see `otc_trade_record.payment_receipt_file_key`. The Pay Inner path is `POST .../pay/order_set_paid` (orders are usually associated via `client_order_id`); this OpenAPI path maps to Inner `POST /order/paid` and still uses `order_id` as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_otc_order_paid_with_http_info(otc_mark_order_paid_request, async_req=True)

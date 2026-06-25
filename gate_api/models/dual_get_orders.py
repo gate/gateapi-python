@@ -35,7 +35,6 @@ class DualGetOrders(object):
     openapi_types = {
         'id': 'int',
         'plan_id': 'int',
-        'copies': 'str',
         'invest_amount': 'str',
         'settlement_amount': 'str',
         'create_time': 'int',
@@ -55,7 +54,6 @@ class DualGetOrders(object):
     attribute_map = {
         'id': 'id',
         'plan_id': 'plan_id',
-        'copies': 'copies',
         'invest_amount': 'invest_amount',
         'settlement_amount': 'settlement_amount',
         'create_time': 'create_time',
@@ -72,8 +70,8 @@ class DualGetOrders(object):
         'text': 'text'
     }
 
-    def __init__(self, id=None, plan_id=None, copies=None, invest_amount=None, settlement_amount=None, create_time=None, complete_time=None, status=None, invest_currency=None, exercise_currency=None, exercise_price=None, settlement_price=None, settlement_currency=None, apy_display=None, apy_settlement=None, delivery_time=None, text=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, str, str, str, int, int, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
+    def __init__(self, id=None, plan_id=None, invest_amount=None, settlement_amount=None, create_time=None, complete_time=None, status=None, invest_currency=None, exercise_currency=None, exercise_price=None, settlement_price=None, settlement_currency=None, apy_display=None, apy_settlement=None, delivery_time=None, text=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, str, int, int, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
         """DualGetOrders - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,7 +79,6 @@ class DualGetOrders(object):
 
         self._id = None
         self._plan_id = None
-        self._copies = None
         self._invest_amount = None
         self._settlement_amount = None
         self._create_time = None
@@ -102,8 +99,6 @@ class DualGetOrders(object):
             self.id = id
         if plan_id is not None:
             self.plan_id = plan_id
-        if copies is not None:
-            self.copies = copies
         if invest_amount is not None:
             self.invest_amount = invest_amount
         if settlement_amount is not None:
@@ -178,29 +173,6 @@ class DualGetOrders(object):
         """
 
         self._plan_id = plan_id
-
-    @property
-    def copies(self):
-        """Gets the copies of this DualGetOrders.  # noqa: E501
-
-        Units  # noqa: E501
-
-        :return: The copies of this DualGetOrders.  # noqa: E501
-        :rtype: str
-        """
-        return self._copies
-
-    @copies.setter
-    def copies(self, copies):
-        """Sets the copies of this DualGetOrders.
-
-        Units  # noqa: E501
-
-        :param copies: The copies of this DualGetOrders.  # noqa: E501
-        :type: str
-        """
-
-        self._copies = copies
 
     @property
     def invest_amount(self):

@@ -39,7 +39,7 @@ class BotApi(object):
     def get_ai_hub_strategy_recommend(self, **kwargs):  # noqa: E501
         """Get AIHub strategy recommendations  # noqa: E501
 
-        discover 域唯一正式接口。  支持场景： - `top1` - `bundle` - `filter` - `refresh`  约束： - 主动推荐池仅包含 `spot_grid`、`futures_grid`、`spot_martingale` - 可返回但不主动推荐 `infinite_grid`、`margin_grid` - 不得返回 `contract_martingale`、`smart-position`、`spot-future-arbitrage` - `scene=filter` 时只允许按 `market`、`backtest_apr_gte`、`max_drawdown_lte` 过滤 - `scene=refresh` 通过 `refresh_recommendation_id` 承接刷新上下文；正式最小格式只要求 `strategy_type|market` - 若上游直接透传上一条推荐的 `recommendation_id`，其中第三段 `backtest_id` 当前会被忽略  # noqa: E501
+        The only formal interface for the discover domain. Support scenarios: - `top1` - `bundle` - `filter` - `refresh` Constraints: - The active recommendation pool only contains `spot_grid`, `futures_grid`, `spot_martingale` - Can return but do not actively recommend `infinite_grid`, `margin_grid` - `contract_martingale`, `smart-position`, `spot-future-arbitrage` must not be returned - When `scene=filter` is used, only filtering by `market`, `backtest_apr_gte`, `max_drawdown_lte` is allowed - `scene=refresh` inherits the refresh context through `refresh_recommendation_id`; the official minimum format only requires `strategy_type|market` - If the upstream directly transmits the previous recommendation `recommendation_id`, the third paragraph `backtest_id` will currently be ignored.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_strategy_recommend(async_req=True)
@@ -76,7 +76,7 @@ class BotApi(object):
     def get_ai_hub_strategy_recommend_with_http_info(self, **kwargs):  # noqa: E501
         """Get AIHub strategy recommendations  # noqa: E501
 
-        discover 域唯一正式接口。  支持场景： - `top1` - `bundle` - `filter` - `refresh`  约束： - 主动推荐池仅包含 `spot_grid`、`futures_grid`、`spot_martingale` - 可返回但不主动推荐 `infinite_grid`、`margin_grid` - 不得返回 `contract_martingale`、`smart-position`、`spot-future-arbitrage` - `scene=filter` 时只允许按 `market`、`backtest_apr_gte`、`max_drawdown_lte` 过滤 - `scene=refresh` 通过 `refresh_recommendation_id` 承接刷新上下文；正式最小格式只要求 `strategy_type|market` - 若上游直接透传上一条推荐的 `recommendation_id`，其中第三段 `backtest_id` 当前会被忽略  # noqa: E501
+        The only formal interface for the discover domain. Support scenarios: - `top1` - `bundle` - `filter` - `refresh` Constraints: - The active recommendation pool only contains `spot_grid`, `futures_grid`, `spot_martingale` - Can return but do not actively recommend `infinite_grid`, `margin_grid` - `contract_martingale`, `smart-position`, `spot-future-arbitrage` must not be returned - When `scene=filter` is used, only filtering by `market`, `backtest_apr_gte`, `max_drawdown_lte` is allowed - `scene=refresh` inherits the refresh context through `refresh_recommendation_id`; the official minimum format only requires `strategy_type|market` - If the upstream directly transmits the previous recommendation `recommendation_id`, the third paragraph `backtest_id` will currently be ignored.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_strategy_recommend_with_http_info(async_req=True)
@@ -763,7 +763,7 @@ class BotApi(object):
     def post_ai_hub_spot_martingale_create(self, spot_martingale_create_request, **kwargs):  # noqa: E501
         """Create Spot Martin  # noqa: E501
 
-        根据传入参数创建现货马丁策略。  止损口径与 App / `MartingaleBot` 一致： - 使用 **`create_params.stop_loss_per_cycle`**（每轮止损比例，小数字符串），**不要**使用 `stop_loss_price` 表达创建侧止损。 - 详情页展示的「止损价」由引擎按轮次计算；创建侧可选 **`create_params.trigger_price`**（触发价）。  # noqa: E501
+        Create a spot martingale strategy from the given parameters. Stop-loss semantics match the app / `MartingaleBot`: - Use **`create_params.stop_loss_per_cycle`** (ratio per round as a decimal string) for creation-side stop-loss; **do not** use `stop_loss_price` for creation logic. - Stop-loss prices shown on detail pages are computed per round by the engine; creation accepts optional **`create_params.trigger_price`** (trigger price).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_martingale_create(spot_martingale_create_request, async_req=True)
@@ -792,7 +792,7 @@ class BotApi(object):
     def post_ai_hub_spot_martingale_create_with_http_info(self, spot_martingale_create_request, **kwargs):  # noqa: E501
         """Create Spot Martin  # noqa: E501
 
-        根据传入参数创建现货马丁策略。  止损口径与 App / `MartingaleBot` 一致： - 使用 **`create_params.stop_loss_per_cycle`**（每轮止损比例，小数字符串），**不要**使用 `stop_loss_price` 表达创建侧止损。 - 详情页展示的「止损价」由引擎按轮次计算；创建侧可选 **`create_params.trigger_price`**（触发价）。  # noqa: E501
+        Create a spot martingale strategy from the given parameters. Stop-loss semantics match the app / `MartingaleBot`: - Use **`create_params.stop_loss_per_cycle`** (ratio per round as a decimal string) for creation-side stop-loss; **do not** use `stop_loss_price` for creation logic. - Stop-loss prices shown on detail pages are computed per round by the engine; creation accepts optional **`create_params.trigger_price`** (trigger price).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_ai_hub_spot_martingale_create_with_http_info(spot_martingale_create_request, async_req=True)

@@ -26,6 +26,10 @@ Method | HTTP request | Description
 [**list_unified_currencies**](UnifiedApi.md#list_unified_currencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
 [**get_history_loan_rate**](UnifiedApi.md#get_history_loan_rate) | **GET** /unified/history_loan_rate | Get historical lending rates
 [**set_unified_collateral**](UnifiedApi.md#set_unified_collateral) | **POST** /unified/collateral_currencies | Set collateral currency
+[**get_estimated_quick_repayment**](UnifiedApi.md#get_estimated_quick_repayment) | **GET** /unified/estimated_quick_repayment | Estimated quick repayment details
+[**create_quick_repayment**](UnifiedApi.md#create_quick_repayment) | **POST** /unified/quick_repayment | Quick repayment
+[**get_unified_delta_neutral**](UnifiedApi.md#get_unified_delta_neutral) | **GET** /unified/delta_neutral | Query the account Delta-neutral strategy mode setting
+[**set_unified_delta_neutral**](UnifiedApi.md#set_unified_delta_neutral) | **POST** /unified/delta_neutral | Set the account Delta-neutral strategy mode
 
 
 # **list_unified_accounts**
@@ -1482,6 +1486,283 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Updated successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_estimated_quick_repayment**
+> QuickEstimatedRepayment get_estimated_quick_repayment()
+
+Estimated quick repayment details
+
+Available for unified account cross-currency margin mode and portfolio margin mode
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.UnifiedApi(api_client)
+
+try:
+    # Estimated quick repayment details
+    api_response = api_instance.get_estimated_quick_repayment()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling UnifiedApi->get_estimated_quick_repayment: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**QuickEstimatedRepayment**](QuickEstimatedRepayment.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. account mode does not support quick repayment) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_quick_repayment**
+> QuickRepaymentResponse create_quick_repayment(quick_repayment_request)
+
+Quick repayment
+
+Available for unified account cross-currency margin mode and portfolio margin mode. Use `GET /unified/estimated_quick_repayment` to query liabilities and pending repayment information.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.UnifiedApi(api_client)
+quick_repayment_request = gate_api.QuickRepaymentRequest() # QuickRepaymentRequest | 
+
+try:
+    # Quick repayment
+    api_response = api_instance.create_quick_repayment(quick_repayment_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling UnifiedApi->create_quick_repayment: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_repayment_request** | [**QuickRepaymentRequest**](QuickRepaymentRequest.md)|  | 
+
+### Return type
+
+[**QuickRepaymentResponse**](QuickRepaymentResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Repayment successful |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. account mode does not support quick repayment) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_unified_delta_neutral**
+> DeltaNeutralEnabled get_unified_delta_neutral()
+
+Query the account Delta-neutral strategy mode setting
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.UnifiedApi(api_client)
+
+try:
+    # Query the account Delta-neutral strategy mode setting
+    api_response = api_instance.get_unified_delta_neutral()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling UnifiedApi->get_unified_delta_neutral: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeltaNeutralEnabled**](DeltaNeutralEnabled.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_unified_delta_neutral**
+> DeltaNeutralEnabled set_unified_delta_neutral(delta_neutral_enabled)
+
+Set the account Delta-neutral strategy mode
+
+Enable or disable the account Delta-neutral strategy mode.  Requirements for enabling: VIP level >= 4 and the account is in cross-currency margin mode; otherwise 403 is returned. Returns the enabled status after the setting takes effect.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.UnifiedApi(api_client)
+delta_neutral_enabled = gate_api.DeltaNeutralEnabled() # DeltaNeutralEnabled | 
+
+try:
+    # Set the account Delta-neutral strategy mode
+    api_response = api_instance.set_unified_delta_neutral(delta_neutral_enabled)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling UnifiedApi->set_unified_delta_neutral: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **delta_neutral_enabled** | [**DeltaNeutralEnabled**](DeltaNeutralEnabled.md)|  | 
+
+### Return type
+
+[**DeltaNeutralEnabled**](DeltaNeutralEnabled.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Set successfully |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -33,25 +33,50 @@ class P2pSendChatMessageResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'srvtm': 'int'
+        'srvtm': 'int',
+        'txid': 'int',
+        'conversation_id': 'str',
+        'msg_type': 'int',
+        'risk_type': 'int',
+        'toast_msg': 'str'
     }
 
     attribute_map = {
-        'srvtm': 'SRVTM'
+        'srvtm': 'SRVTM',
+        'txid': 'txid',
+        'conversation_id': 'conversation_id',
+        'msg_type': 'msg_type',
+        'risk_type': 'risk_type',
+        'toast_msg': 'toast_msg'
     }
 
-    def __init__(self, srvtm=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, Configuration) -> None
+    def __init__(self, srvtm=None, txid=None, conversation_id=None, msg_type=None, risk_type=None, toast_msg=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, int, int, str, Configuration) -> None
         """P2pSendChatMessageResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._srvtm = None
+        self._txid = None
+        self._conversation_id = None
+        self._msg_type = None
+        self._risk_type = None
+        self._toast_msg = None
         self.discriminator = None
 
         if srvtm is not None:
             self.srvtm = srvtm
+        if txid is not None:
+            self.txid = txid
+        if conversation_id is not None:
+            self.conversation_id = conversation_id
+        if msg_type is not None:
+            self.msg_type = msg_type
+        if risk_type is not None:
+            self.risk_type = risk_type
+        if toast_msg is not None:
+            self.toast_msg = toast_msg
 
     @property
     def srvtm(self):
@@ -75,6 +100,133 @@ class P2pSendChatMessageResult(object):
         """
 
         self._srvtm = srvtm
+
+    @property
+    def txid(self):
+        """Gets the txid of this P2pSendChatMessageResult.  # noqa: E501
+
+        Order ID  # noqa: E501
+
+        :return: The txid of this P2pSendChatMessageResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._txid
+
+    @txid.setter
+    def txid(self, txid):
+        """Sets the txid of this P2pSendChatMessageResult.
+
+        Order ID  # noqa: E501
+
+        :param txid: The txid of this P2pSendChatMessageResult.  # noqa: E501
+        :type: int
+        """
+
+        self._txid = txid
+
+    @property
+    def conversation_id(self):
+        """Gets the conversation_id of this P2pSendChatMessageResult.  # noqa: E501
+
+        Chat ID, formatted as both parties' UIDs concatenated in ascending order  # noqa: E501
+
+        :return: The conversation_id of this P2pSendChatMessageResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._conversation_id
+
+    @conversation_id.setter
+    def conversation_id(self, conversation_id):
+        """Sets the conversation_id of this P2pSendChatMessageResult.
+
+        Chat ID, formatted as both parties' UIDs concatenated in ascending order  # noqa: E501
+
+        :param conversation_id: The conversation_id of this P2pSendChatMessageResult.  # noqa: E501
+        :type: str
+        """
+
+        self._conversation_id = conversation_id
+
+    @property
+    def msg_type(self):
+        """Gets the msg_type of this P2pSendChatMessageResult.  # noqa: E501
+
+        Message content type when risk control is hit. 0: text  # noqa: E501
+
+        :return: The msg_type of this P2pSendChatMessageResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._msg_type
+
+    @msg_type.setter
+    def msg_type(self, msg_type):
+        """Sets the msg_type of this P2pSendChatMessageResult.
+
+        Message content type when risk control is hit. 0: text  # noqa: E501
+
+        :param msg_type: The msg_type of this P2pSendChatMessageResult.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [0]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and msg_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `msg_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(msg_type, allowed_values)
+            )
+
+        self._msg_type = msg_type
+
+    @property
+    def risk_type(self):
+        """Gets the risk_type of this P2pSendChatMessageResult.  # noqa: E501
+
+        Risk control display type. 1: off-platform traffic diversion risk; returned only when risk control is hit  # noqa: E501
+
+        :return: The risk_type of this P2pSendChatMessageResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._risk_type
+
+    @risk_type.setter
+    def risk_type(self, risk_type):
+        """Sets the risk_type of this P2pSendChatMessageResult.
+
+        Risk control display type. 1: off-platform traffic diversion risk; returned only when risk control is hit  # noqa: E501
+
+        :param risk_type: The risk_type of this P2pSendChatMessageResult.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and risk_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `risk_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(risk_type, allowed_values)
+            )
+
+        self._risk_type = risk_type
+
+    @property
+    def toast_msg(self):
+        """Gets the toast_msg of this P2pSendChatMessageResult.  # noqa: E501
+
+        Risk control prompt message; returned only when risk_type=1  # noqa: E501
+
+        :return: The toast_msg of this P2pSendChatMessageResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._toast_msg
+
+    @toast_msg.setter
+    def toast_msg(self, toast_msg):
+        """Sets the toast_msg of this P2pSendChatMessageResult.
+
+        Risk control prompt message; returned only when risk_type=1  # noqa: E501
+
+        :param toast_msg: The toast_msg of this P2pSendChatMessageResult.  # noqa: E501
+        :type: str
+        """
+
+        self._toast_msg = toast_msg
 
     def to_dict(self):
         """Returns the model properties as a dict"""

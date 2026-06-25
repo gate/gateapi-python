@@ -39,14 +39,24 @@ class ContractStat(object):
         'long_liq_size': 'str',
         'long_liq_amount': 'float',
         'long_liq_usd': 'float',
+        'long_liq_usd_new': 'float',
         'short_liq_size': 'str',
         'short_liq_amount': 'float',
         'short_liq_usd': 'float',
+        'short_liq_usd_new': 'float',
         'open_interest': 'str',
         'open_interest_usd': 'float',
         'top_lsr_account': 'float',
         'top_lsr_size': 'str',
-        'mark_price': 'float'
+        'mark_price': 'float',
+        'top_long_size': 'str',
+        'top_short_size': 'str',
+        'long_taker_size': 'str',
+        'short_taker_size': 'str',
+        'top_long_account': 'int',
+        'top_short_account': 'int',
+        'long_users': 'str',
+        'short_users': 'str'
     }
 
     attribute_map = {
@@ -56,18 +66,28 @@ class ContractStat(object):
         'long_liq_size': 'long_liq_size',
         'long_liq_amount': 'long_liq_amount',
         'long_liq_usd': 'long_liq_usd',
+        'long_liq_usd_new': 'long_liq_usd_new',
         'short_liq_size': 'short_liq_size',
         'short_liq_amount': 'short_liq_amount',
         'short_liq_usd': 'short_liq_usd',
+        'short_liq_usd_new': 'short_liq_usd_new',
         'open_interest': 'open_interest',
         'open_interest_usd': 'open_interest_usd',
         'top_lsr_account': 'top_lsr_account',
         'top_lsr_size': 'top_lsr_size',
-        'mark_price': 'mark_price'
+        'mark_price': 'mark_price',
+        'top_long_size': 'top_long_size',
+        'top_short_size': 'top_short_size',
+        'long_taker_size': 'long_taker_size',
+        'short_taker_size': 'short_taker_size',
+        'top_long_account': 'top_long_account',
+        'top_short_account': 'top_short_account',
+        'long_users': 'long_users',
+        'short_users': 'short_users'
     }
 
-    def __init__(self, time=None, lsr_taker=None, lsr_account=None, long_liq_size=None, long_liq_amount=None, long_liq_usd=None, short_liq_size=None, short_liq_amount=None, short_liq_usd=None, open_interest=None, open_interest_usd=None, top_lsr_account=None, top_lsr_size=None, mark_price=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, str, float, float, str, float, float, str, float, float, str, float, Configuration) -> None
+    def __init__(self, time=None, lsr_taker=None, lsr_account=None, long_liq_size=None, long_liq_amount=None, long_liq_usd=None, long_liq_usd_new=None, short_liq_size=None, short_liq_amount=None, short_liq_usd=None, short_liq_usd_new=None, open_interest=None, open_interest_usd=None, top_lsr_account=None, top_lsr_size=None, mark_price=None, top_long_size=None, top_short_size=None, long_taker_size=None, short_taker_size=None, top_long_account=None, top_short_account=None, long_users=None, short_users=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, float, float, str, float, float, float, str, float, float, float, str, float, float, str, float, str, str, str, str, int, int, str, str, Configuration) -> None
         """ContractStat - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,14 +99,24 @@ class ContractStat(object):
         self._long_liq_size = None
         self._long_liq_amount = None
         self._long_liq_usd = None
+        self._long_liq_usd_new = None
         self._short_liq_size = None
         self._short_liq_amount = None
         self._short_liq_usd = None
+        self._short_liq_usd_new = None
         self._open_interest = None
         self._open_interest_usd = None
         self._top_lsr_account = None
         self._top_lsr_size = None
         self._mark_price = None
+        self._top_long_size = None
+        self._top_short_size = None
+        self._long_taker_size = None
+        self._short_taker_size = None
+        self._top_long_account = None
+        self._top_short_account = None
+        self._long_users = None
+        self._short_users = None
         self.discriminator = None
 
         if time is not None:
@@ -101,12 +131,16 @@ class ContractStat(object):
             self.long_liq_amount = long_liq_amount
         if long_liq_usd is not None:
             self.long_liq_usd = long_liq_usd
+        if long_liq_usd_new is not None:
+            self.long_liq_usd_new = long_liq_usd_new
         if short_liq_size is not None:
             self.short_liq_size = short_liq_size
         if short_liq_amount is not None:
             self.short_liq_amount = short_liq_amount
         if short_liq_usd is not None:
             self.short_liq_usd = short_liq_usd
+        if short_liq_usd_new is not None:
+            self.short_liq_usd_new = short_liq_usd_new
         if open_interest is not None:
             self.open_interest = open_interest
         if open_interest_usd is not None:
@@ -117,6 +151,22 @@ class ContractStat(object):
             self.top_lsr_size = top_lsr_size
         if mark_price is not None:
             self.mark_price = mark_price
+        if top_long_size is not None:
+            self.top_long_size = top_long_size
+        if top_short_size is not None:
+            self.top_short_size = top_short_size
+        if long_taker_size is not None:
+            self.long_taker_size = long_taker_size
+        if short_taker_size is not None:
+            self.short_taker_size = short_taker_size
+        if top_long_account is not None:
+            self.top_long_account = top_long_account
+        if top_short_account is not None:
+            self.top_short_account = top_short_account
+        if long_users is not None:
+            self.long_users = long_users
+        if short_users is not None:
+            self.short_users = short_users
 
     @property
     def time(self):
@@ -257,6 +307,29 @@ class ContractStat(object):
         self._long_liq_usd = long_liq_usd
 
     @property
+    def long_liq_usd_new(self):
+        """Gets the long_liq_usd_new of this ContractStat.  # noqa: E501
+
+        Long liquidations in quote currency; USDT settlement: long_liq_size × multiplier × mark price  # noqa: E501
+
+        :return: The long_liq_usd_new of this ContractStat.  # noqa: E501
+        :rtype: float
+        """
+        return self._long_liq_usd_new
+
+    @long_liq_usd_new.setter
+    def long_liq_usd_new(self, long_liq_usd_new):
+        """Sets the long_liq_usd_new of this ContractStat.
+
+        Long liquidations in quote currency; USDT settlement: long_liq_size × multiplier × mark price  # noqa: E501
+
+        :param long_liq_usd_new: The long_liq_usd_new of this ContractStat.  # noqa: E501
+        :type: float
+        """
+
+        self._long_liq_usd_new = long_liq_usd_new
+
+    @property
     def short_liq_size(self):
         """Gets the short_liq_size of this ContractStat.  # noqa: E501
 
@@ -324,6 +397,29 @@ class ContractStat(object):
         """
 
         self._short_liq_usd = short_liq_usd
+
+    @property
+    def short_liq_usd_new(self):
+        """Gets the short_liq_usd_new of this ContractStat.  # noqa: E501
+
+        Short liquidations in quote currency; USDT settlement: short_liq_size × multiplier × mark price  # noqa: E501
+
+        :return: The short_liq_usd_new of this ContractStat.  # noqa: E501
+        :rtype: float
+        """
+        return self._short_liq_usd_new
+
+    @short_liq_usd_new.setter
+    def short_liq_usd_new(self, short_liq_usd_new):
+        """Sets the short_liq_usd_new of this ContractStat.
+
+        Short liquidations in quote currency; USDT settlement: short_liq_size × multiplier × mark price  # noqa: E501
+
+        :param short_liq_usd_new: The short_liq_usd_new of this ContractStat.  # noqa: E501
+        :type: float
+        """
+
+        self._short_liq_usd_new = short_liq_usd_new
 
     @property
     def open_interest(self):
@@ -439,6 +535,190 @@ class ContractStat(object):
         """
 
         self._mark_price = mark_price
+
+    @property
+    def top_long_size(self):
+        """Gets the top_long_size of this ContractStat.  # noqa: E501
+
+        Top long open interest (contracts)  # noqa: E501
+
+        :return: The top_long_size of this ContractStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._top_long_size
+
+    @top_long_size.setter
+    def top_long_size(self, top_long_size):
+        """Sets the top_long_size of this ContractStat.
+
+        Top long open interest (contracts)  # noqa: E501
+
+        :param top_long_size: The top_long_size of this ContractStat.  # noqa: E501
+        :type: str
+        """
+
+        self._top_long_size = top_long_size
+
+    @property
+    def top_short_size(self):
+        """Gets the top_short_size of this ContractStat.  # noqa: E501
+
+        Top short open interest (contracts)  # noqa: E501
+
+        :return: The top_short_size of this ContractStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._top_short_size
+
+    @top_short_size.setter
+    def top_short_size(self, top_short_size):
+        """Sets the top_short_size of this ContractStat.
+
+        Top short open interest (contracts)  # noqa: E501
+
+        :param top_short_size: The top_short_size of this ContractStat.  # noqa: E501
+        :type: str
+        """
+
+        self._top_short_size = top_short_size
+
+    @property
+    def long_taker_size(self):
+        """Gets the long_taker_size of this ContractStat.  # noqa: E501
+
+        Long taker trade volume (contracts)  # noqa: E501
+
+        :return: The long_taker_size of this ContractStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._long_taker_size
+
+    @long_taker_size.setter
+    def long_taker_size(self, long_taker_size):
+        """Sets the long_taker_size of this ContractStat.
+
+        Long taker trade volume (contracts)  # noqa: E501
+
+        :param long_taker_size: The long_taker_size of this ContractStat.  # noqa: E501
+        :type: str
+        """
+
+        self._long_taker_size = long_taker_size
+
+    @property
+    def short_taker_size(self):
+        """Gets the short_taker_size of this ContractStat.  # noqa: E501
+
+        Short taker trade volume (contracts)  # noqa: E501
+
+        :return: The short_taker_size of this ContractStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._short_taker_size
+
+    @short_taker_size.setter
+    def short_taker_size(self, short_taker_size):
+        """Sets the short_taker_size of this ContractStat.
+
+        Short taker trade volume (contracts)  # noqa: E501
+
+        :param short_taker_size: The short_taker_size of this ContractStat.  # noqa: E501
+        :type: str
+        """
+
+        self._short_taker_size = short_taker_size
+
+    @property
+    def top_long_account(self):
+        """Gets the top_long_account of this ContractStat.  # noqa: E501
+
+        Number of top long accounts (large holders)  # noqa: E501
+
+        :return: The top_long_account of this ContractStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._top_long_account
+
+    @top_long_account.setter
+    def top_long_account(self, top_long_account):
+        """Sets the top_long_account of this ContractStat.
+
+        Number of top long accounts (large holders)  # noqa: E501
+
+        :param top_long_account: The top_long_account of this ContractStat.  # noqa: E501
+        :type: int
+        """
+
+        self._top_long_account = top_long_account
+
+    @property
+    def top_short_account(self):
+        """Gets the top_short_account of this ContractStat.  # noqa: E501
+
+        Number of top short accounts (large holders)  # noqa: E501
+
+        :return: The top_short_account of this ContractStat.  # noqa: E501
+        :rtype: int
+        """
+        return self._top_short_account
+
+    @top_short_account.setter
+    def top_short_account(self, top_short_account):
+        """Sets the top_short_account of this ContractStat.
+
+        Number of top short accounts (large holders)  # noqa: E501
+
+        :param top_short_account: The top_short_account of this ContractStat.  # noqa: E501
+        :type: int
+        """
+
+        self._top_short_account = top_short_account
+
+    @property
+    def long_users(self):
+        """Gets the long_users of this ContractStat.  # noqa: E501
+
+        Number of users holding long positions  # noqa: E501
+
+        :return: The long_users of this ContractStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._long_users
+
+    @long_users.setter
+    def long_users(self, long_users):
+        """Sets the long_users of this ContractStat.
+
+        Number of users holding long positions  # noqa: E501
+
+        :param long_users: The long_users of this ContractStat.  # noqa: E501
+        :type: str
+        """
+
+        self._long_users = long_users
+
+    @property
+    def short_users(self):
+        """Gets the short_users of this ContractStat.  # noqa: E501
+
+        Number of users holding short positions  # noqa: E501
+
+        :return: The short_users of this ContractStat.  # noqa: E501
+        :rtype: str
+        """
+        return self._short_users
+
+    @short_users.setter
+    def short_users(self, short_users):
+        """Sets the short_users of this ContractStat.
+
+        Number of users holding short positions  # noqa: E501
+
+        :param short_users: The short_users of this ContractStat.  # noqa: E501
+        :type: str
+        """
+
+        self._short_users = short_users
 
     def to_dict(self):
         """Returns the model properties as a dict"""

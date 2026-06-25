@@ -84,7 +84,7 @@ class PartnerDataAggregated(object):
     def rebate_amount(self):
         """Gets the rebate_amount of this PartnerDataAggregated.  # noqa: E501
 
-        返佣金额，字符串格式保证精度  最多保留 6 位小数，去除尾零  # noqa: E501
+        Rebate amount as a string for precision. Up to 6 decimal places; trailing zeros removed.  # noqa: E501
 
         :return: The rebate_amount of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class PartnerDataAggregated(object):
     def rebate_amount(self, rebate_amount):
         """Sets the rebate_amount of this PartnerDataAggregated.
 
-        返佣金额，字符串格式保证精度  最多保留 6 位小数，去除尾零  # noqa: E501
+        Rebate amount as a string for precision. Up to 6 decimal places; trailing zeros removed.  # noqa: E501
 
         :param rebate_amount: The rebate_amount of this PartnerDataAggregated.  # noqa: E501
         :type: str
@@ -112,7 +112,7 @@ class PartnerDataAggregated(object):
     def trade_volume(self):
         """Gets the trade_volume of this PartnerDataAggregated.  # noqa: E501
 
-        交易量，字符串格式保证精度  最多保留 6 位小数，去除尾零  # noqa: E501
+        Trading volume as a string for precision. Up to 6 decimal places; trailing zeros removed.  # noqa: E501
 
         :return: The trade_volume of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -123,7 +123,7 @@ class PartnerDataAggregated(object):
     def trade_volume(self, trade_volume):
         """Sets the trade_volume of this PartnerDataAggregated.
 
-        交易量，字符串格式保证精度  最多保留 6 位小数，去除尾零  # noqa: E501
+        Trading volume as a string for precision. Up to 6 decimal places; trailing zeros removed.  # noqa: E501
 
         :param trade_volume: The trade_volume of this PartnerDataAggregated.  # noqa: E501
         :type: str
@@ -140,7 +140,7 @@ class PartnerDataAggregated(object):
     def net_fee(self):
         """Gets the net_fee of this PartnerDataAggregated.  # noqa: E501
 
-        净手续费，字符串格式保证精度  最多保留 6 位小数，去除尾零  # noqa: E501
+        Net fee as a string for precision. Up to 6 decimal places; trailing zeros removed.  # noqa: E501
 
         :return: The net_fee of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -151,7 +151,7 @@ class PartnerDataAggregated(object):
     def net_fee(self, net_fee):
         """Sets the net_fee of this PartnerDataAggregated.
 
-        净手续费，字符串格式保证精度  最多保留 6 位小数，去除尾零  # noqa: E501
+        Net fee as a string for precision. Up to 6 decimal places; trailing zeros removed.  # noqa: E501
 
         :param net_fee: The net_fee of this PartnerDataAggregated.  # noqa: E501
         :type: str
@@ -196,7 +196,7 @@ class PartnerDataAggregated(object):
     def trading_user_count(self):
         """Gets the trading_user_count of this PartnerDataAggregated.  # noqa: E501
 
-        交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type=0（全部）时返回具体数值，其他业务类型返回 null  # noqa: E501
+        Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type=0(all), and returns nullfor other business types.  # noqa: E501
 
         :return: The trading_user_count of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -207,7 +207,7 @@ class PartnerDataAggregated(object):
     def trading_user_count(self, trading_user_count):
         """Sets the trading_user_count of this PartnerDataAggregated.
 
-        交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type=0（全部）时返回具体数值，其他业务类型返回 null  # noqa: E501
+        Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type=0(all), and returns nullfor other business types.  # noqa: E501
 
         :param trading_user_count: The trading_user_count of this PartnerDataAggregated.  # noqa: E501
         :type: str

@@ -367,6 +367,122 @@ class P2pApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def p2p_merchant_account_set_merchant_work_hours(self, set_merchant_work_hours_request, **kwargs):  # noqa: E501
+        """Set merchant working status and custom working hours  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.p2p_merchant_account_set_merchant_work_hours(set_merchant_work_hours_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param SetMerchantWorkHoursRequest set_merchant_work_hours_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.P2pMerchantWorkHoursResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.p2p_merchant_account_set_merchant_work_hours_with_http_info(set_merchant_work_hours_request, **kwargs)  # noqa: E501
+
+    def p2p_merchant_account_set_merchant_work_hours_with_http_info(self, set_merchant_work_hours_request, **kwargs):  # noqa: E501
+        """Set merchant working status and custom working hours  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.p2p_merchant_account_set_merchant_work_hours_with_http_info(set_merchant_work_hours_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param SetMerchantWorkHoursRequest set_merchant_work_hours_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.P2pMerchantWorkHoursResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'set_merchant_work_hours_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method p2p_merchant_account_set_merchant_work_hours" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'set_merchant_work_hours_request' is set
+        if self.api_client.client_side_validation and ('set_merchant_work_hours_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['set_merchant_work_hours_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `set_merchant_work_hours_request` when calling `p2p_merchant_account_set_merchant_work_hours`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'set_merchant_work_hours_request' in local_var_params:
+            body_params = local_var_params['set_merchant_work_hours_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/p2p/merchant/account/set_merchant_work_hours', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='P2pMerchantWorkHoursResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def p2p_merchant_transaction_get_pending_transaction_list(self, get_pending_transaction_list_request, **kwargs):  # noqa: E501
         """Get pending orders  # noqa: E501
 
@@ -1066,6 +1182,7 @@ class P2pApi(object):
     def p2p_merchant_books_place_biz_push_order(self, place_biz_push_order, **kwargs):  # noqa: E501
         """Publish ad order  # noqa: E501
 
+        When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_books_place_biz_push_order(place_biz_push_order, async_req=True)
@@ -1090,6 +1207,7 @@ class P2pApi(object):
     def p2p_merchant_books_place_biz_push_order_with_http_info(self, place_biz_push_order, **kwargs):  # noqa: E501
         """Publish ad order  # noqa: E501
 
+        When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_books_place_biz_push_order_with_http_info(place_biz_push_order, async_req=True)
@@ -1760,6 +1878,7 @@ class P2pApi(object):
     def p2p_merchant_chat_send_chat_message(self, send_chat_message_request, **kwargs):  # noqa: E501
         """Send text message  # noqa: E501
 
+        Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type=1 and toast_msg.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_chat_send_chat_message(send_chat_message_request, async_req=True)
@@ -1784,6 +1903,7 @@ class P2pApi(object):
     def p2p_merchant_chat_send_chat_message_with_http_info(self, send_chat_message_request, **kwargs):  # noqa: E501
         """Send text message  # noqa: E501
 
+        Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type=1 and toast_msg.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_chat_send_chat_message_with_http_info(send_chat_message_request, async_req=True)

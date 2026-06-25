@@ -70,7 +70,9 @@ class BatchOrder(object):
         'stp_id': 'int',
         'stp_act': 'str',
         'finish_as': 'str',
-        'slippage': 'str'
+        'slippage': 'str',
+        'stop_profit': 'SpotOrderStopProfit',
+        'stop_loss': 'SpotOrderStopLoss'
     }
 
     attribute_map = {
@@ -111,11 +113,13 @@ class BatchOrder(object):
         'stp_id': 'stp_id',
         'stp_act': 'stp_act',
         'finish_as': 'finish_as',
-        'slippage': 'slippage'
+        'slippage': 'slippage',
+        'stop_profit': 'stop_profit',
+        'stop_loss': 'stop_loss'
     }
 
-    def __init__(self, order_id=None, amend_text=None, text=None, succeeded=None, label=None, message=None, id=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, slippage=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, bool, str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, Configuration) -> None
+    def __init__(self, order_id=None, amend_text=None, text=None, succeeded=None, label=None, message=None, id=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, slippage=None, stop_profit=None, stop_loss=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, bool, str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, Configuration) -> None
         """BatchOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -159,6 +163,8 @@ class BatchOrder(object):
         self._stp_act = None
         self._finish_as = None
         self._slippage = None
+        self._stop_profit = None
+        self._stop_loss = None
         self.discriminator = None
 
         if order_id is not None:
@@ -237,6 +243,10 @@ class BatchOrder(object):
             self.finish_as = finish_as
         if slippage is not None:
             self.slippage = slippage
+        if stop_profit is not None:
+            self.stop_profit = stop_profit
+        if stop_loss is not None:
+            self.stop_loss = stop_loss
 
     @property
     def order_id(self):
@@ -1106,7 +1116,7 @@ class BatchOrder(object):
     def finish_as(self):
         """Gets the finish_as of this BatchOrder.  # noqa: E501
 
-        订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 ioc - poc: 未满足挂单策略，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知  # noqa: E501
+        How the order finished:  - open: Pending processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled by liquidation - small: Order size too small - depth_not_enough: Cancelled due to insufficient order book depth - trader_not_enough: Cancelled due to insufficient counterparty liquidity - ioc: Not filled immediately because time-in-force is IOC - poc: Post-only requirement not met because time-in-force is set to poc (maker-only); rejected after being detected as taker - fok: Not fully filled immediately because time-in-force is FOK - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Cancelled due to price protection - unknown: Unknown  # noqa: E501
 
         :return: The finish_as of this BatchOrder.  # noqa: E501
         :rtype: str
@@ -1117,7 +1127,7 @@ class BatchOrder(object):
     def finish_as(self, finish_as):
         """Sets the finish_as of this BatchOrder.
 
-        订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 ioc - poc: 未满足挂单策略，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知  # noqa: E501
+        How the order finished:  - open: Pending processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled by liquidation - small: Order size too small - depth_not_enough: Cancelled due to insufficient order book depth - trader_not_enough: Cancelled due to insufficient counterparty liquidity - ioc: Not filled immediately because time-in-force is IOC - poc: Post-only requirement not met because time-in-force is set to poc (maker-only); rejected after being detected as taker - fok: Not fully filled immediately because time-in-force is FOK - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Cancelled due to price protection - unknown: Unknown  # noqa: E501
 
         :param finish_as: The finish_as of this BatchOrder.  # noqa: E501
         :type: str
@@ -1153,6 +1163,48 @@ class BatchOrder(object):
         """
 
         self._slippage = slippage
+
+    @property
+    def stop_profit(self):
+        """Gets the stop_profit of this BatchOrder.  # noqa: E501
+
+
+        :return: The stop_profit of this BatchOrder.  # noqa: E501
+        :rtype: SpotOrderStopProfit
+        """
+        return self._stop_profit
+
+    @stop_profit.setter
+    def stop_profit(self, stop_profit):
+        """Sets the stop_profit of this BatchOrder.
+
+
+        :param stop_profit: The stop_profit of this BatchOrder.  # noqa: E501
+        :type: SpotOrderStopProfit
+        """
+
+        self._stop_profit = stop_profit
+
+    @property
+    def stop_loss(self):
+        """Gets the stop_loss of this BatchOrder.  # noqa: E501
+
+
+        :return: The stop_loss of this BatchOrder.  # noqa: E501
+        :rtype: SpotOrderStopLoss
+        """
+        return self._stop_loss
+
+    @stop_loss.setter
+    def stop_loss(self, stop_loss):
+        """Sets the stop_loss of this BatchOrder.
+
+
+        :param stop_loss: The stop_loss of this BatchOrder.  # noqa: E501
+        :type: SpotOrderStopLoss
+        """
+
+        self._stop_loss = stop_loss
 
     def to_dict(self):
         """Returns the model properties as a dict"""

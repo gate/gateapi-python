@@ -569,7 +569,7 @@ class PlaceBizPushOrder(object):
     def trade_tips(self):
         """Gets the trade_tips of this PlaceBizPushOrder.  # noqa: E501
 
-        Ad trading terms shown to the taker.  # noqa: E501
+        Advertisement trade terms displayed to ordering users; goes through off-platform traffic diversion risk control on submission, and when hit, the advertisement is not saved and code 70305102 is returned  # noqa: E501
 
         :return: The trade_tips of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -580,7 +580,7 @@ class PlaceBizPushOrder(object):
     def trade_tips(self, trade_tips):
         """Sets the trade_tips of this PlaceBizPushOrder.
 
-        Ad trading terms shown to the taker.  # noqa: E501
+        Advertisement trade terms displayed to ordering users; goes through off-platform traffic diversion risk control on submission, and when hit, the advertisement is not saved and code 70305102 is returned  # noqa: E501
 
         :param trade_tips: The trade_tips of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -592,7 +592,7 @@ class PlaceBizPushOrder(object):
     def auto_reply(self):
         """Gets the auto_reply of this PlaceBizPushOrder.  # noqa: E501
 
-        Auto-reply message after order creation.  # noqa: E501
+        Auto reply content after order creation; goes through off-platform traffic diversion risk control on submission, and when hit, the advertisement is not saved and code 70305102 is returned  # noqa: E501
 
         :return: The auto_reply of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -603,7 +603,7 @@ class PlaceBizPushOrder(object):
     def auto_reply(self, auto_reply):
         """Sets the auto_reply of this PlaceBizPushOrder.
 
-        Auto-reply message after order creation.  # noqa: E501
+        Auto reply content after order creation; goes through off-platform traffic diversion risk control on submission, and when hit, the advertisement is not saved and code 70305102 is returned  # noqa: E501
 
         :param auto_reply: The auto_reply of this PlaceBizPushOrder.  # noqa: E501
         :type: str

@@ -119,7 +119,7 @@ class SendChatMessageRequest(object):
     def message(self):
         """Gets the message of this SendChatMessageRequest.  # noqa: E501
 
-        Message body. For `type=0`, plain text up to 500 characters; for `type=1`, pass the `file_key` returned by `upload_chat_file`.  # noqa: E501
+        Message content. When type=0, pass text up to 500 characters, which goes through off-platform traffic diversion risk control; when hit, the response contains risk_type=1 and toast_msg. When type=1, pass the file_key returned by upload_chat_file  # noqa: E501
 
         :return: The message of this SendChatMessageRequest.  # noqa: E501
         :rtype: str
@@ -130,7 +130,7 @@ class SendChatMessageRequest(object):
     def message(self, message):
         """Sets the message of this SendChatMessageRequest.
 
-        Message body. For `type=0`, plain text up to 500 characters; for `type=1`, pass the `file_key` returned by `upload_chat_file`.  # noqa: E501
+        Message content. When type=0, pass text up to 500 characters, which goes through off-platform traffic diversion risk control; when hit, the response contains risk_type=1 and toast_msg. When type=1, pass the file_key returned by upload_chat_file  # noqa: E501
 
         :param message: The message of this SendChatMessageRequest.  # noqa: E501
         :type: str

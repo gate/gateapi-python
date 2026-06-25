@@ -81,7 +81,7 @@ This endpoint does not need any parameter.
 
 Get beginner task list
 
-获取当前用户的新客入门任务列表。  默认返回已经归属到当前用户的注册任务（type=10）和引导任务（type=11），注册任务排在前面，引导任务排在后面。 当用户尚未拥有下载任务、且系统判断用户未下载过 App 时，会动态补充一条“待领取下载任务”卡片。  其中： - 下载任务的 `task_type = 23` - 待领取下载任务的 `status = 0`  结果缓存 60 秒。任务列表数量有限（通常不超过 10 条），无需分页。
+Get the current user's onboarding task list. By default, the registration tasks (type=10) and guidance tasks (type=11) that have been assigned to the current user are returned. The registration tasks are ranked first and the guidance tasks are ranked behind. When the user does not have a download task and the system determines that the user has not downloaded the app, a \"Download task to be received\" card will be dynamically added. Among them: - `task_type = 23` for download tasks - `status = 0` for download tasks to be collected Results are cached for 60 seconds. Task lists are limited in number (usually no more than 10) and do not require pagination.
 
 ### Example
 
@@ -147,7 +147,7 @@ This endpoint does not need any parameter.
 
 Get the task
 
-领取单个福利任务。  当前主场景为新客下载任务领取，但接口本身支持新客注册、引导、进阶任务类型。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 风控校验（事件码 `task_center`） 4. 校验任务配置与任务中心任务 5. 校验是否已存在进行中任务 6. 若为下载任务，校验是否已下载 App 7. 写入 `welfare_user_tasks_xx` 8. 上报任务中心  风控透传字段： - 老字段：`user_id`、`ip`、`const_id`、`is_async`、`action`、`task_id` - 新增字段：`req_method`、`traceid` - 其中：   - `req_method` 来自 `X-Gate-Request-Source`   - `ip` 来自 `X-Gate-Ip`   - `traceid` 来自 `X-Gate-Trace-Id`   - `const_id` 固定为空字符串
+Receive a single welfare task. The current main scene is for new customer download tasks to be collected, but the interface itself supports new customer registration, guidance, and advanced task types. Processing flow: 1. Read the logged in user 2. Verify user qualifications 3. Risk control verification (event code `task_center`) 4. Verify task configuration and task center tasks 5. Verify whether there is an ongoing task 6. If it is a download task, verify whether the App has been downloaded 7. Write `welfare_user_tasks_xx` 8. Report to task center Risk control transparent transmission fields: - Old fields: `user_id`, `ip`, `const_id`, `is_async`, `action`, `task_id` - New fields: `req_method`, `traceid` - Among them:   - `req_method` from `X-Gate-Request-Source`   - `ip` from `X-Gate-Ip`   - `traceid` from `X-Gate-Trace-Id`   - `const_id` is fixed to an empty string
 
 ### Example
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 Receive mission rewards
 
-领取单个福利任务奖励。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 查询 `welfare_user_tasks_xx`，要求任务状态为 `StatusDone(2)` 4. 风控校验（事件码 `index_page_check`） 5. 查询任务中心任务详情与奖励信息 6. 若奖励为 m 选 n 奖池，则返回 `has_m_n_task = true`，不实际发奖 7. 普通奖励则进入福利中心原领奖逻辑  风控透传字段： - 老字段：`user_id`、`ip`、`const_id`、`is_async` - 新增字段：`req_method`、`traceid` - 其中：   - `req_method` 来自 `X-Gate-Request-Source`   - `ip` 来自 `X-Gate-Ip`   - `traceid` 来自 `X-Gate-Trace-Id`   - `const_id` 固定为空字符串
+Receive rewards from a single welfare task. Processing flow: 1. Read the logged in user 2. Verify user qualifications 3. Query `welfare_user_tasks_xx` and require the task status to be `StatusDone(2)` 4. Risk control verification (event code `index_page_check`) 5. Query task details and reward information in the task center 6. If the reward is m and n is selected from the prize pool, then `has_m_n_task = true` will be returned and the reward will not be actually issued. 7. Ordinary rewards will enter the original reward collection logic of the Welfare Center Risk control transparent transmission fields: - Old fields: `user_id`, `ip`, `const_id`, `is_async` - New fields: `req_method`, `traceid` - Among them:   - `req_method` from `X-Gate-Request-Source`   - `ip` from `X-Gate-Ip`   - `traceid` from `X-Gate-Trace-Id`   - `const_id` is fixed to an empty string
 
 ### Example
 

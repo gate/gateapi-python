@@ -123,7 +123,7 @@ class CrossexOrderRequest(object):
     def symbol(self):
         """Gets the symbol of this CrossexOrderRequest.  # noqa: E501
 
-        Unique Identifier for Exchange_Business_Base_Counter Examples: If you want to place a spot order for ADA/USDT on BINANCE, use: `BINANCE_SPOT_ADA_USDT`; If you want to place a USDT-M perpetual futures order for ADA/USDT on OKX, use: `OKX_FUTURE_ADA_USDT`; If you want to place a spot margin order for ADA/USDT on GATE, use: `GATE_MARGIN_ADA_USDT`; If you want to place a spot order for ADA/USDT on BYBIT, use: `BYBIT_SPOT_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-M Perpetual Futures Orders, and Spot Margin Orders. BYBIT does not currently support spot margin orders  # noqa: E501
+        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT omits spot margin for now; Kraken and Hyperliquid omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
 
         :return: The symbol of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class CrossexOrderRequest(object):
     def symbol(self, symbol):
         """Sets the symbol of this CrossexOrderRequest.
 
-        Unique Identifier for Exchange_Business_Base_Counter Examples: If you want to place a spot order for ADA/USDT on BINANCE, use: `BINANCE_SPOT_ADA_USDT`; If you want to place a USDT-M perpetual futures order for ADA/USDT on OKX, use: `OKX_FUTURE_ADA_USDT`; If you want to place a spot margin order for ADA/USDT on GATE, use: `GATE_MARGIN_ADA_USDT`; If you want to place a spot order for ADA/USDT on BYBIT, use: `BYBIT_SPOT_ADA_USDT`; Currently supports three order types: Spot Orders, USDT-M Perpetual Futures Orders, and Spot Margin Orders. BYBIT does not currently support spot margin orders  # noqa: E501
+        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT omits spot margin for now; Kraken and Hyperliquid omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
 
         :param symbol: The symbol of this CrossexOrderRequest.  # noqa: E501
         :type: str

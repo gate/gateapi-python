@@ -11,7 +11,7 @@ from gate_api import (
     GetCounterpartyUserInfoRequest, GetMyselfPaymentRequest,
     GetPendingTransactionListRequest, GetTransactionDetailsRequest,
     MyAdsListRequest, PlaceBizPushOrder,
-    SendChatMessageRequest, UploadChatFile,
+    SendChatMessageRequest, SetMerchantWorkHoursRequest, UploadChatFile,
 )
 from gate_api.exceptions import ApiException
 
@@ -35,7 +35,7 @@ def p2p_merchant_demo(run_config):
 
     try:
         # ============================================================
-        # 1. Account - user info and payment methods
+        # 1. Account - user info, payment methods, and work hours
         # ============================================================
         logger.info("=== 1. P2P Merchant Account ===")
 
@@ -46,6 +46,18 @@ def p2p_merchant_demo(run_config):
             get_myself_payment_request=GetMyselfPaymentRequest(fiat="USD")
         )
         logger.info("Payment methods: %s", myself_payment)
+
+        # Set merchant work hours (write op, use with care)
+        # api.p2p_merchant_account_set_merchant_work_hours(
+        #     SetMerchantWorkHoursRequest(
+        #         work_status=2,
+        #         cycle_type="Weekly",
+        #         day_of_week="1,2,3,4,5",
+        #         time_zone="+8",
+        #         start_time="09:00",
+        #         end_time="18:00",
+        #     )
+        # )
 
         # ============================================================
         # 2. Ads - my ads, market ads, ad detail; place/update (write ops commented)
@@ -74,7 +86,8 @@ def p2p_merchant_demo(run_config):
         #     AdsDetailRequest(adv_no="2124000001")
         # )
 
-        # Place/edit ad (write op, use with care)
+        # Place/edit ad (write op, use with care).
+        # Content risk rejection returns code 70305102 with data.risk_event.
         # api.p2p_merchant_books_place_biz_push_order(
         #     PlaceBizPushOrder(
         #         currency_type="USDT",
@@ -204,7 +217,8 @@ def p2p_merchant_demo(run_config):
         # ============================================================
         logger.info("=== 5. P2P Chat write ops (examples commented) ===")
 
-        # Send text message (requires real txid)
+        # Send text message (requires real txid).
+        # Content risk matches return code=0 with data.risk_type=1 and data.toast_msg.
         # api.p2p_merchant_chat_send_chat_message(
         #     SendChatMessageRequest(
         #         txid=40000001,

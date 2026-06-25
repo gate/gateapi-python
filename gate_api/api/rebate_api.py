@@ -1223,7 +1223,7 @@ class RebateApi(object):
     def get_partner_application_recent(self, **kwargs):  # noqa: E501
         """Get recent partner application records  # noqa: E501
 
-        获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。  # noqa: E501
+        Get the current user's recent partner application records. This endpoint returns application records within the last 30 days, including application status, review information, application materials, and other details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_partner_application_recent(async_req=True)
@@ -1247,7 +1247,7 @@ class RebateApi(object):
     def get_partner_application_recent_with_http_info(self, **kwargs):  # noqa: E501
         """Get recent partner application records  # noqa: E501
 
-        获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。  # noqa: E501
+        Get the current user's recent partner application records. This endpoint returns application records within the last 30 days, including application status, review information, application materials, and other details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_partner_application_recent_with_http_info(async_req=True)
@@ -1328,7 +1328,7 @@ class RebateApi(object):
     def get_partner_eligibility(self, **kwargs):  # noqa: E501
         """Check partner application eligibility  # noqa: E501
 
-        检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制  # noqa: E501
+        Check whether the current user is eligible to apply as a partner. This endpoint checks multiple conditions: account status (banned or not), whether it is a sub-account, whether already a partner, KYC verification status, whether under another agent's referral chain, whether on the blacklist, and other business rule restrictions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_partner_eligibility(async_req=True)
@@ -1352,7 +1352,7 @@ class RebateApi(object):
     def get_partner_eligibility_with_http_info(self, **kwargs):  # noqa: E501
         """Check partner application eligibility  # noqa: E501
 
-        检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制  # noqa: E501
+        Check whether the current user is eligible to apply as a partner. This endpoint checks multiple conditions: account status (banned or not), whether it is a sub-account, whether already a partner, KYC verification status, whether under another agent's referral chain, whether on the blacklist, and other business rule restrictions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_partner_eligibility_with_http_info(async_req=True)
@@ -1433,15 +1433,15 @@ class RebateApi(object):
     def get_partner_agent_data_aggregated(self, **kwargs):  # noqa: E501
         """Aggregated partner agent statistics  # noqa: E501
 
-        查询指定时间范围内合伙人代理的数据聚合统计，包括返佣金额、交易量、净手续费、客户数和交易人数。  **注意事项：** - 交易人数 `trading_user_count` 仅在 `business_type=0`（全部）时返回 - 时间参数使用 UTC+8 时区 - 如不传时间参数，默认查询近 7 天数据 - 仅限合伙人代理访问，子账号无权限  # noqa: E501
+        Query aggregated partner-agent statistics for a time range, including rebate amount, trading volume, net fee, customer count, and trading user count. **Notes:** - `trading_user_count` is only returned when `business_type=0` (All). - Time parameters use UTC+8. - If no time range is passed, the last 7 days are queried by default. - Partner agents only; sub-accounts are not allowed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_partner_agent_data_aggregated(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str start_date: 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间
-        :param str end_date: 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间
+        :param str start_date: Query start time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the start of the last 7 days.
+        :param str end_date: Query end time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the end of the last 7 days.
         :param int business_type: Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1460,15 +1460,15 @@ class RebateApi(object):
     def get_partner_agent_data_aggregated_with_http_info(self, **kwargs):  # noqa: E501
         """Aggregated partner agent statistics  # noqa: E501
 
-        查询指定时间范围内合伙人代理的数据聚合统计，包括返佣金额、交易量、净手续费、客户数和交易人数。  **注意事项：** - 交易人数 `trading_user_count` 仅在 `business_type=0`（全部）时返回 - 时间参数使用 UTC+8 时区 - 如不传时间参数，默认查询近 7 天数据 - 仅限合伙人代理访问，子账号无权限  # noqa: E501
+        Query aggregated partner-agent statistics for a time range, including rebate amount, trading volume, net fee, customer count, and trading user count. **Notes:** - `trading_user_count` is only returned when `business_type=0` (All). - Time parameters use UTC+8. - If no time range is passed, the last 7 days are queried by default. - Partner agents only; sub-accounts are not allowed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_partner_agent_data_aggregated_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str start_date: 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间
-        :param str end_date: 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间
+        :param str start_date: Query start time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the start of the last 7 days.
+        :param str end_date: Query end time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the end of the last 7 days.
         :param int business_type: Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi
         :param _return_http_data_only: response data without head status code
                                        and headers

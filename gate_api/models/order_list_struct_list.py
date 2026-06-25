@@ -188,7 +188,7 @@ class OrderListStructList(object):
     def status(self):
         """Gets the status of this OrderListStructList.  # noqa: E501
 
-        Status  # noqa: E501
+        Status. 1 - success, 3 - delayed redemption in progress, 6 - redemption cancellation order  # noqa: E501
 
         :return: The status of this OrderListStructList.  # noqa: E501
         :rtype: int
@@ -199,7 +199,7 @@ class OrderListStructList(object):
     def status(self, status):
         """Sets the status of this OrderListStructList.
 
-        Status  # noqa: E501
+        Status. 1 - success, 3 - delayed redemption in progress, 6 - redemption cancellation order  # noqa: E501
 
         :param status: The status of this OrderListStructList.  # noqa: E501
         :type: int

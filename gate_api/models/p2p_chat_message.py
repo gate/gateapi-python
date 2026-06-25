@@ -43,7 +43,9 @@ class P2pChatMessage(object):
         'type': 'int',
         'pic': 'str',
         'file_key': 'str',
-        'file_type': 'str'
+        'file_type': 'str',
+        'risk_type': 'int',
+        'toast_msg': 'str'
     }
 
     attribute_map = {
@@ -57,11 +59,13 @@ class P2pChatMessage(object):
         'type': 'type',
         'pic': 'pic',
         'file_key': 'file_key',
-        'file_type': 'file_type'
+        'file_type': 'file_type',
+        'risk_type': 'risk_type',
+        'toast_msg': 'toast_msg'
     }
 
-    def __init__(self, is_sell=None, msg_type=None, msg=None, username=None, timest=None, msg_obj=None, uid=None, type=None, pic=None, file_key=None, file_type=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, str, str, int, P2pChatMessagePayload, str, int, str, str, str, Configuration) -> None
+    def __init__(self, is_sell=None, msg_type=None, msg=None, username=None, timest=None, msg_obj=None, uid=None, type=None, pic=None, file_key=None, file_type=None, risk_type=None, toast_msg=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, str, str, int, P2pChatMessagePayload, str, int, str, str, str, int, str, Configuration) -> None
         """P2pChatMessage - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +82,8 @@ class P2pChatMessage(object):
         self._pic = None
         self._file_key = None
         self._file_type = None
+        self._risk_type = None
+        self._toast_msg = None
         self.discriminator = None
 
         if is_sell is not None:
@@ -102,6 +108,10 @@ class P2pChatMessage(object):
             self.file_key = file_key
         if file_type is not None:
             self.file_type = file_type
+        if risk_type is not None:
+            self.risk_type = risk_type
+        if toast_msg is not None:
+            self.toast_msg = toast_msg
 
     @property
     def is_sell(self):
@@ -353,6 +363,58 @@ class P2pChatMessage(object):
         """
 
         self._file_type = file_type
+
+    @property
+    def risk_type(self):
+        """Gets the risk_type of this P2pChatMessage.  # noqa: E501
+
+        Risk control display type. 1: off-platform traffic diversion risk; returned when a text message hits risk control  # noqa: E501
+
+        :return: The risk_type of this P2pChatMessage.  # noqa: E501
+        :rtype: int
+        """
+        return self._risk_type
+
+    @risk_type.setter
+    def risk_type(self, risk_type):
+        """Sets the risk_type of this P2pChatMessage.
+
+        Risk control display type. 1: off-platform traffic diversion risk; returned when a text message hits risk control  # noqa: E501
+
+        :param risk_type: The risk_type of this P2pChatMessage.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and risk_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `risk_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(risk_type, allowed_values)
+            )
+
+        self._risk_type = risk_type
+
+    @property
+    def toast_msg(self):
+        """Gets the toast_msg of this P2pChatMessage.  # noqa: E501
+
+        Risk control prompt message; returned only when risk_type=1  # noqa: E501
+
+        :return: The toast_msg of this P2pChatMessage.  # noqa: E501
+        :rtype: str
+        """
+        return self._toast_msg
+
+    @toast_msg.setter
+    def toast_msg(self, toast_msg):
+        """Sets the toast_msg of this P2pChatMessage.
+
+        Risk control prompt message; returned only when risk_type=1  # noqa: E501
+
+        :param toast_msg: The toast_msg of this P2pChatMessage.  # noqa: E501
+        :type: str
+        """
+
+        self._toast_msg = toast_msg
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -60,7 +60,7 @@ class TradFiPositionUpdateRequest(object):
     def price_tp(self):
         """Gets the price_tp of this TradFiPositionUpdateRequest.  # noqa: E501
 
-        止盈价格  说明： - 不传 或 传 \"0\"：将清空原有止盈价 - 如不希望清空，请传接口返回的原止盈价  # noqa: E501
+        Take Profit Price Description: - If not provided or set to \"0\": The original take profit price will be cleared - If you do not want to clear it, pass the original take profit price returned by the interface  # noqa: E501
 
         :return: The price_tp of this TradFiPositionUpdateRequest.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class TradFiPositionUpdateRequest(object):
     def price_tp(self, price_tp):
         """Sets the price_tp of this TradFiPositionUpdateRequest.
 
-        止盈价格  说明： - 不传 或 传 \"0\"：将清空原有止盈价 - 如不希望清空，请传接口返回的原止盈价  # noqa: E501
+        Take Profit Price Description: - If not provided or set to \"0\": The original take profit price will be cleared - If you do not want to clear it, pass the original take profit price returned by the interface  # noqa: E501
 
         :param price_tp: The price_tp of this TradFiPositionUpdateRequest.  # noqa: E501
         :type: str
@@ -83,7 +83,7 @@ class TradFiPositionUpdateRequest(object):
     def price_sl(self):
         """Gets the price_sl of this TradFiPositionUpdateRequest.  # noqa: E501
 
-        止损价格  说明： - 不传 或 传 \"0\"：将清空原有止损价 - 如不希望清空，请传接口返回的原止损价  # noqa: E501
+        Stop Loss Price Description: - If not provided or set to \"0\": The original stop loss price will be cleared - If you do not want to clear it, pass the original stop loss price returned by the interface  # noqa: E501
 
         :return: The price_sl of this TradFiPositionUpdateRequest.  # noqa: E501
         :rtype: str
@@ -94,7 +94,7 @@ class TradFiPositionUpdateRequest(object):
     def price_sl(self, price_sl):
         """Sets the price_sl of this TradFiPositionUpdateRequest.
 
-        止损价格  说明： - 不传 或 传 \"0\"：将清空原有止损价 - 如不希望清空，请传接口返回的原止损价  # noqa: E501
+        Stop Loss Price Description: - If not provided or set to \"0\": The original stop loss price will be cleared - If you do not want to clear it, pass the original stop loss price returned by the interface  # noqa: E501
 
         :param price_sl: The price_sl of this TradFiPositionUpdateRequest.  # noqa: E501
         :type: str

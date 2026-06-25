@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**update_order**](TradFiApi.md#update_order) | **PUT** /tradfi/orders/{order_id} | Modify order
 [**delete_order**](TradFiApi.md#delete_order) | **DELETE** /tradfi/orders/{order_id} | Cancel order
 [**query_order_history_list**](TradFiApi.md#query_order_history_list) | **GET** /tradfi/orders/history | Query historical order list
+[**query_order_log**](TradFiApi.md#query_order_log) | **GET** /tradfi/orders/log/{log_id} | Get order details by log ID
 [**query_position_list**](TradFiApi.md#query_position_list) | **GET** /tradfi/positions | Query active position list
 [**update_position**](TradFiApi.md#update_position) | **PUT** /tradfi/positions/{position_id} | Modify position
 [**close_position**](TradFiApi.md#close_position) | **POST** /tradfi/positions/{position_id}/close | Close position
@@ -1011,6 +1012,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **query_order_log**
+> OrderLog query_order_log(log_id)
+
+Get order details by log ID
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.TradFiApi(api_client)
+log_id = 1223 # int | log_id returned from the order placement API
+
+try:
+    # Get order details by log ID
+    api_response = api_instance.query_order_log(log_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling TradFiApi->query_order_log: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **log_id** | **int**| log_id returned from the order placement API | 
+
+### Return type
+
+[**OrderLog**](OrderLog.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Request success |  -  |
+**400** | Request failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **query_position_list**
 > PositionList query_position_list()
 
@@ -1216,7 +1285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_position_history_list**
-> PositionHistoryList query_position_history_list(begin_time=begin_time, end_time=end_time, symbol=symbol, position_dir=position_dir)
+> PositionHistoryList query_position_history_list(page=page, page_size=page_size, begin_time=begin_time, end_time=end_time, symbol=symbol, position_dir=position_dir)
 
 Query historical position list
 
@@ -1244,6 +1313,8 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.TradFiApi(api_client)
+page = 1 # int | Page number; defaults to 1 if omitted. (optional)
+page_size = 10 # int | Page size; defaults to 10 if omitted. Maximum 100. (optional)
 begin_time = 56 # int | Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago (optional)
 end_time = 56 # int | End time (timestamp in seconds) (optional)
 symbol = 'symbol_example' # str | Trading symbol (e.g., EURUSD) (optional)
@@ -1251,7 +1322,7 @@ position_dir = 'position_dir_example' # str | Position direction (Long=long posi
 
 try:
     # Query historical position list
-    api_response = api_instance.query_position_history_list(begin_time=begin_time, end_time=end_time, symbol=symbol, position_dir=position_dir)
+    api_response = api_instance.query_position_history_list(page=page, page_size=page_size, begin_time=begin_time, end_time=end_time, symbol=symbol, position_dir=position_dir)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -1263,6 +1334,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number; defaults to 1 if omitted. | [optional] 
+ **page_size** | **int**| Page size; defaults to 10 if omitted. Maximum 100. | [optional] 
  **begin_time** | **int**| Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago | [optional] 
  **end_time** | **int**| End time (timestamp in seconds) | [optional] 
  **symbol** | **str**| Trading symbol (e.g., EURUSD) | [optional] 

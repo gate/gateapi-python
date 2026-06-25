@@ -113,7 +113,7 @@ class CrossexAccountUpdateResponse(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexAccountUpdateResponse.  # noqa: E501
 
-        Requested exchange to modify (BINANCE/OKX/GATE/BYBIT/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)  # noqa: E501
+        Exchange targeted by the requested change (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `CROSSEX`). When account mode is `ISOLATED_EXCHANGE`, the exchange must be specified to change futures position mode.  # noqa: E501
 
         :return: The exchange_type of this CrossexAccountUpdateResponse.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class CrossexAccountUpdateResponse(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexAccountUpdateResponse.
 
-        Requested exchange to modify (BINANCE/OKX/GATE/BYBIT/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)  # noqa: E501
+        Exchange targeted by the requested change (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `CROSSEX`). When account mode is `ISOLATED_EXCHANGE`, the exchange must be specified to change futures position mode.  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexAccountUpdateResponse.  # noqa: E501
         :type: str

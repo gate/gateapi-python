@@ -60,7 +60,7 @@ class TradFiClosePositionRequest(object):
     def close_type(self):
         """Gets the close_type of this TradFiClosePositionRequest.  # noqa: E501
 
-        平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）  # noqa: E501
+        Close Type Description: - 1: Partial Close (close_volume is required) - 2: Full Close (close_volume is not required)  # noqa: E501
 
         :return: The close_type of this TradFiClosePositionRequest.  # noqa: E501
         :rtype: int
@@ -71,7 +71,7 @@ class TradFiClosePositionRequest(object):
     def close_type(self, close_type):
         """Sets the close_type of this TradFiClosePositionRequest.
 
-        平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）  # noqa: E501
+        Close Type Description: - 1: Partial Close (close_volume is required) - 2: Full Close (close_volume is not required)  # noqa: E501
 
         :param close_type: The close_type of this TradFiClosePositionRequest.  # noqa: E501
         :type: int
@@ -91,7 +91,7 @@ class TradFiClosePositionRequest(object):
     def close_volume(self):
         """Gets the close_volume of this TradFiClosePositionRequest.  # noqa: E501
 
-        平仓数量  说明： - 当 close_type = 1 时必传 - 当 close_type = 2 时忽略该字段  # noqa: E501
+        Close Volume Description: - Required when close_type = 1 - Ignored when close_type = 2  # noqa: E501
 
         :return: The close_volume of this TradFiClosePositionRequest.  # noqa: E501
         :rtype: str
@@ -102,7 +102,7 @@ class TradFiClosePositionRequest(object):
     def close_volume(self, close_volume):
         """Sets the close_volume of this TradFiClosePositionRequest.
 
-        平仓数量  说明： - 当 close_type = 1 时必传 - 当 close_type = 2 时忽略该字段  # noqa: E501
+        Close Volume Description: - Required when close_type = 1 - Ignored when close_type = 2  # noqa: E501
 
         :param close_volume: The close_volume of this TradFiClosePositionRequest.  # noqa: E501
         :type: str
