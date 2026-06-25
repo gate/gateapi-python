@@ -330,7 +330,7 @@ bank_country = 'bank_country_example' # str |
 bank_address = 'bank_address_example' # str | 
 iban = 'iban_example' # str | 
 swift = 'swift_example' # str | 
-documentation_file = '/path/to/file' # file | Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment).
+documentation_file = 'documentation_file_example' # str | 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准）
 remittance_line_number = 'remittance_line_number_example' # str |  (optional)
 agent_bank_name = 'agent_bank_name_example' # str |  (optional)
 agent_bank_swift = 'agent_bank_swift_example' # str |  (optional)
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
  **bank_address** | **str**|  | 
  **iban** | **str**|  | 
  **swift** | **str**|  | 
- **documentation_file** | **file**| Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). | 
+ **documentation_file** | **str**| 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） | 
  **remittance_line_number** | **str**|  | [optional] 
  **agent_bank_name** | **str**|  | [optional] 
  **agent_bank_swift** | **str**|  | [optional] 

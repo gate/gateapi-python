@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **remittance_line_number** | **str** |  | [optional] 
 **agent_bank_name** | **str** |  | [optional] 
 **agent_bank_swift** | **str** |  | [optional] 
-**documentation_file** | **file** | Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). | 
+**documentation_file** | **str** | 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

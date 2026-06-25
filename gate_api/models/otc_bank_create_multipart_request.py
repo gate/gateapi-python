@@ -42,7 +42,7 @@ class OtcBankCreateMultipartRequest(object):
         'remittance_line_number': 'str',
         'agent_bank_name': 'str',
         'agent_bank_swift': 'str',
-        'documentation_file': 'file'
+        'documentation_file': 'str'
     }
 
     attribute_map = {
@@ -59,7 +59,7 @@ class OtcBankCreateMultipartRequest(object):
     }
 
     def __init__(self, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, iban=None, swift=None, remittance_line_number=None, agent_bank_name=None, agent_bank_swift=None, documentation_file=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, file, Configuration) -> None
+        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """OtcBankCreateMultipartRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -296,10 +296,10 @@ class OtcBankCreateMultipartRequest(object):
     def documentation_file(self):
         """Gets the documentation_file of this OtcBankCreateMultipartRequest.  # noqa: E501
 
-        Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment).  # noqa: E501
+        开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准）  # noqa: E501
 
         :return: The documentation_file of this OtcBankCreateMultipartRequest.  # noqa: E501
-        :rtype: file
+        :rtype: str
         """
         return self._documentation_file
 
@@ -307,10 +307,10 @@ class OtcBankCreateMultipartRequest(object):
     def documentation_file(self, documentation_file):
         """Sets the documentation_file of this OtcBankCreateMultipartRequest.
 
-        Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment).  # noqa: E501
+        开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准）  # noqa: E501
 
         :param documentation_file: The documentation_file of this OtcBankCreateMultipartRequest.  # noqa: E501
-        :type: file
+        :type: str
         """
         if self.local_vars_configuration.client_side_validation and documentation_file is None:  # noqa: E501
             raise ValueError("Invalid value for `documentation_file`, must not be `None`")  # noqa: E501

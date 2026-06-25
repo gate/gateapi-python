@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.99"
+__version__ = "7.2.100"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi

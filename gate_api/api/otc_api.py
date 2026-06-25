@@ -511,7 +511,7 @@ class OTCApi(object):
         :param str bank_address: (required)
         :param str iban: (required)
         :param str swift: (required)
-        :param file documentation_file: Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+        :param str documentation_file: 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
         :param str remittance_line_number:
         :param str agent_bank_name:
         :param str agent_bank_swift:
@@ -545,7 +545,7 @@ class OTCApi(object):
         :param str bank_address: (required)
         :param str iban: (required)
         :param str swift: (required)
-        :param file documentation_file: Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+        :param str documentation_file: 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
         :param str remittance_line_number:
         :param str agent_bank_name:
         :param str agent_bank_swift:
@@ -652,7 +652,7 @@ class OTCApi(object):
         if 'agent_bank_swift' in local_var_params:
             form_params.append(('agent_bank_swift', local_var_params['agent_bank_swift']))  # noqa: E501
         if 'documentation_file' in local_var_params:
-            local_var_files['documentation_file'] = local_var_params['documentation_file']  # noqa: E501
+            form_params.append(('documentation_file', local_var_params['documentation_file']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
