@@ -275,7 +275,7 @@ class OTCApi(object):
     def create_stable_coin_order(self, otc_stable_coin_order_request, **kwargs):  # noqa: E501
         """Create stablecoin order  # noqa: E501
 
-        Create stablecoin order  # noqa: E501
+        Create a stablecoin order. All request body fields except `promotion_code` are required.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_stable_coin_order(otc_stable_coin_order_request, async_req=True)
@@ -300,7 +300,7 @@ class OTCApi(object):
     def create_stable_coin_order_with_http_info(self, otc_stable_coin_order_request, **kwargs):  # noqa: E501
         """Create stablecoin order  # noqa: E501
 
-        Create stablecoin order  # noqa: E501
+        Create a stablecoin order. All request body fields except `promotion_code` are required.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_stable_coin_order_with_http_info(otc_stable_coin_order_request, async_req=True)
@@ -393,7 +393,7 @@ class OTCApi(object):
     def get_bank_list_inner_path(self, **kwargs):  # noqa: E501
         """Get user bank card list  # noqa: E501
 
-        Retrieve the user's bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field `is_default` (1=default); there is no need to call the deprecated standalone \"default bank card\" endpoint. Corresponding Inner: `GET /bank_list` or `GET /bank/list`.  # noqa: E501
+        List the user's bank cards for selecting a card when placing an order. **Default card**: use the `is_default` field in each list item (`1` indicates the default). The deprecated standalone default-bank-card endpoint is no longer required.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_bank_list_inner_path(async_req=True)
@@ -417,7 +417,7 @@ class OTCApi(object):
     def get_bank_list_inner_path_with_http_info(self, **kwargs):  # noqa: E501
         """Get user bank card list  # noqa: E501
 
-        Retrieve the user's bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field `is_default` (1=default); there is no need to call the deprecated standalone \"default bank card\" endpoint. Corresponding Inner: `GET /bank_list` or `GET /bank/list`.  # noqa: E501
+        List the user's bank cards for selecting a card when placing an order. **Default card**: use the `is_default` field in each list item (`1` indicates the default). The deprecated standalone default-bank-card endpoint is no longer required.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_bank_list_inner_path_with_http_info(async_req=True)
@@ -511,7 +511,7 @@ class OTCApi(object):
         :param str bank_address: (required)
         :param str iban: (required)
         :param str swift: (required)
-        :param str documentation_file: 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
+        :param str documentation_file: Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
         :param str remittance_line_number:
         :param str agent_bank_name:
         :param str agent_bank_swift:
@@ -545,7 +545,7 @@ class OTCApi(object):
         :param str bank_address: (required)
         :param str iban: (required)
         :param str swift: (required)
-        :param str documentation_file: 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
+        :param str documentation_file: Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
         :param str remittance_line_number:
         :param str agent_bank_name:
         :param str agent_bank_swift:
@@ -921,7 +921,7 @@ class OTCApi(object):
     def get_otc_bank_supplement_checklist(self, bank_id, **kwargs):  # noqa: E501
         """Query the checklist of materials to supplement for a bank card  # noqa: E501
 
-        **①** `bank_id` must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user's **passed professional verification type** (personal/enterprise). Corresponding Inner: `GET /bank/bank_supplement_checklist`.  # noqa: E501
+        **①** `bank_id` must be specified. After verifying that the card belongs to the current user and its status allows supplementary documents, the endpoint returns the required items based on the user's **approved advanced verification type** (personal/enterprise); each item's `description` states the submission requirements. Corresponding Inner endpoint: `GET /bank/bank_supplement_checklist`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_otc_bank_supplement_checklist(bank_id, async_req=True)
@@ -946,7 +946,7 @@ class OTCApi(object):
     def get_otc_bank_supplement_checklist_with_http_info(self, bank_id, **kwargs):  # noqa: E501
         """Query the checklist of materials to supplement for a bank card  # noqa: E501
 
-        **①** `bank_id` must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user's **passed professional verification type** (personal/enterprise). Corresponding Inner: `GET /bank/bank_supplement_checklist`.  # noqa: E501
+        **①** `bank_id` must be specified. After verifying that the card belongs to the current user and its status allows supplementary documents, the endpoint returns the required items based on the user's **approved advanced verification type** (personal/enterprise); each item's `description` states the submission requirements. Corresponding Inner endpoint: `GET /bank/bank_supplement_checklist`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_otc_bank_supplement_checklist_with_http_info(bank_id, async_req=True)
@@ -1349,7 +1349,7 @@ class OTCApi(object):
     def mark_otc_order_paid(self, otc_mark_order_paid_request, **kwargs):  # noqa: E501
         """Mark fiat order as paid (deposit confirmation)  # noqa: E501
 
-        Mark a fiat buy order as paid (deposit confirmation). **The user's payment receipt must be uploaded**: `payment_receipt_file_key` is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name `payment_receipt` is subject to the gateway/production environment. For the persisted field, see `otc_trade_record.payment_receipt_file_key`. The Pay Inner path is `POST .../pay/order_set_paid` (orders are usually associated via `client_order_id`); this OpenAPI path maps to Inner `POST /order/paid` and still uses `order_id` as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.  # noqa: E501
+        Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: `payment_receipt_file_key` is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name `payment_receipt` is subject to the gateway/live environment. The persisted field is `otc_trade_record.payment_receipt_file_key`. The Pay Inner path is `POST .../pay/order_set_paid` (commonly associated by `client_order_id`); the Inner path corresponding to this OpenAPI endpoint, `POST /order/paid`, still primarily uses `order_id`. If the gateway standardizes on the merchant order ID, follow the gateway documentation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_otc_order_paid(otc_mark_order_paid_request, async_req=True)
@@ -1374,7 +1374,7 @@ class OTCApi(object):
     def mark_otc_order_paid_with_http_info(self, otc_mark_order_paid_request, **kwargs):  # noqa: E501
         """Mark fiat order as paid (deposit confirmation)  # noqa: E501
 
-        Mark a fiat buy order as paid (deposit confirmation). **The user's payment receipt must be uploaded**: `payment_receipt_file_key` is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name `payment_receipt` is subject to the gateway/production environment. For the persisted field, see `otc_trade_record.payment_receipt_file_key`. The Pay Inner path is `POST .../pay/order_set_paid` (orders are usually associated via `client_order_id`); this OpenAPI path maps to Inner `POST /order/paid` and still uses `order_id` as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.  # noqa: E501
+        Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: `payment_receipt_file_key` is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name `payment_receipt` is subject to the gateway/live environment. The persisted field is `otc_trade_record.payment_receipt_file_key`. The Pay Inner path is `POST .../pay/order_set_paid` (commonly associated by `client_order_id`); the Inner path corresponding to this OpenAPI endpoint, `POST /order/paid`, still primarily uses `order_id`. If the gateway standardizes on the merchant order ID, follow the gateway documentation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_otc_order_paid_with_http_info(otc_mark_order_paid_request, async_req=True)
@@ -1593,7 +1593,7 @@ class OTCApi(object):
         :param str crypto_currency: Digital currency
         :param str start_time: starttime   for example : 2025-09-09
         :param str end_time: endtime  for example :2025-09-09
-        :param str status: DONE: Completed CANCEL: Canceled PROCESSING: In Progress
+        :param str status: DONE: completed CANCEL: canceled PROCESSING: in progress DISBURSED: disbursed
         :param str pn: Page number
         :param str ps: Number of items per page
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1625,7 +1625,7 @@ class OTCApi(object):
         :param str crypto_currency: Digital currency
         :param str start_time: starttime   for example : 2025-09-09
         :param str end_time: endtime  for example :2025-09-09
-        :param str status: DONE: Completed CANCEL: Canceled PROCESSING: In Progress
+        :param str status: DONE: completed CANCEL: canceled PROCESSING: in progress DISBURSED: disbursed
         :param str pn: Page number
         :param str ps: Number of items per page
         :param _return_http_data_only: response data without head status code

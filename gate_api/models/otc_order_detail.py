@@ -41,15 +41,26 @@ class OtcOrderDetail(object):
         'crypto_currency': 'str',
         'crypto_amount': 'str',
         'rate': 'str',
-        'transfer_remark': 'str',
-        'reference_code': 'str',
+        'bank_account_name': 'str',
+        'bank_name': 'str',
+        'bank_country': 'str',
+        'bank_address': 'str',
+        'bank_account_number_iban': 'str',
+        'swift_code': 'str',
+        'intermediate_bank_name': 'str',
+        'intermediary_bank_swift_code': 'str',
+        'gate_bank_account_name': 'str',
+        'gate_bank_name': 'str',
+        'gate_bank_country': 'str',
+        'gate_bank_address': 'str',
+        'gate_bank_account_number_iban': 'str',
+        'gate_swift_code': 'str',
+        'gate_intermediary_bank_name': 'str',
+        'gate_intermediary_bank_swift_code': 'str',
+        'gate_transfer_remark': 'str',
+        'gate_reference_code': 'str',
         'status': 'str',
-        'db_status': 'str',
-        'create_time': 'str',
-        'memo': 'str',
-        'side': 'str',
-        'promotion_code': 'str',
-        'trade_no': 'str'
+        'create_time': 'str'
     }
 
     attribute_map = {
@@ -61,19 +72,30 @@ class OtcOrderDetail(object):
         'crypto_currency': 'crypto_currency',
         'crypto_amount': 'crypto_amount',
         'rate': 'rate',
-        'transfer_remark': 'transfer_remark',
-        'reference_code': 'reference_code',
+        'bank_account_name': 'bank_account_name',
+        'bank_name': 'bank_name',
+        'bank_country': 'bank_country',
+        'bank_address': 'bank_address',
+        'bank_account_number_iban': 'bank_account_number_iban',
+        'swift_code': 'swift_code',
+        'intermediate_bank_name': 'intermediate_bank_name',
+        'intermediary_bank_swift_code': 'intermediary_bank_swift_code',
+        'gate_bank_account_name': 'gate_bank_account_name',
+        'gate_bank_name': 'gate_bank_name',
+        'gate_bank_country': 'gate_bank_country',
+        'gate_bank_address': 'gate_bank_address',
+        'gate_bank_account_number_iban': 'gate_bank_account_number_iban',
+        'gate_swift_code': 'gate_swift_code',
+        'gate_intermediary_bank_name': 'gate_intermediary_bank_name',
+        'gate_intermediary_bank_swift_code': 'gate_intermediary_bank_swift_code',
+        'gate_transfer_remark': 'gate_transfer_remark',
+        'gate_reference_code': 'gate_reference_code',
         'status': 'status',
-        'db_status': 'db_status',
-        'create_time': 'create_time',
-        'memo': 'memo',
-        'side': 'side',
-        'promotion_code': 'promotion_code',
-        'trade_no': 'trade_no'
+        'create_time': 'create_time'
     }
 
-    def __init__(self, order_id=None, uid=None, type=None, fiat_currency=None, fiat_amount=None, crypto_currency=None, crypto_amount=None, rate=None, transfer_remark=None, reference_code=None, status=None, db_status=None, create_time=None, memo=None, side=None, promotion_code=None, trade_no=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, order_id=None, uid=None, type=None, fiat_currency=None, fiat_amount=None, crypto_currency=None, crypto_amount=None, rate=None, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, bank_account_number_iban=None, swift_code=None, intermediate_bank_name=None, intermediary_bank_swift_code=None, gate_bank_account_name=None, gate_bank_name=None, gate_bank_country=None, gate_bank_address=None, gate_bank_account_number_iban=None, gate_swift_code=None, gate_intermediary_bank_name=None, gate_intermediary_bank_swift_code=None, gate_transfer_remark=None, gate_reference_code=None, status=None, create_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """OtcOrderDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,15 +109,26 @@ class OtcOrderDetail(object):
         self._crypto_currency = None
         self._crypto_amount = None
         self._rate = None
-        self._transfer_remark = None
-        self._reference_code = None
+        self._bank_account_name = None
+        self._bank_name = None
+        self._bank_country = None
+        self._bank_address = None
+        self._bank_account_number_iban = None
+        self._swift_code = None
+        self._intermediate_bank_name = None
+        self._intermediary_bank_swift_code = None
+        self._gate_bank_account_name = None
+        self._gate_bank_name = None
+        self._gate_bank_country = None
+        self._gate_bank_address = None
+        self._gate_bank_account_number_iban = None
+        self._gate_swift_code = None
+        self._gate_intermediary_bank_name = None
+        self._gate_intermediary_bank_swift_code = None
+        self._gate_transfer_remark = None
+        self._gate_reference_code = None
         self._status = None
-        self._db_status = None
         self._create_time = None
-        self._memo = None
-        self._side = None
-        self._promotion_code = None
-        self._trade_no = None
         self.discriminator = None
 
         self.order_id = order_id
@@ -106,16 +139,44 @@ class OtcOrderDetail(object):
         self.crypto_currency = crypto_currency
         self.crypto_amount = crypto_amount
         self.rate = rate
-        self.transfer_remark = transfer_remark
-        if reference_code is not None:
-            self.reference_code = reference_code
+        if bank_account_name is not None:
+            self.bank_account_name = bank_account_name
+        if bank_name is not None:
+            self.bank_name = bank_name
+        if bank_country is not None:
+            self.bank_country = bank_country
+        if bank_address is not None:
+            self.bank_address = bank_address
+        if bank_account_number_iban is not None:
+            self.bank_account_number_iban = bank_account_number_iban
+        if swift_code is not None:
+            self.swift_code = swift_code
+        if intermediate_bank_name is not None:
+            self.intermediate_bank_name = intermediate_bank_name
+        if intermediary_bank_swift_code is not None:
+            self.intermediary_bank_swift_code = intermediary_bank_swift_code
+        if gate_bank_account_name is not None:
+            self.gate_bank_account_name = gate_bank_account_name
+        if gate_bank_name is not None:
+            self.gate_bank_name = gate_bank_name
+        if gate_bank_country is not None:
+            self.gate_bank_country = gate_bank_country
+        if gate_bank_address is not None:
+            self.gate_bank_address = gate_bank_address
+        if gate_bank_account_number_iban is not None:
+            self.gate_bank_account_number_iban = gate_bank_account_number_iban
+        if gate_swift_code is not None:
+            self.gate_swift_code = gate_swift_code
+        if gate_intermediary_bank_name is not None:
+            self.gate_intermediary_bank_name = gate_intermediary_bank_name
+        if gate_intermediary_bank_swift_code is not None:
+            self.gate_intermediary_bank_swift_code = gate_intermediary_bank_swift_code
+        if gate_transfer_remark is not None:
+            self.gate_transfer_remark = gate_transfer_remark
+        if gate_reference_code is not None:
+            self.gate_reference_code = gate_reference_code
         self.status = status
-        self.db_status = db_status
         self.create_time = create_time
-        self.memo = memo
-        self.side = side
-        self.promotion_code = promotion_code
-        self.trade_no = trade_no
 
     @property
     def order_id(self):
@@ -196,7 +257,7 @@ class OtcOrderDetail(object):
     def fiat_currency(self):
         """Gets the fiat_currency of this OtcOrderDetail.  # noqa: E501
 
-        Fiat type  # noqa: E501
+        Fiat currency  # noqa: E501
 
         :return: The fiat_currency of this OtcOrderDetail.  # noqa: E501
         :rtype: str
@@ -207,7 +268,7 @@ class OtcOrderDetail(object):
     def fiat_currency(self, fiat_currency):
         """Sets the fiat_currency of this OtcOrderDetail.
 
-        Fiat type  # noqa: E501
+        Fiat currency  # noqa: E501
 
         :param fiat_currency: The fiat_currency of this OtcOrderDetail.  # noqa: E501
         :type: str
@@ -246,7 +307,7 @@ class OtcOrderDetail(object):
     def crypto_currency(self):
         """Gets the crypto_currency of this OtcOrderDetail.  # noqa: E501
 
-        Stablecoin  # noqa: E501
+        Digital currency  # noqa: E501
 
         :return: The crypto_currency of this OtcOrderDetail.  # noqa: E501
         :rtype: str
@@ -257,7 +318,7 @@ class OtcOrderDetail(object):
     def crypto_currency(self, crypto_currency):
         """Sets the crypto_currency of this OtcOrderDetail.
 
-        Stablecoin  # noqa: E501
+        Digital currency  # noqa: E501
 
         :param crypto_currency: The crypto_currency of this OtcOrderDetail.  # noqa: E501
         :type: str
@@ -271,7 +332,7 @@ class OtcOrderDetail(object):
     def crypto_amount(self):
         """Gets the crypto_amount of this OtcOrderDetail.  # noqa: E501
 
-        Stablecoin amount  # noqa: E501
+        Cryptocurrency amount  # noqa: E501
 
         :return: The crypto_amount of this OtcOrderDetail.  # noqa: E501
         :rtype: str
@@ -282,7 +343,7 @@ class OtcOrderDetail(object):
     def crypto_amount(self, crypto_amount):
         """Sets the crypto_amount of this OtcOrderDetail.
 
-        Stablecoin amount  # noqa: E501
+        Cryptocurrency amount  # noqa: E501
 
         :param crypto_amount: The crypto_amount of this OtcOrderDetail.  # noqa: E501
         :type: str
@@ -318,52 +379,418 @@ class OtcOrderDetail(object):
         self._rate = rate
 
     @property
-    def transfer_remark(self):
-        """Gets the transfer_remark of this OtcOrderDetail.  # noqa: E501
+    def bank_account_name(self):
+        """Gets the bank_account_name of this OtcOrderDetail.  # noqa: E501
 
-        Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)  # noqa: E501
+        User payment/receiving name  # noqa: E501
 
-        :return: The transfer_remark of this OtcOrderDetail.  # noqa: E501
+        :return: The bank_account_name of this OtcOrderDetail.  # noqa: E501
         :rtype: str
         """
-        return self._transfer_remark
+        return self._bank_account_name
 
-    @transfer_remark.setter
-    def transfer_remark(self, transfer_remark):
-        """Sets the transfer_remark of this OtcOrderDetail.
+    @bank_account_name.setter
+    def bank_account_name(self, bank_account_name):
+        """Sets the bank_account_name of this OtcOrderDetail.
 
-        Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)  # noqa: E501
+        User payment/receiving name  # noqa: E501
 
-        :param transfer_remark: The transfer_remark of this OtcOrderDetail.  # noqa: E501
+        :param bank_account_name: The bank_account_name of this OtcOrderDetail.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and transfer_remark is None:  # noqa: E501
-            raise ValueError("Invalid value for `transfer_remark`, must not be `None`")  # noqa: E501
 
-        self._transfer_remark = transfer_remark
+        self._bank_account_name = bank_account_name
 
     @property
-    def reference_code(self):
-        """Gets the reference_code of this OtcOrderDetail.  # noqa: E501
+    def bank_name(self):
+        """Gets the bank_name of this OtcOrderDetail.  # noqa: E501
 
-        Unique bank transfer reference code for deposit buy orders (SGB deposit scenario; mutually exclusive with transfer_remark)  # noqa: E501
+        User payment/receiving bank name  # noqa: E501
 
-        :return: The reference_code of this OtcOrderDetail.  # noqa: E501
+        :return: The bank_name of this OtcOrderDetail.  # noqa: E501
         :rtype: str
         """
-        return self._reference_code
+        return self._bank_name
 
-    @reference_code.setter
-    def reference_code(self, reference_code):
-        """Sets the reference_code of this OtcOrderDetail.
+    @bank_name.setter
+    def bank_name(self, bank_name):
+        """Sets the bank_name of this OtcOrderDetail.
 
-        Unique bank transfer reference code for deposit buy orders (SGB deposit scenario; mutually exclusive with transfer_remark)  # noqa: E501
+        User payment/receiving bank name  # noqa: E501
 
-        :param reference_code: The reference_code of this OtcOrderDetail.  # noqa: E501
+        :param bank_name: The bank_name of this OtcOrderDetail.  # noqa: E501
         :type: str
         """
 
-        self._reference_code = reference_code
+        self._bank_name = bank_name
+
+    @property
+    def bank_country(self):
+        """Gets the bank_country of this OtcOrderDetail.  # noqa: E501
+
+        User payment/receiving bank country  # noqa: E501
+
+        :return: The bank_country of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_country
+
+    @bank_country.setter
+    def bank_country(self, bank_country):
+        """Sets the bank_country of this OtcOrderDetail.
+
+        User payment/receiving bank country  # noqa: E501
+
+        :param bank_country: The bank_country of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._bank_country = bank_country
+
+    @property
+    def bank_address(self):
+        """Gets the bank_address of this OtcOrderDetail.  # noqa: E501
+
+        User payment/receiving bank address  # noqa: E501
+
+        :return: The bank_address of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_address
+
+    @bank_address.setter
+    def bank_address(self, bank_address):
+        """Sets the bank_address of this OtcOrderDetail.
+
+        User payment/receiving bank address  # noqa: E501
+
+        :param bank_address: The bank_address of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._bank_address = bank_address
+
+    @property
+    def bank_account_number_iban(self):
+        """Gets the bank_account_number_iban of this OtcOrderDetail.  # noqa: E501
+
+        User payment/receiving bank account number/IBAN  # noqa: E501
+
+        :return: The bank_account_number_iban of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._bank_account_number_iban
+
+    @bank_account_number_iban.setter
+    def bank_account_number_iban(self, bank_account_number_iban):
+        """Sets the bank_account_number_iban of this OtcOrderDetail.
+
+        User payment/receiving bank account number/IBAN  # noqa: E501
+
+        :param bank_account_number_iban: The bank_account_number_iban of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._bank_account_number_iban = bank_account_number_iban
+
+    @property
+    def swift_code(self):
+        """Gets the swift_code of this OtcOrderDetail.  # noqa: E501
+
+        User payment/receiving bank SWIFT code  # noqa: E501
+
+        :return: The swift_code of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._swift_code
+
+    @swift_code.setter
+    def swift_code(self, swift_code):
+        """Sets the swift_code of this OtcOrderDetail.
+
+        User payment/receiving bank SWIFT code  # noqa: E501
+
+        :param swift_code: The swift_code of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._swift_code = swift_code
+
+    @property
+    def intermediate_bank_name(self):
+        """Gets the intermediate_bank_name of this OtcOrderDetail.  # noqa: E501
+
+        User payment/receiving intermediary bank name  # noqa: E501
+
+        :return: The intermediate_bank_name of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._intermediate_bank_name
+
+    @intermediate_bank_name.setter
+    def intermediate_bank_name(self, intermediate_bank_name):
+        """Sets the intermediate_bank_name of this OtcOrderDetail.
+
+        User payment/receiving intermediary bank name  # noqa: E501
+
+        :param intermediate_bank_name: The intermediate_bank_name of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._intermediate_bank_name = intermediate_bank_name
+
+    @property
+    def intermediary_bank_swift_code(self):
+        """Gets the intermediary_bank_swift_code of this OtcOrderDetail.  # noqa: E501
+
+        User payment/receiving intermediary bank SWIFT code  # noqa: E501
+
+        :return: The intermediary_bank_swift_code of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._intermediary_bank_swift_code
+
+    @intermediary_bank_swift_code.setter
+    def intermediary_bank_swift_code(self, intermediary_bank_swift_code):
+        """Sets the intermediary_bank_swift_code of this OtcOrderDetail.
+
+        User payment/receiving intermediary bank SWIFT code  # noqa: E501
+
+        :param intermediary_bank_swift_code: The intermediary_bank_swift_code of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._intermediary_bank_swift_code = intermediary_bank_swift_code
+
+    @property
+    def gate_bank_account_name(self):
+        """Gets the gate_bank_account_name of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary name, shown for BUY only  # noqa: E501
+
+        :return: The gate_bank_account_name of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_bank_account_name
+
+    @gate_bank_account_name.setter
+    def gate_bank_account_name(self, gate_bank_account_name):
+        """Sets the gate_bank_account_name of this OtcOrderDetail.
+
+        Gate beneficiary name, shown for BUY only  # noqa: E501
+
+        :param gate_bank_account_name: The gate_bank_account_name of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_bank_account_name = gate_bank_account_name
+
+    @property
+    def gate_bank_name(self):
+        """Gets the gate_bank_name of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary bank name, shown for BUY only  # noqa: E501
+
+        :return: The gate_bank_name of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_bank_name
+
+    @gate_bank_name.setter
+    def gate_bank_name(self, gate_bank_name):
+        """Sets the gate_bank_name of this OtcOrderDetail.
+
+        Gate beneficiary bank name, shown for BUY only  # noqa: E501
+
+        :param gate_bank_name: The gate_bank_name of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_bank_name = gate_bank_name
+
+    @property
+    def gate_bank_country(self):
+        """Gets the gate_bank_country of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary bank country, shown for BUY only  # noqa: E501
+
+        :return: The gate_bank_country of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_bank_country
+
+    @gate_bank_country.setter
+    def gate_bank_country(self, gate_bank_country):
+        """Sets the gate_bank_country of this OtcOrderDetail.
+
+        Gate beneficiary bank country, shown for BUY only  # noqa: E501
+
+        :param gate_bank_country: The gate_bank_country of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_bank_country = gate_bank_country
+
+    @property
+    def gate_bank_address(self):
+        """Gets the gate_bank_address of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary bank address, shown for BUY only  # noqa: E501
+
+        :return: The gate_bank_address of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_bank_address
+
+    @gate_bank_address.setter
+    def gate_bank_address(self, gate_bank_address):
+        """Sets the gate_bank_address of this OtcOrderDetail.
+
+        Gate beneficiary bank address, shown for BUY only  # noqa: E501
+
+        :param gate_bank_address: The gate_bank_address of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_bank_address = gate_bank_address
+
+    @property
+    def gate_bank_account_number_iban(self):
+        """Gets the gate_bank_account_number_iban of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary bank account number/IBAN, shown for BUY only  # noqa: E501
+
+        :return: The gate_bank_account_number_iban of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_bank_account_number_iban
+
+    @gate_bank_account_number_iban.setter
+    def gate_bank_account_number_iban(self, gate_bank_account_number_iban):
+        """Sets the gate_bank_account_number_iban of this OtcOrderDetail.
+
+        Gate beneficiary bank account number/IBAN, shown for BUY only  # noqa: E501
+
+        :param gate_bank_account_number_iban: The gate_bank_account_number_iban of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_bank_account_number_iban = gate_bank_account_number_iban
+
+    @property
+    def gate_swift_code(self):
+        """Gets the gate_swift_code of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary bank SWIFT code, shown for BUY only  # noqa: E501
+
+        :return: The gate_swift_code of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_swift_code
+
+    @gate_swift_code.setter
+    def gate_swift_code(self, gate_swift_code):
+        """Sets the gate_swift_code of this OtcOrderDetail.
+
+        Gate beneficiary bank SWIFT code, shown for BUY only  # noqa: E501
+
+        :param gate_swift_code: The gate_swift_code of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_swift_code = gate_swift_code
+
+    @property
+    def gate_intermediary_bank_name(self):
+        """Gets the gate_intermediary_bank_name of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary intermediary bank name, shown for BUY only  # noqa: E501
+
+        :return: The gate_intermediary_bank_name of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_intermediary_bank_name
+
+    @gate_intermediary_bank_name.setter
+    def gate_intermediary_bank_name(self, gate_intermediary_bank_name):
+        """Sets the gate_intermediary_bank_name of this OtcOrderDetail.
+
+        Gate beneficiary intermediary bank name, shown for BUY only  # noqa: E501
+
+        :param gate_intermediary_bank_name: The gate_intermediary_bank_name of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_intermediary_bank_name = gate_intermediary_bank_name
+
+    @property
+    def gate_intermediary_bank_swift_code(self):
+        """Gets the gate_intermediary_bank_swift_code of this OtcOrderDetail.  # noqa: E501
+
+        Gate beneficiary intermediary bank SWIFT code, shown for BUY only  # noqa: E501
+
+        :return: The gate_intermediary_bank_swift_code of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_intermediary_bank_swift_code
+
+    @gate_intermediary_bank_swift_code.setter
+    def gate_intermediary_bank_swift_code(self, gate_intermediary_bank_swift_code):
+        """Sets the gate_intermediary_bank_swift_code of this OtcOrderDetail.
+
+        Gate beneficiary intermediary bank SWIFT code, shown for BUY only  # noqa: E501
+
+        :param gate_intermediary_bank_swift_code: The gate_intermediary_bank_swift_code of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_intermediary_bank_swift_code = gate_intermediary_bank_swift_code
+
+    @property
+    def gate_transfer_remark(self):
+        """Gets the gate_transfer_remark of this OtcOrderDetail.  # noqa: E501
+
+        Transfer remark (mutually exclusive with `gate_reference_code`; empty when a BUY deposit order has a reference code), shown for BUY only  # noqa: E501
+
+        :return: The gate_transfer_remark of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_transfer_remark
+
+    @gate_transfer_remark.setter
+    def gate_transfer_remark(self, gate_transfer_remark):
+        """Sets the gate_transfer_remark of this OtcOrderDetail.
+
+        Transfer remark (mutually exclusive with `gate_reference_code`; empty when a BUY deposit order has a reference code), shown for BUY only  # noqa: E501
+
+        :param gate_transfer_remark: The gate_transfer_remark of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_transfer_remark = gate_transfer_remark
+
+    @property
+    def gate_reference_code(self):
+        """Gets the gate_reference_code of this OtcOrderDetail.  # noqa: E501
+
+        Be sure to include the reference code when making the transfer so that your order can be processed promptly. (Mutually exclusive with `gate_transfer_remark`.)  # noqa: E501
+
+        :return: The gate_reference_code of this OtcOrderDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._gate_reference_code
+
+    @gate_reference_code.setter
+    def gate_reference_code(self, gate_reference_code):
+        """Sets the gate_reference_code of this OtcOrderDetail.
+
+        Be sure to include the reference code when making the transfer so that your order can be processed promptly. (Mutually exclusive with `gate_transfer_remark`.)  # noqa: E501
+
+        :param gate_reference_code: The gate_reference_code of this OtcOrderDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._gate_reference_code = gate_reference_code
 
     @property
     def status(self):
@@ -391,29 +818,6 @@ class OtcOrderDetail(object):
         self._status = status
 
     @property
-    def db_status(self):
-        """Gets the db_status of this OtcOrderDetail.  # noqa: E501
-
-
-        :return: The db_status of this OtcOrderDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._db_status
-
-    @db_status.setter
-    def db_status(self, db_status):
-        """Sets the db_status of this OtcOrderDetail.
-
-
-        :param db_status: The db_status of this OtcOrderDetail.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and db_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `db_status`, must not be `None`")  # noqa: E501
-
-        self._db_status = db_status
-
-    @property
     def create_time(self):
         """Gets the create_time of this OtcOrderDetail.  # noqa: E501
 
@@ -437,106 +841,6 @@ class OtcOrderDetail(object):
             raise ValueError("Invalid value for `create_time`, must not be `None`")  # noqa: E501
 
         self._create_time = create_time
-
-    @property
-    def memo(self):
-        """Gets the memo of this OtcOrderDetail.  # noqa: E501
-
-        Cancellation or rejection reason  # noqa: E501
-
-        :return: The memo of this OtcOrderDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._memo
-
-    @memo.setter
-    def memo(self, memo):
-        """Sets the memo of this OtcOrderDetail.
-
-        Cancellation or rejection reason  # noqa: E501
-
-        :param memo: The memo of this OtcOrderDetail.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and memo is None:  # noqa: E501
-            raise ValueError("Invalid value for `memo`, must not be `None`")  # noqa: E501
-
-        self._memo = memo
-
-    @property
-    def side(self):
-        """Gets the side of this OtcOrderDetail.  # noqa: E501
-
-        Quote direction  # noqa: E501
-
-        :return: The side of this OtcOrderDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._side
-
-    @side.setter
-    def side(self, side):
-        """Sets the side of this OtcOrderDetail.
-
-        Quote direction  # noqa: E501
-
-        :param side: The side of this OtcOrderDetail.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
-            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
-
-        self._side = side
-
-    @property
-    def promotion_code(self):
-        """Gets the promotion_code of this OtcOrderDetail.  # noqa: E501
-
-        Promotion code  # noqa: E501
-
-        :return: The promotion_code of this OtcOrderDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._promotion_code
-
-    @promotion_code.setter
-    def promotion_code(self, promotion_code):
-        """Sets the promotion_code of this OtcOrderDetail.
-
-        Promotion code  # noqa: E501
-
-        :param promotion_code: The promotion_code of this OtcOrderDetail.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and promotion_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `promotion_code`, must not be `None`")  # noqa: E501
-
-        self._promotion_code = promotion_code
-
-    @property
-    def trade_no(self):
-        """Gets the trade_no of this OtcOrderDetail.  # noqa: E501
-
-        Trade number  # noqa: E501
-
-        :return: The trade_no of this OtcOrderDetail.  # noqa: E501
-        :rtype: str
-        """
-        return self._trade_no
-
-    @trade_no.setter
-    def trade_no(self, trade_no):
-        """Sets the trade_no of this OtcOrderDetail.
-
-        Trade number  # noqa: E501
-
-        :param trade_no: The trade_no of this OtcOrderDetail.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and trade_no is None:  # noqa: E501
-            raise ValueError("Invalid value for `trade_no`, must not be `None`")  # noqa: E501
-
-        self._trade_no = trade_no
 
     def to_dict(self):
         """Returns the model properties as a dict"""

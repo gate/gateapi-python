@@ -14,13 +14,12 @@ Method | HTTP request | Description
 [**list_candlesticks**](SpotApi.md#list_candlesticks) | **GET** /spot/candlesticks | Market K-line chart
 [**get_fee**](SpotApi.md#get_fee) | **GET** /spot/fee | Query account fee rates
 [**get_batch_spot_fee**](SpotApi.md#get_batch_spot_fee) | **GET** /spot/batch_fee | Batch query account fee rates
-[**list_spot_accounts**](SpotApi.md#list_spot_accounts) | **GET** /spot/accounts | List spot trading accounts
 [**list_spot_account_book**](SpotApi.md#list_spot_account_book) | **GET** /spot/account_book | Query spot account transaction history
 [**create_batch_orders**](SpotApi.md#create_batch_orders) | **POST** /spot/batch_orders | Batch place orders
 [**list_all_open_orders**](SpotApi.md#list_all_open_orders) | **GET** /spot/open_orders | List all open orders
 [**create_cross_liquidate_order**](SpotApi.md#create_cross_liquidate_order) | **POST** /spot/cross_liquidate_orders | Close position when cross-currency is disabled
 [**list_orders**](SpotApi.md#list_orders) | **GET** /spot/orders | List orders
-[**create_order**](SpotApi.md#create_order) | **POST** /spot/orders | Create an order
+[**create_order**](SpotApi.md#create_order) | **POST** /spot/orders | Create order
 [**cancel_orders**](SpotApi.md#cancel_orders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
 [**cancel_batch_orders**](SpotApi.md#cancel_batch_orders) | **POST** /spot/cancel_batch_orders | Cancel batch orders by specified ID list
 [**get_order**](SpotApi.md#get_order) | **GET** /spot/orders/{order_id} | Query single order details
@@ -36,6 +35,11 @@ Method | HTTP request | Description
 [**cancel_spot_price_triggered_order_list**](SpotApi.md#cancel_spot_price_triggered_order_list) | **DELETE** /spot/price_orders | Cancel all auto orders
 [**get_spot_price_triggered_order**](SpotApi.md#get_spot_price_triggered_order) | **GET** /spot/price_orders/{order_id} | Query single auto order details
 [**cancel_spot_price_triggered_order**](SpotApi.md#cancel_spot_price_triggered_order) | **DELETE** /spot/price_orders/{order_id} | Cancel single auto order
+[**list_spot_pov_orders**](SpotApi.md#list_spot_pov_orders) | **GET** /spot/pov_orders | List Spot POV orders
+[**create_spot_pov_order**](SpotApi.md#create_spot_pov_order) | **POST** /spot/pov_orders | Create a Spot POV order
+[**cancel_spot_pov_orders**](SpotApi.md#cancel_spot_pov_orders) | **POST** /spot/pov_orders/cancel | Cancel Spot POV orders
+[**get_spot_pov_order**](SpotApi.md#get_spot_pov_order) | **GET** /spot/pov_orders/{order_id} | Query Spot POV order details
+[**cancel_spot_pov_order**](SpotApi.md#cancel_spot_pov_order) | **POST** /spot/pov_orders/{order_id}/cancel | Cancel a Spot POV order
 
 
 # **list_currencies**
@@ -668,73 +672,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_spot_accounts**
-> list[SpotAccount] list_spot_accounts(currency=currency)
-
-List spot trading accounts
-
-### Example
-
-* Api Key Authentication (apiv4):
-```python
-from __future__ import print_function
-import gate_api
-from gate_api.exceptions import ApiException, GateApiException
-# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
-# See configuration.py for a list of all supported configuration parameters.
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure APIv4 key authorization
-configuration = gate_api.Configuration(
-    host = "https://api.gateio.ws/api/v4",
-    key = "YOU_API_KEY",
-    secret = "YOUR_API_SECRET"
-)
-
-api_client = gate_api.ApiClient(configuration)
-# Create an instance of the API class
-api_instance = gate_api.SpotApi(api_client)
-currency = 'BTC' # str | Query by specified currency name (optional)
-
-try:
-    # List spot trading accounts
-    api_response = api_instance.list_spot_accounts(currency=currency)
-    print(api_response)
-except GateApiException as ex:
-    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
-except ApiException as e:
-    print("Exception when calling SpotApi->list_spot_accounts: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **str**| Query by specified currency name | [optional] 
-
-### Return type
-
-[**list[SpotAccount]**](SpotAccount.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List retrieved successfully |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **list_spot_account_book**
 > list[SpotAccountBook] list_spot_account_book(currency=currency, _from=_from, to=to, page=page, limit=limit, type=type, code=code)
 
@@ -1115,7 +1052,7 @@ Name | Type | Description  | Notes
 # **create_order**
 > Order create_order(order, x_gate_exptime=x_gate_exptime)
 
-Create an order
+Create order
 
 Supports spot, margin, leverage, and cross-margin leverage orders. Use different accounts through the `account` field. Default is `spot`, which means using the spot account to place orders. If the user has a `unified` account, the default is to place orders with the unified account.  When using leveraged account trading (i.e., when `account` is set to `margin`), you can set `auto_borrow` to `true`. In case of insufficient account balance, the system will automatically execute `POST /margin/uni/loans` to borrow the insufficient amount. Whether assets obtained after leveraged order execution are automatically used to repay borrowing orders of the isolated margin account depends on the automatic repayment settings of the user's isolated margin account. Account automatic repayment settings can be queried and set through `/margin/auto_repay`.  When using unified account trading (i.e., when `account` is set to `unified`), `auto_borrow` can also be enabled to realize automatic borrowing of insufficient amounts. However, unlike the isolated margin account, whether unified account orders are automatically repaid depends on the `auto_repay` setting when placing the order. This setting only applies to the current order, meaning only assets obtained after order execution will be used to repay borrowing orders of the cross-margin account. Unified account ordering currently supports enabling both `auto_borrow` and `auto_repay` simultaneously.  Auto repayment will be triggered when the order ends, i.e., when `status` is `cancelled` or `closed`.  **Order Status**  The order status in pending orders is `open`, which remains `open` until all quantity is filled. If fully filled, the order ends and status becomes `closed`. If the order is cancelled before all transactions are completed, regardless of partial fills, the status will become `cancelled`.  **Iceberg Orders**  `iceberg` is used to set the displayed quantity of iceberg orders and does not support complete hiding. Note that hidden portions are charged according to the taker's fee rate.  **Self-Trade Prevention**  Set `stp_act` to determine the self-trade prevention strategy to use
 
@@ -1147,7 +1084,7 @@ order = gate_api.Order() # Order |
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
 try:
-    # Create an order
+    # Create order
     api_response = api_instance.create_order(order, x_gate_exptime=x_gate_exptime)
     print(api_response)
 except GateApiException as ex:
@@ -2243,6 +2180,349 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Auto order details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_spot_pov_orders**
+> list[SpotPovOrder] list_spot_pov_orders(status, currency_pair=currency_pair, side=side, page=page, limit=limit)
+
+List Spot POV orders
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+status = 'open' # str | Order status. Defaults to open  - open: Active orders - finished: Finished orders (default to 'open')
+currency_pair = 'BTC_USDT' # str | Currency pair (optional)
+side = 'sell' # str | Specify all bids or all asks, both included if not specified (optional)
+page = 1 # int | Page number, up to 100 (optional) (default to 1)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+
+try:
+    # List Spot POV orders
+    api_response = api_instance.list_spot_pov_orders(status, currency_pair=currency_pair, side=side, page=page, limit=limit)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->list_spot_pov_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **str**| Order status. Defaults to open  - open: Active orders - finished: Finished orders | [default to &#39;open&#39;]
+ **currency_pair** | **str**| Currency pair | [optional] 
+ **side** | **str**| Specify all bids or all asks, both included if not specified | [optional] 
+ **page** | **int**| Page number, up to 100 | [optional] [default to 1]
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+
+### Return type
+
+[**list[SpotPovOrder]**](SpotPovOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_spot_pov_order**
+> SpotPovOrder create_spot_pov_order(spot_pov_order_creator)
+
+Create a Spot POV order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+spot_pov_order_creator = gate_api.SpotPovOrderCreator() # SpotPovOrderCreator | 
+
+try:
+    # Create a Spot POV order
+    api_response = api_instance.create_spot_pov_order(spot_pov_order_creator)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->create_spot_pov_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **spot_pov_order_creator** | [**SpotPovOrderCreator**](SpotPovOrderCreator.md)|  | 
+
+### Return type
+
+[**SpotPovOrder**](SpotPovOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Order created successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_spot_pov_orders**
+> list[SpotPovOrder] cancel_spot_pov_orders(currency_pair=currency_pair)
+
+Cancel Spot POV orders
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+currency_pair = 'BTC_USDT' # str | Currency pair (optional)
+
+try:
+    # Cancel Spot POV orders
+    api_response = api_instance.cancel_spot_pov_orders(currency_pair=currency_pair)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->cancel_spot_pov_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_pair** | **str**| Currency pair | [optional] 
+
+### Return type
+
+[**list[SpotPovOrder]**](SpotPovOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_spot_pov_order**
+> SpotPovOrder get_spot_pov_order(order_id)
+
+Query Spot POV order details
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+order_id = '12345' # str | The order ID returned after successful creation, or the custom ID specified by the user in the `text` field.
+
+try:
+    # Query Spot POV order details
+    api_response = api_instance.get_spot_pov_order(order_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->get_spot_pov_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. | 
+
+### Return type
+
+[**SpotPovOrder**](SpotPovOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Detail retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_spot_pov_order**
+> SpotPovOrder cancel_spot_pov_order(order_id)
+
+Cancel a Spot POV order
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+order_id = '12345' # str | The order ID returned after successful creation, or the custom ID specified by the user in the `text` field.
+
+try:
+    # Cancel a Spot POV order
+    api_response = api_instance.cancel_spot_pov_order(order_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->cancel_spot_pov_order: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **str**| The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. | 
+
+### Return type
+
+[**SpotPovOrder**](SpotPovOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order cancelled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

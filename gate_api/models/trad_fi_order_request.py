@@ -138,7 +138,7 @@ class TradFiOrderRequest(object):
     def side(self):
         """Gets the side of this TradFiOrderRequest.  # noqa: E501
 
-        Order side (1=sell, 2=buy)  # noqa: E501
+        Side (1=sell, 2=buy)  # noqa: E501
 
         :return: The side of this TradFiOrderRequest.  # noqa: E501
         :rtype: int
@@ -149,7 +149,7 @@ class TradFiOrderRequest(object):
     def side(self, side):
         """Sets the side of this TradFiOrderRequest.
 
-        Order side (1=sell, 2=buy)  # noqa: E501
+        Side (1=sell, 2=buy)  # noqa: E501
 
         :param side: The side of this TradFiOrderRequest.  # noqa: E501
         :type: int
@@ -194,7 +194,7 @@ class TradFiOrderRequest(object):
     def volume(self):
         """Gets the volume of this TradFiOrderRequest.  # noqa: E501
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :return: The volume of this TradFiOrderRequest.  # noqa: E501
         :rtype: str
@@ -205,7 +205,7 @@ class TradFiOrderRequest(object):
     def volume(self, volume):
         """Sets the volume of this TradFiOrderRequest.
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :param volume: The volume of this TradFiOrderRequest.  # noqa: E501
         :type: str

@@ -422,7 +422,7 @@ class FlashSwapOrderCreateRespData(object):
     def status(self):
         """Gets the status of this FlashSwapOrderCreateRespData.  # noqa: E501
 
-        Order Status  # noqa: E501
+        Order status  # noqa: E501
 
         :return: The status of this FlashSwapOrderCreateRespData.  # noqa: E501
         :rtype: int
@@ -433,7 +433,7 @@ class FlashSwapOrderCreateRespData(object):
     def status(self, status):
         """Sets the status of this FlashSwapOrderCreateRespData.
 
-        Order Status  # noqa: E501
+        Order status  # noqa: E501
 
         :param status: The status of this FlashSwapOrderCreateRespData.  # noqa: E501
         :type: int

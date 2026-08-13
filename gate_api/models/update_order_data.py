@@ -156,7 +156,7 @@ class UpdateOrderData(object):
     def volume(self):
         """Gets the volume of this UpdateOrderData.  # noqa: E501
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :return: The volume of this UpdateOrderData.  # noqa: E501
         :rtype: str
@@ -167,7 +167,7 @@ class UpdateOrderData(object):
     def volume(self, volume):
         """Sets the volume of this UpdateOrderData.
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :param volume: The volume of this UpdateOrderData.  # noqa: E501
         :type: str

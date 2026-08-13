@@ -34,16 +34,18 @@ class OtcStableCoinOrderCreateResponse(object):
     """
     openapi_types = {
         'code': 'int',
-        'message': 'str'
+        'message': 'str',
+        'timestamp': 'int'
     }
 
     attribute_map = {
         'code': 'code',
-        'message': 'message'
+        'message': 'message',
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, code=None, message=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, Configuration) -> None
+    def __init__(self, code=None, message=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, int, Configuration) -> None
         """OtcStableCoinOrderCreateResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,15 +53,18 @@ class OtcStableCoinOrderCreateResponse(object):
 
         self._code = None
         self._message = None
+        self._timestamp = None
         self.discriminator = None
 
         self.code = code
         self.message = message
+        self.timestamp = timestamp
 
     @property
     def code(self):
         """Gets the code of this OtcStableCoinOrderCreateResponse.  # noqa: E501
 
+        Business code; 0 indicates success  # noqa: E501
 
         :return: The code of this OtcStableCoinOrderCreateResponse.  # noqa: E501
         :rtype: int
@@ -70,6 +75,7 @@ class OtcStableCoinOrderCreateResponse(object):
     def code(self, code):
         """Sets the code of this OtcStableCoinOrderCreateResponse.
 
+        Business code; 0 indicates success  # noqa: E501
 
         :param code: The code of this OtcStableCoinOrderCreateResponse.  # noqa: E501
         :type: int
@@ -83,6 +89,7 @@ class OtcStableCoinOrderCreateResponse(object):
     def message(self):
         """Gets the message of this OtcStableCoinOrderCreateResponse.  # noqa: E501
 
+        Message  # noqa: E501
 
         :return: The message of this OtcStableCoinOrderCreateResponse.  # noqa: E501
         :rtype: str
@@ -93,6 +100,7 @@ class OtcStableCoinOrderCreateResponse(object):
     def message(self, message):
         """Sets the message of this OtcStableCoinOrderCreateResponse.
 
+        Message  # noqa: E501
 
         :param message: The message of this OtcStableCoinOrderCreateResponse.  # noqa: E501
         :type: str
@@ -101,6 +109,31 @@ class OtcStableCoinOrderCreateResponse(object):
             raise ValueError("Invalid value for `message`, must not be `None`")  # noqa: E501
 
         self._message = message
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this OtcStableCoinOrderCreateResponse.  # noqa: E501
+
+        Server Unix timestamp in seconds  # noqa: E501
+
+        :return: The timestamp of this OtcStableCoinOrderCreateResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this OtcStableCoinOrderCreateResponse.
+
+        Server Unix timestamp in seconds  # noqa: E501
+
+        :param timestamp: The timestamp of this OtcStableCoinOrderCreateResponse.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and timestamp is None:  # noqa: E501
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

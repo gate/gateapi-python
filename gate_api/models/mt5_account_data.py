@@ -95,7 +95,7 @@ class Mt5AccountData(object):
     def leverage(self):
         """Gets the leverage of this Mt5AccountData.  # noqa: E501
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :return: The leverage of this Mt5AccountData.  # noqa: E501
         :rtype: int
@@ -106,7 +106,7 @@ class Mt5AccountData(object):
     def leverage(self, leverage):
         """Sets the leverage of this Mt5AccountData.
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :param leverage: The leverage of this Mt5AccountData.  # noqa: E501
         :type: int

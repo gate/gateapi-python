@@ -5,7 +5,7 @@ Auto invest order item
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Order ID | 
-**type** | **str** | type | 
+**type** | **str** | Type | 
 **amount** | **str** | Size | 
 **plan_id** | **int** | Plan ID | 
 **side** | **int** | direction | 

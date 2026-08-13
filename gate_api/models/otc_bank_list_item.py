@@ -38,8 +38,6 @@ class OtcBankListItem(object):
         'bank_name': 'str',
         'bank_country': 'str',
         'bank_address': 'str',
-        'bank_code': 'str',
-        'branch_code': 'str',
         'iban': 'str',
         'swift': 'str',
         'remittance_line_number': 'str',
@@ -48,11 +46,7 @@ class OtcBankListItem(object):
         'submit_time': 'str',
         'update_time': 'str',
         'status': 'str',
-        'documentation_file_type': 'str',
-        'memo': 'str',
-        'is_default': 'int',
-        'bank_id': 'str',
-        'documentation_file_key_url': 'str'
+        'is_default': 'int'
     }
 
     attribute_map = {
@@ -61,8 +55,6 @@ class OtcBankListItem(object):
         'bank_name': 'bank_name',
         'bank_country': 'bank_country',
         'bank_address': 'bank_address',
-        'bank_code': 'bank_code',
-        'branch_code': 'branch_code',
         'iban': 'iban',
         'swift': 'swift',
         'remittance_line_number': 'remittance_line_number',
@@ -71,15 +63,11 @@ class OtcBankListItem(object):
         'submit_time': 'submit_time',
         'update_time': 'update_time',
         'status': 'status',
-        'documentation_file_type': 'documentation_file_type',
-        'memo': 'memo',
-        'is_default': 'is_default',
-        'bank_id': 'bank_id',
-        'documentation_file_key_url': 'documentation_file_key_url'
+        'is_default': 'is_default'
     }
 
-    def __init__(self, id=None, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, bank_code=None, branch_code=None, iban=None, swift=None, remittance_line_number=None, agent_bank_name=None, agent_bank_swift=None, submit_time=None, update_time=None, status=None, documentation_file_type=None, memo=None, is_default=None, bank_id=None, documentation_file_key_url=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, int, str, str, Configuration) -> None
+    def __init__(self, id=None, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, iban=None, swift=None, remittance_line_number=None, agent_bank_name=None, agent_bank_swift=None, submit_time=None, update_time=None, status=None, is_default=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, int, Configuration) -> None
         """OtcBankListItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,8 +78,6 @@ class OtcBankListItem(object):
         self._bank_name = None
         self._bank_country = None
         self._bank_address = None
-        self._bank_code = None
-        self._branch_code = None
         self._iban = None
         self._swift = None
         self._remittance_line_number = None
@@ -100,11 +86,7 @@ class OtcBankListItem(object):
         self._submit_time = None
         self._update_time = None
         self._status = None
-        self._documentation_file_type = None
-        self._memo = None
         self._is_default = None
-        self._bank_id = None
-        self._documentation_file_key_url = None
         self.discriminator = None
 
         self.id = id
@@ -114,10 +96,6 @@ class OtcBankListItem(object):
             self.bank_country = bank_country
         if bank_address is not None:
             self.bank_address = bank_address
-        if bank_code is not None:
-            self.bank_code = bank_code
-        if branch_code is not None:
-            self.branch_code = branch_code
         if iban is not None:
             self.iban = iban
         if swift is not None:
@@ -134,22 +112,14 @@ class OtcBankListItem(object):
             self.update_time = update_time
         if status is not None:
             self.status = status
-        if documentation_file_type is not None:
-            self.documentation_file_type = documentation_file_type
-        if memo is not None:
-            self.memo = memo
         if is_default is not None:
             self.is_default = is_default
-        if bank_id is not None:
-            self.bank_id = bank_id
-        if documentation_file_key_url is not None:
-            self.documentation_file_key_url = documentation_file_key_url
 
     @property
     def id(self):
         """Gets the id of this OtcBankListItem.  # noqa: E501
 
-        Bank ID (required for order placement)  # noqa: E501
+        Bank card ID (used when placing an order; the synonymous `bank_id` field has been consolidated into `id`)  # noqa: E501
 
         :return: The id of this OtcBankListItem.  # noqa: E501
         :rtype: str
@@ -160,7 +130,7 @@ class OtcBankListItem(object):
     def id(self, id):
         """Sets the id of this OtcBankListItem.
 
-        Bank ID (required for order placement)  # noqa: E501
+        Bank card ID (used when placing an order; the synonymous `bank_id` field has been consolidated into `id`)  # noqa: E501
 
         :param id: The id of this OtcBankListItem.  # noqa: E501
         :type: str
@@ -265,52 +235,6 @@ class OtcBankListItem(object):
         """
 
         self._bank_address = bank_address
-
-    @property
-    def bank_code(self):
-        """Gets the bank_code of this OtcBankListItem.  # noqa: E501
-
-        Bank code  # noqa: E501
-
-        :return: The bank_code of this OtcBankListItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_code
-
-    @bank_code.setter
-    def bank_code(self, bank_code):
-        """Sets the bank_code of this OtcBankListItem.
-
-        Bank code  # noqa: E501
-
-        :param bank_code: The bank_code of this OtcBankListItem.  # noqa: E501
-        :type: str
-        """
-
-        self._bank_code = bank_code
-
-    @property
-    def branch_code(self):
-        """Gets the branch_code of this OtcBankListItem.  # noqa: E501
-
-        Branch code  # noqa: E501
-
-        :return: The branch_code of this OtcBankListItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._branch_code
-
-    @branch_code.setter
-    def branch_code(self, branch_code):
-        """Sets the branch_code of this OtcBankListItem.
-
-        Branch code  # noqa: E501
-
-        :param branch_code: The branch_code of this OtcBankListItem.  # noqa: E501
-        :type: str
-        """
-
-        self._branch_code = branch_code
 
     @property
     def iban(self):
@@ -497,52 +421,6 @@ class OtcBankListItem(object):
         self._status = status
 
     @property
-    def documentation_file_type(self):
-        """Gets the documentation_file_type of this OtcBankListItem.  # noqa: E501
-
-        Document file type  # noqa: E501
-
-        :return: The documentation_file_type of this OtcBankListItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._documentation_file_type
-
-    @documentation_file_type.setter
-    def documentation_file_type(self, documentation_file_type):
-        """Sets the documentation_file_type of this OtcBankListItem.
-
-        Document file type  # noqa: E501
-
-        :param documentation_file_type: The documentation_file_type of this OtcBankListItem.  # noqa: E501
-        :type: str
-        """
-
-        self._documentation_file_type = documentation_file_type
-
-    @property
-    def memo(self):
-        """Gets the memo of this OtcBankListItem.  # noqa: E501
-
-        Remark  # noqa: E501
-
-        :return: The memo of this OtcBankListItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._memo
-
-    @memo.setter
-    def memo(self, memo):
-        """Sets the memo of this OtcBankListItem.
-
-        Remark  # noqa: E501
-
-        :param memo: The memo of this OtcBankListItem.  # noqa: E501
-        :type: str
-        """
-
-        self._memo = memo
-
-    @property
     def is_default(self):
         """Gets the is_default of this OtcBankListItem.  # noqa: E501
 
@@ -564,52 +442,6 @@ class OtcBankListItem(object):
         """
 
         self._is_default = is_default
-
-    @property
-    def bank_id(self):
-        """Gets the bank_id of this OtcBankListItem.  # noqa: E501
-
-        Bank ID  # noqa: E501
-
-        :return: The bank_id of this OtcBankListItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._bank_id
-
-    @bank_id.setter
-    def bank_id(self, bank_id):
-        """Sets the bank_id of this OtcBankListItem.
-
-        Bank ID  # noqa: E501
-
-        :param bank_id: The bank_id of this OtcBankListItem.  # noqa: E501
-        :type: str
-        """
-
-        self._bank_id = bank_id
-
-    @property
-    def documentation_file_key_url(self):
-        """Gets the documentation_file_key_url of this OtcBankListItem.  # noqa: E501
-
-        Document file URL  # noqa: E501
-
-        :return: The documentation_file_key_url of this OtcBankListItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._documentation_file_key_url
-
-    @documentation_file_key_url.setter
-    def documentation_file_key_url(self, documentation_file_key_url):
-        """Sets the documentation_file_key_url of this OtcBankListItem.
-
-        Document file URL  # noqa: E501
-
-        :param documentation_file_key_url: The documentation_file_key_url of this OtcBankListItem.  # noqa: E501
-        :type: str
-        """
-
-        self._documentation_file_key_url = documentation_file_key_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -5,7 +5,7 @@ Plan execution record item
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Record ID | 
-**type** | **str** | type | 
+**type** | **str** | Type | 
 **money** | **str** | SourceCurrency | 
 **user_id** | **int** | User ID | 
 **plan_id** | **int** | Plan ID | 

@@ -44,10 +44,14 @@ class PlaceBizPushOrder(object):
         'oid': 'str',
         'min_amount': 'str',
         'max_amount': 'str',
+        'limit_basis': 'int',
+        'fiat_min_amount': 'str',
+        'fiat_max_amount': 'str',
         'tier_limit': 'str',
         'verified_limit': 'str',
         'reg_time_limit': 'str',
         'advertisers_limit': 'str',
+        'polymarket_limit': 'int',
         'expire_min': 'str',
         'trade_tips': 'str',
         'auto_reply': 'str',
@@ -74,10 +78,14 @@ class PlaceBizPushOrder(object):
         'oid': 'oid',
         'min_amount': 'minAmount',
         'max_amount': 'maxAmount',
+        'limit_basis': 'limitBasis',
+        'fiat_min_amount': 'fiatMinAmount',
+        'fiat_max_amount': 'fiatMaxAmount',
         'tier_limit': 'tierLimit',
         'verified_limit': 'verifiedLimit',
         'reg_time_limit': 'regTimeLimit',
         'advertisers_limit': 'advertisersLimit',
+        'polymarket_limit': 'polymarket_limit',
         'expire_min': 'expire_min',
         'trade_tips': 'trade_tips',
         'auto_reply': 'auto_reply',
@@ -92,8 +100,8 @@ class PlaceBizPushOrder(object):
         'team_payment_uid': 'team_payment_uid'
     }
 
-    def __init__(self, currency_type=None, exchange_type=None, type=None, unit_price=None, number=None, pay_type=None, pay_type_json=None, rate_fixed=None, oid=None, min_amount=None, max_amount=None, tier_limit=None, verified_limit=None, reg_time_limit=None, advertisers_limit=None, expire_min=None, trade_tips=None, auto_reply=None, min_completed_limit=None, max_completed_limit=None, completed_rate_limit=None, user_country_limit=None, user_order_limit=None, rate_reference_id=None, rate_offset=None, float_trend=None, team_payment_uid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, currency_type=None, exchange_type=None, type=None, unit_price=None, number=None, pay_type=None, pay_type_json=None, rate_fixed=None, oid=None, min_amount=None, max_amount=None, limit_basis=None, fiat_min_amount=None, fiat_max_amount=None, tier_limit=None, verified_limit=None, reg_time_limit=None, advertisers_limit=None, polymarket_limit=None, expire_min=None, trade_tips=None, auto_reply=None, min_completed_limit=None, max_completed_limit=None, completed_rate_limit=None, user_country_limit=None, user_order_limit=None, rate_reference_id=None, rate_offset=None, float_trend=None, team_payment_uid=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, int, str, str, str, str, str, str, int, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """PlaceBizPushOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,10 +118,14 @@ class PlaceBizPushOrder(object):
         self._oid = None
         self._min_amount = None
         self._max_amount = None
+        self._limit_basis = None
+        self._fiat_min_amount = None
+        self._fiat_max_amount = None
         self._tier_limit = None
         self._verified_limit = None
         self._reg_time_limit = None
         self._advertisers_limit = None
+        self._polymarket_limit = None
         self._expire_min = None
         self._trade_tips = None
         self._auto_reply = None
@@ -140,8 +152,16 @@ class PlaceBizPushOrder(object):
             self.rate_fixed = rate_fixed
         if oid is not None:
             self.oid = oid
-        self.min_amount = min_amount
-        self.max_amount = max_amount
+        if min_amount is not None:
+            self.min_amount = min_amount
+        if max_amount is not None:
+            self.max_amount = max_amount
+        if limit_basis is not None:
+            self.limit_basis = limit_basis
+        if fiat_min_amount is not None:
+            self.fiat_min_amount = fiat_min_amount
+        if fiat_max_amount is not None:
+            self.fiat_max_amount = fiat_max_amount
         if tier_limit is not None:
             self.tier_limit = tier_limit
         if verified_limit is not None:
@@ -150,6 +170,8 @@ class PlaceBizPushOrder(object):
             self.reg_time_limit = reg_time_limit
         if advertisers_limit is not None:
             self.advertisers_limit = advertisers_limit
+        if polymarket_limit is not None:
+            self.polymarket_limit = polymarket_limit
         if expire_min is not None:
             self.expire_min = expire_min
         if trade_tips is not None:
@@ -310,7 +332,7 @@ class PlaceBizPushOrder(object):
     def pay_type(self):
         """Gets the pay_type of this PlaceBizPushOrder.  # noqa: E501
 
-        Payment types, comma-separated; from pay type list `pay_type`, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
+        Payment types enabled for the ad, comma-separated; values can be obtained from `pay_type` in the payment method list, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`. `pay_type_json` uses the types in this field as keys to specify the corresponding payment accounts.  # noqa: E501
 
         :return: The pay_type of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -321,7 +343,7 @@ class PlaceBizPushOrder(object):
     def pay_type(self, pay_type):
         """Sets the pay_type of this PlaceBizPushOrder.
 
-        Payment types, comma-separated; from pay type list `pay_type`, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`.  # noqa: E501
+        Payment types enabled for the ad, comma-separated; values can be obtained from `pay_type` in the payment method list, e.g. `bank`, `alipay`, `wechat`, `paypal`, `swift`, `wu`. `pay_type_json` uses the types in this field as keys to specify the corresponding payment accounts.  # noqa: E501
 
         :param pay_type: The pay_type of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -335,7 +357,7 @@ class PlaceBizPushOrder(object):
     def pay_type_json(self):
         """Gets the pay_type_json of this PlaceBizPushOrder.  # noqa: E501
 
-        JSON map of payment type -> user's payment method ID.  # noqa: E501
+        JSON string of specific payment accounts corresponding to `payType`. Each key is a payment type listed in `payType`, and each value is the current user's payment method ID for that type. For example, when `payType` is `bank,swift`, this field can be {\"bank\":\"10001\",\"swift\":\"10002\"}.  # noqa: E501
 
         :return: The pay_type_json of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -346,7 +368,7 @@ class PlaceBizPushOrder(object):
     def pay_type_json(self, pay_type_json):
         """Sets the pay_type_json of this PlaceBizPushOrder.
 
-        JSON map of payment type -> user's payment method ID.  # noqa: E501
+        JSON string of specific payment accounts corresponding to `payType`. Each key is a payment type listed in `payType`, and each value is the current user's payment method ID for that type. For example, when `payType` is `bank,swift`, this field can be {\"bank\":\"10001\",\"swift\":\"10002\"}.  # noqa: E501
 
         :param pay_type_json: The pay_type_json of this PlaceBizPushOrder.  # noqa: E501
         :type: str
@@ -404,7 +426,7 @@ class PlaceBizPushOrder(object):
     def min_amount(self):
         """Gets the min_amount of this PlaceBizPushOrder.  # noqa: E501
 
-        Minimum trade amount in `exchangeType`.  # noqa: E501
+        Minimum quantity per order, denominated by currencyType; required when limitBasis is not passed or is 0  # noqa: E501
 
         :return: The min_amount of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -415,13 +437,11 @@ class PlaceBizPushOrder(object):
     def min_amount(self, min_amount):
         """Sets the min_amount of this PlaceBizPushOrder.
 
-        Minimum trade amount in `exchangeType`.  # noqa: E501
+        Minimum quantity per order, denominated by currencyType; required when limitBasis is not passed or is 0  # noqa: E501
 
         :param min_amount: The min_amount of this PlaceBizPushOrder.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and min_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `min_amount`, must not be `None`")  # noqa: E501
 
         self._min_amount = min_amount
 
@@ -429,7 +449,7 @@ class PlaceBizPushOrder(object):
     def max_amount(self):
         """Gets the max_amount of this PlaceBizPushOrder.  # noqa: E501
 
-        Maximum amount per trade in `exchangeType` fiat units.  # noqa: E501
+        Maximum quantity per order, denominated by currencyType; required when limitBasis is not passed or is 0  # noqa: E501
 
         :return: The max_amount of this PlaceBizPushOrder.  # noqa: E501
         :rtype: str
@@ -440,15 +460,88 @@ class PlaceBizPushOrder(object):
     def max_amount(self, max_amount):
         """Sets the max_amount of this PlaceBizPushOrder.
 
-        Maximum amount per trade in `exchangeType` fiat units.  # noqa: E501
+        Maximum quantity per order, denominated by currencyType; required when limitBasis is not passed or is 0  # noqa: E501
 
         :param max_amount: The max_amount of this PlaceBizPushOrder.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and max_amount is None:  # noqa: E501
-            raise ValueError("Invalid value for `max_amount`, must not be `None`")  # noqa: E501
 
         self._max_amount = max_amount
+
+    @property
+    def limit_basis(self):
+        """Gets the limit_basis of this PlaceBizPushOrder.  # noqa: E501
+
+        Trading limit unit. 0: by crypto quantity, 1: by fiat amount; defaults to 0 when not passed for a new ad. The limit unit of an existing ad cannot be changed when editing; a fiat-limit ad must keep passing 1 when edited  # noqa: E501
+
+        :return: The limit_basis of this PlaceBizPushOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit_basis
+
+    @limit_basis.setter
+    def limit_basis(self, limit_basis):
+        """Sets the limit_basis of this PlaceBizPushOrder.
+
+        Trading limit unit. 0: by crypto quantity, 1: by fiat amount; defaults to 0 when not passed for a new ad. The limit unit of an existing ad cannot be changed when editing; a fiat-limit ad must keep passing 1 when edited  # noqa: E501
+
+        :param limit_basis: The limit_basis of this PlaceBizPushOrder.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [0, 1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and limit_basis not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `limit_basis` ({0}), must be one of {1}"  # noqa: E501
+                .format(limit_basis, allowed_values)
+            )
+
+        self._limit_basis = limit_basis
+
+    @property
+    def fiat_min_amount(self):
+        """Gets the fiat_min_amount of this PlaceBizPushOrder.  # noqa: E501
+
+        Minimum amount per order, denominated by exchangeType; required when limitBasis is 1  # noqa: E501
+
+        :return: The fiat_min_amount of this PlaceBizPushOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_min_amount
+
+    @fiat_min_amount.setter
+    def fiat_min_amount(self, fiat_min_amount):
+        """Sets the fiat_min_amount of this PlaceBizPushOrder.
+
+        Minimum amount per order, denominated by exchangeType; required when limitBasis is 1  # noqa: E501
+
+        :param fiat_min_amount: The fiat_min_amount of this PlaceBizPushOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_min_amount = fiat_min_amount
+
+    @property
+    def fiat_max_amount(self):
+        """Gets the fiat_max_amount of this PlaceBizPushOrder.  # noqa: E501
+
+        Maximum amount per order, denominated by exchangeType; required when limitBasis is 1, and must not exceed the total fiat value of the ad quantity converted at the price  # noqa: E501
+
+        :return: The fiat_max_amount of this PlaceBizPushOrder.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_max_amount
+
+    @fiat_max_amount.setter
+    def fiat_max_amount(self, fiat_max_amount):
+        """Sets the fiat_max_amount of this PlaceBizPushOrder.
+
+        Maximum amount per order, denominated by exchangeType; required when limitBasis is 1, and must not exceed the total fiat value of the ad quantity converted at the price  # noqa: E501
+
+        :param fiat_max_amount: The fiat_max_amount of this PlaceBizPushOrder.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_max_amount = fiat_max_amount
 
     @property
     def tier_limit(self):
@@ -541,6 +634,35 @@ class PlaceBizPushOrder(object):
         """
 
         self._advertisers_limit = advertisers_limit
+
+    @property
+    def polymarket_limit(self):
+        """Gets the polymarket_limit of this PlaceBizPushOrder.  # noqa: E501
+
+        Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted  # noqa: E501
+
+        :return: The polymarket_limit of this PlaceBizPushOrder.  # noqa: E501
+        :rtype: int
+        """
+        return self._polymarket_limit
+
+    @polymarket_limit.setter
+    def polymarket_limit(self, polymarket_limit):
+        """Sets the polymarket_limit of this PlaceBizPushOrder.
+
+        Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted  # noqa: E501
+
+        :param polymarket_limit: The polymarket_limit of this PlaceBizPushOrder.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [0, 1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and polymarket_limit not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `polymarket_limit` ({0}), must be one of {1}"  # noqa: E501
+                .format(polymarket_limit, allowed_values)
+            )
+
+        self._polymarket_limit = polymarket_limit
 
     @property
     def expire_min(self):

@@ -38,12 +38,15 @@ class CrossexPosition(object):
         'symbol': 'str',
         'position_side': 'str',
         'initial_margin': 'str',
+        'isolated_margin': 'str',
+        'margin_mode': 'str',
         'maintenance_margin': 'str',
         'position_qty': 'str',
         'position_value': 'str',
         'upnl': 'str',
         'upnl_rate': 'str',
         'entry_price': 'str',
+        'liq_price': 'str',
         'mark_price': 'str',
         'leverage': 'str',
         'max_leverage': 'str',
@@ -62,12 +65,15 @@ class CrossexPosition(object):
         'symbol': 'symbol',
         'position_side': 'position_side',
         'initial_margin': 'initial_margin',
+        'isolated_margin': 'isolated_margin',
+        'margin_mode': 'margin_mode',
         'maintenance_margin': 'maintenance_margin',
         'position_qty': 'position_qty',
         'position_value': 'position_value',
         'upnl': 'upnl',
         'upnl_rate': 'upnl_rate',
         'entry_price': 'entry_price',
+        'liq_price': 'liq_price',
         'mark_price': 'mark_price',
         'leverage': 'leverage',
         'max_leverage': 'max_leverage',
@@ -80,8 +86,8 @@ class CrossexPosition(object):
         'closed_pnl': 'closed_pnl'
     }
 
-    def __init__(self, user_id=None, position_id=None, symbol=None, position_side=None, initial_margin=None, maintenance_margin=None, position_qty=None, position_value=None, upnl=None, upnl_rate=None, entry_price=None, mark_price=None, leverage=None, max_leverage=None, risk_limit=None, fee=None, funding_fee=None, funding_time=None, create_time=None, update_time=None, closed_pnl=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, user_id=None, position_id=None, symbol=None, position_side=None, initial_margin=None, isolated_margin=None, margin_mode=None, maintenance_margin=None, position_qty=None, position_value=None, upnl=None, upnl_rate=None, entry_price=None, liq_price=None, mark_price=None, leverage=None, max_leverage=None, risk_limit=None, fee=None, funding_fee=None, funding_time=None, create_time=None, update_time=None, closed_pnl=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """CrossexPosition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,12 +98,15 @@ class CrossexPosition(object):
         self._symbol = None
         self._position_side = None
         self._initial_margin = None
+        self._isolated_margin = None
+        self._margin_mode = None
         self._maintenance_margin = None
         self._position_qty = None
         self._position_value = None
         self._upnl = None
         self._upnl_rate = None
         self._entry_price = None
+        self._liq_price = None
         self._mark_price = None
         self._leverage = None
         self._max_leverage = None
@@ -120,6 +129,10 @@ class CrossexPosition(object):
             self.position_side = position_side
         if initial_margin is not None:
             self.initial_margin = initial_margin
+        if isolated_margin is not None:
+            self.isolated_margin = isolated_margin
+        if margin_mode is not None:
+            self.margin_mode = margin_mode
         if maintenance_margin is not None:
             self.maintenance_margin = maintenance_margin
         if position_qty is not None:
@@ -132,6 +145,8 @@ class CrossexPosition(object):
             self.upnl_rate = upnl_rate
         if entry_price is not None:
             self.entry_price = entry_price
+        if liq_price is not None:
+            self.liq_price = liq_price
         if mark_price is not None:
             self.mark_price = mark_price
         if leverage is not None:
@@ -267,6 +282,52 @@ class CrossexPosition(object):
         """
 
         self._initial_margin = initial_margin
+
+    @property
+    def isolated_margin(self):
+        """Gets the isolated_margin of this CrossexPosition.  # noqa: E501
+
+        Isolated margin. It is 0 in cross margin mode and applies only to isolated margin positions  # noqa: E501
+
+        :return: The isolated_margin of this CrossexPosition.  # noqa: E501
+        :rtype: str
+        """
+        return self._isolated_margin
+
+    @isolated_margin.setter
+    def isolated_margin(self, isolated_margin):
+        """Sets the isolated_margin of this CrossexPosition.
+
+        Isolated margin. It is 0 in cross margin mode and applies only to isolated margin positions  # noqa: E501
+
+        :param isolated_margin: The isolated_margin of this CrossexPosition.  # noqa: E501
+        :type: str
+        """
+
+        self._isolated_margin = isolated_margin
+
+    @property
+    def margin_mode(self):
+        """Gets the margin_mode of this CrossexPosition.  # noqa: E501
+
+        Margin mode (CROSS/ISOLATED)  # noqa: E501
+
+        :return: The margin_mode of this CrossexPosition.  # noqa: E501
+        :rtype: str
+        """
+        return self._margin_mode
+
+    @margin_mode.setter
+    def margin_mode(self, margin_mode):
+        """Sets the margin_mode of this CrossexPosition.
+
+        Margin mode (CROSS/ISOLATED)  # noqa: E501
+
+        :param margin_mode: The margin_mode of this CrossexPosition.  # noqa: E501
+        :type: str
+        """
+
+        self._margin_mode = margin_mode
 
     @property
     def maintenance_margin(self):
@@ -407,6 +468,29 @@ class CrossexPosition(object):
         self._entry_price = entry_price
 
     @property
+    def liq_price(self):
+        """Gets the liq_price of this CrossexPosition.  # noqa: E501
+
+        Liquidation price. It is 0 in cross margin mode and applies only to isolated margin positions; 0 in isolated margin mode means the position will not be liquidated  # noqa: E501
+
+        :return: The liq_price of this CrossexPosition.  # noqa: E501
+        :rtype: str
+        """
+        return self._liq_price
+
+    @liq_price.setter
+    def liq_price(self, liq_price):
+        """Sets the liq_price of this CrossexPosition.
+
+        Liquidation price. It is 0 in cross margin mode and applies only to isolated margin positions; 0 in isolated margin mode means the position will not be liquidated  # noqa: E501
+
+        :param liq_price: The liq_price of this CrossexPosition.  # noqa: E501
+        :type: str
+        """
+
+        self._liq_price = liq_price
+
+    @property
     def mark_price(self):
         """Gets the mark_price of this CrossexPosition.  # noqa: E501
 
@@ -525,7 +609,7 @@ class CrossexPosition(object):
     def funding_fee(self):
         """Gets the funding_fee of this CrossexPosition.  # noqa: E501
 
-        Position Funding Fee  # noqa: E501
+        Accumulated position funding fee. A positive value indicates a gain, while a negative value indicates a loss.  # noqa: E501
 
         :return: The funding_fee of this CrossexPosition.  # noqa: E501
         :rtype: str
@@ -536,7 +620,7 @@ class CrossexPosition(object):
     def funding_fee(self, funding_fee):
         """Sets the funding_fee of this CrossexPosition.
 
-        Position Funding Fee  # noqa: E501
+        Accumulated position funding fee. A positive value indicates a gain, while a negative value indicates a loss.  # noqa: E501
 
         :param funding_fee: The funding_fee of this CrossexPosition.  # noqa: E501
         :type: str

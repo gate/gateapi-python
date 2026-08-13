@@ -38,6 +38,10 @@ class P2pAdDetail(object):
         'amount': 'str',
         'min_amount': 'str',
         'max_amount': 'str',
+        'fiat_min_amount': 'str',
+        'fiat_max_amount': 'str',
+        'limit_basis': 'int',
+        'limit_basis_text': 'str',
         'total': 'str',
         'pay_ali': 'int',
         'pay_bank': 'int',
@@ -62,6 +66,7 @@ class P2pAdDetail(object):
         'tier_limit': 'int',
         'reg_time_limit': 'int',
         'advertisers_limit': 'int',
+        'polymarket_limit': 'int',
         'min_completed_limit': 'int',
         'max_completed_limit': 'int',
         'user_orders_limit': 'int',
@@ -78,6 +83,10 @@ class P2pAdDetail(object):
         'amount': 'amount',
         'min_amount': 'min_amount',
         'max_amount': 'max_amount',
+        'fiat_min_amount': 'fiat_min_amount',
+        'fiat_max_amount': 'fiat_max_amount',
+        'limit_basis': 'limit_basis',
+        'limit_basis_text': 'limit_basis_text',
         'total': 'total',
         'pay_ali': 'pay_ali',
         'pay_bank': 'pay_bank',
@@ -102,6 +111,7 @@ class P2pAdDetail(object):
         'tier_limit': 'tier_limit',
         'reg_time_limit': 'reg_time_limit',
         'advertisers_limit': 'advertisers_limit',
+        'polymarket_limit': 'polymarket_limit',
         'min_completed_limit': 'min_completed_limit',
         'max_completed_limit': 'max_completed_limit',
         'user_orders_limit': 'user_orders_limit',
@@ -112,8 +122,8 @@ class P2pAdDetail(object):
         'hide_payment': 'hide_payment'
     }
 
-    def __init__(self, rate=None, type=None, amount=None, min_amount=None, max_amount=None, total=None, pay_ali=None, pay_bank=None, pay_paypal=None, pay_wechat=None, pay_type_num=None, pay_type_json=None, locked_amount=None, orderid=None, timestamp=None, currency_type=None, want_type=None, hide_rate=None, trade_tips=None, auto_reply=None, rate_ref_id=None, rate_offset=None, status=None, rate_fixed=None, float_trend=None, expire_min=None, tier_limit=None, reg_time_limit=None, advertisers_limit=None, min_completed_limit=None, max_completed_limit=None, user_orders_limit=None, completed_rate_limit=None, limit_country_cn=None, limit_country_en=None, is_hedge=None, hide_payment=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, int, int, int, int, str, str, str, int, int, str, str, str, str, str, int, float, str, int, int, int, int, int, int, int, int, int, float, str, str, int, int, Configuration) -> None
+    def __init__(self, rate=None, type=None, amount=None, min_amount=None, max_amount=None, fiat_min_amount=None, fiat_max_amount=None, limit_basis=None, limit_basis_text=None, total=None, pay_ali=None, pay_bank=None, pay_paypal=None, pay_wechat=None, pay_type_num=None, pay_type_json=None, locked_amount=None, orderid=None, timestamp=None, currency_type=None, want_type=None, hide_rate=None, trade_tips=None, auto_reply=None, rate_ref_id=None, rate_offset=None, status=None, rate_fixed=None, float_trend=None, expire_min=None, tier_limit=None, reg_time_limit=None, advertisers_limit=None, polymarket_limit=None, min_completed_limit=None, max_completed_limit=None, user_orders_limit=None, completed_rate_limit=None, limit_country_cn=None, limit_country_en=None, is_hedge=None, hide_payment=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, int, str, str, int, int, int, int, str, str, str, int, int, str, str, str, str, str, int, float, str, int, int, int, int, int, int, int, int, int, int, float, str, str, int, int, Configuration) -> None
         """P2pAdDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -124,6 +134,10 @@ class P2pAdDetail(object):
         self._amount = None
         self._min_amount = None
         self._max_amount = None
+        self._fiat_min_amount = None
+        self._fiat_max_amount = None
+        self._limit_basis = None
+        self._limit_basis_text = None
         self._total = None
         self._pay_ali = None
         self._pay_bank = None
@@ -148,6 +162,7 @@ class P2pAdDetail(object):
         self._tier_limit = None
         self._reg_time_limit = None
         self._advertisers_limit = None
+        self._polymarket_limit = None
         self._min_completed_limit = None
         self._max_completed_limit = None
         self._user_orders_limit = None
@@ -168,6 +183,14 @@ class P2pAdDetail(object):
             self.min_amount = min_amount
         if max_amount is not None:
             self.max_amount = max_amount
+        if fiat_min_amount is not None:
+            self.fiat_min_amount = fiat_min_amount
+        if fiat_max_amount is not None:
+            self.fiat_max_amount = fiat_max_amount
+        if limit_basis is not None:
+            self.limit_basis = limit_basis
+        if limit_basis_text is not None:
+            self.limit_basis_text = limit_basis_text
         if total is not None:
             self.total = total
         if pay_ali is not None:
@@ -216,6 +239,8 @@ class P2pAdDetail(object):
             self.reg_time_limit = reg_time_limit
         if advertisers_limit is not None:
             self.advertisers_limit = advertisers_limit
+        if polymarket_limit is not None:
+            self.polymarket_limit = polymarket_limit
         if min_completed_limit is not None:
             self.min_completed_limit = min_completed_limit
         if max_completed_limit is not None:
@@ -306,7 +331,7 @@ class P2pAdDetail(object):
     def min_amount(self):
         """Gets the min_amount of this P2pAdDetail.  # noqa: E501
 
-        Minimum trade amount in `want_type`.  # noqa: E501
+        Minimum quantity per order, denominated by currency_type  # noqa: E501
 
         :return: The min_amount of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -317,7 +342,7 @@ class P2pAdDetail(object):
     def min_amount(self, min_amount):
         """Sets the min_amount of this P2pAdDetail.
 
-        Minimum trade amount in `want_type`.  # noqa: E501
+        Minimum quantity per order, denominated by currency_type  # noqa: E501
 
         :param min_amount: The min_amount of this P2pAdDetail.  # noqa: E501
         :type: str
@@ -329,7 +354,7 @@ class P2pAdDetail(object):
     def max_amount(self):
         """Gets the max_amount of this P2pAdDetail.  # noqa: E501
 
-        Maximum trade amount priced in `want_type`.  # noqa: E501
+        Maximum quantity per order, denominated by currency_type  # noqa: E501
 
         :return: The max_amount of this P2pAdDetail.  # noqa: E501
         :rtype: str
@@ -340,13 +365,117 @@ class P2pAdDetail(object):
     def max_amount(self, max_amount):
         """Sets the max_amount of this P2pAdDetail.
 
-        Maximum trade amount priced in `want_type`.  # noqa: E501
+        Maximum quantity per order, denominated by currency_type  # noqa: E501
 
         :param max_amount: The max_amount of this P2pAdDetail.  # noqa: E501
         :type: str
         """
 
         self._max_amount = max_amount
+
+    @property
+    def fiat_min_amount(self):
+        """Gets the fiat_min_amount of this P2pAdDetail.  # noqa: E501
+
+        Minimum trade amount in `want_type`.  # noqa: E501
+
+        :return: The fiat_min_amount of this P2pAdDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_min_amount
+
+    @fiat_min_amount.setter
+    def fiat_min_amount(self, fiat_min_amount):
+        """Sets the fiat_min_amount of this P2pAdDetail.
+
+        Minimum trade amount in `want_type`.  # noqa: E501
+
+        :param fiat_min_amount: The fiat_min_amount of this P2pAdDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_min_amount = fiat_min_amount
+
+    @property
+    def fiat_max_amount(self):
+        """Gets the fiat_max_amount of this P2pAdDetail.  # noqa: E501
+
+        Maximum trade amount priced in `want_type`.  # noqa: E501
+
+        :return: The fiat_max_amount of this P2pAdDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_max_amount
+
+    @fiat_max_amount.setter
+    def fiat_max_amount(self, fiat_max_amount):
+        """Sets the fiat_max_amount of this P2pAdDetail.
+
+        Maximum trade amount priced in `want_type`.  # noqa: E501
+
+        :param fiat_max_amount: The fiat_max_amount of this P2pAdDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_max_amount = fiat_max_amount
+
+    @property
+    def limit_basis(self):
+        """Gets the limit_basis of this P2pAdDetail.  # noqa: E501
+
+        Trading limit unit. 0: crypto quantity, 1: fiat amount  # noqa: E501
+
+        :return: The limit_basis of this P2pAdDetail.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit_basis
+
+    @limit_basis.setter
+    def limit_basis(self, limit_basis):
+        """Sets the limit_basis of this P2pAdDetail.
+
+        Trading limit unit. 0: crypto quantity, 1: fiat amount  # noqa: E501
+
+        :param limit_basis: The limit_basis of this P2pAdDetail.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [0, 1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and limit_basis not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `limit_basis` ({0}), must be one of {1}"  # noqa: E501
+                .format(limit_basis, allowed_values)
+            )
+
+        self._limit_basis = limit_basis
+
+    @property
+    def limit_basis_text(self):
+        """Gets the limit_basis_text of this P2pAdDetail.  # noqa: E501
+
+        Trading limit unit label. crypto: crypto quantity, fiat: fiat amount  # noqa: E501
+
+        :return: The limit_basis_text of this P2pAdDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._limit_basis_text
+
+    @limit_basis_text.setter
+    def limit_basis_text(self, limit_basis_text):
+        """Sets the limit_basis_text of this P2pAdDetail.
+
+        Trading limit unit label. crypto: crypto quantity, fiat: fiat amount  # noqa: E501
+
+        :param limit_basis_text: The limit_basis_text of this P2pAdDetail.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["crypto", "fiat"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and limit_basis_text not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `limit_basis_text` ({0}), must be one of {1}"  # noqa: E501
+                .format(limit_basis_text, allowed_values)
+            )
+
+        self._limit_basis_text = limit_basis_text
 
     @property
     def total(self):
@@ -899,6 +1028,29 @@ class P2pAdDetail(object):
         """
 
         self._advertisers_limit = advertisers_limit
+
+    @property
+    def polymarket_limit(self):
+        """Gets the polymarket_limit of this P2pAdDetail.  # noqa: E501
+
+        Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted  # noqa: E501
+
+        :return: The polymarket_limit of this P2pAdDetail.  # noqa: E501
+        :rtype: int
+        """
+        return self._polymarket_limit
+
+    @polymarket_limit.setter
+    def polymarket_limit(self, polymarket_limit):
+        """Sets the polymarket_limit of this P2pAdDetail.
+
+        Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted  # noqa: E501
+
+        :param polymarket_limit: The polymarket_limit of this P2pAdDetail.  # noqa: E501
+        :type: int
+        """
+
+        self._polymarket_limit = polymarket_limit
 
     @property
     def min_completed_limit(self):

@@ -1227,7 +1227,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Settle currency
 holding = true # bool | Return only real positions - true, return all - false (optional)
-limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+limit = 100 # int | Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. (optional)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
 
 try:
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Settle currency | 
  **holding** | **bool**| Return only real positions - true, return all - false | [optional] 
- **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **limit** | **int**| Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. | [optional] 
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type

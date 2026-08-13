@@ -225,7 +225,7 @@ class FuturesLiqOrder(object):
     def left(self):
         """Gets the left of this FuturesLiqOrder.  # noqa: E501
 
-        System liquidation order maker size  # noqa: E501
+        Reserved field with no current business significance.  # noqa: E501
 
         :return: The left of this FuturesLiqOrder.  # noqa: E501
         :rtype: str
@@ -236,7 +236,7 @@ class FuturesLiqOrder(object):
     def left(self, left):
         """Sets the left of this FuturesLiqOrder.
 
-        System liquidation order maker size  # noqa: E501
+        Reserved field with no current business significance.  # noqa: E501
 
         :param left: The left of this FuturesLiqOrder.  # noqa: E501
         :type: str

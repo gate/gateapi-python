@@ -390,7 +390,7 @@ class AutoInvestPlanDetail(object):
     def portfolio(self):
         """Gets the portfolio of this AutoInvestPlanDetail.  # noqa: E501
 
-        InvestmentPortfolio  # noqa: E501
+        Portfolio  # noqa: E501
 
         :return: The portfolio of this AutoInvestPlanDetail.  # noqa: E501
         :rtype: list[AutoInvestPortfolioItem]
@@ -401,7 +401,7 @@ class AutoInvestPlanDetail(object):
     def portfolio(self, portfolio):
         """Sets the portfolio of this AutoInvestPlanDetail.
 
-        InvestmentPortfolio  # noqa: E501
+        Portfolio  # noqa: E501
 
         :param portfolio: The portfolio of this AutoInvestPlanDetail.  # noqa: E501
         :type: list[AutoInvestPortfolioItem]

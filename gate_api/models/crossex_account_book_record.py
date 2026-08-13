@@ -39,6 +39,7 @@ class CrossexAccountBookRecord(object):
         'statement_type': 'str',
         'exchange_type': 'str',
         'coin': 'str',
+        'symbol': 'str',
         'change': 'str',
         'balance': 'str',
         'create_time': 'str'
@@ -51,13 +52,14 @@ class CrossexAccountBookRecord(object):
         'statement_type': 'statement_type',
         'exchange_type': 'exchange_type',
         'coin': 'coin',
+        'symbol': 'symbol',
         'change': 'change',
         'balance': 'balance',
         'create_time': 'create_time'
     }
 
-    def __init__(self, id=None, user_id=None, business_id=None, statement_type=None, exchange_type=None, coin=None, change=None, balance=None, create_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, id=None, user_id=None, business_id=None, statement_type=None, exchange_type=None, coin=None, symbol=None, change=None, balance=None, create_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """CrossexAccountBookRecord - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class CrossexAccountBookRecord(object):
         self._statement_type = None
         self._exchange_type = None
         self._coin = None
+        self._symbol = None
         self._change = None
         self._balance = None
         self._create_time = None
@@ -80,6 +83,8 @@ class CrossexAccountBookRecord(object):
         self.statement_type = statement_type
         self.exchange_type = exchange_type
         self.coin = coin
+        if symbol is not None:
+            self.symbol = symbol
         self.change = change
         self.balance = balance
         self.create_time = create_time
@@ -138,7 +143,7 @@ class CrossexAccountBookRecord(object):
     def business_id(self):
         """Gets the business_id of this CrossexAccountBookRecord.  # noqa: E501
 
-        Business ID  # noqa: E501
+        Business ID. Its meaning varies by `statement_type`. `TRANSACTION`: order ID. `TRADING_FEE`: order ID. `LIQUIDATION_FEE`: liquidation order ID. `FUNDING_FEE`: position ID and funding fee settlement time. For other types, it is a system-generated processing ID with no business meaning.  # noqa: E501
 
         :return: The business_id of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
@@ -149,7 +154,7 @@ class CrossexAccountBookRecord(object):
     def business_id(self, business_id):
         """Sets the business_id of this CrossexAccountBookRecord.
 
-        Business ID  # noqa: E501
+        Business ID. Its meaning varies by `statement_type`. `TRANSACTION`: order ID. `TRADING_FEE`: order ID. `LIQUIDATION_FEE`: liquidation order ID. `FUNDING_FEE`: position ID and funding fee settlement time. For other types, it is a system-generated processing ID with no business meaning.  # noqa: E501
 
         :param business_id: The business_id of this CrossexAccountBookRecord.  # noqa: E501
         :type: str
@@ -233,6 +238,29 @@ class CrossexAccountBookRecord(object):
             raise ValueError("Invalid value for `coin`, must not be `None`")  # noqa: E501
 
         self._coin = coin
+
+    @property
+    def symbol(self):
+        """Gets the symbol of this CrossexAccountBookRecord.  # noqa: E501
+
+        Trading Pair  # noqa: E501
+
+        :return: The symbol of this CrossexAccountBookRecord.  # noqa: E501
+        :rtype: str
+        """
+        return self._symbol
+
+    @symbol.setter
+    def symbol(self, symbol):
+        """Sets the symbol of this CrossexAccountBookRecord.
+
+        Trading Pair  # noqa: E501
+
+        :param symbol: The symbol of this CrossexAccountBookRecord.  # noqa: E501
+        :type: str
+        """
+
+        self._symbol = symbol
 
     @property
     def change(self):

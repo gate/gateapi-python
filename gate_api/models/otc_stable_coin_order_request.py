@@ -68,20 +68,14 @@ class OtcStableCoinOrderRequest(object):
         self._quote_token = None
         self.discriminator = None
 
-        if pay_coin is not None:
-            self.pay_coin = pay_coin
-        if get_coin is not None:
-            self.get_coin = get_coin
-        if pay_amount is not None:
-            self.pay_amount = pay_amount
-        if get_amount is not None:
-            self.get_amount = get_amount
-        if side is not None:
-            self.side = side
+        self.pay_coin = pay_coin
+        self.get_coin = get_coin
+        self.pay_amount = pay_amount
+        self.get_amount = get_amount
+        self.side = side
         if promotion_code is not None:
             self.promotion_code = promotion_code
-        if quote_token is not None:
-            self.quote_token = quote_token
+        self.quote_token = quote_token
 
     @property
     def pay_coin(self):
@@ -103,6 +97,8 @@ class OtcStableCoinOrderRequest(object):
         :param pay_coin: The pay_coin of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and pay_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_coin`, must not be `None`")  # noqa: E501
 
         self._pay_coin = pay_coin
 
@@ -126,6 +122,8 @@ class OtcStableCoinOrderRequest(object):
         :param get_coin: The get_coin of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and get_coin is None:  # noqa: E501
+            raise ValueError("Invalid value for `get_coin`, must not be `None`")  # noqa: E501
 
         self._get_coin = get_coin
 
@@ -149,6 +147,8 @@ class OtcStableCoinOrderRequest(object):
         :param pay_amount: The pay_amount of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and pay_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `pay_amount`, must not be `None`")  # noqa: E501
 
         self._pay_amount = pay_amount
 
@@ -172,6 +172,8 @@ class OtcStableCoinOrderRequest(object):
         :param get_amount: The get_amount of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and get_amount is None:  # noqa: E501
+            raise ValueError("Invalid value for `get_amount`, must not be `None`")  # noqa: E501
 
         self._get_amount = get_amount
 
@@ -179,7 +181,7 @@ class OtcStableCoinOrderRequest(object):
     def side(self):
         """Gets the side of this OtcStableCoinOrderRequest.  # noqa: E501
 
-        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+        The side returned by the quote endpoint (used for order validation). For backward compatibility, `PAY`/`GET` are accepted; new integrations should use the value returned by the quote response.  # noqa: E501
 
         :return: The side of this OtcStableCoinOrderRequest.  # noqa: E501
         :rtype: str
@@ -190,11 +192,13 @@ class OtcStableCoinOrderRequest(object):
     def side(self, side):
         """Sets the side of this OtcStableCoinOrderRequest.
 
-        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+        The side returned by the quote endpoint (used for order validation). For backward compatibility, `PAY`/`GET` are accepted; new integrations should use the value returned by the quote response.  # noqa: E501
 
         :param side: The side of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
 
         self._side = side
 
@@ -202,7 +206,7 @@ class OtcStableCoinOrderRequest(object):
     def promotion_code(self):
         """Gets the promotion_code of this OtcStableCoinOrderRequest.  # noqa: E501
 
-        promotion code   # noqa: E501
+        Promotion code (optional)  # noqa: E501
 
         :return: The promotion_code of this OtcStableCoinOrderRequest.  # noqa: E501
         :rtype: str
@@ -213,7 +217,7 @@ class OtcStableCoinOrderRequest(object):
     def promotion_code(self, promotion_code):
         """Sets the promotion_code of this OtcStableCoinOrderRequest.
 
-        promotion code   # noqa: E501
+        Promotion code (optional)  # noqa: E501
 
         :param promotion_code: The promotion_code of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
@@ -241,6 +245,8 @@ class OtcStableCoinOrderRequest(object):
         :param quote_token: The quote_token of this OtcStableCoinOrderRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and quote_token is None:  # noqa: E501
+            raise ValueError("Invalid value for `quote_token`, must not be `None`")  # noqa: E501
 
         self._quote_token = quote_token
 

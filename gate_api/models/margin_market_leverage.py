@@ -84,7 +84,7 @@ class MarginMarketLeverage(object):
     def leverage(self):
         """Gets the leverage of this MarginMarketLeverage.  # noqa: E501
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :return: The leverage of this MarginMarketLeverage.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class MarginMarketLeverage(object):
     def leverage(self, leverage):
         """Sets the leverage of this MarginMarketLeverage.
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :param leverage: The leverage of this MarginMarketLeverage.  # noqa: E501
         :type: str

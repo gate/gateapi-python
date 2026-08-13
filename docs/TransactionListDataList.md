@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **asset** | **str** | Asset Type | [optional] 
 **type** | **str** | Trading Type | [optional] 
 **type_desc** | **str** | Transaction Type Description | [optional] 
-**change** | **str** | Change Quantity | [optional] 
+**change** | **str** | Change amount | [optional] 
 **balance** | **str** | Current Balance | [optional] 
 **time** | **int** | Occurrence Time (Second-level Timestamp) | [optional] 
 

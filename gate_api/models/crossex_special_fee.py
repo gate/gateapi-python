@@ -35,17 +35,19 @@ class CrossexSpecialFee(object):
     openapi_types = {
         'symbol': 'str',
         'taker_fee_rate': 'str',
-        'maker_fee_rate': 'str'
+        'maker_fee_rate': 'str',
+        'rpi_fee_rate': 'str'
     }
 
     attribute_map = {
         'symbol': 'symbol',
         'taker_fee_rate': 'taker_fee_rate',
-        'maker_fee_rate': 'maker_fee_rate'
+        'maker_fee_rate': 'maker_fee_rate',
+        'rpi_fee_rate': 'rpi_fee_rate'
     }
 
-    def __init__(self, symbol=None, taker_fee_rate=None, maker_fee_rate=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, Configuration) -> None
+    def __init__(self, symbol=None, taker_fee_rate=None, maker_fee_rate=None, rpi_fee_rate=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, Configuration) -> None
         """CrossexSpecialFee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,11 +56,14 @@ class CrossexSpecialFee(object):
         self._symbol = None
         self._taker_fee_rate = None
         self._maker_fee_rate = None
+        self._rpi_fee_rate = None
         self.discriminator = None
 
         self.symbol = symbol
         self.taker_fee_rate = taker_fee_rate
         self.maker_fee_rate = maker_fee_rate
+        if rpi_fee_rate is not None:
+            self.rpi_fee_rate = rpi_fee_rate
 
     @property
     def symbol(self):
@@ -134,6 +139,29 @@ class CrossexSpecialFee(object):
             raise ValueError("Invalid value for `maker_fee_rate`, must not be `None`")  # noqa: E501
 
         self._maker_fee_rate = maker_fee_rate
+
+    @property
+    def rpi_fee_rate(self):
+        """Gets the rpi_fee_rate of this CrossexSpecialFee.  # noqa: E501
+
+        RPI order maker fee rate  # noqa: E501
+
+        :return: The rpi_fee_rate of this CrossexSpecialFee.  # noqa: E501
+        :rtype: str
+        """
+        return self._rpi_fee_rate
+
+    @rpi_fee_rate.setter
+    def rpi_fee_rate(self, rpi_fee_rate):
+        """Sets the rpi_fee_rate of this CrossexSpecialFee.
+
+        RPI order maker fee rate  # noqa: E501
+
+        :param rpi_fee_rate: The rpi_fee_rate of this CrossexSpecialFee.  # noqa: E501
+        :type: str
+        """
+
+        self._rpi_fee_rate = rpi_fee_rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

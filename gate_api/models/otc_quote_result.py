@@ -43,7 +43,10 @@ class OtcQuoteResult(object):
         'promotion_code': 'str',
         'side': 'str',
         'order_type': 'str',
-        'quote_token': 'str'
+        'quote_token': 'str',
+        'validity_period': 'str',
+        'refresh_limit': 'int',
+        'refresh_limit_msg': 'str'
     }
 
     attribute_map = {
@@ -57,11 +60,14 @@ class OtcQuoteResult(object):
         'promotion_code': 'promotion_code',
         'side': 'side',
         'order_type': 'order_type',
-        'quote_token': 'quote_token'
+        'quote_token': 'quote_token',
+        'validity_period': 'validity_period',
+        'refresh_limit': 'refresh_limit',
+        'refresh_limit_msg': 'refresh_limit_msg'
     }
 
-    def __init__(self, type=None, pay_coin=None, get_coin=None, pay_amount=None, get_amount=None, rate=None, rate_reci=None, promotion_code=None, side=None, order_type=None, quote_token=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, type=None, pay_coin=None, get_coin=None, pay_amount=None, get_amount=None, rate=None, rate_reci=None, promotion_code=None, side=None, order_type=None, quote_token=None, validity_period=None, refresh_limit=None, refresh_limit_msg=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
         """OtcQuoteResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +84,9 @@ class OtcQuoteResult(object):
         self._side = None
         self._order_type = None
         self._quote_token = None
+        self._validity_period = None
+        self._refresh_limit = None
+        self._refresh_limit_msg = None
         self.discriminator = None
 
         self.type = type
@@ -91,6 +100,12 @@ class OtcQuoteResult(object):
         self.side = side
         self.order_type = order_type
         self.quote_token = quote_token
+        if validity_period is not None:
+            self.validity_period = validity_period
+        if refresh_limit is not None:
+            self.refresh_limit = refresh_limit
+        if refresh_limit_msg is not None:
+            self.refresh_limit_msg = refresh_limit_msg
 
     @property
     def type(self):
@@ -366,6 +381,75 @@ class OtcQuoteResult(object):
             raise ValueError("Invalid value for `quote_token`, must not be `None`")  # noqa: E501
 
         self._quote_token = quote_token
+
+    @property
+    def validity_period(self):
+        """Gets the validity_period of this OtcQuoteResult.  # noqa: E501
+
+        Quote validity period (seconds)  # noqa: E501
+
+        :return: The validity_period of this OtcQuoteResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._validity_period
+
+    @validity_period.setter
+    def validity_period(self, validity_period):
+        """Sets the validity_period of this OtcQuoteResult.
+
+        Quote validity period (seconds)  # noqa: E501
+
+        :param validity_period: The validity_period of this OtcQuoteResult.  # noqa: E501
+        :type: str
+        """
+
+        self._validity_period = validity_period
+
+    @property
+    def refresh_limit(self):
+        """Gets the refresh_limit of this OtcQuoteResult.  # noqa: E501
+
+        Quote refresh limit  # noqa: E501
+
+        :return: The refresh_limit of this OtcQuoteResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._refresh_limit
+
+    @refresh_limit.setter
+    def refresh_limit(self, refresh_limit):
+        """Sets the refresh_limit of this OtcQuoteResult.
+
+        Quote refresh limit  # noqa: E501
+
+        :param refresh_limit: The refresh_limit of this OtcQuoteResult.  # noqa: E501
+        :type: int
+        """
+
+        self._refresh_limit = refresh_limit
+
+    @property
+    def refresh_limit_msg(self):
+        """Gets the refresh_limit_msg of this OtcQuoteResult.  # noqa: E501
+
+        Quote refresh limit message  # noqa: E501
+
+        :return: The refresh_limit_msg of this OtcQuoteResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._refresh_limit_msg
+
+    @refresh_limit_msg.setter
+    def refresh_limit_msg(self, refresh_limit_msg):
+        """Sets the refresh_limit_msg of this OtcQuoteResult.
+
+        Quote refresh limit message  # noqa: E501
+
+        :param refresh_limit_msg: The refresh_limit_msg of this OtcQuoteResult.  # noqa: E501
+        :type: str
+        """
+
+        self._refresh_limit_msg = refresh_limit_msg
 
     def to_dict(self):
         """Returns the model properties as a dict"""

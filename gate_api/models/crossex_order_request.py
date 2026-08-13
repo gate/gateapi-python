@@ -123,7 +123,7 @@ class CrossexOrderRequest(object):
     def symbol(self):
         """Gets the symbol of this CrossexOrderRequest.  # noqa: E501
 
-        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT omits spot margin for now; Kraken and Hyperliquid omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
+        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; For an ADA/USDC futures order on Deribit, use `DERIBIT_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT and DERIBIT omit spot margin for now; Kraken and Hyperliquid omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
 
         :return: The symbol of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class CrossexOrderRequest(object):
     def symbol(self, symbol):
         """Sets the symbol of this CrossexOrderRequest.
 
-        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT omits spot margin for now; Kraken and Hyperliquid omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
+        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; For an ADA/USDC futures order on Deribit, use `DERIBIT_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT and DERIBIT omit spot margin for now; Kraken and Hyperliquid omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
 
         :param symbol: The symbol of this CrossexOrderRequest.  # noqa: E501
         :type: str
@@ -208,7 +208,7 @@ class CrossexOrderRequest(object):
     def time_in_force(self):
         """Gets the time_in_force of this CrossexOrderRequest.  # noqa: E501
 
-        Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly  # noqa: E501
+        Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`, and `RPI` `GTC`: GoodTillCancelled `IOC`: ImmediateOrCancelled `FOK`: FillOrKill `POC`: PendingOrCancelled or PostOnly `RPI`: Retail Price Improvement  # noqa: E501
 
         :return: The time_in_force of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -219,12 +219,12 @@ class CrossexOrderRequest(object):
     def time_in_force(self, time_in_force):
         """Sets the time_in_force of this CrossexOrderRequest.
 
-        Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly  # noqa: E501
+        Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`, and `RPI` `GTC`: GoodTillCancelled `IOC`: ImmediateOrCancelled `FOK`: FillOrKill `POC`: PendingOrCancelled or PostOnly `RPI`: Retail Price Improvement  # noqa: E501
 
         :param time_in_force: The time_in_force of this CrossexOrderRequest.  # noqa: E501
         :type: str
         """
-        allowed_values = ["GTC", "IOC", "FOK", "POC"]  # noqa: E501
+        allowed_values = ["GTC", "IOC", "FOK", "POC", "RPI"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and time_in_force not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `time_in_force` ({0}), must be one of {1}"  # noqa: E501

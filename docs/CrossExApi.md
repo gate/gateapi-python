@@ -9,7 +9,8 @@ Method | HTTP request | Description
 [**list_crossex_transfer_coins**](CrossExApi.md#list_crossex_transfer_coins) | **GET** /crossex/transfers/coin | Query supported transfer currencies
 [**list_crossex_transfers**](CrossExApi.md#list_crossex_transfers) | **GET** /crossex/transfers | Query Fund Transfer History
 [**create_crossex_transfer**](CrossExApi.md#create_crossex_transfer) | **POST** /crossex/transfers | Fund Transfer
-[**create_crossex_order**](CrossExApi.md#create_crossex_order) | **POST** /crossex/orders | Create an order
+[**create_crossex_order**](CrossExApi.md#create_crossex_order) | **POST** /crossex/orders | Create order
+[**cancel_batch_crossex_orders**](CrossExApi.md#cancel_batch_crossex_orders) | **POST** /crossex/batch_cancel_orders | Batch cancel orders
 [**get_crossex_order**](CrossExApi.md#get_crossex_order) | **GET** /crossex/orders/{order_id} | Query order details
 [**update_crossex_order**](CrossExApi.md#update_crossex_order) | **PUT** /crossex/orders/{order_id} | Modify Order
 [**cancel_crossex_order**](CrossExApi.md#cancel_crossex_order) | **DELETE** /crossex/orders/{order_id} | Cancel Order
@@ -22,19 +23,24 @@ Method | HTTP request | Description
 [**get_crossex_margin_positions_leverage**](CrossExApi.md#get_crossex_margin_positions_leverage) | **GET** /crossex/margin_positions/leverage | Query Leveraged Trading Pair Leverage Multiplier
 [**update_crossex_margin_positions_leverage**](CrossExApi.md#update_crossex_margin_positions_leverage) | **POST** /crossex/margin_positions/leverage | Modify Leveraged Trading Pair Leverage Multiplier
 [**close_crossex_position**](CrossExApi.md#close_crossex_position) | **POST** /crossex/position | Full Close Position
+[**get_crossex_positions_margin_mode**](CrossExApi.md#get_crossex_positions_margin_mode) | **GET** /crossex/positions/margin_mode | Get futures position margin mode
+[**update_crossex_positions_margin_mode**](CrossExApi.md#update_crossex_positions_margin_mode) | **POST** /crossex/positions/margin_mode | Update futures position margin mode
+[**update_crossex_positions_margin**](CrossExApi.md#update_crossex_positions_margin) | **POST** /crossex/positions/margin | Increase or decrease isolated margin
 [**get_crossex_interest_rate**](CrossExApi.md#get_crossex_interest_rate) | **GET** /crossex/interest_rate | Query margin asset interest rates
 [**get_crossex_fee**](CrossExApi.md#get_crossex_fee) | **GET** /crossex/fee | Query User Fee Rates
 [**list_crossex_positions**](CrossExApi.md#list_crossex_positions) | **GET** /crossex/positions | Query Contract Positions
 [**list_crossex_margin_positions**](CrossExApi.md#list_crossex_margin_positions) | **GET** /crossex/margin_positions | Query Leveraged Positions
 [**list_crossex_adl_rank**](CrossExApi.md#list_crossex_adl_rank) | **GET** /crossex/adl_rank | Query ADL Position Reduction Ranking
 [**list_crossex_open_orders**](CrossExApi.md#list_crossex_open_orders) | **GET** /crossex/open_orders | Query All Current Open Orders
-[**list_crossex_history_orders**](CrossExApi.md#list_crossex_history_orders) | **GET** /crossex/history_orders | queryorderhistory
+[**list_crossex_history_orders**](CrossExApi.md#list_crossex_history_orders) | **GET** /crossex/history_orders | Query order history
 [**list_crossex_history_positions**](CrossExApi.md#list_crossex_history_positions) | **GET** /crossex/history_positions | Query Contract Position History
 [**list_crossex_history_margin_positions**](CrossExApi.md#list_crossex_history_margin_positions) | **GET** /crossex/history_margin_positions | Query Leveraged Position History
 [**list_crossex_history_margin_interests**](CrossExApi.md#list_crossex_history_margin_interests) | **GET** /crossex/history_margin_interests | Query Leveraged Interest Deduction History
-[**list_crossex_history_trades**](CrossExApi.md#list_crossex_history_trades) | **GET** /crossex/history_trades | queryfilledhistory
+[**list_crossex_history_trades**](CrossExApi.md#list_crossex_history_trades) | **GET** /crossex/history_trades | Query filled history
 [**list_crossex_account_book**](CrossExApi.md#list_crossex_account_book) | **GET** /crossex/account_book | Query Account Asset Change History
 [**list_crossex_coin_discount_rate**](CrossExApi.md#list_crossex_coin_discount_rate) | **GET** /crossex/coin_discount_rate | Query Currency Discount Rate
+[**list_crossex_market_tickers**](CrossExApi.md#list_crossex_market_tickers) | **GET** /crossex/market/tickers | Get exchange tickers
+[**list_crossex_market_funding_info**](CrossExApi.md#list_crossex_market_funding_info) | **GET** /crossex/market/funding_info | Get exchange futures funding rate information
 
 
 # **list_crossex_rule_symbols**
@@ -162,7 +168,7 @@ No authorization required
 
 Query supported transfer currencies
 
-Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+`est_fee`: On-chain withdrawal fee. When a fund transfer involves an on-chain withdrawal, the exchange charges this fee. This value is for reference only; the actual fee charged by the exchange applies
 
 ### Example
 
@@ -368,7 +374,7 @@ Name | Type | Description  | Notes
 # **create_crossex_order**
 > CrossexOrderActionResponse create_crossex_order(crossex_order_request=crossex_order_request)
 
-Create an order
+Create order
 
 Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
 
@@ -399,7 +405,7 @@ api_instance = gate_api.CrossExApi(api_client)
 crossex_order_request = gate_api.CrossexOrderRequest() # CrossexOrderRequest |  (optional)
 
 try:
-    # Create an order
+    # Create order
     api_response = api_instance.create_crossex_order(crossex_order_request=crossex_order_request)
     print(api_response)
 except GateApiException as ex:
@@ -431,6 +437,75 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cancel_batch_crossex_orders**
+> list[CrossexBatchCancelOrderResponse] cancel_batch_crossex_orders(crossex_batch_cancel_order_request)
+
+Batch cancel orders
+
+Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+crossex_batch_cancel_order_request = [gate_api.CrossexBatchCancelOrderRequest()] # list[CrossexBatchCancelOrderRequest] | 
+
+try:
+    # Batch cancel orders
+    api_response = api_instance.cancel_batch_crossex_orders(crossex_batch_cancel_order_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->cancel_batch_crossex_orders: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossex_batch_cancel_order_request** | [**list[CrossexBatchCancelOrderRequest]**](CrossexBatchCancelOrderRequest.md)|  | 
+
+### Return type
+
+[**list[CrossexBatchCancelOrderResponse]**](CrossexBatchCancelOrderResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Batch order cancellation request results |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -648,7 +723,7 @@ Name | Type | Description  | Notes
 
 Flash Swap Inquiry
 
-Rate Limit: 100 requests per day
+Rate limit: 100 requests per day For HYPERLIQUID, swaps between `HYPERLIQUID_USDC` and `CROSSEX_USDT` are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID
 
 ### Example
 
@@ -812,7 +887,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID' # str | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`). (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT' # str | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`). (optional)
 
 try:
     # Query Account Assets
@@ -828,7 +903,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_type** | **str**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;). | [optional] 
+ **exchange_type** | **str**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;). | [optional] 
 
 ### Return type
 
@@ -1200,7 +1275,7 @@ Name | Type | Description  | Notes
 
 Full Close Position
 
-Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
+Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.
 
 ### Example
 
@@ -1264,6 +1339,213 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_crossex_positions_margin_mode**
+> CrossexMarginModeResponse get_crossex_positions_margin_mode(symbol)
+
+Get futures position margin mode
+
+Rate Limit: 200 requests per 10 seconds
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+symbol = 'HYPERLIQUID_FUTURE_CXMT_USDC' # str | Futures trading pair
+
+try:
+    # Get futures position margin mode
+    api_response = api_instance.get_crossex_positions_margin_mode(symbol)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->get_crossex_positions_margin_mode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **str**| Futures trading pair | 
+
+### Return type
+
+[**CrossexMarginModeResponse**](CrossexMarginModeResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_crossex_positions_margin_mode**
+> CrossexMarginModeResponse update_crossex_positions_margin_mode(crossex_margin_mode_request=crossex_margin_mode_request)
+
+Update futures position margin mode
+
+Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+crossex_margin_mode_request = gate_api.CrossexMarginModeRequest() # CrossexMarginModeRequest |  (optional)
+
+try:
+    # Update futures position margin mode
+    api_response = api_instance.update_crossex_positions_margin_mode(crossex_margin_mode_request=crossex_margin_mode_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->update_crossex_positions_margin_mode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossex_margin_mode_request** | [**CrossexMarginModeRequest**](CrossexMarginModeRequest.md)|  | [optional] 
+
+### Return type
+
+[**CrossexMarginModeResponse**](CrossexMarginModeResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_crossex_positions_margin**
+> CrossexIsolatedMarginResponse update_crossex_positions_margin(crossex_isolated_margin_request=crossex_isolated_margin_request)
+
+Increase or decrease isolated margin
+
+Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+crossex_isolated_margin_request = gate_api.CrossexIsolatedMarginRequest() # CrossexIsolatedMarginRequest |  (optional)
+
+try:
+    # Increase or decrease isolated margin
+    api_response = api_instance.update_crossex_positions_margin(crossex_isolated_margin_request=crossex_isolated_margin_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->update_crossex_positions_margin: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossex_isolated_margin_request** | [**CrossexIsolatedMarginRequest**](CrossexIsolatedMarginRequest.md)|  | [optional] 
+
+### Return type
+
+[**CrossexIsolatedMarginResponse**](CrossexIsolatedMarginResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_crossex_interest_rate**
 > list[CrossexInterestRate] get_crossex_interest_rate(coin=coin, exchange_type=exchange_type)
 
@@ -1296,7 +1578,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 coin = 'SOL' # str | Query by specified currency name (optional)
-exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID' # str | Exchange (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT' # str | Exchange (optional)
 
 try:
     # Query margin asset interest rates
@@ -1432,7 +1714,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 symbol = 'BINANCE_FUTURE_ADA_USDT' # str | Trading Pair (optional)
-exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID' # str | Exchange (optional)
+exchange_type = 'BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT' # str | Exchange (optional)
 
 try:
     # Query Contract Positions
@@ -1543,7 +1825,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_crossex_adl_rank**
-> list[CrossexAdlRank] list_crossex_adl_rank(symbol)
+> CrossexAdlRank list_crossex_adl_rank(symbol)
 
 Query ADL Position Reduction Ranking
 
@@ -1593,7 +1875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[CrossexAdlRank]**](CrossexAdlRank.md)
+[**CrossexAdlRank**](CrossexAdlRank.md)
 
 ### Authorization
 
@@ -1687,7 +1969,7 @@ Name | Type | Description  | Notes
 # **list_crossex_history_orders**
 > list[CrossexOrder] list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to, attributes=attributes)
 
-queryorderhistory
+Query order history
 
 Rate Limit: 200 requests per 10 seconds
 
@@ -1723,7 +2005,7 @@ to = 56 # int | End Millisecond Timestamp (optional)
 attributes = 'attributes_example' # str | Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement). Multiple values, comma-separated. (optional)
 
 try:
-    # queryorderhistory
+    # Query order history
     api_response = api_instance.list_crossex_history_orders(page=page, limit=limit, symbol=symbol, _from=_from, to=to, attributes=attributes)
     print(api_response)
 except GateApiException as ex:
@@ -1999,7 +2281,7 @@ Name | Type | Description  | Notes
 # **list_crossex_history_trades**
 > list[CrossexTrade] list_crossex_history_trades(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
 
-queryfilledhistory
+Query filled history
 
 Rate Limit: 200 requests per 10 seconds
 
@@ -2034,7 +2316,7 @@ _from = 56 # int | Start Millisecond Timestamp (optional)
 to = 56 # int | End Millisecond Timestamp (optional)
 
 try:
-    # queryfilledhistory
+    # Query filled history
     api_response = api_instance.list_crossex_history_trades(page=page, limit=limit, symbol=symbol, _from=_from, to=to)
     print(api_response)
 except GateApiException as ex:
@@ -2184,7 +2466,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
 coin = 'SOL' # str | Query by specified currency name (optional)
-exchange_type = 'OKX' # str | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID (optional)
+exchange_type = 'OKX' # str | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT (optional)
 
 try:
     # Query Currency Discount Rate
@@ -2201,11 +2483,149 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **str**| Query by specified currency name | [optional] 
- **exchange_type** | **str**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID | [optional] 
+ **exchange_type** | **str**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT | [optional] 
 
 ### Return type
 
 [**list[CrossexCoinDiscountRate]**](CrossexCoinDiscountRate.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_crossex_market_tickers**
+> list[InlineResponse2001] list_crossex_market_tickers(symbols=symbols)
+
+Get exchange tickers
+
+Rate limit: 1 request per second - Margin trading pairs cannot be passed directly as parameters. For example, `GATE_MARGIN_BTC_USDT` is invalid.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+symbols = 'GATE_SPOT_BTC_USDT,GATE_FUTURE_BTC_USDT' # str | Trading Pair List, multiple separated by commas (optional)
+
+try:
+    # Get exchange tickers
+    api_response = api_instance.list_crossex_market_tickers(symbols=symbols)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->list_crossex_market_tickers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbols** | **str**| Trading Pair List, multiple separated by commas | [optional] 
+
+### Return type
+
+[**list[InlineResponse2001]**](InlineResponse2001.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_crossex_market_funding_info**
+> list[InlineResponse2002] list_crossex_market_funding_info(symbols=symbols)
+
+Get exchange futures funding rate information
+
+Rate limit: 1 request per second - For `Deribit`, `funding_rate` is the current real-time rate calculated over an 8-hour period.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+symbols = 'BINANCE_MARGIN_BTC_USDT,OKX_MARGIN_BTC_USDT,GATE_MARGIN_BTC_USDT' # str | Trading Pair List, multiple separated by commas (optional)
+
+try:
+    # Get exchange futures funding rate information
+    api_response = api_instance.list_crossex_market_funding_info(symbols=symbols)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->list_crossex_market_funding_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbols** | **str**| Trading Pair List, multiple separated by commas | [optional] 
+
+### Return type
+
+[**list[InlineResponse2002]**](InlineResponse2002.md)
 
 ### Authorization
 

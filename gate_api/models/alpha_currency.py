@@ -179,7 +179,7 @@ class AlphaCurrency(object):
     def amount_precision(self):
         """Gets the amount_precision of this AlphaCurrency.  # noqa: E501
 
-        Amount scale  # noqa: E501
+        Quantity precision  # noqa: E501
 
         :return: The amount_precision of this AlphaCurrency.  # noqa: E501
         :rtype: int
@@ -190,7 +190,7 @@ class AlphaCurrency(object):
     def amount_precision(self, amount_precision):
         """Sets the amount_precision of this AlphaCurrency.
 
-        Amount scale  # noqa: E501
+        Quantity precision  # noqa: E501
 
         :param amount_precision: The amount_precision of this AlphaCurrency.  # noqa: E501
         :type: int
@@ -202,7 +202,7 @@ class AlphaCurrency(object):
     def precision(self):
         """Gets the precision of this AlphaCurrency.  # noqa: E501
 
-        Price scale  # noqa: E501
+        Price precision  # noqa: E501
 
         :return: The precision of this AlphaCurrency.  # noqa: E501
         :rtype: int
@@ -213,7 +213,7 @@ class AlphaCurrency(object):
     def precision(self, precision):
         """Sets the precision of this AlphaCurrency.
 
-        Price scale  # noqa: E501
+        Price precision  # noqa: E501
 
         :param precision: The precision of this AlphaCurrency.  # noqa: E501
         :type: int

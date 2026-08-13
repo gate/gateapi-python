@@ -33,130 +33,49 @@ class OtcBankSupplementChecklistItem(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'code': 'str',
-        'zh': 'str',
-        'en': 'str',
-        'required': 'bool'
+        'description': 'str'
     }
 
     attribute_map = {
-        'code': 'code',
-        'zh': 'zh',
-        'en': 'en',
-        'required': 'required'
+        'description': 'description'
     }
 
-    def __init__(self, code=None, zh=None, en=None, required=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, bool, Configuration) -> None
+    def __init__(self, description=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, Configuration) -> None
         """OtcBankSupplementChecklistItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._code = None
-        self._zh = None
-        self._en = None
-        self._required = None
+        self._description = None
         self.discriminator = None
 
-        self.code = code
-        if zh is not None:
-            self.zh = zh
-        if en is not None:
-            self.en = en
-        self.required = required
+        self.description = description
 
     @property
-    def code(self):
-        """Gets the code of this OtcBankSupplementChecklistItem.  # noqa: E501
+    def description(self):
+        """Gets the description of this OtcBankSupplementChecklistItem.  # noqa: E501
 
-        Material item code, corresponding to the top-level key of `relationship_proof`  # noqa: E501
+        Supplementary document submission description  # noqa: E501
 
-        :return: The code of this OtcBankSupplementChecklistItem.  # noqa: E501
+        :return: The description of this OtcBankSupplementChecklistItem.  # noqa: E501
         :rtype: str
         """
-        return self._code
+        return self._description
 
-    @code.setter
-    def code(self, code):
-        """Sets the code of this OtcBankSupplementChecklistItem.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this OtcBankSupplementChecklistItem.
 
-        Material item code, corresponding to the top-level key of `relationship_proof`  # noqa: E501
+        Supplementary document submission description  # noqa: E501
 
-        :param code: The code of this OtcBankSupplementChecklistItem.  # noqa: E501
+        :param description: The description of this OtcBankSupplementChecklistItem.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
-        self._code = code
-
-    @property
-    def zh(self):
-        """Gets the zh of this OtcBankSupplementChecklistItem.  # noqa: E501
-
-
-        :return: The zh of this OtcBankSupplementChecklistItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._zh
-
-    @zh.setter
-    def zh(self, zh):
-        """Sets the zh of this OtcBankSupplementChecklistItem.
-
-
-        :param zh: The zh of this OtcBankSupplementChecklistItem.  # noqa: E501
-        :type: str
-        """
-
-        self._zh = zh
-
-    @property
-    def en(self):
-        """Gets the en of this OtcBankSupplementChecklistItem.  # noqa: E501
-
-
-        :return: The en of this OtcBankSupplementChecklistItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._en
-
-    @en.setter
-    def en(self, en):
-        """Sets the en of this OtcBankSupplementChecklistItem.
-
-
-        :param en: The en of this OtcBankSupplementChecklistItem.  # noqa: E501
-        :type: str
-        """
-
-        self._en = en
-
-    @property
-    def required(self):
-        """Gets the required of this OtcBankSupplementChecklistItem.  # noqa: E501
-
-        Whether required  # noqa: E501
-
-        :return: The required of this OtcBankSupplementChecklistItem.  # noqa: E501
-        :rtype: bool
-        """
-        return self._required
-
-    @required.setter
-    def required(self, required):
-        """Sets the required of this OtcBankSupplementChecklistItem.
-
-        Whether required  # noqa: E501
-
-        :param required: The required of this OtcBankSupplementChecklistItem.  # noqa: E501
-        :type: bool
-        """
-        if self.local_vars_configuration.client_side_validation and required is None:  # noqa: E501
-            raise ValueError("Invalid value for `required`, must not be `None`")  # noqa: E501
-
-        self._required = required
+        self._description = description
 
     def to_dict(self):
         """Returns the model properties as a dict"""

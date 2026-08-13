@@ -114,7 +114,7 @@ class OtcOrderRequest(object):
     def side(self):
         """Gets the side of this OtcOrderRequest.  # noqa: E501
 
-        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+        The side returned by the quote endpoint (used for order validation). For backward compatibility, `FIAT`/`CRYPTO` or `PAY`/`GET` are accepted; new integrations should use the value returned by the quote response.  # noqa: E501
 
         :return: The side of this OtcOrderRequest.  # noqa: E501
         :rtype: str
@@ -125,7 +125,7 @@ class OtcOrderRequest(object):
     def side(self, side):
         """Sets the side of this OtcOrderRequest.
 
-        Quote direction returned by the quote API (used for order validation)  # noqa: E501
+        The side returned by the quote endpoint (used for order validation). For backward compatibility, `FIAT`/`CRYPTO` or `PAY`/`GET` are accepted; new integrations should use the value returned by the quote response.  # noqa: E501
 
         :param side: The side of this OtcOrderRequest.  # noqa: E501
         :type: str
@@ -287,7 +287,7 @@ class OtcOrderRequest(object):
     def bank_id(self):
         """Gets the bank_id of this OtcOrderRequest.  # noqa: E501
 
-        The bank card ID used for placing the order; select it from the list returned by `GET /otc/bank_list` (or `GET /otc/bank/list`); the default card has `is_default=1`  # noqa: E501
+        Bank card ID used to place the order. Select one from the list returned by `GET /otc/bank/list`; the default card has `is_default=1`.  # noqa: E501
 
         :return: The bank_id of this OtcOrderRequest.  # noqa: E501
         :rtype: str
@@ -298,7 +298,7 @@ class OtcOrderRequest(object):
     def bank_id(self, bank_id):
         """Sets the bank_id of this OtcOrderRequest.
 
-        The bank card ID used for placing the order; select it from the list returned by `GET /otc/bank_list` (or `GET /otc/bank/list`); the default card has `is_default=1`  # noqa: E501
+        Bank card ID used to place the order. Select one from the list returned by `GET /otc/bank/list`; the default card has `is_default=1`.  # noqa: E501
 
         :param bank_id: The bank_id of this OtcOrderRequest.  # noqa: E501
         :type: str

@@ -1133,7 +1133,7 @@ class TrailOrder(object):
     def leverage(self):
         """Gets the leverage of this TrailOrder.  # noqa: E501
 
-        leverage  # noqa: E501
+        Leverage  # noqa: E501
 
         :return: The leverage of this TrailOrder.  # noqa: E501
         :rtype: str
@@ -1144,7 +1144,7 @@ class TrailOrder(object):
     def leverage(self, leverage):
         """Sets the leverage of this TrailOrder.
 
-        leverage  # noqa: E501
+        Leverage  # noqa: E501
 
         :param leverage: The leverage of this TrailOrder.  # noqa: E501
         :type: str

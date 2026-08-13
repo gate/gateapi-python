@@ -4,8 +4,8 @@ Response data
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**highest_price** | **str** | Highest price | [optional] 
-**lowest_price** | **str** | Lowest price | [optional] 
+**highest_price** | **str** | High price | [optional] 
+**lowest_price** | **str** | Low price | [optional] 
 **price_change** | **str** | Price change percentage (multiplied by 100) | [optional] 
 **price_change_amount** | **str** | Price change amount | [optional] 
 **today_open_price** | **str** | Today&#39;s open price | [optional] 

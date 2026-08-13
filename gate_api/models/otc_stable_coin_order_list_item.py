@@ -36,8 +36,10 @@ class OtcStableCoinOrderListItem(object):
         'id': 'int',
         'trade_no': 'str',
         'pay_coin': 'str',
+        'pay_icon': 'str',
         'pay_amount': 'str',
         'get_coin': 'str',
+        'get_icon': 'str',
         'get_amount': 'str',
         'rate': 'str',
         'rate_reci': 'str',
@@ -50,8 +52,10 @@ class OtcStableCoinOrderListItem(object):
         'id': 'id',
         'trade_no': 'trade_no',
         'pay_coin': 'pay_coin',
+        'pay_icon': 'pay_icon',
         'pay_amount': 'pay_amount',
         'get_coin': 'get_coin',
+        'get_icon': 'get_icon',
         'get_amount': 'get_amount',
         'rate': 'rate',
         'rate_reci': 'rate_reci',
@@ -60,8 +64,8 @@ class OtcStableCoinOrderListItem(object):
         'create_time': 'create_time'
     }
 
-    def __init__(self, id=None, trade_no=None, pay_coin=None, pay_amount=None, get_coin=None, get_amount=None, rate=None, rate_reci=None, status=None, create_timest=None, create_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
+    def __init__(self, id=None, trade_no=None, pay_coin=None, pay_icon=None, pay_amount=None, get_coin=None, get_icon=None, get_amount=None, rate=None, rate_reci=None, status=None, create_timest=None, create_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
         """OtcStableCoinOrderListItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,8 +74,10 @@ class OtcStableCoinOrderListItem(object):
         self._id = None
         self._trade_no = None
         self._pay_coin = None
+        self._pay_icon = None
         self._pay_amount = None
         self._get_coin = None
+        self._get_icon = None
         self._get_amount = None
         self._rate = None
         self._rate_reci = None
@@ -86,10 +92,14 @@ class OtcStableCoinOrderListItem(object):
             self.trade_no = trade_no
         if pay_coin is not None:
             self.pay_coin = pay_coin
+        if pay_icon is not None:
+            self.pay_icon = pay_icon
         if pay_amount is not None:
             self.pay_amount = pay_amount
         if get_coin is not None:
             self.get_coin = get_coin
+        if get_icon is not None:
+            self.get_icon = get_icon
         if get_amount is not None:
             self.get_amount = get_amount
         if rate is not None:
@@ -173,6 +183,29 @@ class OtcStableCoinOrderListItem(object):
         self._pay_coin = pay_coin
 
     @property
+    def pay_icon(self):
+        """Gets the pay_icon of this OtcStableCoinOrderListItem.  # noqa: E501
+
+        Payment currency icon  # noqa: E501
+
+        :return: The pay_icon of this OtcStableCoinOrderListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._pay_icon
+
+    @pay_icon.setter
+    def pay_icon(self, pay_icon):
+        """Sets the pay_icon of this OtcStableCoinOrderListItem.
+
+        Payment currency icon  # noqa: E501
+
+        :param pay_icon: The pay_icon of this OtcStableCoinOrderListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._pay_icon = pay_icon
+
+    @property
     def pay_amount(self):
         """Gets the pay_amount of this OtcStableCoinOrderListItem.  # noqa: E501
 
@@ -217,6 +250,29 @@ class OtcStableCoinOrderListItem(object):
         """
 
         self._get_coin = get_coin
+
+    @property
+    def get_icon(self):
+        """Gets the get_icon of this OtcStableCoinOrderListItem.  # noqa: E501
+
+        Received currency icon  # noqa: E501
+
+        :return: The get_icon of this OtcStableCoinOrderListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._get_icon
+
+    @get_icon.setter
+    def get_icon(self, get_icon):
+        """Sets the get_icon of this OtcStableCoinOrderListItem.
+
+        Received currency icon  # noqa: E501
+
+        :param get_icon: The get_icon of this OtcStableCoinOrderListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._get_icon = get_icon
 
     @property
     def get_amount(self):
@@ -314,7 +370,7 @@ class OtcStableCoinOrderListItem(object):
     def create_timest(self):
         """Gets the create_timest of this OtcStableCoinOrderListItem.  # noqa: E501
 
-        timetimestamp  # noqa: E501
+        Created time  # noqa: E501
 
         :return: The create_timest of this OtcStableCoinOrderListItem.  # noqa: E501
         :rtype: int
@@ -325,7 +381,7 @@ class OtcStableCoinOrderListItem(object):
     def create_timest(self, create_timest):
         """Sets the create_timest of this OtcStableCoinOrderListItem.
 
-        timetimestamp  # noqa: E501
+        Created time  # noqa: E501
 
         :param create_timest: The create_timest of this OtcStableCoinOrderListItem.  # noqa: E501
         :type: int

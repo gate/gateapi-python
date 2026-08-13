@@ -263,7 +263,7 @@ class CrossExApi(object):
     def list_crossex_transfer_coins(self, **kwargs):  # noqa: E501
         """Query supported transfer currencies  # noqa: E501
 
-        Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
+        `est_fee`: On-chain withdrawal fee. When a fund transfer involves an on-chain withdrawal, the exchange charges this fee. This value is for reference only; the actual fee charged by the exchange applies  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_crossex_transfer_coins(async_req=True)
@@ -288,7 +288,7 @@ class CrossExApi(object):
     def list_crossex_transfer_coins_with_http_info(self, **kwargs):  # noqa: E501
         """Query supported transfer currencies  # noqa: E501
 
-        Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0   # noqa: E501
+        `est_fee`: On-chain withdrawal fee. When a fund transfer involves an on-chain withdrawal, the exchange charges this fee. This value is for reference only; the actual fee charged by the exchange applies  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_crossex_transfer_coins_with_http_info(async_req=True)
@@ -620,7 +620,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def create_crossex_order(self, **kwargs):  # noqa: E501
-        """Create an order  # noqa: E501
+        """Create order  # noqa: E501
 
         Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -645,7 +645,7 @@ class CrossExApi(object):
         return self.create_crossex_order_with_http_info(**kwargs)  # noqa: E501
 
     def create_crossex_order_with_http_info(self, **kwargs):  # noqa: E501
-        """Create an order  # noqa: E501
+        """Create order  # noqa: E501
 
         Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -726,6 +726,124 @@ class CrossExApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CrossexOrderActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cancel_batch_crossex_orders(self, crossex_batch_cancel_order_request, **kwargs):  # noqa: E501
+        """Batch cancel orders  # noqa: E501
+
+        Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cancel_batch_crossex_orders(crossex_batch_cancel_order_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param list[CrossexBatchCancelOrderRequest] crossex_batch_cancel_order_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.CrossexBatchCancelOrderResponse]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.cancel_batch_crossex_orders_with_http_info(crossex_batch_cancel_order_request, **kwargs)  # noqa: E501
+
+    def cancel_batch_crossex_orders_with_http_info(self, crossex_batch_cancel_order_request, **kwargs):  # noqa: E501
+        """Batch cancel orders  # noqa: E501
+
+        Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cancel_batch_crossex_orders_with_http_info(crossex_batch_cancel_order_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param list[CrossexBatchCancelOrderRequest] crossex_batch_cancel_order_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.CrossexBatchCancelOrderResponse], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'crossex_batch_cancel_order_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cancel_batch_crossex_orders" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'crossex_batch_cancel_order_request' is set
+        if self.api_client.client_side_validation and ('crossex_batch_cancel_order_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['crossex_batch_cancel_order_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `crossex_batch_cancel_order_request` when calling `cancel_batch_crossex_orders`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'crossex_batch_cancel_order_request' in local_var_params:
+            body_params = local_var_params['crossex_batch_cancel_order_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/crossex/batch_cancel_orders', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[CrossexBatchCancelOrderResponse]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1087,7 +1205,7 @@ class CrossExApi(object):
     def create_crossex_convert_quote(self, **kwargs):  # noqa: E501
         """Flash Swap Inquiry  # noqa: E501
 
-        Rate Limit: 100 requests per day  # noqa: E501
+        Rate limit: 100 requests per day For HYPERLIQUID, swaps between `HYPERLIQUID_USDC` and `CROSSEX_USDT` are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_crossex_convert_quote(async_req=True)
@@ -1112,7 +1230,7 @@ class CrossExApi(object):
     def create_crossex_convert_quote_with_http_info(self, **kwargs):  # noqa: E501
         """Flash Swap Inquiry  # noqa: E501
 
-        Rate Limit: 100 requests per day  # noqa: E501
+        Rate limit: 100 requests per day For HYPERLIQUID, swaps between `HYPERLIQUID_USDC` and `CROSSEX_USDT` are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_crossex_convert_quote_with_http_info(async_req=True)
@@ -1322,7 +1440,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str exchange_type: Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).
+        :param str exchange_type: Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1347,7 +1465,7 @@ class CrossExApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str exchange_type: Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).
+        :param str exchange_type: Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1987,7 +2105,7 @@ class CrossExApi(object):
     def close_crossex_position(self, **kwargs):  # noqa: E501
         """Full Close Position  # noqa: E501
 
-        Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.  # noqa: E501
+        Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.close_crossex_position(async_req=True)
@@ -2012,7 +2130,7 @@ class CrossExApi(object):
     def close_crossex_position_with_http_info(self, **kwargs):  # noqa: E501
         """Full Close Position  # noqa: E501
 
-        Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.  # noqa: E501
+        Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.close_crossex_position_with_http_info(async_req=True)
@@ -2091,6 +2209,348 @@ class CrossExApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CrossexOrderActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_crossex_positions_margin_mode(self, symbol, **kwargs):  # noqa: E501
+        """Get futures position margin mode  # noqa: E501
+
+        Rate Limit: 200 requests per 10 seconds  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_crossex_positions_margin_mode(symbol, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str symbol: Futures trading pair (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CrossexMarginModeResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_crossex_positions_margin_mode_with_http_info(symbol, **kwargs)  # noqa: E501
+
+    def get_crossex_positions_margin_mode_with_http_info(self, symbol, **kwargs):  # noqa: E501
+        """Get futures position margin mode  # noqa: E501
+
+        Rate Limit: 200 requests per 10 seconds  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_crossex_positions_margin_mode_with_http_info(symbol, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str symbol: Futures trading pair (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CrossexMarginModeResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'symbol'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_crossex_positions_margin_mode" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'symbol' is set
+        if self.api_client.client_side_validation and ('symbol' not in local_var_params or  # noqa: E501
+                                                        local_var_params['symbol'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `symbol` when calling `get_crossex_positions_margin_mode`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'symbol' in local_var_params and local_var_params['symbol'] is not None:  # noqa: E501
+            query_params.append(('symbol', local_var_params['symbol']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/crossex/positions/margin_mode', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CrossexMarginModeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_crossex_positions_margin_mode(self, **kwargs):  # noqa: E501
+        """Update futures position margin mode  # noqa: E501
+
+        Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_crossex_positions_margin_mode(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param CrossexMarginModeRequest crossex_margin_mode_request:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CrossexMarginModeResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_crossex_positions_margin_mode_with_http_info(**kwargs)  # noqa: E501
+
+    def update_crossex_positions_margin_mode_with_http_info(self, **kwargs):  # noqa: E501
+        """Update futures position margin mode  # noqa: E501
+
+        Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_crossex_positions_margin_mode_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param CrossexMarginModeRequest crossex_margin_mode_request:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CrossexMarginModeResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'crossex_margin_mode_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_crossex_positions_margin_mode" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'crossex_margin_mode_request' in local_var_params:
+            body_params = local_var_params['crossex_margin_mode_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/crossex/positions/margin_mode', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CrossexMarginModeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_crossex_positions_margin(self, **kwargs):  # noqa: E501
+        """Increase or decrease isolated margin  # noqa: E501
+
+        Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_crossex_positions_margin(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param CrossexIsolatedMarginRequest crossex_isolated_margin_request:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.CrossexIsolatedMarginResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_crossex_positions_margin_with_http_info(**kwargs)  # noqa: E501
+
+    def update_crossex_positions_margin_with_http_info(self, **kwargs):  # noqa: E501
+        """Increase or decrease isolated margin  # noqa: E501
+
+        Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_crossex_positions_margin_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param CrossexIsolatedMarginRequest crossex_isolated_margin_request:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.CrossexIsolatedMarginResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'crossex_isolated_margin_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_crossex_positions_margin" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'crossex_isolated_margin_request' in local_var_params:
+            body_params = local_var_params['crossex_isolated_margin_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/crossex/positions/margin', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CrossexIsolatedMarginResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2566,7 +3026,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: list[gate_api.CrossexAdlRank]
+        :rtype: gate_api.CrossexAdlRank
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2593,7 +3053,7 @@ class CrossExApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(list[gate_api.CrossexAdlRank], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.CrossexAdlRank, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2654,7 +3114,7 @@ class CrossExApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[CrossexAdlRank]',  # noqa: E501
+            response_type='CrossexAdlRank',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2783,7 +3243,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_history_orders(self, **kwargs):  # noqa: E501
-        """queryorderhistory  # noqa: E501
+        """Query order history  # noqa: E501
 
         Rate Limit: 200 requests per 10 seconds  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2813,7 +3273,7 @@ class CrossExApi(object):
         return self.list_crossex_history_orders_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_history_orders_with_http_info(self, **kwargs):  # noqa: E501
-        """queryorderhistory  # noqa: E501
+        """Query order history  # noqa: E501
 
         Rate Limit: 200 requests per 10 seconds  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3313,7 +3773,7 @@ class CrossExApi(object):
             collection_formats=collection_formats)
 
     def list_crossex_history_trades(self, **kwargs):  # noqa: E501
-        """queryfilledhistory  # noqa: E501
+        """Query filled history  # noqa: E501
 
         Rate Limit: 200 requests per 10 seconds  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3342,7 +3802,7 @@ class CrossExApi(object):
         return self.list_crossex_history_trades_with_http_info(**kwargs)  # noqa: E501
 
     def list_crossex_history_trades_with_http_info(self, **kwargs):  # noqa: E501
-        """queryfilledhistory  # noqa: E501
+        """Query filled history  # noqa: E501
 
         Rate Limit: 200 requests per 10 seconds  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -3588,7 +4048,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str coin: Query by specified currency name
-        :param str exchange_type: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID
+        :param str exchange_type: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3614,7 +4074,7 @@ class CrossExApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str coin: Query by specified currency name
-        :param str exchange_type: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID
+        :param str exchange_type: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3685,6 +4145,226 @@ class CrossExApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[CrossexCoinDiscountRate]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_crossex_market_tickers(self, **kwargs):  # noqa: E501
+        """Get exchange tickers  # noqa: E501
+
+        Rate limit: 1 request per second - Margin trading pairs cannot be passed directly as parameters. For example, `GATE_MARGIN_BTC_USDT` is invalid.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_crossex_market_tickers(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str symbols: Trading Pair List, multiple separated by commas
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.InlineResponse2001]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_crossex_market_tickers_with_http_info(**kwargs)  # noqa: E501
+
+    def list_crossex_market_tickers_with_http_info(self, **kwargs):  # noqa: E501
+        """Get exchange tickers  # noqa: E501
+
+        Rate limit: 1 request per second - Margin trading pairs cannot be passed directly as parameters. For example, `GATE_MARGIN_BTC_USDT` is invalid.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_crossex_market_tickers_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str symbols: Trading Pair List, multiple separated by commas
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.InlineResponse2001], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'symbols'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_crossex_market_tickers" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'symbols' in local_var_params and local_var_params['symbols'] is not None:  # noqa: E501
+            query_params.append(('symbols', local_var_params['symbols']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/crossex/market/tickers', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[InlineResponse2001]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_crossex_market_funding_info(self, **kwargs):  # noqa: E501
+        """Get exchange futures funding rate information  # noqa: E501
+
+        Rate limit: 1 request per second - For `Deribit`, `funding_rate` is the current real-time rate calculated over an 8-hour period.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_crossex_market_funding_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str symbols: Trading Pair List, multiple separated by commas
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: list[gate_api.InlineResponse2002]
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_crossex_market_funding_info_with_http_info(**kwargs)  # noqa: E501
+
+    def list_crossex_market_funding_info_with_http_info(self, **kwargs):  # noqa: E501
+        """Get exchange futures funding rate information  # noqa: E501
+
+        Rate limit: 1 request per second - For `Deribit`, `funding_rate` is the current real-time rate calculated over an 8-hour period.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_crossex_market_funding_info_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str symbols: Trading Pair List, multiple separated by commas
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(list[gate_api.InlineResponse2002], status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'symbols'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_crossex_market_funding_info" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'symbols' in local_var_params and local_var_params['symbols'] is not None:  # noqa: E501
+            query_params.append(('symbols', local_var_params['symbols']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/crossex/market/funding_info', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[InlineResponse2002]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -522,7 +522,7 @@ class OptionsContract(object):
     def order_size_min(self):
         """Gets the order_size_min of this OptionsContract.  # noqa: E501
 
-        Minimum order size allowed by the contract  # noqa: E501
+        Minimum order quantity  # noqa: E501
 
         :return: The order_size_min of this OptionsContract.  # noqa: E501
         :rtype: int
@@ -533,7 +533,7 @@ class OptionsContract(object):
     def order_size_min(self, order_size_min):
         """Sets the order_size_min of this OptionsContract.
 
-        Minimum order size allowed by the contract  # noqa: E501
+        Minimum order quantity  # noqa: E501
 
         :param order_size_min: The order_size_min of this OptionsContract.  # noqa: E501
         :type: int
@@ -545,7 +545,7 @@ class OptionsContract(object):
     def order_size_max(self):
         """Gets the order_size_max of this OptionsContract.  # noqa: E501
 
-        Maximum order size allowed by the contract  # noqa: E501
+        Maximum order quantity  # noqa: E501
 
         :return: The order_size_max of this OptionsContract.  # noqa: E501
         :rtype: int
@@ -556,7 +556,7 @@ class OptionsContract(object):
     def order_size_max(self, order_size_max):
         """Sets the order_size_max of this OptionsContract.
 
-        Maximum order size allowed by the contract  # noqa: E501
+        Maximum order quantity  # noqa: E501
 
         :param order_size_max: The order_size_max of this OptionsContract.  # noqa: E501
         :type: int

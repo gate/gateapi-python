@@ -57,7 +57,7 @@ class FuturesLeverage(object):
     def lever(self):
         """Gets the lever of this FuturesLeverage.  # noqa: E501
 
-        leverage  # noqa: E501
+        Leverage  # noqa: E501
 
         :return: The lever of this FuturesLeverage.  # noqa: E501
         :rtype: str
@@ -68,7 +68,7 @@ class FuturesLeverage(object):
     def lever(self, lever):
         """Sets the lever of this FuturesLeverage.
 
-        leverage  # noqa: E501
+        Leverage  # noqa: E501
 
         :param lever: The lever of this FuturesLeverage.  # noqa: E501
         :type: str

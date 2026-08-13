@@ -157,7 +157,7 @@ class TransactionListDataList(object):
     def change(self):
         """Gets the change of this TransactionListDataList.  # noqa: E501
 
-        Change Quantity  # noqa: E501
+        Change amount  # noqa: E501
 
         :return: The change of this TransactionListDataList.  # noqa: E501
         :rtype: str
@@ -168,7 +168,7 @@ class TransactionListDataList(object):
     def change(self, change):
         """Sets the change of this TransactionListDataList.
 
-        Change Quantity  # noqa: E501
+        Change amount  # noqa: E501
 
         :param change: The change of this TransactionListDataList.  # noqa: E501
         :type: str

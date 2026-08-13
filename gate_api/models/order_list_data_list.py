@@ -163,7 +163,7 @@ class OrderListDataList(object):
     def symbol_desc(self):
         """Gets the symbol_desc of this OrderListDataList.  # noqa: E501
 
-        Trading symbol description  # noqa: E501
+        Symbol description  # noqa: E501
 
         :return: The symbol_desc of this OrderListDataList.  # noqa: E501
         :rtype: str
@@ -174,7 +174,7 @@ class OrderListDataList(object):
     def symbol_desc(self, symbol_desc):
         """Sets the symbol_desc of this OrderListDataList.
 
-        Trading symbol description  # noqa: E501
+        Symbol description  # noqa: E501
 
         :param symbol_desc: The symbol_desc of this OrderListDataList.  # noqa: E501
         :type: str
@@ -290,7 +290,7 @@ class OrderListDataList(object):
     def side(self):
         """Gets the side of this OrderListDataList.  # noqa: E501
 
-        Order side (1=sell, 2=buy)  # noqa: E501
+        Side (1=sell, 2=buy)  # noqa: E501
 
         :return: The side of this OrderListDataList.  # noqa: E501
         :rtype: int
@@ -301,7 +301,7 @@ class OrderListDataList(object):
     def side(self, side):
         """Sets the side of this OrderListDataList.
 
-        Order side (1=sell, 2=buy)  # noqa: E501
+        Side (1=sell, 2=buy)  # noqa: E501
 
         :param side: The side of this OrderListDataList.  # noqa: E501
         :type: int
@@ -319,7 +319,7 @@ class OrderListDataList(object):
     def volume(self):
         """Gets the volume of this OrderListDataList.  # noqa: E501
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :return: The volume of this OrderListDataList.  # noqa: E501
         :rtype: str
@@ -330,7 +330,7 @@ class OrderListDataList(object):
     def volume(self, volume):
         """Sets the volume of this OrderListDataList.
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :param volume: The volume of this OrderListDataList.  # noqa: E501
         :type: str

@@ -275,7 +275,7 @@ class PositionTimerange(object):
     def margin(self):
         """Gets the margin of this PositionTimerange.  # noqa: E501
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :return: The margin of this PositionTimerange.  # noqa: E501
         :rtype: str
@@ -286,7 +286,7 @@ class PositionTimerange(object):
     def margin(self, margin):
         """Sets the margin of this PositionTimerange.
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :param margin: The margin of this PositionTimerange.  # noqa: E501
         :type: str

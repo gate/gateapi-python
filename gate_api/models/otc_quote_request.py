@@ -84,7 +84,7 @@ class OtcQuoteRequest(object):
     def side(self):
         """Gets the side of this OtcQuoteRequest.  # noqa: E501
 
-        PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required  # noqa: E501
+        PAY: specify the payment amount (`pay_amount` is required); GET: specify the receive amount (`get_amount` is required).  # noqa: E501
 
         :return: The side of this OtcQuoteRequest.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class OtcQuoteRequest(object):
     def side(self, side):
         """Sets the side of this OtcQuoteRequest.
 
-        PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required  # noqa: E501
+        PAY: specify the payment amount (`pay_amount` is required); GET: specify the receive amount (`get_amount` is required).  # noqa: E501
 
         :param side: The side of this OtcQuoteRequest.  # noqa: E501
         :type: str
@@ -109,7 +109,7 @@ class OtcQuoteRequest(object):
     def pay_coin(self):
         """Gets the pay_coin of this OtcQuoteRequest.  # noqa: E501
 
-        Currency the user pays. Supported currencies can be found on the OTC web quote page.  # noqa: E501
+        Payment currency. Supported currencies are available on the OTC web quote page.  # noqa: E501
 
         :return: The pay_coin of this OtcQuoteRequest.  # noqa: E501
         :rtype: str
@@ -120,7 +120,7 @@ class OtcQuoteRequest(object):
     def pay_coin(self, pay_coin):
         """Sets the pay_coin of this OtcQuoteRequest.
 
-        Currency the user pays. Supported currencies can be found on the OTC web quote page.  # noqa: E501
+        Payment currency. Supported currencies are available on the OTC web quote page.  # noqa: E501
 
         :param pay_coin: The pay_coin of this OtcQuoteRequest.  # noqa: E501
         :type: str
@@ -134,7 +134,7 @@ class OtcQuoteRequest(object):
     def get_coin(self):
         """Gets the get_coin of this OtcQuoteRequest.  # noqa: E501
 
-        Currency the user receives. Supported currencies can be found on the OTC web quote page.  # noqa: E501
+        Receive currency. Supported currencies are available on the OTC web quote page.  # noqa: E501
 
         :return: The get_coin of this OtcQuoteRequest.  # noqa: E501
         :rtype: str
@@ -145,7 +145,7 @@ class OtcQuoteRequest(object):
     def get_coin(self, get_coin):
         """Sets the get_coin of this OtcQuoteRequest.
 
-        Currency the user receives. Supported currencies can be found on the OTC web quote page.  # noqa: E501
+        Receive currency. Supported currencies are available on the OTC web quote page.  # noqa: E501
 
         :param get_coin: The get_coin of this OtcQuoteRequest.  # noqa: E501
         :type: str
@@ -228,7 +228,7 @@ class OtcQuoteRequest(object):
     def promotion_code(self):
         """Gets the promotion_code of this OtcQuoteRequest.  # noqa: E501
 
-        Promotion code (optional)  # noqa: E501
+        Promotion code  # noqa: E501
 
         :return: The promotion_code of this OtcQuoteRequest.  # noqa: E501
         :rtype: str
@@ -239,7 +239,7 @@ class OtcQuoteRequest(object):
     def promotion_code(self, promotion_code):
         """Sets the promotion_code of this OtcQuoteRequest.
 
-        Promotion code (optional)  # noqa: E501
+        Promotion code  # noqa: E501
 
         :param promotion_code: The promotion_code of this OtcQuoteRequest.  # noqa: E501
         :type: str

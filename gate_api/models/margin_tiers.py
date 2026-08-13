@@ -169,7 +169,7 @@ class MarginTiers(object):
     def leverage(self):
         """Gets the leverage of this MarginTiers.  # noqa: E501
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :return: The leverage of this MarginTiers.  # noqa: E501
         :rtype: str
@@ -180,7 +180,7 @@ class MarginTiers(object):
     def leverage(self, leverage):
         """Sets the leverage of this MarginTiers.
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :param leverage: The leverage of this MarginTiers.  # noqa: E501
         :type: str

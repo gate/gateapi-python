@@ -2314,7 +2314,7 @@ class FuturesApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param bool holding: Return only real positions - true, return all - false
-        :param int limit: Maximum number of records returned in a single list
+        :param int limit: Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100].
         :param int offset: List offset, starting from 0
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2341,7 +2341,7 @@ class FuturesApi(object):
         :param bool async_req: execute request asynchronously
         :param str settle: Settle currency (required)
         :param bool holding: Return only real positions - true, return all - false
-        :param int limit: Maximum number of records returned in a single list
+        :param int limit: Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100].
         :param int offset: List offset, starting from 0
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2387,8 +2387,8 @@ class FuturesApi(object):
                                                         local_var_params['settle'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `settle` when calling `list_positions`")  # noqa: E501
 
-        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 1000:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `limit` when calling `list_positions`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_positions`, must be a value less than or equal to `100`")  # noqa: E501
         if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `list_positions`, must be a value greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501

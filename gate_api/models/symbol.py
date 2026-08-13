@@ -46,7 +46,8 @@ class Symbol(object):
         'max_limit_size': 'str',
         'contract_size': 'str',
         'liquidation_fee': 'str',
-        'delist_time': 'str'
+        'delist_time': 'str',
+        'support_rpi': 'str'
     }
 
     attribute_map = {
@@ -63,11 +64,12 @@ class Symbol(object):
         'max_limit_size': 'max_limit_size',
         'contract_size': 'contract_size',
         'liquidation_fee': 'liquidation_fee',
-        'delist_time': 'delist_time'
+        'delist_time': 'delist_time',
+        'support_rpi': 'support_rpi'
     }
 
-    def __init__(self, symbol=None, exchange_type=None, business_type=None, state=None, min_size=None, min_notional=None, lot_size=None, tick_size=None, max_num_orders=None, max_market_size=None, max_limit_size=None, contract_size=None, liquidation_fee=None, delist_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, symbol=None, exchange_type=None, business_type=None, state=None, min_size=None, min_notional=None, lot_size=None, tick_size=None, max_num_orders=None, max_market_size=None, max_limit_size=None, contract_size=None, liquidation_fee=None, delist_time=None, support_rpi=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """Symbol - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,6 +89,7 @@ class Symbol(object):
         self._contract_size = None
         self._liquidation_fee = None
         self._delist_time = None
+        self._support_rpi = None
         self.discriminator = None
 
         self.symbol = symbol
@@ -103,6 +106,8 @@ class Symbol(object):
         self.contract_size = contract_size
         self.liquidation_fee = liquidation_fee
         self.delist_time = delist_time
+        if support_rpi is not None:
+            self.support_rpi = support_rpi
 
     @property
     def symbol(self):
@@ -133,7 +138,7 @@ class Symbol(object):
     def exchange_type(self):
         """Gets the exchange_type of this Symbol.  # noqa: E501
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
 
         :return: The exchange_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -144,7 +149,7 @@ class Symbol(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this Symbol.
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this Symbol.  # noqa: E501
         :type: str
@@ -208,7 +213,7 @@ class Symbol(object):
     def min_size(self):
         """Gets the min_size of this Symbol.  # noqa: E501
 
-        Minimum order size allowed by the contract  # noqa: E501
+        Minimum order quantity  # noqa: E501
 
         :return: The min_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -219,7 +224,7 @@ class Symbol(object):
     def min_size(self, min_size):
         """Sets the min_size of this Symbol.
 
-        Minimum order size allowed by the contract  # noqa: E501
+        Minimum order quantity  # noqa: E501
 
         :param min_size: The min_size of this Symbol.  # noqa: E501
         :type: str
@@ -383,7 +388,7 @@ class Symbol(object):
     def contract_size(self):
         """Gets the contract_size of this Symbol.  # noqa: E501
 
-        Contract Multiplier  # noqa: E501
+        Contract multiplier (deprecated; quantity is used uniformly)  # noqa: E501
 
         :return: The contract_size of this Symbol.  # noqa: E501
         :rtype: str
@@ -394,7 +399,7 @@ class Symbol(object):
     def contract_size(self, contract_size):
         """Sets the contract_size of this Symbol.
 
-        Contract Multiplier  # noqa: E501
+        Contract multiplier (deprecated; quantity is used uniformly)  # noqa: E501
 
         :param contract_size: The contract_size of this Symbol.  # noqa: E501
         :type: str
@@ -453,6 +458,29 @@ class Symbol(object):
             raise ValueError("Invalid value for `delist_time`, must not be `None`")  # noqa: E501
 
         self._delist_time = delist_time
+
+    @property
+    def support_rpi(self):
+        """Gets the support_rpi of this Symbol.  # noqa: E501
+
+        Whether RPI order placement is supported (true if supported; false otherwise)  # noqa: E501
+
+        :return: The support_rpi of this Symbol.  # noqa: E501
+        :rtype: str
+        """
+        return self._support_rpi
+
+    @support_rpi.setter
+    def support_rpi(self, support_rpi):
+        """Sets the support_rpi of this Symbol.
+
+        Whether RPI order placement is supported (true if supported; false otherwise)  # noqa: E501
+
+        :param support_rpi: The support_rpi of this Symbol.  # noqa: E501
+        :type: str
+        """
+
+        self._support_rpi = support_rpi
 
     def to_dict(self):
         """Returns the model properties as a dict"""

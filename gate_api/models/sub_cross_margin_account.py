@@ -291,7 +291,7 @@ class SubCrossMarginAccount(object):
     def leverage(self):
         """Gets the leverage of this SubCrossMarginAccount.  # noqa: E501
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :return: The leverage of this SubCrossMarginAccount.  # noqa: E501
         :rtype: str
@@ -302,7 +302,7 @@ class SubCrossMarginAccount(object):
     def leverage(self, leverage):
         """Sets the leverage of this SubCrossMarginAccount.
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :param leverage: The leverage of this SubCrossMarginAccount.  # noqa: E501
         :type: str

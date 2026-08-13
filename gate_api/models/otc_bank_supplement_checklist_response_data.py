@@ -60,7 +60,7 @@ class OtcBankSupplementChecklistResponseData(object):
     def user_type(self):
         """Gets the user_type of this OtcBankSupplementChecklistResponseData.  # noqa: E501
 
-        personal or enterprise  # noqa: E501
+        `personal` or `enterprise`, matching the supplementary document submission type; `items[].description` describes the submission requirements for each item  # noqa: E501
 
         :return: The user_type of this OtcBankSupplementChecklistResponseData.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class OtcBankSupplementChecklistResponseData(object):
     def user_type(self, user_type):
         """Sets the user_type of this OtcBankSupplementChecklistResponseData.
 
-        personal or enterprise  # noqa: E501
+        `personal` or `enterprise`, matching the supplementary document submission type; `items[].description` describes the submission requirements for each item  # noqa: E501
 
         :param user_type: The user_type of this OtcBankSupplementChecklistResponseData.  # noqa: E501
         :type: str

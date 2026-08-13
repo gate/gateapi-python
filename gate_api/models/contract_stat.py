@@ -55,8 +55,8 @@ class ContractStat(object):
         'short_taker_size': 'str',
         'top_long_account': 'int',
         'top_short_account': 'int',
-        'long_users': 'str',
-        'short_users': 'str'
+        'long_users': 'int',
+        'short_users': 'int'
     }
 
     attribute_map = {
@@ -87,7 +87,7 @@ class ContractStat(object):
     }
 
     def __init__(self, time=None, lsr_taker=None, lsr_account=None, long_liq_size=None, long_liq_amount=None, long_liq_usd=None, long_liq_usd_new=None, short_liq_size=None, short_liq_amount=None, short_liq_usd=None, short_liq_usd_new=None, open_interest=None, open_interest_usd=None, top_lsr_account=None, top_lsr_size=None, mark_price=None, top_long_size=None, top_short_size=None, long_taker_size=None, short_taker_size=None, top_long_account=None, top_short_account=None, long_users=None, short_users=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, str, float, float, float, str, float, float, float, str, float, float, str, float, str, str, str, str, int, int, str, str, Configuration) -> None
+        # type: (int, float, float, str, float, float, float, str, float, float, float, str, float, float, str, float, str, str, str, str, int, int, int, int, Configuration) -> None
         """ContractStat - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -681,7 +681,7 @@ class ContractStat(object):
         Number of users holding long positions  # noqa: E501
 
         :return: The long_users of this ContractStat.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._long_users
 
@@ -692,7 +692,7 @@ class ContractStat(object):
         Number of users holding long positions  # noqa: E501
 
         :param long_users: The long_users of this ContractStat.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._long_users = long_users
@@ -704,7 +704,7 @@ class ContractStat(object):
         Number of users holding short positions  # noqa: E501
 
         :return: The short_users of this ContractStat.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._short_users
 
@@ -715,7 +715,7 @@ class ContractStat(object):
         Number of users holding short positions  # noqa: E501
 
         :param short_users: The short_users of this ContractStat.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._short_users = short_users

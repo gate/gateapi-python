@@ -402,7 +402,7 @@ class CurrencyPair(object):
     def amount_precision(self):
         """Gets the amount_precision of this CurrencyPair.  # noqa: E501
 
-        Amount scale  # noqa: E501
+        Quantity precision  # noqa: E501
 
         :return: The amount_precision of this CurrencyPair.  # noqa: E501
         :rtype: int
@@ -413,7 +413,7 @@ class CurrencyPair(object):
     def amount_precision(self, amount_precision):
         """Sets the amount_precision of this CurrencyPair.
 
-        Amount scale  # noqa: E501
+        Quantity precision  # noqa: E501
 
         :param amount_precision: The amount_precision of this CurrencyPair.  # noqa: E501
         :type: int
@@ -425,7 +425,7 @@ class CurrencyPair(object):
     def precision(self):
         """Gets the precision of this CurrencyPair.  # noqa: E501
 
-        Price scale  # noqa: E501
+        Price precision  # noqa: E501
 
         :return: The precision of this CurrencyPair.  # noqa: E501
         :rtype: int
@@ -436,7 +436,7 @@ class CurrencyPair(object):
     def precision(self, precision):
         """Sets the precision of this CurrencyPair.
 
-        Price scale  # noqa: E501
+        Price precision  # noqa: E501
 
         :param precision: The precision of this CurrencyPair.  # noqa: E501
         :type: int
@@ -684,7 +684,7 @@ class CurrencyPair(object):
     def market_order_max_stock(self):
         """Gets the market_order_max_stock of this CurrencyPair.  # noqa: E501
 
-        Maximum Market Order Quantity  # noqa: E501
+        Maximum market order quantity. `null` or `0` means no limit  # noqa: E501
 
         :return: The market_order_max_stock of this CurrencyPair.  # noqa: E501
         :rtype: str
@@ -695,7 +695,7 @@ class CurrencyPair(object):
     def market_order_max_stock(self, market_order_max_stock):
         """Sets the market_order_max_stock of this CurrencyPair.
 
-        Maximum Market Order Quantity  # noqa: E501
+        Maximum market order quantity. `null` or `0` means no limit  # noqa: E501
 
         :param market_order_max_stock: The market_order_max_stock of this CurrencyPair.  # noqa: E501
         :type: str
@@ -707,7 +707,7 @@ class CurrencyPair(object):
     def market_order_max_money(self):
         """Gets the market_order_max_money of this CurrencyPair.  # noqa: E501
 
-        Maximum Market Order Amount  # noqa: E501
+        Maximum market order amount. `null` or `0` means no limit  # noqa: E501
 
         :return: The market_order_max_money of this CurrencyPair.  # noqa: E501
         :rtype: str
@@ -718,7 +718,7 @@ class CurrencyPair(object):
     def market_order_max_money(self, market_order_max_money):
         """Sets the market_order_max_money of this CurrencyPair.
 
-        Maximum Market Order Amount  # noqa: E501
+        Maximum market order amount. `null` or `0` means no limit  # noqa: E501
 
         :param market_order_max_money: The market_order_max_money of this CurrencyPair.  # noqa: E501
         :type: str

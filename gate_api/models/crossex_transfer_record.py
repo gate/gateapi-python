@@ -148,7 +148,7 @@ class CrossexTransferRecord(object):
     def from_account_type(self):
         """Gets the from_account_type of this CrossexTransferRecord.  # noqa: E501
 
-        `from` credit account touched by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX`, `SPOT`).  # noqa: E501
+        `from` credit account touched by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
 
         :return: The from_account_type of this CrossexTransferRecord.  # noqa: E501
         :rtype: str
@@ -159,7 +159,7 @@ class CrossexTransferRecord(object):
     def from_account_type(self, from_account_type):
         """Sets the from_account_type of this CrossexTransferRecord.
 
-        `from` credit account touched by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX`, `SPOT`).  # noqa: E501
+        `from` credit account touched by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
 
         :param from_account_type: The from_account_type of this CrossexTransferRecord.  # noqa: E501
         :type: str
@@ -173,7 +173,7 @@ class CrossexTransferRecord(object):
     def to_account_type(self):
         """Gets the to_account_type of this CrossexTransferRecord.  # noqa: E501
 
-        `to` debit account handled by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX`, `SPOT`).  # noqa: E501
+        `to` debit account handled by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
 
         :return: The to_account_type of this CrossexTransferRecord.  # noqa: E501
         :rtype: str
@@ -184,7 +184,7 @@ class CrossexTransferRecord(object):
     def to_account_type(self, to_account_type):
         """Sets the to_account_type of this CrossexTransferRecord.
 
-        `to` debit account handled by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX`, `SPOT`).  # noqa: E501
+        `to` debit account handled by this operation (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
 
         :param to_account_type: The to_account_type of this CrossexTransferRecord.  # noqa: E501
         :type: str

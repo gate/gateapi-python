@@ -143,7 +143,7 @@ class DeliverySettlement(object):
     def leverage(self):
         """Gets the leverage of this DeliverySettlement.  # noqa: E501
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :return: The leverage of this DeliverySettlement.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class DeliverySettlement(object):
     def leverage(self, leverage):
         """Sets the leverage of this DeliverySettlement.
 
-        Position leverage  # noqa: E501
+        Leverage multiplier  # noqa: E501
 
         :param leverage: The leverage of this DeliverySettlement.  # noqa: E501
         :type: str
@@ -189,7 +189,7 @@ class DeliverySettlement(object):
     def margin(self):
         """Gets the margin of this DeliverySettlement.  # noqa: E501
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :return: The margin of this DeliverySettlement.  # noqa: E501
         :rtype: str
@@ -200,7 +200,7 @@ class DeliverySettlement(object):
     def margin(self, margin):
         """Sets the margin of this DeliverySettlement.
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :param margin: The margin of this DeliverySettlement.  # noqa: E501
         :type: str

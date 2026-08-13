@@ -183,7 +183,7 @@ class OrderHistoryListDataList(object):
     def symbol_desc(self):
         """Gets the symbol_desc of this OrderHistoryListDataList.  # noqa: E501
 
-        Trading symbol description  # noqa: E501
+        Symbol description  # noqa: E501
 
         :return: The symbol_desc of this OrderHistoryListDataList.  # noqa: E501
         :rtype: str
@@ -194,7 +194,7 @@ class OrderHistoryListDataList(object):
     def symbol_desc(self, symbol_desc):
         """Sets the symbol_desc of this OrderHistoryListDataList.
 
-        Trading symbol description  # noqa: E501
+        Symbol description  # noqa: E501
 
         :param symbol_desc: The symbol_desc of this OrderHistoryListDataList.  # noqa: E501
         :type: str
@@ -310,7 +310,7 @@ class OrderHistoryListDataList(object):
     def side(self):
         """Gets the side of this OrderHistoryListDataList.  # noqa: E501
 
-        Order side (1=sell, 2=buy)  # noqa: E501
+        Side (1=sell, 2=buy)  # noqa: E501
 
         :return: The side of this OrderHistoryListDataList.  # noqa: E501
         :rtype: int
@@ -321,7 +321,7 @@ class OrderHistoryListDataList(object):
     def side(self, side):
         """Sets the side of this OrderHistoryListDataList.
 
-        Order side (1=sell, 2=buy)  # noqa: E501
+        Side (1=sell, 2=buy)  # noqa: E501
 
         :param side: The side of this OrderHistoryListDataList.  # noqa: E501
         :type: int
@@ -339,7 +339,7 @@ class OrderHistoryListDataList(object):
     def volume(self):
         """Gets the volume of this OrderHistoryListDataList.  # noqa: E501
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :return: The volume of this OrderHistoryListDataList.  # noqa: E501
         :rtype: str
@@ -350,7 +350,7 @@ class OrderHistoryListDataList(object):
     def volume(self, volume):
         """Sets the volume of this OrderHistoryListDataList.
 
-        Order volume  # noqa: E501
+        Order quantity  # noqa: E501
 
         :param volume: The volume of this OrderHistoryListDataList.  # noqa: E501
         :type: str

@@ -334,7 +334,7 @@ class SwapCoinStruct(object):
     def update_stamp(self):
         """Gets the update_stamp of this SwapCoinStruct.  # noqa: E501
 
-        UpdateTimestamp  # noqa: E501
+        Update timestamp  # noqa: E501
 
         :return: The update_stamp of this SwapCoinStruct.  # noqa: E501
         :rtype: int
@@ -345,7 +345,7 @@ class SwapCoinStruct(object):
     def update_stamp(self, update_stamp):
         """Sets the update_stamp of this SwapCoinStruct.
 
-        UpdateTimestamp  # noqa: E501
+        Update timestamp  # noqa: E501
 
         :param update_stamp: The update_stamp of this SwapCoinStruct.  # noqa: E501
         :type: int

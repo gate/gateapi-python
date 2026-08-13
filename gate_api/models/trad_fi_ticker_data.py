@@ -132,7 +132,7 @@ class TradFiTickerData(object):
     def highest_price(self):
         """Gets the highest_price of this TradFiTickerData.  # noqa: E501
 
-        Highest price  # noqa: E501
+        High price  # noqa: E501
 
         :return: The highest_price of this TradFiTickerData.  # noqa: E501
         :rtype: str
@@ -143,7 +143,7 @@ class TradFiTickerData(object):
     def highest_price(self, highest_price):
         """Sets the highest_price of this TradFiTickerData.
 
-        Highest price  # noqa: E501
+        High price  # noqa: E501
 
         :param highest_price: The highest_price of this TradFiTickerData.  # noqa: E501
         :type: str
@@ -155,7 +155,7 @@ class TradFiTickerData(object):
     def lowest_price(self):
         """Gets the lowest_price of this TradFiTickerData.  # noqa: E501
 
-        Lowest price  # noqa: E501
+        Low price  # noqa: E501
 
         :return: The lowest_price of this TradFiTickerData.  # noqa: E501
         :rtype: str
@@ -166,7 +166,7 @@ class TradFiTickerData(object):
     def lowest_price(self, lowest_price):
         """Sets the lowest_price of this TradFiTickerData.
 
-        Lowest price  # noqa: E501
+        Low price  # noqa: E501
 
         :param lowest_price: The lowest_price of this TradFiTickerData.  # noqa: E501
         :type: str

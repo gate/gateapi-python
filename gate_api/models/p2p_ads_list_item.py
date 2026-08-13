@@ -38,8 +38,14 @@ class P2pAdsListItem(object):
         'fiat_unit': 'str',
         'adv_no': 'int',
         'price': 'str',
+        'surplus_amount': 'str',
         'max_single_trans_amount': 'str',
         'min_single_trans_amount': 'str',
+        'fiat_min_amount': 'str',
+        'fiat_max_amount': 'str',
+        'limit_basis': 'int',
+        'limit_basis_text': 'str',
+        'trade_methods': 'list[P2pAdsListTradeMethod]',
         'nick_name': 'str'
     }
 
@@ -49,13 +55,19 @@ class P2pAdsListItem(object):
         'fiat_unit': 'fiat_unit',
         'adv_no': 'adv_no',
         'price': 'price',
+        'surplus_amount': 'surplus_amount',
         'max_single_trans_amount': 'max_single_trans_amount',
         'min_single_trans_amount': 'min_single_trans_amount',
+        'fiat_min_amount': 'fiat_min_amount',
+        'fiat_max_amount': 'fiat_max_amount',
+        'limit_basis': 'limit_basis',
+        'limit_basis_text': 'limit_basis_text',
+        'trade_methods': 'trade_methods',
         'nick_name': 'nick_name'
     }
 
-    def __init__(self, index=None, asset=None, fiat_unit=None, adv_no=None, price=None, max_single_trans_amount=None, min_single_trans_amount=None, nick_name=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, int, str, str, str, str, Configuration) -> None
+    def __init__(self, index=None, asset=None, fiat_unit=None, adv_no=None, price=None, surplus_amount=None, max_single_trans_amount=None, min_single_trans_amount=None, fiat_min_amount=None, fiat_max_amount=None, limit_basis=None, limit_basis_text=None, trade_methods=None, nick_name=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, int, str, str, str, str, str, str, int, str, list[P2pAdsListTradeMethod], str, Configuration) -> None
         """P2pAdsListItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,8 +78,14 @@ class P2pAdsListItem(object):
         self._fiat_unit = None
         self._adv_no = None
         self._price = None
+        self._surplus_amount = None
         self._max_single_trans_amount = None
         self._min_single_trans_amount = None
+        self._fiat_min_amount = None
+        self._fiat_max_amount = None
+        self._limit_basis = None
+        self._limit_basis_text = None
+        self._trade_methods = None
         self._nick_name = None
         self.discriminator = None
 
@@ -81,10 +99,22 @@ class P2pAdsListItem(object):
             self.adv_no = adv_no
         if price is not None:
             self.price = price
+        if surplus_amount is not None:
+            self.surplus_amount = surplus_amount
         if max_single_trans_amount is not None:
             self.max_single_trans_amount = max_single_trans_amount
         if min_single_trans_amount is not None:
             self.min_single_trans_amount = min_single_trans_amount
+        if fiat_min_amount is not None:
+            self.fiat_min_amount = fiat_min_amount
+        if fiat_max_amount is not None:
+            self.fiat_max_amount = fiat_max_amount
+        if limit_basis is not None:
+            self.limit_basis = limit_basis
+        if limit_basis_text is not None:
+            self.limit_basis_text = limit_basis_text
+        if trade_methods is not None:
+            self.trade_methods = trade_methods
         if nick_name is not None:
             self.nick_name = nick_name
 
@@ -204,6 +234,29 @@ class P2pAdsListItem(object):
         self._price = price
 
     @property
+    def surplus_amount(self):
+        """Gets the surplus_amount of this P2pAdsListItem.  # noqa: E501
+
+        Remaining tradable crypto quantity  # noqa: E501
+
+        :return: The surplus_amount of this P2pAdsListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._surplus_amount
+
+    @surplus_amount.setter
+    def surplus_amount(self, surplus_amount):
+        """Sets the surplus_amount of this P2pAdsListItem.
+
+        Remaining tradable crypto quantity  # noqa: E501
+
+        :param surplus_amount: The surplus_amount of this P2pAdsListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._surplus_amount = surplus_amount
+
+    @property
     def max_single_trans_amount(self):
         """Gets the max_single_trans_amount of this P2pAdsListItem.  # noqa: E501
 
@@ -248,6 +301,133 @@ class P2pAdsListItem(object):
         """
 
         self._min_single_trans_amount = min_single_trans_amount
+
+    @property
+    def fiat_min_amount(self):
+        """Gets the fiat_min_amount of this P2pAdsListItem.  # noqa: E501
+
+        Minimum fiat amount per order  # noqa: E501
+
+        :return: The fiat_min_amount of this P2pAdsListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_min_amount
+
+    @fiat_min_amount.setter
+    def fiat_min_amount(self, fiat_min_amount):
+        """Sets the fiat_min_amount of this P2pAdsListItem.
+
+        Minimum fiat amount per order  # noqa: E501
+
+        :param fiat_min_amount: The fiat_min_amount of this P2pAdsListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_min_amount = fiat_min_amount
+
+    @property
+    def fiat_max_amount(self):
+        """Gets the fiat_max_amount of this P2pAdsListItem.  # noqa: E501
+
+        Maximum fiat amount per order  # noqa: E501
+
+        :return: The fiat_max_amount of this P2pAdsListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._fiat_max_amount
+
+    @fiat_max_amount.setter
+    def fiat_max_amount(self, fiat_max_amount):
+        """Sets the fiat_max_amount of this P2pAdsListItem.
+
+        Maximum fiat amount per order  # noqa: E501
+
+        :param fiat_max_amount: The fiat_max_amount of this P2pAdsListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._fiat_max_amount = fiat_max_amount
+
+    @property
+    def limit_basis(self):
+        """Gets the limit_basis of this P2pAdsListItem.  # noqa: E501
+
+        Trading limit unit. 0: crypto quantity, 1: fiat amount  # noqa: E501
+
+        :return: The limit_basis of this P2pAdsListItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._limit_basis
+
+    @limit_basis.setter
+    def limit_basis(self, limit_basis):
+        """Sets the limit_basis of this P2pAdsListItem.
+
+        Trading limit unit. 0: crypto quantity, 1: fiat amount  # noqa: E501
+
+        :param limit_basis: The limit_basis of this P2pAdsListItem.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [0, 1]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and limit_basis not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `limit_basis` ({0}), must be one of {1}"  # noqa: E501
+                .format(limit_basis, allowed_values)
+            )
+
+        self._limit_basis = limit_basis
+
+    @property
+    def limit_basis_text(self):
+        """Gets the limit_basis_text of this P2pAdsListItem.  # noqa: E501
+
+        Trading limit unit label. crypto: crypto quantity, fiat: fiat amount  # noqa: E501
+
+        :return: The limit_basis_text of this P2pAdsListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._limit_basis_text
+
+    @limit_basis_text.setter
+    def limit_basis_text(self, limit_basis_text):
+        """Sets the limit_basis_text of this P2pAdsListItem.
+
+        Trading limit unit label. crypto: crypto quantity, fiat: fiat amount  # noqa: E501
+
+        :param limit_basis_text: The limit_basis_text of this P2pAdsListItem.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["crypto", "fiat"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and limit_basis_text not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `limit_basis_text` ({0}), must be one of {1}"  # noqa: E501
+                .format(limit_basis_text, allowed_values)
+            )
+
+        self._limit_basis_text = limit_basis_text
+
+    @property
+    def trade_methods(self):
+        """Gets the trade_methods of this P2pAdsListItem.  # noqa: E501
+
+        Supported payment methods list  # noqa: E501
+
+        :return: The trade_methods of this P2pAdsListItem.  # noqa: E501
+        :rtype: list[P2pAdsListTradeMethod]
+        """
+        return self._trade_methods
+
+    @trade_methods.setter
+    def trade_methods(self, trade_methods):
+        """Sets the trade_methods of this P2pAdsListItem.
+
+        Supported payment methods list  # noqa: E501
+
+        :param trade_methods: The trade_methods of this P2pAdsListItem.  # noqa: E501
+        :type: list[P2pAdsListTradeMethod]
+        """
+
+        self._trade_methods = trade_methods
 
     @property
     def nick_name(self):

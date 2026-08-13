@@ -85,7 +85,7 @@ class CrossexLeverageRequest(object):
     def leverage(self):
         """Gets the leverage of this CrossexLeverageRequest.  # noqa: E501
 
-        leverage  # noqa: E501
+        Leverage  # noqa: E501
 
         :return: The leverage of this CrossexLeverageRequest.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class CrossexLeverageRequest(object):
     def leverage(self, leverage):
         """Sets the leverage of this CrossexLeverageRequest.
 
-        leverage  # noqa: E501
+        Leverage  # noqa: E501
 
         :param leverage: The leverage of this CrossexLeverageRequest.  # noqa: E501
         :type: str

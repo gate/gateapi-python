@@ -364,7 +364,7 @@ class CrossexOrder(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexOrder.  # noqa: E501
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
 
         :return: The exchange_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -375,7 +375,7 @@ class CrossexOrder(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexOrder.
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -489,7 +489,7 @@ class CrossexOrder(object):
     def time_in_force(self):
         """Gets the time_in_force of this CrossexOrder.  # noqa: E501
 
-        Time in force (default `GTC`; enum: `GTC` / `IOC` / `FOK` / `POC`).  # noqa: E501
+        Time-in-force policy (default: GTC; allowed values: GTC, IOC, FOK, POC, and RPI)  # noqa: E501
 
         :return: The time_in_force of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -500,7 +500,7 @@ class CrossexOrder(object):
     def time_in_force(self, time_in_force):
         """Sets the time_in_force of this CrossexOrder.
 
-        Time in force (default `GTC`; enum: `GTC` / `IOC` / `FOK` / `POC`).  # noqa: E501
+        Time-in-force policy (default: GTC; allowed values: GTC, IOC, FOK, POC, and RPI)  # noqa: E501
 
         :param time_in_force: The time_in_force of this CrossexOrder.  # noqa: E501
         :type: str

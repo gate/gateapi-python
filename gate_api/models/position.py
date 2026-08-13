@@ -505,7 +505,7 @@ class Position(object):
     def margin(self):
         """Gets the margin of this Position.  # noqa: E501
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :return: The margin of this Position.  # noqa: E501
         :rtype: str
@@ -516,7 +516,7 @@ class Position(object):
     def margin(self, margin):
         """Sets the margin of this Position.
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :param margin: The margin of this Position.  # noqa: E501
         :type: str

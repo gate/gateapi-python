@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **settlement_currency** | **str** | Settle currency | [optional] 
 **max_order_volume** | **str** | Maximum Order Volume | [optional] 
 **min_order_volume** | **str** | Minimum Order Volume | [optional] 
-**leverage** | **str** | Position leverage | [optional] 
+**leverage** | **str** | Leverage multiplier | [optional] 
 **price_precision** | **int** | Price precision (decimal places) | [optional] 
 **price_sl_level** | **str** | Stop Loss Price Level | [optional] 
 **swap_cost_type** | **str** | Swap Cost Type | [optional] 

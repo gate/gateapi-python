@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **buy_amount** | **str** | Buy amount | [optional] 
 **buy_amount_show** | **str** | Buy amount display value | [optional] 
 **price** | **str** | Exchange price | [optional] 
-**status** | **int** | Order Status | [optional] 
+**status** | **int** | Order status | [optional] 
 **quote_id** | **str** | Quote ID | [optional] 
 **failed_code** | **int** | Failure error code, 0 means success | [optional] 
 **failed_reason** | **str** | Failure Reason | [optional] 

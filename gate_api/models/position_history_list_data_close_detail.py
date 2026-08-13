@@ -95,7 +95,7 @@ class PositionHistoryListDataCloseDetail(object):
     def margin(self):
         """Gets the margin of this PositionHistoryListDataCloseDetail.  # noqa: E501
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :return: The margin of this PositionHistoryListDataCloseDetail.  # noqa: E501
         :rtype: str
@@ -106,7 +106,7 @@ class PositionHistoryListDataCloseDetail(object):
     def margin(self, margin):
         """Sets the margin of this PositionHistoryListDataCloseDetail.
 
-        Position margin  # noqa: E501
+        Margin  # noqa: E501
 
         :param margin: The margin of this PositionHistoryListDataCloseDetail.  # noqa: E501
         :type: str

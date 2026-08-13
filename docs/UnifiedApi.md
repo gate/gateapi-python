@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**list_currency_discount_tiers**](UnifiedApi.md#list_currency_discount_tiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered
 [**list_loan_margin_tiers**](UnifiedApi.md#list_loan_margin_tiers) | **GET** /unified/loan_margin_tiers | Query unified account tiered loan margin
 [**calculate_portfolio_margin**](UnifiedApi.md#calculate_portfolio_margin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
+[**set_user_leverage**](UnifiedApi.md#set_user_leverage) | **POST** /unified/leverage/user_setting | Set leverage for all of the user&#39;s borrowed currencies
 [**get_user_leverage_currency_config**](UnifiedApi.md#get_user_leverage_currency_config) | **GET** /unified/leverage/user_currency_config | Maximum and minimum currency leverage that can be set
 [**get_user_leverage_currency_setting**](UnifiedApi.md#get_user_leverage_currency_setting) | **GET** /unified/leverage/user_currency_setting | Get user currency leverage
 [**set_user_leverage_currency_setting**](UnifiedApi.md#set_user_leverage_currency_setting) | **POST** /unified/leverage/user_currency_setting | Set loan currency leverage
@@ -1095,6 +1096,75 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Query successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_user_leverage**
+> list[LeverageFailedCurrencies] set_user_leverage(user_leverage_setting)
+
+Set leverage for all of the user's borrowed currencies
+
+Note the following: - Leverage cannot be changed for currencies with outstanding loans. - A leverage value above a currency's limit is capped at that limit. - Failures are not rolled back and affect only the currencies that failed. For example, if USDT has an outstanding loan, only the USDT leverage remains unchanged.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.UnifiedApi(api_client)
+user_leverage_setting = gate_api.UserLeverageSetting() # UserLeverageSetting | 
+
+try:
+    # Set leverage for all of the user's borrowed currencies
+    api_response = api_instance.set_user_leverage(user_leverage_setting)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling UnifiedApi->set_user_leverage: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_leverage_setting** | [**UserLeverageSetting**](UserLeverageSetting.md)|  | 
+
+### Return type
+
+[**list[LeverageFailedCurrencies]**](LeverageFailedCurrencies.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Set successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **symbol** | **str** | Currency pair | 
 **taker_fee_rate** | **str** | Taker fee rate | 
 **maker_fee_rate** | **str** | Maker fee rate | 
+**rpi_fee_rate** | **str** | RPI order maker fee rate | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
