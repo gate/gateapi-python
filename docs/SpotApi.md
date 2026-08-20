@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**list_candlesticks**](SpotApi.md#list_candlesticks) | **GET** /spot/candlesticks | Market K-line chart
 [**get_fee**](SpotApi.md#get_fee) | **GET** /spot/fee | Query account fee rates
 [**get_batch_spot_fee**](SpotApi.md#get_batch_spot_fee) | **GET** /spot/batch_fee | Batch query account fee rates
+[**list_spot_accounts**](SpotApi.md#list_spot_accounts) | **GET** /spot/accounts | List spot trading accounts
 [**list_spot_account_book**](SpotApi.md#list_spot_account_book) | **GET** /spot/account_book | Query spot account transaction history
 [**create_batch_orders**](SpotApi.md#create_batch_orders) | **POST** /spot/batch_orders | Batch place orders
 [**list_all_open_orders**](SpotApi.md#list_all_open_orders) | **GET** /spot/open_orders | List all open orders
@@ -37,9 +38,9 @@ Method | HTTP request | Description
 [**cancel_spot_price_triggered_order**](SpotApi.md#cancel_spot_price_triggered_order) | **DELETE** /spot/price_orders/{order_id} | Cancel single auto order
 [**list_spot_pov_orders**](SpotApi.md#list_spot_pov_orders) | **GET** /spot/pov_orders | List Spot POV orders
 [**create_spot_pov_order**](SpotApi.md#create_spot_pov_order) | **POST** /spot/pov_orders | Create a Spot POV order
-[**cancel_spot_pov_orders**](SpotApi.md#cancel_spot_pov_orders) | **POST** /spot/pov_orders/cancel | Cancel Spot POV orders
+[**cancel_spot_pov_orders**](SpotApi.md#cancel_spot_pov_orders) | **DELETE** /spot/pov_orders | Cancel Spot POV orders
 [**get_spot_pov_order**](SpotApi.md#get_spot_pov_order) | **GET** /spot/pov_orders/{order_id} | Query Spot POV order details
-[**cancel_spot_pov_order**](SpotApi.md#cancel_spot_pov_order) | **POST** /spot/pov_orders/{order_id}/cancel | Cancel a Spot POV order
+[**cancel_spot_pov_order**](SpotApi.md#cancel_spot_pov_order) | **DELETE** /spot/pov_orders/{order_id} | Cancel a Spot POV order
 
 
 # **list_currencies**
@@ -669,6 +670,73 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Query successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_spot_accounts**
+> list[SpotAccount] list_spot_accounts(currency=currency)
+
+List spot trading accounts
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+currency = 'BTC' # str | Query by specified currency name (optional)
+
+try:
+    # List spot trading accounts
+    api_response = api_instance.list_spot_accounts(currency=currency)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->list_spot_accounts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **str**| Query by specified currency name | [optional] 
+
+### Return type
+
+[**list[SpotAccount]**](SpotAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

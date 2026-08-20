@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**list_futures_contracts**](FuturesApi.md#list_futures_contracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
 [**list_futures_contracts_all**](FuturesApi.md#list_futures_contracts_all) | **GET** /futures/{settle}/contracts_all | Query all contract information (including delisted)
 [**get_futures_contract**](FuturesApi.md#get_futures_contract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
+[**list_futures_adl_risk_states**](FuturesApi.md#list_futures_adl_risk_states) | **GET** /futures/{settle}/adl_risk_states | List market-level ADL risk states
 [**list_futures_order_book**](FuturesApi.md#list_futures_order_book) | **GET** /futures/{settle}/order_book | Query futures market depth information
 [**list_futures_trades**](FuturesApi.md#list_futures_trades) | **GET** /futures/{settle}/trades | Futures market transaction records
 [**list_futures_candlesticks**](FuturesApi.md#list_futures_candlesticks) | **GET** /futures/{settle}/candlesticks | Futures market K-line chart
@@ -96,7 +97,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
 
@@ -114,7 +115,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -158,7 +159,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
 
@@ -176,7 +177,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -220,7 +221,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 
 try:
@@ -237,7 +238,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
 
 ### Return type
@@ -257,6 +258,66 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Contract information |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_futures_adl_risk_states**
+> FuturesADLRiskStates list_futures_adl_risk_states(settle)
+
+List market-level ADL risk states
+
+List the current ADL risk states of all futures markets for the specified settlement currency
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Perpetual futures settlement currency
+
+try:
+    # List market-level ADL risk states
+    api_response = api_instance.list_futures_adl_risk_states(settle)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->list_futures_adl_risk_states: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Perpetual futures settlement currency | 
+
+### Return type
+
+[**FuturesADLRiskStates**](FuturesADLRiskStates.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -282,7 +343,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
 limit = 10 # int | Number of depth levels (optional) (default to 10)
@@ -302,7 +363,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
  **limit** | **int**| Number of depth levels | [optional] [default to 10]
@@ -348,7 +409,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -370,7 +431,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -420,7 +481,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 _from = 1546905600 # int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional)
 to = 1546935600 # int | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision (optional)
@@ -442,7 +503,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **_from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **int**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional] 
@@ -492,7 +553,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 _from = 1546905600 # int | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional)
 to = 1546935600 # int | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision (optional)
@@ -513,7 +574,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **_from** | **int**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **int**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional] 
@@ -560,7 +621,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 
 try:
@@ -577,7 +638,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
 
 ### Return type
@@ -620,7 +681,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
@@ -640,7 +701,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
@@ -686,7 +747,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 batch_funding_rates_request = gate_api.BatchFundingRatesRequest() # BatchFundingRatesRequest | 
 
 try:
@@ -703,7 +764,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **batch_funding_rates_request** | [**BatchFundingRatesRequest**](BatchFundingRatesRequest.md)|  | 
 
 ### Return type
@@ -746,7 +807,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 
 try:
@@ -763,7 +824,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
@@ -806,7 +867,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 _from = 1604561000 # int | Start timestamp (optional)
 interval = '5m' # str |  (optional) (default to '5m')
@@ -826,7 +887,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **_from** | **int**| Start timestamp | [optional] 
  **interval** | **str**|  | [optional] [default to &#39;5m&#39;]
@@ -872,7 +933,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 index = 'BTC_USDT' # str | Index name
 
 try:
@@ -889,7 +950,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **index** | **str**| Index name | 
 
 ### Return type
@@ -934,7 +995,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
 to = 1547706332 # int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
@@ -954,7 +1015,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
@@ -1002,7 +1063,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -1021,7 +1082,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -1077,7 +1138,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 
 try:
     # Get futures account
@@ -1093,7 +1154,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
 
 ### Return type
 
@@ -1146,7 +1207,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -1168,7 +1229,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -1225,7 +1286,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 holding = true # bool | Return only real positions - true, return all - false (optional)
 limit = 100 # int | Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. (optional)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -1244,7 +1305,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **holding** | **bool**| Return only real positions - true, return all - false | [optional] 
  **limit** | **int**| Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. | [optional] 
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -1298,7 +1359,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
 to = 1547706332 # int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
@@ -1319,7 +1380,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
@@ -1377,7 +1438,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 
 try:
@@ -1394,7 +1455,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
 
 ### Return type
@@ -1448,7 +1509,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 pos_margin_mode = 'isolated' # str | Position Margin Mode, required for split position mode, values: isolated/cross.
 dual_side = 'dual_long' # str | dual_long - Long, dual_short - Short
@@ -1467,7 +1528,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **pos_margin_mode** | **str**| Position Margin Mode, required for split position mode, values: isolated/cross. | 
  **dual_side** | **str**| dual_long - Long, dual_short - Short | 
@@ -1523,7 +1584,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 change = '0.01' # str | Margin change amount, positive number increases, negative number decreases
 
@@ -1541,7 +1602,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **change** | **str**| Margin change amount, positive number increases, negative number decreases | 
 
@@ -1596,7 +1657,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 leverage = '10' # str | Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty.
 cross_leverage_limit = '10' # str | Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0. (optional)
@@ -1616,7 +1677,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **leverage** | **str**| Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. | 
  **cross_leverage_limit** | **str**| Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. | [optional] 
@@ -1673,7 +1734,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 leverage = '10' # str | Position Leverage Multiple
 margin_mode = 'cross' # str | Margin Mode isolated/cross
@@ -1693,7 +1754,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **leverage** | **str**| Position Leverage Multiple | 
  **margin_mode** | **str**| Margin Mode isolated/cross | 
@@ -1748,7 +1809,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 futures_position_cross_mode = gate_api.FuturesPositionCrossMode() # FuturesPositionCrossMode | 
 
 try:
@@ -1765,7 +1826,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **futures_position_cross_mode** | [**FuturesPositionCrossMode**](FuturesPositionCrossMode.md)|  | 
 
 ### Return type
@@ -1817,7 +1878,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 update_dual_comp_position_cross_mode_request = gate_api.UpdateDualCompPositionCrossModeRequest() # UpdateDualCompPositionCrossModeRequest | 
 
 try:
@@ -1834,7 +1895,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **update_dual_comp_position_cross_mode_request** | [**UpdateDualCompPositionCrossModeRequest**](UpdateDualCompPositionCrossModeRequest.md)|  | 
 
 ### Return type
@@ -1888,7 +1949,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 risk_limit = '1000000' # str | New risk limit value
 
@@ -1906,7 +1967,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **risk_limit** | **str**| New risk limit value | 
 
@@ -1961,7 +2022,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 dual_mode = true # bool | Whether to enable Hedge Mode
 
 try:
@@ -1978,7 +2039,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **dual_mode** | **bool**| Whether to enable Hedge Mode | 
 
 ### Return type
@@ -2032,7 +2093,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 position_mode = 'dual_plus' # str | Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively
 
 try:
@@ -2049,7 +2110,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **position_mode** | **str**| Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively | 
 
 ### Return type
@@ -2101,7 +2162,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 
 try:
@@ -2118,7 +2179,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
 
 ### Return type
@@ -2170,7 +2231,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 change = '0.01' # str | Margin change amount, positive number increases, negative number decreases
 dual_side = 'dual_long' # str | Long or short position
@@ -2189,7 +2250,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **change** | **str**| Margin change amount, positive number increases, negative number decreases | 
  **dual_side** | **str**| Long or short position | 
@@ -2243,7 +2304,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 leverage = '10' # str | New position leverage
 cross_leverage_limit = '10' # str | Cross margin leverage (valid only when `leverage` is 0) (optional)
@@ -2262,7 +2323,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **leverage** | **str**| New position leverage | 
  **cross_leverage_limit** | **str**| Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) | [optional] 
@@ -2318,7 +2379,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract
 risk_limit = '1000000' # str | New risk limit value
 
@@ -2336,7 +2397,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract | 
  **risk_limit** | **str**| New risk limit value | 
 
@@ -2391,7 +2452,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 status = 'open' # str | Query order list based on status
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
@@ -2412,7 +2473,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **status** | **str**| Query order list based on status | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
@@ -2470,7 +2531,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 futures_order = gate_api.FuturesOrder() # FuturesOrder | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
@@ -2488,7 +2549,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **futures_order** | [**FuturesOrder**](FuturesOrder.md)|  | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
@@ -2543,7 +2604,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 contract = 'BTC_USDT' # str | Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
 action_mode = 'ACK' # str | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default) (optional)
@@ -2565,7 +2626,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
  **contract** | **str**| Contract Identifier; if specified, only cancel pending orders related to this contract | [optional] 
  **action_mode** | **str**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional] 
@@ -2622,7 +2683,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
 to = 1547706332 # int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
@@ -2643,7 +2704,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
@@ -2701,7 +2762,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 futures_order = [gate_api.FuturesOrder()] # list[FuturesOrder] | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
@@ -2719,7 +2780,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **futures_order** | [**list[FuturesOrder]**](FuturesOrder.md)|  | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
@@ -2774,7 +2835,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 order_id = '12345' # str | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
 
 try:
@@ -2791,7 +2852,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **order_id** | **str**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. | 
 
 ### Return type
@@ -2843,7 +2904,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 order_id = '12345' # str | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
 futures_order_amendment = gate_api.FuturesOrderAmendment() # FuturesOrderAmendment | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2862,7 +2923,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **order_id** | **str**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. | 
  **futures_order_amendment** | [**FuturesOrderAmendment**](FuturesOrderAmendment.md)|  | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
@@ -2916,7 +2977,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 order_id = '12345' # str | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 action_mode = 'ACK' # str | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default) (optional)
@@ -2935,7 +2996,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **order_id** | **str**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
  **action_mode** | **str**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional] 
@@ -2991,7 +3052,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 order = 12345 # int | Futures order ID, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
@@ -3012,7 +3073,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **order** | **int**| Futures order ID, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
@@ -3068,7 +3129,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
 to = 1547706332 # int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
@@ -3090,7 +3151,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
@@ -3147,7 +3208,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -3170,7 +3231,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -3228,7 +3289,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -3250,7 +3311,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -3307,7 +3368,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
@@ -3329,7 +3390,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
@@ -3388,7 +3449,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 countdown_cancel_all_futures_task = gate_api.CountdownCancelAllFuturesTask() # CountdownCancelAllFuturesTask | 
 
 try:
@@ -3405,7 +3466,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **countdown_cancel_all_futures_task** | [**CountdownCancelAllFuturesTask**](CountdownCancelAllFuturesTask.md)|  | 
 
 ### Return type
@@ -3457,7 +3518,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 
 try:
@@ -3474,7 +3535,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
 
 ### Return type
@@ -3528,7 +3589,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 request_body = ['[\"1\",\"2\",\"3\"]'] # list[str] | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
@@ -3546,7 +3607,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **request_body** | [**list[str]**](str.md)|  | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
@@ -3601,7 +3662,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 batch_amend_order_req = [gate_api.BatchAmendOrderReq()] # list[BatchAmendOrderReq] | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
@@ -3619,7 +3680,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **batch_amend_order_req** | [**list[BatchAmendOrderReq]**](BatchAmendOrderReq.md)|  | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
@@ -3665,7 +3726,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 table_id = 'CYBER_USDT_20241122' # str | Risk limit table ID
 
 try:
@@ -3682,7 +3743,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **table_id** | **str**| Risk limit table ID | 
 
 ### Return type
@@ -3736,7 +3797,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 futures_bbo_order = gate_api.FuturesBBOOrder() # FuturesBBOOrder | 
 x_gate_exptime = '1689560679123' # str | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
 
@@ -3754,7 +3815,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **futures_bbo_order** | [**FuturesBBOOrder**](FuturesBBOOrder.md)|  | 
  **x_gate_exptime** | **str**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
@@ -3807,7 +3868,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 create_trail_order = gate_api.CreateTrailOrder() # CreateTrailOrder | 
 
 try:
@@ -3824,7 +3885,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **create_trail_order** | [**CreateTrailOrder**](CreateTrailOrder.md)|  | 
 
 ### Return type
@@ -3876,7 +3937,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 stop_trail_order = gate_api.StopTrailOrder() # StopTrailOrder | 
 
 try:
@@ -3893,7 +3954,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **stop_trail_order** | [**StopTrailOrder**](StopTrailOrder.md)|  | 
 
 ### Return type
@@ -3945,7 +4006,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 stop_all_trail_orders = gate_api.StopAllTrailOrders() # StopAllTrailOrders | 
 
 try:
@@ -3962,7 +4023,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **stop_all_trail_orders** | [**StopAllTrailOrders**](StopAllTrailOrders.md)|  | 
 
 ### Return type
@@ -4014,7 +4075,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'contract_example' # str | Contract name (optional)
 is_finished = True # bool | Whether historical order (optional)
 start_at = 56 # int | Start time of time range (optional)
@@ -4042,7 +4103,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Contract name | [optional] 
  **is_finished** | **bool**| Whether historical order | [optional] 
  **start_at** | **int**| Start time of time range | [optional] 
@@ -4105,7 +4166,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 id = 56 # int | Order ID
 
 try:
@@ -4122,7 +4183,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **id** | **int**| Order ID | 
 
 ### Return type
@@ -4174,7 +4235,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 update_trail_order = gate_api.UpdateTrailOrder() # UpdateTrailOrder | 
 
 try:
@@ -4191,7 +4252,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **update_trail_order** | [**UpdateTrailOrder**](UpdateTrailOrder.md)|  | 
 
 ### Return type
@@ -4243,7 +4304,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 id = 56 # int | Order ID
 page_num = 1 # int | Page number, starting from 1 (optional) (default to 1)
 page_size = 20 # int | Number of items per page (optional) (default to 20)
@@ -4262,7 +4323,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **id** | **int**| Order ID | 
  **page_num** | **int**| Page number, starting from 1 | [optional] [default to 1]
  **page_size** | **int**| Number of items per page | [optional] [default to 20]
@@ -4316,7 +4377,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 create_chase_order_req = gate_api.CreateChaseOrderReq() # CreateChaseOrderReq | 
 
 try:
@@ -4333,7 +4394,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **create_chase_order_req** | [**CreateChaseOrderReq**](CreateChaseOrderReq.md)|  | 
 
 ### Return type
@@ -4385,7 +4446,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 stop_chase_order_req = gate_api.StopChaseOrderReq() # StopChaseOrderReq | 
 
 try:
@@ -4402,7 +4463,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **stop_chase_order_req** | [**StopChaseOrderReq**](StopChaseOrderReq.md)|  | 
 
 ### Return type
@@ -4454,7 +4515,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 stop_all_chase_orders_req = gate_api.StopAllChaseOrdersReq() # StopAllChaseOrdersReq | 
 
 try:
@@ -4471,7 +4532,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **stop_all_chase_orders_req** | [**StopAllChaseOrdersReq**](StopAllChaseOrdersReq.md)|  | 
 
 ### Return type
@@ -4523,7 +4584,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 sort_by = 56 # int | Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0
 contract = 'contract_example' # str | Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase (optional)
 is_finished = True # bool | true to query finished orders, false to query in-progress orders (optional)
@@ -4549,7 +4610,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **sort_by** | **int**| Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 | 
  **contract** | **str**| Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase | [optional] 
  **is_finished** | **bool**| true to query finished orders, false to query in-progress orders | [optional] 
@@ -4610,7 +4671,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 id = 'id_example' # str | Order ID, must be a non-zero positive integer
 
 try:
@@ -4627,7 +4688,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **id** | **str**| Order ID, must be a non-zero positive integer | 
 
 ### Return type
@@ -4679,7 +4740,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 status = 'status_example' # str | Query order list based on status
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
@@ -4699,7 +4760,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **status** | **str**| Query order list based on status | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
@@ -4754,7 +4815,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 futures_price_triggered_order = gate_api.FuturesPriceTriggeredOrder() # FuturesPriceTriggeredOrder | 
 
 try:
@@ -4771,7 +4832,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **futures_price_triggered_order** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  | 
 
 ### Return type
@@ -4823,7 +4884,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 contract = 'BTC_USDT' # str | Futures contract, return related data only if specified (optional)
 
 try:
@@ -4840,7 +4901,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **contract** | **str**| Futures contract, return related data only if specified | [optional] 
 
 ### Return type
@@ -4892,7 +4953,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 order_id = 56 # int | ID returned when order is successfully created
 
 try:
@@ -4909,7 +4970,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **order_id** | **int**| ID returned when order is successfully created | 
 
 ### Return type
@@ -4961,7 +5022,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 order_id = 56 # int | ID returned when order is successfully created
 
 try:
@@ -4978,7 +5039,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **order_id** | **int**| ID returned when order is successfully created | 
 
 ### Return type
@@ -5030,7 +5091,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
-settle = 'usdt' # str | Settle currency
+settle = 'usdt' # str | Perpetual futures settlement currency
 futures_update_price_triggered_order = gate_api.FuturesUpdatePriceTriggeredOrder() # FuturesUpdatePriceTriggeredOrder | 
 
 try:
@@ -5047,7 +5108,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **str**| Settle currency | 
+ **settle** | **str**| Perpetual futures settlement currency | 
  **futures_update_price_triggered_order** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  | 
 
 ### Return type

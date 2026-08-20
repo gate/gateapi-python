@@ -45,7 +45,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -71,7 +71,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
         :param _return_http_data_only: response data without head status code
@@ -173,7 +173,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -199,7 +199,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
         :param _return_http_data_only: response data without head status code
@@ -301,7 +301,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -326,7 +326,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -413,6 +413,120 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def list_futures_adl_risk_states(self, settle, **kwargs):  # noqa: E501
+        """List market-level ADL risk states  # noqa: E501
+
+        List the current ADL risk states of all futures markets for the specified settlement currency  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_futures_adl_risk_states(settle, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Perpetual futures settlement currency (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FuturesADLRiskStates
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_futures_adl_risk_states_with_http_info(settle, **kwargs)  # noqa: E501
+
+    def list_futures_adl_risk_states_with_http_info(self, settle, **kwargs):  # noqa: E501
+        """List market-level ADL risk states  # noqa: E501
+
+        List the current ADL risk states of all futures markets for the specified settlement currency  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_futures_adl_risk_states_with_http_info(settle, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Perpetual futures settlement currency (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FuturesADLRiskStates, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_futures_adl_risk_states" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `list_futures_adl_risk_states`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/adl_risk_states', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FuturesADLRiskStates',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_futures_order_book(self, settle, contract, **kwargs):  # noqa: E501
         """Query futures market depth information  # noqa: E501
 
@@ -423,7 +537,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
@@ -452,7 +566,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         :param int limit: Number of depth levels
@@ -564,7 +678,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -594,7 +708,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -717,7 +831,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
@@ -748,7 +862,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
@@ -867,7 +981,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
@@ -897,7 +1011,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         :param int to: Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
@@ -1011,7 +1125,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1036,7 +1150,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1128,7 +1242,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int limit: Maximum number of records returned in a single list
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
@@ -1156,7 +1270,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int limit: Maximum number of records returned in a single list
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
@@ -1268,7 +1382,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param BatchFundingRatesRequest batch_funding_rates_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1293,7 +1407,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param BatchFundingRatesRequest batch_funding_rates_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1393,7 +1507,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int limit: Maximum number of records returned in a single list
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1418,7 +1532,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int limit: Maximum number of records returned in a single list
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1514,7 +1628,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start timestamp
         :param str interval:
@@ -1542,7 +1656,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start timestamp
         :param str interval:
@@ -1654,7 +1768,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str index: Index name (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1679,7 +1793,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str index: Index name (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1776,7 +1890,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -1805,7 +1919,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -1914,7 +2028,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -1942,7 +2056,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -2049,7 +2163,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2074,7 +2188,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2163,7 +2277,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -2194,7 +2308,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -2312,7 +2426,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param bool holding: Return only real positions - true, return all - false
         :param int limit: Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100].
         :param int offset: List offset, starting from 0
@@ -2339,7 +2453,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param bool holding: Return only real positions - true, return all - false
         :param int limit: Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100].
         :param int offset: List offset, starting from 0
@@ -2445,7 +2559,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -2474,7 +2588,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -2593,7 +2707,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2619,7 +2733,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2716,7 +2830,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross. (required)
         :param str dual_side: dual_long - Long, dual_short - Short (required)
@@ -2744,7 +2858,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str pos_margin_mode: Position Margin Mode, required for split position mode, values: isolated/cross. (required)
         :param str dual_side: dual_long - Long, dual_short - Short (required)
@@ -2857,7 +2971,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str change: Margin change amount, positive number increases, negative number decreases (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2884,7 +2998,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str change: Margin change amount, positive number increases, negative number decreases (required)
         :param _return_http_data_only: response data without head status code
@@ -2989,7 +3103,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str leverage: Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty. (required)
         :param str cross_leverage_limit: Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0.
@@ -3018,7 +3132,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str leverage: Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty. (required)
         :param str cross_leverage_limit: Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0.
@@ -3131,7 +3245,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str leverage: Position Leverage Multiple (required)
         :param str margin_mode: Margin Mode isolated/cross (required)
@@ -3160,7 +3274,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str leverage: Position Leverage Multiple (required)
         :param str margin_mode: Margin Mode isolated/cross (required)
@@ -3276,7 +3390,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesPositionCrossMode futures_position_cross_mode: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3301,7 +3415,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesPositionCrossMode futures_position_cross_mode: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3401,7 +3515,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param UpdateDualCompPositionCrossModeRequest update_dual_comp_position_cross_mode_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3426,7 +3540,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param UpdateDualCompPositionCrossModeRequest update_dual_comp_position_cross_mode_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3527,7 +3641,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str risk_limit: New risk limit value (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3554,7 +3668,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str risk_limit: New risk limit value (required)
         :param _return_http_data_only: response data without head status code
@@ -3659,7 +3773,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param bool dual_mode: Whether to enable Hedge Mode (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3685,7 +3799,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param bool dual_mode: Whether to enable Hedge Mode (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3782,7 +3896,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str position_mode: Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3808,7 +3922,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str position_mode: Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3904,7 +4018,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3929,7 +4043,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -4025,7 +4139,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str change: Margin change amount, positive number increases, negative number decreases (required)
         :param str dual_side: Long or short position (required)
@@ -4052,7 +4166,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str change: Margin change amount, positive number increases, negative number decreases (required)
         :param str dual_side: Long or short position (required)
@@ -4164,7 +4278,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str leverage: New position leverage (required)
         :param str cross_leverage_limit: Cross margin leverage (valid only when `leverage` is 0)
@@ -4191,7 +4305,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str leverage: New position leverage (required)
         :param str cross_leverage_limit: Cross margin leverage (valid only when `leverage` is 0)
@@ -4300,7 +4414,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str risk_limit: New risk limit value (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4327,7 +4441,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract (required)
         :param str risk_limit: New risk limit value (required)
         :param _return_http_data_only: response data without head status code
@@ -4432,7 +4546,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str status: Query order list based on status (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
@@ -4462,7 +4576,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str status: Query order list based on status (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
@@ -4581,7 +4695,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesOrder futures_order: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4608,7 +4722,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesOrder futures_order: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _return_http_data_only: response data without head status code
@@ -4713,7 +4827,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param str contract: Contract Identifier; if specified, only cancel pending orders related to this contract
         :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
@@ -4744,7 +4858,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param str contract: Contract Identifier; if specified, only cancel pending orders related to this contract
         :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
@@ -4856,7 +4970,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -4885,7 +4999,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -5000,7 +5114,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param list[FuturesOrder] futures_order: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5027,7 +5141,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param list[FuturesOrder] futures_order: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _return_http_data_only: response data without head status code
@@ -5132,7 +5246,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -5158,7 +5272,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -5254,7 +5368,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param FuturesOrderAmendment futures_order_amendment: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
@@ -5281,7 +5395,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param FuturesOrderAmendment futures_order_amendment: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
@@ -5393,7 +5507,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
@@ -5420,7 +5534,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str order_id: The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely. (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param str action_mode: Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
@@ -5525,7 +5639,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int order: Futures order ID, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
@@ -5555,7 +5669,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int order: Futures order ID, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
@@ -5669,7 +5783,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -5699,7 +5813,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -5817,7 +5931,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -5848,7 +5962,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -5970,7 +6084,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -6000,7 +6114,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -6118,7 +6232,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -6148,7 +6262,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
         :param int offset: List offset, starting from 0
@@ -6267,7 +6381,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param CountdownCancelAllFuturesTask countdown_cancel_all_futures_task: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6293,7 +6407,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param CountdownCancelAllFuturesTask countdown_cancel_all_futures_task: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6393,7 +6507,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6418,7 +6532,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6511,7 +6625,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param list[str] request_body: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6538,7 +6652,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param list[str] request_body: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _return_http_data_only: response data without head status code
@@ -6643,7 +6757,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param list[BatchAmendOrderReq] batch_amend_order_req: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6670,7 +6784,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param list[BatchAmendOrderReq] batch_amend_order_req: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _return_http_data_only: response data without head status code
@@ -6775,7 +6889,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str table_id: Risk limit table ID (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6801,7 +6915,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str table_id: Risk limit table ID (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6898,7 +7012,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesBBOOrder futures_bbo_order: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6925,7 +7039,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesBBOOrder futures_bbo_order: (required)
         :param str x_gate_exptime: Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         :param _return_http_data_only: response data without head status code
@@ -7029,7 +7143,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param CreateTrailOrder create_trail_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7054,7 +7168,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param CreateTrailOrder create_trail_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7154,7 +7268,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopTrailOrder stop_trail_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7179,7 +7293,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopTrailOrder stop_trail_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7279,7 +7393,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopAllTrailOrders stop_all_trail_orders: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7304,7 +7418,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopAllTrailOrders stop_all_trail_orders: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7404,7 +7518,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Contract name
         :param bool is_finished: Whether historical order
         :param int start_at: Start time of time range
@@ -7440,7 +7554,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Contract name
         :param bool is_finished: Whether historical order
         :param int start_at: Start time of time range
@@ -7576,7 +7690,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int id: Order ID (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7601,7 +7715,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int id: Order ID (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7697,7 +7811,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param UpdateTrailOrder update_trail_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7722,7 +7836,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param UpdateTrailOrder update_trail_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7822,7 +7936,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int id: Order ID (required)
         :param int page_num: Page number, starting from 1
         :param int page_size: Number of items per page
@@ -7849,7 +7963,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int id: Order ID (required)
         :param int page_num: Page number, starting from 1
         :param int page_size: Number of items per page
@@ -7953,7 +8067,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param CreateChaseOrderReq create_chase_order_req: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7978,7 +8092,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param CreateChaseOrderReq create_chase_order_req: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8078,7 +8192,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopChaseOrderReq stop_chase_order_req: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8103,7 +8217,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopChaseOrderReq stop_chase_order_req: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8203,7 +8317,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopAllChaseOrdersReq stop_all_chase_orders_req: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8228,7 +8342,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param StopAllChaseOrdersReq stop_all_chase_orders_req: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8328,7 +8442,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int sort_by: Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
         :param str contract: Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
         :param bool is_finished: true to query finished orders, false to query in-progress orders
@@ -8362,7 +8476,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int sort_by: Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
         :param str contract: Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
         :param bool is_finished: true to query finished orders, false to query in-progress orders
@@ -8500,7 +8614,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str id: Order ID, must be a non-zero positive integer (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8525,7 +8639,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str id: Order ID, must be a non-zero positive integer (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8621,7 +8735,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str status: Query order list based on status (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
@@ -8649,7 +8763,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str status: Query order list based on status (required)
         :param str contract: Futures contract, return related data only if specified
         :param int limit: Maximum number of records returned in a single list
@@ -8763,7 +8877,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesPriceTriggeredOrder futures_price_triggered_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8788,7 +8902,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesPriceTriggeredOrder futures_price_triggered_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8888,7 +9002,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8913,7 +9027,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param str contract: Futures contract, return related data only if specified
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9005,7 +9119,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int order_id: ID returned when order is successfully created (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9030,7 +9144,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int order_id: ID returned when order is successfully created (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9126,7 +9240,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int order_id: ID returned when order is successfully created (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9151,7 +9265,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param int order_id: ID returned when order is successfully created (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9247,7 +9361,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9272,7 +9386,7 @@ class FuturesApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str settle: Settle currency (required)
+        :param str settle: Perpetual futures settlement currency (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers

@@ -36,18 +36,22 @@ class UniCurrencyPair(object):
         'currency_pair': 'str',
         'base_min_borrow_amount': 'str',
         'quote_min_borrow_amount': 'str',
-        'leverage': 'str'
+        'leverage': 'str',
+        'status': 'str',
+        'delisted_time': 'float'
     }
 
     attribute_map = {
         'currency_pair': 'currency_pair',
         'base_min_borrow_amount': 'base_min_borrow_amount',
         'quote_min_borrow_amount': 'quote_min_borrow_amount',
-        'leverage': 'leverage'
+        'leverage': 'leverage',
+        'status': 'status',
+        'delisted_time': 'delisted_time'
     }
 
-    def __init__(self, currency_pair=None, base_min_borrow_amount=None, quote_min_borrow_amount=None, leverage=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, Configuration) -> None
+    def __init__(self, currency_pair=None, base_min_borrow_amount=None, quote_min_borrow_amount=None, leverage=None, status=None, delisted_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, float, Configuration) -> None
         """UniCurrencyPair - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +61,8 @@ class UniCurrencyPair(object):
         self._base_min_borrow_amount = None
         self._quote_min_borrow_amount = None
         self._leverage = None
+        self._status = None
+        self._delisted_time = None
         self.discriminator = None
 
         if currency_pair is not None:
@@ -67,6 +73,10 @@ class UniCurrencyPair(object):
             self.quote_min_borrow_amount = quote_min_borrow_amount
         if leverage is not None:
             self.leverage = leverage
+        if status is not None:
+            self.status = status
+        if delisted_time is not None:
+            self.delisted_time = delisted_time
 
     @property
     def currency_pair(self):
@@ -159,6 +169,52 @@ class UniCurrencyPair(object):
         """
 
         self._leverage = leverage
+
+    @property
+    def status(self):
+        """Gets the status of this UniCurrencyPair.  # noqa: E501
+
+        Status  - enabled: Enabled - disabled: Disabled  # noqa: E501
+
+        :return: The status of this UniCurrencyPair.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this UniCurrencyPair.
+
+        Status  - enabled: Enabled - disabled: Disabled  # noqa: E501
+
+        :param status: The status of this UniCurrencyPair.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def delisted_time(self):
+        """Gets the delisted_time of this UniCurrencyPair.  # noqa: E501
+
+        Delisting Time  # noqa: E501
+
+        :return: The delisted_time of this UniCurrencyPair.  # noqa: E501
+        :rtype: float
+        """
+        return self._delisted_time
+
+    @delisted_time.setter
+    def delisted_time(self, delisted_time):
+        """Sets the delisted_time of this UniCurrencyPair.
+
+        Delisting Time  # noqa: E501
+
+        :param delisted_time: The delisted_time of this UniCurrencyPair.  # noqa: E501
+        :type: float
+        """
+
+        self._delisted_time = delisted_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

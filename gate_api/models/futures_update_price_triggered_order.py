@@ -96,7 +96,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
     def settle(self):
         """Gets the settle of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
 
-        Settlement Currency (e.g., USDT, BTC)  # noqa: E501
+        Perpetual futures settlement currency, e.g. usdt, btc, usd1  # noqa: E501
 
         :return: The settle of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
         :rtype: str
@@ -107,7 +107,7 @@ class FuturesUpdatePriceTriggeredOrder(object):
     def settle(self, settle):
         """Sets the settle of this FuturesUpdatePriceTriggeredOrder.
 
-        Settlement Currency (e.g., USDT, BTC)  # noqa: E501
+        Perpetual futures settlement currency, e.g. usdt, btc, usd1  # noqa: E501
 
         :param settle: The settle of this FuturesUpdatePriceTriggeredOrder.  # noqa: E501
         :type: str

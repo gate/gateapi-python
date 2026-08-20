@@ -196,7 +196,7 @@ class PartnerDataAggregated(object):
     def trading_user_count(self):
         """Gets the trading_user_count of this PartnerDataAggregated.  # noqa: E501
 
-        Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type=0(all), and returns nullfor other business types.  # noqa: E501
+        Transaction participant count (string format, consistent with online JSON serialization) only returns a specific value when business_type=0(all), and returns nullfor other business types.  # noqa: E501
 
         :return: The trading_user_count of this PartnerDataAggregated.  # noqa: E501
         :rtype: str
@@ -207,7 +207,7 @@ class PartnerDataAggregated(object):
     def trading_user_count(self, trading_user_count):
         """Sets the trading_user_count of this PartnerDataAggregated.
 
-        Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type=0(all), and returns nullfor other business types.  # noqa: E501
+        Transaction participant count (string format, consistent with online JSON serialization) only returns a specific value when business_type=0(all), and returns nullfor other business types.  # noqa: E501
 
         :param trading_user_count: The trading_user_count of this PartnerDataAggregated.  # noqa: E501
         :type: str

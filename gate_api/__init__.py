@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.123"
+__version__ = "7.2.128"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -322,6 +322,8 @@ from gate_api.models.flash_swap_preview_request import FlashSwapPreviewRequest
 from gate_api.models.funding_account import FundingAccount
 from gate_api.models.funding_rate_record import FundingRateRecord
 from gate_api.models.future_cancel_order_result import FutureCancelOrderResult
+from gate_api.models.futures_adl_risk_state import FuturesADLRiskState
+from gate_api.models.futures_adl_risk_states import FuturesADLRiskStates
 from gate_api.models.futures_account import FuturesAccount
 from gate_api.models.futures_account_book import FuturesAccountBook
 from gate_api.models.futures_account_history import FuturesAccountHistory
@@ -626,6 +628,7 @@ from gate_api.models.send_chat_message_request import SendChatMessageRequest
 from gate_api.models.set_merchant_work_hours_request import SetMerchantWorkHoursRequest
 from gate_api.models.small_balance import SmallBalance
 from gate_api.models.small_balance_history import SmallBalanceHistory
+from gate_api.models.spot_account import SpotAccount
 from gate_api.models.spot_account_book import SpotAccountBook
 from gate_api.models.spot_currency_chain import SpotCurrencyChain
 from gate_api.models.spot_fee import SpotFee

@@ -60,7 +60,7 @@ class OrderCreateV1Req(object):
     def _from(self):
         """Gets the _from of this OrderCreateV1Req.  # noqa: E501
 
-        Sell ​​side list, at least one item; each item is the currency and amount `amount` to be swapped out.  # noqa: E501
+        Sell side list, at least one item; each item is the currency and amount `amount` to be swapped out.  # noqa: E501
 
         :return: The _from of this OrderCreateV1Req.  # noqa: E501
         :rtype: list[CreateParam]
@@ -71,7 +71,7 @@ class OrderCreateV1Req(object):
     def _from(self, _from):
         """Sets the _from of this OrderCreateV1Req.
 
-        Sell ​​side list, at least one item; each item is the currency and amount `amount` to be swapped out.  # noqa: E501
+        Sell side list, at least one item; each item is the currency and amount `amount` to be swapped out.  # noqa: E501
 
         :param _from: The _from of this OrderCreateV1Req.  # noqa: E501
         :type: list[CreateParam]

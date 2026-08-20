@@ -38,7 +38,7 @@ Method | HTTP request | Description
 
 Get unified account information
 
-The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  For specific formulas, please refer to [Margin Formula](#margin-formula)
+The assets of each currency in the account are assigned adjustment coefficients according to their liquidity and uniformly converted to USD to calculate the account's asset and position values.  For details, see [Margin Formula](https://www.gate.com/help/unified-account/risk_control_mechanism/33018).
 
 ### Example
 

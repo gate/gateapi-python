@@ -4,7 +4,6 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**p2p_merchant_query_spot_balance**](P2pApi.md#p2p_merchant_query_spot_balance) | **GET** /spot/accounts | Query spot balance
 [**p2p_merchant_account_get_user_info**](P2pApi.md#p2p_merchant_account_get_user_info) | **POST** /p2p/merchant/account/get_user_info | Get account information
 [**p2p_merchant_account_get_counterparty_user_info**](P2pApi.md#p2p_merchant_account_get_counterparty_user_info) | **POST** /p2p/merchant/account/get_counterparty_user_info | Get counterparty information
 [**p2p_merchant_account_get_myself_payment**](P2pApi.md#p2p_merchant_account_get_myself_payment) | **POST** /p2p/merchant/account/get_myself_payment | Get payment method list
@@ -24,70 +23,6 @@ Method | HTTP request | Description
 [**p2p_merchant_chat_send_chat_message**](P2pApi.md#p2p_merchant_chat_send_chat_message) | **POST** /p2p/merchant/chat/send_chat_message | Send text message
 [**p2p_merchant_chat_upload_chat_file**](P2pApi.md#p2p_merchant_chat_upload_chat_file) | **POST** /p2p/merchant/chat/upload_chat_file | Upload chat file
 
-
-# **p2p_merchant_query_spot_balance**
-> p2p_merchant_query_spot_balance()
-
-Query spot balance
-
-Use Spot API `GET /spot/accounts` to query spot account balance; this entry is for guidance only and does not define separate P2P Merchant request parameters or response body.
-
-### Example
-
-* Api Key Authentication (apiv4):
-```python
-from __future__ import print_function
-import gate_api
-from gate_api.exceptions import ApiException, GateApiException
-# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
-# See configuration.py for a list of all supported configuration parameters.
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure APIv4 key authorization
-configuration = gate_api.Configuration(
-    host = "https://api.gateio.ws/api/v4",
-    key = "YOU_API_KEY",
-    secret = "YOUR_API_SECRET"
-)
-
-api_client = gate_api.ApiClient(configuration)
-# Create an instance of the API class
-api_instance = gate_api.P2pApi(api_client)
-
-try:
-    # Query spot balance
-    api_instance.p2p_merchant_query_spot_balance()
-except GateApiException as ex:
-    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
-except ApiException as e:
-    print("Exception when calling P2pApi->p2p_merchant_query_spot_balance: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Refer to the Spot API &#x60;GET /spot/accounts&#x60; response definition. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **p2p_merchant_account_get_user_info**
 > P2pMerchantUserInfoResponse p2p_merchant_account_get_user_info()
