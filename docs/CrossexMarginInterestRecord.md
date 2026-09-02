@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **liability_coin** | **str** | Debt Currency | 
 **interest** | **str** | Interest | 
 **interest_rate** | **str** | interest rate | 
-**interest_type** | **str** | Interest deduction type (&#x60;PERIODIC_POSITION&#x60; hourly interest on position, &#x60;PERIODIC_OPEN_ORDER&#x60; hourly interest on open orders, &#x60;IMMEDIATE_OPEN_ORDER&#x60; interest charged on order placement, &#x60;PERIODIC_ISOLATED&#x60; hourly interest on debt) | 
+**interest_type** | **str** | Interest deduction type &#x60;PERIODIC_POSITION&#x60;: hourly interest charged on positions &#x60;PERIODIC_OPEN_ORDER&#x60;: hourly interest charged on open orders &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged when an order is placed &#x60;PERIODIC_ISOLATED&#x60;: hourly interest charged on liabilities | 
 **create_time** | **str** | Created time | 
 **exchange_type** | **str** | Exchange | 
 

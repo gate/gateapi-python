@@ -237,7 +237,7 @@ class CrossexOrderRequest(object):
     def qty(self):
         """Gets the qty of this CrossexOrderRequest.  # noqa: E501
 
-        Order quantity (required unless spot market buy)  # noqa: E501
+        Order quantity (required unless spot or margin market buy)  # noqa: E501
 
         :return: The qty of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -248,7 +248,7 @@ class CrossexOrderRequest(object):
     def qty(self, qty):
         """Sets the qty of this CrossexOrderRequest.
 
-        Order quantity (required unless spot market buy)  # noqa: E501
+        Order quantity (required unless spot or margin market buy)  # noqa: E501
 
         :param qty: The qty of this CrossexOrderRequest.  # noqa: E501
         :type: str

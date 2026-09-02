@@ -118,7 +118,7 @@ class InlineResponse2002(object):
     def funding_interval(self):
         """Gets the funding_interval of this InlineResponse2002.  # noqa: E501
 
-        Tier  # noqa: E501
+        Funding interval (in seconds)  # noqa: E501
 
         :return: The funding_interval of this InlineResponse2002.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class InlineResponse2002(object):
     def funding_interval(self, funding_interval):
         """Sets the funding_interval of this InlineResponse2002.
 
-        Tier  # noqa: E501
+        Funding interval (in seconds)  # noqa: E501
 
         :param funding_interval: The funding_interval of this InlineResponse2002.  # noqa: E501
         :type: str
@@ -143,7 +143,7 @@ class InlineResponse2002(object):
     def funding_time(self):
         """Gets the funding_time of this InlineResponse2002.  # noqa: E501
 
-        Next funding time  # noqa: E501
+        Next funding time (Unix timestamp in milliseconds)  # noqa: E501
 
         :return: The funding_time of this InlineResponse2002.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class InlineResponse2002(object):
     def funding_time(self, funding_time):
         """Sets the funding_time of this InlineResponse2002.
 
-        Next funding time  # noqa: E501
+        Next funding time (Unix timestamp in milliseconds)  # noqa: E501
 
         :param funding_time: The funding_time of this InlineResponse2002.  # noqa: E501
         :type: str

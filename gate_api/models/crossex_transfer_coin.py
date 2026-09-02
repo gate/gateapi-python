@@ -97,7 +97,7 @@ class CrossexTransferCoin(object):
     def min_trans_amount(self):
         """Gets the min_trans_amount of this CrossexTransferCoin.  # noqa: E501
 
-        Minimum Transfer Quantity (including estimated fees)  # noqa: E501
+        Minimum transfer amount (estimated fee included)  # noqa: E501
 
         :return: The min_trans_amount of this CrossexTransferCoin.  # noqa: E501
         :rtype: float
@@ -108,7 +108,7 @@ class CrossexTransferCoin(object):
     def min_trans_amount(self, min_trans_amount):
         """Sets the min_trans_amount of this CrossexTransferCoin.
 
-        Minimum Transfer Quantity (including estimated fees)  # noqa: E501
+        Minimum transfer amount (estimated fee included)  # noqa: E501
 
         :param min_trans_amount: The min_trans_amount of this CrossexTransferCoin.  # noqa: E501
         :type: float

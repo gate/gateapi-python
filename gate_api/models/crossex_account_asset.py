@@ -225,7 +225,7 @@ class CrossexAccountAsset(object):
     def equity(self):
         """Gets the equity of this CrossexAccountAsset.  # noqa: E501
 
-        Equity (only USDT has a value; other assets are 0)  # noqa: E501
+        Net margin equity for the currency  # noqa: E501
 
         :return: The equity of this CrossexAccountAsset.  # noqa: E501
         :rtype: str
@@ -236,7 +236,7 @@ class CrossexAccountAsset(object):
     def equity(self, equity):
         """Sets the equity of this CrossexAccountAsset.
 
-        Equity (only USDT has a value; other assets are 0)  # noqa: E501
+        Net margin equity for the currency  # noqa: E501
 
         :param equity: The equity of this CrossexAccountAsset.  # noqa: E501
         :type: str
@@ -248,7 +248,7 @@ class CrossexAccountAsset(object):
     def futures_initial_margin(self):
         """Gets the futures_initial_margin of this CrossexAccountAsset.  # noqa: E501
 
-        Futures initial margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific futures initial margin. This value is populated for futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :return: The futures_initial_margin of this CrossexAccountAsset.  # noqa: E501
         :rtype: str
@@ -259,7 +259,7 @@ class CrossexAccountAsset(object):
     def futures_initial_margin(self, futures_initial_margin):
         """Sets the futures_initial_margin of this CrossexAccountAsset.
 
-        Futures initial margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific futures initial margin. This value is populated for futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :param futures_initial_margin: The futures_initial_margin of this CrossexAccountAsset.  # noqa: E501
         :type: str
@@ -271,7 +271,7 @@ class CrossexAccountAsset(object):
     def futures_maintenance_margin(self):
         """Gets the futures_maintenance_margin of this CrossexAccountAsset.  # noqa: E501
 
-        Futures maintenance margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific futures maintenance margin. This value is populated for futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :return: The futures_maintenance_margin of this CrossexAccountAsset.  # noqa: E501
         :rtype: str
@@ -282,7 +282,7 @@ class CrossexAccountAsset(object):
     def futures_maintenance_margin(self, futures_maintenance_margin):
         """Sets the futures_maintenance_margin of this CrossexAccountAsset.
 
-        Futures maintenance margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific futures maintenance margin. This value is populated for futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :param futures_maintenance_margin: The futures_maintenance_margin of this CrossexAccountAsset.  # noqa: E501
         :type: str
@@ -294,7 +294,7 @@ class CrossexAccountAsset(object):
     def borrowing_initial_margin(self):
         """Gets the borrowing_initial_margin of this CrossexAccountAsset.  # noqa: E501
 
-        Margin trading initial margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific margin trading initial margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :return: The borrowing_initial_margin of this CrossexAccountAsset.  # noqa: E501
         :rtype: str
@@ -305,7 +305,7 @@ class CrossexAccountAsset(object):
     def borrowing_initial_margin(self, borrowing_initial_margin):
         """Sets the borrowing_initial_margin of this CrossexAccountAsset.
 
-        Margin trading initial margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific margin trading initial margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :param borrowing_initial_margin: The borrowing_initial_margin of this CrossexAccountAsset.  # noqa: E501
         :type: str
@@ -319,7 +319,7 @@ class CrossexAccountAsset(object):
     def borrowing_maintenance_margin(self):
         """Gets the borrowing_maintenance_margin of this CrossexAccountAsset.  # noqa: E501
 
-        Margin trading maintenance margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific margin trading maintenance margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :return: The borrowing_maintenance_margin of this CrossexAccountAsset.  # noqa: E501
         :rtype: str
@@ -330,7 +330,7 @@ class CrossexAccountAsset(object):
     def borrowing_maintenance_margin(self, borrowing_maintenance_margin):
         """Sets the borrowing_maintenance_margin of this CrossexAccountAsset.
 
-        Margin trading maintenance margin (only USDT has a value; other assets are 0)  # noqa: E501
+        Currency-specific margin trading maintenance margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD)  # noqa: E501
 
         :param borrowing_maintenance_margin: The borrowing_maintenance_margin of this CrossexAccountAsset.  # noqa: E501
         :type: str
@@ -367,7 +367,7 @@ class CrossexAccountAsset(object):
     def liability(self):
         """Gets the liability of this CrossexAccountAsset.  # noqa: E501
 
-        Liabilities (only meaningful in isolated exchange mode; always 0 in cross-exchange mode)  # noqa: E501
+        Liability for the currency. This value is populated only for USDT, USDC, or USD  # noqa: E501
 
         :return: The liability of this CrossexAccountAsset.  # noqa: E501
         :rtype: str
@@ -378,7 +378,7 @@ class CrossexAccountAsset(object):
     def liability(self, liability):
         """Sets the liability of this CrossexAccountAsset.
 
-        Liabilities (only meaningful in isolated exchange mode; always 0 in cross-exchange mode)  # noqa: E501
+        Liability for the currency. This value is populated only for USDT, USDC, or USD  # noqa: E501
 
         :param liability: The liability of this CrossexAccountAsset.  # noqa: E501
         :type: str

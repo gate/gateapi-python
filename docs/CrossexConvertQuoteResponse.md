@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **to_coin** | **str** | Asset Bought | 
 **from_amount** | **str** | Amount to sell | 
 **to_amount** | **str** | Amount to buy | 
-**price** | **str** | Price | 
+**price** | **str** | Quoted price | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

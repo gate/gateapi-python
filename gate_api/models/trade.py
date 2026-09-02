@@ -49,7 +49,8 @@ class Trade(object):
         'amend_text': 'str',
         'sequence_id': 'str',
         'text': 'str',
-        'deal': 'str'
+        'deal': 'str',
+        'trade_quote': 'str'
     }
 
     attribute_map = {
@@ -69,11 +70,12 @@ class Trade(object):
         'amend_text': 'amend_text',
         'sequence_id': 'sequence_id',
         'text': 'text',
-        'deal': 'deal'
+        'deal': 'deal',
+        'trade_quote': 'trade_quote'
     }
 
-    def __init__(self, id=None, create_time=None, create_time_ms=None, currency_pair=None, side=None, role=None, amount=None, price=None, order_id=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, amend_text=None, sequence_id=None, text=None, deal=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, id=None, create_time=None, create_time_ms=None, currency_pair=None, side=None, role=None, amount=None, price=None, order_id=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, amend_text=None, sequence_id=None, text=None, deal=None, trade_quote=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """Trade - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -96,6 +98,7 @@ class Trade(object):
         self._sequence_id = None
         self._text = None
         self._deal = None
+        self._trade_quote = None
         self.discriminator = None
 
         if id is not None:
@@ -132,6 +135,8 @@ class Trade(object):
             self.text = text
         if deal is not None:
             self.deal = deal
+        if trade_quote is not None:
+            self.trade_quote = trade_quote
 
     @property
     def id(self):
@@ -535,6 +540,29 @@ class Trade(object):
         """
 
         self._deal = deal
+
+    @property
+    def trade_quote(self):
+        """Gets the trade_quote of this Trade.  # noqa: E501
+
+        Actual quote currency used for the trade  # noqa: E501
+
+        :return: The trade_quote of this Trade.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_quote
+
+    @trade_quote.setter
+    def trade_quote(self, trade_quote):
+        """Sets the trade_quote of this Trade.
+
+        Actual quote currency used for the trade  # noqa: E501
+
+        :param trade_quote: The trade_quote of this Trade.  # noqa: E501
+        :type: str
+        """
+
+        self._trade_quote = trade_quote
 
     def to_dict(self):
         """Returns the model properties as a dict"""

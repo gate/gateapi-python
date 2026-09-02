@@ -42,7 +42,9 @@ class OtcBankCreateMultipartRequest(object):
         'remittance_line_number': 'str',
         'agent_bank_name': 'str',
         'agent_bank_swift': 'str',
-        'documentation_file': 'str'
+        'documentation_file': 'str',
+        'documentation_file_key': 'str',
+        'file_type': 'str'
     }
 
     attribute_map = {
@@ -55,11 +57,13 @@ class OtcBankCreateMultipartRequest(object):
         'remittance_line_number': 'remittance_line_number',
         'agent_bank_name': 'agent_bank_name',
         'agent_bank_swift': 'agent_bank_swift',
-        'documentation_file': 'documentation_file'
+        'documentation_file': 'documentation_file',
+        'documentation_file_key': 'documentation_file_key',
+        'file_type': 'file_type'
     }
 
-    def __init__(self, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, iban=None, swift=None, remittance_line_number=None, agent_bank_name=None, agent_bank_swift=None, documentation_file=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, bank_account_name=None, bank_name=None, bank_country=None, bank_address=None, iban=None, swift=None, remittance_line_number=None, agent_bank_name=None, agent_bank_swift=None, documentation_file=None, documentation_file_key=None, file_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """OtcBankCreateMultipartRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +79,8 @@ class OtcBankCreateMultipartRequest(object):
         self._agent_bank_name = None
         self._agent_bank_swift = None
         self._documentation_file = None
+        self._documentation_file_key = None
+        self._file_type = None
         self.discriminator = None
 
         self.bank_account_name = bank_account_name
@@ -89,7 +95,12 @@ class OtcBankCreateMultipartRequest(object):
             self.agent_bank_name = agent_bank_name
         if agent_bank_swift is not None:
             self.agent_bank_swift = agent_bank_swift
-        self.documentation_file = documentation_file
+        if documentation_file is not None:
+            self.documentation_file = documentation_file
+        if documentation_file_key is not None:
+            self.documentation_file_key = documentation_file_key
+        if file_type is not None:
+            self.file_type = file_type
 
     @property
     def bank_account_name(self):
@@ -296,7 +307,7 @@ class OtcBankCreateMultipartRequest(object):
     def documentation_file(self):
         """Gets the documentation_file of this OtcBankCreateMultipartRequest.  # noqa: E501
 
-        Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment)  # noqa: E501
+        Multipart direct upload; mutually exclusive with documentation_file_key  # noqa: E501
 
         :return: The documentation_file of this OtcBankCreateMultipartRequest.  # noqa: E501
         :rtype: str
@@ -307,15 +318,59 @@ class OtcBankCreateMultipartRequest(object):
     def documentation_file(self, documentation_file):
         """Sets the documentation_file of this OtcBankCreateMultipartRequest.
 
-        Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment)  # noqa: E501
+        Multipart direct upload; mutually exclusive with documentation_file_key  # noqa: E501
 
         :param documentation_file: The documentation_file of this OtcBankCreateMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and documentation_file is None:  # noqa: E501
-            raise ValueError("Invalid value for `documentation_file`, must not be `None`")  # noqa: E501
 
         self._documentation_file = documentation_file
+
+    @property
+    def documentation_file_key(self):
+        """Gets the documentation_file_key of this OtcBankCreateMultipartRequest.  # noqa: E501
+
+        Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted)  # noqa: E501
+
+        :return: The documentation_file_key of this OtcBankCreateMultipartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._documentation_file_key
+
+    @documentation_file_key.setter
+    def documentation_file_key(self, documentation_file_key):
+        """Sets the documentation_file_key of this OtcBankCreateMultipartRequest.
+
+        Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted)  # noqa: E501
+
+        :param documentation_file_key: The documentation_file_key of this OtcBankCreateMultipartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._documentation_file_key = documentation_file_key
+
+    @property
+    def file_type(self):
+        """Gets the file_type of this OtcBankCreateMultipartRequest.  # noqa: E501
+
+        Required when using documentation_file_key; plaintext MIME or its base64  # noqa: E501
+
+        :return: The file_type of this OtcBankCreateMultipartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_type
+
+    @file_type.setter
+    def file_type(self, file_type):
+        """Sets the file_type of this OtcBankCreateMultipartRequest.
+
+        Required when using documentation_file_key; plaintext MIME or its base64  # noqa: E501
+
+        :param file_type: The file_type of this OtcBankCreateMultipartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._file_type = file_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

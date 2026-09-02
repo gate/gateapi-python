@@ -38,6 +38,7 @@ class CurrencyPair(object):
         'base_name': 'str',
         'quote': 'str',
         'quote_name': 'str',
+        'trade_quotes': 'list[str]',
         'fee': 'str',
         'min_base_amount': 'str',
         'min_quote_amount': 'str',
@@ -65,6 +66,7 @@ class CurrencyPair(object):
         'base_name': 'base_name',
         'quote': 'quote',
         'quote_name': 'quote_name',
+        'trade_quotes': 'trade_quotes',
         'fee': 'fee',
         'min_base_amount': 'min_base_amount',
         'min_quote_amount': 'min_quote_amount',
@@ -86,8 +88,8 @@ class CurrencyPair(object):
         'market_order_max_money': 'market_order_max_money'
     }
 
-    def __init__(self, id=None, base=None, base_name=None, quote=None, quote_name=None, fee=None, min_base_amount=None, min_quote_amount=None, max_base_amount=None, max_quote_amount=None, amount_precision=None, precision=None, trade_status=None, sell_start=None, buy_start=None, delisting_time=None, type=None, trade_url=None, st_tag=None, up_rate=None, down_rate=None, slippage=None, market_order_max_stock=None, market_order_max_money=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, int, int, str, int, int, int, str, str, bool, str, str, str, str, str, Configuration) -> None
+    def __init__(self, id=None, base=None, base_name=None, quote=None, quote_name=None, trade_quotes=None, fee=None, min_base_amount=None, min_quote_amount=None, max_base_amount=None, max_quote_amount=None, amount_precision=None, precision=None, trade_status=None, sell_start=None, buy_start=None, delisting_time=None, type=None, trade_url=None, st_tag=None, up_rate=None, down_rate=None, slippage=None, market_order_max_stock=None, market_order_max_money=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, list[str], str, str, str, str, str, int, int, str, int, int, int, str, str, bool, str, str, str, str, str, Configuration) -> None
         """CurrencyPair - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -98,6 +100,7 @@ class CurrencyPair(object):
         self._base_name = None
         self._quote = None
         self._quote_name = None
+        self._trade_quotes = None
         self._fee = None
         self._min_base_amount = None
         self._min_quote_amount = None
@@ -129,6 +132,7 @@ class CurrencyPair(object):
             self.quote = quote
         if quote_name is not None:
             self.quote_name = quote_name
+        self.trade_quotes = trade_quotes
         if fee is not None:
             self.fee = fee
         if min_base_amount is not None:
@@ -282,6 +286,29 @@ class CurrencyPair(object):
         """
 
         self._quote_name = quote_name
+
+    @property
+    def trade_quotes(self):
+        """Gets the trade_quotes of this CurrencyPair.  # noqa: E501
+
+        Quote currencies supported by the unified market; null means that the market does not support unified quote currencies  # noqa: E501
+
+        :return: The trade_quotes of this CurrencyPair.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._trade_quotes
+
+    @trade_quotes.setter
+    def trade_quotes(self, trade_quotes):
+        """Sets the trade_quotes of this CurrencyPair.
+
+        Quote currencies supported by the unified market; null means that the market does not support unified quote currencies  # noqa: E501
+
+        :param trade_quotes: The trade_quotes of this CurrencyPair.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._trade_quotes = trade_quotes
 
     @property
     def fee(self):

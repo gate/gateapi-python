@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **exchange_type** | **str** | Exchange | [optional] 
 **balance** | **str** | Balance | [optional] 
 **upnl** | **str** | Unrealized P&amp;L | [optional] 
-**equity** | **str** | Equity (only USDT has a value; other assets are 0) | [optional] 
-**futures_initial_margin** | **str** | Futures initial margin (only USDT has a value; other assets are 0) | [optional] 
-**futures_maintenance_margin** | **str** | Futures maintenance margin (only USDT has a value; other assets are 0) | [optional] 
-**borrowing_initial_margin** | **str** | Margin trading initial margin (only USDT has a value; other assets are 0) | 
-**borrowing_maintenance_margin** | **str** | Margin trading maintenance margin (only USDT has a value; other assets are 0) | 
+**equity** | **str** | Net margin equity for the currency | [optional] 
+**futures_initial_margin** | **str** | Currency-specific futures initial margin. This value is populated for futures settlement currencies (USDT/USDC/USD) | [optional] 
+**futures_maintenance_margin** | **str** | Currency-specific futures maintenance margin. This value is populated for futures settlement currencies (USDT/USDC/USD) | [optional] 
+**borrowing_initial_margin** | **str** | Currency-specific margin trading initial margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD) | 
+**borrowing_maintenance_margin** | **str** | Currency-specific margin trading maintenance margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD) | 
 **available_balance** | **str** | Available Balance | [optional] 
-**liability** | **str** | Liabilities (only meaningful in isolated exchange mode; always 0 in cross-exchange mode) | [optional] 
+**liability** | **str** | Liability for the currency. This value is populated only for USDT, USDC, or USD | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

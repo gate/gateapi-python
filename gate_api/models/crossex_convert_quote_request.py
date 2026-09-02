@@ -68,7 +68,7 @@ class CrossexConvertQuoteRequest(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexConvertQuoteRequest.  # noqa: E501
 
-        Exchange Type  # noqa: E501
+        Exchange type Currently supports only BINANCE, OKX, GATE, BYBIT, HYPERLIQUID, and KRAKEN  # noqa: E501
 
         :return: The exchange_type of this CrossexConvertQuoteRequest.  # noqa: E501
         :rtype: str
@@ -79,7 +79,7 @@ class CrossexConvertQuoteRequest(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexConvertQuoteRequest.
 
-        Exchange Type  # noqa: E501
+        Exchange type Currently supports only BINANCE, OKX, GATE, BYBIT, HYPERLIQUID, and KRAKEN  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexConvertQuoteRequest.  # noqa: E501
         :type: str
@@ -118,7 +118,7 @@ class CrossexConvertQuoteRequest(object):
     def to_coin(self):
         """Gets the to_coin of this CrossexConvertQuoteRequest.  # noqa: E501
 
-        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
+        Asset to receive OKX and GATE only support conversion to BTC, ETH, or USDT BYBIT and BINANCE only support conversion to USDT HYPERLIQUID only supports conversion to USDT or USDC KRAKEN only supports conversion to USDT  # noqa: E501
 
         :return: The to_coin of this CrossexConvertQuoteRequest.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class CrossexConvertQuoteRequest(object):
     def to_coin(self, to_coin):
         """Sets the to_coin of this CrossexConvertQuoteRequest.
 
-        Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)  # noqa: E501
+        Asset to receive OKX and GATE only support conversion to BTC, ETH, or USDT BYBIT and BINANCE only support conversion to USDT HYPERLIQUID only supports conversion to USDT or USDC KRAKEN only supports conversion to USDT  # noqa: E501
 
         :param to_coin: The to_coin of this CrossexConvertQuoteRequest.  # noqa: E501
         :type: str

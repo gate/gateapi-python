@@ -143,7 +143,7 @@ class CrossexAccountBookRecord(object):
     def business_id(self):
         """Gets the business_id of this CrossexAccountBookRecord.  # noqa: E501
 
-        Business ID. Its meaning varies by `statement_type`. `TRANSACTION`: order ID. `TRADING_FEE`: order ID. `LIQUIDATION_FEE`: liquidation order ID. `FUNDING_FEE`: position ID and funding fee settlement time. For other types, it is a system-generated processing ID with no business meaning.  # noqa: E501
+        Business ID. Its meaning varies by `statement_type`. TRANSACTION: order ID TRADING_FEE: order ID LIQUIDATION_FEE: liquidation order ID FUNDING_FEE: position ID and funding fee settlement time For other types, it is a system-generated processing ID with no business meaning  # noqa: E501
 
         :return: The business_id of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class CrossexAccountBookRecord(object):
     def business_id(self, business_id):
         """Sets the business_id of this CrossexAccountBookRecord.
 
-        Business ID. Its meaning varies by `statement_type`. `TRANSACTION`: order ID. `TRADING_FEE`: order ID. `LIQUIDATION_FEE`: liquidation order ID. `FUNDING_FEE`: position ID and funding fee settlement time. For other types, it is a system-generated processing ID with no business meaning.  # noqa: E501
+        Business ID. Its meaning varies by `statement_type`. TRANSACTION: order ID TRADING_FEE: order ID LIQUIDATION_FEE: liquidation order ID FUNDING_FEE: position ID and funding fee settlement time For other types, it is a system-generated processing ID with no business meaning  # noqa: E501
 
         :param business_id: The business_id of this CrossexAccountBookRecord.  # noqa: E501
         :type: str
@@ -168,7 +168,7 @@ class CrossexAccountBookRecord(object):
     def statement_type(self):
         """Gets the statement_type of this CrossexAccountBookRecord.  # noqa: E501
 
-        Bill entry type. `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay `INTEREST_ISOLATED` isolated-venue interest entry `ACCOUNT_MODE_CHANGE` account mode switch entry `KRAKEN_CONVERSION` conversion of other margin coins to cover a negative KRAKEN_USD balance `OTHER` other  # noqa: E501
+        Account book entry type `TRANSACTION`: trade `TRADING_FEE`: trading fee `FUNDING_FEE`: futures funding fee `LIQUIDATION_FEE`: liquidation fee `TRANSFER_IN`: transfer in `TRANSFER_OUT`: transfer out `BANKRUPT_COMPENSATION`: bankruptcy compensation `AUTO_REPAY`: automatic repayment of margin position liabilities `INTEREST_ISOLATED`: interest entry `ACCOUNT_MODE_CHANGE`: balance change caused by an account mode switch `KRAKEN_CONVERSION`: conversion of other margin currencies to cover a negative KRAKEN_USD balance `OTHER`: other  # noqa: E501
 
         :return: The statement_type of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
@@ -179,7 +179,7 @@ class CrossexAccountBookRecord(object):
     def statement_type(self, statement_type):
         """Sets the statement_type of this CrossexAccountBookRecord.
 
-        Bill entry type. `TRANSACTION` trade `TRADING_FEE` fee `FUNDING_FEE` funding `LIQUIDATION_FEE` liquidation `TRANSFER_IN` deposit `TRANSFER_OUT` withdrawal `BANKRUPT_COMPENSATION` bankruptcy subsidy `AUTO_REPAY` margin auto-repay `INTEREST_ISOLATED` isolated-venue interest entry `ACCOUNT_MODE_CHANGE` account mode switch entry `KRAKEN_CONVERSION` conversion of other margin coins to cover a negative KRAKEN_USD balance `OTHER` other  # noqa: E501
+        Account book entry type `TRANSACTION`: trade `TRADING_FEE`: trading fee `FUNDING_FEE`: futures funding fee `LIQUIDATION_FEE`: liquidation fee `TRANSFER_IN`: transfer in `TRANSFER_OUT`: transfer out `BANKRUPT_COMPENSATION`: bankruptcy compensation `AUTO_REPAY`: automatic repayment of margin position liabilities `INTEREST_ISOLATED`: interest entry `ACCOUNT_MODE_CHANGE`: balance change caused by an account mode switch `KRAKEN_CONVERSION`: conversion of other margin currencies to cover a negative KRAKEN_USD balance `OTHER`: other  # noqa: E501
 
         :param statement_type: The statement_type of this CrossexAccountBookRecord.  # noqa: E501
         :type: str
@@ -266,7 +266,7 @@ class CrossexAccountBookRecord(object):
     def change(self):
         """Gets the change of this CrossexAccountBookRecord.  # noqa: E501
 
-        Change amount (positive indicates transfer in; negative indicates transfer out)  # noqa: E501
+        Change amount (positive values indicate an increase; negative values indicate a decrease)  # noqa: E501
 
         :return: The change of this CrossexAccountBookRecord.  # noqa: E501
         :rtype: str
@@ -277,7 +277,7 @@ class CrossexAccountBookRecord(object):
     def change(self, change):
         """Sets the change of this CrossexAccountBookRecord.
 
-        Change amount (positive indicates transfer in; negative indicates transfer out)  # noqa: E501
+        Change amount (positive values indicate an increase; negative values indicate a decrease)  # noqa: E501
 
         :param change: The change of this CrossexAccountBookRecord.  # noqa: E501
         :type: str

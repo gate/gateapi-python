@@ -47,7 +47,8 @@ class Symbol(object):
         'contract_size': 'str',
         'liquidation_fee': 'str',
         'delist_time': 'str',
-        'support_rpi': 'str'
+        'support_rpi': 'str',
+        'support_cross': 'str'
     }
 
     attribute_map = {
@@ -65,11 +66,12 @@ class Symbol(object):
         'contract_size': 'contract_size',
         'liquidation_fee': 'liquidation_fee',
         'delist_time': 'delist_time',
-        'support_rpi': 'support_rpi'
+        'support_rpi': 'support_rpi',
+        'support_cross': 'support_cross'
     }
 
-    def __init__(self, symbol=None, exchange_type=None, business_type=None, state=None, min_size=None, min_notional=None, lot_size=None, tick_size=None, max_num_orders=None, max_market_size=None, max_limit_size=None, contract_size=None, liquidation_fee=None, delist_time=None, support_rpi=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, symbol=None, exchange_type=None, business_type=None, state=None, min_size=None, min_notional=None, lot_size=None, tick_size=None, max_num_orders=None, max_market_size=None, max_limit_size=None, contract_size=None, liquidation_fee=None, delist_time=None, support_rpi=None, support_cross=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """Symbol - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,6 +92,7 @@ class Symbol(object):
         self._liquidation_fee = None
         self._delist_time = None
         self._support_rpi = None
+        self._support_cross = None
         self.discriminator = None
 
         self.symbol = symbol
@@ -108,6 +111,8 @@ class Symbol(object):
         self.delist_time = delist_time
         if support_rpi is not None:
             self.support_rpi = support_rpi
+        if support_cross is not None:
+            self.support_cross = support_cross
 
     @property
     def symbol(self):
@@ -481,6 +486,29 @@ class Symbol(object):
         """
 
         self._support_rpi = support_rpi
+
+    @property
+    def support_cross(self):
+        """Gets the support_cross of this Symbol.  # noqa: E501
+
+        Whether cross-margin order placement is supported (true if supported; false otherwise)  # noqa: E501
+
+        :return: The support_cross of this Symbol.  # noqa: E501
+        :rtype: str
+        """
+        return self._support_cross
+
+    @support_cross.setter
+    def support_cross(self, support_cross):
+        """Sets the support_cross of this Symbol.
+
+        Whether cross-margin order placement is supported (true if supported; false otherwise)  # noqa: E501
+
+        :param support_cross: The support_cross of this Symbol.  # noqa: E501
+        :type: str
+        """
+
+        self._support_cross = support_cross
 
     def to_dict(self):
         """Returns the model properties as a dict"""

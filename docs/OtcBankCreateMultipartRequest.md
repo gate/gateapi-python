@@ -1,6 +1,6 @@
 # OtcBankCreateMultipartRequest
 
-Inner create-bank-card `multipart/form-data`. Use the form field `documentation_file` to upload the account-opening proof.
+Inner create-bank-card `multipart/form-data`. Account-opening proof file (choose one):  - **Pre-upload**: `documentation_file_key` + `file_type` (call `POST /otc/upload/pre_upload` first, `scene=bank`); - **Multipart direct upload**: `documentation_file` file field.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **remittance_line_number** | **str** |  | [optional] 
 **agent_bank_name** | **str** |  | [optional] 
 **agent_bank_swift** | **str** |  | [optional] 
-**documentation_file** | **str** | Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) | 
+**documentation_file** | **str** | Multipart direct upload; mutually exclusive with documentation_file_key | [optional] 
+**documentation_file_key** | **str** | Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted) | [optional] 
+**file_type** | **str** | Required when using documentation_file_key; plaintext MIME or its base64 | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

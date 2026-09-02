@@ -230,7 +230,7 @@ class CrossexConvertQuoteResponse(object):
     def price(self):
         """Gets the price of this CrossexConvertQuoteResponse.  # noqa: E501
 
-        Price  # noqa: E501
+        Quoted price  # noqa: E501
 
         :return: The price of this CrossexConvertQuoteResponse.  # noqa: E501
         :rtype: str
@@ -241,7 +241,7 @@ class CrossexConvertQuoteResponse(object):
     def price(self, price):
         """Sets the price of this CrossexConvertQuoteResponse.
 
-        Price  # noqa: E501
+        Quoted price  # noqa: E501
 
         :param price: The price of this CrossexConvertQuoteResponse.  # noqa: E501
         :type: str

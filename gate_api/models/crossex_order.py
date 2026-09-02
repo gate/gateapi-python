@@ -239,7 +239,7 @@ class CrossexOrder(object):
     def state(self):
         """Gets the state of this CrossexOrder.  # noqa: E501
 
-        Order status:  NEW: Validated and queued to be sent to the exchange.  OPEN: Resting on the exchange order book.  PARTIALLY_FILLED: Partially filled.  FILLED: Fully filled.  FAIL: CrossEx internal validation failed; see the `reason` field for details.  REJECT: Rejected by the exchange; see the `reason` field for details.  # noqa: E501
+        Order status: `NEW`: validated locally, pending submission to the exchange `OPEN`: resting on the exchange order book `PARTIALLY_FILLED`: partially filled `FILLED`: fully filled `FAIL`: CrossEx validation failed; see `reason` `REJECT`: rejected by the exchange; see `reason` `CANCELLED`: cancelled  # noqa: E501
 
         :return: The state of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -250,7 +250,7 @@ class CrossexOrder(object):
     def state(self, state):
         """Sets the state of this CrossexOrder.
 
-        Order status:  NEW: Validated and queued to be sent to the exchange.  OPEN: Resting on the exchange order book.  PARTIALLY_FILLED: Partially filled.  FILLED: Fully filled.  FAIL: CrossEx internal validation failed; see the `reason` field for details.  REJECT: Rejected by the exchange; see the `reason` field for details.  # noqa: E501
+        Order status: `NEW`: validated locally, pending submission to the exchange `OPEN`: resting on the exchange order book `PARTIALLY_FILLED`: partially filled `FILLED`: fully filled `FAIL`: CrossEx validation failed; see `reason` `REJECT`: rejected by the exchange; see `reason` `CANCELLED`: cancelled  # noqa: E501
 
         :param state: The state of this CrossexOrder.  # noqa: E501
         :type: str
@@ -389,7 +389,7 @@ class CrossexOrder(object):
     def business_type(self):
         """Gets the business_type of this CrossexOrder.  # noqa: E501
 
-        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
+        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin / `CONVERT` Flash Swap).  # noqa: E501
 
         :return: The business_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -400,7 +400,7 @@ class CrossexOrder(object):
     def business_type(self, business_type):
         """Sets the business_type of this CrossexOrder.
 
-        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
+        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin / `CONVERT` Flash Swap).  # noqa: E501
 
         :param business_type: The business_type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -789,7 +789,7 @@ class CrossexOrder(object):
     def position_side(self):
         """Gets the position_side of this CrossexOrder.  # noqa: E501
 
-        Position side (`NONE` flat / `LONG` long / `SHORT` short).  # noqa: E501
+        Position side (`NONE` one-way position / `LONG` long / `SHORT` short)  # noqa: E501
 
         :return: The position_side of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -800,7 +800,7 @@ class CrossexOrder(object):
     def position_side(self, position_side):
         """Sets the position_side of this CrossexOrder.
 
-        Position side (`NONE` flat / `LONG` long / `SHORT` short).  # noqa: E501
+        Position side (`NONE` one-way position / `LONG` long / `SHORT` short)  # noqa: E501
 
         :param position_side: The position_side of this CrossexOrder.  # noqa: E501
         :type: str

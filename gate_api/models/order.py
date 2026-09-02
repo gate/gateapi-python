@@ -42,6 +42,7 @@ class Order(object):
         'update_time_ms': 'int',
         'status': 'str',
         'currency_pair': 'str',
+        'trade_quote': 'str',
         'type': 'str',
         'account': 'str',
         'side': 'str',
@@ -84,6 +85,7 @@ class Order(object):
         'update_time_ms': 'update_time_ms',
         'status': 'status',
         'currency_pair': 'currency_pair',
+        'trade_quote': 'trade_quote',
         'type': 'type',
         'account': 'account',
         'side': 'side',
@@ -116,8 +118,8 @@ class Order(object):
         'stop_loss': 'stop_loss'
     }
 
-    def __init__(self, id=None, text=None, amend_text=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_maker_fee=None, gt_taker_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, action_mode=None, slippage=None, stop_profit=None, stop_loss=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, Configuration) -> None
+    def __init__(self, id=None, text=None, amend_text=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, trade_quote=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_maker_fee=None, gt_taker_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, action_mode=None, slippage=None, stop_profit=None, stop_loss=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, Configuration) -> None
         """Order - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -132,6 +134,7 @@ class Order(object):
         self._update_time_ms = None
         self._status = None
         self._currency_pair = None
+        self._trade_quote = None
         self._type = None
         self._account = None
         self._side = None
@@ -181,6 +184,8 @@ class Order(object):
         if status is not None:
             self.status = status
         self.currency_pair = currency_pair
+        if trade_quote is not None:
+            self.trade_quote = trade_quote
         if type is not None:
             self.type = type
         if account is not None:
@@ -454,6 +459,29 @@ class Order(object):
             raise ValueError("Invalid value for `currency_pair`, must not be `None`")  # noqa: E501
 
         self._currency_pair = currency_pair
+
+    @property
+    def trade_quote(self):
+        """Gets the trade_quote of this Order.  # noqa: E501
+
+        Actual quote currency used for the trade; can be specified only in a unified market  # noqa: E501
+
+        :return: The trade_quote of this Order.  # noqa: E501
+        :rtype: str
+        """
+        return self._trade_quote
+
+    @trade_quote.setter
+    def trade_quote(self, trade_quote):
+        """Sets the trade_quote of this Order.
+
+        Actual quote currency used for the trade; can be specified only in a unified market  # noqa: E501
+
+        :param trade_quote: The trade_quote of this Order.  # noqa: E501
+        :type: str
+        """
+
+        self._trade_quote = trade_quote
 
     @property
     def type(self):

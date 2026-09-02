@@ -118,7 +118,7 @@ class OtcMarkOrderPaidRequest(object):
     def payment_receipt_file_key(self):
         """Gets the payment_receipt_file_key of this OtcMarkOrderPaidRequest.  # noqa: E501
 
-        User payment receipt: **required**. Stored as a file_key. One file; jpg/jpeg/png/pdf; maximum 10 MB.  # noqa: E501
+        User payment receipt: **required**. Recommended: call `POST /otc/upload/pre_upload` (`scene=general`) to upload to the temporary bucket, then pass the returned **base64 file_key unchanged** (do not decode); the server moves to the production bucket and persists. Still compatible with legacy production-bucket base64 keys. Single file; jpg/jpeg/png/pdf; ≤10MB.  # noqa: E501
 
         :return: The payment_receipt_file_key of this OtcMarkOrderPaidRequest.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class OtcMarkOrderPaidRequest(object):
     def payment_receipt_file_key(self, payment_receipt_file_key):
         """Sets the payment_receipt_file_key of this OtcMarkOrderPaidRequest.
 
-        User payment receipt: **required**. Stored as a file_key. One file; jpg/jpeg/png/pdf; maximum 10 MB.  # noqa: E501
+        User payment receipt: **required**. Recommended: call `POST /otc/upload/pre_upload` (`scene=general`) to upload to the temporary bucket, then pass the returned **base64 file_key unchanged** (do not decode); the server moves to the production bucket and persists. Still compatible with legacy production-bucket base64 keys. Single file; jpg/jpeg/png/pdf; ≤10MB.  # noqa: E501
 
         :param payment_receipt_file_key: The payment_receipt_file_key of this OtcMarkOrderPaidRequest.  # noqa: E501
         :type: str

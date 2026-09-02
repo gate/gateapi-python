@@ -1,12 +1,12 @@
-# StpGroup
+# OtcUploadPreUploadResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | STP Group ID | [optional] [readonly] 
-**name** | **str** | STP Group name | 
-**creator_id** | **int** | Creator ID | [optional] [readonly] 
-**create_time** | **int** | Created time | [optional] [readonly] 
+**code** | **int** | 0 success; 10010400 parameter error | 
+**message** | **str** | Response message | 
+**data** | [**OtcUploadPreUploadData**](OtcUploadPreUploadData.md) |  | 
+**timestamp** | **int** | Response timestamp (in seconds) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

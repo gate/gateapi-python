@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.129"
+__version__ = "7.2.132"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -528,6 +528,10 @@ from gate_api.models.otc_stable_coin_order_list_item import OtcStableCoinOrderLi
 from gate_api.models.otc_stable_coin_order_list_response import OtcStableCoinOrderListResponse
 from gate_api.models.otc_stable_coin_order_list_result import OtcStableCoinOrderListResult
 from gate_api.models.otc_stable_coin_order_request import OtcStableCoinOrderRequest
+from gate_api.models.otc_upload_pre_upload_data import OtcUploadPreUploadData
+from gate_api.models.otc_upload_pre_upload_policy_fields import OtcUploadPreUploadPolicyFields
+from gate_api.models.otc_upload_pre_upload_request import OtcUploadPreUploadRequest
+from gate_api.models.otc_upload_pre_upload_response import OtcUploadPreUploadResponse
 from gate_api.models.other_contact import OtherContact
 from gate_api.models.p2p_ad_detail import P2pAdDetail
 from gate_api.models.p2p_ad_detail_response import P2pAdDetailResponse

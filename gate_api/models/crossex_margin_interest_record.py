@@ -47,7 +47,7 @@ class CrossexMarginInterestRecord(object):
     }
 
     attribute_map = {
-        'user_id': 'userId',
+        'user_id': 'user_id',
         'symbol': 'symbol',
         'interest_id': 'interest_id',
         'liability_id': 'liability_id',
@@ -296,7 +296,7 @@ class CrossexMarginInterestRecord(object):
     def interest_type(self):
         """Gets the interest_type of this CrossexMarginInterestRecord.  # noqa: E501
 
-        Interest deduction type (`PERIODIC_POSITION` hourly interest on position, `PERIODIC_OPEN_ORDER` hourly interest on open orders, `IMMEDIATE_OPEN_ORDER` interest charged on order placement, `PERIODIC_ISOLATED` hourly interest on debt)  # noqa: E501
+        Interest deduction type `PERIODIC_POSITION`: hourly interest charged on positions `PERIODIC_OPEN_ORDER`: hourly interest charged on open orders `IMMEDIATE_OPEN_ORDER`: interest charged when an order is placed `PERIODIC_ISOLATED`: hourly interest charged on liabilities  # noqa: E501
 
         :return: The interest_type of this CrossexMarginInterestRecord.  # noqa: E501
         :rtype: str
@@ -307,7 +307,7 @@ class CrossexMarginInterestRecord(object):
     def interest_type(self, interest_type):
         """Sets the interest_type of this CrossexMarginInterestRecord.
 
-        Interest deduction type (`PERIODIC_POSITION` hourly interest on position, `PERIODIC_OPEN_ORDER` hourly interest on open orders, `IMMEDIATE_OPEN_ORDER` interest charged on order placement, `PERIODIC_ISOLATED` hourly interest on debt)  # noqa: E501
+        Interest deduction type `PERIODIC_POSITION`: hourly interest charged on positions `PERIODIC_OPEN_ORDER`: hourly interest charged on open orders `IMMEDIATE_OPEN_ORDER`: interest charged when an order is placed `PERIODIC_ISOLATED`: hourly interest charged on liabilities  # noqa: E501
 
         :param interest_type: The interest_type of this CrossexMarginInterestRecord.  # noqa: E501
         :type: str

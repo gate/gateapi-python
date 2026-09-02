@@ -34,16 +34,18 @@ class CrossexIsolatedMarginResponse(object):
     """
     openapi_types = {
         'symbol': 'str',
-        'margin': 'str'
+        'margin': 'str',
+        'position_side': 'str'
     }
 
     attribute_map = {
         'symbol': 'symbol',
-        'margin': 'margin'
+        'margin': 'margin',
+        'position_side': 'position_side'
     }
 
-    def __init__(self, symbol=None, margin=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, Configuration) -> None
+    def __init__(self, symbol=None, margin=None, position_side=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, Configuration) -> None
         """CrossexIsolatedMarginResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,10 +53,13 @@ class CrossexIsolatedMarginResponse(object):
 
         self._symbol = None
         self._margin = None
+        self._position_side = None
         self.discriminator = None
 
         self.symbol = symbol
         self.margin = margin
+        if position_side is not None:
+            self.position_side = position_side
 
     @property
     def symbol(self):
@@ -105,6 +110,29 @@ class CrossexIsolatedMarginResponse(object):
             raise ValueError("Invalid value for `margin`, must not be `None`")  # noqa: E501
 
         self._margin = margin
+
+    @property
+    def position_side(self):
+        """Gets the position_side of this CrossexIsolatedMarginResponse.  # noqa: E501
+
+        Position side (NONE/LONG/SHORT). Defaults to NONE for one-way positions if omitted  # noqa: E501
+
+        :return: The position_side of this CrossexIsolatedMarginResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._position_side
+
+    @position_side.setter
+    def position_side(self, position_side):
+        """Sets the position_side of this CrossexIsolatedMarginResponse.
+
+        Position side (NONE/LONG/SHORT). Defaults to NONE for one-way positions if omitted  # noqa: E501
+
+        :param position_side: The position_side of this CrossexIsolatedMarginResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._position_side = position_side
 
     def to_dict(self):
         """Returns the model properties as a dict"""

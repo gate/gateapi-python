@@ -118,7 +118,7 @@ class CrossexAdlRank(object):
     def crossex_adl_rank(self):
         """Gets the crossex_adl_rank of this CrossexAdlRank.  # noqa: E501
 
-        CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher)  # noqa: E501
+        CrossEx ADL priority, with values from 1 to 5 Priority from highest to lowest: 5, 4, 3, 2, 1  # noqa: E501
 
         :return: The crossex_adl_rank of this CrossexAdlRank.  # noqa: E501
         :rtype: str
@@ -129,7 +129,7 @@ class CrossexAdlRank(object):
     def crossex_adl_rank(self, crossex_adl_rank):
         """Sets the crossex_adl_rank of this CrossexAdlRank.
 
-        CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher)  # noqa: E501
+        CrossEx ADL priority, with values from 1 to 5 Priority from highest to lowest: 5, 4, 3, 2, 1  # noqa: E501
 
         :param crossex_adl_rank: The crossex_adl_rank of this CrossexAdlRank.  # noqa: E501
         :type: str
@@ -143,7 +143,7 @@ class CrossexAdlRank(object):
     def exchange_adl_rank(self):
         """Gets the exchange_adl_rank of this CrossexAdlRank.  # noqa: E501
 
-        Exchange raw information (BINANCE: 0-4, larger numbers rank higher; OKX: 0-5, larger numbers rank higher; GATE: 1-5, smaller numbers rank higher; Kraken: 20, 40, 80, 100, smaller numbers rank higher; BYBIT: 0-5, larger numbers rank higher)  # noqa: E501
+        Raw exchange ADL rank. Priority order from highest to lowest by exchange: - BINANCE: 4, 3, 2, 1, 0 - OKX: 5, 4, 3, 2, 1, 0 - GATE: 1, 2, 3, 4, 5 - Kraken: 20, 40, 60, 80, 100 - BYBIT: 5, 4, 3, 2, 1, 0  # noqa: E501
 
         :return: The exchange_adl_rank of this CrossexAdlRank.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class CrossexAdlRank(object):
     def exchange_adl_rank(self, exchange_adl_rank):
         """Sets the exchange_adl_rank of this CrossexAdlRank.
 
-        Exchange raw information (BINANCE: 0-4, larger numbers rank higher; OKX: 0-5, larger numbers rank higher; GATE: 1-5, smaller numbers rank higher; Kraken: 20, 40, 80, 100, smaller numbers rank higher; BYBIT: 0-5, larger numbers rank higher)  # noqa: E501
+        Raw exchange ADL rank. Priority order from highest to lowest by exchange: - BINANCE: 4, 3, 2, 1, 0 - OKX: 5, 4, 3, 2, 1, 0 - GATE: 1, 2, 3, 4, 5 - Kraken: 20, 40, 60, 80, 100 - BYBIT: 5, 4, 3, 2, 1, 0  # noqa: E501
 
         :param exchange_adl_rank: The exchange_adl_rank of this CrossexAdlRank.  # noqa: E501
         :type: str

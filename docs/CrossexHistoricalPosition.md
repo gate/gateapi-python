@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **position_side** | **str** | Position Direction Before Close | [optional] 
 **position_mode** | **str** | Position Mode at Close | [optional] 
 **leverage** | **str** | Leverage at Close | [optional] 
+**margin_mode** | **str** | Margin mode (CROSS/ISOLATED) | [optional] 
 **business_type** | **str** | Business Type | 
 **create_time** | **str** | Created time | [optional] 
 **update_time** | **str** | Update time | [optional] 

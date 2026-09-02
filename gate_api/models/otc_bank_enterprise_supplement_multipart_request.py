@@ -40,7 +40,8 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         'passport': 'str',
         'share_holding_structure': 'str',
         'funds_statement': 'str',
-        'additional': 'str'
+        'additional': 'str',
+        'relationship_proof': 'str'
     }
 
     attribute_map = {
@@ -51,11 +52,12 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         'passport': 'passport',
         'share_holding_structure': 'share_holding_structure',
         'funds_statement': 'funds_statement',
-        'additional': 'additional'
+        'additional': 'additional',
+        'relationship_proof': 'relationship_proof'
     }
 
-    def __init__(self, uid=None, bank_id=None, certificate=None, share_holders=None, passport=None, share_holding_structure=None, funds_statement=None, additional=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, uid=None, bank_id=None, certificate=None, share_holders=None, passport=None, share_holding_structure=None, funds_statement=None, additional=None, relationship_proof=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
         """OtcBankEnterpriseSupplementMultipartRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,19 +71,26 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         self._share_holding_structure = None
         self._funds_statement = None
         self._additional = None
+        self._relationship_proof = None
         self.discriminator = None
 
         if uid is not None:
             self.uid = uid
         self.bank_id = bank_id
-        self.certificate = certificate
-        self.share_holders = share_holders
-        self.passport = passport
-        self.share_holding_structure = share_holding_structure
+        if certificate is not None:
+            self.certificate = certificate
+        if share_holders is not None:
+            self.share_holders = share_holders
+        if passport is not None:
+            self.passport = passport
+        if share_holding_structure is not None:
+            self.share_holding_structure = share_holding_structure
         if funds_statement is not None:
             self.funds_statement = funds_statement
         if additional is not None:
             self.additional = additional
+        if relationship_proof is not None:
+            self.relationship_proof = relationship_proof
 
     @property
     def uid(self):
@@ -147,8 +156,6 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         :param certificate: The certificate of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and certificate is None:  # noqa: E501
-            raise ValueError("Invalid value for `certificate`, must not be `None`")  # noqa: E501
 
         self._certificate = certificate
 
@@ -172,8 +179,6 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         :param share_holders: The share_holders of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and share_holders is None:  # noqa: E501
-            raise ValueError("Invalid value for `share_holders`, must not be `None`")  # noqa: E501
 
         self._share_holders = share_holders
 
@@ -197,8 +202,6 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         :param passport: The passport of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and passport is None:  # noqa: E501
-            raise ValueError("Invalid value for `passport`, must not be `None`")  # noqa: E501
 
         self._passport = passport
 
@@ -222,8 +225,6 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         :param share_holding_structure: The share_holding_structure of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and share_holding_structure is None:  # noqa: E501
-            raise ValueError("Invalid value for `share_holding_structure`, must not be `None`")  # noqa: E501
 
         self._share_holding_structure = share_holding_structure
 
@@ -272,6 +273,29 @@ class OtcBankEnterpriseSupplementMultipartRequest(object):
         """
 
         self._additional = additional
+
+    @property
+    def relationship_proof(self):
+        """Gets the relationship_proof of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
+
+        Optional. JSON string of relationship_proof.  # noqa: E501
+
+        :return: The relationship_proof of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._relationship_proof
+
+    @relationship_proof.setter
+    def relationship_proof(self, relationship_proof):
+        """Sets the relationship_proof of this OtcBankEnterpriseSupplementMultipartRequest.
+
+        Optional. JSON string of relationship_proof.  # noqa: E501
+
+        :param relationship_proof: The relationship_proof of this OtcBankEnterpriseSupplementMultipartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._relationship_proof = relationship_proof
 
     def to_dict(self):
         """Returns the model properties as a dict"""

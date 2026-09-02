@@ -462,7 +462,7 @@ class CrossexHistoricalMarginPosition(object):
     def interest(self):
         """Gets the interest of this CrossexHistoricalMarginPosition.  # noqa: E501
 
-        Total Deducted Interest  # noqa: E501
+        Accumulated position interest  # noqa: E501
 
         :return: The interest of this CrossexHistoricalMarginPosition.  # noqa: E501
         :rtype: str
@@ -473,7 +473,7 @@ class CrossexHistoricalMarginPosition(object):
     def interest(self, interest):
         """Sets the interest of this CrossexHistoricalMarginPosition.
 
-        Total Deducted Interest  # noqa: E501
+        Accumulated position interest  # noqa: E501
 
         :param interest: The interest of this CrossexHistoricalMarginPosition.  # noqa: E501
         :type: str

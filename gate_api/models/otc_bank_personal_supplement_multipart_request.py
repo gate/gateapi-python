@@ -36,18 +36,20 @@ class OtcBankPersonalSupplementMultipartRequest(object):
         'bank_id': 'str',
         'id_document_front': 'str',
         'id_document_back': 'str',
-        'address_proof': 'str'
+        'address_proof': 'str',
+        'relationship_proof': 'str'
     }
 
     attribute_map = {
         'bank_id': 'bank_id',
         'id_document_front': 'id_document_front',
         'id_document_back': 'id_document_back',
-        'address_proof': 'address_proof'
+        'address_proof': 'address_proof',
+        'relationship_proof': 'relationship_proof'
     }
 
-    def __init__(self, bank_id=None, id_document_front=None, id_document_back=None, address_proof=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, Configuration) -> None
+    def __init__(self, bank_id=None, id_document_front=None, id_document_back=None, address_proof=None, relationship_proof=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, Configuration) -> None
         """OtcBankPersonalSupplementMultipartRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,12 +59,18 @@ class OtcBankPersonalSupplementMultipartRequest(object):
         self._id_document_front = None
         self._id_document_back = None
         self._address_proof = None
+        self._relationship_proof = None
         self.discriminator = None
 
         self.bank_id = bank_id
-        self.id_document_front = id_document_front
-        self.id_document_back = id_document_back
-        self.address_proof = address_proof
+        if id_document_front is not None:
+            self.id_document_front = id_document_front
+        if id_document_back is not None:
+            self.id_document_back = id_document_back
+        if address_proof is not None:
+            self.address_proof = address_proof
+        if relationship_proof is not None:
+            self.relationship_proof = relationship_proof
 
     @property
     def bank_id(self):
@@ -107,8 +115,6 @@ class OtcBankPersonalSupplementMultipartRequest(object):
         :param id_document_front: The id_document_front of this OtcBankPersonalSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id_document_front is None:  # noqa: E501
-            raise ValueError("Invalid value for `id_document_front`, must not be `None`")  # noqa: E501
 
         self._id_document_front = id_document_front
 
@@ -132,8 +138,6 @@ class OtcBankPersonalSupplementMultipartRequest(object):
         :param id_document_back: The id_document_back of this OtcBankPersonalSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id_document_back is None:  # noqa: E501
-            raise ValueError("Invalid value for `id_document_back`, must not be `None`")  # noqa: E501
 
         self._id_document_back = id_document_back
 
@@ -157,10 +161,31 @@ class OtcBankPersonalSupplementMultipartRequest(object):
         :param address_proof: The address_proof of this OtcBankPersonalSupplementMultipartRequest.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and address_proof is None:  # noqa: E501
-            raise ValueError("Invalid value for `address_proof`, must not be `None`")  # noqa: E501
 
         self._address_proof = address_proof
+
+    @property
+    def relationship_proof(self):
+        """Gets the relationship_proof of this OtcBankPersonalSupplementMultipartRequest.  # noqa: E501
+
+        Optional. JSON string of relationship_proof.  # noqa: E501
+
+        :return: The relationship_proof of this OtcBankPersonalSupplementMultipartRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._relationship_proof
+
+    @relationship_proof.setter
+    def relationship_proof(self, relationship_proof):
+        """Sets the relationship_proof of this OtcBankPersonalSupplementMultipartRequest.
+
+        Optional. JSON string of relationship_proof.  # noqa: E501
+
+        :param relationship_proof: The relationship_proof of this OtcBankPersonalSupplementMultipartRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._relationship_proof = relationship_proof
 
     def to_dict(self):
         """Returns the model properties as a dict"""

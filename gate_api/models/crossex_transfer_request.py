@@ -123,7 +123,7 @@ class CrossexTransferRequest(object):
     def _from(self):
         """Gets the _from of this CrossexTransferRequest.  # noqa: E501
 
-        `from` receiving account (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
+        `from` debit account (funds withdrawn from): `CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`  # noqa: E501
 
         :return: The _from of this CrossexTransferRequest.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class CrossexTransferRequest(object):
     def _from(self, _from):
         """Sets the _from of this CrossexTransferRequest.
 
-        `from` receiving account (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
+        `from` debit account (funds withdrawn from): `CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`  # noqa: E501
 
         :param _from: The _from of this CrossexTransferRequest.  # noqa: E501
         :type: str
@@ -148,7 +148,7 @@ class CrossexTransferRequest(object):
     def to(self):
         """Gets the to of this CrossexTransferRequest.  # noqa: E501
 
-        `to` debit account (funds withdrawn from): `CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`  # noqa: E501
+        `to` receiving account (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
 
         :return: The to of this CrossexTransferRequest.  # noqa: E501
         :rtype: str
@@ -159,7 +159,7 @@ class CrossexTransferRequest(object):
     def to(self, to):
         """Sets the to of this CrossexTransferRequest.
 
-        `to` debit account (funds withdrawn from): `CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`  # noqa: E501
+        `to` receiving account (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).  # noqa: E501
 
         :param to: The to of this CrossexTransferRequest.  # noqa: E501
         :type: str

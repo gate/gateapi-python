@@ -50,6 +50,7 @@ class CrossexHistoricalPosition(object):
         'position_side': 'str',
         'position_mode': 'str',
         'leverage': 'str',
+        'margin_mode': 'str',
         'business_type': 'str',
         'create_time': 'str',
         'update_time': 'str'
@@ -73,13 +74,14 @@ class CrossexHistoricalPosition(object):
         'position_side': 'position_side',
         'position_mode': 'position_mode',
         'leverage': 'leverage',
+        'margin_mode': 'margin_mode',
         'business_type': 'business_type',
         'create_time': 'create_time',
         'update_time': 'update_time'
     }
 
-    def __init__(self, position_id=None, user_id=None, symbol=None, closed_type=None, closed_pnl=None, closed_pnl_rate=None, open_avg_price=None, closed_avg_price=None, max_position_qty=None, closed_qty=None, closed_value=None, fee=None, liq_fee=None, funding_fee=None, position_side=None, position_mode=None, leverage=None, business_type=None, create_time=None, update_time=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, position_id=None, user_id=None, symbol=None, closed_type=None, closed_pnl=None, closed_pnl_rate=None, open_avg_price=None, closed_avg_price=None, max_position_qty=None, closed_qty=None, closed_value=None, fee=None, liq_fee=None, funding_fee=None, position_side=None, position_mode=None, leverage=None, margin_mode=None, business_type=None, create_time=None, update_time=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """CrossexHistoricalPosition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -102,6 +104,7 @@ class CrossexHistoricalPosition(object):
         self._position_side = None
         self._position_mode = None
         self._leverage = None
+        self._margin_mode = None
         self._business_type = None
         self._create_time = None
         self._update_time = None
@@ -141,6 +144,8 @@ class CrossexHistoricalPosition(object):
             self.position_mode = position_mode
         if leverage is not None:
             self.leverage = leverage
+        if margin_mode is not None:
+            self.margin_mode = margin_mode
         self.business_type = business_type
         if create_time is not None:
             self.create_time = create_time
@@ -537,6 +542,29 @@ class CrossexHistoricalPosition(object):
         """
 
         self._leverage = leverage
+
+    @property
+    def margin_mode(self):
+        """Gets the margin_mode of this CrossexHistoricalPosition.  # noqa: E501
+
+        Margin mode (CROSS/ISOLATED)  # noqa: E501
+
+        :return: The margin_mode of this CrossexHistoricalPosition.  # noqa: E501
+        :rtype: str
+        """
+        return self._margin_mode
+
+    @margin_mode.setter
+    def margin_mode(self, margin_mode):
+        """Sets the margin_mode of this CrossexHistoricalPosition.
+
+        Margin mode (CROSS/ISOLATED)  # noqa: E501
+
+        :param margin_mode: The margin_mode of this CrossexHistoricalPosition.  # noqa: E501
+        :type: str
+        """
+
+        self._margin_mode = margin_mode
 
     @property
     def business_type(self):
