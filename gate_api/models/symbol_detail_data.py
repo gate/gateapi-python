@@ -67,6 +67,7 @@ class SymbolDetailData(object):
     def total(self):
         """Gets the total of this SymbolDetailData.  # noqa: E501
 
+        Total quantity  # noqa: E501
 
         :return: The total of this SymbolDetailData.  # noqa: E501
         :rtype: int
@@ -77,6 +78,7 @@ class SymbolDetailData(object):
     def total(self, total):
         """Sets the total of this SymbolDetailData.
 
+        Total quantity  # noqa: E501
 
         :param total: The total of this SymbolDetailData.  # noqa: E501
         :type: int
@@ -88,6 +90,7 @@ class SymbolDetailData(object):
     def total_page(self):
         """Gets the total_page of this SymbolDetailData.  # noqa: E501
 
+        Total pages  # noqa: E501
 
         :return: The total_page of this SymbolDetailData.  # noqa: E501
         :rtype: int
@@ -98,6 +101,7 @@ class SymbolDetailData(object):
     def total_page(self, total_page):
         """Sets the total_page of this SymbolDetailData.
 
+        Total pages  # noqa: E501
 
         :param total_page: The total_page of this SymbolDetailData.  # noqa: E501
         :type: int

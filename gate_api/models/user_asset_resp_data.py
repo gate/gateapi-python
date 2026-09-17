@@ -38,8 +38,7 @@ class UserAssetRespData(object):
         'balance': 'str',
         'margin': 'str',
         'margin_free': 'str',
-        'unrealized_pnl': 'str',
-        'mt5_uid': 'str'
+        'unrealized_pnl': 'str'
     }
 
     attribute_map = {
@@ -48,12 +47,11 @@ class UserAssetRespData(object):
         'balance': 'balance',
         'margin': 'margin',
         'margin_free': 'margin_free',
-        'unrealized_pnl': 'unrealized_pnl',
-        'mt5_uid': 'mt5_uid'
+        'unrealized_pnl': 'unrealized_pnl'
     }
 
-    def __init__(self, equity=None, margin_level=None, balance=None, margin=None, margin_free=None, unrealized_pnl=None, mt5_uid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, equity=None, margin_level=None, balance=None, margin=None, margin_free=None, unrealized_pnl=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, Configuration) -> None
         """UserAssetRespData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,7 +63,6 @@ class UserAssetRespData(object):
         self._margin = None
         self._margin_free = None
         self._unrealized_pnl = None
-        self._mt5_uid = None
         self.discriminator = None
 
         if equity is not None:
@@ -80,8 +77,6 @@ class UserAssetRespData(object):
             self.margin_free = margin_free
         if unrealized_pnl is not None:
             self.unrealized_pnl = unrealized_pnl
-        if mt5_uid is not None:
-            self.mt5_uid = mt5_uid
 
     @property
     def equity(self):
@@ -220,29 +215,6 @@ class UserAssetRespData(object):
         """
 
         self._unrealized_pnl = unrealized_pnl
-
-    @property
-    def mt5_uid(self):
-        """Gets the mt5_uid of this UserAssetRespData.  # noqa: E501
-
-        MT5 userID  # noqa: E501
-
-        :return: The mt5_uid of this UserAssetRespData.  # noqa: E501
-        :rtype: str
-        """
-        return self._mt5_uid
-
-    @mt5_uid.setter
-    def mt5_uid(self, mt5_uid):
-        """Sets the mt5_uid of this UserAssetRespData.
-
-        MT5 userID  # noqa: E501
-
-        :param mt5_uid: The mt5_uid of this UserAssetRespData.  # noqa: E501
-        :type: str
-        """
-
-        self._mt5_uid = mt5_uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

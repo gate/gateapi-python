@@ -57,7 +57,7 @@ class CreateOrder2Data(object):
     def id(self):
         """Gets the id of this CreateOrder2Data.  # noqa: E501
 
-        Queue Task ID (not task ID)  # noqa: E501
+        Queue Task ID (not order ID)  # noqa: E501
 
         :return: The id of this CreateOrder2Data.  # noqa: E501
         :rtype: str
@@ -68,7 +68,7 @@ class CreateOrder2Data(object):
     def id(self, id):
         """Sets the id of this CreateOrder2Data.
 
-        Queue Task ID (not task ID)  # noqa: E501
+        Queue Task ID (not order ID)  # noqa: E501
 
         :param id: The id of this CreateOrder2Data.  # noqa: E501
         :type: str

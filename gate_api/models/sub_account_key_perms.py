@@ -62,7 +62,7 @@ class SubAccountKeyPerms(object):
     def name(self):
         """Gets the name of this SubAccountKeyPerms.  # noqa: E501
 
-        Permission function name (no value will be cleared) - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery contract - earn: earn - custody: custody - options: options - account: account information - loan: lending - margin: margin - unified: unified account - copy: copy trading  # noqa: E501
+        Permission function name (cleared if no value is provided) - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery contract - earn: earn - custody: custody - options: options - account: account information - loan: lending - margin: margin - unified: unified account - copy: copy trading - tradfi_spot: stocks  # noqa: E501
 
         :return: The name of this SubAccountKeyPerms.  # noqa: E501
         :rtype: str
@@ -73,7 +73,7 @@ class SubAccountKeyPerms(object):
     def name(self, name):
         """Sets the name of this SubAccountKeyPerms.
 
-        Permission function name (no value will be cleared) - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery contract - earn: earn - custody: custody - options: options - account: account information - loan: lending - margin: margin - unified: unified account - copy: copy trading  # noqa: E501
+        Permission function name (cleared if no value is provided) - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery contract - earn: earn - custody: custody - options: options - account: account information - loan: lending - margin: margin - unified: unified account - copy: copy trading - tradfi_spot: stocks  # noqa: E501
 
         :param name: The name of this SubAccountKeyPerms.  # noqa: E501
         :type: str

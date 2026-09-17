@@ -4,12 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **str** | Symbol | [optional] 
-**exchange** | **str** | Exchange, supports us, hk, and kr | [optional] 
+**exchange** | **str** | Exchange, supports us, hk, kr, and jp | [optional] 
 **quote_currency** | **str** | Quote currency | [optional] 
 **quote_currency_precision** | **int** | Quote currency precision | [optional] 
 **fx_rate** | **str** | Quote currency to USD exchange rate | [optional] 
 **trade_status** | **str** | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. | [optional] 
-**symbol_desc** | **str** |  | [optional] 
+**symbol_desc** | **str** | Symbol description | [optional] 
 **position_pnl** | **str** | Position P&amp;L | [optional] 
 **today_pnl** | **str** | Today&#39;s P&amp;L | [optional] 
 **pnl_rate** | **str** | Yield | [optional] 
@@ -25,15 +25,15 @@ Name | Type | Description | Notes
 **diluted_cost_price** | **str** | Diluted cost price | [optional] 
 **last_price** | **str** | Latest price | [optional] 
 **extended_last_price** | **str** | Extended hours latest price | [optional] 
-**max_order_volume** | **str** |  | [optional] 
-**step_order_volume** | **str** |  | [optional] 
-**min_order_volume** | **str** |  | [optional] 
-**price_precision** | **int** |  | [optional] 
-**price_protection** | **str** |  | [optional] 
-**sell_price_protection** | **str** |  | [optional] 
-**buy_price_protection** | **str** |  | [optional] 
+**max_order_volume** | **str** | Maximum order quantity | [optional] 
+**step_order_volume** | **str** | Order step size | [optional] 
+**min_order_volume** | **str** | Minimum order quantity | [optional] 
+**price_precision** | **int** | Price precision | [optional] 
+**price_protection** | **str** | Price protection range | [optional] 
+**sell_price_protection** | **str** | Sell price protection rate | [optional] 
+**buy_price_protection** | **str** | Buy price protection rate | [optional] 
 **commission_rate** | **str** | Fee Rate | [optional] 
-**slippage_rate** | **str** |  | [optional] 
+**slippage_rate** | **str** | Slippage | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

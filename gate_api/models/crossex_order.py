@@ -364,7 +364,7 @@ class CrossexOrder(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexOrder.  # noqa: E501
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
 
         :return: The exchange_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -375,7 +375,7 @@ class CrossexOrder(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexOrder.
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexOrder.  # noqa: E501
         :type: str

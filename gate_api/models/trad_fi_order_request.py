@@ -39,7 +39,8 @@ class TradFiOrderRequest(object):
         'symbol': 'str',
         'volume': 'str',
         'price_tp': 'str',
-        'price_sl': 'str'
+        'price_sl': 'str',
+        'leverage': 'int'
     }
 
     attribute_map = {
@@ -49,11 +50,12 @@ class TradFiOrderRequest(object):
         'symbol': 'symbol',
         'volume': 'volume',
         'price_tp': 'price_tp',
-        'price_sl': 'price_sl'
+        'price_sl': 'price_sl',
+        'leverage': 'leverage'
     }
 
-    def __init__(self, price=None, price_type=None, side=None, symbol=None, volume=None, price_tp=None, price_sl=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, int, str, str, str, str, Configuration) -> None
+    def __init__(self, price=None, price_type=None, side=None, symbol=None, volume=None, price_tp=None, price_sl=None, leverage=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, int, str, str, str, str, int, Configuration) -> None
         """TradFiOrderRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class TradFiOrderRequest(object):
         self._volume = None
         self._price_tp = None
         self._price_sl = None
+        self._leverage = None
         self.discriminator = None
 
         self.price = price
@@ -77,6 +80,8 @@ class TradFiOrderRequest(object):
             self.price_tp = price_tp
         if price_sl is not None:
             self.price_sl = price_sl
+        if leverage is not None:
+            self.leverage = leverage
 
     @property
     def price(self):
@@ -169,7 +174,7 @@ class TradFiOrderRequest(object):
     def symbol(self):
         """Gets the symbol of this TradFiOrderRequest.  # noqa: E501
 
-        Trading symbol code  # noqa: E501
+        Base trading symbol code  # noqa: E501
 
         :return: The symbol of this TradFiOrderRequest.  # noqa: E501
         :rtype: str
@@ -180,7 +185,7 @@ class TradFiOrderRequest(object):
     def symbol(self, symbol):
         """Sets the symbol of this TradFiOrderRequest.
 
-        Trading symbol code  # noqa: E501
+        Base trading symbol code  # noqa: E501
 
         :param symbol: The symbol of this TradFiOrderRequest.  # noqa: E501
         :type: str
@@ -260,6 +265,29 @@ class TradFiOrderRequest(object):
         """
 
         self._price_sl = price_sl
+
+    @property
+    def leverage(self):
+        """Gets the leverage of this TradFiOrderRequest.  # noqa: E501
+
+        Leverage multiplier (must be one of the leverage multipliers allowed for the symbol in the trading symbol details response)  # noqa: E501
+
+        :return: The leverage of this TradFiOrderRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._leverage
+
+    @leverage.setter
+    def leverage(self, leverage):
+        """Sets the leverage of this TradFiOrderRequest.
+
+        Leverage multiplier (must be one of the leverage multipliers allowed for the symbol in the trading symbol details response)  # noqa: E501
+
+        :param leverage: The leverage of this TradFiOrderRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._leverage = leverage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -410,7 +410,7 @@ class UnifiedBalance(object):
     def cross_balance(self):
         """Gets the cross_balance of this UnifiedBalance.  # noqa: E501
 
-        Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode  # noqa: E501
+        Full margin balance is available in both single-currency and multi-currency margin modes, and is 0 in portfolio margin mode.   # noqa: E501
 
         :return: The cross_balance of this UnifiedBalance.  # noqa: E501
         :rtype: str
@@ -421,7 +421,7 @@ class UnifiedBalance(object):
     def cross_balance(self, cross_balance):
         """Sets the cross_balance of this UnifiedBalance.
 
-        Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode  # noqa: E501
+        Full margin balance is available in both single-currency and multi-currency margin modes, and is 0 in portfolio margin mode.   # noqa: E501
 
         :param cross_balance: The cross_balance of this UnifiedBalance.  # noqa: E501
         :type: str

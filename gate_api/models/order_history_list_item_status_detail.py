@@ -62,6 +62,7 @@ class OrderHistoryListItemStatusDetail(object):
     def title(self):
         """Gets the title of this OrderHistoryListItemStatusDetail.  # noqa: E501
 
+        Status title  # noqa: E501
 
         :return: The title of this OrderHistoryListItemStatusDetail.  # noqa: E501
         :rtype: str
@@ -72,6 +73,7 @@ class OrderHistoryListItemStatusDetail(object):
     def title(self, title):
         """Sets the title of this OrderHistoryListItemStatusDetail.
 
+        Status title  # noqa: E501
 
         :param title: The title of this OrderHistoryListItemStatusDetail.  # noqa: E501
         :type: str
@@ -83,6 +85,7 @@ class OrderHistoryListItemStatusDetail(object):
     def message(self):
         """Gets the message of this OrderHistoryListItemStatusDetail.  # noqa: E501
 
+        Status message  # noqa: E501
 
         :return: The message of this OrderHistoryListItemStatusDetail.  # noqa: E501
         :rtype: str
@@ -93,6 +96,7 @@ class OrderHistoryListItemStatusDetail(object):
     def message(self, message):
         """Sets the message of this OrderHistoryListItemStatusDetail.
 
+        Status message  # noqa: E501
 
         :param message: The message of this OrderHistoryListItemStatusDetail.  # noqa: E501
         :type: str

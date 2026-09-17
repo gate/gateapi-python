@@ -198,7 +198,7 @@ class TradFiSpotOrderRequest(object):
     def trading_session(self):
         """Gets the trading_session of this TradFiSpotOrderRequest.  # noqa: E501
 
-        Trading session. Limit orders support only All, while market orders support only Regular.  # noqa: E501
+        Trading session. Limit orders support only all, while market orders support only regular.  # noqa: E501
 
         :return: The trading_session of this TradFiSpotOrderRequest.  # noqa: E501
         :rtype: str
@@ -209,7 +209,7 @@ class TradFiSpotOrderRequest(object):
     def trading_session(self, trading_session):
         """Sets the trading_session of this TradFiSpotOrderRequest.
 
-        Trading session. Limit orders support only All, while market orders support only Regular.  # noqa: E501
+        Trading session. Limit orders support only all, while market orders support only regular.  # noqa: E501
 
         :param trading_session: The trading_session of this TradFiSpotOrderRequest.  # noqa: E501
         :type: str

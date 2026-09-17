@@ -143,7 +143,7 @@ class Symbol(object):
     def exchange_type(self):
         """Gets the exchange_type of this Symbol.  # noqa: E501
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
 
         :return: The exchange_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class Symbol(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this Symbol.
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).  # noqa: E501
+        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
 
         :param exchange_type: The exchange_type of this Symbol.  # noqa: E501
         :type: str

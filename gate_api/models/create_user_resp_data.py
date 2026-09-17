@@ -34,18 +34,16 @@ class CreateUserRespData(object):
     """
     openapi_types = {
         'status': 'int',
-        'leverage': 'int',
-        'mt5_uid': 'str'
+        'leverage': 'int'
     }
 
     attribute_map = {
         'status': 'status',
-        'leverage': 'leverage',
-        'mt5_uid': 'mt5_uid'
+        'leverage': 'leverage'
     }
 
-    def __init__(self, status=None, leverage=None, mt5_uid=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, str, Configuration) -> None
+    def __init__(self, status=None, leverage=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, int, Configuration) -> None
         """CreateUserRespData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,15 +51,12 @@ class CreateUserRespData(object):
 
         self._status = None
         self._leverage = None
-        self._mt5_uid = None
         self.discriminator = None
 
         if status is not None:
             self.status = status
         if leverage is not None:
             self.leverage = leverage
-        if mt5_uid is not None:
-            self.mt5_uid = mt5_uid
 
     @property
     def status(self):
@@ -108,29 +103,6 @@ class CreateUserRespData(object):
         """
 
         self._leverage = leverage
-
-    @property
-    def mt5_uid(self):
-        """Gets the mt5_uid of this CreateUserRespData.  # noqa: E501
-
-        mt5uid  # noqa: E501
-
-        :return: The mt5_uid of this CreateUserRespData.  # noqa: E501
-        :rtype: str
-        """
-        return self._mt5_uid
-
-    @mt5_uid.setter
-    def mt5_uid(self, mt5_uid):
-        """Sets the mt5_uid of this CreateUserRespData.
-
-        mt5uid  # noqa: E501
-
-        :param mt5_uid: The mt5_uid of this CreateUserRespData.  # noqa: E501
-        :type: str
-        """
-
-        self._mt5_uid = mt5_uid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

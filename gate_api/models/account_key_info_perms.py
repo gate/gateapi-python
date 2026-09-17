@@ -62,7 +62,7 @@ class AccountKeyInfoPerms(object):
     def name(self):
         """Gets the name of this AccountKeyInfoPerms.  # noqa: E501
 
-        Permission function name (no value will be cleared) - `wallet`: wallet - `spot`: spot/margin - `futures`: perpetual contract - `delivery`: delivery contract - `earn`: earn - `custody`: custody - `options`: options - `account`: account information - `loan`: lending - `margin`: margin - `unified`: unified account - `copy`: copy trading- `pilot`: pilot - `otc`: otc - `alpha`: alpha - `crossx`: cross-exchange  # noqa: E501
+        Permission function name (cleared if no value is provided)  - `wallet`: wallet - `spot`: spot/margin - `futures`: perpetual contract - `delivery`: delivery contract - `earn`: earn - `custody`: custody - `options`: options - `account`: account information - `loan`: lending - `margin`: margin - `unified`: unified account - `copy`: copy trading - `pilot`: pilot - `otc`: otc - `alpha`: alpha - `crossx`: cross-exchange - `tradfi_spot`: stocks - `cfd`: CFD - `cfd_copy`: CFD lead trading - `stock_copy`: stock lead trading - `sub_accounts`: sub-accounts  # noqa: E501
 
         :return: The name of this AccountKeyInfoPerms.  # noqa: E501
         :rtype: str
@@ -73,7 +73,7 @@ class AccountKeyInfoPerms(object):
     def name(self, name):
         """Sets the name of this AccountKeyInfoPerms.
 
-        Permission function name (no value will be cleared) - `wallet`: wallet - `spot`: spot/margin - `futures`: perpetual contract - `delivery`: delivery contract - `earn`: earn - `custody`: custody - `options`: options - `account`: account information - `loan`: lending - `margin`: margin - `unified`: unified account - `copy`: copy trading- `pilot`: pilot - `otc`: otc - `alpha`: alpha - `crossx`: cross-exchange  # noqa: E501
+        Permission function name (cleared if no value is provided)  - `wallet`: wallet - `spot`: spot/margin - `futures`: perpetual contract - `delivery`: delivery contract - `earn`: earn - `custody`: custody - `options`: options - `account`: account information - `loan`: lending - `margin`: margin - `unified`: unified account - `copy`: copy trading - `pilot`: pilot - `otc`: otc - `alpha`: alpha - `crossx`: cross-exchange - `tradfi_spot`: stocks - `cfd`: CFD - `cfd_copy`: CFD lead trading - `stock_copy`: stock lead trading - `sub_accounts`: sub-accounts  # noqa: E501
 
         :param name: The name of this AccountKeyInfoPerms.  # noqa: E501
         :type: str

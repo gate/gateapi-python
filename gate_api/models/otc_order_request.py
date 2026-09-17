@@ -41,7 +41,8 @@ class OtcOrderRequest(object):
         'fiat_amount': 'str',
         'promotion_code': 'str',
         'quote_token': 'str',
-        'bank_id': 'str'
+        'bank_id': 'str',
+        'receive_type': 'str'
     }
 
     attribute_map = {
@@ -53,11 +54,12 @@ class OtcOrderRequest(object):
         'fiat_amount': 'fiat_amount',
         'promotion_code': 'promotion_code',
         'quote_token': 'quote_token',
-        'bank_id': 'bank_id'
+        'bank_id': 'bank_id',
+        'receive_type': 'receive_type'
     }
 
-    def __init__(self, type=None, side=None, crypto_currency=None, fiat_currency=None, crypto_amount=None, fiat_amount=None, promotion_code=None, quote_token=None, bank_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, type=None, side=None, crypto_currency=None, fiat_currency=None, crypto_amount=None, fiat_amount=None, promotion_code=None, quote_token=None, bank_id=None, receive_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """OtcOrderRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class OtcOrderRequest(object):
         self._promotion_code = None
         self._quote_token = None
         self._bank_id = None
+        self._receive_type = None
         self.discriminator = None
 
         self.type = type
@@ -84,6 +87,8 @@ class OtcOrderRequest(object):
             self.promotion_code = promotion_code
         self.quote_token = quote_token
         self.bank_id = bank_id
+        if receive_type is not None:
+            self.receive_type = receive_type
 
     @property
     def type(self):
@@ -307,6 +312,35 @@ class OtcOrderRequest(object):
             raise ValueError("Invalid value for `bank_id`, must not be `None`")  # noqa: E501
 
         self._bank_id = bank_id
+
+    @property
+    def receive_type(self):
+        """Gets the receive_type of this OtcOrderRequest.  # noqa: E501
+
+        Name used for the remittance. Allowed values depend on the user type: Corporate users: YOU (remit in your company's name), GATE (remit in Gate's name), RECIPIENT (remit in the recipient's name); Individual users: GATE (remit in Gate's name), PERSON (remit in the user's own name).  # noqa: E501
+
+        :return: The receive_type of this OtcOrderRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._receive_type
+
+    @receive_type.setter
+    def receive_type(self, receive_type):
+        """Sets the receive_type of this OtcOrderRequest.
+
+        Name used for the remittance. Allowed values depend on the user type: Corporate users: YOU (remit in your company's name), GATE (remit in Gate's name), RECIPIENT (remit in the recipient's name); Individual users: GATE (remit in Gate's name), PERSON (remit in the user's own name).  # noqa: E501
+
+        :param receive_type: The receive_type of this OtcOrderRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["YOU", "GATE", "RECIPIENT", "PERSON"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and receive_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `receive_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(receive_type, allowed_values)
+            )
+
+        self._receive_type = receive_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

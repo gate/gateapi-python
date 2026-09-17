@@ -14,6 +14,7 @@ from gate_api.api.sub_account_api import SubAccountApi
 from gate_api.api.unified_api import UnifiedApi
 from gate_api.api.account_api import AccountApi
 from gate_api.api.alpha_api import AlphaApi
+from gate_api.api.announcement_api import AnnouncementApi
 from gate_api.api.assetswap_api import AssetswapApi
 from gate_api.api.bot_api import BotApi
 from gate_api.api.coupon_api import CouponApi

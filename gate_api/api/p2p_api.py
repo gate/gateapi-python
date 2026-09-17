@@ -39,7 +39,7 @@ class P2pApi(object):
     def p2p_merchant_account_get_user_info(self, **kwargs):  # noqa: E501
         """Get account information  # noqa: E501
 
-        To query the spot account balance, use the Spot API `GET /spot/accounts`.  # noqa: E501
+        To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_account_get_user_info(async_req=True)
@@ -63,7 +63,7 @@ class P2pApi(object):
     def p2p_merchant_account_get_user_info_with_http_info(self, **kwargs):  # noqa: E501
         """Get account information  # noqa: E501
 
-        To query the spot account balance, use the Spot API `GET /spot/accounts`.  # noqa: E501
+        To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_account_get_user_info_with_http_info(async_req=True)

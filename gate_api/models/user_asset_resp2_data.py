@@ -39,6 +39,9 @@ class UserAssetResp2Data(object):
         'position_market_value': 'str',
         'position_pnl': 'str',
         'today_pnl': 'str',
+        'option_position_market_value': 'str',
+        'option_position_pnl': 'str',
+        'option_today_pnl': 'str',
         'user_exists': 'bool'
     }
 
@@ -49,11 +52,14 @@ class UserAssetResp2Data(object):
         'position_market_value': 'position_market_value',
         'position_pnl': 'position_pnl',
         'today_pnl': 'today_pnl',
+        'option_position_market_value': 'option_position_market_value',
+        'option_position_pnl': 'option_position_pnl',
+        'option_today_pnl': 'option_today_pnl',
         'user_exists': 'user_exists'
     }
 
-    def __init__(self, equity=None, balance=None, available=None, position_market_value=None, position_pnl=None, today_pnl=None, user_exists=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, bool, Configuration) -> None
+    def __init__(self, equity=None, balance=None, available=None, position_market_value=None, position_pnl=None, today_pnl=None, option_position_market_value=None, option_position_pnl=None, option_today_pnl=None, user_exists=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, bool, Configuration) -> None
         """UserAssetResp2Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +71,9 @@ class UserAssetResp2Data(object):
         self._position_market_value = None
         self._position_pnl = None
         self._today_pnl = None
+        self._option_position_market_value = None
+        self._option_position_pnl = None
+        self._option_today_pnl = None
         self._user_exists = None
         self.discriminator = None
 
@@ -80,6 +89,12 @@ class UserAssetResp2Data(object):
             self.position_pnl = position_pnl
         if today_pnl is not None:
             self.today_pnl = today_pnl
+        if option_position_market_value is not None:
+            self.option_position_market_value = option_position_market_value
+        if option_position_pnl is not None:
+            self.option_position_pnl = option_position_pnl
+        if option_today_pnl is not None:
+            self.option_today_pnl = option_today_pnl
         if user_exists is not None:
             self.user_exists = user_exists
 
@@ -220,6 +235,75 @@ class UserAssetResp2Data(object):
         """
 
         self._today_pnl = today_pnl
+
+    @property
+    def option_position_market_value(self):
+        """Gets the option_position_market_value of this UserAssetResp2Data.  # noqa: E501
+
+        Option position market value  # noqa: E501
+
+        :return: The option_position_market_value of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._option_position_market_value
+
+    @option_position_market_value.setter
+    def option_position_market_value(self, option_position_market_value):
+        """Sets the option_position_market_value of this UserAssetResp2Data.
+
+        Option position market value  # noqa: E501
+
+        :param option_position_market_value: The option_position_market_value of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._option_position_market_value = option_position_market_value
+
+    @property
+    def option_position_pnl(self):
+        """Gets the option_position_pnl of this UserAssetResp2Data.  # noqa: E501
+
+        Option position PnL  # noqa: E501
+
+        :return: The option_position_pnl of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._option_position_pnl
+
+    @option_position_pnl.setter
+    def option_position_pnl(self, option_position_pnl):
+        """Sets the option_position_pnl of this UserAssetResp2Data.
+
+        Option position PnL  # noqa: E501
+
+        :param option_position_pnl: The option_position_pnl of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._option_position_pnl = option_position_pnl
+
+    @property
+    def option_today_pnl(self):
+        """Gets the option_today_pnl of this UserAssetResp2Data.  # noqa: E501
+
+        Option today's PnL  # noqa: E501
+
+        :return: The option_today_pnl of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._option_today_pnl
+
+    @option_today_pnl.setter
+    def option_today_pnl(self, option_today_pnl):
+        """Sets the option_today_pnl of this UserAssetResp2Data.
+
+        Option today's PnL  # noqa: E501
+
+        :param option_today_pnl: The option_today_pnl of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._option_today_pnl = option_today_pnl
 
     @property
     def user_exists(self):

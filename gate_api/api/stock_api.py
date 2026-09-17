@@ -162,7 +162,7 @@ class StockApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str symbols: Symbol list, multiple separated by commas
-        :param str exchange: Exchange, supports us, hk, and kr
+        :param str exchange: Exchange, supports us, hk, kr, and jp
         :param bool with_desc_i18n: Whether to return multilingual symbol description
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
@@ -191,7 +191,7 @@ class StockApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str symbols: Symbol list, multiple separated by commas
-        :param str exchange: Exchange, supports us, hk, and kr
+        :param str exchange: Exchange, supports us, hk, kr, and jp
         :param bool with_desc_i18n: Whether to return multilingual symbol description
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
@@ -294,7 +294,7 @@ class StockApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str symbols: Symbol list, multiple separated by commas
-        :param str exchange: Exchange, supports us, hk, and kr
+        :param str exchange: Exchange, supports us, hk, kr, and jp
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -322,7 +322,7 @@ class StockApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str symbols: Symbol list, multiple separated by commas
-        :param str exchange: Exchange, supports us, hk, and kr
+        :param str exchange: Exchange, supports us, hk, kr, and jp
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
         :param _return_http_data_only: response data without head status code
@@ -1253,7 +1253,7 @@ class StockApi(object):
         :param int pnl_calc_type: PnL calculation cost type. Defaults to average cost price when omitted (1 = average cost price, 2 = diluted cost price)
         :param int pnl_calc_price: PnL calculation price type. Defaults to intraday price when omitted (1 = intraday price, 2 = latest extended-hours price)
         :param str symbol: Symbol
-        :param str exchange: Exchange, supports us, hk, and kr
+        :param str exchange: Exchange, supports us, hk, kr, and jp
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1281,7 +1281,7 @@ class StockApi(object):
         :param int pnl_calc_type: PnL calculation cost type. Defaults to average cost price when omitted (1 = average cost price, 2 = diluted cost price)
         :param int pnl_calc_price: PnL calculation price type. Defaults to intraday price when omitted (1 = intraday price, 2 = latest extended-hours price)
         :param str symbol: Symbol
-        :param str exchange: Exchange, supports us, hk, and kr
+        :param str exchange: Exchange, supports us, hk, kr, and jp
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

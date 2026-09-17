@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange** | **str** | Trading market, supports us, hk, and kr | [optional] 
+**exchange** | **str** | Trading market, supports us, hk, kr, and jp | [optional] 
 **exchange_desc** | **str** | Market display name | [optional] 
 **icon_link** | **str** | Market icon | [optional] 
 **support_transfer** | **bool** | Whether stock transfer is supported | [optional] 

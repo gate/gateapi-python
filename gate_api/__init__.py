@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.132"
+__version__ = "7.2.144"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -28,6 +28,7 @@ from gate_api.api.sub_account_api import SubAccountApi
 from gate_api.api.unified_api import UnifiedApi
 from gate_api.api.account_api import AccountApi
 from gate_api.api.alpha_api import AlphaApi
+from gate_api.api.announcement_api import AnnouncementApi
 from gate_api.api.assetswap_api import AssetswapApi
 from gate_api.api.bot_api import BotApi
 from gate_api.api.coupon_api import CouponApi
@@ -90,6 +91,11 @@ from gate_api.models.agency_transaction_history import AgencyTransactionHistory
 from gate_api.models.alpha_currency import AlphaCurrency
 from gate_api.models.alpha_ticker import AlphaTicker
 from gate_api.models.amend_options_order_request import AmendOptionsOrderRequest
+from gate_api.models.announcement_article import AnnouncementArticle
+from gate_api.models.announcement_article_language import AnnouncementArticleLanguage
+from gate_api.models.announcement_article_list_data import AnnouncementArticleListData
+from gate_api.models.announcement_article_list_request import AnnouncementArticleListRequest
+from gate_api.models.announcement_article_list_response import AnnouncementArticleListResponse
 from gate_api.models.api_response_asset_swap_config import ApiResponseAssetSwapConfig
 from gate_api.models.api_response_asset_swap_evaluate import ApiResponseAssetSwapEvaluate
 from gate_api.models.api_response_asset_swap_list_assets import ApiResponseAssetSwapListAssets

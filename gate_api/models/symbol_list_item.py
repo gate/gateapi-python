@@ -41,6 +41,7 @@ class SymbolListItem(object):
         'fx_rate': 'str',
         'symbol_desc': 'str',
         'category': 'str',
+        'asset_type': 'str',
         'trade_status': 'str',
         'trade_mode': 'int',
         'order_fill_timing': 'int',
@@ -64,6 +65,7 @@ class SymbolListItem(object):
         'fx_rate': 'fx_rate',
         'symbol_desc': 'symbol_desc',
         'category': 'category',
+        'asset_type': 'asset_type',
         'trade_status': 'trade_status',
         'trade_mode': 'trade_mode',
         'order_fill_timing': 'order_fill_timing',
@@ -78,8 +80,8 @@ class SymbolListItem(object):
         'symbol_descs': 'symbol_descs'
     }
 
-    def __init__(self, symbol=None, exchange=None, exchange_desc=None, quote_currency=None, quote_currency_precision=None, fx_rate=None, symbol_desc=None, category=None, trade_status=None, trade_mode=None, order_fill_timing=None, icon_link=None, quote_currency_symbol=None, price_precision=None, volume_precision=None, is_ipo=None, ipo_price=None, sell_price_protection=None, buy_price_protection=None, symbol_descs=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, int, str, str, str, str, int, int, str, str, int, int, bool, str, str, str, list[I18nTxt], Configuration) -> None
+    def __init__(self, symbol=None, exchange=None, exchange_desc=None, quote_currency=None, quote_currency_precision=None, fx_rate=None, symbol_desc=None, category=None, asset_type=None, trade_status=None, trade_mode=None, order_fill_timing=None, icon_link=None, quote_currency_symbol=None, price_precision=None, volume_precision=None, is_ipo=None, ipo_price=None, sell_price_protection=None, buy_price_protection=None, symbol_descs=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, int, str, str, str, str, str, int, int, str, str, int, int, bool, str, str, str, list[I18nTxt], Configuration) -> None
         """SymbolListItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,6 +95,7 @@ class SymbolListItem(object):
         self._fx_rate = None
         self._symbol_desc = None
         self._category = None
+        self._asset_type = None
         self._trade_status = None
         self._trade_mode = None
         self._order_fill_timing = None
@@ -123,6 +126,8 @@ class SymbolListItem(object):
             self.symbol_desc = symbol_desc
         if category is not None:
             self.category = category
+        if asset_type is not None:
+            self.asset_type = asset_type
         if trade_status is not None:
             self.trade_status = trade_status
         if trade_mode is not None:
@@ -175,7 +180,7 @@ class SymbolListItem(object):
     def exchange(self):
         """Gets the exchange of this SymbolListItem.  # noqa: E501
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :return: The exchange of this SymbolListItem.  # noqa: E501
         :rtype: str
@@ -186,12 +191,12 @@ class SymbolListItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this SymbolListItem.
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :param exchange: The exchange of this SymbolListItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["us", "hk", "kr"]  # noqa: E501
+        allowed_values = ["us", "hk", "kr", "jp"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and exchange not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `exchange` ({0}), must be one of {1}"  # noqa: E501
@@ -319,7 +324,7 @@ class SymbolListItem(object):
     def category(self):
         """Gets the category of this SymbolListItem.  # noqa: E501
 
-        Category  # noqa: E501
+        Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.  # noqa: E501
 
         :return: The category of this SymbolListItem.  # noqa: E501
         :rtype: str
@@ -330,13 +335,48 @@ class SymbolListItem(object):
     def category(self, category):
         """Sets the category of this SymbolListItem.
 
-        Category  # noqa: E501
+        Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.  # noqa: E501
 
         :param category: The category of this SymbolListItem.  # noqa: E501
         :type: str
         """
+        allowed_values = ["CS", "ETF", "ADRC", "ADR", "ETV", "PFD", "ETS", "ETN", "FUND"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and category not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `category` ({0}), must be one of {1}"  # noqa: E501
+                .format(category, allowed_values)
+            )
 
         self._category = category
+
+    @property
+    def asset_type(self):
+        """Gets the asset_type of this SymbolListItem.  # noqa: E501
+
+        Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.  # noqa: E501
+
+        :return: The asset_type of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_type
+
+    @asset_type.setter
+    def asset_type(self, asset_type):
+        """Sets the asset_type of this SymbolListItem.
+
+        Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.  # noqa: E501
+
+        :param asset_type: The asset_type of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["STOCK", "ETF"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and asset_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(asset_type, allowed_values)
+            )
+
+        self._asset_type = asset_type
 
     @property
     def trade_status(self):

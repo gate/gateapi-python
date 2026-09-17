@@ -62,6 +62,7 @@ class SymbolDetailItemSymbolDescs(object):
     def lang(self):
         """Gets the lang of this SymbolDetailItemSymbolDescs.  # noqa: E501
 
+        Language  # noqa: E501
 
         :return: The lang of this SymbolDetailItemSymbolDescs.  # noqa: E501
         :rtype: str
@@ -72,6 +73,7 @@ class SymbolDetailItemSymbolDescs(object):
     def lang(self, lang):
         """Sets the lang of this SymbolDetailItemSymbolDescs.
 
+        Language  # noqa: E501
 
         :param lang: The lang of this SymbolDetailItemSymbolDescs.  # noqa: E501
         :type: str
@@ -83,6 +85,7 @@ class SymbolDetailItemSymbolDescs(object):
     def value(self):
         """Gets the value of this SymbolDetailItemSymbolDescs.  # noqa: E501
 
+        Localized description  # noqa: E501
 
         :return: The value of this SymbolDetailItemSymbolDescs.  # noqa: E501
         :rtype: str
@@ -93,6 +96,7 @@ class SymbolDetailItemSymbolDescs(object):
     def value(self, value):
         """Sets the value of this SymbolDetailItemSymbolDescs.
 
+        Localized description  # noqa: E501
 
         :param value: The value of this SymbolDetailItemSymbolDescs.  # noqa: E501
         :type: str

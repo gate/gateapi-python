@@ -223,7 +223,7 @@ class OrderListItem(object):
     def exchange(self):
         """Gets the exchange of this OrderListItem.  # noqa: E501
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :return: The exchange of this OrderListItem.  # noqa: E501
         :rtype: str
@@ -234,12 +234,12 @@ class OrderListItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this OrderListItem.
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :param exchange: The exchange of this OrderListItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["us", "hk", "kr"]  # noqa: E501
+        allowed_values = ["us", "hk", "kr", "jp"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and exchange not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `exchange` ({0}), must be one of {1}"  # noqa: E501

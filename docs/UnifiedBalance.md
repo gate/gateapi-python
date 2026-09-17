@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **spot_in_use** | **str** | The amount of spot hedging is valid in the combined margin mode, and is 0 in other margin modes such as single currency and cross-currency margin modes | [optional] 
 **funding** | **str** | Uniloan financial management amount, effective when turned on as a unified account margin switch | [optional] 
 **funding_version** | **str** | Funding version | [optional] 
-**cross_balance** | **str** | Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode | [optional] 
+**cross_balance** | **str** | Full margin balance is available in both single-currency and multi-currency margin modes, and is 0 in portfolio margin mode.  | [optional] 
 **iso_balance** | **str** | Futures isolated balance, effective in single-currency and multi-currency margin mode, 0 in portfolio margin mode | [optional] 
 **im** | **str** | Cross initial margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode | [optional] 
 **mm** | **str** | Cross maintenance margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode | [optional] 

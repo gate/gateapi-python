@@ -33,63 +33,35 @@ class Mt5AccountData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'mt5_uid': 'int',
         'leverage': 'int',
         'stop_out_level': 'str',
         'status': 'int'
     }
 
     attribute_map = {
-        'mt5_uid': 'mt5_uid',
         'leverage': 'leverage',
         'stop_out_level': 'stop_out_level',
         'status': 'status'
     }
 
-    def __init__(self, mt5_uid=None, leverage=None, stop_out_level=None, status=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, str, int, Configuration) -> None
+    def __init__(self, leverage=None, stop_out_level=None, status=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, int, Configuration) -> None
         """Mt5AccountData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._mt5_uid = None
         self._leverage = None
         self._stop_out_level = None
         self._status = None
         self.discriminator = None
 
-        if mt5_uid is not None:
-            self.mt5_uid = mt5_uid
         if leverage is not None:
             self.leverage = leverage
         if stop_out_level is not None:
             self.stop_out_level = stop_out_level
         if status is not None:
             self.status = status
-
-    @property
-    def mt5_uid(self):
-        """Gets the mt5_uid of this Mt5AccountData.  # noqa: E501
-
-        MT5 userID  # noqa: E501
-
-        :return: The mt5_uid of this Mt5AccountData.  # noqa: E501
-        :rtype: int
-        """
-        return self._mt5_uid
-
-    @mt5_uid.setter
-    def mt5_uid(self, mt5_uid):
-        """Sets the mt5_uid of this Mt5AccountData.
-
-        MT5 userID  # noqa: E501
-
-        :param mt5_uid: The mt5_uid of this Mt5AccountData.  # noqa: E501
-        :type: int
-        """
-
-        self._mt5_uid = mt5_uid
 
     @property
     def leverage(self):

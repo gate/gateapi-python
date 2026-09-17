@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.132
+  version: v4.106.144
   x-betaNum: 1
   title: Gate API
   contact:
@@ -73,7 +73,7 @@ components:
             properties:
               name:
                 type: string
-                description: 'Permission function name (no value will be cleared)
+                description: 'Permission function name (cleared if no value is provided)
 
                   - wallet: wallet
 
@@ -97,7 +97,9 @@ components:
 
                   - unified: unified account
 
-                  - copy: copy trading'
+                  - copy: copy trading
+
+                  - tradfi_spot: stocks'
               read_only:
                 type: boolean
                 description: Read Only
@@ -2829,7 +2831,7 @@ components:
           example: 2
         symbol:
           type: string
-          description: Trading symbol code
+          description: Base trading symbol code
           example: EURUSD
         volume:
           type: string
@@ -2843,6 +2845,11 @@ components:
           type: string
           description: Stop loss price (optional)
           example: '0.8'
+        leverage:
+          type: integer
+          description: Leverage multiplier (must be one of the leverage multipliers
+            allowed for the symbol in the trading symbol details response)
+          example: 500
     TradFiOrderUpdateRequest:
       type: object
       description: Modify order price and take profit/stop loss parameters
@@ -2980,7 +2987,7 @@ components:
           type: string
           description: 'Trading session.
 
-            Limit orders support only All, while market orders support only Regular.'
+            Limit orders support only all, while market orders support only regular.'
           enum:
           - regular
           - all
@@ -4417,7 +4424,8 @@ components:
             properties:
               name:
                 type: string
-                description: 'Permission function name (no value will be cleared)
+                description: 'Permission function name (cleared if no value is provided)
+
 
                   - `wallet`: wallet
 
@@ -4441,13 +4449,25 @@ components:
 
                   - `unified`: unified account
 
-                  - `copy`: copy trading- `pilot`: pilot
+                  - `copy`: copy trading
+
+                  - `pilot`: pilot
 
                   - `otc`: otc
 
                   - `alpha`: alpha
 
-                  - `crossx`: cross-exchange'
+                  - `crossx`: cross-exchange
+
+                  - `tradfi_spot`: stocks
+
+                  - `cfd`: CFD
+
+                  - `cfd_copy`: CFD lead trading
+
+                  - `stock_copy`: stock lead trading
+
+                  - `sub_accounts`: sub-accounts'
               read_only:
                 type: boolean
                 description: Read Only
@@ -4471,6 +4491,179 @@ components:
           type: string
           description: Last Access Time
           readOnly: true
+    AnnouncementArticleListRequest:
+      title: AnnouncementArticleListRequest
+      type: object
+      description: Announcement article list query
+      properties:
+        title_query:
+          type: string
+          description: Article title to use when querying announcements.
+        page:
+          type: string
+          description: Page number. Optional. Pass as a string, for example "1".
+          example: '1'
+        size:
+          type: string
+          description: Number of articles to return per page. Optional. Pass as a
+            string, for example "5".
+          example: '5'
+        tags:
+          type: string
+          description: Article tags
+        timer:
+          type: string
+          description: Query announcements from the last N days, with N passed as
+            a string. For example, on the 10th, pass "10" to query announcements from
+            the 1st through the 10th.
+        cate_name:
+          type: string
+          description: Announcement category name.
+        cate_level:
+          type: string
+          description: 'Category level, passed as a string: "1" or "2".'
+        sub_website_id:
+          type: string
+          description: 'Subsite ID, passed as a string: "0" for the main site or "177"
+            for the Turkey site. Defaults to "0".'
+          default: '0'
+        pinned:
+          type: integer
+          description: 'Whether to include pinned articles: 1 to include them or 0
+            to exclude them. Defaults to 1.'
+          default: 1
+        update_after:
+          type: integer
+          description: Query announcement articles updated after this timestamp.
+        lang:
+          type: string
+          description: Language code, for example "cn".
+          example: cn
+        filter_empty_content:
+          type: integer
+          description: 'Whether to exclude articles with empty content in the current
+            language: 0 to keep them or 1 to exclude them. Defaults to 1.'
+          default: 1
+    AnnouncementArticleListResponse:
+      title: AnnouncementArticleListResponse
+      type: object
+      description: Announcement article list response
+      required:
+      - code
+      - data
+      - message
+      - version
+      properties:
+        code:
+          type: integer
+          description: Business status code
+        data:
+          $ref: '#/components/schemas/AnnouncementArticleListData'
+        message:
+          type: string
+          description: Response message
+        version:
+          type: string
+          description: Response version
+    AnnouncementArticleListData:
+      title: AnnouncementArticleListData
+      type: object
+      description: Announcement articles and total count
+      required:
+      - list
+      - total
+      properties:
+        list:
+          type: array
+          description: Announcement article list
+          items:
+            $ref: '#/components/schemas/AnnouncementArticle'
+        total:
+          type: integer
+          description: Total number of announcement articles.
+    AnnouncementArticle:
+      title: AnnouncementArticle
+      type: object
+      description: Announcement article
+      required:
+      - id
+      - title
+      - brief
+      - created
+      - updated
+      - release_time
+      - views
+      - author
+      - author_id
+      - tags
+      - cate
+      - is_top
+      - cate_id
+      - source
+      - content_lang_list
+      properties:
+        id:
+          type: integer
+          description: Announcement article ID.
+        title:
+          type: string
+          description: Article title
+        brief:
+          type: string
+          description: Article summary
+        created:
+          type: string
+          description: Article creation time, returned as a string.
+        updated:
+          type: string
+          description: Article update time, returned as a string.
+        release_time:
+          type: string
+          description: Article publication time, returned as a string.
+        views:
+          type: integer
+          description: View count
+        author:
+          type: string
+          description: Author
+        author_id:
+          type: integer
+          description: Article author ID.
+        tags:
+          type: string
+          description: Article tags
+        cate:
+          type: string
+          description: Category to which the article belongs.
+        is_top:
+          type: integer
+          description: Pinned status indicator for the article.
+        cate_id:
+          type: integer
+          description: ID of the category to which the article belongs.
+        source:
+          type: string
+          description: Article source
+        content_lang_list:
+          type: array
+          description: Languages supported by the article, with the code and name
+            of each language.
+          items:
+            $ref: '#/components/schemas/AnnouncementArticleLanguage'
+    AnnouncementArticleLanguage:
+      title: AnnouncementArticleLanguage
+      type: object
+      description: Announcement article language
+      required:
+      - code
+      - name
+      properties:
+        code:
+          type: string
+          description: Language code, for example "cn".
+        name:
+          type: string
+          description: Language name
     OtcActionResponse:
       title: OtcActionResponse
       type: object
@@ -4617,6 +4810,22 @@ components:
             returned by `GET /otc/bank/list`; the default card has `is_default=1`.
           example: '2'
           type: string
+        receive_type:
+          description: 'Name used for the remittance. Allowed values depend on the
+            user type:
+
+            Corporate users: YOU (remit in your company''s name), GATE (remit in Gate''s
+            name), RECIPIENT (remit in the recipient''s name);
+
+            Individual users: GATE (remit in Gate''s name), PERSON (remit in the user''s
+            own name).'
+          example: GATE
+          type: string
+          enum:
+          - YOU
+          - GATE
+          - RECIPIENT
+          - PERSON
       required:
       - type
       - side
@@ -6893,7 +7102,7 @@ components:
           type: string
           title: 交易所
           description: Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN`
-            / `HYPERLIQUID` / `DERIBIT`).
+            / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).
         business_type:
           type: string
           title: 业务类型
@@ -7025,7 +7234,7 @@ components:
           type: string
           title: 交易所
           description: Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN`
-            / `HYPERLIQUID` / `DERIBIT`).
+            / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).
         business_type:
           type: string
           title: 业务类型
@@ -7247,12 +7456,12 @@ components:
           type: string
           description: '`from` debit account (funds withdrawn from): `CROSSEX_BINANCE`,
             `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`,
-            `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`'
+            `CROSSEX_DERIBIT`, `CROSSEX_LIGHTER`, `CROSSEX`, `SPOT`'
         to:
           type: string
           description: '`to` receiving account (`CROSSEX_BINANCE`, `CROSSEX_OKX`,
             `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`,
-            `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).'
+            `CROSSEX_DERIBIT`, `CROSSEX_LIGHTER`, `CROSSEX`, `SPOT`).'
         text:
           type: string
           description: User-defined ID
@@ -7289,9 +7498,11 @@ components:
 
             For an ADA/USDC futures order on Deribit, use `DERIBIT_FUTURE_ADA_USDC`;
 
+            For an ADA/USDC futures order on Lighter, use `LIGHTER_FUTURE_ADA_USDC`;
+
             Supports spot trades, USDT-margined perpetual futures, and spot margin
-            templates. BYBIT and DERIBIT omit spot margin for now; Kraken and Hyperliquid
-            omit dedicated spot/margin legs inside CrossEx.'
+            templates. BYBIT and DERIBIT omit spot margin for now; Kraken, Hyperliquid,
+            and Lighter omit dedicated spot/margin legs inside CrossEx.'
         side:
           type: string
           description: BUY, SELL
@@ -7372,7 +7583,8 @@ components:
           type: string
           description: 'Exchange type
 
-            Currently supports only BINANCE, OKX, GATE, BYBIT, HYPERLIQUID, and KRAKEN'
+            Currently supports only BINANCE, OKX, GATE, BYBIT, HYPERLIQUID, KRAKEN,
+            and LIGHTER'
         from_coin:
           type: string
           description: Asset Sold
@@ -7386,7 +7598,9 @@ components:
 
             HYPERLIQUID only supports conversion to USDT or USDC
 
-            KRAKEN only supports conversion to USDT'
+            KRAKEN only supports conversion to USDT
+
+            LIGHTER only supports swaps between USDT and USDC'
         from_amount:
           type: string
           description: Amount to sell
@@ -7417,8 +7631,9 @@ components:
         exchange_type:
           type: string
           description: Exchange (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` /
-            `HYPERLIQUID` / `DERIBIT` / `CROSSEX`). When account mode is `ISOLATED_EXCHANGE`,
-            the exchange must be specified to adjust futures position mode.
+            `HYPERLIQUID` / `DERIBIT` / `LIGHTER` / `CROSSEX`). When account mode
+            is `ISOLATED_EXCHANGE`, the exchange must be specified to adjust futures
+            position mode.
     CrossexLeverageRequest:
       type: object
       description: Change Leverage Request Body (for futures/margin)
@@ -7675,9 +7890,9 @@ components:
         exchange_type:
           type: string
           description: Exchange targeted by the requested change (`BINANCE` / `OKX`
-            / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `CROSSEX`).
-            When account mode is `ISOLATED_EXCHANGE`, the exchange must be specified
-            to change futures position mode.
+            / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`
+            / `CROSSEX`). When account mode is `ISOLATED_EXCHANGE`, the exchange must
+            be specified to change futures position mode.
     AIHubDiscoverSuccessResponse:
       description: Get the response body when the strategy recommendation is successful.
       type: object
@@ -12189,9 +12404,8 @@ components:
                 description: Funding version
               cross_balance:
                 type: string
-                description: Full margin balance is valid in single currency margin
-                  mode, and is 0 in other modes such as cross currency margin/combined
-                  margin mode
+                description: 'Full margin balance is available in both single-currency
+                  and multi-currency margin modes, and is 0 in portfolio margin mode. '
               iso_balance:
                 type: string
                 description: Futures isolated balance, effective in single-currency
@@ -16158,10 +16372,6 @@ components:
           type: object
           description: Response data
           properties:
-            mt5_uid:
-              type: integer
-              description: MT5 userID
-              example: 0
             leverage:
               type: integer
               description: Leverage multiplier
@@ -16553,9 +16763,6 @@ components:
             leverage:
               type: integer
               description: Leverage
-            mt5_uid:
-              type: string
-              description: mt5uid
     UserAssetResp:
       type: object
       properties:
@@ -16591,10 +16798,6 @@ components:
               type: string
               description: Unrealized PNL
               example: '0.00'
-            mt5_uid:
-              type: string
-              description: MT5 userID
-              example: '10122'
     CreateTransaction:
       type: object
       properties:
@@ -16672,7 +16875,7 @@ components:
           properties:
             id:
               type: string
-              description: Queue Task ID (not task ID)
+              description: Queue Task ID (not order ID)
               example: '117'
     OrderList:
       type: object
@@ -17193,6 +17396,18 @@ components:
               type: string
               description: Today's P&L
               example: '3.2'
+            option_position_market_value:
+              type: string
+              description: Option position market value
+              example: '0'
+            option_position_pnl:
+              type: string
+              description: Option position PnL
+              example: '0'
+            option_today_pnl:
+              type: string
+              description: Option today's PnL
+              example: '0'
             user_exists:
               type: boolean
               description: Whether the user has activated the service
@@ -17252,11 +17467,12 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, and kr
+          description: Exchange, supports us, hk, kr, and jp
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
         exchange_desc:
           type: string
@@ -17280,8 +17496,45 @@ components:
           example: Apple Inc.
         category:
           type: string
-          description: Category
-          example: stock
+          description: 'Symbol category.
+
+            - CS: Common stock.
+
+            - ETF: Exchange-traded funds.
+
+            - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S.
+
+            - ETV: Exchange-traded products.
+
+            - PFD: Preferred stock.
+
+            - ETS: Exchange-traded securities.
+
+            - ETN: Exchange-traded notes.
+
+            - FUND: Funds.'
+          enum:
+          - CS
+          - ETF
+          - ADRC
+          - ADR
+          - ETV
+          - PFD
+          - ETS
+          - ETN
+          - FUND
+          example: CS
+        asset_type:
+          type: string
+          description: 'Asset type.
+
+            - STOCK: Stock.
+
+            - ETF: Exchange-traded fund.'
+          enum:
+          - STOCK
+          - ETF
+          example: STOCK
         trade_status:
           type: string
           description: 'Trading status.
@@ -17370,9 +17623,11 @@ components:
       properties:
         lang:
           type: string
+          description: Language
           example: en
         value:
           type: string
+          description: Localized description
           example: Apple Inc.
     SymbolDetail:
       type: object
@@ -17383,8 +17638,10 @@ components:
             total:
               type: integer
               format: int64
+              description: Total quantity
             total_page:
               type: integer
+              description: Total pages
             list:
               type: array
               items:
@@ -17397,23 +17654,28 @@ components:
       properties:
         symbol:
           type: string
+          description: Symbol
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, and kr
+          description: Exchange, supports us, hk, kr, and jp
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
         exchange_desc:
           type: string
+          description: Exchange description
           example: United States
         quote_currency:
           type: string
+          description: Quote currency
           example: USD
         quote_currency_precision:
           type: integer
+          description: Quote currency precision
           example: 2
         fx_rate:
           type: string
@@ -17421,21 +17683,64 @@ components:
           example: '1'
         symbol_desc:
           type: string
+          description: Symbol description
           example: Apple Inc.
         category:
           type: string
-          example: stock
+          description: 'Symbol category.
+
+            - CS: Common stock.
+
+            - ETF: Exchange-traded funds.
+
+            - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S.
+
+            - ETV: Exchange-traded products.
+
+            - PFD: Preferred stock.
+
+            - ETS: Exchange-traded securities.
+
+            - ETN: Exchange-traded notes.
+
+            - FUND: Funds.'
+          enum:
+          - CS
+          - ETF
+          - ADRC
+          - ADR
+          - ETV
+          - PFD
+          - ETS
+          - ETN
+          - FUND
+          example: CS
+        asset_type:
+          type: string
+          description: 'Asset type.
+
+            - STOCK: Stock.
+
+            - ETF: Exchange-traded fund.'
+          enum:
+          - STOCK
+          - ETF
+          example: STOCK
         settlement_currency:
           type: string
+          description: Settlement currency
           example: USD
         max_order_volume:
           type: string
+          description: Maximum order quantity
           example: '10000'
         step_order_volume:
           type: string
+          description: Order step size
           example: '1'
         min_order_volume:
           type: string
+          description: Minimum order quantity
           example: '1'
         price_precision:
           type: integer
@@ -17443,24 +17748,31 @@ components:
           example: 2
         volume_precision:
           type: integer
+          description: Quantity precision
           example: 4
         is_ipo:
           type: boolean
+          description: Whether it is an IPO symbol
           example: false
         ipo_price:
           type: string
+          description: IPO price
           example: '15'
         price_protection:
           type: string
+          description: Price protection range
           example: '0.1'
         sell_price_protection:
           type: string
+          description: Sell price protection rate
           example: '0.1'
         buy_price_protection:
           type: string
+          description: Buy price protection rate
           example: '0.1'
         slippage_rate:
           type: string
+          description: Slippage
           example: '0.001'
         commission_rate:
           type: string
@@ -17514,15 +17826,19 @@ components:
           example: 1
         symbol_descs:
           type: array
+          description: Multilingual symbol description
           items:
             type: object
             properties:
               lang:
                 type: string
+                description: Language
               value:
                 type: string
+                description: Localized description
         icon_link:
           type: string
+          description: Icon URL
           example: https://static.gate.com/aapl.png
     OrderBook2:
       type: object
@@ -17598,11 +17914,12 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, and kr
+          description: Exchange, supports us, hk, kr, and jp
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
         quote_currency:
           type: string
@@ -17765,20 +18082,24 @@ components:
       properties:
         order_id:
           type: string
+          description: Order ID
           example: '123456'
         symbol:
           type: string
+          description: Symbol
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, and kr
+          description: Exchange, supports us, hk, kr, and jp
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
         quote_currency:
           type: string
+          description: Quote currency
           example: USD
         fx_rate:
           type: string
@@ -17786,6 +18107,7 @@ components:
           example: '1'
         symbol_desc:
           type: string
+          description: Symbol description
           example: Apple Inc.
         price_type:
           type: string
@@ -17805,11 +18127,14 @@ components:
         status_detail:
           type: object
           nullable: true
+          description: Order status details
           properties:
             title:
               type: string
+              description: Status title
             message:
               type: string
+              description: Status message
         finish_as:
           type: integer
           description: Order completion reason
@@ -17831,16 +18156,20 @@ components:
           example: day
         volume:
           type: string
+          description: Order quantity
           example: '10'
         fill_volume:
           type: string
+          description: Trading size
           example: '10'
         price:
           type: string
+          description: Order price
           example: '200.12'
         avg_fill_price:
           type: string
           nullable: true
+          description: Average fill price
           example: '200.10'
         commission:
           type: string
@@ -17849,10 +18178,12 @@ components:
         time_setup:
           type: integer
           format: int64
+          description: Order creation time (Unix timestamp, seconds)
           example: 1769378400
         time_done:
           type: integer
           format: int64
+          description: Order completion time (Unix timestamp in seconds)
           example: 1769378500
     UpdateOrder2:
       type: object
@@ -17891,11 +18222,12 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, and kr
+          description: Exchange, supports us, hk, kr, and jp
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
         quote_currency:
           type: string
@@ -17931,6 +18263,7 @@ components:
           example: open
         symbol_desc:
           type: string
+          description: Symbol description
           example: Apple Inc.
         position_pnl:
           type: string
@@ -17995,24 +18328,31 @@ components:
           example: '200.2'
         max_order_volume:
           type: string
+          description: Maximum order quantity
           example: '10000'
         step_order_volume:
           type: string
+          description: Order step size
           example: '1'
         min_order_volume:
           type: string
+          description: Minimum order quantity
           example: '1'
         price_precision:
           type: integer
+          description: Price precision
           example: 2
         price_protection:
           type: string
+          description: Price protection range
           example: '0.1'
         sell_price_protection:
           type: string
+          description: Sell price protection rate
           example: '0.1'
         buy_price_protection:
           type: string
+          description: Buy price protection rate
           example: '0.1'
         commission_rate:
           type: string
@@ -18020,6 +18360,7 @@ components:
           example: '0.001'
         slippage_rate:
           type: string
+          description: Slippage
           example: '0.001'
     ClosePosition:
       type: object
@@ -18154,11 +18495,12 @@ components:
                 properties:
                   exchange:
                     type: string
-                    description: Trading market, supports us, hk, and kr
+                    description: Trading market, supports us, hk, kr, and jp
                     enum:
                     - us
                     - hk
                     - kr
+                    - jp
                     example: us
                   exchange_desc:
                     type: string
@@ -36502,7 +36844,6 @@ paths:
                 $ref: '#/components/schemas/Mt5Account'
               example:
                 data:
-                  mt5_uid: 0
                   leverage: 0
                   stop_out_level: ''
                   status: 1
@@ -36568,7 +36909,6 @@ paths:
     get:
       tags:
       - CFD
-      security: []
       summary: Query symbol commission rates
       operationId: querySymbolCommissions
       parameters:
@@ -36676,7 +37016,6 @@ paths:
     get:
       tags:
       - CFD
-      security: []
       summary: Query trading symbol details
       operationId: querySymbolDetail
       parameters:
@@ -36883,7 +37222,6 @@ paths:
                 data:
                   leverage: 1
                   status: 3
-                  mt5_uid: '1'
                 timestamp: 1769398039786
         400:
           description: Request failed
@@ -36920,7 +37258,6 @@ paths:
                   margin: '0.00'
                   margin_free: '0.00'
                   unrealized_pnl: '0.00'
-                  mt5_uid: '10122'
         400:
           description: Request failed
           content:
@@ -37635,6 +37972,9 @@ paths:
                   position_market_value: '1500.25'
                   position_pnl: '12.5'
                   today_pnl: '3.2'
+                  option_position_market_value: '0'
+                  option_position_pnl: '0'
+                  option_today_pnl: '0'
                   user_exists: true
                 timestamp: 1783411200000
         400:
@@ -37668,13 +38008,14 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: Exchange, supports us, hk, and kr
+        description: Exchange, supports us, hk, kr, and jp
         schema:
           type: string
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
       - name: with_desc_i18n
         in: query
@@ -37717,7 +38058,8 @@ paths:
                     quote_currency_precision: 2
                     fx_rate: '1'
                     symbol_desc: Apple Inc.
-                    category: stock
+                    category: CS
+                    asset_type: STOCK
                     trade_status: open
                     trade_mode: 3
                     order_fill_timing: 1
@@ -37763,13 +38105,14 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: Exchange, supports us, hk, and kr
+        description: Exchange, supports us, hk, kr, and jp
         schema:
           type: string
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
       - name: page
         in: query
@@ -37805,7 +38148,8 @@ paths:
                     quote_currency_precision: 2
                     fx_rate: '1'
                     symbol_desc: Apple Inc.
-                    category: stock
+                    category: CS
+                    asset_type: STOCK
                     settlement_currency: USD
                     max_order_volume: '10000'
                     step_order_volume: '1'
@@ -37813,13 +38157,13 @@ paths:
                     price_precision: 2
                     volume_precision: 4
                     is_ipo: false
+                    ipo_price: '15'
                     price_protection: '0.1'
                     sell_price_protection: '0.1'
                     buy_price_protection: '0.1'
                     slippage_rate: '0.001'
                     commission_rate: '0.001'
                     trade_status: open
-                    status: open
                     trade_mode: 3
                     order_fill_timing: 1
                     symbol_descs:
@@ -38237,13 +38581,14 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: Exchange, supports us, hk, and kr
+        description: Exchange, supports us, hk, kr, and jp
         schema:
           type: string
           enum:
           - us
           - hk
           - kr
+          - jp
           example: us
       responses:
         200:
@@ -45086,6 +45431,35 @@ paths:
               example:
                 enabled: true
       parameters: []
+  /ann/list_article:
+    post:
+      tags:
+      - announcement
+      summary: List announcement articles
+      description: Query announcement articles with pagination and filters for title,
+        category, language, time, and other criteria. Send query parameters in the
+        JSON request body. Both page and size are optional and must be strings when
+        provided. No API key is required.
+      operationId: listAnnouncementArticles
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnouncementArticleListRequest'
+            example:
+              pinned: 1
+              page: '1'
+              size: '5'
+      responses:
+        '200':
+          description: Announcement article list response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementArticleListResponse'
+      parameters: []
   /rebate/agency/transaction_history:
     get:
       tags:
@@ -46689,7 +47063,7 @@ paths:
   /p2p/merchant/account/get_user_info:
     post:
       summary: Get account information
-      description: To query the spot account balance, use the Spot API `GET /spot/accounts`.
+      description: To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).
       operationId: p2pMerchantAccountGetUserInfo
       tags:
       - p2p
@@ -48377,7 +48751,9 @@ paths:
         \ accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE`\n\
         - When either side of the transfer is `CROSSEX_KRAKEN`, only USDT is supported\
         \ for now.\n- When either side of the transfer is `CROSSEX_HYPERLIQUID`, the\
-        \ other side must be `SPOT`, and only USDC is supported."
+        \ other side must be `SPOT`, and only USDC is supported.\n- When either side\
+        \ of the transfer is `CROSSEX_LIGHTER`, the other side must be `SPOT`, and\
+        \ only USDC is supported."
       tags:
       - CrossEx
       parameters: []
@@ -48538,15 +48914,16 @@ paths:
                       description: Client Custom ID
                     from_account_type:
                       type: string
-                      description: '`from` credit account touched by this operation
-                        (`CROSSEX_BINANCE`, `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`,
-                        `CROSSEX_KRAKEN`, `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`,
-                        `CROSSEX`, `SPOT`).'
+                      description: Source account for this operation (`from`) (`CROSSEX_BINANCE`,
+                        `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`,
+                        `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX_LIGHTER`,
+                        `CROSSEX`, `SPOT`).
                     to_account_type:
                       type: string
-                      description: '`to` debit account handled by this operation (`CROSSEX_BINANCE`,
+                      description: Destination account for this operation (`to`) (`CROSSEX_BINANCE`,
                         `CROSSEX_OKX`, `CROSSEX_GATE`, `CROSSEX_BYBIT`, `CROSSEX_KRAKEN`,
-                        `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX`, `SPOT`).'
+                        `CROSSEX_HYPERLIQUID`, `CROSSEX_DERIBIT`, `CROSSEX_LIGHTER`,
+                        `CROSSEX`, `SPOT`).
                     coin:
                       type: string
                       description: Currency
@@ -48951,6 +49328,9 @@ paths:
         For HYPERLIQUID, swaps between `HYPERLIQUID_USDC` and `CROSSEX_USDT` are supported.
         Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID.
 
+        For LIGHTER, swaps between `LIGHTER_USDC` and `CROSSEX_USDT` are supported.
+        Flash Swap in isolated exchange mode is not currently supported for LIGHTER.
+
         For KRAKEN, only conversion from `KRAKEN_USD` to `CROSSEX_USDT` is supported.
         Flash Swap in isolated exchange mode is not currently supported for KRAKEN.'
       tags:
@@ -49130,9 +49510,9 @@ paths:
         in: query
         description: Trading venue identifier. Omit in cross-exchange mode; required
           in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN`
-          / `HYPERLIQUID` / `DERIBIT`).
+          / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).
         required: false
-        example: BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT
+        example: BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT,LIGHTER
         schema:
           type: string
       responses:
@@ -49670,7 +50050,7 @@ paths:
         in: query
         description: Exchange
         required: false
-        example: BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT
+        example: BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT,LIGHTER
         schema:
           type: string
       responses:
@@ -49893,6 +50273,13 @@ paths:
                 future_maker_fee: '0.00006'
                 future_taker_fee: '0.00022'
                 future_rpi_maker_fee: ''
+              - exchange_type: LIGHTER
+                spot_maker_fee: '0.0005'
+                spot_taker_fee: '0.0005'
+                spot_rpi_maker_fee: ''
+                future_maker_fee: '0.00005'
+                future_taker_fee: '0.00005'
+                future_rpi_maker_fee: ''
           headers: {}
   /crossex/positions:
     get:
@@ -49914,7 +50301,7 @@ paths:
         in: query
         description: Exchange
         required: false
-        example: BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT
+        example: BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT,LIGHTER
         schema:
           type: string
       responses:
@@ -51327,7 +51714,7 @@ paths:
           type: string
       - name: exchange_type
         in: query
-        description: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT
+        description: OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT/LIGHTER
         required: false
         example: OKX
         schema:
@@ -55829,16 +56216,22 @@ tags:
     - [CFD Trading](https://www.gate.com/tradfi)
 
     - Before using this business API, make sure the user has enabled CFD business.
-    You can call the create CFD user endpoint or log in to the app to enable it'
+    You can call the create CFD user endpoint or log in to the app to enable it
+
+    - For lead trading via APIv4, add the request header `x-gate-trader-copy-type:
+    cfd_copy`. This does not apply to CFD user activation or fund transfer endpoints.'
 - name: Stock
-  description: 'The stock business provides traditional finance stock spot trading
-    capabilities. The API returns an APIV4-compatible response structure, returning
-    `data` and `timestamp` on success, and `label`, `message`, `data`, and `timestamp`
-    on failure.
+  description: 'The Stock API provides traditional financial stock spot trading. Responses
+    are compatible with APIv4: successful responses contain `data` and `timestamp`;
+    error responses contain `label`, `message`, `data`, and `timestamp`.
 
-    - REST API BaseURL for live trading: `https://api.gateio.ws/api/v4/`
+    - REST API production BaseURL: `https://api.gateio.ws/api/v4/`
 
-    - Documentation route prefix: `/stock`'
+    - Documentation route prefix: `/stock`
+
+    - For lead trading via APIv4, add the request header `x-gate-trader-copy-type:
+    stock_copy` (fund transfers and transaction history endpoints are excluded from
+    lead trading).'
 - name: delivery
   description: Delivery contract
 - name: options
@@ -55851,6 +56244,8 @@ tags:
   description: Earn service
 - name: account
   description: Retrieve user account information
+- name: announcement
+  description: Announcements
 - name: rebate
   description: Commission rebate related APIs, including trading record queries and
     rebate record queries for agents, partners, and brokers
@@ -55860,15 +56255,16 @@ tags:
 - name: p2p
   description: P2P trading
 - name: CrossEx
-  description: 'CrossEx is a unified multi-venue exchange surface: Binance, OKX, Gate,
-    Bybit, Kraken, Hyperliquid, and Deribit tie into one account shell for transfers,
-    market data subscriptions, fills, positions, and account maintenance.
+  description: 'CrossEx is a cross-exchange trading platform that allows users to
+    trade across multiple exchanges (Binance, OKX, Gate, Bybit, Kraken, Hyperliquid,
+    Deribit, and Lighter) through a unified account. The CrossEx API provides account
+    management, asset transfers, order placement, and position management across exchanges.
 
-    - REST production base URL: `https://api.gateio.ws/api/v4`
+    - REST API production base URL: `https://api.gateio.ws/api/v4`
 
-    - [CrossEx help desk](https://www.gate.com/help/crossex/functional)
+    - [Help Center](https://www.gate.com/help/crossex/functional)
 
-    - [Unified trading cockpit](https://www.gate.com/crossex)'
+    - [Cross-exchange trading](https://www.gate.com/crossex)'
 - name: bot
   description: Bot AIHub policy recommendation, creation, query and termination interface
 - name: alpha

@@ -229,7 +229,7 @@ class PositionListItem(object):
     def exchange(self):
         """Gets the exchange of this PositionListItem.  # noqa: E501
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :return: The exchange of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -240,12 +240,12 @@ class PositionListItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this PositionListItem.
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :param exchange: The exchange of this PositionListItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["us", "hk", "kr"]  # noqa: E501
+        allowed_values = ["us", "hk", "kr", "jp"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and exchange not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `exchange` ({0}), must be one of {1}"  # noqa: E501
@@ -356,6 +356,7 @@ class PositionListItem(object):
     def symbol_desc(self):
         """Gets the symbol_desc of this PositionListItem.  # noqa: E501
 
+        Symbol description  # noqa: E501
 
         :return: The symbol_desc of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -366,6 +367,7 @@ class PositionListItem(object):
     def symbol_desc(self, symbol_desc):
         """Sets the symbol_desc of this PositionListItem.
 
+        Symbol description  # noqa: E501
 
         :param symbol_desc: The symbol_desc of this PositionListItem.  # noqa: E501
         :type: str
@@ -722,6 +724,7 @@ class PositionListItem(object):
     def max_order_volume(self):
         """Gets the max_order_volume of this PositionListItem.  # noqa: E501
 
+        Maximum order quantity  # noqa: E501
 
         :return: The max_order_volume of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -732,6 +735,7 @@ class PositionListItem(object):
     def max_order_volume(self, max_order_volume):
         """Sets the max_order_volume of this PositionListItem.
 
+        Maximum order quantity  # noqa: E501
 
         :param max_order_volume: The max_order_volume of this PositionListItem.  # noqa: E501
         :type: str
@@ -743,6 +747,7 @@ class PositionListItem(object):
     def step_order_volume(self):
         """Gets the step_order_volume of this PositionListItem.  # noqa: E501
 
+        Order step size  # noqa: E501
 
         :return: The step_order_volume of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -753,6 +758,7 @@ class PositionListItem(object):
     def step_order_volume(self, step_order_volume):
         """Sets the step_order_volume of this PositionListItem.
 
+        Order step size  # noqa: E501
 
         :param step_order_volume: The step_order_volume of this PositionListItem.  # noqa: E501
         :type: str
@@ -764,6 +770,7 @@ class PositionListItem(object):
     def min_order_volume(self):
         """Gets the min_order_volume of this PositionListItem.  # noqa: E501
 
+        Minimum order quantity  # noqa: E501
 
         :return: The min_order_volume of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -774,6 +781,7 @@ class PositionListItem(object):
     def min_order_volume(self, min_order_volume):
         """Sets the min_order_volume of this PositionListItem.
 
+        Minimum order quantity  # noqa: E501
 
         :param min_order_volume: The min_order_volume of this PositionListItem.  # noqa: E501
         :type: str
@@ -785,6 +793,7 @@ class PositionListItem(object):
     def price_precision(self):
         """Gets the price_precision of this PositionListItem.  # noqa: E501
 
+        Price precision  # noqa: E501
 
         :return: The price_precision of this PositionListItem.  # noqa: E501
         :rtype: int
@@ -795,6 +804,7 @@ class PositionListItem(object):
     def price_precision(self, price_precision):
         """Sets the price_precision of this PositionListItem.
 
+        Price precision  # noqa: E501
 
         :param price_precision: The price_precision of this PositionListItem.  # noqa: E501
         :type: int
@@ -806,6 +816,7 @@ class PositionListItem(object):
     def price_protection(self):
         """Gets the price_protection of this PositionListItem.  # noqa: E501
 
+        Price protection range  # noqa: E501
 
         :return: The price_protection of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -816,6 +827,7 @@ class PositionListItem(object):
     def price_protection(self, price_protection):
         """Sets the price_protection of this PositionListItem.
 
+        Price protection range  # noqa: E501
 
         :param price_protection: The price_protection of this PositionListItem.  # noqa: E501
         :type: str
@@ -827,6 +839,7 @@ class PositionListItem(object):
     def sell_price_protection(self):
         """Gets the sell_price_protection of this PositionListItem.  # noqa: E501
 
+        Sell price protection rate  # noqa: E501
 
         :return: The sell_price_protection of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -837,6 +850,7 @@ class PositionListItem(object):
     def sell_price_protection(self, sell_price_protection):
         """Sets the sell_price_protection of this PositionListItem.
 
+        Sell price protection rate  # noqa: E501
 
         :param sell_price_protection: The sell_price_protection of this PositionListItem.  # noqa: E501
         :type: str
@@ -848,6 +862,7 @@ class PositionListItem(object):
     def buy_price_protection(self):
         """Gets the buy_price_protection of this PositionListItem.  # noqa: E501
 
+        Buy price protection rate  # noqa: E501
 
         :return: The buy_price_protection of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -858,6 +873,7 @@ class PositionListItem(object):
     def buy_price_protection(self, buy_price_protection):
         """Sets the buy_price_protection of this PositionListItem.
 
+        Buy price protection rate  # noqa: E501
 
         :param buy_price_protection: The buy_price_protection of this PositionListItem.  # noqa: E501
         :type: str
@@ -892,6 +908,7 @@ class PositionListItem(object):
     def slippage_rate(self):
         """Gets the slippage_rate of this PositionListItem.  # noqa: E501
 
+        Slippage  # noqa: E501
 
         :return: The slippage_rate of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -902,6 +919,7 @@ class PositionListItem(object):
     def slippage_rate(self, slippage_rate):
         """Sets the slippage_rate of this PositionListItem.
 
+        Slippage  # noqa: E501
 
         :param slippage_rate: The slippage_rate of this PositionListItem.  # noqa: E501
         :type: str

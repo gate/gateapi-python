@@ -4,7 +4,6 @@ Response data
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mt5_uid** | **int** | MT5 userID | [optional] 
 **leverage** | **int** | Leverage multiplier | [optional] 
 **stop_out_level** | **str** | Liquidation margin ratio | [optional] 
 **status** | **int** | Account status (1&#x3D;not opened, 2&#x3D;pending review, 3&#x3D;active) | [optional] 

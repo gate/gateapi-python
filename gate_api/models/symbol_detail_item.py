@@ -41,6 +41,7 @@ class SymbolDetailItem(object):
         'fx_rate': 'str',
         'symbol_desc': 'str',
         'category': 'str',
+        'asset_type': 'str',
         'settlement_currency': 'str',
         'max_order_volume': 'str',
         'step_order_volume': 'str',
@@ -70,6 +71,7 @@ class SymbolDetailItem(object):
         'fx_rate': 'fx_rate',
         'symbol_desc': 'symbol_desc',
         'category': 'category',
+        'asset_type': 'asset_type',
         'settlement_currency': 'settlement_currency',
         'max_order_volume': 'max_order_volume',
         'step_order_volume': 'step_order_volume',
@@ -90,8 +92,8 @@ class SymbolDetailItem(object):
         'icon_link': 'icon_link'
     }
 
-    def __init__(self, symbol=None, exchange=None, exchange_desc=None, quote_currency=None, quote_currency_precision=None, fx_rate=None, symbol_desc=None, category=None, settlement_currency=None, max_order_volume=None, step_order_volume=None, min_order_volume=None, price_precision=None, volume_precision=None, is_ipo=None, ipo_price=None, price_protection=None, sell_price_protection=None, buy_price_protection=None, slippage_rate=None, commission_rate=None, trade_status=None, trade_mode=None, order_fill_timing=None, symbol_descs=None, icon_link=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, int, str, str, str, str, str, str, str, int, int, bool, str, str, str, str, str, str, str, int, int, list[SymbolDetailItemSymbolDescs], str, Configuration) -> None
+    def __init__(self, symbol=None, exchange=None, exchange_desc=None, quote_currency=None, quote_currency_precision=None, fx_rate=None, symbol_desc=None, category=None, asset_type=None, settlement_currency=None, max_order_volume=None, step_order_volume=None, min_order_volume=None, price_precision=None, volume_precision=None, is_ipo=None, ipo_price=None, price_protection=None, sell_price_protection=None, buy_price_protection=None, slippage_rate=None, commission_rate=None, trade_status=None, trade_mode=None, order_fill_timing=None, symbol_descs=None, icon_link=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, int, str, str, str, str, str, str, str, str, int, int, bool, str, str, str, str, str, str, str, int, int, list[SymbolDetailItemSymbolDescs], str, Configuration) -> None
         """SymbolDetailItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class SymbolDetailItem(object):
         self._fx_rate = None
         self._symbol_desc = None
         self._category = None
+        self._asset_type = None
         self._settlement_currency = None
         self._max_order_volume = None
         self._step_order_volume = None
@@ -141,6 +144,8 @@ class SymbolDetailItem(object):
             self.symbol_desc = symbol_desc
         if category is not None:
             self.category = category
+        if asset_type is not None:
+            self.asset_type = asset_type
         if settlement_currency is not None:
             self.settlement_currency = settlement_currency
         if max_order_volume is not None:
@@ -182,6 +187,7 @@ class SymbolDetailItem(object):
     def symbol(self):
         """Gets the symbol of this SymbolDetailItem.  # noqa: E501
 
+        Symbol  # noqa: E501
 
         :return: The symbol of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -192,6 +198,7 @@ class SymbolDetailItem(object):
     def symbol(self, symbol):
         """Sets the symbol of this SymbolDetailItem.
 
+        Symbol  # noqa: E501
 
         :param symbol: The symbol of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -203,7 +210,7 @@ class SymbolDetailItem(object):
     def exchange(self):
         """Gets the exchange of this SymbolDetailItem.  # noqa: E501
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :return: The exchange of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -214,12 +221,12 @@ class SymbolDetailItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this SymbolDetailItem.
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :param exchange: The exchange of this SymbolDetailItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["us", "hk", "kr"]  # noqa: E501
+        allowed_values = ["us", "hk", "kr", "jp"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and exchange not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `exchange` ({0}), must be one of {1}"  # noqa: E501
@@ -232,6 +239,7 @@ class SymbolDetailItem(object):
     def exchange_desc(self):
         """Gets the exchange_desc of this SymbolDetailItem.  # noqa: E501
 
+        Exchange description  # noqa: E501
 
         :return: The exchange_desc of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -242,6 +250,7 @@ class SymbolDetailItem(object):
     def exchange_desc(self, exchange_desc):
         """Sets the exchange_desc of this SymbolDetailItem.
 
+        Exchange description  # noqa: E501
 
         :param exchange_desc: The exchange_desc of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -253,6 +262,7 @@ class SymbolDetailItem(object):
     def quote_currency(self):
         """Gets the quote_currency of this SymbolDetailItem.  # noqa: E501
 
+        Quote currency  # noqa: E501
 
         :return: The quote_currency of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -263,6 +273,7 @@ class SymbolDetailItem(object):
     def quote_currency(self, quote_currency):
         """Sets the quote_currency of this SymbolDetailItem.
 
+        Quote currency  # noqa: E501
 
         :param quote_currency: The quote_currency of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -274,6 +285,7 @@ class SymbolDetailItem(object):
     def quote_currency_precision(self):
         """Gets the quote_currency_precision of this SymbolDetailItem.  # noqa: E501
 
+        Quote currency precision  # noqa: E501
 
         :return: The quote_currency_precision of this SymbolDetailItem.  # noqa: E501
         :rtype: int
@@ -284,6 +296,7 @@ class SymbolDetailItem(object):
     def quote_currency_precision(self, quote_currency_precision):
         """Sets the quote_currency_precision of this SymbolDetailItem.
 
+        Quote currency precision  # noqa: E501
 
         :param quote_currency_precision: The quote_currency_precision of this SymbolDetailItem.  # noqa: E501
         :type: int
@@ -318,6 +331,7 @@ class SymbolDetailItem(object):
     def symbol_desc(self):
         """Gets the symbol_desc of this SymbolDetailItem.  # noqa: E501
 
+        Symbol description  # noqa: E501
 
         :return: The symbol_desc of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -328,6 +342,7 @@ class SymbolDetailItem(object):
     def symbol_desc(self, symbol_desc):
         """Sets the symbol_desc of this SymbolDetailItem.
 
+        Symbol description  # noqa: E501
 
         :param symbol_desc: The symbol_desc of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -339,6 +354,7 @@ class SymbolDetailItem(object):
     def category(self):
         """Gets the category of this SymbolDetailItem.  # noqa: E501
 
+        Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.  # noqa: E501
 
         :return: The category of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -349,17 +365,54 @@ class SymbolDetailItem(object):
     def category(self, category):
         """Sets the category of this SymbolDetailItem.
 
+        Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.  # noqa: E501
 
         :param category: The category of this SymbolDetailItem.  # noqa: E501
         :type: str
         """
+        allowed_values = ["CS", "ETF", "ADRC", "ADR", "ETV", "PFD", "ETS", "ETN", "FUND"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and category not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `category` ({0}), must be one of {1}"  # noqa: E501
+                .format(category, allowed_values)
+            )
 
         self._category = category
+
+    @property
+    def asset_type(self):
+        """Gets the asset_type of this SymbolDetailItem.  # noqa: E501
+
+        Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.  # noqa: E501
+
+        :return: The asset_type of this SymbolDetailItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_type
+
+    @asset_type.setter
+    def asset_type(self, asset_type):
+        """Sets the asset_type of this SymbolDetailItem.
+
+        Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.  # noqa: E501
+
+        :param asset_type: The asset_type of this SymbolDetailItem.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["STOCK", "ETF"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and asset_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(asset_type, allowed_values)
+            )
+
+        self._asset_type = asset_type
 
     @property
     def settlement_currency(self):
         """Gets the settlement_currency of this SymbolDetailItem.  # noqa: E501
 
+        Settlement currency  # noqa: E501
 
         :return: The settlement_currency of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -370,6 +423,7 @@ class SymbolDetailItem(object):
     def settlement_currency(self, settlement_currency):
         """Sets the settlement_currency of this SymbolDetailItem.
 
+        Settlement currency  # noqa: E501
 
         :param settlement_currency: The settlement_currency of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -381,6 +435,7 @@ class SymbolDetailItem(object):
     def max_order_volume(self):
         """Gets the max_order_volume of this SymbolDetailItem.  # noqa: E501
 
+        Maximum order quantity  # noqa: E501
 
         :return: The max_order_volume of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -391,6 +446,7 @@ class SymbolDetailItem(object):
     def max_order_volume(self, max_order_volume):
         """Sets the max_order_volume of this SymbolDetailItem.
 
+        Maximum order quantity  # noqa: E501
 
         :param max_order_volume: The max_order_volume of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -402,6 +458,7 @@ class SymbolDetailItem(object):
     def step_order_volume(self):
         """Gets the step_order_volume of this SymbolDetailItem.  # noqa: E501
 
+        Order step size  # noqa: E501
 
         :return: The step_order_volume of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -412,6 +469,7 @@ class SymbolDetailItem(object):
     def step_order_volume(self, step_order_volume):
         """Sets the step_order_volume of this SymbolDetailItem.
 
+        Order step size  # noqa: E501
 
         :param step_order_volume: The step_order_volume of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -423,6 +481,7 @@ class SymbolDetailItem(object):
     def min_order_volume(self):
         """Gets the min_order_volume of this SymbolDetailItem.  # noqa: E501
 
+        Minimum order quantity  # noqa: E501
 
         :return: The min_order_volume of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -433,6 +492,7 @@ class SymbolDetailItem(object):
     def min_order_volume(self, min_order_volume):
         """Sets the min_order_volume of this SymbolDetailItem.
 
+        Minimum order quantity  # noqa: E501
 
         :param min_order_volume: The min_order_volume of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -467,6 +527,7 @@ class SymbolDetailItem(object):
     def volume_precision(self):
         """Gets the volume_precision of this SymbolDetailItem.  # noqa: E501
 
+        Quantity precision  # noqa: E501
 
         :return: The volume_precision of this SymbolDetailItem.  # noqa: E501
         :rtype: int
@@ -477,6 +538,7 @@ class SymbolDetailItem(object):
     def volume_precision(self, volume_precision):
         """Sets the volume_precision of this SymbolDetailItem.
 
+        Quantity precision  # noqa: E501
 
         :param volume_precision: The volume_precision of this SymbolDetailItem.  # noqa: E501
         :type: int
@@ -488,6 +550,7 @@ class SymbolDetailItem(object):
     def is_ipo(self):
         """Gets the is_ipo of this SymbolDetailItem.  # noqa: E501
 
+        Whether it is an IPO symbol  # noqa: E501
 
         :return: The is_ipo of this SymbolDetailItem.  # noqa: E501
         :rtype: bool
@@ -498,6 +561,7 @@ class SymbolDetailItem(object):
     def is_ipo(self, is_ipo):
         """Sets the is_ipo of this SymbolDetailItem.
 
+        Whether it is an IPO symbol  # noqa: E501
 
         :param is_ipo: The is_ipo of this SymbolDetailItem.  # noqa: E501
         :type: bool
@@ -509,6 +573,7 @@ class SymbolDetailItem(object):
     def ipo_price(self):
         """Gets the ipo_price of this SymbolDetailItem.  # noqa: E501
 
+        IPO price  # noqa: E501
 
         :return: The ipo_price of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -519,6 +584,7 @@ class SymbolDetailItem(object):
     def ipo_price(self, ipo_price):
         """Sets the ipo_price of this SymbolDetailItem.
 
+        IPO price  # noqa: E501
 
         :param ipo_price: The ipo_price of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -530,6 +596,7 @@ class SymbolDetailItem(object):
     def price_protection(self):
         """Gets the price_protection of this SymbolDetailItem.  # noqa: E501
 
+        Price protection range  # noqa: E501
 
         :return: The price_protection of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -540,6 +607,7 @@ class SymbolDetailItem(object):
     def price_protection(self, price_protection):
         """Sets the price_protection of this SymbolDetailItem.
 
+        Price protection range  # noqa: E501
 
         :param price_protection: The price_protection of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -551,6 +619,7 @@ class SymbolDetailItem(object):
     def sell_price_protection(self):
         """Gets the sell_price_protection of this SymbolDetailItem.  # noqa: E501
 
+        Sell price protection rate  # noqa: E501
 
         :return: The sell_price_protection of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -561,6 +630,7 @@ class SymbolDetailItem(object):
     def sell_price_protection(self, sell_price_protection):
         """Sets the sell_price_protection of this SymbolDetailItem.
 
+        Sell price protection rate  # noqa: E501
 
         :param sell_price_protection: The sell_price_protection of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -572,6 +642,7 @@ class SymbolDetailItem(object):
     def buy_price_protection(self):
         """Gets the buy_price_protection of this SymbolDetailItem.  # noqa: E501
 
+        Buy price protection rate  # noqa: E501
 
         :return: The buy_price_protection of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -582,6 +653,7 @@ class SymbolDetailItem(object):
     def buy_price_protection(self, buy_price_protection):
         """Sets the buy_price_protection of this SymbolDetailItem.
 
+        Buy price protection rate  # noqa: E501
 
         :param buy_price_protection: The buy_price_protection of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -593,6 +665,7 @@ class SymbolDetailItem(object):
     def slippage_rate(self):
         """Gets the slippage_rate of this SymbolDetailItem.  # noqa: E501
 
+        Slippage  # noqa: E501
 
         :return: The slippage_rate of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -603,6 +676,7 @@ class SymbolDetailItem(object):
     def slippage_rate(self, slippage_rate):
         """Sets the slippage_rate of this SymbolDetailItem.
 
+        Slippage  # noqa: E501
 
         :param slippage_rate: The slippage_rate of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -724,6 +798,7 @@ class SymbolDetailItem(object):
     def symbol_descs(self):
         """Gets the symbol_descs of this SymbolDetailItem.  # noqa: E501
 
+        Multilingual symbol description  # noqa: E501
 
         :return: The symbol_descs of this SymbolDetailItem.  # noqa: E501
         :rtype: list[SymbolDetailItemSymbolDescs]
@@ -734,6 +809,7 @@ class SymbolDetailItem(object):
     def symbol_descs(self, symbol_descs):
         """Sets the symbol_descs of this SymbolDetailItem.
 
+        Multilingual symbol description  # noqa: E501
 
         :param symbol_descs: The symbol_descs of this SymbolDetailItem.  # noqa: E501
         :type: list[SymbolDetailItemSymbolDescs]
@@ -745,6 +821,7 @@ class SymbolDetailItem(object):
     def icon_link(self):
         """Gets the icon_link of this SymbolDetailItem.  # noqa: E501
 
+        Icon URL  # noqa: E501
 
         :return: The icon_link of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -755,6 +832,7 @@ class SymbolDetailItem(object):
     def icon_link(self, icon_link):
         """Sets the icon_link of this SymbolDetailItem.
 
+        Icon URL  # noqa: E501
 
         :param icon_link: The icon_link of this SymbolDetailItem.  # noqa: E501
         :type: str

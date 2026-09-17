@@ -150,6 +150,7 @@ class OrderHistoryListItem(object):
     def order_id(self):
         """Gets the order_id of this OrderHistoryListItem.  # noqa: E501
 
+        Order ID  # noqa: E501
 
         :return: The order_id of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -160,6 +161,7 @@ class OrderHistoryListItem(object):
     def order_id(self, order_id):
         """Sets the order_id of this OrderHistoryListItem.
 
+        Order ID  # noqa: E501
 
         :param order_id: The order_id of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -171,6 +173,7 @@ class OrderHistoryListItem(object):
     def symbol(self):
         """Gets the symbol of this OrderHistoryListItem.  # noqa: E501
 
+        Symbol  # noqa: E501
 
         :return: The symbol of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -181,6 +184,7 @@ class OrderHistoryListItem(object):
     def symbol(self, symbol):
         """Sets the symbol of this OrderHistoryListItem.
 
+        Symbol  # noqa: E501
 
         :param symbol: The symbol of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -192,7 +196,7 @@ class OrderHistoryListItem(object):
     def exchange(self):
         """Gets the exchange of this OrderHistoryListItem.  # noqa: E501
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :return: The exchange of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -203,12 +207,12 @@ class OrderHistoryListItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this OrderHistoryListItem.
 
-        Exchange, supports us, hk, and kr  # noqa: E501
+        Exchange, supports us, hk, kr, and jp  # noqa: E501
 
         :param exchange: The exchange of this OrderHistoryListItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["us", "hk", "kr"]  # noqa: E501
+        allowed_values = ["us", "hk", "kr", "jp"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and exchange not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `exchange` ({0}), must be one of {1}"  # noqa: E501
@@ -221,6 +225,7 @@ class OrderHistoryListItem(object):
     def quote_currency(self):
         """Gets the quote_currency of this OrderHistoryListItem.  # noqa: E501
 
+        Quote currency  # noqa: E501
 
         :return: The quote_currency of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -231,6 +236,7 @@ class OrderHistoryListItem(object):
     def quote_currency(self, quote_currency):
         """Sets the quote_currency of this OrderHistoryListItem.
 
+        Quote currency  # noqa: E501
 
         :param quote_currency: The quote_currency of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -265,6 +271,7 @@ class OrderHistoryListItem(object):
     def symbol_desc(self):
         """Gets the symbol_desc of this OrderHistoryListItem.  # noqa: E501
 
+        Symbol description  # noqa: E501
 
         :return: The symbol_desc of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -275,6 +282,7 @@ class OrderHistoryListItem(object):
     def symbol_desc(self, symbol_desc):
         """Sets the symbol_desc of this OrderHistoryListItem.
 
+        Symbol description  # noqa: E501
 
         :param symbol_desc: The symbol_desc of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -463,6 +471,7 @@ class OrderHistoryListItem(object):
     def volume(self):
         """Gets the volume of this OrderHistoryListItem.  # noqa: E501
 
+        Order quantity  # noqa: E501
 
         :return: The volume of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -473,6 +482,7 @@ class OrderHistoryListItem(object):
     def volume(self, volume):
         """Sets the volume of this OrderHistoryListItem.
 
+        Order quantity  # noqa: E501
 
         :param volume: The volume of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -484,6 +494,7 @@ class OrderHistoryListItem(object):
     def fill_volume(self):
         """Gets the fill_volume of this OrderHistoryListItem.  # noqa: E501
 
+        Trading size  # noqa: E501
 
         :return: The fill_volume of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -494,6 +505,7 @@ class OrderHistoryListItem(object):
     def fill_volume(self, fill_volume):
         """Sets the fill_volume of this OrderHistoryListItem.
 
+        Trading size  # noqa: E501
 
         :param fill_volume: The fill_volume of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -505,6 +517,7 @@ class OrderHistoryListItem(object):
     def price(self):
         """Gets the price of this OrderHistoryListItem.  # noqa: E501
 
+        Order price  # noqa: E501
 
         :return: The price of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -515,6 +528,7 @@ class OrderHistoryListItem(object):
     def price(self, price):
         """Sets the price of this OrderHistoryListItem.
 
+        Order price  # noqa: E501
 
         :param price: The price of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -526,6 +540,7 @@ class OrderHistoryListItem(object):
     def avg_fill_price(self):
         """Gets the avg_fill_price of this OrderHistoryListItem.  # noqa: E501
 
+        Average fill price  # noqa: E501
 
         :return: The avg_fill_price of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -536,6 +551,7 @@ class OrderHistoryListItem(object):
     def avg_fill_price(self, avg_fill_price):
         """Sets the avg_fill_price of this OrderHistoryListItem.
 
+        Average fill price  # noqa: E501
 
         :param avg_fill_price: The avg_fill_price of this OrderHistoryListItem.  # noqa: E501
         :type: str
@@ -570,6 +586,7 @@ class OrderHistoryListItem(object):
     def time_setup(self):
         """Gets the time_setup of this OrderHistoryListItem.  # noqa: E501
 
+        Order creation time (Unix timestamp, seconds)  # noqa: E501
 
         :return: The time_setup of this OrderHistoryListItem.  # noqa: E501
         :rtype: int
@@ -580,6 +597,7 @@ class OrderHistoryListItem(object):
     def time_setup(self, time_setup):
         """Sets the time_setup of this OrderHistoryListItem.
 
+        Order creation time (Unix timestamp, seconds)  # noqa: E501
 
         :param time_setup: The time_setup of this OrderHistoryListItem.  # noqa: E501
         :type: int
@@ -591,6 +609,7 @@ class OrderHistoryListItem(object):
     def time_done(self):
         """Gets the time_done of this OrderHistoryListItem.  # noqa: E501
 
+        Order completion time (Unix timestamp in seconds)  # noqa: E501
 
         :return: The time_done of this OrderHistoryListItem.  # noqa: E501
         :rtype: int
@@ -601,6 +620,7 @@ class OrderHistoryListItem(object):
     def time_done(self, time_done):
         """Sets the time_done of this OrderHistoryListItem.
 
+        Order completion time (Unix timestamp in seconds)  # noqa: E501
 
         :param time_done: The time_done of this OrderHistoryListItem.  # noqa: E501
         :type: int
