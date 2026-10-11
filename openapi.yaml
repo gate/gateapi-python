@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.144
+  version: v4.106.149
   x-betaNum: 1
   title: Gate API
   contact:
@@ -3047,7 +3047,9 @@ components:
           example: 1
     TradFiSpotTransactionRequest:
       type: object
-      description: Transfer request parameters
+      description: Fund transfer request parameters. Transfer in means moving funds
+        from the spot account to the stock account; transfer out means moving funds
+        from the stock account to the spot account.
       required:
       - asset
       - change
@@ -3062,11 +3064,13 @@ components:
           example: USDT
         change:
           type: string
-          description: Change amount
+          description: Change amount, must be greater than 0
           example: '100'
         type:
           type: string
-          description: Transaction type (deposit=deposit, withdraw=withdrawal)
+          description: Transaction type. deposit transfers funds from the spot account
+            to the stock account; withdraw transfers funds from the stock account
+            to the spot account.
           enum:
           - deposit
           - withdraw
@@ -15766,7 +15770,9 @@ components:
 
             - point_refr: Point card referrer rebates
 
-            - bonus_offset: Trial fund deduction'
+            - bonus_offset: Trial fund deduction
+
+            - dividend: Dividend payout'
           enum:
           - dnw
           - pnl
@@ -15777,6 +15783,7 @@ components:
           - point_fee
           - point_refr
           - bonus_offset
+          - dividend
         text:
           type: string
           description: Comment
@@ -17565,12 +17572,24 @@ components:
 
             - 2: Sell only.
 
-            - 4: Buy and sell supported.'
+            - 4: Buy and sell supported.
+
+            - 5: LP trading suspended (manual suspension).
+
+            - 6: LP trading suspended (strategy exception).
+
+            - 7: LP trading suspended (stock halt).
+
+            - 8: LP trading suspended (stock circuit breaker halt).'
           enum:
           - 0
           - 1
           - 2
           - 4
+          - 5
+          - 6
+          - 7
+          - 8
           example: 4
         order_fill_timing:
           type: integer
@@ -17808,12 +17827,24 @@ components:
 
             - 2: Sell only.
 
-            - 4: Buy and sell supported.'
+            - 4: Buy and sell supported.
+
+            - 5: LP trading suspended (manual suspension).
+
+            - 6: LP trading suspended (strategy exception).
+
+            - 7: LP trading suspended (stock halt).
+
+            - 8: LP trading suspended (stock circuit breaker halt).'
           enum:
           - 0
           - 1
           - 2
           - 4
+          - 5
+          - 6
+          - 7
+          - 8
           example: 4
         order_fill_timing:
           type: integer
@@ -17963,12 +17994,24 @@ components:
 
             - 2: Sell only.
 
-            - 4: Buy and sell supported.'
+            - 4: Buy and sell supported.
+
+            - 5: LP trading suspended (manual suspension).
+
+            - 6: LP trading suspended (strategy exception).
+
+            - 7: LP trading suspended (stock halt).
+
+            - 8: LP trading suspended (stock circuit breaker halt).'
           enum:
           - 0
           - 1
           - 2
           - 4
+          - 5
+          - 6
+          - 7
+          - 8
           example: 4
         price_type:
           type: string
@@ -17986,7 +18029,35 @@ components:
           example: 2
         status:
           type: integer
-          description: Order status
+          description: 'Order status.
+
+            - 0: Unknown.
+
+            - 1: New order; the order has been validated and is waiting to be processed.
+
+            - 2: Partially filled.
+
+            - 3: Filled.
+
+            - 4: Canceled.
+
+            - 5: Order rejected.
+
+            - 6: Cancellation rejected.
+
+            - 7: Order update succeeded.
+
+            - 8: Order update rejected.'
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
           example: 1
         volume:
           type: string
@@ -18118,7 +18189,35 @@ components:
           example: limit
         status:
           type: integer
-          description: Order status
+          description: 'Order status.
+
+            - 0: Unknown.
+
+            - 1: New order; the order has been validated and is waiting to be processed.
+
+            - 2: Partially filled.
+
+            - 3: Filled.
+
+            - 4: Canceled.
+
+            - 5: Order rejected.
+
+            - 6: Cancellation rejected.
+
+            - 7: Order update succeeded.
+
+            - 8: Order update rejected.'
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
           example: 3
         status_desc:
           type: string
@@ -18137,7 +18236,41 @@ components:
               description: Status message
         finish_as:
           type: integer
-          description: Order completion reason
+          description: 'Order completion reason.
+
+            - 0: Unknown.
+
+            - 1: No quote found.
+
+            - 2: No match found.
+
+            - 3: Trigger price exceeded.
+
+            - 4: Order value exceeds the limit.
+
+            - 5: Unknown rejection.
+
+            - 6: Unknown cancellation.
+
+            - 7: Canceled by user.
+
+            - 8: Canceled after the order time in force expired.
+
+            - 9: Trading is not supported in the current session.
+
+            - 13: Canceled due to corporate action.'
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 13
           example: 0
         side:
           type: integer
@@ -18459,7 +18592,8 @@ components:
           example: Deposit
         change:
           type: string
-          description: Change amount
+          description: Change amount. A positive value means a credit, and a negative
+            value means a debit.
           example: '100'
         balance:
           type: string
@@ -31831,7 +31965,9 @@ paths:
 
           - point_refr: Point card referrer rebates
 
-          - bonus_offset: Trial fund deduction'
+          - bonus_offset: Trial fund deduction
+
+          - dividend: Dividend payout'
         schema:
           type: string
         example: dnw
@@ -38685,7 +38821,13 @@ paths:
       tags:
       - Stock
       summary: Fund transfer
-      description: 'Rate limit: 5 qps.'
+      description: 'Rate limit: 5 qps.
+
+        Fund transfer moves USDT between the spot account and the stock account.
+
+        - deposit: transfer from the spot account to the stock account.
+
+        - withdraw: transfer from the stock account to the spot account.'
       operationId: createStockTransaction
       requestBody:
         required: true
@@ -38719,7 +38861,10 @@ paths:
       tags:
       - Stock
       summary: Query transaction records
-      description: 'Rate limit: 5 qps.'
+      description: 'Rate limit: 5 qps.
+
+        Query stock account transaction records, including fund transfers, trades,
+        fees, dividends, rewards, and stock transfers.'
       operationId: queryStockTransactions
       parameters:
       - name: begin_time
@@ -38754,7 +38899,25 @@ paths:
       - name: type
         in: query
         required: false
-        description: Transaction type
+        description: '流水类型。
+
+          - deposit: 资金转入，从现货账户转入到股票账户。
+
+          - withdraw: 资金转出，从股票账户转出到现货账户。
+
+          - fee: 交易手续费。
+
+          - dividend: 分红派息。
+
+          - sell: 卖出股票入账。
+
+          - buy: 买入股票出账。
+
+          - award: 空投奖励。
+
+          - stock_transfer_in: 股票转入。
+
+          - stock_transfer_out: 股票转出。'
         schema:
           type: string
           enum:
@@ -38826,6 +38989,8 @@ paths:
       - Stock
       security: []
       summary: Query supported exchanges
+      description: 'Query stock spot supported exchanges and whether stock transfers
+        are supported. Rate limit: 5 qps.'
       operationId: queryStockExchanges
       responses:
         200:

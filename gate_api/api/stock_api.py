@@ -1486,7 +1486,7 @@ class StockApi(object):
     def query_stock_transactions(self, **kwargs):  # noqa: E501
         """Query transaction records  # noqa: E501
 
-        Rate limit: 5 qps.  # noqa: E501
+        Rate limit: 5 qps. Query stock account transaction records, including fund transfers, trades, fees, dividends, rewards, and stock transfers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.query_stock_transactions(async_req=True)
@@ -1496,7 +1496,7 @@ class StockApi(object):
         :param int begin_time: Start time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be >= begin_time, query range must not exceed 3 months.
         :param int end_time: End time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be >= begin_time, query range must not exceed 3 months.
         :param str ref_id: Business idempotent ID. When ref_id is provided, the server queries by ref_id, ignoring other parameters such as begin_time, end_time, type, page, page_size
-        :param str type: Transaction type
+        :param str type: 流水类型。 - deposit: 资金转入，从现货账户转入到股票账户。 - withdraw: 资金转出，从股票账户转出到现货账户。 - fee: 交易手续费。 - dividend: 分红派息。 - sell: 卖出股票入账。 - buy: 买入股票出账。 - award: 空投奖励。 - stock_transfer_in: 股票转入。 - stock_transfer_out: 股票转出。
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1516,7 +1516,7 @@ class StockApi(object):
     def query_stock_transactions_with_http_info(self, **kwargs):  # noqa: E501
         """Query transaction records  # noqa: E501
 
-        Rate limit: 5 qps.  # noqa: E501
+        Rate limit: 5 qps. Query stock account transaction records, including fund transfers, trades, fees, dividends, rewards, and stock transfers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.query_stock_transactions_with_http_info(async_req=True)
@@ -1526,7 +1526,7 @@ class StockApi(object):
         :param int begin_time: Start time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be >= begin_time, query range must not exceed 3 months.
         :param int end_time: End time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be >= begin_time, query range must not exceed 3 months.
         :param str ref_id: Business idempotent ID. When ref_id is provided, the server queries by ref_id, ignoring other parameters such as begin_time, end_time, type, page, page_size
-        :param str type: Transaction type
+        :param str type: 流水类型。 - deposit: 资金转入，从现货账户转入到股票账户。 - withdraw: 资金转出，从股票账户转出到现货账户。 - fee: 交易手续费。 - dividend: 分红派息。 - sell: 卖出股票入账。 - buy: 买入股票出账。 - award: 空投奖励。 - stock_transfer_in: 股票转入。 - stock_transfer_out: 股票转出。
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
         :param _return_http_data_only: response data without head status code
@@ -1623,7 +1623,7 @@ class StockApi(object):
     def create_stock_transaction(self, trad_fi_spot_transaction_request, **kwargs):  # noqa: E501
         """Fund transfer  # noqa: E501
 
-        Rate limit: 5 qps.  # noqa: E501
+        Rate limit: 5 qps. Fund transfer moves USDT between the spot account and the stock account. - deposit: transfer from the spot account to the stock account. - withdraw: transfer from the stock account to the spot account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_stock_transaction(trad_fi_spot_transaction_request, async_req=True)
@@ -1648,7 +1648,7 @@ class StockApi(object):
     def create_stock_transaction_with_http_info(self, trad_fi_spot_transaction_request, **kwargs):  # noqa: E501
         """Fund transfer  # noqa: E501
 
-        Rate limit: 5 qps.  # noqa: E501
+        Rate limit: 5 qps. Fund transfer moves USDT between the spot account and the stock account. - deposit: transfer from the spot account to the stock account. - withdraw: transfer from the stock account to the spot account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_stock_transaction_with_http_info(trad_fi_spot_transaction_request, async_req=True)
@@ -1741,6 +1741,7 @@ class StockApi(object):
     def query_stock_exchanges(self, **kwargs):  # noqa: E501
         """Query supported exchanges  # noqa: E501
 
+        Query stock spot supported exchanges and whether stock transfers are supported. Rate limit: 5 qps.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.query_stock_exchanges(async_req=True)
@@ -1764,6 +1765,7 @@ class StockApi(object):
     def query_stock_exchanges_with_http_info(self, **kwargs):  # noqa: E501
         """Query supported exchanges  # noqa: E501
 
+        Query stock spot supported exchanges and whether stock transfers are supported. Rate limit: 5 qps.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.query_stock_exchanges_with_http_info(async_req=True)

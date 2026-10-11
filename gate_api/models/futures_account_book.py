@@ -161,7 +161,7 @@ class FuturesAccountBook(object):
     def type(self):
         """Gets the type of this FuturesAccountBook.  # noqa: E501
 
-        Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction  # noqa: E501
+        Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction - dividend: Dividend payout  # noqa: E501
 
         :return: The type of this FuturesAccountBook.  # noqa: E501
         :rtype: str
@@ -172,12 +172,12 @@ class FuturesAccountBook(object):
     def type(self, type):
         """Sets the type of this FuturesAccountBook.
 
-        Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction  # noqa: E501
+        Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction - dividend: Dividend payout  # noqa: E501
 
         :param type: The type of this FuturesAccountBook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["dnw", "pnl", "fee", "refr", "fund", "point_dnw", "point_fee", "point_refr", "bonus_offset"]  # noqa: E501
+        allowed_values = ["dnw", "pnl", "fee", "refr", "fund", "point_dnw", "point_fee", "point_refr", "bonus_offset", "dividend"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

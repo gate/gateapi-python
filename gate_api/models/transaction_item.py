@@ -228,7 +228,7 @@ class TransactionItem(object):
     def change(self):
         """Gets the change of this TransactionItem.  # noqa: E501
 
-        Change amount  # noqa: E501
+        Change amount. A positive value means a credit, and a negative value means a debit.  # noqa: E501
 
         :return: The change of this TransactionItem.  # noqa: E501
         :rtype: str
@@ -239,7 +239,7 @@ class TransactionItem(object):
     def change(self, change):
         """Sets the change of this TransactionItem.
 
-        Change amount  # noqa: E501
+        Change amount. A positive value means a credit, and a negative value means a debit.  # noqa: E501
 
         :param change: The change of this TransactionItem.  # noqa: E501
         :type: str

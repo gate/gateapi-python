@@ -323,7 +323,7 @@ class OrderHistoryListItem(object):
     def status(self):
         """Gets the status of this OrderHistoryListItem.  # noqa: E501
 
-        Order status  # noqa: E501
+        Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.  # noqa: E501
 
         :return: The status of this OrderHistoryListItem.  # noqa: E501
         :rtype: int
@@ -334,11 +334,17 @@ class OrderHistoryListItem(object):
     def status(self, status):
         """Sets the status of this OrderHistoryListItem.
 
-        Order status  # noqa: E501
+        Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.  # noqa: E501
 
         :param status: The status of this OrderHistoryListItem.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 
@@ -390,7 +396,7 @@ class OrderHistoryListItem(object):
     def finish_as(self):
         """Gets the finish_as of this OrderHistoryListItem.  # noqa: E501
 
-        Order completion reason  # noqa: E501
+        Order completion reason. - 0: Unknown. - 1: No quote found. - 2: No match found. - 3: Trigger price exceeded. - 4: Order value exceeds the limit. - 5: Unknown rejection. - 6: Unknown cancellation. - 7: Canceled by user. - 8: Canceled after the order time in force expired. - 9: Trading is not supported in the current session. - 13: Canceled due to corporate action.  # noqa: E501
 
         :return: The finish_as of this OrderHistoryListItem.  # noqa: E501
         :rtype: int
@@ -401,11 +407,17 @@ class OrderHistoryListItem(object):
     def finish_as(self, finish_as):
         """Sets the finish_as of this OrderHistoryListItem.
 
-        Order completion reason  # noqa: E501
+        Order completion reason. - 0: Unknown. - 1: No quote found. - 2: No match found. - 3: Trigger price exceeded. - 4: Order value exceeds the limit. - 5: Unknown rejection. - 6: Unknown cancellation. - 7: Canceled by user. - 8: Canceled after the order time in force expired. - 9: Trading is not supported in the current session. - 13: Canceled due to corporate action.  # noqa: E501
 
         :param finish_as: The finish_as of this OrderHistoryListItem.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and finish_as not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `finish_as` ({0}), must be one of {1}"  # noqa: E501
+                .format(finish_as, allowed_values)
+            )
 
         self._finish_as = finish_as
 

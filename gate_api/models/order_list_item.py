@@ -350,7 +350,7 @@ class OrderListItem(object):
     def trade_mode(self):
         """Gets the trade_mode of this OrderListItem.  # noqa: E501
 
-        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported.  # noqa: E501
+        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).  # noqa: E501
 
         :return: The trade_mode of this OrderListItem.  # noqa: E501
         :rtype: int
@@ -361,12 +361,12 @@ class OrderListItem(object):
     def trade_mode(self, trade_mode):
         """Sets the trade_mode of this OrderListItem.
 
-        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported.  # noqa: E501
+        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).  # noqa: E501
 
         :param trade_mode: The trade_mode of this OrderListItem.  # noqa: E501
         :type: int
         """
-        allowed_values = [0, 1, 2, 4]  # noqa: E501
+        allowed_values = [0, 1, 2, 4, 5, 6, 7, 8]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and trade_mode not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `trade_mode` ({0}), must be one of {1}"  # noqa: E501
@@ -437,7 +437,7 @@ class OrderListItem(object):
     def status(self):
         """Gets the status of this OrderListItem.  # noqa: E501
 
-        Order status  # noqa: E501
+        Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.  # noqa: E501
 
         :return: The status of this OrderListItem.  # noqa: E501
         :rtype: int
@@ -448,11 +448,17 @@ class OrderListItem(object):
     def status(self, status):
         """Sets the status of this OrderListItem.
 
-        Order status  # noqa: E501
+        Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.  # noqa: E501
 
         :param status: The status of this OrderListItem.  # noqa: E501
         :type: int
         """
+        allowed_values = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
 
         self._status = status
 

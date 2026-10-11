@@ -99,7 +99,7 @@ class TradFiSpotTransactionRequest(object):
     def change(self):
         """Gets the change of this TradFiSpotTransactionRequest.  # noqa: E501
 
-        Change amount  # noqa: E501
+        Change amount, must be greater than 0  # noqa: E501
 
         :return: The change of this TradFiSpotTransactionRequest.  # noqa: E501
         :rtype: str
@@ -110,7 +110,7 @@ class TradFiSpotTransactionRequest(object):
     def change(self, change):
         """Sets the change of this TradFiSpotTransactionRequest.
 
-        Change amount  # noqa: E501
+        Change amount, must be greater than 0  # noqa: E501
 
         :param change: The change of this TradFiSpotTransactionRequest.  # noqa: E501
         :type: str
@@ -124,7 +124,7 @@ class TradFiSpotTransactionRequest(object):
     def type(self):
         """Gets the type of this TradFiSpotTransactionRequest.  # noqa: E501
 
-        Transaction type (deposit=deposit, withdraw=withdrawal)  # noqa: E501
+        Transaction type. deposit transfers funds from the spot account to the stock account; withdraw transfers funds from the stock account to the spot account.  # noqa: E501
 
         :return: The type of this TradFiSpotTransactionRequest.  # noqa: E501
         :rtype: str
@@ -135,7 +135,7 @@ class TradFiSpotTransactionRequest(object):
     def type(self, type):
         """Sets the type of this TradFiSpotTransactionRequest.
 
-        Transaction type (deposit=deposit, withdraw=withdrawal)  # noqa: E501
+        Transaction type. deposit transfers funds from the spot account to the stock account; withdraw transfers funds from the stock account to the spot account.  # noqa: E501
 
         :param type: The type of this TradFiSpotTransactionRequest.  # noqa: E501
         :type: str
