@@ -192,6 +192,7 @@ from gate_api.models.crossex_order_update_request import CrossexOrderUpdateReque
 from gate_api.models.crossex_position import CrossexPosition
 from gate_api.models.crossex_risk_limit import CrossexRiskLimit
 from gate_api.models.crossex_risk_limit_tier import CrossexRiskLimitTier
+from gate_api.models.crossex_security_position import CrossexSecurityPosition
 from gate_api.models.crossex_special_fee import CrossexSpecialFee
 from gate_api.models.crossex_trade import CrossexTrade
 from gate_api.models.crossex_transfer_coin import CrossexTransferCoin
@@ -549,10 +550,13 @@ from gate_api.models.partner_data_aggregated_response_all_of import PartnerDataA
 from gate_api.models.partner_sub import PartnerSub
 from gate_api.models.partner_sub_list import PartnerSubList
 from gate_api.models.partner_transaction_history import PartnerTransactionHistory
+from gate_api.models.patch_spot_order_stop_loss import PatchSpotOrderStopLoss
+from gate_api.models.patch_spot_order_stop_profit import PatchSpotOrderStopProfit
 from gate_api.models.patch_uni_lend import PatchUniLend
 from gate_api.models.place_biz_push_order import PlaceBizPushOrder
 from gate_api.models.place_dual_investment_order import PlaceDualInvestmentOrder
 from gate_api.models.place_dual_investment_order_params import PlaceDualInvestmentOrderParams
+from gate_api.models.place_dual_stock_investment_order_params import PlaceDualStockInvestmentOrderParams
 from gate_api.models.place_order_request import PlaceOrderRequest
 from gate_api.models.place_order_response import PlaceOrderResponse
 from gate_api.models.position import Position

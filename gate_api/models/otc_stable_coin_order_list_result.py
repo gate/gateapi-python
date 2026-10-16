@@ -37,7 +37,7 @@ class OtcStableCoinOrderListResult(object):
         'page_size': 'int',
         'page_number': 'int',
         'total_page': 'int',
-        'list': 'list[OtcStableCoinOrderListItem]'
+        'lists': 'list[OtcStableCoinOrderListItem]'
     }
 
     attribute_map = {
@@ -45,10 +45,10 @@ class OtcStableCoinOrderListResult(object):
         'page_size': 'page_size',
         'page_number': 'page_number',
         'total_page': 'total_page',
-        'list': 'list'
+        'lists': 'lists'
     }
 
-    def __init__(self, total=None, page_size=None, page_number=None, total_page=None, list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, total=None, page_size=None, page_number=None, total_page=None, lists=None, local_vars_configuration=None):  # noqa: E501
         # type: (int, int, int, int, list[OtcStableCoinOrderListItem], Configuration) -> None
         """OtcStableCoinOrderListResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
@@ -59,14 +59,14 @@ class OtcStableCoinOrderListResult(object):
         self._page_size = None
         self._page_number = None
         self._total_page = None
-        self._list = None
+        self._lists = None
         self.discriminator = None
 
         self.total = total
         self.page_size = page_size
         self.page_number = page_number
         self.total_page = total_page
-        self.list = list
+        self.lists = lists
 
     @property
     def total(self):
@@ -161,27 +161,27 @@ class OtcStableCoinOrderListResult(object):
         self._total_page = total_page
 
     @property
-    def list(self):
-        """Gets the list of this OtcStableCoinOrderListResult.  # noqa: E501
+    def lists(self):
+        """Gets the lists of this OtcStableCoinOrderListResult.  # noqa: E501
 
 
-        :return: The list of this OtcStableCoinOrderListResult.  # noqa: E501
+        :return: The lists of this OtcStableCoinOrderListResult.  # noqa: E501
         :rtype: list[OtcStableCoinOrderListItem]
         """
-        return self._list
+        return self._lists
 
-    @list.setter
-    def list(self, list):
-        """Sets the list of this OtcStableCoinOrderListResult.
+    @lists.setter
+    def lists(self, lists):
+        """Sets the lists of this OtcStableCoinOrderListResult.
 
 
-        :param list: The list of this OtcStableCoinOrderListResult.  # noqa: E501
+        :param lists: The lists of this OtcStableCoinOrderListResult.  # noqa: E501
         :type: list[OtcStableCoinOrderListItem]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and lists is None:  # noqa: E501
+            raise ValueError("Invalid value for `lists`, must not be `None`")  # noqa: E501
 
-        self._list = list
+        self._lists = lists
 
     def to_dict(self):
         """Returns the model properties as a dict"""

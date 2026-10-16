@@ -37,7 +37,7 @@ class OtcOrderListResult(object):
         'ps': 'int',
         'total_pn': 'int',
         'count': 'int',
-        'list': 'list[OtcOrderListItem]'
+        'lists': 'list[OtcOrderListItem]'
     }
 
     attribute_map = {
@@ -45,10 +45,10 @@ class OtcOrderListResult(object):
         'ps': 'ps',
         'total_pn': 'total_pn',
         'count': 'count',
-        'list': 'list'
+        'lists': 'lists'
     }
 
-    def __init__(self, pn=None, ps=None, total_pn=None, count=None, list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pn=None, ps=None, total_pn=None, count=None, lists=None, local_vars_configuration=None):  # noqa: E501
         # type: (int, int, int, int, list[OtcOrderListItem], Configuration) -> None
         """OtcOrderListResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
@@ -59,14 +59,14 @@ class OtcOrderListResult(object):
         self._ps = None
         self._total_pn = None
         self._count = None
-        self._list = None
+        self._lists = None
         self.discriminator = None
 
         self.pn = pn
         self.ps = ps
         self.total_pn = total_pn
         self.count = count
-        self.list = list
+        self.lists = lists
 
     @property
     def pn(self):
@@ -161,27 +161,27 @@ class OtcOrderListResult(object):
         self._count = count
 
     @property
-    def list(self):
-        """Gets the list of this OtcOrderListResult.  # noqa: E501
+    def lists(self):
+        """Gets the lists of this OtcOrderListResult.  # noqa: E501
 
 
-        :return: The list of this OtcOrderListResult.  # noqa: E501
+        :return: The lists of this OtcOrderListResult.  # noqa: E501
         :rtype: list[OtcOrderListItem]
         """
-        return self._list
+        return self._lists
 
-    @list.setter
-    def list(self, list):
-        """Sets the list of this OtcOrderListResult.
+    @lists.setter
+    def lists(self, lists):
+        """Sets the lists of this OtcOrderListResult.
 
 
-        :param list: The list of this OtcOrderListResult.  # noqa: E501
+        :param lists: The lists of this OtcOrderListResult.  # noqa: E501
         :type: list[OtcOrderListItem]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and lists is None:  # noqa: E501
+            raise ValueError("Invalid value for `lists`, must not be `None`")  # noqa: E501
 
-        self._list = list
+        self._lists = lists
 
     def to_dict(self):
         """Returns the model properties as a dict"""

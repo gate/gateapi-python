@@ -714,6 +714,137 @@ class SpotApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def list_spot_rpi_order_book(self, currency_pair, **kwargs):  # noqa: E501
+        """Get the RPI order book  # noqa: E501
+
+        Get the RPI order book, with bids sorted by descending price and asks by ascending price.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_spot_rpi_order_book(currency_pair, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str currency_pair: Currency pair (required)
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
+        :param int limit: Number of depth levels
+        :param bool with_id: Return order book update ID
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OrderBook
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_spot_rpi_order_book_with_http_info(currency_pair, **kwargs)  # noqa: E501
+
+    def list_spot_rpi_order_book_with_http_info(self, currency_pair, **kwargs):  # noqa: E501
+        """Get the RPI order book  # noqa: E501
+
+        Get the RPI order book, with bids sorted by descending price and asks by ascending price.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_spot_rpi_order_book_with_http_info(currency_pair, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str currency_pair: Currency pair (required)
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
+        :param int limit: Number of depth levels
+        :param bool with_id: Return order book update ID
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OrderBook, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'currency_pair',
+            'interval',
+            'limit',
+            'with_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_spot_rpi_order_book" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'currency_pair' is set
+        if self.api_client.client_side_validation and ('currency_pair' not in local_var_params or  # noqa: E501
+                                                        local_var_params['currency_pair'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `currency_pair` when calling `list_spot_rpi_order_book`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_spot_rpi_order_book`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'currency_pair' in local_var_params and local_var_params['currency_pair'] is not None:  # noqa: E501
+            query_params.append(('currency_pair', local_var_params['currency_pair']))  # noqa: E501
+        if 'interval' in local_var_params and local_var_params['interval'] is not None:  # noqa: E501
+            query_params.append(('interval', local_var_params['interval']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'with_id' in local_var_params and local_var_params['with_id'] is not None:  # noqa: E501
+            query_params.append(('with_id', local_var_params['with_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/spot/rpi_order_book', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderBook',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_trades(self, currency_pair, **kwargs):  # noqa: E501
         """Query market transaction records  # noqa: E501
 

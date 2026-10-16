@@ -210,7 +210,7 @@ class SymbolDetailItem(object):
     def exchange(self):
         """Gets the exchange of this SymbolDetailItem.  # noqa: E501
 
-        Exchange, supports us, hk, kr, and jp  # noqa: E501
+        Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :return: The exchange of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -221,7 +221,7 @@ class SymbolDetailItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this SymbolDetailItem.
 
-        Exchange, supports us, hk, kr, and jp  # noqa: E501
+        Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :param exchange: The exchange of this SymbolDetailItem.  # noqa: E501
         :type: str
@@ -711,7 +711,7 @@ class SymbolDetailItem(object):
     def trade_status(self):
         """Gets the trade_status of this SymbolDetailItem.  # noqa: E501
 
-        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.  # noqa: E501
+        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.  # noqa: E501
 
         :return: The trade_status of this SymbolDetailItem.  # noqa: E501
         :rtype: str
@@ -722,12 +722,12 @@ class SymbolDetailItem(object):
     def trade_status(self, trade_status):
         """Sets the trade_status of this SymbolDetailItem.
 
-        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.  # noqa: E501
+        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.  # noqa: E501
 
         :param trade_status: The trade_status of this SymbolDetailItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["pre_market", "open", "post_market", "closed", "gt_lp"]  # noqa: E501
+        allowed_values = ["pre_market", "open", "post_market"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and trade_status not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `trade_status` ({0}), must be one of {1}"  # noqa: E501
@@ -740,7 +740,7 @@ class SymbolDetailItem(object):
     def trade_mode(self):
         """Gets the trade_mode of this SymbolDetailItem.  # noqa: E501
 
-        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).  # noqa: E501
+        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended.  # noqa: E501
 
         :return: The trade_mode of this SymbolDetailItem.  # noqa: E501
         :rtype: int
@@ -751,7 +751,7 @@ class SymbolDetailItem(object):
     def trade_mode(self, trade_mode):
         """Sets the trade_mode of this SymbolDetailItem.
 
-        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).  # noqa: E501
+        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended.  # noqa: E501
 
         :param trade_mode: The trade_mode of this SymbolDetailItem.  # noqa: E501
         :type: int

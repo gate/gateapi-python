@@ -240,10 +240,8 @@ class Order(object):
             self.action_mode = action_mode
         if slippage is not None:
             self.slippage = slippage
-        if stop_profit is not None:
-            self.stop_profit = stop_profit
-        if stop_loss is not None:
-            self.stop_loss = stop_loss
+        self.stop_profit = stop_profit
+        self.stop_loss = stop_loss
 
     @property
     def id(self):

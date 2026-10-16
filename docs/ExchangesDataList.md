@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange** | **str** | Trading market, supports us, hk, kr, and jp | [optional] 
+**exchange** | **str** | Trading market. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
 **exchange_desc** | **str** | Market display name | [optional] 
 **icon_link** | **str** | Market icon | [optional] 
 **support_transfer** | **bool** | Whether stock transfer is supported | [optional] 

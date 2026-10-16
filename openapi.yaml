@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.149
+  version: v4.106.160
   x-betaNum: 1
   title: Gate API
   contact:
@@ -5102,7 +5102,7 @@ components:
               type: integer
             count:
               type: integer
-            list:
+            lists:
               type: array
               items:
                 title: OtcOrderListItem
@@ -5173,7 +5173,7 @@ components:
           - ps
           - total_pn
           - count
-          - list
+          - lists
       required:
       - code
       - message
@@ -5198,7 +5198,7 @@ components:
               type: integer
             total_page:
               type: integer
-            list:
+            lists:
               type: array
               items:
                 title: OtcStableCoinOrderListItem
@@ -5249,7 +5249,7 @@ components:
           - page_size
           - page_number
           - total_page
-          - list
+          - lists
       required:
       - code
       - message
@@ -7101,16 +7101,22 @@ components:
         symbol:
           type: string
           title: 交易对
-          description: Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.
+          description: 'Unique trading pair identifier in the format ExchangeType_BusinessType_Base_Counter.
+
+            Stocks and ETFs use the market as ExchangeType (US/HK/KR/JP) and STOCK
+            or ETF as the business type, for example US_STOCK_AAPL_USDT, HK_STOCK_00700_USDT,
+            or US_ETF_SPY_USDT.'
         exchange_type:
           type: string
           title: 交易所
-          description: Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN`
-            / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).
+          description: Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID
+            / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US /
+            HK / KR / JP)
         business_type:
           type: string
           title: 业务类型
-          description: Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).
+          description: 'Business type (SPOT: spot / FUTURE: futures / MARGIN: margin
+            / STOCK: stocks / ETF: exchange-traded funds)'
         state:
           type: string
           title: 可用状态
@@ -7165,6 +7171,12 @@ components:
           title: 是否支持全仓下单
           description: Whether cross-margin order placement is supported (true if
             supported; false otherwise)
+        tag:
+          type: string
+          title: 标签
+          description: Tag information. Hyperliquid returns DEX information, stocks
+            and ETFs return the security description, and other businesses return
+            an empty string
       required:
       - symbol
       - exchange_type
@@ -7180,6 +7192,7 @@ components:
       - contract_size
       - liquidation_fee
       - delist_time
+      - tag
     CrossexOrder:
       title: CrossexOrder
       type: object
@@ -7237,13 +7250,14 @@ components:
         exchange_type:
           type: string
           title: 交易所
-          description: Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN`
-            / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).
+          description: Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID
+            / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US /
+            HK / KR / JP)
         business_type:
           type: string
           title: 业务类型
-          description: Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin
-            / `CONVERT` Flash Swap).
+          description: 'Business type (SPOT: spot / FUTURE: futures / MARGIN: margin
+            / CONVERT: flash swap / STOCK: stocks / ETF: exchange-traded funds)'
         qty:
           type: string
           title: 基础货币数量
@@ -7255,7 +7269,8 @@ components:
         price:
           type: string
           title: 价格
-          description: Order price.
+          description: Order price. Stocks and ETFs use the listing market currency
+            (USD/HKD/KRW/JPY)
         time_in_force:
           type: string
           title: Time in force 策略
@@ -7268,11 +7283,13 @@ components:
         executed_amount:
           type: string
           title: 已成交金额
-          description: Filled quote amount.
+          description: Filled amount in the quote currency. Stocks and ETFs use the
+            listing market currency (USD/HKD/KRW/JPY)
         executed_avg_price:
           type: string
           title: 已成交均价
-          description: Average Filled Price
+          description: Average fill price. Stocks and ETFs use the listing market
+            currency (USD/HKD/KRW/JPY)
         fee_coin:
           type: string
           title: 手续费币种
@@ -7300,11 +7317,13 @@ components:
         last_executed_price:
           type: string
           title: 最新已成交价
-          description: Price of the latest fill.
+          description: Price of the latest fill. Stocks and ETFs use the listing market
+            currency (USD/HKD/KRW/JPY)
         last_executed_amount:
           type: string
           title: 最新已成交金额
-          description: Quote amount of the latest fill.
+          description: Amount of the latest fill. Stocks and ETFs use the listing
+            market currency (USD/HKD/KRW/JPY)
         position_side:
           type: string
           title: 仓位方向
@@ -7484,29 +7503,37 @@ components:
             symbols (-, _) only
         symbol:
           type: string
-          description: 'Unique identifier `{Exchange}_{Business}_{Base}_{Counter}`
+          description: 'Unique identifier Exchange_Business_Base_Counter
 
             Examples:
 
-            To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`;
+            To place a spot order for ADA/USDT on BINANCE, use `BINANCE_SPOT_ADA_USDT`;
 
-            For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`;
+            To place a USDT-margined perpetual futures order for ADA/USDT on OKX,
+            use `OKX_FUTURE_ADA_USDT`;
 
-            For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`;
+            To place a spot margin order for ADA/USDT on GATE, use `GATE_MARGIN_ADA_USDT`;
 
-            For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`;
+            To place a spot order for ADA/USDT on BYBIT, use `BYBIT_SPOT_ADA_USDT`;
 
-            For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`;
+            To place a futures order for ADA/USD on KRAKEN, use `KRAKEN_FUTURE_ADA_USD`;
 
-            For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`;
+            To place a futures order for ADA/USDC on HYPERLIQUID, use `HYPERLIQUID_FUTURE_ADA_USDC`;
 
-            For an ADA/USDC futures order on Deribit, use `DERIBIT_FUTURE_ADA_USDC`;
+            To place a futures order for ADA/USDC on DERIBIT, use `DERIBIT_FUTURE_ADA_USDC`;
 
-            For an ADA/USDC futures order on Lighter, use `LIGHTER_FUTURE_ADA_USDC`;
+            To place a futures order for ADA/USDC on LIGHTER, use `LIGHTER_FUTURE_ADA_USDC`;
 
-            Supports spot trades, USDT-margined perpetual futures, and spot margin
-            templates. BYBIT and DERIBIT omit spot margin for now; Kraken, Hyperliquid,
-            and Lighter omit dedicated spot/margin legs inside CrossEx.'
+            To trade US stock AAPL, use `US_STOCK_AAPL_USDT`;
+
+            To trade Hong Kong stock 00700, use `HK_STOCK_00700_USDT`;
+
+            To trade US ETF SPY, use `US_ETF_SPY_USDT`;
+
+            Spot, USDT-margined perpetual futures, spot margin, stock, and ETF orders
+            are supported. BYBIT/DERIBIT do not currently support spot margin orders.
+            KRAKEN, HYPERLIQUID, and LIGHTER do not currently support spot or margin
+            orders. Stocks and ETFs support only cross-exchange account mode'
         side:
           type: string
           description: BUY, SELL
@@ -7523,7 +7550,7 @@ components:
         time_in_force:
           type: string
           description: 'Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`,
-            and `RPI`
+            `RPI`
 
             `GTC`: GoodTillCancelled
 
@@ -7533,7 +7560,9 @@ components:
 
             `POC`: PendingOrCancelled or PostOnly
 
-            `RPI`: Retail Price Improvement'
+            `RPI`: RPI
+
+            Stocks and ETFs support only `GTC`'
           enum:
           - GTC
           - IOC
@@ -7543,14 +7572,16 @@ components:
           default: GTC
         qty:
           type: string
-          description: Order quantity (required unless spot or margin market buy)
+          description: Order quantity (required except for spot and margin market
+            buys; qty is required for stocks and ETFs)
         price:
           type: string
-          description: Limit Order Price (Required for Limit Orders)
+          description: Limit order price (required for limit orders). Stocks and ETFs
+            use the listing market currency (USD/HKD/KRW/JPY)
         quote_qty:
           type: string
-          description: Order quote quantity; required for spot and margin market buy
-            orders
+          description: Order quote quantity, required for spot and margin market buys.
+            Stock and ETF orders do not support quote_qty
         reduce_only:
           type: string
           enum:
@@ -13888,6 +13919,7 @@ components:
           description: Additional information
     Order:
       type: object
+      x-go-preserve-null: true
       description: Spot order details
       required:
       - currency_pair
@@ -14214,6 +14246,7 @@ components:
           writeOnly: true
         stop_profit:
           type: object
+          nullable: true
           title: SpotOrderStopProfit
           description: Take profit for limit orders. Pass {} to cancel take profit;
             pass null to leave take profit unchanged.
@@ -14230,6 +14263,7 @@ components:
               description: Take profit order price
         stop_loss:
           type: object
+          nullable: true
           title: SpotOrderStopLoss
           description: Stop loss for limit orders. Pass {} to cancel stop loss; pass
             null to leave stop loss unchanged.
@@ -14945,6 +14979,7 @@ components:
             FULL: Full mode (default)'
     OrderPatch:
       type: object
+      x-go-preserve-null: true
       description: Spot order details
       properties:
         currency_pair:
@@ -14978,6 +15013,7 @@ components:
             FULL: Full mode (default)'
         stop_profit:
           type: object
+          nullable: true
           title: PatchSpotOrderStopProfit
           description: Take profit for limit orders. Pass {} to cancel take profit;
             pass null to leave take profit unchanged.
@@ -14994,6 +15030,7 @@ components:
               description: Take profit order price
         stop_loss:
           type: object
+          nullable: true
           title: PatchSpotOrderStopLoss
           description: Stop loss for limit orders. Pass {} to cancel stop loss; pass
             null to leave stop loss unchanged.
@@ -15010,6 +15047,7 @@ components:
               description: Stop-loss order price
     BatchAmendItem:
       type: object
+      x-go-preserve-null: true
       description: Order information that needs to be modified
       required:
       - order_id
@@ -15051,6 +15089,7 @@ components:
             FULL: Full mode (default)'
         stop_profit:
           type: object
+          nullable: true
           title: PatchSpotOrderStopProfit
           description: Take profit for limit orders. Pass {} to cancel take profit;
             pass null to leave take profit unchanged.
@@ -15067,6 +15106,7 @@ components:
               description: Take profit order price
         stop_loss:
           type: object
+          nullable: true
           title: PatchSpotOrderStopLoss
           description: Stop loss for limit orders. Pass {} to cancel stop loss; pass
             null to leave stop loss unchanged.
@@ -17474,7 +17514,15 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, kr, and jp
+          description: 'Exchange.
+
+            - us: US stocks.
+
+            - hk: Hong Kong stocks.
+
+            - kr: Korean stocks.
+
+            - jp: Japanese stocks.'
           enum:
           - us
           - hk
@@ -17550,17 +17598,11 @@ components:
 
             - open: Regular trading session.
 
-            - post_market: Post-market.
-
-            - closed: Market closed.
-
-            - gt_lp: GT LP session.'
+            - post_market: Post-market.'
           enum:
           - pre_market
           - open
           - post_market
-          - closed
-          - gt_lp
           example: open
         trade_mode:
           type: integer
@@ -17574,13 +17616,13 @@ components:
 
             - 4: Buy and sell supported.
 
-            - 5: LP trading suspended (manual suspension).
+            - 5: Trading suspended.
 
-            - 6: LP trading suspended (strategy exception).
+            - 6: Trading suspended.
 
-            - 7: LP trading suspended (stock halt).
+            - 7: Trading suspended.
 
-            - 8: LP trading suspended (stock circuit breaker halt).'
+            - 8: Trading suspended.'
           enum:
           - 0
           - 1
@@ -17677,7 +17719,15 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, kr, and jp
+          description: 'Exchange.
+
+            - us: US stocks.
+
+            - hk: Hong Kong stocks.
+
+            - kr: Korean stocks.
+
+            - jp: Japanese stocks.'
           enum:
           - us
           - hk
@@ -17805,17 +17855,11 @@ components:
 
             - open: Regular trading session.
 
-            - post_market: Post-market.
-
-            - closed: Market closed.
-
-            - gt_lp: GT LP session.'
+            - post_market: Post-market.'
           enum:
           - pre_market
           - open
           - post_market
-          - closed
-          - gt_lp
           example: open
         trade_mode:
           type: integer
@@ -17829,13 +17873,13 @@ components:
 
             - 4: Buy and sell supported.
 
-            - 5: LP trading suspended (manual suspension).
+            - 5: Trading suspended.
 
-            - 6: LP trading suspended (strategy exception).
+            - 6: Trading suspended.
 
-            - 7: LP trading suspended (stock halt).
+            - 7: Trading suspended.
 
-            - 8: LP trading suspended (stock circuit breaker halt).'
+            - 8: Trading suspended.'
           enum:
           - 0
           - 1
@@ -17945,7 +17989,15 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, kr, and jp
+          description: 'Exchange.
+
+            - us: US stocks.
+
+            - hk: Hong Kong stocks.
+
+            - kr: Korean stocks.
+
+            - jp: Japanese stocks.'
           enum:
           - us
           - hk
@@ -17972,17 +18024,11 @@ components:
 
             - open: Regular trading session.
 
-            - post_market: Post-market.
-
-            - closed: Market closed.
-
-            - gt_lp: GT LP session.'
+            - post_market: Post-market.'
           enum:
           - pre_market
           - open
           - post_market
-          - closed
-          - gt_lp
           example: open
         trade_mode:
           type: integer
@@ -17996,13 +18042,13 @@ components:
 
             - 4: Buy and sell supported.
 
-            - 5: LP trading suspended (manual suspension).
+            - 5: Trading suspended.
 
-            - 6: LP trading suspended (strategy exception).
+            - 6: Trading suspended.
 
-            - 7: LP trading suspended (stock halt).
+            - 7: Trading suspended.
 
-            - 8: LP trading suspended (stock circuit breaker halt).'
+            - 8: Trading suspended.'
           enum:
           - 0
           - 1
@@ -18161,7 +18207,15 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, kr, and jp
+          description: 'Exchange.
+
+            - us: US stocks.
+
+            - hk: Hong Kong stocks.
+
+            - kr: Korean stocks.
+
+            - jp: Japanese stocks.'
           enum:
           - us
           - hk
@@ -18355,7 +18409,15 @@ components:
           example: AAPL
         exchange:
           type: string
-          description: Exchange, supports us, hk, kr, and jp
+          description: 'Exchange.
+
+            - us: US stocks.
+
+            - hk: Hong Kong stocks.
+
+            - kr: Korean stocks.
+
+            - jp: Japanese stocks.'
           enum:
           - us
           - hk
@@ -18382,17 +18444,11 @@ components:
 
             - open: Regular trading session.
 
-            - post_market: Post-market.
-
-            - closed: Market closed.
-
-            - gt_lp: GT LP session.'
+            - post_market: Post-market.'
           enum:
           - pre_market
           - open
           - post_market
-          - closed
-          - gt_lp
           example: open
         symbol_desc:
           type: string
@@ -18629,7 +18685,15 @@ components:
                 properties:
                   exchange:
                     type: string
-                    description: Trading market, supports us, hk, kr, and jp
+                    description: 'Trading market.
+
+                      - us: US stocks.
+
+                      - hk: Hong Kong stocks.
+
+                      - kr: Korean stocks.
+
+                      - jp: Japanese stocks.'
                     enum:
                     - us
                     - hk
@@ -20902,6 +20966,9 @@ components:
         instrument_name:
           type: string
           description: Product Name
+        type:
+          type: string
+          description: '`call`: sell high; `put`: buy low'
         invest_currency:
           type: string
           description: Investment Token
@@ -21251,6 +21318,57 @@ components:
         invest_hours:
           type: string
           description: Lock-up hours
+    PlaceDualStockInvestmentOrderParams:
+      type: object
+      description: Stock dual investment order request
+      required:
+      - plan_id
+      - amount
+      properties:
+        plan_id:
+          type: string
+          description: Product ID
+        amount:
+          type: string
+          description: Subscription amount
+        text:
+          type: string
+          description: 'Order custom information. Users can set custom ID with this
+            field. Custom fields must meet the following conditions:
+
+
+            1. Must start with `t-`
+
+            2. Excluding `t-`, length cannot exceed 28 bytes
+
+            3. Can only contain numbers, letters, underscore(_), hyphen(-) or dot(.)
+
+            '
+        hit_spot:
+          type: integer
+          description: Whether to use the spot account to fund a buy-low (put) subscription.
+            `1` selects the account; omitted or other values leave it unselected.
+          enum:
+          - 0
+          - 1
+          example: 1
+        hit_stock:
+          type: integer
+          description: Whether to use the stock account to fund a buy-low (put) subscription.
+            `1` selects the account; omitted or other values leave it unselected.
+          enum:
+          - 0
+          - 1
+          example: 0
+        hit_simple:
+          type: integer
+          description: Whether to use the Simple Earn account to fund a buy-low (put)
+            subscription. `1` selects the account; omitted or other values leave it
+            unselected.
+          enum:
+          - 0
+          - 1
+          example: 0
     FindCoinStruct:
       type: array
       items:
@@ -27988,6 +28106,71 @@ paths:
                 - - '1.16'
                   - '725.464'
       x-group-parameters: true
+  /spot/rpi_order_book:
+    get:
+      tags:
+      - spot
+      security: []
+      summary: Get the RPI order book
+      description: Get the RPI order book, with bids sorted by descending price and
+        asks by ascending price.
+      operationId: listSpotRpiOrderBook
+      parameters:
+      - name: currency_pair
+        in: query
+        description: Currency pair
+        required: true
+        schema:
+          type: string
+        example: BTC_USDT
+      - name: interval
+        in: query
+        required: false
+        description: Price precision for merged depth. 0 means no merging. If not
+          specified, defaults to 0
+        schema:
+          type: string
+          default: '0'
+        example: '0'
+      - name: limit
+        in: query
+        description: Number of depth levels
+        required: false
+        example: 10
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+      - name: with_id
+        in: query
+        description: Return order book update ID
+        required: false
+        example: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        200:
+          description: Query successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderBook'
+              example:
+                id: 123456
+                current: 1623898993123
+                update: 1623898993121
+                asks:
+                - - '1.52'
+                  - '1.151'
+                - - '1.53'
+                  - '1.218'
+                bids:
+                - - '1.17'
+                  - '201.863'
+                - - '1.16'
+                  - '725.464'
+      x-group-parameters: true
   /spot/trades:
     get:
       tags:
@@ -30924,6 +31107,84 @@ paths:
       description: Bids will be sorted by price from high to low, while asks sorted
         reversely
       operationId: listFuturesOrderBook
+      parameters:
+      - name: settle
+        in: path
+        description: Perpetual futures settlement currency
+        required: true
+        schema:
+          type: string
+          enum:
+          - btc
+          - usdt
+          - usd1
+        example: usdt
+      - name: contract
+        in: query
+        description: Futures contract
+        required: true
+        schema:
+          type: string
+        example: BTC_USDT
+      - name: interval
+        in: query
+        required: false
+        description: Price precision for merged depth. 0 means no merging. If not
+          specified, defaults to 0
+        schema:
+          type: string
+          default: '0'
+        example: '0'
+      - name: limit
+        in: query
+        description: Number of depth levels
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 50
+        example: 10
+      - name: with_id
+        in: query
+        required: false
+        description: Whether to return depth update ID. This ID increments by 1 each
+          time the depth changes
+        schema:
+          type: boolean
+          default: false
+        example: false
+      responses:
+        200:
+          description: Depth query successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FuturesOrderBook'
+              example:
+                id: 123456
+                current: 1623898993.123
+                update: 1623898993.121
+                asks:
+                - p: '1.52'
+                  s: '100'
+                - p: '1.53'
+                  s: '40'
+                bids:
+                - p: '1.17'
+                  s: '150'
+                - p: '1.16'
+                  s: '203'
+      x-group-parameters: true
+  /futures/{settle}/rpi_order_book:
+    get:
+      security: []
+      tags:
+      - futures
+      summary: Query futures RPI order book
+      description: Bids will be sorted by price from high to low, while asks sorted
+        reversely
+      operationId: listFuturesRPIOrderBook
       parameters:
       - name: settle
         in: path
@@ -36923,7 +37184,7 @@ paths:
                 order_type: close-long-order
                 pos_margin_mode: isolated
       parameters: []
-  /futures/{settle}/price_orders/amend:
+  /futures/{settle}/price_orders/amend/{order_id}:
     parameters:
     - name: settle
       in: path
@@ -36936,6 +37197,13 @@ paths:
         - usdt
         - usd1
       example: usdt
+    - name: order_id
+      in: path
+      required: true
+      description: ID returned when order is successfully created
+      schema:
+        type: string
+      example: '2110911746238578688'
     put:
       tags:
       - futures
@@ -38144,7 +38412,15 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: Exchange, supports us, hk, kr, and jp
+        description: 'Exchange.
+
+          - us: US stocks.
+
+          - hk: Hong Kong stocks.
+
+          - kr: Korean stocks.
+
+          - jp: Japanese stocks.'
         schema:
           type: string
           enum:
@@ -38241,7 +38517,15 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: Exchange, supports us, hk, kr, and jp
+        description: 'Exchange.
+
+          - us: US stocks.
+
+          - hk: Hong Kong stocks.
+
+          - kr: Korean stocks.
+
+          - jp: Japanese stocks.'
         schema:
           type: string
           enum:
@@ -38717,7 +39001,15 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: Exchange, supports us, hk, kr, and jp
+        description: 'Exchange.
+
+          - us: US stocks.
+
+          - hk: Hong Kong stocks.
+
+          - kr: Korean stocks.
+
+          - jp: Japanese stocks.'
         schema:
           type: string
           enum:
@@ -44059,6 +44351,426 @@ paths:
                 invest_days: 2
                 invest_hours: '70.43458031'
       x-group-parameters: true
+  /earn/dual/stock/investment_plan:
+    get:
+      tags:
+      - earn
+      security: []
+      summary: List stock dual investment products
+      operationId: listDualStockInvestmentPlans
+      parameters:
+      - name: plan_id
+        in: query
+        required: false
+        description: Product/plan ID. If provided, only the matching product is returned
+        schema:
+          type: string
+        example: '272'
+      - name: coin
+        in: query
+        required: false
+        description: Underlying currency
+        schema:
+          type: string
+        example: BTC
+      - name: type
+        in: query
+        required: false
+        description: 'Type enum: `put` — buy low; `call` — sell high'
+        schema:
+          type: string
+          enum:
+          - call
+          - put
+        example: call
+      - name: quote_currency
+        in: query
+        required: false
+        description: 'Settlement currency. Default: USDT'
+        schema:
+          type: string
+          default: USDT
+      - name: sort
+        in: query
+        required: false
+        description: 'Sort field enum:
+
+          `apy` — highest APY first
+
+          `short-period` — shortest tenor first
+
+          `multiple` — highest premium first'
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: page number
+        schema:
+          type: integer
+          minimum: 1
+        example: 1
+      - name: page_size
+        in: query
+        required: false
+        description: Items per page，Maximum 100
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+        example: 100
+      responses:
+        200:
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DualGetPlans'
+              example:
+              - id: 272
+                instrument_name: DOGE-17NOV23-0.067-P
+                type: put
+                invest_currency: USDT
+                exercise_currency: DOGE
+                exercise_price: 0.067
+                delivery_time: 1700208000
+                start_time: 1697685172
+                end_time: 1697685172
+                status: ONGOING
+                apy_display: '0.0114000000'
+                min_amount: '1'
+      x-group-parameters: true
+  /earn/dual/stock/project-recommend:
+    get:
+      tags:
+      - earn
+      security: []
+      summary: Get recommendations for stock dual investment products
+      operationId: getDualStockProjectRecommend
+      parameters:
+      - name: coin
+        in: query
+        required: false
+        description: Underlying currency
+        schema:
+          type: string
+        example: BTC
+      - name: type
+        in: query
+        required: false
+        description: '`call`: sell high; `put`: buy low'
+        schema:
+          type: string
+          enum:
+          - call
+          - put
+        example: call
+      - name: mode
+        in: query
+        required: false
+        description: 'Recommendation mode. Default: normal
+
+          normal: Regular users
+
+          senior: Experienced users'
+        schema:
+          type: string
+          default: normal
+          enum:
+          - normal
+          - senior
+        example: normal
+      - name: history_pids
+        in: query
+        required: false
+        description: Previously recommended project IDs, separated by commas
+        schema:
+          type: string
+        example: 1001,1002
+      responses:
+        200:
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DualProjectRecommend'
+              example:
+              - id: 110669
+                category: 1
+                type: call
+                invest_currency: BTC
+                exercise_currency: USDT
+                apy_display: '2.60'
+                exercise_price: '71303.44279'
+                delivery_timest: 1775289600
+                min_amount: '1'
+                max_amount: '100000'
+                min_copies: 1
+                max_copies: 100000
+                invest_days: 2
+                invest_hours: '70.43458031'
+      x-group-parameters: true
+  /earn/dual/stock/orders:
+    get:
+      tags:
+      - earn
+      summary: List stock dual investment orders
+      operationId: listDualStockOrders
+      parameters:
+      - name: coin
+        in: query
+        required: false
+        description: Investment Token
+        schema:
+          type: string
+        example: BTC
+      - name: status
+        in: query
+        required: false
+        description: 'Filter by order status. Default: ALL
+
+          HOLD: Current holdings
+
+          REPAY: Historical holdings
+
+          PROCESSING: Holding in progress
+
+          SETTLEMENT_PROCESSING: Settlement in progress
+
+          ALL: All orders'
+        schema:
+          type: string
+          default: ALL
+        example: HOLD
+      - name: type
+        in: query
+        required: false
+        description: 'Type enum: `put` — buy low; `call` — sell high'
+        schema:
+          type: string
+          enum:
+          - call
+          - put
+        example: put
+      - name: from
+        in: query
+        required: false
+        description: Start of the time range, in Unix seconds
+        schema:
+          type: integer
+          format: int64
+        example: 1740727000
+      - name: to
+        in: query
+        required: false
+        description: End of the time range, in Unix seconds
+        schema:
+          type: integer
+          format: int64
+        example: 1740729000
+      - name: page
+        in: query
+        description: Page number
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+          minimum: 1
+        example: 1
+      - name: page_size
+        in: query
+        required: false
+        description: Number of records per page, up to 100. Defaults to 100 when omitted
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+        example: 100
+      - name: limit
+        in: query
+        description: Maximum number of records returned in a single list
+        required: false
+        schema:
+          type: integer
+          default: 100
+          minimum: 1
+          maximum: 1000
+        example: 100
+      responses:
+        200:
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DualGetOrders'
+              example:
+              - id: 373
+                plan_id: 176
+                invest_amount: '0.0000000000'
+                settlement_amount: '0.0000000000'
+                create_time: 1697685172
+                complete_time: 1697685172
+                status: CANCELED
+                invest_currency: USDT
+                exercise_currency: BTC
+                settlement_currency: ''
+                exercise_price: '24500.0000000000'
+                settlement_price: '0.0000000000'
+                delivery_time: 1697685172
+                apy_display: '0.6800000000'
+                apy_settlement: '0.0000000000'
+                text: t-custom-text
+      x-group-parameters: true
+    post:
+      tags:
+      - earn
+      summary: Place a stock dual investment order
+      description: 'For buy-low (put) products, optionally pass `hit_spot`, `hit_stock`,
+        and `hit_simple` (`1` selects the corresponding funding account)
+
+        to collect funds from the spot, stock, or Simple Earn accounts before subscribing.'
+      operationId: placeDualStockOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceDualStockInvestmentOrderParams'
+            example:
+              plan_id: '176'
+              amount: '1'
+              text: t-custom-text
+              hit_spot: 1
+              hit_stock: 0
+              hit_simple: 0
+      responses:
+        200:
+          description: Order placed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaceDualInvestmentOrder'
+              example:
+                id: 373
+                plan_id: 176
+                invest_amount: '0.0000000000'
+                settlement_amount: '0.0000000000'
+                create_time: 1697685172
+                complete_time: 1697685172
+                status: CANCELED
+                invest_currency: USDT
+                exercise_currency: BTC
+                settlement_currency: ''
+                exercise_price: '24500.0000000000'
+                settlement_price: '0.0000000000'
+                delivery_time: 1697685172
+                apy_display: '0.6800000000'
+                apy_settlement: '0.0000000000'
+                text: t-custom-text
+      parameters: []
+  /earn/dual/stock/balance:
+    get:
+      tags:
+      - earn
+      summary: Get stock dual investment asset statistics
+      operationId: listDualStockBalance
+      parameters: []
+      responses:
+        200:
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DualGetBalance'
+              example:
+                user_asset_usdt: '30.13'
+                user_asset_btc: '0.00032798'
+                user_total_interest_usdt: '581.19003892'
+                user_total_interest_btc: '0.00632655'
+  /earn/dual/stock/order-refund-preview:
+    get:
+      tags:
+      - earn
+      summary: Preview stock dual investment redemption
+      operationId: getDualStockOrderRefundPreview
+      parameters:
+      - name: order_id
+        in: query
+        required: true
+        description: Order ID
+        schema:
+          type: string
+        example: '9497'
+      responses:
+        200:
+          description: Successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DualOrderRefundPreview'
+              example:
+                create_timest: 1775027285
+                delivery_timest: 1775289600
+                exercise_price: '71303.44279'
+                invest_amount: '1'
+                invest_currency: BTC
+                name: BTC_USDT-20260404-71303.44279-C
+                order_id: 9497
+                req_id: tIvdY7nh
+                refund_service_charge: 0
+                settle_price: '68781.0063'
+                settlement_amount: '0.99486528'
+                settlement_currency: BTC
+                settlement_interest: '0'
+                settlement_principle: '0.99486528'
+                type: call
+                money_back_timest: 1775027958
+  /earn/dual/stock/order-refund:
+    post:
+      tags:
+      - earn
+      summary: Redeem a stock dual investment order
+      operationId: placeDualStockOrderRefund
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DualOrderRefundParams'
+            example:
+              order_id: '9487'
+              req_id: OepRSEfv
+      responses:
+        200:
+          description: Redemption successful
+      parameters: []
+  /earn/dual/stock/modify-order-reinvest:
+    post:
+      tags:
+      - earn
+      summary: Reinvest a stock dual investment order
+      operationId: modifyDualStockOrderReinvest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DualModifyOrderReinvestParams'
+            example:
+              order_id: 9497
+              status: 1
+              effective_time_duration: 86400
+      responses:
+        200:
+          description: Updated successfully
+      parameters: []
   /earn/staking/coins:
     get:
       tags:
@@ -47065,7 +47777,7 @@ paths:
                   ps: 10
                   total_pn: 1
                   count: 2
-                  list:
+                  lists:
                   - time: '2025-02-11 07:45:06'
                     timestamp: 1739000013
                     order_id: '41'
@@ -47153,7 +47865,7 @@ paths:
                   page_size: 10
                   page_number: 1
                   total_page: 10
-                  list:
+                  lists:
                   - id: 1
                     trade_no: '89875324974'
                     pay_coin: USDT
@@ -48633,17 +49345,20 @@ paths:
       operationId: listCrossexRuleSymbols
       summary: Query symbol information
       deprecated: false
-      description: Query Trading Pair Information
+      description: 'List trading pair information.
+
+        Stock and ETF symbols use `{market}_{business_type}_{security_code}_USDT`,
+        for example `US_STOCK_AAPL_USDT`, `HK_STOCK_00700_USDT`, or `US_ETF_SPY_USDT`.'
       tags:
       - CrossEx
       parameters:
       - name: symbols
         in: query
-        description: 'List of trading pairs, comma-separated.
+        description: 'Comma-separated list of trading pairs
 
           Example:
 
-          BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT'
+          BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT,US_STOCK_AAPL_USDT'
         required: false
         schema:
           type: string
@@ -48697,6 +49412,7 @@ paths:
                 support_rpi: 'false'
                 support_cross: 'true'
                 delist_time: '0'
+                tag: ''
               - symbol: OKX_FUTURE_ADA_USDT
                 exchange_type: OKX
                 business_type: FUTURE
@@ -48713,6 +49429,24 @@ paths:
                 delist_time: '1762163297615'
                 support_rpi: 'false'
                 support_cross: 'true'
+                tag: ''
+              - symbol: US_STOCK_AAPL_USDT
+                exchange_type: US
+                business_type: STOCK
+                state: live
+                min_size: '0.01'
+                min_notional: '0'
+                lot_size: '0.01'
+                tick_size: '0.01'
+                max_num_orders: '0'
+                max_market_size: '0'
+                max_limit_size: '0'
+                contract_size: '0'
+                liquidation_fee: '0'
+                delist_time: '0'
+                support_rpi: 'false'
+                support_cross: 'true'
+                tag: Apple Inc.
           headers: {}
       security: []
       x-group-parameters: true
@@ -49158,8 +49892,15 @@ paths:
       operationId: createCrossexOrder
       summary: Create order
       deprecated: false
-      description: 'Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders
-        per user'
+      description: 'Rate limit: 100 requests per 10 seconds; each user may have up
+        to 1,000 open orders.
+
+        Stocks and ETFs have an additional per-user limit of one request per second
+        and support only cross-exchange account mode and GTC. Stock and ETF orders
+        must use qty; quote_qty is not supported.
+
+        Stock and ETF order prices use the listing market currency: USD for US markets,
+        HKD for Hong Kong, KRW for South Korea, and JPY for Japan.'
       tags:
       - CrossEx
       parameters: []
@@ -49219,6 +49960,15 @@ paths:
                   qty: '0.5'
                   position_side: LONG
                 summary: Spot Margin Market Sell to Close Long
+              '7':
+                value:
+                  symbol: HK_STOCK_00700_USDT
+                  side: BUY
+                  type: LIMIT
+                  qty: '0.01'
+                  price: '424.8'
+                  time_in_force: GTC
+                summary: Hong Kong stock limit buy order (price in HKD)
       responses:
         '200':
           description: 'Project-Id-Version: GateApiTools 1.0.0
@@ -50608,6 +51358,114 @@ paths:
                 closed_pnl: '12'
           headers: {}
       x-group-parameters: true
+  /crossex/security_positions:
+    get:
+      operationId: listCrossexSecurityPositions
+      summary: List security positions
+      deprecated: false
+      description: 'List stock and ETF positions. Rate limit: 200 requests per 10
+        seconds.
+
+        Prices, position values, and unrealized profit and loss use the listing market
+        currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and
+        JPY for Japan.'
+      tags:
+      - CrossEx
+      parameters:
+      - name: symbol
+        in: query
+        description: Stock or ETF trading pair
+        required: false
+        example: US_STOCK_AAPL_USDT
+        schema:
+          type: string
+      - name: exchange_type
+        in: query
+        description: Stock market (US/HK/KR/JP)
+        required: false
+        example: US
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 'Project-Id-Version: GateApiTools 1.0.0
+
+            Report-Msgid-Bugs-To: EMAIL@ADDRESS
+
+            POT-Creation-Date: 2025-11-12 18:14+0800
+
+            PO-Revision-Date: 2019-01-02 17:30+0800
+
+            Last-Translator: FULL NAME <EMAIL@ADDRESS>
+
+            Language: en
+
+            Language-Team: en <L@li.org>
+
+            Plural-Forms: nplurals=2; plural=(n !=1)
+
+            MIME-Version: 1.0
+
+            Content-Type: text/plain; charset=utf-8
+
+            Content-Transfer-Encoding: 8bit
+
+            Generated-By: Babel 2.8.0
+
+            '
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: CrossexSecurityPosition
+                  type: object
+                  properties:
+                    user_id:
+                      type: string
+                      description: User ID
+                    symbol:
+                      type: string
+                      description: Stock or ETF trading pair
+                    price:
+                      type: string
+                      description: Latest price in the listing market currency
+                    entry_price:
+                      type: string
+                      description: Position cost price in the listing market currency
+                    diluted_cost_price:
+                      type: string
+                      description: Diluted cost price in the listing market currency
+                    upnl:
+                      type: string
+                      description: Unrealized profit and loss in the listing market
+                        currency
+                    position_qty:
+                      type: string
+                      description: Position size
+                    position_value:
+                      type: string
+                      description: Position value in the listing market currency
+                  required:
+                  - user_id
+                  - symbol
+                  - price
+                  - entry_price
+                  - diluted_cost_price
+                  - upnl
+                  - position_qty
+                  - position_value
+              example:
+              - user_id: '59138103'
+                symbol: HK_STOCK_00700_USDT
+                price: '424.8'
+                entry_price: '428'
+                diluted_cost_price: '428'
+                upnl: '-0.032'
+                position_qty: '0.01'
+                position_value: '4.248'
+          headers: {}
+      x-group-parameters: true
   /crossex/margin_positions:
     get:
       operationId: listCrossexMarginPositions
@@ -51643,7 +52501,8 @@ paths:
                       description: Trading size
                     price:
                       type: string
-                      description: Fill Price
+                      description: Fill price. Stocks and ETFs use the listing market
+                        currency (USD/HKD/KRW/JPY)
                     fee:
                       type: string
                       description: fee
@@ -51792,33 +52651,37 @@ paths:
                         no business meaning'
                     statement_type:
                       type: string
-                      description: 'Account book entry type
+                      description: 'Account book transaction type
 
-                        `TRANSACTION`: trade
+                        `TRANSACTION`: Trade
 
-                        `TRADING_FEE`: trading fee
+                        `TRADING_FEE`: Trading fee
 
-                        `FUNDING_FEE`: futures funding fee
+                        `FUNDING_FEE`: Futures funding fee
 
-                        `LIQUIDATION_FEE`: liquidation fee
+                        `LIQUIDATION_FEE`: Liquidation fee
 
-                        `TRANSFER_IN`: transfer in
+                        `TRANSFER_IN`: Incoming transfer
 
-                        `TRANSFER_OUT`: transfer out
+                        `TRANSFER_OUT`: Outgoing transfer
 
-                        `BANKRUPT_COMPENSATION`: bankruptcy compensation
+                        `BANKRUPT_COMPENSATION`: Bankruptcy compensation
 
-                        `AUTO_REPAY`: automatic repayment of margin position liabilities
+                        `AUTO_REPAY`: Automatic margin liability repayment
 
-                        `INTEREST_ISOLATED`: interest entry
+                        `INTEREST_ISOLATED`: Interest transaction
 
-                        `ACCOUNT_MODE_CHANGE`: balance change caused by an account
-                        mode switch
+                        `ACCOUNT_MODE_CHANGE`: Funds movement on account mode change
 
-                        `KRAKEN_CONVERSION`: conversion of other margin currencies
+                        `KRAKEN_CONVERSION`: Conversion of other collateral currencies
                         to cover a negative KRAKEN_USD balance
 
-                        `OTHER`: other'
+                        `SECURITY_DIVIDEND`: Stock or ETF dividend payout
+
+                        `SECURITY_CORPORATE_ACTION`: Stock or ETF split or reverse
+                        split
+
+                        `OTHER`: Other'
                     exchange_type:
                       type: string
                       description: Exchange
@@ -56421,15 +57284,19 @@ tags:
   description: P2P trading
 - name: CrossEx
   description: 'CrossEx is a cross-exchange trading platform that allows users to
-    trade across multiple exchanges (Binance, OKX, Gate, Bybit, Kraken, Hyperliquid,
-    Deribit, and Lighter) through a unified account. The CrossEx API provides account
-    management, asset transfers, order placement, and position management across exchanges.
+    trade on multiple exchanges (Binance, OKX, Gate, Bybit, Kraken, Hyperliquid, Deribit,
+    and Lighter) through a unified account, with access to stocks in US, Hong Kong,
+    South Korean, and Japanese markets. The CrossEx API provides account management,
+    asset transfers, order placement, and position management across exchanges.
 
-    - REST API production base URL: `https://api.gateio.ws/api/v4`
+    - Stocks and ETFs support only cross-exchange account mode. Stock markets use
+    US, HK, KR, and JP as exchange_type, and STOCK or ETF as business_type
+
+    - REST API BaseURL for live trading: `https://api.gateio.ws/api/v4`
 
     - [Help Center](https://www.gate.com/help/crossex/functional)
 
-    - [Cross-exchange trading](https://www.gate.com/crossex)'
+    - [Cross-exchange Trading](https://www.gate.com/crossex)'
 - name: bot
   description: Bot AIHub policy recommendation, creation, query and termination interface
 - name: alpha

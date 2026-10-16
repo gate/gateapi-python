@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **str** | Symbol | [optional] 
-**exchange** | **str** | Exchange, supports us, hk, kr, and jp | [optional] 
+**exchange** | **str** | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
 **quote_currency** | **str** | Quote currency | [optional] 
 **quote_currency_precision** | **int** | Quote currency precision | [optional] 
 **fx_rate** | **str** | Quote currency to USD exchange rate | [optional] 
-**trade_status** | **str** | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. | [optional] 
+**trade_status** | **str** | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. | [optional] 
 **symbol_desc** | **str** | Symbol description | [optional] 
 **position_pnl** | **str** | Position P&amp;L | [optional] 
 **today_pnl** | **str** | Today&#39;s P&amp;L | [optional] 

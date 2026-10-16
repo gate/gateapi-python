@@ -117,7 +117,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.StockApi(api_client)
 symbols = 'AAPL,TSLA' # str | Symbol list, multiple separated by commas (optional)
-exchange = 'us' # str | Exchange, supports us, hk, kr, and jp (optional)
+exchange = 'us' # str | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
 with_desc_i18n = true # bool | Whether to return multilingual symbol description (optional)
 page = 1 # int | Page number, defaults to 1 (optional)
 page_size = 100 # int | Page size, defaults to 10, max 500; server caps at 500 (optional)
@@ -137,7 +137,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **str**| Symbol list, multiple separated by commas | [optional] 
- **exchange** | **str**| Exchange, supports us, hk, kr, and jp | [optional] 
+ **exchange** | **str**| Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
  **with_desc_i18n** | **bool**| Whether to return multilingual symbol description | [optional] 
  **page** | **int**| Page number, defaults to 1 | [optional] 
  **page_size** | **int**| Page size, defaults to 10, max 500; server caps at 500 | [optional] 
@@ -186,7 +186,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.StockApi(api_client)
 symbols = 'AAPL,TSLA' # str | Symbol list, multiple separated by commas (optional)
-exchange = 'us' # str | Exchange, supports us, hk, kr, and jp (optional)
+exchange = 'us' # str | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
 page = 1 # int | Page number, defaults to 1 (optional)
 page_size = 100 # int | Page size, defaults to 10, max 500; server caps at 500 (optional)
 
@@ -205,7 +205,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **str**| Symbol list, multiple separated by commas | [optional] 
- **exchange** | **str**| Exchange, supports us, hk, kr, and jp | [optional] 
+ **exchange** | **str**| Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
  **page** | **int**| Page number, defaults to 1 | [optional] 
  **page_size** | **int**| Page size, defaults to 10, max 500; server caps at 500 | [optional] 
 
@@ -755,7 +755,7 @@ api_instance = gate_api.StockApi(api_client)
 pnl_calc_type = 1 # int | PnL calculation cost type. Defaults to average cost price when omitted (1 = average cost price, 2 = diluted cost price) (optional)
 pnl_calc_price = 1 # int | PnL calculation price type. Defaults to intraday price when omitted (1 = intraday price, 2 = latest extended-hours price) (optional)
 symbol = 'AAPL' # str | Symbol (optional)
-exchange = 'us' # str | Exchange, supports us, hk, kr, and jp (optional)
+exchange = 'us' # str | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
 
 try:
     # Query current position list
@@ -774,7 +774,7 @@ Name | Type | Description  | Notes
  **pnl_calc_type** | **int**| PnL calculation cost type. Defaults to average cost price when omitted (1 &#x3D; average cost price, 2 &#x3D; diluted cost price) | [optional] 
  **pnl_calc_price** | **int**| PnL calculation price type. Defaults to intraday price when omitted (1 &#x3D; intraday price, 2 &#x3D; latest extended-hours price) | [optional] 
  **symbol** | **str**| Symbol | [optional] 
- **exchange** | **str**| Exchange, supports us, hk, kr, and jp | [optional] 
+ **exchange** | **str**| Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
 
 ### Return type
 

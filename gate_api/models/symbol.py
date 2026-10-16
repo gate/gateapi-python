@@ -48,7 +48,8 @@ class Symbol(object):
         'liquidation_fee': 'str',
         'delist_time': 'str',
         'support_rpi': 'str',
-        'support_cross': 'str'
+        'support_cross': 'str',
+        'tag': 'str'
     }
 
     attribute_map = {
@@ -67,11 +68,12 @@ class Symbol(object):
         'liquidation_fee': 'liquidation_fee',
         'delist_time': 'delist_time',
         'support_rpi': 'support_rpi',
-        'support_cross': 'support_cross'
+        'support_cross': 'support_cross',
+        'tag': 'tag'
     }
 
-    def __init__(self, symbol=None, exchange_type=None, business_type=None, state=None, min_size=None, min_notional=None, lot_size=None, tick_size=None, max_num_orders=None, max_market_size=None, max_limit_size=None, contract_size=None, liquidation_fee=None, delist_time=None, support_rpi=None, support_cross=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, symbol=None, exchange_type=None, business_type=None, state=None, min_size=None, min_notional=None, lot_size=None, tick_size=None, max_num_orders=None, max_market_size=None, max_limit_size=None, contract_size=None, liquidation_fee=None, delist_time=None, support_rpi=None, support_cross=None, tag=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """Symbol - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,6 +95,7 @@ class Symbol(object):
         self._delist_time = None
         self._support_rpi = None
         self._support_cross = None
+        self._tag = None
         self.discriminator = None
 
         self.symbol = symbol
@@ -113,12 +116,13 @@ class Symbol(object):
             self.support_rpi = support_rpi
         if support_cross is not None:
             self.support_cross = support_cross
+        self.tag = tag
 
     @property
     def symbol(self):
         """Gets the symbol of this Symbol.  # noqa: E501
 
-        Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.  # noqa: E501
+        Unique trading pair identifier in the format ExchangeType_BusinessType_Base_Counter. Stocks and ETFs use the market as ExchangeType (US/HK/KR/JP) and STOCK or ETF as the business type, for example US_STOCK_AAPL_USDT, HK_STOCK_00700_USDT, or US_ETF_SPY_USDT.  # noqa: E501
 
         :return: The symbol of this Symbol.  # noqa: E501
         :rtype: str
@@ -129,7 +133,7 @@ class Symbol(object):
     def symbol(self, symbol):
         """Sets the symbol of this Symbol.
 
-        Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.  # noqa: E501
+        Unique trading pair identifier in the format ExchangeType_BusinessType_Base_Counter. Stocks and ETFs use the market as ExchangeType (US/HK/KR/JP) and STOCK or ETF as the business type, for example US_STOCK_AAPL_USDT, HK_STOCK_00700_USDT, or US_ETF_SPY_USDT.  # noqa: E501
 
         :param symbol: The symbol of this Symbol.  # noqa: E501
         :type: str
@@ -143,7 +147,7 @@ class Symbol(object):
     def exchange_type(self):
         """Gets the exchange_type of this Symbol.  # noqa: E501
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
+        Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP)  # noqa: E501
 
         :return: The exchange_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -154,7 +158,7 @@ class Symbol(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this Symbol.
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
+        Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP)  # noqa: E501
 
         :param exchange_type: The exchange_type of this Symbol.  # noqa: E501
         :type: str
@@ -168,7 +172,7 @@ class Symbol(object):
     def business_type(self):
         """Gets the business_type of this Symbol.  # noqa: E501
 
-        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
+        Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / STOCK: stocks / ETF: exchange-traded funds)  # noqa: E501
 
         :return: The business_type of this Symbol.  # noqa: E501
         :rtype: str
@@ -179,7 +183,7 @@ class Symbol(object):
     def business_type(self, business_type):
         """Sets the business_type of this Symbol.
 
-        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin).  # noqa: E501
+        Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / STOCK: stocks / ETF: exchange-traded funds)  # noqa: E501
 
         :param business_type: The business_type of this Symbol.  # noqa: E501
         :type: str
@@ -509,6 +513,31 @@ class Symbol(object):
         """
 
         self._support_cross = support_cross
+
+    @property
+    def tag(self):
+        """Gets the tag of this Symbol.  # noqa: E501
+
+        Tag information. Hyperliquid returns DEX information, stocks and ETFs return the security description, and other businesses return an empty string  # noqa: E501
+
+        :return: The tag of this Symbol.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag
+
+    @tag.setter
+    def tag(self, tag):
+        """Sets the tag of this Symbol.
+
+        Tag information. Hyperliquid returns DEX information, stocks and ETFs return the security description, and other businesses return an empty string  # noqa: E501
+
+        :param tag: The tag of this Symbol.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and tag is None:  # noqa: E501
+            raise ValueError("Invalid value for `tag`, must not be `None`")  # noqa: E501
+
+        self._tag = tag
 
     def to_dict(self):
         """Returns the model properties as a dict"""

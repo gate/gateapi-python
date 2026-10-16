@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **str** | Symbol | [optional] 
-**exchange** | **str** | Exchange, supports us, hk, kr, and jp | [optional] 
+**exchange** | **str** | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
 **exchange_desc** | **str** | Exchange description | [optional] 
 **quote_currency** | **str** | Quote currency | [optional] 
 **quote_currency_precision** | **int** | Quote currency precision | [optional] 
@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 **buy_price_protection** | **str** | Buy price protection rate | [optional] 
 **slippage_rate** | **str** | Slippage | [optional] 
 **commission_rate** | **str** | Fee Rate | [optional] 
-**trade_status** | **str** | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. | [optional] 
-**trade_mode** | **int** | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt). | [optional] 
+**trade_status** | **str** | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. | [optional] 
+**trade_mode** | **int** | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended. | [optional] 
 **order_fill_timing** | **int** | Order fill timing (1&#x3D;immediate, 2&#x3D;after pre-market opens, 3&#x3D;after regular session opens) | [optional] 
 **symbol_descs** | [**list[SymbolDetailItemSymbolDescs]**](SymbolDetailItemSymbolDescs.md) | Multilingual symbol description | [optional] 
 **icon_link** | **str** | Icon URL | [optional] 

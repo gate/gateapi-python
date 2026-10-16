@@ -123,7 +123,7 @@ class CrossexOrderRequest(object):
     def symbol(self):
         """Gets the symbol of this CrossexOrderRequest.  # noqa: E501
 
-        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; For an ADA/USDC futures order on Deribit, use `DERIBIT_FUTURE_ADA_USDC`; For an ADA/USDC futures order on Lighter, use `LIGHTER_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT and DERIBIT omit spot margin for now; Kraken, Hyperliquid, and Lighter omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
+        Unique identifier Exchange_Business_Base_Counter Examples: To place a spot order for ADA/USDT on BINANCE, use `BINANCE_SPOT_ADA_USDT`; To place a USDT-margined perpetual futures order for ADA/USDT on OKX, use `OKX_FUTURE_ADA_USDT`; To place a spot margin order for ADA/USDT on GATE, use `GATE_MARGIN_ADA_USDT`; To place a spot order for ADA/USDT on BYBIT, use `BYBIT_SPOT_ADA_USDT`; To place a futures order for ADA/USD on KRAKEN, use `KRAKEN_FUTURE_ADA_USD`; To place a futures order for ADA/USDC on HYPERLIQUID, use `HYPERLIQUID_FUTURE_ADA_USDC`; To place a futures order for ADA/USDC on DERIBIT, use `DERIBIT_FUTURE_ADA_USDC`; To place a futures order for ADA/USDC on LIGHTER, use `LIGHTER_FUTURE_ADA_USDC`; To trade US stock AAPL, use `US_STOCK_AAPL_USDT`; To trade Hong Kong stock 00700, use `HK_STOCK_00700_USDT`; To trade US ETF SPY, use `US_ETF_SPY_USDT`; Spot, USDT-margined perpetual futures, spot margin, stock, and ETF orders are supported. BYBIT/DERIBIT do not currently support spot margin orders. KRAKEN, HYPERLIQUID, and LIGHTER do not currently support spot or margin orders. Stocks and ETFs support only cross-exchange account mode  # noqa: E501
 
         :return: The symbol of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -134,7 +134,7 @@ class CrossexOrderRequest(object):
     def symbol(self, symbol):
         """Sets the symbol of this CrossexOrderRequest.
 
-        Unique identifier `{Exchange}_{Business}_{Base}_{Counter}` Examples: To send a Binance spot order on `ADA/USDT`, use `BINANCE_SPOT_ADA_USDT`; For an ADA/USDT-margined USDT perpetual futures order on OKX, use `OKX_FUTURE_ADA_USDT`; For ADA/USDT margin trading on Gate, use `GATE_MARGIN_ADA_USDT`; For ADA/USDT spot trading on Bybit, use `BYBIT_SPOT_ADA_USDT`; For an ADA/USD futures order on Kraken, use `KRAKEN_FUTURE_ADA_USD`; For an ADA/USDC futures order on Hyperliquid, use `HYPERLIQUID_FUTURE_ADA_USDC`; For an ADA/USDC futures order on Deribit, use `DERIBIT_FUTURE_ADA_USDC`; For an ADA/USDC futures order on Lighter, use `LIGHTER_FUTURE_ADA_USDC`; Supports spot trades, USDT-margined perpetual futures, and spot margin templates. BYBIT and DERIBIT omit spot margin for now; Kraken, Hyperliquid, and Lighter omit dedicated spot/margin legs inside CrossEx.  # noqa: E501
+        Unique identifier Exchange_Business_Base_Counter Examples: To place a spot order for ADA/USDT on BINANCE, use `BINANCE_SPOT_ADA_USDT`; To place a USDT-margined perpetual futures order for ADA/USDT on OKX, use `OKX_FUTURE_ADA_USDT`; To place a spot margin order for ADA/USDT on GATE, use `GATE_MARGIN_ADA_USDT`; To place a spot order for ADA/USDT on BYBIT, use `BYBIT_SPOT_ADA_USDT`; To place a futures order for ADA/USD on KRAKEN, use `KRAKEN_FUTURE_ADA_USD`; To place a futures order for ADA/USDC on HYPERLIQUID, use `HYPERLIQUID_FUTURE_ADA_USDC`; To place a futures order for ADA/USDC on DERIBIT, use `DERIBIT_FUTURE_ADA_USDC`; To place a futures order for ADA/USDC on LIGHTER, use `LIGHTER_FUTURE_ADA_USDC`; To trade US stock AAPL, use `US_STOCK_AAPL_USDT`; To trade Hong Kong stock 00700, use `HK_STOCK_00700_USDT`; To trade US ETF SPY, use `US_ETF_SPY_USDT`; Spot, USDT-margined perpetual futures, spot margin, stock, and ETF orders are supported. BYBIT/DERIBIT do not currently support spot margin orders. KRAKEN, HYPERLIQUID, and LIGHTER do not currently support spot or margin orders. Stocks and ETFs support only cross-exchange account mode  # noqa: E501
 
         :param symbol: The symbol of this CrossexOrderRequest.  # noqa: E501
         :type: str
@@ -208,7 +208,7 @@ class CrossexOrderRequest(object):
     def time_in_force(self):
         """Gets the time_in_force of this CrossexOrderRequest.  # noqa: E501
 
-        Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`, and `RPI` `GTC`: GoodTillCancelled `IOC`: ImmediateOrCancelled `FOK`: FillOrKill `POC`: PendingOrCancelled or PostOnly `RPI`: Retail Price Improvement  # noqa: E501
+        Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`, `RPI` `GTC`: GoodTillCancelled `IOC`: ImmediateOrCancelled `FOK`: FillOrKill `POC`: PendingOrCancelled or PostOnly `RPI`: RPI Stocks and ETFs support only `GTC`  # noqa: E501
 
         :return: The time_in_force of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -219,7 +219,7 @@ class CrossexOrderRequest(object):
     def time_in_force(self, time_in_force):
         """Sets the time_in_force of this CrossexOrderRequest.
 
-        Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`, and `RPI` `GTC`: GoodTillCancelled `IOC`: ImmediateOrCancelled `FOK`: FillOrKill `POC`: PendingOrCancelled or PostOnly `RPI`: Retail Price Improvement  # noqa: E501
+        Defaults to GTC. Supported values: `GTC`, `IOC`, `FOK`, `POC`, `RPI` `GTC`: GoodTillCancelled `IOC`: ImmediateOrCancelled `FOK`: FillOrKill `POC`: PendingOrCancelled or PostOnly `RPI`: RPI Stocks and ETFs support only `GTC`  # noqa: E501
 
         :param time_in_force: The time_in_force of this CrossexOrderRequest.  # noqa: E501
         :type: str
@@ -237,7 +237,7 @@ class CrossexOrderRequest(object):
     def qty(self):
         """Gets the qty of this CrossexOrderRequest.  # noqa: E501
 
-        Order quantity (required unless spot or margin market buy)  # noqa: E501
+        Order quantity (required except for spot and margin market buys; qty is required for stocks and ETFs)  # noqa: E501
 
         :return: The qty of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -248,7 +248,7 @@ class CrossexOrderRequest(object):
     def qty(self, qty):
         """Sets the qty of this CrossexOrderRequest.
 
-        Order quantity (required unless spot or margin market buy)  # noqa: E501
+        Order quantity (required except for spot and margin market buys; qty is required for stocks and ETFs)  # noqa: E501
 
         :param qty: The qty of this CrossexOrderRequest.  # noqa: E501
         :type: str
@@ -260,7 +260,7 @@ class CrossexOrderRequest(object):
     def price(self):
         """Gets the price of this CrossexOrderRequest.  # noqa: E501
 
-        Limit Order Price (Required for Limit Orders)  # noqa: E501
+        Limit order price (required for limit orders). Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :return: The price of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -271,7 +271,7 @@ class CrossexOrderRequest(object):
     def price(self, price):
         """Sets the price of this CrossexOrderRequest.
 
-        Limit Order Price (Required for Limit Orders)  # noqa: E501
+        Limit order price (required for limit orders). Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :param price: The price of this CrossexOrderRequest.  # noqa: E501
         :type: str
@@ -283,7 +283,7 @@ class CrossexOrderRequest(object):
     def quote_qty(self):
         """Gets the quote_qty of this CrossexOrderRequest.  # noqa: E501
 
-        Order quote quantity; required for spot and margin market buy orders  # noqa: E501
+        Order quote quantity, required for spot and margin market buys. Stock and ETF orders do not support quote_qty  # noqa: E501
 
         :return: The quote_qty of this CrossexOrderRequest.  # noqa: E501
         :rtype: str
@@ -294,7 +294,7 @@ class CrossexOrderRequest(object):
     def quote_qty(self, quote_qty):
         """Sets the quote_qty of this CrossexOrderRequest.
 
-        Order quote quantity; required for spot and margin market buy orders  # noqa: E501
+        Order quote quantity, required for spot and margin market buys. Stock and ETF orders do not support quote_qty  # noqa: E501
 
         :param quote_qty: The quote_qty of this CrossexOrderRequest.  # noqa: E501
         :type: str

@@ -229,7 +229,7 @@ class PositionListItem(object):
     def exchange(self):
         """Gets the exchange of this PositionListItem.  # noqa: E501
 
-        Exchange, supports us, hk, kr, and jp  # noqa: E501
+        Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :return: The exchange of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -240,7 +240,7 @@ class PositionListItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this PositionListItem.
 
-        Exchange, supports us, hk, kr, and jp  # noqa: E501
+        Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :param exchange: The exchange of this PositionListItem.  # noqa: E501
         :type: str
@@ -327,7 +327,7 @@ class PositionListItem(object):
     def trade_status(self):
         """Gets the trade_status of this PositionListItem.  # noqa: E501
 
-        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.  # noqa: E501
+        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.  # noqa: E501
 
         :return: The trade_status of this PositionListItem.  # noqa: E501
         :rtype: str
@@ -338,12 +338,12 @@ class PositionListItem(object):
     def trade_status(self, trade_status):
         """Sets the trade_status of this PositionListItem.
 
-        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.  # noqa: E501
+        Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.  # noqa: E501
 
         :param trade_status: The trade_status of this PositionListItem.  # noqa: E501
         :type: str
         """
-        allowed_values = ["pre_market", "open", "post_market", "closed", "gt_lp"]  # noqa: E501
+        allowed_values = ["pre_market", "open", "post_market"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and trade_status not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `trade_status` ({0}), must be one of {1}"  # noqa: E501

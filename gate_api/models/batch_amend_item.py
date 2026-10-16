@@ -86,10 +86,8 @@ class BatchAmendItem(object):
             self.amend_text = amend_text
         if action_mode is not None:
             self.action_mode = action_mode
-        if stop_profit is not None:
-            self.stop_profit = stop_profit
-        if stop_loss is not None:
-            self.stop_loss = stop_loss
+        self.stop_profit = stop_profit
+        self.stop_loss = stop_loss
 
     @property
     def order_id(self):

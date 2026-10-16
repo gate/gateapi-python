@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_futures_contract**](FuturesApi.md#get_futures_contract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 [**list_futures_adl_risk_states**](FuturesApi.md#list_futures_adl_risk_states) | **GET** /futures/{settle}/adl_risk_states | List market-level ADL risk states
 [**list_futures_order_book**](FuturesApi.md#list_futures_order_book) | **GET** /futures/{settle}/order_book | Query futures market depth information
+[**list_futures_rpi_order_book**](FuturesApi.md#list_futures_rpi_order_book) | **GET** /futures/{settle}/rpi_order_book | Query futures RPI order book
 [**list_futures_trades**](FuturesApi.md#list_futures_trades) | **GET** /futures/{settle}/trades | Futures market transaction records
 [**list_futures_candlesticks**](FuturesApi.md#list_futures_candlesticks) | **GET** /futures/{settle}/candlesticks | Futures market K-line chart
 [**list_futures_premium_index**](FuturesApi.md#list_futures_premium_index) | **GET** /futures/{settle}/premium_index | Premium Index K-line chart
@@ -74,7 +75,7 @@ Method | HTTP request | Description
 [**cancel_price_triggered_order_list**](FuturesApi.md#cancel_price_triggered_order_list) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**get_price_triggered_order**](FuturesApi.md#get_price_triggered_order) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 [**cancel_price_triggered_order**](FuturesApi.md#cancel_price_triggered_order) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
-[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/amend | Modify a Single Auto Order
+[**update_price_triggered_order**](FuturesApi.md#update_price_triggered_order) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
 
 
 # **list_futures_contracts**
@@ -357,6 +358,74 @@ except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
 except ApiException as e:
     print("Exception when calling FuturesApi->list_futures_order_book: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **str**| Perpetual futures settlement currency | 
+ **contract** | **str**| Futures contract | 
+ **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
+ **limit** | **int**| Number of depth levels | [optional] [default to 10]
+ **with_id** | **bool**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to False]
+
+### Return type
+
+[**FuturesOrderBook**](FuturesOrderBook.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Depth query successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_futures_rpi_order_book**
+> FuturesOrderBook list_futures_rpi_order_book(settle, contract, interval=interval, limit=limit, with_id=with_id)
+
+Query futures RPI order book
+
+Bids will be sorted by price from high to low, while asks sorted reversely
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FuturesApi(api_client)
+settle = 'usdt' # str | Perpetual futures settlement currency
+contract = 'BTC_USDT' # str | Futures contract
+interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
+limit = 10 # int | Number of depth levels (optional) (default to 10)
+with_id = False # bool | Whether to return depth update ID. This ID increments by 1 each time the depth changes (optional) (default to False)
+
+try:
+    # Query futures RPI order book
+    api_response = api_instance.list_futures_rpi_order_book(settle, contract, interval=interval, limit=limit, with_id=with_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FuturesApi->list_futures_rpi_order_book: %s\n" % e)
 ```
 
 ### Parameters
@@ -5063,7 +5132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_price_triggered_order**
-> TriggerOrderResponse update_price_triggered_order(settle, futures_update_price_triggered_order)
+> TriggerOrderResponse update_price_triggered_order(settle, order_id, futures_update_price_triggered_order)
 
 Modify a Single Auto Order
 
@@ -5092,11 +5161,12 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Perpetual futures settlement currency
+order_id = '2110911746238578688' # str | ID returned when order is successfully created
 futures_update_price_triggered_order = gate_api.FuturesUpdatePriceTriggeredOrder() # FuturesUpdatePriceTriggeredOrder | 
 
 try:
     # Modify a Single Auto Order
-    api_response = api_instance.update_price_triggered_order(settle, futures_update_price_triggered_order)
+    api_response = api_instance.update_price_triggered_order(settle, order_id, futures_update_price_triggered_order)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -5109,6 +5179,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Perpetual futures settlement currency | 
+ **order_id** | **str**| ID returned when order is successfully created | 
  **futures_update_price_triggered_order** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  | 
 
 ### Return type

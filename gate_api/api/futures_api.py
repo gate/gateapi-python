@@ -669,6 +669,148 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def list_futures_rpi_order_book(self, settle, contract, **kwargs):  # noqa: E501
+        """Query futures RPI order book  # noqa: E501
+
+        Bids will be sorted by price from high to low, while asks sorted reversely  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_futures_rpi_order_book(settle, contract, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Perpetual futures settlement currency (required)
+        :param str contract: Futures contract (required)
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
+        :param int limit: Number of depth levels
+        :param bool with_id: Whether to return depth update ID. This ID increments by 1 each time the depth changes
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.FuturesOrderBook
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_futures_rpi_order_book_with_http_info(settle, contract, **kwargs)  # noqa: E501
+
+    def list_futures_rpi_order_book_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
+        """Query futures RPI order book  # noqa: E501
+
+        Bids will be sorted by price from high to low, while asks sorted reversely  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_futures_rpi_order_book_with_http_info(settle, contract, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str settle: Perpetual futures settlement currency (required)
+        :param str contract: Futures contract (required)
+        :param str interval: Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
+        :param int limit: Number of depth levels
+        :param bool with_id: Whether to return depth update ID. This ID increments by 1 each time the depth changes
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.FuturesOrderBook, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'settle',
+            'contract',
+            'interval',
+            'limit',
+            'with_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_futures_rpi_order_book" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'settle' is set
+        if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
+                                                        local_var_params['settle'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `settle` when calling `list_futures_rpi_order_book`")  # noqa: E501
+        # verify the required parameter 'contract' is set
+        if self.api_client.client_side_validation and ('contract' not in local_var_params or  # noqa: E501
+                                                        local_var_params['contract'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `contract` when calling `list_futures_rpi_order_book`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 50:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_futures_rpi_order_book`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_futures_rpi_order_book`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'settle' in local_var_params:
+            path_params['settle'] = local_var_params['settle']  # noqa: E501
+
+        query_params = []
+        if 'contract' in local_var_params and local_var_params['contract'] is not None:  # noqa: E501
+            query_params.append(('contract', local_var_params['contract']))  # noqa: E501
+        if 'interval' in local_var_params and local_var_params['interval'] is not None:  # noqa: E501
+            query_params.append(('interval', local_var_params['interval']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'with_id' in local_var_params and local_var_params['with_id'] is not None:  # noqa: E501
+            query_params.append(('with_id', local_var_params['with_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/futures/{settle}/rpi_order_book', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FuturesOrderBook',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_futures_trades(self, settle, contract, **kwargs):  # noqa: E501
         """Futures market transaction records  # noqa: E501
 
@@ -9352,16 +9494,17 @@ class FuturesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_price_triggered_order(self, settle, futures_update_price_triggered_order, **kwargs):  # noqa: E501
+    def update_price_triggered_order(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
         """Modify a Single Auto Order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_price_triggered_order(settle, futures_update_price_triggered_order, async_req=True)
+        >>> thread = api.update_price_triggered_order(settle, order_id, futures_update_price_triggered_order, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Perpetual futures settlement currency (required)
+        :param str order_id: ID returned when order is successfully created (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9375,18 +9518,19 @@ class FuturesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_price_triggered_order_with_http_info(settle, futures_update_price_triggered_order, **kwargs)  # noqa: E501
+        return self.update_price_triggered_order_with_http_info(settle, order_id, futures_update_price_triggered_order, **kwargs)  # noqa: E501
 
-    def update_price_triggered_order_with_http_info(self, settle, futures_update_price_triggered_order, **kwargs):  # noqa: E501
+    def update_price_triggered_order_with_http_info(self, settle, order_id, futures_update_price_triggered_order, **kwargs):  # noqa: E501
         """Modify a Single Auto Order  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_price_triggered_order_with_http_info(settle, futures_update_price_triggered_order, async_req=True)
+        >>> thread = api.update_price_triggered_order_with_http_info(settle, order_id, futures_update_price_triggered_order, async_req=True)
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
         :param str settle: Perpetual futures settlement currency (required)
+        :param str order_id: ID returned when order is successfully created (required)
         :param FuturesUpdatePriceTriggeredOrder futures_update_price_triggered_order: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9406,6 +9550,7 @@ class FuturesApi(object):
 
         all_params = [
             'settle',
+            'order_id',
             'futures_update_price_triggered_order'
         ]
         all_params.extend(
@@ -9429,6 +9574,10 @@ class FuturesApi(object):
         if self.api_client.client_side_validation and ('settle' not in local_var_params or  # noqa: E501
                                                         local_var_params['settle'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `settle` when calling `update_price_triggered_order`")  # noqa: E501
+        # verify the required parameter 'order_id' is set
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_id` when calling `update_price_triggered_order`")  # noqa: E501
         # verify the required parameter 'futures_update_price_triggered_order' is set
         if self.api_client.client_side_validation and ('futures_update_price_triggered_order' not in local_var_params or  # noqa: E501
                                                         local_var_params['futures_update_price_triggered_order'] is None):  # noqa: E501
@@ -9439,6 +9588,8 @@ class FuturesApi(object):
         path_params = {}
         if 'settle' in local_var_params:
             path_params['settle'] = local_var_params['settle']  # noqa: E501
+        if 'order_id' in local_var_params:
+            path_params['order_id'] = local_var_params['order_id']  # noqa: E501
 
         query_params = []
 
@@ -9462,7 +9613,7 @@ class FuturesApi(object):
         auth_settings = ['apiv4']  # noqa: E501
 
         return self.api_client.call_api(
-            '/futures/{settle}/price_orders/amend', 'PUT',
+            '/futures/{settle}/price_orders/amend/{order_id}', 'PUT',
             path_params,
             query_params,
             header_params,

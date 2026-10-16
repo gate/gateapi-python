@@ -72,7 +72,7 @@ class ExchangesDataList(object):
     def exchange(self):
         """Gets the exchange of this ExchangesDataList.  # noqa: E501
 
-        Trading market, supports us, hk, kr, and jp  # noqa: E501
+        Trading market. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :return: The exchange of this ExchangesDataList.  # noqa: E501
         :rtype: str
@@ -83,7 +83,7 @@ class ExchangesDataList(object):
     def exchange(self, exchange):
         """Sets the exchange of this ExchangesDataList.
 
-        Trading market, supports us, hk, kr, and jp  # noqa: E501
+        Trading market. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :param exchange: The exchange of this ExchangesDataList.  # noqa: E501
         :type: str

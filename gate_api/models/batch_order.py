@@ -71,8 +71,8 @@ class BatchOrder(object):
         'stp_act': 'str',
         'finish_as': 'str',
         'slippage': 'str',
-        'stop_profit': 'SpotOrderStopProfit',
-        'stop_loss': 'SpotOrderStopLoss'
+        'stop_profit': 'PatchSpotOrderStopProfit',
+        'stop_loss': 'PatchSpotOrderStopLoss'
     }
 
     attribute_map = {
@@ -119,7 +119,7 @@ class BatchOrder(object):
     }
 
     def __init__(self, order_id=None, amend_text=None, text=None, succeeded=None, label=None, message=None, id=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, slippage=None, stop_profit=None, stop_loss=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, bool, str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, Configuration) -> None
+        # type: (str, str, str, bool, str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, PatchSpotOrderStopProfit, PatchSpotOrderStopLoss, Configuration) -> None
         """BatchOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -1170,7 +1170,7 @@ class BatchOrder(object):
 
 
         :return: The stop_profit of this BatchOrder.  # noqa: E501
-        :rtype: SpotOrderStopProfit
+        :rtype: PatchSpotOrderStopProfit
         """
         return self._stop_profit
 
@@ -1180,7 +1180,7 @@ class BatchOrder(object):
 
 
         :param stop_profit: The stop_profit of this BatchOrder.  # noqa: E501
-        :type: SpotOrderStopProfit
+        :type: PatchSpotOrderStopProfit
         """
 
         self._stop_profit = stop_profit
@@ -1191,7 +1191,7 @@ class BatchOrder(object):
 
 
         :return: The stop_loss of this BatchOrder.  # noqa: E501
-        :rtype: SpotOrderStopLoss
+        :rtype: PatchSpotOrderStopLoss
         """
         return self._stop_loss
 
@@ -1201,7 +1201,7 @@ class BatchOrder(object):
 
 
         :param stop_loss: The stop_loss of this BatchOrder.  # noqa: E501
-        :type: SpotOrderStopLoss
+        :type: PatchSpotOrderStopLoss
         """
 
         self._stop_loss = stop_loss

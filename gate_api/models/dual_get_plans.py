@@ -35,6 +35,7 @@ class DualGetPlans(object):
     openapi_types = {
         'id': 'int',
         'instrument_name': 'str',
+        'type': 'str',
         'invest_currency': 'str',
         'exercise_currency': 'str',
         'exercise_price': 'float',
@@ -49,6 +50,7 @@ class DualGetPlans(object):
     attribute_map = {
         'id': 'id',
         'instrument_name': 'instrument_name',
+        'type': 'type',
         'invest_currency': 'invest_currency',
         'exercise_currency': 'exercise_currency',
         'exercise_price': 'exercise_price',
@@ -60,8 +62,8 @@ class DualGetPlans(object):
         'status': 'status'
     }
 
-    def __init__(self, id=None, instrument_name=None, invest_currency=None, exercise_currency=None, exercise_price=None, delivery_time=None, apy_display=None, min_amount=None, start_time=None, end_time=None, status=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, float, int, str, str, int, int, str, Configuration) -> None
+    def __init__(self, id=None, instrument_name=None, type=None, invest_currency=None, exercise_currency=None, exercise_price=None, delivery_time=None, apy_display=None, min_amount=None, start_time=None, end_time=None, status=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, str, str, str, float, int, str, str, int, int, str, Configuration) -> None
         """DualGetPlans - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class DualGetPlans(object):
 
         self._id = None
         self._instrument_name = None
+        self._type = None
         self._invest_currency = None
         self._exercise_currency = None
         self._exercise_price = None
@@ -84,6 +87,8 @@ class DualGetPlans(object):
             self.id = id
         if instrument_name is not None:
             self.instrument_name = instrument_name
+        if type is not None:
+            self.type = type
         if invest_currency is not None:
             self.invest_currency = invest_currency
         if exercise_currency is not None:
@@ -148,6 +153,29 @@ class DualGetPlans(object):
         """
 
         self._instrument_name = instrument_name
+
+    @property
+    def type(self):
+        """Gets the type of this DualGetPlans.  # noqa: E501
+
+        `call`: sell high; `put`: buy low  # noqa: E501
+
+        :return: The type of this DualGetPlans.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this DualGetPlans.
+
+        `call`: sell high; `put`: buy low  # noqa: E501
+
+        :param type: The type of this DualGetPlans.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def invest_currency(self):

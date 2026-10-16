@@ -196,7 +196,7 @@ class OrderHistoryListItem(object):
     def exchange(self):
         """Gets the exchange of this OrderHistoryListItem.  # noqa: E501
 
-        Exchange, supports us, hk, kr, and jp  # noqa: E501
+        Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :return: The exchange of this OrderHistoryListItem.  # noqa: E501
         :rtype: str
@@ -207,7 +207,7 @@ class OrderHistoryListItem(object):
     def exchange(self, exchange):
         """Sets the exchange of this OrderHistoryListItem.
 
-        Exchange, supports us, hk, kr, and jp  # noqa: E501
+        Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.  # noqa: E501
 
         :param exchange: The exchange of this OrderHistoryListItem.  # noqa: E501
         :type: str

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_currency_pair**](SpotApi.md#get_currency_pair) | **GET** /spot/currency_pairs/{currency_pair} | Query single currency pair details
 [**list_tickers**](SpotApi.md#list_tickers) | **GET** /spot/tickers | Get currency pair ticker information
 [**list_order_book**](SpotApi.md#list_order_book) | **GET** /spot/order_book | Get market depth information
+[**list_spot_rpi_order_book**](SpotApi.md#list_spot_rpi_order_book) | **GET** /spot/rpi_order_book | Get the RPI order book
 [**list_trades**](SpotApi.md#list_trades) | **GET** /spot/trades | Query market transaction records
 [**list_candlesticks**](SpotApi.md#list_candlesticks) | **GET** /spot/candlesticks | Market K-line chart
 [**get_fee**](SpotApi.md#get_fee) | **GET** /spot/fee | Query account fee rates
@@ -366,6 +367,72 @@ except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
 except ApiException as e:
     print("Exception when calling SpotApi->list_order_book: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_pair** | **str**| Currency pair | 
+ **interval** | **str**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &#39;0&#39;]
+ **limit** | **int**| Number of depth levels | [optional] [default to 10]
+ **with_id** | **bool**| Return order book update ID | [optional] [default to False]
+
+### Return type
+
+[**OrderBook**](OrderBook.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_spot_rpi_order_book**
+> OrderBook list_spot_rpi_order_book(currency_pair, interval=interval, limit=limit, with_id=with_id)
+
+Get the RPI order book
+
+Get the RPI order book, with bids sorted by descending price and asks by ascending price.
+
+### Example
+
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.SpotApi(api_client)
+currency_pair = 'BTC_USDT' # str | Currency pair
+interval = '0' # str | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional) (default to '0')
+limit = 10 # int | Number of depth levels (optional) (default to 10)
+with_id = False # bool | Return order book update ID (optional) (default to False)
+
+try:
+    # Get the RPI order book
+    api_response = api_instance.list_spot_rpi_order_book(currency_pair, interval=interval, limit=limit, with_id=with_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling SpotApi->list_spot_rpi_order_book: %s\n" % e)
 ```
 
 ### Parameters

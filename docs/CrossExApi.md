@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**get_crossex_interest_rate**](CrossExApi.md#get_crossex_interest_rate) | **GET** /crossex/interest_rate | Query margin asset interest rates
 [**get_crossex_fee**](CrossExApi.md#get_crossex_fee) | **GET** /crossex/fee | Query User Fee Rates
 [**list_crossex_positions**](CrossExApi.md#list_crossex_positions) | **GET** /crossex/positions | Query Contract Positions
+[**list_crossex_security_positions**](CrossExApi.md#list_crossex_security_positions) | **GET** /crossex/security_positions | List security positions
 [**list_crossex_margin_positions**](CrossExApi.md#list_crossex_margin_positions) | **GET** /crossex/margin_positions | Query Leveraged Positions
 [**list_crossex_adl_rank**](CrossExApi.md#list_crossex_adl_rank) | **GET** /crossex/adl_rank | Query ADL Position Reduction Ranking
 [**list_crossex_open_orders**](CrossExApi.md#list_crossex_open_orders) | **GET** /crossex/open_orders | Query All Current Open Orders
@@ -48,7 +49,7 @@ Method | HTTP request | Description
 
 Query symbol information
 
-Query Trading Pair Information
+List trading pair information. Stock and ETF symbols use `{market}_{business_type}_{security_code}_USDT`, for example `US_STOCK_AAPL_USDT`, `HK_STOCK_00700_USDT`, or `US_ETF_SPY_USDT`.
 
 ### Example
 
@@ -65,7 +66,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CrossExApi(api_client)
-symbols = 'symbols_example' # str | List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
+symbols = 'symbols_example' # str | Comma-separated list of trading pairs Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT,US_STOCK_AAPL_USDT (optional)
 
 try:
     # Query symbol information
@@ -81,7 +82,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **str**| List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional] 
+ **symbols** | **str**| Comma-separated list of trading pairs Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT,US_STOCK_AAPL_USDT | [optional] 
 
 ### Return type
 
@@ -376,7 +377,7 @@ Name | Type | Description  | Notes
 
 Create order
 
-Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
+Rate limit: 100 requests per 10 seconds; each user may have up to 1,000 open orders. Stocks and ETFs have an additional per-user limit of one request per second and support only cross-exchange account mode and GTC. Stock and ETF orders must use qty; quote_qty is not supported. Stock and ETF order prices use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
 
 ### Example
 
@@ -1736,6 +1737,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[CrossexPosition]**](CrossexPosition.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_crossex_security_positions**
+> list[CrossexSecurityPosition] list_crossex_security_positions(symbol=symbol, exchange_type=exchange_type)
+
+List security positions
+
+List stock and ETF positions. Rate limit: 200 requests per 10 seconds. Prices, position values, and unrealized profit and loss use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.CrossExApi(api_client)
+symbol = 'US_STOCK_AAPL_USDT' # str | Stock or ETF trading pair (optional)
+exchange_type = 'US' # str | Stock market (US/HK/KR/JP) (optional)
+
+try:
+    # List security positions
+    api_response = api_instance.list_crossex_security_positions(symbol=symbol, exchange_type=exchange_type)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling CrossExApi->list_crossex_security_positions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **str**| Stock or ETF trading pair | [optional] 
+ **exchange_type** | **str**| Stock market (US/HK/KR/JP) | [optional] 
+
+### Return type
+
+[**list[CrossexSecurityPosition]**](CrossexSecurityPosition.md)
 
 ### Authorization
 

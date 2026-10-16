@@ -364,7 +364,7 @@ class CrossexOrder(object):
     def exchange_type(self):
         """Gets the exchange_type of this CrossexOrder.  # noqa: E501
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
+        Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP)  # noqa: E501
 
         :return: The exchange_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -375,7 +375,7 @@ class CrossexOrder(object):
     def exchange_type(self, exchange_type):
         """Sets the exchange_type of this CrossexOrder.
 
-        Venue bucket (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).  # noqa: E501
+        Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP)  # noqa: E501
 
         :param exchange_type: The exchange_type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -389,7 +389,7 @@ class CrossexOrder(object):
     def business_type(self):
         """Gets the business_type of this CrossexOrder.  # noqa: E501
 
-        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin / `CONVERT` Flash Swap).  # noqa: E501
+        Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / CONVERT: flash swap / STOCK: stocks / ETF: exchange-traded funds)  # noqa: E501
 
         :return: The business_type of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -400,7 +400,7 @@ class CrossexOrder(object):
     def business_type(self, business_type):
         """Sets the business_type of this CrossexOrder.
 
-        Business type (`SPOT` Spot / `FUTURE` Futures / `MARGIN` Margin / `CONVERT` Flash Swap).  # noqa: E501
+        Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / CONVERT: flash swap / STOCK: stocks / ETF: exchange-traded funds)  # noqa: E501
 
         :param business_type: The business_type of this CrossexOrder.  # noqa: E501
         :type: str
@@ -464,7 +464,7 @@ class CrossexOrder(object):
     def price(self):
         """Gets the price of this CrossexOrder.  # noqa: E501
 
-        Order price.  # noqa: E501
+        Order price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :return: The price of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -475,7 +475,7 @@ class CrossexOrder(object):
     def price(self, price):
         """Sets the price of this CrossexOrder.
 
-        Order price.  # noqa: E501
+        Order price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :param price: The price of this CrossexOrder.  # noqa: E501
         :type: str
@@ -539,7 +539,7 @@ class CrossexOrder(object):
     def executed_amount(self):
         """Gets the executed_amount of this CrossexOrder.  # noqa: E501
 
-        Filled quote amount.  # noqa: E501
+        Filled amount in the quote currency. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :return: The executed_amount of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -550,7 +550,7 @@ class CrossexOrder(object):
     def executed_amount(self, executed_amount):
         """Sets the executed_amount of this CrossexOrder.
 
-        Filled quote amount.  # noqa: E501
+        Filled amount in the quote currency. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :param executed_amount: The executed_amount of this CrossexOrder.  # noqa: E501
         :type: str
@@ -564,7 +564,7 @@ class CrossexOrder(object):
     def executed_avg_price(self):
         """Gets the executed_avg_price of this CrossexOrder.  # noqa: E501
 
-        Average Filled Price  # noqa: E501
+        Average fill price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :return: The executed_avg_price of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -575,7 +575,7 @@ class CrossexOrder(object):
     def executed_avg_price(self, executed_avg_price):
         """Sets the executed_avg_price of this CrossexOrder.
 
-        Average Filled Price  # noqa: E501
+        Average fill price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :param executed_avg_price: The executed_avg_price of this CrossexOrder.  # noqa: E501
         :type: str
@@ -739,7 +739,7 @@ class CrossexOrder(object):
     def last_executed_price(self):
         """Gets the last_executed_price of this CrossexOrder.  # noqa: E501
 
-        Price of the latest fill.  # noqa: E501
+        Price of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :return: The last_executed_price of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -750,7 +750,7 @@ class CrossexOrder(object):
     def last_executed_price(self, last_executed_price):
         """Sets the last_executed_price of this CrossexOrder.
 
-        Price of the latest fill.  # noqa: E501
+        Price of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :param last_executed_price: The last_executed_price of this CrossexOrder.  # noqa: E501
         :type: str
@@ -764,7 +764,7 @@ class CrossexOrder(object):
     def last_executed_amount(self):
         """Gets the last_executed_amount of this CrossexOrder.  # noqa: E501
 
-        Quote amount of the latest fill.  # noqa: E501
+        Amount of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :return: The last_executed_amount of this CrossexOrder.  # noqa: E501
         :rtype: str
@@ -775,7 +775,7 @@ class CrossexOrder(object):
     def last_executed_amount(self, last_executed_amount):
         """Sets the last_executed_amount of this CrossexOrder.
 
-        Quote amount of the latest fill.  # noqa: E501
+        Amount of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)  # noqa: E501
 
         :param last_executed_amount: The last_executed_amount of this CrossexOrder.  # noqa: E501
         :type: str
