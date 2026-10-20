@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.160
+  version: v4.106.161
   x-betaNum: 1
   title: Gate API
   contact:
@@ -16944,6 +16944,8 @@ components:
                 properties:
                   order_id:
                     type: integer
+                    format: int64
+                    x-is-bigint: true
                     description: Order ID
                     example: 2630589
                   symbol:
@@ -17020,6 +17022,8 @@ components:
           properties:
             order_id:
               type: integer
+              format: int64
+              x-is-bigint: true
               description: Order ID
               example: 2630591
             symbol:
@@ -17074,6 +17078,8 @@ components:
                 properties:
                   order_id:
                     type: integer
+                    format: int64
+                    x-is-bigint: true
                     description: Order ID
                     example: 2648991
                   symbol:
@@ -17170,10 +17176,14 @@ components:
           properties:
             order_id:
               type: integer
+              format: int64
+              x-is-bigint: true
               description: Order ID
               example: 2648991
             log_id:
               type: integer
+              format: int64
+              x-is-bigint: true
               description: logID
               example: 87699
             symbol:
@@ -17236,6 +17246,8 @@ components:
                 properties:
                   position_id:
                     type: integer
+                    format: int64
+                    x-is-bigint: true
                     description: Position ID
                     example: 2648925
                   symbol:
@@ -17316,6 +17328,7 @@ components:
                   position_id:
                     type: integer
                     format: int64
+                    x-is-bigint: true
                     description: Position ID
                   symbol:
                     type: string
@@ -37902,10 +37915,12 @@ paths:
     parameters:
     - name: order_id
       in: path
+      x-is-bigint: true
       required: true
       description: Order ID
       schema:
         type: integer
+        format: int64
         example: 1223
     put:
       tags:
@@ -38062,10 +38077,12 @@ paths:
       parameters:
       - name: log_id
         in: path
+        x-is-bigint: true
         required: true
         description: log_id returned from the order placement API
         schema:
           type: integer
+          format: int64
           example: 1223
       responses:
         200:
@@ -38146,10 +38163,12 @@ paths:
       parameters:
       - name: position_id
         in: path
+        x-is-bigint: true
         required: true
         description: Position ID
         schema:
           type: integer
+          format: int64
           example: 1223
       operationId: updatePosition
       requestBody:
@@ -38185,10 +38204,12 @@ paths:
       parameters:
       - name: position_id
         in: path
+        x-is-bigint: true
         required: true
         description: Position ID
         schema:
           type: integer
+          format: int64
           example: 1223
       requestBody:
         required: true
