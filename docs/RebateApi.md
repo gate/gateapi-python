@@ -1,0 +1,903 @@
+# gate_api.RebateApi
+
+All URIs are relative to *https://api.gateio.ws/api/v4*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**agency_transaction_history**](RebateApi.md#agency_transaction_history) | **GET** /rebate/agency/transaction_history | Broker obtains transaction history of recommended users
+[**agency_commissions_history**](RebateApi.md#agency_commissions_history) | **GET** /rebate/agency/commission_history | Broker obtains rebate history of recommended users
+[**partner_transaction_history**](RebateApi.md#partner_transaction_history) | **GET** /rebate/partner/transaction_history | Partner obtains transaction history of recommended users
+[**partner_commissions_history**](RebateApi.md#partner_commissions_history) | **GET** /rebate/partner/commission_history | Partner obtains rebate records of recommended users
+[**partner_sub_list**](RebateApi.md#partner_sub_list) | **GET** /rebate/partner/sub_list | Partner subordinate list
+[**rebate_broker_commission_history**](RebateApi.md#rebate_broker_commission_history) | **GET** /rebate/broker/commission_history | Broker obtains user&#39;s rebate records
+[**rebate_broker_transaction_history**](RebateApi.md#rebate_broker_transaction_history) | **GET** /rebate/broker/transaction_history | Broker obtains user&#39;s trading history
+[**rebate_user_info**](RebateApi.md#rebate_user_info) | **GET** /rebate/user/info | User obtains rebate information
+[**user_sub_relation**](RebateApi.md#user_sub_relation) | **GET** /rebate/user/sub_relation | User subordinate relationship
+[**get_partner_application_recent**](RebateApi.md#get_partner_application_recent) | **GET** /rebate/partner/applications/recent | Get recent partner application records
+[**get_partner_eligibility**](RebateApi.md#get_partner_eligibility) | **GET** /rebate/partner/eligibility | Check partner application eligibility
+[**get_partner_agent_data_aggregated**](RebateApi.md#get_partner_agent_data_aggregated) | **GET** /rebate/partner/data/aggregated | Aggregated partner agent statistics
+
+
+# **agency_transaction_history**
+> AgencyTransactionHistory agency_transaction_history(currency_pair=currency_pair, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+
+Broker obtains transaction history of recommended users
+
+Record query time range cannot exceed 30 days
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+currency_pair = 'BTC_USDT' # str | Specify the trading pair. If not specified, returns all trading pairs (optional)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
+to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+
+try:
+    # Broker obtains transaction history of recommended users
+    api_response = api_instance.agency_transaction_history(currency_pair=currency_pair, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->agency_transaction_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_pair** | **str**| Specify the trading pair. If not specified, returns all trading pairs | [optional] 
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**AgencyTransactionHistory**](AgencyTransactionHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **agency_commissions_history**
+> AgencyCommissionHistory agency_commissions_history(currency=currency, commission_type=commission_type, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+
+Broker obtains rebate history of recommended users
+
+Record query time range cannot exceed 30 days
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+currency = 'BTC' # str | Specify the currency. If not specified, returns all currencies (optional)
+commission_type = 1 # int | Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate (optional)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
+to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+
+try:
+    # Broker obtains rebate history of recommended users
+    api_response = api_instance.agency_commissions_history(currency=currency, commission_type=commission_type, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->agency_commissions_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **str**| Specify the currency. If not specified, returns all currencies | [optional] 
+ **commission_type** | **int**| Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate | [optional] 
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**AgencyCommissionHistory**](AgencyCommissionHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **partner_transaction_history**
+> PartnerTransactionHistory partner_transaction_history(currency_pair=currency_pair, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+
+Partner obtains transaction history of recommended users
+
+Record query time range cannot exceed 30 days
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+currency_pair = 'BTC_USDT' # str | Specify the trading pair. If not specified, returns all trading pairs (optional)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
+to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+
+try:
+    # Partner obtains transaction history of recommended users
+    api_response = api_instance.partner_transaction_history(currency_pair=currency_pair, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->partner_transaction_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_pair** | **str**| Specify the trading pair. If not specified, returns all trading pairs | [optional] 
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**PartnerTransactionHistory**](PartnerTransactionHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **partner_commissions_history**
+> PartnerCommissionHistory partner_commissions_history(currency=currency, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+
+Partner obtains rebate records of recommended users
+
+Record query time range cannot exceed 30 days
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+currency = 'BTC' # str | Specify the currency. If not specified, returns all currencies (optional)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+_from = 1602120000 # int | Start time for querying records. If not specified, defaults to 7 days before current time (optional)
+to = 1602123600 # int | End timestamp for the query, defaults to current time if not specified (optional)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+
+try:
+    # Partner obtains rebate records of recommended users
+    api_response = api_instance.partner_commissions_history(currency=currency, user_id=user_id, _from=_from, to=to, limit=limit, offset=offset)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->partner_commissions_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **str**| Specify the currency. If not specified, returns all currencies | [optional] 
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **_from** | **int**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional] 
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**PartnerCommissionHistory**](PartnerCommissionHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **partner_sub_list**
+> PartnerSubList partner_sub_list(user_id=user_id, limit=limit, offset=offset)
+
+Partner subordinate list
+
+Including sub-agents, direct customers, and indirect customers
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+
+try:
+    # Partner subordinate list
+    api_response = api_instance.partner_sub_list(user_id=user_id, limit=limit, offset=offset)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->partner_sub_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**PartnerSubList**](PartnerSubList.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rebate_broker_commission_history**
+> BrokerCommission rebate_broker_commission_history(limit=limit, offset=offset, user_id=user_id, _from=_from, to=to)
+
+Broker obtains user's rebate records
+
+Record query time range cannot exceed 30 days
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+_from = 1711929600 # int | Start time of the query record. If not specified, defaults to 30 days before the current time (optional)
+to = 1714521600 # int | End timestamp for the query, defaults to current time if not specified (optional)
+
+try:
+    # Broker obtains user's rebate records
+    api_response = api_instance.rebate_broker_commission_history(limit=limit, offset=offset, user_id=user_id, _from=_from, to=to)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->rebate_broker_commission_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **_from** | **int**| Start time of the query record. If not specified, defaults to 30 days before the current time | [optional] 
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
+
+### Return type
+
+[**BrokerCommission**](BrokerCommission.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rebate_broker_transaction_history**
+> BrokerTransactionHistory rebate_broker_transaction_history(limit=limit, offset=offset, user_id=user_id, _from=_from, to=to)
+
+Broker obtains user's trading history
+
+Record query time range cannot exceed 30 days
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
+offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
+user_id = 10003 # int | User ID. If not specified, all user records will be returned (optional)
+_from = 1711929600 # int | Start time of the query record. If not specified, defaults to 30 days before the current time (optional)
+to = 1714521600 # int | End timestamp for the query, defaults to current time if not specified (optional)
+
+try:
+    # Broker obtains user's trading history
+    api_response = api_instance.rebate_broker_transaction_history(limit=limit, offset=offset, user_id=user_id, _from=_from, to=to)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->rebate_broker_transaction_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
+ **user_id** | **int**| User ID. If not specified, all user records will be returned | [optional] 
+ **_from** | **int**| Start time of the query record. If not specified, defaults to 30 days before the current time | [optional] 
+ **to** | **int**| End timestamp for the query, defaults to current time if not specified | [optional] 
+
+### Return type
+
+[**BrokerTransactionHistory**](BrokerTransactionHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rebate_user_info**
+> RebateUserInfo rebate_user_info()
+
+User obtains rebate information
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+
+try:
+    # User obtains rebate information
+    api_response = api_instance.rebate_user_info()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->rebate_user_info: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RebateUserInfo**](RebateUserInfo.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_sub_relation**
+> UserSubRelation user_sub_relation(user_id_list)
+
+User subordinate relationship
+
+Query whether the specified user is within the system
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+user_id_list = '1, 2, 3' # str | Query user ID list, separated by commas. If more than 100, only 100 will be returned
+
+try:
+    # User subordinate relationship
+    api_response = api_instance.user_sub_relation(user_id_list)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->user_sub_relation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id_list** | **str**| Query user ID list, separated by commas. If more than 100, only 100 will be returned | 
+
+### Return type
+
+[**UserSubRelation**](UserSubRelation.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_partner_application_recent**
+> PartnerApplicationResponse get_partner_application_recent()
+
+Get recent partner application records
+
+Get the current user's recent partner application records. This endpoint returns application records within the last 30 days, including application status, review information, application materials, and other details.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+
+try:
+    # Get recent partner application records
+    api_response = api_instance.get_partner_application_recent()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->get_partner_application_recent: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PartnerApplicationResponse**](PartnerApplicationResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_partner_eligibility**
+> EligibilityResponse get_partner_eligibility()
+
+Check partner application eligibility
+
+Check whether the current user is eligible to apply as a partner. This endpoint checks multiple conditions: account status (banned or not), whether it is a sub-account, whether already a partner, KYC verification status, whether under another agent's referral chain, whether on the blacklist, and other business rule restrictions
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+
+try:
+    # Check partner application eligibility
+    api_response = api_instance.get_partner_eligibility()
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->get_partner_eligibility: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EligibilityResponse**](EligibilityResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_partner_agent_data_aggregated**
+> PartnerDataAggregatedResponse get_partner_agent_data_aggregated(start_date=start_date, end_date=end_date, business_type=business_type)
+
+Aggregated partner agent statistics
+
+Query aggregated partner-agent statistics for a time range, including rebate amount, trading volume, net fee, customer count, and trading user count. **Notes:** - `trading_user_count` is only returned when `business_type=0` (All). - Time parameters use UTC+8. - If no time range is passed, the last 7 days are queried by default. - Partner agents only; sub-accounts are not allowed.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.RebateApi(api_client)
+start_date = '2024-01-01 00:00:00' # str | Query start time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the start of the last 7 days. (optional)
+end_date = '2024-01-07 23:59:59' # str | Query end time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the end of the last 7 days. (optional)
+business_type = 0 # int | Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi (optional) (default to 0)
+
+try:
+    # Aggregated partner agent statistics
+    api_response = api_instance.get_partner_agent_data_aggregated(start_date=start_date, end_date=end_date, business_type=business_type)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling RebateApi->get_partner_agent_data_aggregated: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **str**| Query start time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the start of the last 7 days. | [optional] 
+ **end_date** | **str**| Query end time, format: yyyy-mm-dd hh:ii:ss (UTC+8). If omitted, defaults to the end of the last 7 days. | [optional] 
+ **business_type** | **int**| Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi | [optional] [default to 0]
+
+### Return type
+
+[**PartnerDataAggregatedResponse**](PartnerDataAggregatedResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Unauthorized access |  -  |
+**403** | Access denied |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
