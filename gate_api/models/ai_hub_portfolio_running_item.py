@@ -41,7 +41,9 @@ class AIHubPortfolioRunningItem(object):
         'pnl': 'str',
         'pnl_rate': 'str',
         'invest_amount': 'str',
-        'created_at': 'str'
+        'created_at': 'str',
+        'assets': 'list[str]',
+        'markets': 'list[str]'
     }
 
     attribute_map = {
@@ -53,11 +55,13 @@ class AIHubPortfolioRunningItem(object):
         'pnl': 'pnl',
         'pnl_rate': 'pnl_rate',
         'invest_amount': 'invest_amount',
-        'created_at': 'created_at'
+        'created_at': 'created_at',
+        'assets': 'assets',
+        'markets': 'markets'
     }
 
-    def __init__(self, strategy_id=None, strategy_type=None, strategy_name=None, market=None, status=None, pnl=None, pnl_rate=None, invest_amount=None, created_at=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, str, str, str, str, str, str, str, Configuration) -> None
+    def __init__(self, strategy_id=None, strategy_type=None, strategy_name=None, market=None, status=None, pnl=None, pnl_rate=None, invest_amount=None, created_at=None, assets=None, markets=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, StrategyType, str, str, str, str, str, str, str, list[str], list[str], Configuration) -> None
         """AIHubPortfolioRunningItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +76,8 @@ class AIHubPortfolioRunningItem(object):
         self._pnl_rate = None
         self._invest_amount = None
         self._created_at = None
+        self._assets = None
+        self._markets = None
         self.discriminator = None
 
         self.strategy_id = strategy_id
@@ -87,6 +93,10 @@ class AIHubPortfolioRunningItem(object):
             self.invest_amount = invest_amount
         if created_at is not None:
             self.created_at = created_at
+        if assets is not None:
+            self.assets = assets
+        if markets is not None:
+            self.markets = markets
 
     @property
     def strategy_id(self):
@@ -161,6 +171,7 @@ class AIHubPortfolioRunningItem(object):
     def market(self):
         """Gets the market of this AIHubPortfolioRunningItem.  # noqa: E501
 
+        Single market, or empty string for a portfolio; use assets/markets for the latter.  # noqa: E501
 
         :return: The market of this AIHubPortfolioRunningItem.  # noqa: E501
         :rtype: str
@@ -171,6 +182,7 @@ class AIHubPortfolioRunningItem(object):
     def market(self, market):
         """Sets the market of this AIHubPortfolioRunningItem.
 
+        Single market, or empty string for a portfolio; use assets/markets for the latter.  # noqa: E501
 
         :param market: The market of this AIHubPortfolioRunningItem.  # noqa: E501
         :type: str
@@ -288,6 +300,48 @@ class AIHubPortfolioRunningItem(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def assets(self):
+        """Gets the assets of this AIHubPortfolioRunningItem.  # noqa: E501
+
+
+        :return: The assets of this AIHubPortfolioRunningItem.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._assets
+
+    @assets.setter
+    def assets(self, assets):
+        """Sets the assets of this AIHubPortfolioRunningItem.
+
+
+        :param assets: The assets of this AIHubPortfolioRunningItem.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._assets = assets
+
+    @property
+    def markets(self):
+        """Gets the markets of this AIHubPortfolioRunningItem.  # noqa: E501
+
+
+        :return: The markets of this AIHubPortfolioRunningItem.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._markets
+
+    @markets.setter
+    def markets(self, markets):
+        """Sets the markets of this AIHubPortfolioRunningItem.
+
+
+        :param markets: The markets of this AIHubPortfolioRunningItem.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._markets = markets
 
     def to_dict(self):
         """Returns the model properties as a dict"""

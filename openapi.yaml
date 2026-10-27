@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.164
+  version: v4.106.167
   x-betaNum: 1
   title: Gate API
   contact:
@@ -7932,8 +7932,6 @@ components:
       required:
       - code
       - message
-      - data
-      - trace_id
       properties:
         code:
           type: integer
@@ -7946,6 +7944,10 @@ components:
           $ref: '#/components/schemas/AIHubDiscoverData'
         trace_id:
           type: string
+        label:
+          type: string
+          description: Stable business error label when present. HTTP 200 can contain
+            a non-200 business code; data may retain a real identity on failure.
     SpotGridCreateRequest:
       description: Create the request body for the spot grid policy.
       type: object
@@ -8048,8 +8050,6 @@ components:
       required:
       - code
       - message
-      - data
-      - trace_id
       properties:
         code:
           type: integer
@@ -8062,14 +8062,16 @@ components:
           $ref: '#/components/schemas/AIHubCreateData'
         trace_id:
           type: string
+        label:
+          type: string
+          description: Stable business error label when present. HTTP 200 can contain
+            a non-200 business code; data may retain a real identity on failure.
     AIHubPortfolioRunningSuccessResponse:
       description: The response body when querying the running policy list is successful.
       type: object
       required:
       - code
       - message
-      - data
-      - trace_id
       properties:
         code:
           type: integer
@@ -8082,14 +8084,16 @@ components:
           $ref: '#/components/schemas/AIHubPortfolioRunningData'
         trace_id:
           type: string
+        label:
+          type: string
+          description: Stable business error label when present. HTTP 200 can contain
+            a non-200 business code; data may retain a real identity on failure.
     AIHubPortfolioDetailSuccessResponse:
       description: The response body when querying policy details is successful.
       type: object
       required:
       - code
       - message
-      - data
-      - trace_id
       properties:
         code:
           type: integer
@@ -8102,8 +8106,16 @@ components:
           $ref: '#/components/schemas/AIHubPortfolioDetailData'
         trace_id:
           type: string
+        label:
+          type: string
+          description: Stable business error label when present. HTTP 200 can contain
+            a non-200 business code; data may retain a real identity on failure.
     AIHubPortfolioStopRequest:
-      description: The request body to terminate a running policy.
+      x-go-root-properties: true
+      x-go-optional-models: true
+      description: Single owner-scoped stop. Existing six-type ID/type requests retain
+        default exits. smart_position requires explicit mode, limit requires options;
+        futures_combo uses fixed whole-portfolio close/settlement.
       type: object
       required:
       - strategy_id
@@ -8113,14 +8125,58 @@ components:
           type: string
         strategy_type:
           $ref: '#/components/schemas/StrategyType'
+        stop_mode:
+          type: string
+          enum:
+          - market
+          - limit
+          - no_close
+          description: Required only for smart_position. Other types reject custom
+            exit options.
+        stop_options:
+          $ref: '#/components/schemas/AIHubRebalanceStopOptions'
+      allOf:
+      - oneOf:
+        - properties:
+            strategy_type:
+              not:
+                enum:
+                - smart_position
+          not:
+            anyOf:
+            - required:
+              - stop_mode
+            - required:
+              - stop_options
+        - properties:
+            strategy_type:
+              enum:
+              - smart_position
+            stop_mode:
+              enum:
+              - market
+              - no_close
+          required:
+          - stop_mode
+          not:
+            required:
+            - stop_options
+        - properties:
+            strategy_type:
+              enum:
+              - smart_position
+            stop_mode:
+              enum:
+              - limit
+          required:
+          - stop_mode
+          - stop_options
     AIHubPortfolioStopSuccessResponse:
       description: The response body when the termination strategy is successful.
       type: object
       required:
       - code
       - message
-      - data
-      - trace_id
       properties:
         code:
           type: integer
@@ -8133,6 +8189,38 @@ components:
           $ref: '#/components/schemas/AIHubPortfolioStopData'
         trace_id:
           type: string
+        label:
+          type: string
+          description: Stable business error label when present. HTTP 200 can contain
+            a non-200 business code; data may retain a real identity on failure.
+    AIHubFuturesComboCreateRequest:
+      description: Request body for creating a futures-combo strategy.
+      type: object
+      properties:
+        strategy_type:
+          type: string
+          enum:
+          - futures_combo
+        create_params:
+          $ref: '#/components/schemas/AIHubFuturesComboCreateParams'
+      required:
+      - strategy_type
+      - create_params
+      additionalProperties: false
+    AIHubRebalanceCreateRequest:
+      description: Request body for creating a smart-position strategy.
+      type: object
+      properties:
+        strategy_type:
+          type: string
+          enum:
+          - smart_position
+        create_params:
+          $ref: '#/components/schemas/AIHubRebalanceCreateParams'
+      required:
+      - strategy_type
+      - create_params
+      additionalProperties: false
     StrategyType:
       description: The complete enumeration of policy types supported by AIHub.
       type: string
@@ -8143,6 +8231,8 @@ components:
       - futures_grid
       - spot_martingale
       - contract_martingale
+      - smart_position
+      - futures_combo
     AIHubDiscoverData:
       description: Strategy recommendation result data.
       type: object
@@ -8412,14 +8502,18 @@ components:
       properties:
         invest_amount:
           type: string
-          description: Margin allocated; the server converts it to initial contract
-            size using live contract price, contract multiplier, and minimum lot size.
+          description: Total strategy budget, not first-order margin. The server uses
+            the complete existing ladder formula, owner fee and live contract facts,
+            quantizes quantity down and rechecks before allocation. Minimum infeasible
+            budget is rejected.
         price_deviation:
           type: string
         max_orders:
           type: integer
           format: int32
           minimum: 1
+          description: Maximum additional entries, excluding the first; preserve this
+            legacy meaning.
         take_profit_ratio:
           type: string
         direction:
@@ -8428,22 +8522,30 @@ components:
           type: string
         stop_loss_price:
           type: string
-          deprecated: true
-          description: 'Legacy field name. The AIHub `contract_martingale` creation
-            path does not map this field today;
-
-            follow contract martingale rules from the underlying API. MCP tooling
-            must match bot-service behavior.'
+          description: Positive fixed stop price; requires explicit stop_loss_price_type.
+            Missing both leaves the old no-fixed-stop request unchanged.
         profit_sharing_ratio:
           type: string
+        stop_loss_price_type:
+          type: string
+          enum:
+          - last
+          - index
+          - mark
+      allOf:
+      - oneOf:
+        - not:
+            anyOf:
+            - required:
+              - stop_loss_price
+            - required:
+              - stop_loss_price_type
+        - required:
+          - stop_loss_price
+          - stop_loss_price_type
     AIHubCreateData:
       description: Policy information returned after the policy is successfully created.
       type: object
-      required:
-      - strategy_id
-      - strategy_type
-      - market
-      - status
       properties:
         strategy_id:
           type: string
@@ -8453,9 +8555,17 @@ components:
           type: string
         status:
           type: string
-          description: The initial state after successful creation, usually `running`
+          description: Observed product lifecycle state, or unknown. Creation acceptance/starting
+            is not running; stopping/finished alone does not prove funds settled.
         jump_url:
           type: string
+        operation_status:
+          type: string
+          description: pending when the write result requires verification; rejected
+            for a proven pre-effect refusal.
+        recovery_required:
+          type: boolean
+          x-go-preserve-presence: true
     AIHubPortfolioRunningData:
       description: Running policy list data.
       type: object
@@ -8496,6 +8606,8 @@ components:
           type: string
         market:
           type: string
+          description: Single market, or empty string for a portfolio; use assets/markets
+            for the latter.
         status:
           type: string
         pnl:
@@ -8507,7 +8619,16 @@ components:
         created_at:
           type: string
           description: Created time
+        assets:
+          type: array
+          items:
+            type: string
+        markets:
+          type: array
+          items:
+            type: string
     AIHubPortfolioDetailData:
+      x-go-optional-models: true
       description: Policy details data.
       type: object
       required:
@@ -8525,6 +8646,8 @@ components:
           $ref: '#/components/schemas/StrategyType'
         market:
           type: string
+          description: Single market, or empty string for a portfolio; use assets/markets
+            for the latter.
         status:
           type: string
         base_info:
@@ -8535,6 +8658,37 @@ components:
           $ref: '#/components/schemas/AIHubPortfolioPosition'
         stop_supported:
           type: boolean
+        assets:
+          type: array
+          items:
+            type: string
+        markets:
+          type: array
+          items:
+            type: string
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubPortfolioAssetPosition'
+        positions_status:
+          type: string
+          enum:
+          - verified
+          - partial
+          - unverified
+          - historical
+        configuration:
+          type: object
+          description: Product-specific saved configuration. spot_martingale exposes
+            AIHubSpotMartingaleConfiguration; absence is unverified. Runtime recovery
+            internals are excluded.
+          x-product-schemas:
+            spot_martingale:
+              $ref: '#/components/schemas/AIHubSpotMartingaleConfiguration'
+            contract_martingale:
+              $ref: '#/components/schemas/AIHubContractMartingaleConfiguration'
+        stop_progress:
+          $ref: '#/components/schemas/AIHubStopProgress'
     AIHubPortfolioBaseInfo:
       description: Strategy detail base info.
       type: object
@@ -8616,11 +8770,6 @@ components:
       description: The result information returned after the termination strategy
         is successful.
       type: object
-      required:
-      - strategy_id
-      - strategy_type
-      - status
-      - result_message
       properties:
         strategy_id:
           type: string
@@ -8628,9 +8777,243 @@ components:
           $ref: '#/components/schemas/StrategyType'
         status:
           type: string
-          description: The current implementation returns `stopping`
+          description: Observed product lifecycle state, or unknown. Creation acceptance/starting
+            is not running; stopping/finished alone does not prove funds settled.
         result_message:
           type: string
+        operation_status:
+          type: string
+          description: pending when the write result requires verification; rejected
+            for a proven pre-effect refusal.
+        recovery_required:
+          type: boolean
+          x-go-preserve-presence: true
+    AIHubFuturesComboCreateParams:
+      description: Creation parameters for a futures-combo strategy.
+      type: object
+      properties:
+        begin_money_amount:
+          type: string
+        begin_money_currency:
+          type: string
+          enum:
+          - USDT
+        asset_info:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubFuturesComboAsset'
+          minItems: 2
+          maxItems: 10
+        leverage:
+          type: integer
+          minimum: 1
+          maximum: 100
+        period:
+          type: string
+          enum:
+          - 30m
+          - 1h
+          - 4h
+          - 8h
+          - 12h
+          - 1d
+          - 3d
+          - 7d
+          - 14d
+          - 28d
+        threshold:
+          type: string
+          description: Ratio 0.01–0.50; exclusive with period.
+        stop_profit:
+          type: string
+          nullable: true
+        stop_loss:
+          type: string
+          nullable: true
+      required:
+      - begin_money_amount
+      - begin_money_currency
+      - asset_info
+      - leverage
+      additionalProperties: false
+      oneOf:
+      - required:
+        - period
+        not:
+          required:
+          - threshold
+      - required:
+        - threshold
+        not:
+          required:
+          - period
+    AIHubPortfolioAssetPosition:
+      description: Position information for one asset or market in a portfolio strategy.
+      type: object
+      properties:
+        asset:
+          type: string
+        market:
+          type: string
+        side:
+          type: string
+        amount:
+          type: string
+        amount_unit:
+          type: string
+        entry_price:
+          type: string
+        position_value:
+          type: string
+        position_value_unit:
+          type: string
+        target_weight:
+          type: string
+        leverage:
+          type: string
+    AIHubRebalanceCreateParams:
+      description: Creation parameters for a smart-position strategy.
+      type: object
+      properties:
+        begin_money_amount:
+          type: string
+        begin_money_currency:
+          type: string
+          enum:
+          - USDT
+        asset_info:
+          type: array
+          minItems: 2
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/AIHubRebalanceAsset'
+        period:
+          type: string
+          description: Product interval between 1m and 28d.
+        threshold:
+          type: string
+          description: Positive ratio below 1, at most four decimal places.
+        close_flag:
+          type: integer
+          enum:
+          - 0
+          - 1
+          default: 1
+          x-go-preserve-presence: true
+        is_use_base:
+          type: boolean
+        stop_profit:
+          type: string
+        stop_loss:
+          type: string
+      required:
+      - begin_money_amount
+      - begin_money_currency
+      - asset_info
+      oneOf:
+      - required:
+        - period
+        not:
+          required:
+          - threshold
+      - required:
+        - threshold
+        not:
+          required:
+          - period
+      additionalProperties: false
+    AIHubRebalanceStopOptions:
+      description: Options for the limit stop mode of a smart-position strategy.
+      type: object
+      properties:
+        price:
+          type: string
+          description: One product-supported price expression; not one expression
+            per member.
+        expiration:
+          type: integer
+          format: int64
+          minimum: 1
+          description: Seconds of validity. Expiry cancels and returns assets; never
+            switches to market.
+        slip:
+          type: string
+          description: Optional ratio 0.001–0.05, precision at most six.
+      required:
+      - price
+      - expiration
+      additionalProperties: false
+    AIHubStopProgress:
+      type: object
+      properties:
+        trading_finished:
+          type: boolean
+          x-go-preserve-presence: true
+        funds_returned:
+          type: boolean
+          x-go-preserve-presence: true
+        refund_amount:
+          type: string
+        refund_currency:
+          type: string
+        account_released:
+          type: boolean
+          x-go-preserve-presence: true
+      description: Read-only projection of durable facts. Absent values are unverified.
+        Final refund excludes ordinary decrease-principal transfers. Account release
+        is never inferred from stopped status or an empty account.
+    AIHubSpotMartingaleConfiguration:
+      type: object
+      description: Saved settings supported by AIHub, not a substitute for all advanced
+        native configuration. Absent upstream params are unverified.
+      properties:
+        invest_amount:
+          type: string
+        investment_currency:
+          type: string
+        price_deviation:
+          type: string
+        take_profit_ratio:
+          type: string
+        stop_loss_per_cycle:
+          type: string
+          description: Saved per-cycle ratio, returned unchanged. Zero or negative
+            legacy values do not constitute effective protection.
+        trigger_price:
+          type: string
+        max_orders:
+          type: integer
+          format: int32
+          description: Saved maximum additional entries excluding the first; not total
+            orders.
+    AIHubContractMartingaleConfiguration:
+      type: object
+      description: AIHub-supported persisted contract settings. This is not a complete
+        advanced native configuration.
+      properties:
+        invest_amount:
+          type: string
+        investment_currency:
+          type: string
+        price_deviation:
+          type: string
+        take_profit_ratio:
+          type: string
+        direction:
+          type: string
+        first_order_size:
+          type: string
+          description: Exact decimal contract quantity from the product snapshot;
+            empty remains unverified, never inferred from the total budget.
+        max_orders:
+          type: integer
+          format: int64
+          description: Maximum additional entries excluding the first.
+        leverage:
+          type: integer
+          format: int32
+        stop_loss_price_rule:
+          $ref: '#/components/schemas/AIHubMartingalePriceRule'
     DiscoverScene:
       description: Enumeration of scenarios supported by the policy recommendation
         interface.
@@ -8654,6 +9037,53 @@ components:
       enum:
       - buy
       - sell
+    AIHubFuturesComboAsset:
+      description: One contract member of a futures-combo strategy.
+      type: object
+      properties:
+        market:
+          type: string
+        side:
+          type: string
+          enum:
+          - buy
+          - sell
+        rate:
+          type: string
+          description: Ratio 0.01–1 in increments of 0.01; all member weights sum
+            to 1.
+      required:
+      - market
+      - side
+      - rate
+      additionalProperties: false
+    AIHubRebalanceAsset:
+      description: One asset and its target weight in a smart-position strategy.
+      type: object
+      properties:
+        asset:
+          type: string
+        rate:
+          type: string
+          description: Two decimal places, minimum 0.01; unique assets and sum exactly
+            1.
+      required:
+      - asset
+      - rate
+      additionalProperties: false
+    AIHubMartingalePriceRule:
+      type: object
+      description: Persisted price rule only, not proof that an order executed. Unknown
+        price basis or non-positive price is not effective protection.
+      properties:
+        price:
+          type: string
+        price_type:
+          type: string
+          description: Original enum name (last/index/mark/unknown), or its numeric
+            string for an unknown future enum.
+        is_gte:
+          type: boolean
     ListUserCouponsResponse:
       type: object
       properties:
@@ -53619,36 +54049,11 @@ paths:
   /bot/strategy/recommend:
     get:
       summary: Get AIHub strategy recommendations
-      description: 'The only formal interface for the discover domain.
-
-        Support scenarios:
-
-        - `top1`
-
-        - `bundle`
-
-        - `filter`
-
-        - `refresh`
-
-        Constraints:
-
-        - The active recommendation pool only contains `spot_grid`, `futures_grid`,
-        `spot_martingale`
-
-        - Can return but do not actively recommend `infinite_grid`, `margin_grid`
-
-        - `contract_martingale`, `smart-position`, `spot-future-arbitrage` must not
-        be returned
-
-        - When `scene=filter` is used, only filtering by `market`, `backtest_apr_gte`,
-        `max_drawdown_lte` is allowed
-
-        - `scene=refresh` inherits the refresh context through `refresh_recommendation_id`;
-        the official minimum format only requires `strategy_type|market`
-
-        - If the upstream directly transmits the previous recommendation `recommendation_id`,
-        the third paragraph `backtest_id` will currently be ignored.'
+      description: Six real official source types. Exact rebalance asset membership
+        is filtered before ranking. contract_martingale and futures_combo are manual-only.
+        Legacy APR/drawdown and ordinary two-segment refresh remain compatible. Exclusion
+        binds one prior logical candidate before ranking; no alternative returns an
+        empty list without relaxing constraints.
       operationId: getAIHubStrategyRecommend
       tags:
       - bot
@@ -53671,6 +54076,7 @@ paths:
           - infinite_grid
           - futures_grid
           - spot_martingale
+          - smart_position
       - name: direction
         in: query
         description: Market direction
@@ -53683,7 +54089,8 @@ paths:
           - neutral
       - name: invest_amount
         in: query
-        description: Investment amount, string transparent transmission
+        description: Context only. No budget eligibility filter; reported unsupported
+          when not consumed.
         required: false
         schema:
           type: string
@@ -53713,13 +54120,13 @@ paths:
           type: string
       - name: limit
         in: query
-        description: Return quantity; when `scene=filter` is used, the actual results
-          are up to 10
+        description: Actual maximum result count, 1–10; defaults to 10.
         required: false
         schema:
           type: integer
           format: int32
           minimum: 1
+          maximum: 10
       - name: max_drawdown_lte
         in: query
         description: Maximum drawdown limit
@@ -53756,6 +54163,15 @@ paths:
         required: false
         schema:
           type: string
+      - name: exclude_recommendation_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Refresh-only previous returned identity: type|market|backtest_id,
+          with an optional stable parameter discriminator for colliding source IDs.
+          Ambiguous old identities are rejected; metric-only changes do not produce
+          a new plan.'
       responses:
         '200':
           description: Unified business response
@@ -54065,6 +54481,8 @@ paths:
           - futures_grid
           - spot_martingale
           - contract_martingale
+          - smart_position
+          - futures_combo
       - name: market
         in: query
         description: Filter by trading pair
@@ -54151,6 +54569,8 @@ paths:
           - futures_grid
           - spot_martingale
           - contract_martingale
+          - smart_position
+          - futures_combo
       - name: X-Gate-Service-Id
         in: header
         description: Call source identifier; injected by APIv4 if necessary
@@ -54231,6 +54651,98 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AIHubPortfolioStopSuccessResponse'
+  /bot/smart-position/create:
+    post:
+      summary: Create rebalance bot
+      description: Typed AIHub adapter; authenticated owner comes only from trusted
+        gateway context.
+      operationId: postAIHubSmartPositionCreate
+      tags:
+      - bot
+      parameters:
+      - name: X-Gate-Service-Id
+        in: header
+        description: Call source identifier; injected by APIv4 if necessary
+        required: false
+        schema:
+          type: string
+      - name: X-Gate-AppLang
+        in: header
+        description: Language context, such as `zh-CN` / `en-US`
+        required: false
+        schema:
+          type: string
+      - name: X-Request-Id
+        in: header
+        description: Request link ID; caller can transmit transparently
+        required: false
+        schema:
+          type: string
+      - name: X-Trace-Id
+        in: header
+        description: trace header; can be generated uniformly by APIv4
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIHubRebalanceCreateRequest'
+      responses:
+        '200':
+          description: Unified business response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubCreateSuccessResponse'
+  /bot/futures-combo/create:
+    post:
+      summary: Create futures-combo bot
+      description: Typed AIHub adapter; authenticated owner comes only from trusted
+        gateway context.
+      operationId: postAIHubFuturesComboCreate
+      tags:
+      - bot
+      parameters:
+      - name: X-Gate-Service-Id
+        in: header
+        description: Call source identifier; injected by APIv4 if necessary
+        required: false
+        schema:
+          type: string
+      - name: X-Gate-AppLang
+        in: header
+        description: Language context, such as `zh-CN` / `en-US`
+        required: false
+        schema:
+          type: string
+      - name: X-Request-Id
+        in: header
+        description: Request link ID; caller can transmit transparently
+        required: false
+        schema:
+          type: string
+      - name: X-Trace-Id
+        in: header
+        description: trace header; can be generated uniformly by APIv4
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIHubFuturesComboCreateRequest'
+      responses:
+        '200':
+          description: Unified business response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubCreateSuccessResponse'
   /spot/pov_orders:
     description: Orders executed using a percentage-of-volume strategy
     post:

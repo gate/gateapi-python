@@ -34,16 +34,20 @@ class AIHubPortfolioStopRequest(object):
     """
     openapi_types = {
         'strategy_id': 'str',
-        'strategy_type': 'StrategyType'
+        'strategy_type': 'StrategyType',
+        'stop_mode': 'str',
+        'stop_options': 'AIHubRebalanceStopOptions'
     }
 
     attribute_map = {
         'strategy_id': 'strategy_id',
-        'strategy_type': 'strategy_type'
+        'strategy_type': 'strategy_type',
+        'stop_mode': 'stop_mode',
+        'stop_options': 'stop_options'
     }
 
-    def __init__(self, strategy_id=None, strategy_type=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, Configuration) -> None
+    def __init__(self, strategy_id=None, strategy_type=None, stop_mode=None, stop_options=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, StrategyType, str, AIHubRebalanceStopOptions, Configuration) -> None
         """AIHubPortfolioStopRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,10 +55,16 @@ class AIHubPortfolioStopRequest(object):
 
         self._strategy_id = None
         self._strategy_type = None
+        self._stop_mode = None
+        self._stop_options = None
         self.discriminator = None
 
         self.strategy_id = strategy_id
         self.strategy_type = strategy_type
+        if stop_mode is not None:
+            self.stop_mode = stop_mode
+        if stop_options is not None:
+            self.stop_options = stop_options
 
     @property
     def strategy_id(self):
@@ -101,6 +111,56 @@ class AIHubPortfolioStopRequest(object):
             raise ValueError("Invalid value for `strategy_type`, must not be `None`")  # noqa: E501
 
         self._strategy_type = strategy_type
+
+    @property
+    def stop_mode(self):
+        """Gets the stop_mode of this AIHubPortfolioStopRequest.  # noqa: E501
+
+        Required only for smart_position. Other types reject custom exit options.  # noqa: E501
+
+        :return: The stop_mode of this AIHubPortfolioStopRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._stop_mode
+
+    @stop_mode.setter
+    def stop_mode(self, stop_mode):
+        """Sets the stop_mode of this AIHubPortfolioStopRequest.
+
+        Required only for smart_position. Other types reject custom exit options.  # noqa: E501
+
+        :param stop_mode: The stop_mode of this AIHubPortfolioStopRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["market", "limit", "no_close"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and stop_mode not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `stop_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(stop_mode, allowed_values)
+            )
+
+        self._stop_mode = stop_mode
+
+    @property
+    def stop_options(self):
+        """Gets the stop_options of this AIHubPortfolioStopRequest.  # noqa: E501
+
+
+        :return: The stop_options of this AIHubPortfolioStopRequest.  # noqa: E501
+        :rtype: AIHubRebalanceStopOptions
+        """
+        return self._stop_options
+
+    @stop_options.setter
+    def stop_options(self, stop_options):
+        """Sets the stop_options of this AIHubPortfolioStopRequest.
+
+
+        :param stop_options: The stop_options of this AIHubPortfolioStopRequest.  # noqa: E501
+        :type: AIHubRebalanceStopOptions
+        """
+
+        self._stop_options = stop_options
 
     def to_dict(self):
         """Returns the model properties as a dict"""

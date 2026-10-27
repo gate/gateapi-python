@@ -40,7 +40,8 @@ class ContractMartingaleCreateParams(object):
         'direction': 'ContractMartingaleDirection',
         'leverage': 'str',
         'stop_loss_price': 'str',
-        'profit_sharing_ratio': 'str'
+        'profit_sharing_ratio': 'str',
+        'stop_loss_price_type': 'str'
     }
 
     attribute_map = {
@@ -51,11 +52,12 @@ class ContractMartingaleCreateParams(object):
         'direction': 'direction',
         'leverage': 'leverage',
         'stop_loss_price': 'stop_loss_price',
-        'profit_sharing_ratio': 'profit_sharing_ratio'
+        'profit_sharing_ratio': 'profit_sharing_ratio',
+        'stop_loss_price_type': 'stop_loss_price_type'
     }
 
-    def __init__(self, invest_amount=None, price_deviation=None, max_orders=None, take_profit_ratio=None, direction=None, leverage=None, stop_loss_price=None, profit_sharing_ratio=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, int, str, ContractMartingaleDirection, str, str, str, Configuration) -> None
+    def __init__(self, invest_amount=None, price_deviation=None, max_orders=None, take_profit_ratio=None, direction=None, leverage=None, stop_loss_price=None, profit_sharing_ratio=None, stop_loss_price_type=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, int, str, ContractMartingaleDirection, str, str, str, str, Configuration) -> None
         """ContractMartingaleCreateParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class ContractMartingaleCreateParams(object):
         self._leverage = None
         self._stop_loss_price = None
         self._profit_sharing_ratio = None
+        self._stop_loss_price_type = None
         self.discriminator = None
 
         self.invest_amount = invest_amount
@@ -81,12 +84,14 @@ class ContractMartingaleCreateParams(object):
             self.stop_loss_price = stop_loss_price
         if profit_sharing_ratio is not None:
             self.profit_sharing_ratio = profit_sharing_ratio
+        if stop_loss_price_type is not None:
+            self.stop_loss_price_type = stop_loss_price_type
 
     @property
     def invest_amount(self):
         """Gets the invest_amount of this ContractMartingaleCreateParams.  # noqa: E501
 
-        Margin allocated; the server converts it to initial contract size using live contract price, contract multiplier, and minimum lot size.  # noqa: E501
+        Total strategy budget, not first-order margin. The server uses the complete existing ladder formula, owner fee and live contract facts, quantizes quantity down and rechecks before allocation. Minimum infeasible budget is rejected.  # noqa: E501
 
         :return: The invest_amount of this ContractMartingaleCreateParams.  # noqa: E501
         :rtype: str
@@ -97,7 +102,7 @@ class ContractMartingaleCreateParams(object):
     def invest_amount(self, invest_amount):
         """Sets the invest_amount of this ContractMartingaleCreateParams.
 
-        Margin allocated; the server converts it to initial contract size using live contract price, contract multiplier, and minimum lot size.  # noqa: E501
+        Total strategy budget, not first-order margin. The server uses the complete existing ladder formula, owner fee and live contract facts, quantizes quantity down and rechecks before allocation. Minimum infeasible budget is rejected.  # noqa: E501
 
         :param invest_amount: The invest_amount of this ContractMartingaleCreateParams.  # noqa: E501
         :type: str
@@ -134,6 +139,7 @@ class ContractMartingaleCreateParams(object):
     def max_orders(self):
         """Gets the max_orders of this ContractMartingaleCreateParams.  # noqa: E501
 
+        Maximum additional entries, excluding the first; preserve this legacy meaning.  # noqa: E501
 
         :return: The max_orders of this ContractMartingaleCreateParams.  # noqa: E501
         :rtype: int
@@ -144,6 +150,7 @@ class ContractMartingaleCreateParams(object):
     def max_orders(self, max_orders):
         """Sets the max_orders of this ContractMartingaleCreateParams.
 
+        Maximum additional entries, excluding the first; preserve this legacy meaning.  # noqa: E501
 
         :param max_orders: The max_orders of this ContractMartingaleCreateParams.  # noqa: E501
         :type: int
@@ -229,7 +236,7 @@ class ContractMartingaleCreateParams(object):
     def stop_loss_price(self):
         """Gets the stop_loss_price of this ContractMartingaleCreateParams.  # noqa: E501
 
-        Legacy field name. The AIHub `contract_martingale` creation path does not map this field today; follow contract martingale rules from the underlying API. MCP tooling must match bot-service behavior.  # noqa: E501
+        Positive fixed stop price; requires explicit stop_loss_price_type. Missing both leaves the old no-fixed-stop request unchanged.  # noqa: E501
 
         :return: The stop_loss_price of this ContractMartingaleCreateParams.  # noqa: E501
         :rtype: str
@@ -240,7 +247,7 @@ class ContractMartingaleCreateParams(object):
     def stop_loss_price(self, stop_loss_price):
         """Sets the stop_loss_price of this ContractMartingaleCreateParams.
 
-        Legacy field name. The AIHub `contract_martingale` creation path does not map this field today; follow contract martingale rules from the underlying API. MCP tooling must match bot-service behavior.  # noqa: E501
+        Positive fixed stop price; requires explicit stop_loss_price_type. Missing both leaves the old no-fixed-stop request unchanged.  # noqa: E501
 
         :param stop_loss_price: The stop_loss_price of this ContractMartingaleCreateParams.  # noqa: E501
         :type: str
@@ -268,6 +275,33 @@ class ContractMartingaleCreateParams(object):
         """
 
         self._profit_sharing_ratio = profit_sharing_ratio
+
+    @property
+    def stop_loss_price_type(self):
+        """Gets the stop_loss_price_type of this ContractMartingaleCreateParams.  # noqa: E501
+
+
+        :return: The stop_loss_price_type of this ContractMartingaleCreateParams.  # noqa: E501
+        :rtype: str
+        """
+        return self._stop_loss_price_type
+
+    @stop_loss_price_type.setter
+    def stop_loss_price_type(self, stop_loss_price_type):
+        """Sets the stop_loss_price_type of this ContractMartingaleCreateParams.
+
+
+        :param stop_loss_price_type: The stop_loss_price_type of this ContractMartingaleCreateParams.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["last", "index", "mark"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and stop_loss_price_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `stop_loss_price_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(stop_loss_price_type, allowed_values)
+            )
+
+        self._stop_loss_price_type = stop_loss_price_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

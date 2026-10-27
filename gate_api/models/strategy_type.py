@@ -34,8 +34,10 @@ class StrategyType(object):
     FUTURES_GRID = "futures_grid"
     SPOT_MARTINGALE = "spot_martingale"
     CONTRACT_MARTINGALE = "contract_martingale"
+    SMART_POSITION = "smart_position"
+    FUTURES_COMBO = "futures_combo"
 
-    allowable_values = [SPOT_GRID, MARGIN_GRID, INFINITE_GRID, FUTURES_GRID, SPOT_MARTINGALE, CONTRACT_MARTINGALE]  # noqa: E501
+    allowable_values = [SPOT_GRID, MARGIN_GRID, INFINITE_GRID, FUTURES_GRID, SPOT_MARTINGALE, CONTRACT_MARTINGALE, SMART_POSITION, FUTURES_COMBO]  # noqa: E501
 
     """
     Attributes:

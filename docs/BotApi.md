@@ -14,14 +14,16 @@ Method | HTTP request | Description
 [**get_ai_hub_portfolio_running**](BotApi.md#get_ai_hub_portfolio_running) | **GET** /bot/portfolio/running | Query the list of running policies
 [**get_ai_hub_portfolio_detail**](BotApi.md#get_ai_hub_portfolio_detail) | **GET** /bot/portfolio/detail | Query order policy details
 [**post_ai_hub_portfolio_stop**](BotApi.md#post_ai_hub_portfolio_stop) | **POST** /bot/portfolio/stop | Terminate a single running policy
+[**post_ai_hub_smart_position_create**](BotApi.md#post_ai_hub_smart_position_create) | **POST** /bot/smart-position/create | Create rebalance bot
+[**post_ai_hub_futures_combo_create**](BotApi.md#post_ai_hub_futures_combo_create) | **POST** /bot/futures-combo/create | Create futures-combo bot
 
 
 # **get_ai_hub_strategy_recommend**
-> AIHubDiscoverSuccessResponse get_ai_hub_strategy_recommend(market=market, strategy_type=strategy_type, direction=direction, invest_amount=invest_amount, scene=scene, refresh_recommendation_id=refresh_recommendation_id, limit=limit, max_drawdown_lte=max_drawdown_lte, backtest_apr_gte=backtest_apr_gte, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
+> AIHubDiscoverSuccessResponse get_ai_hub_strategy_recommend(market=market, strategy_type=strategy_type, direction=direction, invest_amount=invest_amount, scene=scene, refresh_recommendation_id=refresh_recommendation_id, limit=limit, max_drawdown_lte=max_drawdown_lte, backtest_apr_gte=backtest_apr_gte, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id, exclude_recommendation_id=exclude_recommendation_id)
 
 Get AIHub strategy recommendations
 
-The only formal interface for the discover domain. Support scenarios: - `top1` - `bundle` - `filter` - `refresh` Constraints: - The active recommendation pool only contains `spot_grid`, `futures_grid`, `spot_martingale` - Can return but do not actively recommend `infinite_grid`, `margin_grid` - `contract_martingale`, `smart-position`, `spot-future-arbitrage` must not be returned - When `scene=filter` is used, only filtering by `market`, `backtest_apr_gte`, `max_drawdown_lte` is allowed - `scene=refresh` inherits the refresh context through `refresh_recommendation_id`; the official minimum format only requires `strategy_type|market` - If the upstream directly transmits the previous recommendation `recommendation_id`, the third paragraph `backtest_id` will currently be ignored.
+Six real official source types. Exact rebalance asset membership is filtered before ranking. contract_martingale and futures_combo are manual-only. Legacy APR/drawdown and ordinary two-segment refresh remain compatible. Exclusion binds one prior logical candidate before ranking; no alternative returns an empty list without relaxing constraints.
 
 ### Example
 
@@ -50,20 +52,21 @@ api_instance = gate_api.BotApi(api_client)
 market = 'market_example' # str | Trading pair, such as `BTC_USDT` (optional)
 strategy_type = 'strategy_type_example' # str | Recommended target policy type; `contract_martingale` not allowed (optional)
 direction = 'direction_example' # str | Market direction (optional)
-invest_amount = 'invest_amount_example' # str | Investment amount, string transparent transmission (optional)
+invest_amount = 'invest_amount_example' # str | Context only. No budget eligibility filter; reported unsupported when not consumed. (optional)
 scene = 'scene_example' # str | Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic. (optional)
 refresh_recommendation_id = 'refresh_recommendation_id_example' # str | It is recommended to refresh the context. Used when `scene=refresh` is used; when `scene` is empty but the field exists, bot-service will also automatically determine as `refresh`. The official minimum format is `strategy_type|market`; if the `recommendation_id` of the previous recommendation is directly passed through, the third paragraph `backtest_id` will be ignored. (optional)
-limit = 56 # int | Return quantity; when `scene=filter` is used, the actual results are up to 10 (optional)
+limit = 56 # int | Actual maximum result count, 1–10; defaults to 10. (optional)
 max_drawdown_lte = 'max_drawdown_lte_example' # str | Maximum drawdown limit (optional)
 backtest_apr_gte = 'backtest_apr_gte_example' # str | Backtest annualized lower limit (optional)
 x_gate_service_id = 'x_gate_service_id_example' # str | Call source identifier; injected by APIv4 if necessary (optional)
 x_gate_app_lang = 'x_gate_app_lang_example' # str | Language context, such as `zh-CN` / `en-US` (optional)
 x_request_id = 'x_request_id_example' # str | Request link ID; caller can transmit transparently (optional)
 x_trace_id = 'x_trace_id_example' # str | trace header; can be generated uniformly by APIv4 (optional)
+exclude_recommendation_id = 'exclude_recommendation_id_example' # str | Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan. (optional)
 
 try:
     # Get AIHub strategy recommendations
-    api_response = api_instance.get_ai_hub_strategy_recommend(market=market, strategy_type=strategy_type, direction=direction, invest_amount=invest_amount, scene=scene, refresh_recommendation_id=refresh_recommendation_id, limit=limit, max_drawdown_lte=max_drawdown_lte, backtest_apr_gte=backtest_apr_gte, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
+    api_response = api_instance.get_ai_hub_strategy_recommend(market=market, strategy_type=strategy_type, direction=direction, invest_amount=invest_amount, scene=scene, refresh_recommendation_id=refresh_recommendation_id, limit=limit, max_drawdown_lte=max_drawdown_lte, backtest_apr_gte=backtest_apr_gte, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id, exclude_recommendation_id=exclude_recommendation_id)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -78,16 +81,17 @@ Name | Type | Description  | Notes
  **market** | **str**| Trading pair, such as &#x60;BTC_USDT&#x60; | [optional] 
  **strategy_type** | **str**| Recommended target policy type; &#x60;contract_martingale&#x60; not allowed | [optional] 
  **direction** | **str**| Market direction | [optional] 
- **invest_amount** | **str**| Investment amount, string transparent transmission | [optional] 
+ **invest_amount** | **str**| Context only. No budget eligibility filter; reported unsupported when not consumed. | [optional] 
  **scene** | **str**| Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic. | [optional] 
  **refresh_recommendation_id** | **str**| It is recommended to refresh the context. Used when &#x60;scene&#x3D;refresh&#x60; is used; when &#x60;scene&#x60; is empty but the field exists, bot-service will also automatically determine as &#x60;refresh&#x60;. The official minimum format is &#x60;strategy_type|market&#x60;; if the &#x60;recommendation_id&#x60; of the previous recommendation is directly passed through, the third paragraph &#x60;backtest_id&#x60; will be ignored. | [optional] 
- **limit** | **int**| Return quantity; when &#x60;scene&#x3D;filter&#x60; is used, the actual results are up to 10 | [optional] 
+ **limit** | **int**| Actual maximum result count, 1–10; defaults to 10. | [optional] 
  **max_drawdown_lte** | **str**| Maximum drawdown limit | [optional] 
  **backtest_apr_gte** | **str**| Backtest annualized lower limit | [optional] 
  **x_gate_service_id** | **str**| Call source identifier; injected by APIv4 if necessary | [optional] 
  **x_gate_app_lang** | **str**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional] 
  **x_request_id** | **str**| Request link ID; caller can transmit transparently | [optional] 
  **x_trace_id** | **str**| trace header; can be generated uniformly by APIv4 | [optional] 
+ **exclude_recommendation_id** | **str**| Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan. | [optional] 
 
 ### Return type
 
@@ -793,6 +797,160 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AIHubPortfolioStopSuccessResponse**](AIHubPortfolioStopSuccessResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Unified business response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_ai_hub_smart_position_create**
+> AIHubCreateSuccessResponse post_ai_hub_smart_position_create(ai_hub_rebalance_create_request, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
+
+Create rebalance bot
+
+Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.BotApi(api_client)
+ai_hub_rebalance_create_request = gate_api.AIHubRebalanceCreateRequest() # AIHubRebalanceCreateRequest | 
+x_gate_service_id = 'x_gate_service_id_example' # str | Call source identifier; injected by APIv4 if necessary (optional)
+x_gate_app_lang = 'x_gate_app_lang_example' # str | Language context, such as `zh-CN` / `en-US` (optional)
+x_request_id = 'x_request_id_example' # str | Request link ID; caller can transmit transparently (optional)
+x_trace_id = 'x_trace_id_example' # str | trace header; can be generated uniformly by APIv4 (optional)
+
+try:
+    # Create rebalance bot
+    api_response = api_instance.post_ai_hub_smart_position_create(ai_hub_rebalance_create_request, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling BotApi->post_ai_hub_smart_position_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ai_hub_rebalance_create_request** | [**AIHubRebalanceCreateRequest**](AIHubRebalanceCreateRequest.md)|  | 
+ **x_gate_service_id** | **str**| Call source identifier; injected by APIv4 if necessary | [optional] 
+ **x_gate_app_lang** | **str**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional] 
+ **x_request_id** | **str**| Request link ID; caller can transmit transparently | [optional] 
+ **x_trace_id** | **str**| trace header; can be generated uniformly by APIv4 | [optional] 
+
+### Return type
+
+[**AIHubCreateSuccessResponse**](AIHubCreateSuccessResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Unified business response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_ai_hub_futures_combo_create**
+> AIHubCreateSuccessResponse post_ai_hub_futures_combo_create(ai_hub_futures_combo_create_request, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
+
+Create futures-combo bot
+
+Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.BotApi(api_client)
+ai_hub_futures_combo_create_request = gate_api.AIHubFuturesComboCreateRequest() # AIHubFuturesComboCreateRequest | 
+x_gate_service_id = 'x_gate_service_id_example' # str | Call source identifier; injected by APIv4 if necessary (optional)
+x_gate_app_lang = 'x_gate_app_lang_example' # str | Language context, such as `zh-CN` / `en-US` (optional)
+x_request_id = 'x_request_id_example' # str | Request link ID; caller can transmit transparently (optional)
+x_trace_id = 'x_trace_id_example' # str | trace header; can be generated uniformly by APIv4 (optional)
+
+try:
+    # Create futures-combo bot
+    api_response = api_instance.post_ai_hub_futures_combo_create(ai_hub_futures_combo_create_request, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling BotApi->post_ai_hub_futures_combo_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ai_hub_futures_combo_create_request** | [**AIHubFuturesComboCreateRequest**](AIHubFuturesComboCreateRequest.md)|  | 
+ **x_gate_service_id** | **str**| Call source identifier; injected by APIv4 if necessary | [optional] 
+ **x_gate_app_lang** | **str**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional] 
+ **x_request_id** | **str**| Request link ID; caller can transmit transparently | [optional] 
+ **x_trace_id** | **str**| trace header; can be generated uniformly by APIv4 | [optional] 
+
+### Return type
+
+[**AIHubCreateSuccessResponse**](AIHubCreateSuccessResponse.md)
 
 ### Authorization
 

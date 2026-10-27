@@ -40,7 +40,13 @@ class AIHubPortfolioDetailData(object):
         'base_info': 'AIHubPortfolioBaseInfo',
         'metrics': 'AIHubPortfolioMetrics',
         'position': 'AIHubPortfolioPosition',
-        'stop_supported': 'bool'
+        'stop_supported': 'bool',
+        'assets': 'list[str]',
+        'markets': 'list[str]',
+        'positions': 'list[AIHubPortfolioAssetPosition]',
+        'positions_status': 'str',
+        'configuration': 'object',
+        'stop_progress': 'AIHubStopProgress'
     }
 
     attribute_map = {
@@ -51,11 +57,17 @@ class AIHubPortfolioDetailData(object):
         'base_info': 'base_info',
         'metrics': 'metrics',
         'position': 'position',
-        'stop_supported': 'stop_supported'
+        'stop_supported': 'stop_supported',
+        'assets': 'assets',
+        'markets': 'markets',
+        'positions': 'positions',
+        'positions_status': 'positions_status',
+        'configuration': 'configuration',
+        'stop_progress': 'stop_progress'
     }
 
-    def __init__(self, strategy_id=None, strategy_type=None, market=None, status=None, base_info=None, metrics=None, position=None, stop_supported=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, str, str, AIHubPortfolioBaseInfo, AIHubPortfolioMetrics, AIHubPortfolioPosition, bool, Configuration) -> None
+    def __init__(self, strategy_id=None, strategy_type=None, market=None, status=None, base_info=None, metrics=None, position=None, stop_supported=None, assets=None, markets=None, positions=None, positions_status=None, configuration=None, stop_progress=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, StrategyType, str, str, AIHubPortfolioBaseInfo, AIHubPortfolioMetrics, AIHubPortfolioPosition, bool, list[str], list[str], list[AIHubPortfolioAssetPosition], str, object, AIHubStopProgress, Configuration) -> None
         """AIHubPortfolioDetailData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +81,12 @@ class AIHubPortfolioDetailData(object):
         self._metrics = None
         self._position = None
         self._stop_supported = None
+        self._assets = None
+        self._markets = None
+        self._positions = None
+        self._positions_status = None
+        self._configuration = None
+        self._stop_progress = None
         self.discriminator = None
 
         self.strategy_id = strategy_id
@@ -79,6 +97,18 @@ class AIHubPortfolioDetailData(object):
         self.metrics = metrics
         self.position = position
         self.stop_supported = stop_supported
+        if assets is not None:
+            self.assets = assets
+        if markets is not None:
+            self.markets = markets
+        if positions is not None:
+            self.positions = positions
+        if positions_status is not None:
+            self.positions_status = positions_status
+        if configuration is not None:
+            self.configuration = configuration
+        if stop_progress is not None:
+            self.stop_progress = stop_progress
 
     @property
     def strategy_id(self):
@@ -130,6 +160,7 @@ class AIHubPortfolioDetailData(object):
     def market(self):
         """Gets the market of this AIHubPortfolioDetailData.  # noqa: E501
 
+        Single market, or empty string for a portfolio; use assets/markets for the latter.  # noqa: E501
 
         :return: The market of this AIHubPortfolioDetailData.  # noqa: E501
         :rtype: str
@@ -140,6 +171,7 @@ class AIHubPortfolioDetailData(object):
     def market(self, market):
         """Sets the market of this AIHubPortfolioDetailData.
 
+        Single market, or empty string for a portfolio; use assets/markets for the latter.  # noqa: E501
 
         :param market: The market of this AIHubPortfolioDetailData.  # noqa: E501
         :type: str
@@ -261,6 +293,140 @@ class AIHubPortfolioDetailData(object):
             raise ValueError("Invalid value for `stop_supported`, must not be `None`")  # noqa: E501
 
         self._stop_supported = stop_supported
+
+    @property
+    def assets(self):
+        """Gets the assets of this AIHubPortfolioDetailData.  # noqa: E501
+
+
+        :return: The assets of this AIHubPortfolioDetailData.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._assets
+
+    @assets.setter
+    def assets(self, assets):
+        """Sets the assets of this AIHubPortfolioDetailData.
+
+
+        :param assets: The assets of this AIHubPortfolioDetailData.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._assets = assets
+
+    @property
+    def markets(self):
+        """Gets the markets of this AIHubPortfolioDetailData.  # noqa: E501
+
+
+        :return: The markets of this AIHubPortfolioDetailData.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._markets
+
+    @markets.setter
+    def markets(self, markets):
+        """Sets the markets of this AIHubPortfolioDetailData.
+
+
+        :param markets: The markets of this AIHubPortfolioDetailData.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._markets = markets
+
+    @property
+    def positions(self):
+        """Gets the positions of this AIHubPortfolioDetailData.  # noqa: E501
+
+
+        :return: The positions of this AIHubPortfolioDetailData.  # noqa: E501
+        :rtype: list[AIHubPortfolioAssetPosition]
+        """
+        return self._positions
+
+    @positions.setter
+    def positions(self, positions):
+        """Sets the positions of this AIHubPortfolioDetailData.
+
+
+        :param positions: The positions of this AIHubPortfolioDetailData.  # noqa: E501
+        :type: list[AIHubPortfolioAssetPosition]
+        """
+
+        self._positions = positions
+
+    @property
+    def positions_status(self):
+        """Gets the positions_status of this AIHubPortfolioDetailData.  # noqa: E501
+
+
+        :return: The positions_status of this AIHubPortfolioDetailData.  # noqa: E501
+        :rtype: str
+        """
+        return self._positions_status
+
+    @positions_status.setter
+    def positions_status(self, positions_status):
+        """Sets the positions_status of this AIHubPortfolioDetailData.
+
+
+        :param positions_status: The positions_status of this AIHubPortfolioDetailData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["verified", "partial", "unverified", "historical"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and positions_status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `positions_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(positions_status, allowed_values)
+            )
+
+        self._positions_status = positions_status
+
+    @property
+    def configuration(self):
+        """Gets the configuration of this AIHubPortfolioDetailData.  # noqa: E501
+
+        Product-specific saved configuration. spot_martingale exposes AIHubSpotMartingaleConfiguration; absence is unverified. Runtime recovery internals are excluded.  # noqa: E501
+
+        :return: The configuration of this AIHubPortfolioDetailData.  # noqa: E501
+        :rtype: object
+        """
+        return self._configuration
+
+    @configuration.setter
+    def configuration(self, configuration):
+        """Sets the configuration of this AIHubPortfolioDetailData.
+
+        Product-specific saved configuration. spot_martingale exposes AIHubSpotMartingaleConfiguration; absence is unverified. Runtime recovery internals are excluded.  # noqa: E501
+
+        :param configuration: The configuration of this AIHubPortfolioDetailData.  # noqa: E501
+        :type: object
+        """
+
+        self._configuration = configuration
+
+    @property
+    def stop_progress(self):
+        """Gets the stop_progress of this AIHubPortfolioDetailData.  # noqa: E501
+
+
+        :return: The stop_progress of this AIHubPortfolioDetailData.  # noqa: E501
+        :rtype: AIHubStopProgress
+        """
+        return self._stop_progress
+
+    @stop_progress.setter
+    def stop_progress(self, stop_progress):
+        """Sets the stop_progress of this AIHubPortfolioDetailData.
+
+
+        :param stop_progress: The stop_progress of this AIHubPortfolioDetailData.  # noqa: E501
+        :type: AIHubStopProgress
+        """
+
+        self._stop_progress = stop_progress
 
     def to_dict(self):
         """Returns the model properties as a dict"""

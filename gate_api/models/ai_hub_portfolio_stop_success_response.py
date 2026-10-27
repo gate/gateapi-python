@@ -36,18 +36,20 @@ class AIHubPortfolioStopSuccessResponse(object):
         'code': 'int',
         'message': 'str',
         'data': 'AIHubPortfolioStopData',
-        'trace_id': 'str'
+        'trace_id': 'str',
+        'label': 'str'
     }
 
     attribute_map = {
         'code': 'code',
         'message': 'message',
         'data': 'data',
-        'trace_id': 'trace_id'
+        'trace_id': 'trace_id',
+        'label': 'label'
     }
 
-    def __init__(self, code=None, message=None, data=None, trace_id=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, AIHubPortfolioStopData, str, Configuration) -> None
+    def __init__(self, code=None, message=None, data=None, trace_id=None, label=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, str, AIHubPortfolioStopData, str, str, Configuration) -> None
         """AIHubPortfolioStopSuccessResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,12 +59,17 @@ class AIHubPortfolioStopSuccessResponse(object):
         self._message = None
         self._data = None
         self._trace_id = None
+        self._label = None
         self.discriminator = None
 
         self.code = code
         self.message = message
-        self.data = data
-        self.trace_id = trace_id
+        if data is not None:
+            self.data = data
+        if trace_id is not None:
+            self.trace_id = trace_id
+        if label is not None:
+            self.label = label
 
     @property
     def code(self):
@@ -128,8 +135,6 @@ class AIHubPortfolioStopSuccessResponse(object):
         :param data: The data of this AIHubPortfolioStopSuccessResponse.  # noqa: E501
         :type: AIHubPortfolioStopData
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -151,10 +156,31 @@ class AIHubPortfolioStopSuccessResponse(object):
         :param trace_id: The trace_id of this AIHubPortfolioStopSuccessResponse.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and trace_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `trace_id`, must not be `None`")  # noqa: E501
 
         self._trace_id = trace_id
+
+    @property
+    def label(self):
+        """Gets the label of this AIHubPortfolioStopSuccessResponse.  # noqa: E501
+
+        Stable business error label when present. HTTP 200 can contain a non-200 business code; data may retain a real identity on failure.  # noqa: E501
+
+        :return: The label of this AIHubPortfolioStopSuccessResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this AIHubPortfolioStopSuccessResponse.
+
+        Stable business error label when present. HTTP 200 can contain a non-200 business code; data may retain a real identity on failure.  # noqa: E501
+
+        :param label: The label of this AIHubPortfolioStopSuccessResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._label = label
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,7 +37,9 @@ class AIHubCreateData(object):
         'strategy_type': 'StrategyType',
         'market': 'str',
         'status': 'str',
-        'jump_url': 'str'
+        'jump_url': 'str',
+        'operation_status': 'str',
+        'recovery_required': 'bool'
     }
 
     attribute_map = {
@@ -45,11 +47,13 @@ class AIHubCreateData(object):
         'strategy_type': 'strategy_type',
         'market': 'market',
         'status': 'status',
-        'jump_url': 'jump_url'
+        'jump_url': 'jump_url',
+        'operation_status': 'operation_status',
+        'recovery_required': 'recovery_required'
     }
 
-    def __init__(self, strategy_id=None, strategy_type=None, market=None, status=None, jump_url=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, str, str, str, Configuration) -> None
+    def __init__(self, strategy_id=None, strategy_type=None, market=None, status=None, jump_url=None, operation_status=None, recovery_required=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, StrategyType, str, str, str, str, bool, Configuration) -> None
         """AIHubCreateData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,14 +64,24 @@ class AIHubCreateData(object):
         self._market = None
         self._status = None
         self._jump_url = None
+        self._operation_status = None
+        self._recovery_required = None
         self.discriminator = None
 
-        self.strategy_id = strategy_id
-        self.strategy_type = strategy_type
-        self.market = market
-        self.status = status
+        if strategy_id is not None:
+            self.strategy_id = strategy_id
+        if strategy_type is not None:
+            self.strategy_type = strategy_type
+        if market is not None:
+            self.market = market
+        if status is not None:
+            self.status = status
         if jump_url is not None:
             self.jump_url = jump_url
+        if operation_status is not None:
+            self.operation_status = operation_status
+        if recovery_required is not None:
+            self.recovery_required = recovery_required
 
     @property
     def strategy_id(self):
@@ -87,8 +101,6 @@ class AIHubCreateData(object):
         :param strategy_id: The strategy_id of this AIHubCreateData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and strategy_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `strategy_id`, must not be `None`")  # noqa: E501
 
         self._strategy_id = strategy_id
 
@@ -110,8 +122,6 @@ class AIHubCreateData(object):
         :param strategy_type: The strategy_type of this AIHubCreateData.  # noqa: E501
         :type: StrategyType
         """
-        if self.local_vars_configuration.client_side_validation and strategy_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `strategy_type`, must not be `None`")  # noqa: E501
 
         self._strategy_type = strategy_type
 
@@ -133,8 +143,6 @@ class AIHubCreateData(object):
         :param market: The market of this AIHubCreateData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and market is None:  # noqa: E501
-            raise ValueError("Invalid value for `market`, must not be `None`")  # noqa: E501
 
         self._market = market
 
@@ -142,7 +150,7 @@ class AIHubCreateData(object):
     def status(self):
         """Gets the status of this AIHubCreateData.  # noqa: E501
 
-        The initial state after successful creation, usually `running`  # noqa: E501
+        Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled.  # noqa: E501
 
         :return: The status of this AIHubCreateData.  # noqa: E501
         :rtype: str
@@ -153,13 +161,11 @@ class AIHubCreateData(object):
     def status(self, status):
         """Sets the status of this AIHubCreateData.
 
-        The initial state after successful creation, usually `running`  # noqa: E501
+        Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled.  # noqa: E501
 
         :param status: The status of this AIHubCreateData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -183,6 +189,50 @@ class AIHubCreateData(object):
         """
 
         self._jump_url = jump_url
+
+    @property
+    def operation_status(self):
+        """Gets the operation_status of this AIHubCreateData.  # noqa: E501
+
+        pending when the write result requires verification; rejected for a proven pre-effect refusal.  # noqa: E501
+
+        :return: The operation_status of this AIHubCreateData.  # noqa: E501
+        :rtype: str
+        """
+        return self._operation_status
+
+    @operation_status.setter
+    def operation_status(self, operation_status):
+        """Sets the operation_status of this AIHubCreateData.
+
+        pending when the write result requires verification; rejected for a proven pre-effect refusal.  # noqa: E501
+
+        :param operation_status: The operation_status of this AIHubCreateData.  # noqa: E501
+        :type: str
+        """
+
+        self._operation_status = operation_status
+
+    @property
+    def recovery_required(self):
+        """Gets the recovery_required of this AIHubCreateData.  # noqa: E501
+
+
+        :return: The recovery_required of this AIHubCreateData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._recovery_required
+
+    @recovery_required.setter
+    def recovery_required(self, recovery_required):
+        """Sets the recovery_required of this AIHubCreateData.
+
+
+        :param recovery_required: The recovery_required of this AIHubCreateData.  # noqa: E501
+        :type: bool
+        """
+
+        self._recovery_required = recovery_required
 
     def to_dict(self):
         """Returns the model properties as a dict"""

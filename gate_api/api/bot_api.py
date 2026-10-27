@@ -39,7 +39,7 @@ class BotApi(object):
     def get_ai_hub_strategy_recommend(self, **kwargs):  # noqa: E501
         """Get AIHub strategy recommendations  # noqa: E501
 
-        The only formal interface for the discover domain. Support scenarios: - `top1` - `bundle` - `filter` - `refresh` Constraints: - The active recommendation pool only contains `spot_grid`, `futures_grid`, `spot_martingale` - Can return but do not actively recommend `infinite_grid`, `margin_grid` - `contract_martingale`, `smart-position`, `spot-future-arbitrage` must not be returned - When `scene=filter` is used, only filtering by `market`, `backtest_apr_gte`, `max_drawdown_lte` is allowed - `scene=refresh` inherits the refresh context through `refresh_recommendation_id`; the official minimum format only requires `strategy_type|market` - If the upstream directly transmits the previous recommendation `recommendation_id`, the third paragraph `backtest_id` will currently be ignored.  # noqa: E501
+        Six real official source types. Exact rebalance asset membership is filtered before ranking. contract_martingale and futures_combo are manual-only. Legacy APR/drawdown and ordinary two-segment refresh remain compatible. Exclusion binds one prior logical candidate before ranking; no alternative returns an empty list without relaxing constraints.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_strategy_recommend(async_req=True)
@@ -49,16 +49,17 @@ class BotApi(object):
         :param str market: Trading pair, such as `BTC_USDT`
         :param str strategy_type: Recommended target policy type; `contract_martingale` not allowed
         :param str direction: Market direction
-        :param str invest_amount: Investment amount, string transparent transmission
+        :param str invest_amount: Context only. No budget eligibility filter; reported unsupported when not consumed.
         :param str scene: Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic.
         :param str refresh_recommendation_id: It is recommended to refresh the context. Used when `scene=refresh` is used; when `scene` is empty but the field exists, bot-service will also automatically determine as `refresh`. The official minimum format is `strategy_type|market`; if the `recommendation_id` of the previous recommendation is directly passed through, the third paragraph `backtest_id` will be ignored.
-        :param int limit: Return quantity; when `scene=filter` is used, the actual results are up to 10
+        :param int limit: Actual maximum result count, 1–10; defaults to 10.
         :param str max_drawdown_lte: Maximum drawdown limit
         :param str backtest_apr_gte: Backtest annualized lower limit
         :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
         :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
         :param str x_request_id: Request link ID; caller can transmit transparently
         :param str x_trace_id: trace header; can be generated uniformly by APIv4
+        :param str exclude_recommendation_id: Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -76,7 +77,7 @@ class BotApi(object):
     def get_ai_hub_strategy_recommend_with_http_info(self, **kwargs):  # noqa: E501
         """Get AIHub strategy recommendations  # noqa: E501
 
-        The only formal interface for the discover domain. Support scenarios: - `top1` - `bundle` - `filter` - `refresh` Constraints: - The active recommendation pool only contains `spot_grid`, `futures_grid`, `spot_martingale` - Can return but do not actively recommend `infinite_grid`, `margin_grid` - `contract_martingale`, `smart-position`, `spot-future-arbitrage` must not be returned - When `scene=filter` is used, only filtering by `market`, `backtest_apr_gte`, `max_drawdown_lte` is allowed - `scene=refresh` inherits the refresh context through `refresh_recommendation_id`; the official minimum format only requires `strategy_type|market` - If the upstream directly transmits the previous recommendation `recommendation_id`, the third paragraph `backtest_id` will currently be ignored.  # noqa: E501
+        Six real official source types. Exact rebalance asset membership is filtered before ranking. contract_martingale and futures_combo are manual-only. Legacy APR/drawdown and ordinary two-segment refresh remain compatible. Exclusion binds one prior logical candidate before ranking; no alternative returns an empty list without relaxing constraints.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_ai_hub_strategy_recommend_with_http_info(async_req=True)
@@ -86,16 +87,17 @@ class BotApi(object):
         :param str market: Trading pair, such as `BTC_USDT`
         :param str strategy_type: Recommended target policy type; `contract_martingale` not allowed
         :param str direction: Market direction
-        :param str invest_amount: Investment amount, string transparent transmission
+        :param str invest_amount: Context only. No budget eligibility filter; reported unsupported when not consumed.
         :param str scene: Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic.
         :param str refresh_recommendation_id: It is recommended to refresh the context. Used when `scene=refresh` is used; when `scene` is empty but the field exists, bot-service will also automatically determine as `refresh`. The official minimum format is `strategy_type|market`; if the `recommendation_id` of the previous recommendation is directly passed through, the third paragraph `backtest_id` will be ignored.
-        :param int limit: Return quantity; when `scene=filter` is used, the actual results are up to 10
+        :param int limit: Actual maximum result count, 1–10; defaults to 10.
         :param str max_drawdown_lte: Maximum drawdown limit
         :param str backtest_apr_gte: Backtest annualized lower limit
         :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
         :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
         :param str x_request_id: Request link ID; caller can transmit transparently
         :param str x_trace_id: trace header; can be generated uniformly by APIv4
+        :param str exclude_recommendation_id: Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -125,7 +127,8 @@ class BotApi(object):
             'x_gate_service_id',
             'x_gate_app_lang',
             'x_request_id',
-            'x_trace_id'
+            'x_trace_id',
+            'exclude_recommendation_id'
         ]
         all_params.extend(
             [
@@ -145,6 +148,8 @@ class BotApi(object):
             local_var_params[k] = v
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 10:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `get_ai_hub_strategy_recommend`, must be a value less than or equal to `10`")  # noqa: E501
         if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `get_ai_hub_strategy_recommend`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
@@ -170,6 +175,8 @@ class BotApi(object):
             query_params.append(('max_drawdown_lte', local_var_params['max_drawdown_lte']))  # noqa: E501
         if 'backtest_apr_gte' in local_var_params and local_var_params['backtest_apr_gte'] is not None:  # noqa: E501
             query_params.append(('backtest_apr_gte', local_var_params['backtest_apr_gte']))  # noqa: E501
+        if 'exclude_recommendation_id' in local_var_params and local_var_params['exclude_recommendation_id'] is not None:  # noqa: E501
+            query_params.append(('exclude_recommendation_id', local_var_params['exclude_recommendation_id']))  # noqa: E501
 
         header_params = {}
         if 'x_gate_service_id' in local_var_params:
@@ -1461,6 +1468,282 @@ class BotApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AIHubPortfolioStopSuccessResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_ai_hub_smart_position_create(self, ai_hub_rebalance_create_request, **kwargs):  # noqa: E501
+        """Create rebalance bot  # noqa: E501
+
+        Typed AIHub adapter; authenticated owner comes only from trusted gateway context.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_ai_hub_smart_position_create(ai_hub_rebalance_create_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param AIHubRebalanceCreateRequest ai_hub_rebalance_create_request: (required)
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.AIHubCreateSuccessResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.post_ai_hub_smart_position_create_with_http_info(ai_hub_rebalance_create_request, **kwargs)  # noqa: E501
+
+    def post_ai_hub_smart_position_create_with_http_info(self, ai_hub_rebalance_create_request, **kwargs):  # noqa: E501
+        """Create rebalance bot  # noqa: E501
+
+        Typed AIHub adapter; authenticated owner comes only from trusted gateway context.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_ai_hub_smart_position_create_with_http_info(ai_hub_rebalance_create_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param AIHubRebalanceCreateRequest ai_hub_rebalance_create_request: (required)
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.AIHubCreateSuccessResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'ai_hub_rebalance_create_request',
+            'x_gate_service_id',
+            'x_gate_app_lang',
+            'x_request_id',
+            'x_trace_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_ai_hub_smart_position_create" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'ai_hub_rebalance_create_request' is set
+        if self.api_client.client_side_validation and ('ai_hub_rebalance_create_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ai_hub_rebalance_create_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ai_hub_rebalance_create_request` when calling `post_ai_hub_smart_position_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'x_gate_service_id' in local_var_params:
+            header_params['X-Gate-Service-Id'] = local_var_params['x_gate_service_id']  # noqa: E501
+        if 'x_gate_app_lang' in local_var_params:
+            header_params['X-Gate-AppLang'] = local_var_params['x_gate_app_lang']  # noqa: E501
+        if 'x_request_id' in local_var_params:
+            header_params['X-Request-Id'] = local_var_params['x_request_id']  # noqa: E501
+        if 'x_trace_id' in local_var_params:
+            header_params['X-Trace-Id'] = local_var_params['x_trace_id']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ai_hub_rebalance_create_request' in local_var_params:
+            body_params = local_var_params['ai_hub_rebalance_create_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/bot/smart-position/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AIHubCreateSuccessResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_ai_hub_futures_combo_create(self, ai_hub_futures_combo_create_request, **kwargs):  # noqa: E501
+        """Create futures-combo bot  # noqa: E501
+
+        Typed AIHub adapter; authenticated owner comes only from trusted gateway context.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_ai_hub_futures_combo_create(ai_hub_futures_combo_create_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param AIHubFuturesComboCreateRequest ai_hub_futures_combo_create_request: (required)
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.AIHubCreateSuccessResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.post_ai_hub_futures_combo_create_with_http_info(ai_hub_futures_combo_create_request, **kwargs)  # noqa: E501
+
+    def post_ai_hub_futures_combo_create_with_http_info(self, ai_hub_futures_combo_create_request, **kwargs):  # noqa: E501
+        """Create futures-combo bot  # noqa: E501
+
+        Typed AIHub adapter; authenticated owner comes only from trusted gateway context.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_ai_hub_futures_combo_create_with_http_info(ai_hub_futures_combo_create_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param AIHubFuturesComboCreateRequest ai_hub_futures_combo_create_request: (required)
+        :param str x_gate_service_id: Call source identifier; injected by APIv4 if necessary
+        :param str x_gate_app_lang: Language context, such as `zh-CN` / `en-US`
+        :param str x_request_id: Request link ID; caller can transmit transparently
+        :param str x_trace_id: trace header; can be generated uniformly by APIv4
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.AIHubCreateSuccessResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'ai_hub_futures_combo_create_request',
+            'x_gate_service_id',
+            'x_gate_app_lang',
+            'x_request_id',
+            'x_trace_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_ai_hub_futures_combo_create" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'ai_hub_futures_combo_create_request' is set
+        if self.api_client.client_side_validation and ('ai_hub_futures_combo_create_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ai_hub_futures_combo_create_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `ai_hub_futures_combo_create_request` when calling `post_ai_hub_futures_combo_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'x_gate_service_id' in local_var_params:
+            header_params['X-Gate-Service-Id'] = local_var_params['x_gate_service_id']  # noqa: E501
+        if 'x_gate_app_lang' in local_var_params:
+            header_params['X-Gate-AppLang'] = local_var_params['x_gate_app_lang']  # noqa: E501
+        if 'x_request_id' in local_var_params:
+            header_params['X-Request-Id'] = local_var_params['x_request_id']  # noqa: E501
+        if 'x_trace_id' in local_var_params:
+            header_params['X-Trace-Id'] = local_var_params['x_trace_id']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'ai_hub_futures_combo_create_request' in local_var_params:
+            body_params = local_var_params['ai_hub_futures_combo_create_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/bot/futures-combo/create', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AIHubCreateSuccessResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

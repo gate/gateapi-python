@@ -36,18 +36,22 @@ class AIHubPortfolioStopData(object):
         'strategy_id': 'str',
         'strategy_type': 'StrategyType',
         'status': 'str',
-        'result_message': 'str'
+        'result_message': 'str',
+        'operation_status': 'str',
+        'recovery_required': 'bool'
     }
 
     attribute_map = {
         'strategy_id': 'strategy_id',
         'strategy_type': 'strategy_type',
         'status': 'status',
-        'result_message': 'result_message'
+        'result_message': 'result_message',
+        'operation_status': 'operation_status',
+        'recovery_required': 'recovery_required'
     }
 
-    def __init__(self, strategy_id=None, strategy_type=None, status=None, result_message=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, StrategyType, str, str, Configuration) -> None
+    def __init__(self, strategy_id=None, strategy_type=None, status=None, result_message=None, operation_status=None, recovery_required=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, StrategyType, str, str, str, bool, Configuration) -> None
         """AIHubPortfolioStopData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,12 +61,22 @@ class AIHubPortfolioStopData(object):
         self._strategy_type = None
         self._status = None
         self._result_message = None
+        self._operation_status = None
+        self._recovery_required = None
         self.discriminator = None
 
-        self.strategy_id = strategy_id
-        self.strategy_type = strategy_type
-        self.status = status
-        self.result_message = result_message
+        if strategy_id is not None:
+            self.strategy_id = strategy_id
+        if strategy_type is not None:
+            self.strategy_type = strategy_type
+        if status is not None:
+            self.status = status
+        if result_message is not None:
+            self.result_message = result_message
+        if operation_status is not None:
+            self.operation_status = operation_status
+        if recovery_required is not None:
+            self.recovery_required = recovery_required
 
     @property
     def strategy_id(self):
@@ -82,8 +96,6 @@ class AIHubPortfolioStopData(object):
         :param strategy_id: The strategy_id of this AIHubPortfolioStopData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and strategy_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `strategy_id`, must not be `None`")  # noqa: E501
 
         self._strategy_id = strategy_id
 
@@ -105,8 +117,6 @@ class AIHubPortfolioStopData(object):
         :param strategy_type: The strategy_type of this AIHubPortfolioStopData.  # noqa: E501
         :type: StrategyType
         """
-        if self.local_vars_configuration.client_side_validation and strategy_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `strategy_type`, must not be `None`")  # noqa: E501
 
         self._strategy_type = strategy_type
 
@@ -114,7 +124,7 @@ class AIHubPortfolioStopData(object):
     def status(self):
         """Gets the status of this AIHubPortfolioStopData.  # noqa: E501
 
-        The current implementation returns `stopping`  # noqa: E501
+        Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled.  # noqa: E501
 
         :return: The status of this AIHubPortfolioStopData.  # noqa: E501
         :rtype: str
@@ -125,13 +135,11 @@ class AIHubPortfolioStopData(object):
     def status(self, status):
         """Sets the status of this AIHubPortfolioStopData.
 
-        The current implementation returns `stopping`  # noqa: E501
+        Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled.  # noqa: E501
 
         :param status: The status of this AIHubPortfolioStopData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -153,10 +161,52 @@ class AIHubPortfolioStopData(object):
         :param result_message: The result_message of this AIHubPortfolioStopData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and result_message is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_message`, must not be `None`")  # noqa: E501
 
         self._result_message = result_message
+
+    @property
+    def operation_status(self):
+        """Gets the operation_status of this AIHubPortfolioStopData.  # noqa: E501
+
+        pending when the write result requires verification; rejected for a proven pre-effect refusal.  # noqa: E501
+
+        :return: The operation_status of this AIHubPortfolioStopData.  # noqa: E501
+        :rtype: str
+        """
+        return self._operation_status
+
+    @operation_status.setter
+    def operation_status(self, operation_status):
+        """Sets the operation_status of this AIHubPortfolioStopData.
+
+        pending when the write result requires verification; rejected for a proven pre-effect refusal.  # noqa: E501
+
+        :param operation_status: The operation_status of this AIHubPortfolioStopData.  # noqa: E501
+        :type: str
+        """
+
+        self._operation_status = operation_status
+
+    @property
+    def recovery_required(self):
+        """Gets the recovery_required of this AIHubPortfolioStopData.  # noqa: E501
+
+
+        :return: The recovery_required of this AIHubPortfolioStopData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._recovery_required
+
+    @recovery_required.setter
+    def recovery_required(self, recovery_required):
+        """Sets the recovery_required of this AIHubPortfolioStopData.
+
+
+        :param recovery_required: The recovery_required of this AIHubPortfolioStopData.  # noqa: E501
+        :type: bool
+        """
+
+        self._recovery_required = recovery_required
 
     def to_dict(self):
         """Returns the model properties as a dict"""
