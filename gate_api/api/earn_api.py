@@ -3820,6 +3820,8 @@ class EarnApi(object):
         :param int limit: Page size (required)
         :param str asset: Currency
         :param int type: Product type: 1 for regular, 2 for VIP
+        :param int status: Product status filter. Pass 2 for products available for subscription.
+        :param str show_status: Visibility status filter. Pass \"2\" for visible products.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3848,6 +3850,8 @@ class EarnApi(object):
         :param int limit: Page size (required)
         :param str asset: Currency
         :param int type: Product type: 1 for regular, 2 for VIP
+        :param int status: Product status filter. Pass 2 for products available for subscription.
+        :param str show_status: Visibility status filter. Pass \"2\" for visible products.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3868,7 +3872,9 @@ class EarnApi(object):
             'page',
             'limit',
             'asset',
-            'type'
+            'type',
+            'status',
+            'show_status'
         ]
         all_params.extend(
             [
@@ -3905,6 +3911,10 @@ class EarnApi(object):
             query_params.append(('asset', local_var_params['asset']))  # noqa: E501
         if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if 'show_status' in local_var_params and local_var_params['show_status'] is not None:  # noqa: E501
+            query_params.append(('show_status', local_var_params['show_status']))  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501

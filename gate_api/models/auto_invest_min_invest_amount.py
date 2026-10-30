@@ -34,26 +34,30 @@ class AutoInvestMinInvestAmount(object):
     """
     openapi_types = {
         'money': 'str',
+        'asset_type': 'int',
         'items': 'list[AutoInvestMinInvestAmountItems]'
     }
 
     attribute_map = {
         'money': 'money',
+        'asset_type': 'asset_type',
         'items': 'items'
     }
 
-    def __init__(self, money=None, items=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, list[AutoInvestMinInvestAmountItems], Configuration) -> None
+    def __init__(self, money=None, asset_type=None, items=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, int, list[AutoInvestMinInvestAmountItems], Configuration) -> None
         """AutoInvestMinInvestAmount - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._money = None
+        self._asset_type = None
         self._items = None
         self.discriminator = None
 
         self.money = money
+        self.asset_type = asset_type
         self.items = items
 
     @property
@@ -80,6 +84,37 @@ class AutoInvestMinInvestAmount(object):
             raise ValueError("Invalid value for `money`, must not be `None`")  # noqa: E501
 
         self._money = money
+
+    @property
+    def asset_type(self):
+        """Gets the asset_type of this AutoInvestMinInvestAmount.  # noqa: E501
+
+        Asset type: 1 for cryptocurrency, 2 for TradFi stocks; must be provided explicitly  # noqa: E501
+
+        :return: The asset_type of this AutoInvestMinInvestAmount.  # noqa: E501
+        :rtype: int
+        """
+        return self._asset_type
+
+    @asset_type.setter
+    def asset_type(self, asset_type):
+        """Sets the asset_type of this AutoInvestMinInvestAmount.
+
+        Asset type: 1 for cryptocurrency, 2 for TradFi stocks; must be provided explicitly  # noqa: E501
+
+        :param asset_type: The asset_type of this AutoInvestMinInvestAmount.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and asset_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `asset_type`, must not be `None`")  # noqa: E501
+        allowed_values = [1, 2]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and asset_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `asset_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(asset_type, allowed_values)
+            )
+
+        self._asset_type = asset_type
 
     @property
     def items(self):

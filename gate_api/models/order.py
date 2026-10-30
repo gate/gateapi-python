@@ -72,7 +72,8 @@ class Order(object):
         'action_mode': 'str',
         'slippage': 'str',
         'stop_profit': 'SpotOrderStopProfit',
-        'stop_loss': 'SpotOrderStopLoss'
+        'stop_loss': 'SpotOrderStopLoss',
+        'use_earn': 'bool'
     }
 
     attribute_map = {
@@ -115,11 +116,12 @@ class Order(object):
         'action_mode': 'action_mode',
         'slippage': 'slippage',
         'stop_profit': 'stop_profit',
-        'stop_loss': 'stop_loss'
+        'stop_loss': 'stop_loss',
+        'use_earn': 'use_earn'
     }
 
-    def __init__(self, id=None, text=None, amend_text=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, trade_quote=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_maker_fee=None, gt_taker_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, action_mode=None, slippage=None, stop_profit=None, stop_loss=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, Configuration) -> None
+    def __init__(self, id=None, text=None, amend_text=None, create_time=None, update_time=None, create_time_ms=None, update_time_ms=None, status=None, currency_pair=None, trade_quote=None, type='limit', account='spot', side=None, amount=None, price=None, time_in_force='gtc', iceberg=None, auto_borrow=None, auto_repay=None, left=None, filled_amount=None, fill_price=None, filled_total=None, avg_deal_price=None, fee=None, fee_currency=None, point_fee=None, gt_fee=None, gt_maker_fee=None, gt_taker_fee=None, gt_discount=None, rebated_fee=None, rebated_fee_currency=None, stp_id=None, stp_act=None, finish_as=None, action_mode=None, slippage=None, stop_profit=None, stop_loss=None, use_earn=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, int, int, str, str, str, str, str, str, str, str, str, str, bool, bool, str, str, str, str, str, str, str, str, str, str, str, bool, str, str, int, str, str, str, str, SpotOrderStopProfit, SpotOrderStopLoss, bool, Configuration) -> None
         """Order - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -165,6 +167,7 @@ class Order(object):
         self._slippage = None
         self._stop_profit = None
         self._stop_loss = None
+        self._use_earn = None
         self.discriminator = None
 
         if id is not None:
@@ -242,6 +245,7 @@ class Order(object):
             self.slippage = slippage
         self.stop_profit = stop_profit
         self.stop_loss = stop_loss
+        self.use_earn = use_earn
 
     @property
     def id(self):
@@ -1200,6 +1204,29 @@ class Order(object):
         """
 
         self._stop_loss = stop_loss
+
+    @property
+    def use_earn(self):
+        """Gets the use_earn of this Order.  # noqa: E501
+
+        Redeem Simple Earn funds when placing an order  # noqa: E501
+
+        :return: The use_earn of this Order.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_earn
+
+    @use_earn.setter
+    def use_earn(self, use_earn):
+        """Sets the use_earn of this Order.
+
+        Redeem Simple Earn funds when placing an order  # noqa: E501
+
+        :param use_earn: The use_earn of this Order.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_earn = use_earn
 
     def to_dict(self):
         """Returns the model properties as a dict"""

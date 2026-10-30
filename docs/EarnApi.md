@@ -2227,7 +2227,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_earn_fixed_term_products**
-> ListEarnFixedTermProductsResponse list_earn_fixed_term_products(page, limit, asset=asset, type=type)
+> ListEarnFixedTermProductsResponse list_earn_fixed_term_products(page, limit, asset=asset, type=type, status=status, show_status=show_status)
 
 Get product list
 
@@ -2252,10 +2252,12 @@ page = 1 # int | Page number
 limit = 100 # int | Page size
 asset = 'USDT' # str | Currency (optional)
 type = 1 # int | Product type: 1 for regular, 2 for VIP (optional)
+status = 2 # int | Product status filter. Pass 2 for products available for subscription. (optional)
+show_status = '2' # str | Visibility status filter. Pass \"2\" for visible products. (optional)
 
 try:
     # Get product list
-    api_response = api_instance.list_earn_fixed_term_products(page, limit, asset=asset, type=type)
+    api_response = api_instance.list_earn_fixed_term_products(page, limit, asset=asset, type=type, status=status, show_status=show_status)
     print(api_response)
 except GateApiException as ex:
     print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -2271,6 +2273,8 @@ Name | Type | Description  | Notes
  **limit** | **int**| Page size | 
  **asset** | **str**| Currency | [optional] 
  **type** | **int**| Product type: 1 for regular, 2 for VIP | [optional] 
+ **status** | **int**| Product status filter. Pass 2 for products available for subscription. | [optional] 
+ **show_status** | **str**| Visibility status filter. Pass \&quot;2\&quot; for visible products. | [optional] 
 
 ### Return type
 

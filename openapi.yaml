@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.167
+  version: v4.106.170
   x-betaNum: 1
   title: Gate API
   contact:
@@ -15266,6 +15266,10 @@ components:
             order_price:
               type: string
               description: Stop-loss order price
+        use_earn:
+          type: boolean
+          nullable: true
+          description: Redeem Simple Earn funds when placing an order
     BatchOrder:
       type: object
       description: Batch order details
@@ -22940,11 +22944,21 @@ components:
       description: QueryAvailableInvestmentMinimumAmountRequest
       required:
       - money
+      - asset_type
       - items
       properties:
         money:
           type: string
           description: 'Currency, optional: USDT or BTC'
+        asset_type:
+          type: integer
+          format: int32
+          enum:
+          - 1
+          - 2
+          description: 'Asset type: 1 for cryptocurrency, 2 for TradFi stocks; must
+            be provided explicitly'
+          example: 1
         items:
           type: array
           items:
@@ -29697,6 +29711,7 @@ paths:
               stop_loss:
                 trigger_price: '63000'
                 order_price: '63000'
+              use_earn: false
       responses:
         200:
           description: Request execution completed
@@ -29892,6 +29907,7 @@ paths:
                 stop_loss:
                   trigger_price: '63000'
                   order_price: '63000'
+                use_earn: false
       parameters: []
   /spot/orders:
     post:
@@ -30023,6 +30039,7 @@ paths:
               stop_loss:
                 trigger_price: '63000'
                 order_price: '63000'
+              use_earn: false
       responses:
         201:
           description: Order created
@@ -30107,6 +30124,7 @@ paths:
                     stop_loss:
                       trigger_price: '63000'
                       order_price: '63000'
+                    use_earn: false
     get:
       tags:
       - spot
@@ -30256,6 +30274,7 @@ paths:
                 stop_loss:
                   trigger_price: '63000'
                   order_price: '63000'
+                use_earn: false
       x-group-parameters: true
     delete:
       tags:
@@ -30527,6 +30546,7 @@ paths:
                 stop_loss:
                   trigger_price: '63000'
                   order_price: '63000'
+                use_earn: false
     patch:
       tags:
       - spot
@@ -30671,6 +30691,7 @@ paths:
                 stop_loss:
                   trigger_price: '63000'
                   order_price: '63000'
+                use_earn: false
     delete:
       tags:
       - spot
@@ -30776,6 +30797,7 @@ paths:
                 stop_loss:
                   trigger_price: '63000'
                   order_price: '63000'
+                use_earn: false
   /spot/my_trades:
     get:
       tags:
@@ -46215,6 +46237,7 @@ paths:
               $ref: '#/components/schemas/AutoInvestMinInvestAmount'
             example:
               money: USDT
+              asset_type: 1
               items:
               - asset: BTC
                 ratio: '33'
@@ -46548,6 +46571,20 @@ paths:
         example: 1
         schema:
           type: integer
+      - name: status
+        in: query
+        description: Product status filter. Pass 2 for products available for subscription.
+        required: false
+        example: 2
+        schema:
+          type: integer
+      - name: show_status
+        in: query
+        description: Visibility status filter. Pass "2" for visible products.
+        required: false
+        example: '2'
+        schema:
+          type: string
       - name: page
         in: query
         description: Page number
