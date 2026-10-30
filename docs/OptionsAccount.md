@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **point** | **str** | Point card amount | [optional] 
 **currency** | **str** | Settlement currency | [optional] 
 **orders_limit** | **int** | Maximum number of outstanding orders | [optional] 
-**position_notional_limit** | **int** | Notional value upper limit, including the nominal value of positions and outstanding orders | [optional] 
+**position_notional_limit** | **str** | Notional value upper limit, including the nominal value of positions and outstanding orders | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

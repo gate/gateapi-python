@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.170
+  version: v4.106.172
   x-betaNum: 1
   title: Gate API
   contact:
@@ -20777,8 +20777,7 @@ components:
           format: int32
           description: Maximum number of outstanding orders
         position_notional_limit:
-          type: integer
-          format: int64
+          type: string
           description: Notional value upper limit, including the nominal value of
             positions and outstanding orders
     OptionsAccountBook:
@@ -21139,6 +21138,7 @@ components:
           description: Options contract name
         order_id:
           type: integer
+          format: int64
           description: Related order ID
         size:
           type: integer
@@ -43147,7 +43147,7 @@ paths:
                 available: '1514.901537'
                 point: '0'
                 orders_limit: 10
-                position_notional_limit: 1000000
+                position_notional_limit: '1000000'
       parameters: []
   /options/account_book:
     get:
@@ -43808,7 +43808,7 @@ paths:
                 id: 1
                 role: taker
                 create_time: 1631763397
-                order_id: 4
+                order_id: 67061071452
                 price: '100'
       x-group-parameters: true
   /options/mmp:

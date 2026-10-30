@@ -51,7 +51,7 @@ class OptionsAccount(object):
         'point': 'str',
         'currency': 'str',
         'orders_limit': 'int',
-        'position_notional_limit': 'int'
+        'position_notional_limit': 'str'
     }
 
     attribute_map = {
@@ -77,7 +77,7 @@ class OptionsAccount(object):
     }
 
     def __init__(self, user=None, total=None, position_value=None, equity=None, short_enabled=None, mmp_enabled=None, liq_triggered=None, margin_mode=None, unrealised_pnl=None, init_margin=None, maint_margin=None, order_margin=None, ask_order_margin=None, bid_order_margin=None, available=None, point=None, currency=None, orders_limit=None, position_notional_limit=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, str, str, bool, bool, bool, int, str, str, str, str, str, str, str, str, str, int, int, Configuration) -> None
+        # type: (int, str, str, str, bool, bool, bool, int, str, str, str, str, str, str, str, str, str, int, str, Configuration) -> None
         """OptionsAccount - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -570,7 +570,7 @@ class OptionsAccount(object):
         Notional value upper limit, including the nominal value of positions and outstanding orders  # noqa: E501
 
         :return: The position_notional_limit of this OptionsAccount.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._position_notional_limit
 
@@ -581,7 +581,7 @@ class OptionsAccount(object):
         Notional value upper limit, including the nominal value of positions and outstanding orders  # noqa: E501
 
         :param position_notional_limit: The position_notional_limit of this OptionsAccount.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._position_notional_limit = position_notional_limit
