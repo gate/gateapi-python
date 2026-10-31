@@ -73,7 +73,7 @@ class QuoteRequest(object):
     def currency(self):
         """Gets the currency of this QuoteRequest.  # noqa: E501
 
-        Trading symbol  # noqa: E501
+        Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.  # noqa: E501
 
         :return: The currency of this QuoteRequest.  # noqa: E501
         :rtype: str
@@ -84,7 +84,7 @@ class QuoteRequest(object):
     def currency(self, currency):
         """Sets the currency of this QuoteRequest.
 
-        Trading symbol  # noqa: E501
+        Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.  # noqa: E501
 
         :param currency: The currency of this QuoteRequest.  # noqa: E501
         :type: str

@@ -87,7 +87,7 @@ class AlphaCurrency(object):
     def currency(self):
         """Gets the currency of this AlphaCurrency.  # noqa: E501
 
-        Currency symbol  # noqa: E501
+        Alpha currency ID, for example USDS02b5a8dd2f59a098; use it as the currency parameter in Alpha APIs, not the display symbol USDS.  # noqa: E501
 
         :return: The currency of this AlphaCurrency.  # noqa: E501
         :rtype: str
@@ -98,7 +98,7 @@ class AlphaCurrency(object):
     def currency(self, currency):
         """Sets the currency of this AlphaCurrency.
 
-        Currency symbol  # noqa: E501
+        Alpha currency ID, for example USDS02b5a8dd2f59a098; use it as the currency parameter in Alpha APIs, not the display symbol USDS.  # noqa: E501
 
         :param currency: The currency of this AlphaCurrency.  # noqa: E501
         :type: str
@@ -110,7 +110,7 @@ class AlphaCurrency(object):
     def name(self):
         """Gets the name of this AlphaCurrency.  # noqa: E501
 
-        Currency name  # noqa: E501
+        Display name or symbol, for example USDS; it cannot replace the currency field as the Alpha currency ID.  # noqa: E501
 
         :return: The name of this AlphaCurrency.  # noqa: E501
         :rtype: str
@@ -121,7 +121,7 @@ class AlphaCurrency(object):
     def name(self, name):
         """Sets the name of this AlphaCurrency.
 
-        Currency name  # noqa: E501
+        Display name or symbol, for example USDS; it cannot replace the currency field as the Alpha currency ID.  # noqa: E501
 
         :param name: The name of this AlphaCurrency.  # noqa: E501
         :type: str

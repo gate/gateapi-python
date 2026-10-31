@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.172
+  version: v4.106.173
   x-betaNum: 1
   title: Gate API
   contact:
@@ -24750,7 +24750,8 @@ components:
       properties:
         currency:
           type: string
-          description: Currency name
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098; use it
+            as the currency parameter in Alpha APIs, not the display symbol USDS.
         available:
           type: string
           description: Available Balance
@@ -24777,7 +24778,8 @@ components:
           format: int64
         currency:
           type: string
-          description: Currency name
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098; use it
+            as the currency parameter in Alpha APIs, not the display symbol USDS.
           format: string
         change:
           type: string
@@ -24798,7 +24800,10 @@ components:
       properties:
         currency:
           type: string
-          description: Trading symbol
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the
+            display symbol USDS. First call GET /alpha/currencies without currency,
+            match the token by name, chain and address, and use the returned currency
+            field. Paginate with page and limit.
         side:
           type: string
           description: 'Buy or sell orders
@@ -24876,7 +24881,10 @@ components:
       properties:
         currency:
           type: string
-          description: Trading symbol
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the
+            display symbol USDS. First call GET /alpha/currencies without currency,
+            match the token by name, chain and address, and use the returned currency
+            field. Paginate with page and limit.
         side:
           type: string
           description: 'Buy or sell orders
@@ -24982,7 +24990,8 @@ components:
           description: Amount (USDT)
         currency:
           type: string
-          description: Token
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098; use it
+            as the currency parameter in Alpha APIs, not the display symbol USDS.
         currency_amount:
           type: string
           description: Token amount
@@ -25033,10 +25042,12 @@ components:
       properties:
         currency:
           type: string
-          description: Currency symbol
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098; use it
+            as the currency parameter in Alpha APIs, not the display symbol USDS.
         name:
           type: string
-          description: Currency name
+          description: Display name or symbol, for example USDS; it cannot replace
+            the currency field as the Alpha currency ID.
         chain:
           type: string
           description: The main chain corresponding to the coin
@@ -25067,7 +25078,8 @@ components:
       properties:
         currency:
           type: string
-          description: Currency symbol
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098; use it
+            as the currency parameter in Alpha APIs, not the display symbol USDS.
         last:
           type: string
           description: Last trading price
@@ -25085,10 +25097,12 @@ components:
       properties:
         currency:
           type: string
-          description: Currency symbol
+          description: Alpha currency ID, for example USDS02b5a8dd2f59a098; use it
+            as the currency parameter in Alpha APIs, not the display symbol USDS.
         name:
           type: string
-          description: Currency name
+          description: Display name or symbol, for example USDS; it cannot replace
+            the currency field as the Alpha currency ID.
         chain:
           type: string
           description: The main chain corresponding to the coin
@@ -55182,7 +55196,10 @@ paths:
       parameters:
       - name: currency
         in: query
-        description: Trading symbol
+        description: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the
+          display symbol USDS. First call GET /alpha/currencies without currency,
+          match the token by name, chain and address, and use the returned currency
+          field. Paginate with page and limit.
         required: false
         schema:
           type: string
@@ -55329,7 +55346,10 @@ paths:
       - name: currency
         in: query
         required: false
-        description: Query currency information by currency symbol
+        description: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the
+          display symbol USDS. First call GET /alpha/currencies without currency,
+          match the token by name, chain and address, and use the returned currency
+          field. Paginate with page and limit.
         schema:
           type: string
         example: memeboxtrump
@@ -55385,7 +55405,10 @@ paths:
       - name: currency
         in: query
         required: false
-        description: Query by specified currency name
+        description: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the
+          display symbol USDS. First call GET /alpha/currencies without currency,
+          match the token by name, chain and address, and use the returned currency
+          field. Paginate with page and limit.
         schema:
           type: string
         example: memeboxtrump

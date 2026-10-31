@@ -397,7 +397,7 @@ class AlphaApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Trading symbol
+        :param str currency: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         :param str side: Buy or sell orders - buy - sell
         :param int status: Order Status - `0` : All - `1` : Processing - `2` : Successful - `3` : Failed - `4` : Cancelled - `5` : Buy order placed but transfer not completed - `6` : Order cancelled but transfer not completed
         :param int _from: Start time for order query
@@ -427,7 +427,7 @@ class AlphaApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Trading symbol
+        :param str currency: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         :param str side: Buy or sell orders - buy - sell
         :param int status: Order Status - `0` : All - `1` : Processing - `2` : Successful - `3` : Failed - `4` : Cancelled - `5` : Buy order placed but transfer not completed - `6` : Order cancelled but transfer not completed
         :param int _from: Start time for order query
@@ -772,7 +772,7 @@ class AlphaApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Query currency information by currency symbol
+        :param str currency: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         :param int limit: Maximum number of records returned in a single list
         :param int page: Page number
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -799,7 +799,7 @@ class AlphaApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Query currency information by currency symbol
+        :param str currency: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         :param int limit: Maximum number of records returned in a single list
         :param int page: Page number
         :param _return_http_data_only: response data without head status code
@@ -898,7 +898,7 @@ class AlphaApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Query by specified currency name
+        :param str currency: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         :param int limit: Maximum number of records returned in a single list
         :param int page: Page number
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -925,7 +925,7 @@ class AlphaApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Query by specified currency name
+        :param str currency: Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         :param int limit: Maximum number of records returned in a single list
         :param int page: Page number
         :param _return_http_data_only: response data without head status code

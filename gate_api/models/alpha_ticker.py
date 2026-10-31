@@ -77,7 +77,7 @@ class AlphaTicker(object):
     def currency(self):
         """Gets the currency of this AlphaTicker.  # noqa: E501
 
-        Currency symbol  # noqa: E501
+        Alpha currency ID, for example USDS02b5a8dd2f59a098; use it as the currency parameter in Alpha APIs, not the display symbol USDS.  # noqa: E501
 
         :return: The currency of this AlphaTicker.  # noqa: E501
         :rtype: str
@@ -88,7 +88,7 @@ class AlphaTicker(object):
     def currency(self, currency):
         """Sets the currency of this AlphaTicker.
 
-        Currency symbol  # noqa: E501
+        Alpha currency ID, for example USDS02b5a8dd2f59a098; use it as the currency parameter in Alpha APIs, not the display symbol USDS.  # noqa: E501
 
         :param currency: The currency of this AlphaTicker.  # noqa: E501
         :type: str

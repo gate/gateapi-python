@@ -253,7 +253,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.AlphaApi(api_client)
-currency = 'memeboxsst' # str | Trading symbol (optional)
+currency = 'memeboxsst' # str | Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. (optional)
 side = 'buy' # str | Buy or sell orders - buy - sell (optional)
 status = 2 # int | Order Status - `0` : All - `1` : Processing - `2` : Successful - `3` : Failed - `4` : Cancelled - `5` : Buy order placed but transfer not completed - `6` : Order cancelled but transfer not completed (optional)
 _from = 1627706330 # int | Start time for order query (optional)
@@ -275,7 +275,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| Trading symbol | [optional] 
+ **currency** | **str**| Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. | [optional] 
  **side** | **str**| Buy or sell orders - buy - sell | [optional] 
  **status** | **int**| Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Cancelled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Order cancelled but transfer not completed | [optional] 
  **_from** | **int**| Start time for order query | [optional] 
@@ -461,7 +461,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.AlphaApi(api_client)
-currency = 'memeboxtrump' # str | Query currency information by currency symbol (optional)
+currency = 'memeboxtrump' # str | Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 page = 1 # int | Page number (optional) (default to 1)
 
@@ -479,7 +479,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| Query currency information by currency symbol | [optional] 
+ **currency** | **str**| Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
 
@@ -525,7 +525,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.AlphaApi(api_client)
-currency = 'memeboxtrump' # str | Query by specified currency name (optional)
+currency = 'memeboxtrump' # str | Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. (optional)
 limit = 100 # int | Maximum number of records returned in a single list (optional) (default to 100)
 page = 1 # int | Page number (optional) (default to 1)
 
@@ -543,7 +543,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| Query by specified currency name | [optional] 
+ **currency** | **str**| Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. | [optional] 
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 100]
  **page** | **int**| Page number | [optional] [default to 1]
 
