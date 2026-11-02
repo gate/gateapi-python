@@ -33,9 +33,9 @@ class TrailOrder(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'user_id': 'int',
-        'user': 'int',
+        'id': 'str',
+        'user_id': 'str',
+        'user': 'str',
         'contract': 'str',
         'settle': 'str',
         'amount': 'str',
@@ -46,22 +46,22 @@ class TrailOrder(object):
         'text': 'str',
         'reduce_only': 'bool',
         'position_related': 'bool',
-        'created_at': 'int',
-        'activated_at': 'int',
-        'finished_at': 'int',
-        'create_time': 'int',
-        'active_time': 'int',
-        'finish_time': 'int',
+        'created_at': 'str',
+        'activated_at': 'str',
+        'finished_at': 'str',
+        'create_time': 'str',
+        'active_time': 'str',
+        'finish_time': 'str',
         'reason': 'str',
         'suborder_text': 'str',
         'is_dual_mode': 'bool',
         'trigger_price': 'str',
-        'suborder_id': 'int',
+        'suborder_id': 'str',
         'side_label': 'str',
         'original_status': 'int',
         'status': 'str',
         'position_side_output': 'str',
-        'updated_at': 'int',
+        'updated_at': 'str',
         'extremum_price': 'str',
         'status_code': 'str',
         'created_at_precise': 'str',
@@ -117,7 +117,7 @@ class TrailOrder(object):
     }
 
     def __init__(self, id=None, user_id=None, user=None, contract=None, settle=None, amount=None, is_gte=None, activation_price=None, price_type=None, price_offset=None, text=None, reduce_only=None, position_related=None, created_at=None, activated_at=None, finished_at=None, create_time=None, active_time=None, finish_time=None, reason=None, suborder_text=None, is_dual_mode=None, trigger_price=None, suborder_id=None, side_label=None, original_status=None, status=None, position_side_output=None, updated_at=None, extremum_price=None, status_code=None, created_at_precise=None, finished_at_precise=None, activated_at_precise=None, status_label=None, pos_margin_mode=None, position_mode=None, error_label=None, leverage=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, int, int, str, str, str, bool, str, int, str, str, bool, bool, int, int, int, int, int, int, str, str, bool, str, int, str, int, str, str, int, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
+        # type: (str, str, str, str, str, str, bool, str, int, str, str, bool, bool, str, str, str, str, str, str, str, str, bool, str, str, str, int, str, str, str, str, str, str, str, str, str, str, str, str, str, Configuration) -> None
         """TrailOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -250,7 +250,7 @@ class TrailOrder(object):
         Order ID  # noqa: E501
 
         :return: The id of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -261,7 +261,7 @@ class TrailOrder(object):
         Order ID  # noqa: E501
 
         :param id: The id of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._id = id
@@ -273,7 +273,7 @@ class TrailOrder(object):
         User ID  # noqa: E501
 
         :return: The user_id of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._user_id
 
@@ -284,7 +284,7 @@ class TrailOrder(object):
         User ID  # noqa: E501
 
         :param user_id: The user_id of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._user_id = user_id
@@ -296,7 +296,7 @@ class TrailOrder(object):
         User ID  # noqa: E501
 
         :return: The user of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._user
 
@@ -307,7 +307,7 @@ class TrailOrder(object):
         User ID  # noqa: E501
 
         :param user: The user of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._user = user
@@ -555,7 +555,7 @@ class TrailOrder(object):
         Created time  # noqa: E501
 
         :return: The created_at of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._created_at
 
@@ -566,7 +566,7 @@ class TrailOrder(object):
         Created time  # noqa: E501
 
         :param created_at: The created_at of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._created_at = created_at
@@ -578,7 +578,7 @@ class TrailOrder(object):
         Activation time  # noqa: E501
 
         :return: The activated_at of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._activated_at
 
@@ -589,7 +589,7 @@ class TrailOrder(object):
         Activation time  # noqa: E501
 
         :param activated_at: The activated_at of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._activated_at = activated_at
@@ -601,7 +601,7 @@ class TrailOrder(object):
         End time  # noqa: E501
 
         :return: The finished_at of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._finished_at
 
@@ -612,7 +612,7 @@ class TrailOrder(object):
         End time  # noqa: E501
 
         :param finished_at: The finished_at of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._finished_at = finished_at
@@ -624,7 +624,7 @@ class TrailOrder(object):
         Created time  # noqa: E501
 
         :return: The create_time of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._create_time
 
@@ -635,7 +635,7 @@ class TrailOrder(object):
         Created time  # noqa: E501
 
         :param create_time: The create_time of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._create_time = create_time
@@ -647,7 +647,7 @@ class TrailOrder(object):
         Activation time  # noqa: E501
 
         :return: The active_time of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._active_time
 
@@ -658,7 +658,7 @@ class TrailOrder(object):
         Activation time  # noqa: E501
 
         :param active_time: The active_time of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._active_time = active_time
@@ -670,7 +670,7 @@ class TrailOrder(object):
         End time  # noqa: E501
 
         :return: The finish_time of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._finish_time
 
@@ -681,7 +681,7 @@ class TrailOrder(object):
         End time  # noqa: E501
 
         :param finish_time: The finish_time of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._finish_time = finish_time
@@ -785,7 +785,7 @@ class TrailOrder(object):
         Child order ID.  # noqa: E501
 
         :return: The suborder_id of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._suborder_id
 
@@ -796,7 +796,7 @@ class TrailOrder(object):
         Child order ID.  # noqa: E501
 
         :param suborder_id: The suborder_id of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._suborder_id = suborder_id
@@ -906,7 +906,7 @@ class TrailOrder(object):
         Update time  # noqa: E501
 
         :return: The updated_at of this TrailOrder.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._updated_at
 
@@ -917,7 +917,7 @@ class TrailOrder(object):
         Update time  # noqa: E501
 
         :param updated_at: The updated_at of this TrailOrder.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._updated_at = updated_at

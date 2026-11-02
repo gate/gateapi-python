@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.176
+  version: v4.106.177
   x-betaNum: 1
   title: Gate API
   contact:
@@ -527,6 +527,7 @@ components:
       required:
       - contract
       - amount
+      - price_type
       properties:
         contract:
           type: string
@@ -546,8 +547,9 @@ components:
         price_type:
           type: integer
           format: int32
-          description: 'Activation price type: 1-latest price, 2-index price, 3-mark
-            price'
+          description: 'Activation price type, required: 1-latest price, 2-index price,
+            3-mark price. The caller must specify it explicitly.'
+          example: 1
           enum:
           - 1
           - 2
@@ -2037,20 +2039,17 @@ components:
               description: Trail order details
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Order ID
                   readOnly: true
                   x-is-bigint: true
                 user_id:
-                  type: integer
-                  format: int64
+                  type: string
                   description: User ID
                   readOnly: true
                   x-is-bigint: true
                 user:
-                  type: integer
-                  format: int64
+                  type: string
                   description: User ID
                   readOnly: true
                   x-is-bigint: true
@@ -2094,33 +2093,27 @@ components:
                   type: boolean
                   description: Whether bound to position
                 created_at:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Created time
                   readOnly: true
                 activated_at:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Activation time
                   readOnly: true
                 finished_at:
-                  type: integer
-                  format: int64
+                  type: string
                   description: End time
                   readOnly: true
                 create_time:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Created time
                   readOnly: true
                 active_time:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Activation time
                   readOnly: true
                 finish_time:
-                  type: integer
-                  format: int64
+                  type: string
                   description: End time
                   readOnly: true
                 reason:
@@ -2140,8 +2133,7 @@ components:
                   description: Trigger price
                   readOnly: true
                 suborder_id:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Child order ID.
                   readOnly: true
                   x-is-bigint: true
@@ -2168,8 +2160,7 @@ components:
                     other order types
                   readOnly: true
                 updated_at:
-                  type: integer
-                  format: int64
+                  type: string
                   description: Update time
                   readOnly: true
                 extremum_price:
@@ -36383,20 +36374,17 @@ paths:
                     description: Trail order details
                     properties:
                       id:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Order ID
                         readOnly: true
                         x-is-bigint: true
                       user_id:
-                        type: integer
-                        format: int64
+                        type: string
                         description: User ID
                         readOnly: true
                         x-is-bigint: true
                       user:
-                        type: integer
-                        format: int64
+                        type: string
                         description: User ID
                         readOnly: true
                         x-is-bigint: true
@@ -36441,33 +36429,27 @@ paths:
                         type: boolean
                         description: Whether bound to position
                       created_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Created time
                         readOnly: true
                       activated_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Activation time
                         readOnly: true
                       finished_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: End time
                         readOnly: true
                       create_time:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Created time
                         readOnly: true
                       active_time:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Activation time
                         readOnly: true
                       finish_time:
-                        type: integer
-                        format: int64
+                        type: string
                         description: End time
                         readOnly: true
                       reason:
@@ -36487,8 +36469,7 @@ paths:
                         description: Trigger price
                         readOnly: true
                       suborder_id:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Child order ID.
                         readOnly: true
                         x-is-bigint: true
@@ -36515,8 +36496,7 @@ paths:
                           with other order types
                         readOnly: true
                       updated_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Update time
                         readOnly: true
                       extremum_price:
@@ -36647,20 +36627,17 @@ paths:
                       description: Trail order details
                       properties:
                         id:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Order ID
                           readOnly: true
                           x-is-bigint: true
                         user_id:
-                          type: integer
-                          format: int64
+                          type: string
                           description: User ID
                           readOnly: true
                           x-is-bigint: true
                         user:
-                          type: integer
-                          format: int64
+                          type: string
                           description: User ID
                           readOnly: true
                           x-is-bigint: true
@@ -36705,33 +36682,27 @@ paths:
                           type: boolean
                           description: Whether bound to position
                         created_at:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Created time
                           readOnly: true
                         activated_at:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Activation time
                           readOnly: true
                         finished_at:
-                          type: integer
-                          format: int64
+                          type: string
                           description: End time
                           readOnly: true
                         create_time:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Created time
                           readOnly: true
                         active_time:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Activation time
                           readOnly: true
                         finish_time:
-                          type: integer
-                          format: int64
+                          type: string
                           description: End time
                           readOnly: true
                         reason:
@@ -36751,8 +36722,7 @@ paths:
                           description: Trigger price
                           readOnly: true
                         suborder_id:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Child order ID.
                           readOnly: true
                           x-is-bigint: true
@@ -36779,8 +36749,7 @@ paths:
                             with other order types
                           readOnly: true
                         updated_at:
-                          type: integer
-                          format: int64
+                          type: string
                           description: Update time
                           readOnly: true
                         extremum_price:
@@ -37054,20 +37023,17 @@ paths:
                           description: Trail order details
                           properties:
                             id:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Order ID
                               readOnly: true
                               x-is-bigint: true
                             user_id:
-                              type: integer
-                              format: int64
+                              type: string
                               description: User ID
                               readOnly: true
                               x-is-bigint: true
                             user:
-                              type: integer
-                              format: int64
+                              type: string
                               description: User ID
                               readOnly: true
                               x-is-bigint: true
@@ -37112,33 +37078,27 @@ paths:
                               type: boolean
                               description: Whether bound to position
                             created_at:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Created time
                               readOnly: true
                             activated_at:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Activation time
                               readOnly: true
                             finished_at:
-                              type: integer
-                              format: int64
+                              type: string
                               description: End time
                               readOnly: true
                             create_time:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Created time
                               readOnly: true
                             active_time:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Activation time
                               readOnly: true
                             finish_time:
-                              type: integer
-                              format: int64
+                              type: string
                               description: End time
                               readOnly: true
                             reason:
@@ -37159,8 +37119,7 @@ paths:
                               description: Trigger price
                               readOnly: true
                             suborder_id:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Child order ID.
                               readOnly: true
                               x-is-bigint: true
@@ -37187,8 +37146,7 @@ paths:
                                 with other order types
                               readOnly: true
                             updated_at:
-                              type: integer
-                              format: int64
+                              type: string
                               description: Update time
                               readOnly: true
                             extremum_price:
@@ -37244,7 +37202,7 @@ paths:
                 message: ok
                 data:
                   orders:
-                  - id: 9007199254740993
+                  - id: '9007199254740993'
                     contract: BTC_USDT
                     settle: usdt
                     amount: '1'
@@ -37375,20 +37333,17 @@ paths:
                     description: Trail order details
                     properties:
                       id:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Order ID
                         readOnly: true
                         x-is-bigint: true
                       user_id:
-                        type: integer
-                        format: int64
+                        type: string
                         description: User ID
                         readOnly: true
                         x-is-bigint: true
                       user:
-                        type: integer
-                        format: int64
+                        type: string
                         description: User ID
                         readOnly: true
                         x-is-bigint: true
@@ -37433,33 +37388,27 @@ paths:
                         type: boolean
                         description: Whether bound to position
                       created_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Created time
                         readOnly: true
                       activated_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Activation time
                         readOnly: true
                       finished_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: End time
                         readOnly: true
                       create_time:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Created time
                         readOnly: true
                       active_time:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Activation time
                         readOnly: true
                       finish_time:
-                        type: integer
-                        format: int64
+                        type: string
                         description: End time
                         readOnly: true
                       reason:
@@ -37479,8 +37428,7 @@ paths:
                         description: Trigger price
                         readOnly: true
                       suborder_id:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Child order ID.
                         readOnly: true
                         x-is-bigint: true
@@ -37507,8 +37455,7 @@ paths:
                           with other order types
                         readOnly: true
                       updated_at:
-                        type: integer
-                        format: int64
+                        type: string
                         description: Update time
                         readOnly: true
                       extremum_price:

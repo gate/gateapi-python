@@ -86,8 +86,7 @@ class CreateTrailOrder(object):
             self.activation_price = activation_price
         if is_gte is not None:
             self.is_gte = is_gte
-        if price_type is not None:
-            self.price_type = price_type
+        self.price_type = price_type
         if price_offset is not None:
             self.price_offset = price_offset
         if reduce_only is not None:
@@ -201,7 +200,7 @@ class CreateTrailOrder(object):
     def price_type(self):
         """Gets the price_type of this CreateTrailOrder.  # noqa: E501
 
-        Activation price type: 1-latest price, 2-index price, 3-mark price  # noqa: E501
+        Activation price type, required: 1-latest price, 2-index price, 3-mark price. The caller must specify it explicitly.  # noqa: E501
 
         :return: The price_type of this CreateTrailOrder.  # noqa: E501
         :rtype: int
@@ -212,11 +211,13 @@ class CreateTrailOrder(object):
     def price_type(self, price_type):
         """Sets the price_type of this CreateTrailOrder.
 
-        Activation price type: 1-latest price, 2-index price, 3-mark price  # noqa: E501
+        Activation price type, required: 1-latest price, 2-index price, 3-mark price. The caller must specify it explicitly.  # noqa: E501
 
         :param price_type: The price_type of this CreateTrailOrder.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and price_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `price_type`, must not be `None`")  # noqa: E501
         allowed_values = [1, 2, 3]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and price_type not in allowed_values:  # noqa: E501
             raise ValueError(

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **amount** | **str** | Trading quantity in contracts, positive for buy, negative for sell | 
 **activation_price** | **str** | Activation price, 0 means trigger immediately | [optional] [default to '0']
 **is_gte** | **bool** | true: activate when market price &gt;&#x3D; activation price, false: &lt;&#x3D; activation price | [optional] 
-**price_type** | **int** | Activation price type: 1-latest price, 2-index price, 3-mark price | [optional] 
+**price_type** | **int** | Activation price type, required: 1-latest price, 2-index price, 3-mark price. The caller must specify it explicitly. | 
 **price_offset** | **str** | Callback ratio or price distance, e.g., &#x60;0.1&#x60; or &#x60;0.1%&#x60; | [optional] 
 **reduce_only** | **bool** | Whether reduce only | [optional] [default to False]
 **position_related** | **bool** | Whether bound to a position (if position_related &#x3D; true (position-related), then reduce_only must also be true) | [optional] [default to False]
