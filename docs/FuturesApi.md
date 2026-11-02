@@ -3978,7 +3978,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_trail_order**
-> TrailOrderResponse stop_trail_order(settle, stop_trail_order)
+> TrailOrderDetailResponse stop_trail_order(settle, stop_trail_order)
 
 Terminate trail order
 
@@ -4028,7 +4028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderResponse**](TrailOrderResponse.md)
+[**TrailOrderDetailResponse**](TrailOrderDetailResponse.md)
 
 ### Authorization
 
@@ -4276,7 +4276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_trail_order**
-> TrailOrderResponse update_trail_order(settle, update_trail_order)
+> TrailOrderDetailResponse update_trail_order(settle, update_trail_order)
 
 Update trail order
 
@@ -4326,7 +4326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderResponse**](TrailOrderResponse.md)
+[**TrailOrderDetailResponse**](TrailOrderDetailResponse.md)
 
 ### Authorization
 

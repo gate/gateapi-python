@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.177
+  version: v4.106.178
   x-betaNum: 1
   title: Gate API
   contact:
@@ -2214,10 +2214,25 @@ components:
       title: TrailOrderChangeLogResponse
       type: object
       properties:
-        change_log:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrailChangeLog'
+        code:
+          type: integer
+          format: int32
+          description: Status code, 0 means success
+        message:
+          type: string
+          description: Response message
+        data:
+          title: TrailOrderChangeLogData
+          type: object
+          properties:
+            change_log:
+              type: array
+              items:
+                $ref: '#/components/schemas/TrailChangeLog'
+        timestamp:
+          type: integer
+          format: int64
+          description: Response timestamp (milliseconds)
     CreateChaseOrderReq:
       type: object
       description: Request body for creating a chase order
@@ -2351,8 +2366,7 @@ components:
       description: Trail order modification records
       properties:
         updated_at:
-          type: integer
-          format: int64
+          type: string
           description: Update time
           readOnly: true
         amount:
@@ -36365,224 +36379,52 @@ paths:
           content:
             application/json:
               schema:
-                title: TrailOrderResponse
-                type: object
-                properties:
-                  order:
-                    title: TrailOrder
-                    type: object
-                    description: Trail order details
-                    properties:
-                      id:
-                        type: string
-                        description: Order ID
-                        readOnly: true
-                        x-is-bigint: true
-                      user_id:
-                        type: string
-                        description: User ID
-                        readOnly: true
-                        x-is-bigint: true
-                      user:
-                        type: string
-                        description: User ID
-                        readOnly: true
-                        x-is-bigint: true
-                      contract:
-                        type: string
-                        description: Contract name
-                      settle:
-                        type: string
-                        description: Settle currency
-                      amount:
-                        type: string
-                        description: Trading quantity in contracts, positive for buy,
-                          negative for sell
-                      is_gte:
-                        type: boolean
-                        description: 'true: activate when market price >= activation
-                          price, false: <= activation price'
-                      activation_price:
-                        type: string
-                        description: Activation price, 0 means trigger immediately
-                      price_type:
-                        type: integer
-                        format: int32
-                        description: 'Activation price type: 0-unknown, 1-latest price,
-                          2-index price, 3-mark price'
-                        enum:
-                        - 0
-                        - 1
-                        - 2
-                        - 3
-                      price_offset:
-                        type: string
-                        description: Callback ratio or price distance, e.g., `0.1`
-                          or `0.1%`
-                      text:
-                        type: string
-                        description: Custom field
-                      reduce_only:
-                        type: boolean
-                        description: Reduce Position Only
-                      position_related:
-                        type: boolean
-                        description: Whether bound to position
-                      created_at:
-                        type: string
-                        description: Created time
-                        readOnly: true
-                      activated_at:
-                        type: string
-                        description: Activation time
-                        readOnly: true
-                      finished_at:
-                        type: string
-                        description: End time
-                        readOnly: true
-                      create_time:
-                        type: string
-                        description: Created time
-                        readOnly: true
-                      active_time:
-                        type: string
-                        description: Activation time
-                        readOnly: true
-                      finish_time:
-                        type: string
-                        description: End time
-                        readOnly: true
-                      reason:
-                        type: string
-                        description: End reason
-                        readOnly: true
-                      suborder_text:
-                        type: string
-                        description: The child order's text field.
-                        readOnly: true
-                      is_dual_mode:
-                        type: boolean
-                        description: Whether dual position mode when creating order
-                        readOnly: true
-                      trigger_price:
-                        type: string
-                        description: Trigger price
-                        readOnly: true
-                      suborder_id:
-                        type: string
-                        description: Child order ID.
-                        readOnly: true
-                        x-is-bigint: true
-                      side_label:
-                        type: string
-                        description: 'Order direction label: long/short/open long/open
-                          short/close long/close short'
-                        readOnly: true
-                      original_status:
-                        type: integer
-                        format: int32
-                        description: Order status
-                        readOnly: true
-                      status:
-                        type: string
-                        description: 'Simplified order status: open/finished'
-                        readOnly: true
-                        enum:
-                        - open
-                        - finished
-                      position_side_output:
-                        type: string
-                        description: Same as side_label, client requires consistency
-                          with other order types
-                        readOnly: true
-                      updated_at:
-                        type: string
-                        description: Update time
-                        readOnly: true
-                      extremum_price:
-                        type: string
-                        description: Extremum price
-                        readOnly: true
-                      status_code:
-                        type: string
-                        description: Status code value
-                        readOnly: true
-                      created_at_precise:
-                        type: string
-                        description: Creation time (high precision, seconds.microseconds
-                          format)
-                        readOnly: true
-                      finished_at_precise:
-                        type: string
-                        description: End time (high precision, seconds.microseconds
-                          format)
-                        readOnly: true
-                      activated_at_precise:
-                        type: string
-                        description: Activation time (high precision, seconds.microseconds
-                          format)
-                        readOnly: true
-                      status_label:
-                        type: string
-                        description: Status internationalization label (translated
-                          status text)
-                        readOnly: true
-                      pos_margin_mode:
-                        type: string
-                        description: 'Position margin mode: isolated/cross'
-                        readOnly: true
-                      position_mode:
-                        type: string
-                        description: 'Position mode: single, dual, and dual_plus'
-                        readOnly: true
-                      error_label:
-                        type: string
-                        description: Error label
-                        readOnly: true
-                      leverage:
-                        type: string
-                        description: Leverage
-                        readOnly: true
+                $ref: '#/components/schemas/TrailOrderDetailResponse'
               example:
-                id: '63585'
-                user_id: '2124438083'
-                contract: BTC_USDT
-                settle: usdt
-                amount: '10'
-                is_gte: false
-                activation_price: '0'
-                price_type: 1
-                price_offset: 5%
-                text: apiv4
-                reduce_only: false
-                position_related: false
-                created_at: '1769569837'
-                activated_at: '1769569837'
-                finished_at: '1769578529'
-                reason: ''
-                suborder_text: apiv4-auto-trail-o-1d29
-                is_dual_mode: false
-                trigger_price: '91047.4'
-                suborder_id: '94294117233225616'
-                side_label: 买入
-                original_status: 4
-                status: finished
-                user: '2124438083'
-                create_time: '1769569837'
-                active_time: '1769569837'
-                finish_time: '1769578529'
-                position_side_output: 买入
-                updated_at: '1769578529'
-                extremum_price: '86711.9'
-                status_code: success
-                created_at_precise: '1769569837778000'
-                finished_at_precise: '1769578529853294'
-                activated_at_precise: '1769569837976010'
-                status_label: 已完成
-                pos_margin_mode: ''
-                position_mode: single
-                error_label: ''
-                leverage: ''
+                code: 0
+                message: ok
+                data:
+                  order:
+                    id: '63585'
+                    user_id: '2124438083'
+                    contract: BTC_USDT
+                    settle: usdt
+                    amount: '10'
+                    is_gte: false
+                    activation_price: '0'
+                    price_type: 1
+                    price_offset: 5%
+                    text: apiv4
+                    reduce_only: false
+                    position_related: false
+                    created_at: '1769569837'
+                    activated_at: '1769569837'
+                    finished_at: '1769584936'
+                    reason: ''
+                    suborder_text: apiv4-auto-trail-o-1d29
+                    is_dual_mode: false
+                    trigger_price: '91047.4'
+                    suborder_id: '94294117233225616'
+                    side_label: 买入
+                    original_status: 5
+                    status: finished
+                    user: '2124438083'
+                    create_time: '1769569837'
+                    active_time: '1769569837'
+                    finish_time: '1769584936'
+                    position_side_output: 买入
+                    updated_at: '1769584936'
+                    extremum_price: '86711.9'
+                    status_code: cancelled
+                    created_at_precise: '1769569837778000'
+                    finished_at_precise: '1769584936814000'
+                    activated_at_precise: '1769569837976010'
+                    status_label: Canceled
+                    pos_margin_mode: ''
+                    position_mode: single
+                    error_label: ''
+                    leverage: ''
+                timestamp: 1769584936814
       parameters: []
   /futures/{settle}/autoorder/v1/trail/stop_all:
     parameters:
@@ -37324,224 +37166,52 @@ paths:
           content:
             application/json:
               schema:
-                title: TrailOrderResponse
-                type: object
-                properties:
-                  order:
-                    title: TrailOrder
-                    type: object
-                    description: Trail order details
-                    properties:
-                      id:
-                        type: string
-                        description: Order ID
-                        readOnly: true
-                        x-is-bigint: true
-                      user_id:
-                        type: string
-                        description: User ID
-                        readOnly: true
-                        x-is-bigint: true
-                      user:
-                        type: string
-                        description: User ID
-                        readOnly: true
-                        x-is-bigint: true
-                      contract:
-                        type: string
-                        description: Contract name
-                      settle:
-                        type: string
-                        description: Settle currency
-                      amount:
-                        type: string
-                        description: Trading quantity in contracts, positive for buy,
-                          negative for sell
-                      is_gte:
-                        type: boolean
-                        description: 'true: activate when market price >= activation
-                          price, false: <= activation price'
-                      activation_price:
-                        type: string
-                        description: Activation price, 0 means trigger immediately
-                      price_type:
-                        type: integer
-                        format: int32
-                        description: 'Activation price type: 0-unknown, 1-latest price,
-                          2-index price, 3-mark price'
-                        enum:
-                        - 0
-                        - 1
-                        - 2
-                        - 3
-                      price_offset:
-                        type: string
-                        description: Callback ratio or price distance, e.g., `0.1`
-                          or `0.1%`
-                      text:
-                        type: string
-                        description: Custom field
-                      reduce_only:
-                        type: boolean
-                        description: Reduce Position Only
-                      position_related:
-                        type: boolean
-                        description: Whether bound to position
-                      created_at:
-                        type: string
-                        description: Created time
-                        readOnly: true
-                      activated_at:
-                        type: string
-                        description: Activation time
-                        readOnly: true
-                      finished_at:
-                        type: string
-                        description: End time
-                        readOnly: true
-                      create_time:
-                        type: string
-                        description: Created time
-                        readOnly: true
-                      active_time:
-                        type: string
-                        description: Activation time
-                        readOnly: true
-                      finish_time:
-                        type: string
-                        description: End time
-                        readOnly: true
-                      reason:
-                        type: string
-                        description: End reason
-                        readOnly: true
-                      suborder_text:
-                        type: string
-                        description: The child order's text field.
-                        readOnly: true
-                      is_dual_mode:
-                        type: boolean
-                        description: Whether dual position mode when creating order
-                        readOnly: true
-                      trigger_price:
-                        type: string
-                        description: Trigger price
-                        readOnly: true
-                      suborder_id:
-                        type: string
-                        description: Child order ID.
-                        readOnly: true
-                        x-is-bigint: true
-                      side_label:
-                        type: string
-                        description: 'Order direction label: long/short/open long/open
-                          short/close long/close short'
-                        readOnly: true
-                      original_status:
-                        type: integer
-                        format: int32
-                        description: Order status
-                        readOnly: true
-                      status:
-                        type: string
-                        description: 'Simplified order status: open/finished'
-                        readOnly: true
-                        enum:
-                        - open
-                        - finished
-                      position_side_output:
-                        type: string
-                        description: Same as side_label, client requires consistency
-                          with other order types
-                        readOnly: true
-                      updated_at:
-                        type: string
-                        description: Update time
-                        readOnly: true
-                      extremum_price:
-                        type: string
-                        description: Extremum price
-                        readOnly: true
-                      status_code:
-                        type: string
-                        description: Status code value
-                        readOnly: true
-                      created_at_precise:
-                        type: string
-                        description: Creation time (high precision, seconds.microseconds
-                          format)
-                        readOnly: true
-                      finished_at_precise:
-                        type: string
-                        description: End time (high precision, seconds.microseconds
-                          format)
-                        readOnly: true
-                      activated_at_precise:
-                        type: string
-                        description: Activation time (high precision, seconds.microseconds
-                          format)
-                        readOnly: true
-                      status_label:
-                        type: string
-                        description: Status internationalization label (translated
-                          status text)
-                        readOnly: true
-                      pos_margin_mode:
-                        type: string
-                        description: 'Position margin mode: isolated/cross'
-                        readOnly: true
-                      position_mode:
-                        type: string
-                        description: 'Position mode: single, dual, and dual_plus'
-                        readOnly: true
-                      error_label:
-                        type: string
-                        description: Error label
-                        readOnly: true
-                      leverage:
-                        type: string
-                        description: Leverage
-                        readOnly: true
+                $ref: '#/components/schemas/TrailOrderDetailResponse'
               example:
-                id: '63585'
-                user_id: '2124438083'
-                contract: BTC_USDT
-                settle: usdt
-                amount: '10'
-                is_gte: false
-                activation_price: '0'
-                price_type: 1
-                price_offset: 5%
-                text: apiv4
-                reduce_only: false
-                position_related: false
-                created_at: '1769569837'
-                activated_at: '1769569837'
-                finished_at: '1769578529'
-                reason: ''
-                suborder_text: apiv4-auto-trail-o-1d29
-                is_dual_mode: false
-                trigger_price: '91047.4'
-                suborder_id: '94294117233225616'
-                side_label: 买入
-                original_status: 4
-                status: finished
-                user: '2124438083'
-                create_time: '1769569837'
-                active_time: '1769569837'
-                finish_time: '1769578529'
-                position_side_output: 买入
-                updated_at: '1769578529'
-                extremum_price: '86711.9'
-                status_code: success
-                created_at_precise: '1769569837778000'
-                finished_at_precise: '1769578529853294'
-                activated_at_precise: '1769569837976010'
-                status_label: 已完成
-                pos_margin_mode: ''
-                position_mode: single
-                error_label: ''
-                leverage: ''
+                code: 0
+                message: ok
+                data:
+                  order:
+                    id: '63585'
+                    user_id: '2124438083'
+                    contract: BTC_USDT
+                    settle: usdt
+                    amount: '10'
+                    is_gte: false
+                    activation_price: '0'
+                    price_type: 1
+                    price_offset: 5%
+                    text: apiv4
+                    reduce_only: false
+                    position_related: false
+                    created_at: '1769569837'
+                    activated_at: '1769569837'
+                    finished_at: '1769578529'
+                    reason: ''
+                    suborder_text: apiv4-auto-trail-o-1d29
+                    is_dual_mode: false
+                    trigger_price: '91047.4'
+                    suborder_id: '94294117233225616'
+                    side_label: 买入
+                    original_status: 4
+                    status: finished
+                    user: '2124438083'
+                    create_time: '1769569837'
+                    active_time: '1769569837'
+                    finish_time: '1769578529'
+                    position_side_output: 买入
+                    updated_at: '1769578529'
+                    extremum_price: '86711.9'
+                    status_code: success
+                    created_at_precise: '1769569837778000'
+                    finished_at_precise: '1769578529853294'
+                    activated_at_precise: '1769569837976010'
+                    status_label: 已完成
+                    pos_margin_mode: ''
+                    position_mode: single
+                    error_label: ''
+                    leverage: ''
+                timestamp: 1769584936814
       parameters: []
   /futures/{settle}/autoorder/v1/trail/change_log:
     get:
@@ -37593,28 +37263,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/TrailOrderChangeLogResponse'
               example:
-                change_log:
-                - updated_at: 1546569968
-                  amount: '10'
-                  is_gte: true
-                  activation_price: '50000'
-                  price_type: 1
-                  price_offset: 0.1%
-                  is_create: true
-                - updated_at: 1546570000
-                  amount: '20'
-                  is_gte: true
-                  activation_price: '51000'
-                  price_type: 1
-                  price_offset: 0.2%
-                  is_create: false
-                - updated_at: 1546570100
-                  amount: '20'
-                  is_gte: true
-                  activation_price: '51000'
-                  price_type: 2
-                  price_offset: 0.2%
-                  is_create: false
+                code: 0
+                message: ok
+                data:
+                  change_log:
+                  - updated_at: '1546569968'
+                    amount: '10'
+                    is_gte: true
+                    activation_price: '50000'
+                    price_type: 1
+                    price_offset: 0.1%
+                    is_create: true
+                  - updated_at: '1546570000'
+                    amount: '20'
+                    is_gte: true
+                    activation_price: '51000'
+                    price_type: 1
+                    price_offset: 0.2%
+                    is_create: false
+                  - updated_at: '1546570100'
+                    amount: '20'
+                    is_gte: true
+                    activation_price: '51000'
+                    price_type: 2
+                    price_offset: 0.2%
+                    is_create: false
+                timestamp: 1793627143000
       x-group-parameters: true
   /futures/{settle}/autoorder/v1/chase/create:
     post:

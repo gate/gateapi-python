@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.177"
+__version__ = "7.2.178"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -757,6 +757,7 @@ from gate_api.models.trade import Trade
 from gate_api.models.trade_fee import TradeFee
 from gate_api.models.trail_change_log import TrailChangeLog
 from gate_api.models.trail_order import TrailOrder
+from gate_api.models.trail_order_change_log_data import TrailOrderChangeLogData
 from gate_api.models.trail_order_change_log_response import TrailOrderChangeLogResponse
 from gate_api.models.trail_order_detail_response import TrailOrderDetailResponse
 from gate_api.models.trail_order_list_response import TrailOrderListResponse

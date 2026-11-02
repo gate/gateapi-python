@@ -33,7 +33,7 @@ class TrailChangeLog(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'updated_at': 'int',
+        'updated_at': 'str',
         'amount': 'str',
         'is_gte': 'bool',
         'activation_price': 'str',
@@ -53,7 +53,7 @@ class TrailChangeLog(object):
     }
 
     def __init__(self, updated_at=None, amount=None, is_gte=None, activation_price=None, price_type=None, price_offset=None, is_create=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, str, bool, str, int, str, bool, Configuration) -> None
+        # type: (str, str, bool, str, int, str, bool, Configuration) -> None
         """TrailChangeLog - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,7 +90,7 @@ class TrailChangeLog(object):
         Update time  # noqa: E501
 
         :return: The updated_at of this TrailChangeLog.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._updated_at
 
@@ -101,7 +101,7 @@ class TrailChangeLog(object):
         Update time  # noqa: E501
 
         :param updated_at: The updated_at of this TrailChangeLog.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._updated_at = updated_at
