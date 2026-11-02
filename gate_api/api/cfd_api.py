@@ -251,7 +251,7 @@ class CFDApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbols: List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required
+        :param str symbols: Comma-separated instrument symbols. Provide at least one of symbols and category_code.
         :param str category_code: List of category codes (multiple codes separated by commas). When provided together with symbols, filters symbols by category. At least one of symbol and category_code is required
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -276,7 +276,7 @@ class CFDApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str symbols: List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required
+        :param str symbols: Comma-separated instrument symbols. Provide at least one of symbols and category_code.
         :param str category_code: List of category codes (multiple codes separated by commas). When provided together with symbols, filters symbols by category. At least one of symbol and category_code is required
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2329,7 +2329,7 @@ class CFDApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number; defaults to 1 if omitted.
         :param int page_size: Page size; defaults to 10 if omitted. Maximum 100.
-        :param int begin_time: Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago
+        :param int begin_time: Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago.
         :param int end_time: End time (timestamp in seconds)
         :param str symbol: Trading symbol (e.g., EURUSD)
         :param str position_dir: Position direction (Long=long position, Short=short position)
@@ -2358,7 +2358,7 @@ class CFDApi(object):
         :param bool async_req: execute request asynchronously
         :param int page: Page number; defaults to 1 if omitted.
         :param int page_size: Page size; defaults to 10 if omitted. Maximum 100.
-        :param int begin_time: Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago
+        :param int begin_time: Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago.
         :param int end_time: End time (timestamp in seconds)
         :param str symbol: Trading symbol (e.g., EURUSD)
         :param str position_dir: Position direction (Long=long position, Short=short position)

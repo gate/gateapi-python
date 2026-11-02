@@ -162,7 +162,7 @@ class StockApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str symbols: Symbol list, multiple separated by commas
-        :param str exchange: Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
+        :param str exchange: Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks.
         :param bool with_desc_i18n: Whether to return multilingual symbol description
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500
@@ -191,7 +191,7 @@ class StockApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str symbols: Symbol list, multiple separated by commas
-        :param str exchange: Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
+        :param str exchange: Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks.
         :param bool with_desc_i18n: Whether to return multilingual symbol description
         :param int page: Page number, defaults to 1
         :param int page_size: Page size, defaults to 10, max 500; server caps at 500

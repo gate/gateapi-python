@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **mode** | **str** | Unified account mode: - classic: Classic account mode - multi_currency: Multi-currency margin mode - portfolio: Portfolio margin mode - single_currency: Single-currency margin mode | [optional] 
 **user_id** | **int** | User ID | [optional] 
 **refresh_time** | **int** | Last refresh time | [optional] 
-**locked** | **bool** | Whether the account is locked, valid in cross-currency margin/combined margin mode, false in other modes such as single-currency margin mode | [optional] 
+**locked** | **bool** | Whether the account is locked. Applicable in multi-currency margin and portfolio margin modes; false in other modes, such as single-currency margin mode. | [optional] 
 **balances** | [**dict(str, UnifiedBalance)**](UnifiedBalance.md) |  | [optional] 
 **total** | **str** | Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60; in all currencies (deprecated, to be removed, replaced by unified_account_total) | [optional] 
 **borrowed** | **str** | Total borrowed amount converted to USD, i.e. the sum of &#x60;borrowed * price&#x60; of all currencies (excluding point cards), valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode | [optional] 

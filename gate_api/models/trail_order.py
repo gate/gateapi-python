@@ -713,7 +713,7 @@ class TrailOrder(object):
     def suborder_text(self):
         """Gets the suborder_text of this TrailOrder.  # noqa: E501
 
-        Sub-order text field  # noqa: E501
+        The child order's text field.  # noqa: E501
 
         :return: The suborder_text of this TrailOrder.  # noqa: E501
         :rtype: str
@@ -724,7 +724,7 @@ class TrailOrder(object):
     def suborder_text(self, suborder_text):
         """Sets the suborder_text of this TrailOrder.
 
-        Sub-order text field  # noqa: E501
+        The child order's text field.  # noqa: E501
 
         :param suborder_text: The suborder_text of this TrailOrder.  # noqa: E501
         :type: str
@@ -782,7 +782,7 @@ class TrailOrder(object):
     def suborder_id(self):
         """Gets the suborder_id of this TrailOrder.  # noqa: E501
 
-        Sub-order ID  # noqa: E501
+        Child order ID.  # noqa: E501
 
         :return: The suborder_id of this TrailOrder.  # noqa: E501
         :rtype: int
@@ -793,7 +793,7 @@ class TrailOrder(object):
     def suborder_id(self, suborder_id):
         """Sets the suborder_id of this TrailOrder.
 
-        Sub-order ID  # noqa: E501
+        Child order ID.  # noqa: E501
 
         :param suborder_id: The suborder_id of this TrailOrder.  # noqa: E501
         :type: int

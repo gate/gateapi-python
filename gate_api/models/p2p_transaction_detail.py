@@ -315,7 +315,7 @@ class P2pTransactionDetail(object):
     def txid(self):
         """Gets the txid of this P2pTransactionDetail.  # noqa: E501
 
-        Order ID  # noqa: E501
+        Order ID (txid).  # noqa: E501
 
         :return: The txid of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -326,7 +326,7 @@ class P2pTransactionDetail(object):
     def txid(self, txid):
         """Sets the txid of this P2pTransactionDetail.
 
-        Order ID  # noqa: E501
+        Order ID (txid).  # noqa: E501
 
         :param txid: The txid of this P2pTransactionDetail.  # noqa: E501
         :type: int
@@ -338,7 +338,7 @@ class P2pTransactionDetail(object):
     def orderid(self):
         """Gets the orderid of this P2pTransactionDetail.  # noqa: E501
 
-        Order ID  # noqa: E501
+        ID of the posted order (orderid).  # noqa: E501
 
         :return: The orderid of this P2pTransactionDetail.  # noqa: E501
         :rtype: int
@@ -349,7 +349,7 @@ class P2pTransactionDetail(object):
     def orderid(self, orderid):
         """Sets the orderid of this P2pTransactionDetail.
 
-        Order ID  # noqa: E501
+        ID of the posted order (orderid).  # noqa: E501
 
         :param orderid: The orderid of this P2pTransactionDetail.  # noqa: E501
         :type: int

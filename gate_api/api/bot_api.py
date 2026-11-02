@@ -1044,7 +1044,7 @@ class BotApi(object):
             collection_formats=collection_formats)
 
     def get_ai_hub_portfolio_running(self, **kwargs):  # noqa: E501
-        """Query the list of running policies  # noqa: E501
+        """List running strategies.  # noqa: E501
 
         Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1076,7 +1076,7 @@ class BotApi(object):
         return self.get_ai_hub_portfolio_running_with_http_info(**kwargs)  # noqa: E501
 
     def get_ai_hub_portfolio_running_with_http_info(self, **kwargs):  # noqa: E501
-        """Query the list of running policies  # noqa: E501
+        """List running strategies.  # noqa: E501
 
         Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

@@ -89,7 +89,7 @@ class QuickRepaymentResponse(object):
     def repaid_infos(self):
         """Gets the repaid_infos of this QuickRepaymentResponse.  # noqa: E501
 
-        Repaid currency details  # noqa: E501
+        Repayment currency details: currency is the currency name, repaid is the amount repaid, and left is the remaining liability amount.  # noqa: E501
 
         :return: The repaid_infos of this QuickRepaymentResponse.  # noqa: E501
         :rtype: list[UnifiedQuickRepayRepaidInfo]
@@ -100,7 +100,7 @@ class QuickRepaymentResponse(object):
     def repaid_infos(self, repaid_infos):
         """Sets the repaid_infos of this QuickRepaymentResponse.
 
-        Repaid currency details  # noqa: E501
+        Repayment currency details: currency is the currency name, repaid is the amount repaid, and left is the remaining liability amount.  # noqa: E501
 
         :param repaid_infos: The repaid_infos of this QuickRepaymentResponse.  # noqa: E501
         :type: list[UnifiedQuickRepayRepaidInfo]
@@ -114,7 +114,7 @@ class QuickRepaymentResponse(object):
     def used_infos(self):
         """Gets the used_infos of this QuickRepaymentResponse.  # noqa: E501
 
-        Currencies used for repayment  # noqa: E501
+        Details of currencies used for repayment: currency is the currency name, and used is the amount exchanged.  # noqa: E501
 
         :return: The used_infos of this QuickRepaymentResponse.  # noqa: E501
         :rtype: list[UnifiedQuickRepayUsedInfo]
@@ -125,7 +125,7 @@ class QuickRepaymentResponse(object):
     def used_infos(self, used_infos):
         """Sets the used_infos of this QuickRepaymentResponse.
 
-        Currencies used for repayment  # noqa: E501
+        Details of currencies used for repayment: currency is the currency name, and used is the amount exchanged.  # noqa: E501
 
         :param used_infos: The used_infos of this QuickRepaymentResponse.  # noqa: E501
         :type: list[UnifiedQuickRepayUsedInfo]

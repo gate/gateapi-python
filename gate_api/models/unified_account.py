@@ -231,7 +231,7 @@ class UnifiedAccount(object):
     def locked(self):
         """Gets the locked of this UnifiedAccount.  # noqa: E501
 
-        Whether the account is locked, valid in cross-currency margin/combined margin mode, false in other modes such as single-currency margin mode  # noqa: E501
+        Whether the account is locked. Applicable in multi-currency margin and portfolio margin modes; false in other modes, such as single-currency margin mode.  # noqa: E501
 
         :return: The locked of this UnifiedAccount.  # noqa: E501
         :rtype: bool
@@ -242,7 +242,7 @@ class UnifiedAccount(object):
     def locked(self, locked):
         """Sets the locked of this UnifiedAccount.
 
-        Whether the account is locked, valid in cross-currency margin/combined margin mode, false in other modes such as single-currency margin mode  # noqa: E501
+        Whether the account is locked. Applicable in multi-currency margin and portfolio margin modes; false in other modes, such as single-currency margin mode.  # noqa: E501
 
         :param locked: The locked of this UnifiedAccount.  # noqa: E501
         :type: bool

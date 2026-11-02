@@ -175,7 +175,7 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.CFDApi(api_client)
-symbols = 'AUDUSD,XAUUSD' # str | List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required (optional)
+symbols = 'AUDUSD,XAUUSD' # str | Comma-separated instrument symbols. Provide at least one of symbols and category_code. (optional)
 category_code = 'forex-外汇,metal-金属,index-指数,commodity-大宗商品,stock-股票' # str | List of category codes (multiple codes separated by commas). When provided together with symbols, filters symbols by category. At least one of symbol and category_code is required (optional)
 
 try:
@@ -192,7 +192,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **str**| List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required | [optional] 
+ **symbols** | **str**| Comma-separated instrument symbols. Provide at least one of symbols and category_code. | [optional] 
  **category_code** | **str**| List of category codes (multiple codes separated by commas). When provided together with symbols, filters symbols by category. At least one of symbol and category_code is required | [optional] 
 
 ### Return type
@@ -1386,7 +1386,7 @@ api_client = gate_api.ApiClient(configuration)
 api_instance = gate_api.CFDApi(api_client)
 page = 1 # int | Page number; defaults to 1 if omitted. (optional)
 page_size = 10 # int | Page size; defaults to 10 if omitted. Maximum 100. (optional)
-begin_time = 56 # int | Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago (optional)
+begin_time = 56 # int | Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago. (optional)
 end_time = 56 # int | End time (timestamp in seconds) (optional)
 symbol = 'symbol_example' # str | Trading symbol (e.g., EURUSD) (optional)
 position_dir = 'position_dir_example' # str | Position direction (Long=long position, Short=short position) (optional)
@@ -1407,7 +1407,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number; defaults to 1 if omitted. | [optional] 
  **page_size** | **int**| Page size; defaults to 10 if omitted. Maximum 100. | [optional] 
- **begin_time** | **int**| Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago | [optional] 
+ **begin_time** | **int**| Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago. | [optional] 
  **end_time** | **int**| End time (timestamp in seconds) | [optional] 
  **symbol** | **str**| Trading symbol (e.g., EURUSD) | [optional] 
  **position_dir** | **str**| Position direction (Long&#x3D;long position, Short&#x3D;short position) | [optional] 

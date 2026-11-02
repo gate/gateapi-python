@@ -50,7 +50,7 @@ api_instance = gate_api.MultiCollateralLoanApi(api_client)
 page = 1 # int | Page number (optional) (default to 1)
 limit = 10 # int | Maximum number of records returned in a single list (optional) (default to 10)
 sort = 'ltv_asc' # str | Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio (optional)
-order_type = 'current' # str | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)
+order_type = 'current' # str | Order type: current for flexible-term orders; fixed for fixed-term orders. If omitted, current is used. (optional)
 
 try:
     # Query multi-currency collateral order list
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of records returned in a single list | [optional] [default to 10]
  **sort** | **str**| Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio | [optional] 
- **order_type** | **str**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional] 
+ **order_type** | **str**| Order type: current for flexible-term orders; fixed for fixed-term orders. If omitted, current is used. | [optional] 
 
 ### Return type
 

@@ -32,7 +32,7 @@ Method | HTTP request | Description
 [**list_my_options_trades**](OptionsApi.md#list_my_options_trades) | **GET** /options/my_trades | Query personal trading records
 [**get_options_mmp**](OptionsApi.md#get_options_mmp) | **GET** /options/mmp | MMP Query.
 [**set_options_mmp**](OptionsApi.md#set_options_mmp) | **POST** /options/mmp | MMP Settings
-[**reset_options_mmp**](OptionsApi.md#reset_options_mmp) | **POST** /options/mmp/reset | MMP Reset
+[**reset_options_mmp**](OptionsApi.md#reset_options_mmp) | **POST** /options/mmp/reset | Reset MMP for the specified underlying.
 
 
 # **list_options_underlyings**
@@ -1900,7 +1900,7 @@ Name | Type | Description  | Notes
 # **reset_options_mmp**
 > OptionsMMP reset_options_mmp(options_mmp_reset)
 
-MMP Reset
+Reset MMP for the specified underlying.
 
 ### Example
 
@@ -1929,7 +1929,7 @@ api_instance = gate_api.OptionsApi(api_client)
 options_mmp_reset = gate_api.OptionsMMPReset() # OptionsMMPReset | 
 
 try:
-    # MMP Reset
+    # Reset MMP for the specified underlying.
     api_response = api_instance.reset_options_mmp(options_mmp_reset)
     print(api_response)
 except GateApiException as ex:

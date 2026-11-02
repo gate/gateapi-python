@@ -177,7 +177,7 @@ class PlaceOrderRequest(object):
     def slippage(self):
         """Gets the slippage of this PlaceOrderRequest.  # noqa: E501
 
-        Slippage tolerance (10 means 10% tolerance)  # noqa: E501
+        Slippage percentage: \"10\" means 10%.  # noqa: E501
 
         :return: The slippage of this PlaceOrderRequest.  # noqa: E501
         :rtype: str
@@ -188,7 +188,7 @@ class PlaceOrderRequest(object):
     def slippage(self, slippage):
         """Sets the slippage of this PlaceOrderRequest.
 
-        Slippage tolerance (10 means 10% tolerance)  # noqa: E501
+        Slippage percentage: \"10\" means 10%.  # noqa: E501
 
         :param slippage: The slippage of this PlaceOrderRequest.  # noqa: E501
         :type: str

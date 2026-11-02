@@ -315,7 +315,7 @@ class Trade(object):
     def price(self):
         """Gets the price of this Trade.  # noqa: E501
 
-        Order price  # noqa: E501
+        Trade price.  # noqa: E501
 
         :return: The price of this Trade.  # noqa: E501
         :rtype: str
@@ -326,7 +326,7 @@ class Trade(object):
     def price(self, price):
         """Sets the price of this Trade.
 
-        Order price  # noqa: E501
+        Trade price.  # noqa: E501
 
         :param price: The price of this Trade.  # noqa: E501
         :type: str

@@ -340,6 +340,7 @@ from gate_api.models.futures_position_cross_mode import FuturesPositionCrossMode
 from gate_api.models.futures_premium_index import FuturesPremiumIndex
 from gate_api.models.futures_price_trigger import FuturesPriceTrigger
 from gate_api.models.futures_price_triggered_order import FuturesPriceTriggeredOrder
+from gate_api.models.futures_price_triggered_order_error import FuturesPriceTriggeredOrderError
 from gate_api.models.futures_risk_limit_tier import FuturesRiskLimitTier
 from gate_api.models.futures_ticker import FuturesTicker
 from gate_api.models.futures_trade import FuturesTrade
@@ -716,6 +717,7 @@ from gate_api.models.trail_order import TrailOrder
 from gate_api.models.trail_order_change_log_response import TrailOrderChangeLogResponse
 from gate_api.models.trail_order_detail_response import TrailOrderDetailResponse
 from gate_api.models.trail_order_list_response import TrailOrderListResponse
+from gate_api.models.trail_order_list_response_envelope import TrailOrderListResponseEnvelope
 from gate_api.models.trail_order_response import TrailOrderResponse
 from gate_api.models.transaction_config import TransactionConfig
 from gate_api.models.transaction_id import TransactionID

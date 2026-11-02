@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 Create lending or redemption
 
-Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+Set a minimum lending rate when lending. Once lending is determined to be successful at the top of the hour, earnings are calculated at the determined rate and settled at each hourly mark. If lending fails because the rate is too high, or funds are redeemed before the hourly assessment, no interest is earned for that hour. At the same rate, subscriptions created or amended earlier have lending priority. Redemption of funds that failed to be lent can be credited immediately. Successfully lent funds earn that hour’s return and are credited at the next hourly mark after redemption. The two minutes before and after each hourly mark are the settlement period, during which lending subscriptions and redemptions are prohibited.
 
 ### Example
 

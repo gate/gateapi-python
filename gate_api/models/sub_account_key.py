@@ -125,7 +125,7 @@ class SubAccountKey(object):
     def mode(self):
         """Gets the mode of this SubAccountKey.  # noqa: E501
 
-        Mode: 1 - classic 2 - portfolio account  # noqa: E501
+        Account mode: 1 for a classic account; 2 for a unified account.  # noqa: E501
 
         :return: The mode of this SubAccountKey.  # noqa: E501
         :rtype: int
@@ -136,7 +136,7 @@ class SubAccountKey(object):
     def mode(self, mode):
         """Sets the mode of this SubAccountKey.
 
-        Mode: 1 - classic 2 - portfolio account  # noqa: E501
+        Account mode: 1 for a classic account; 2 for a unified account.  # noqa: E501
 
         :param mode: The mode of this SubAccountKey.  # noqa: E501
         :type: int

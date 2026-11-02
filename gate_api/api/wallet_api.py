@@ -151,7 +151,7 @@ class WalletApi(object):
             collection_formats=collection_formats)
 
     def get_deposit_address(self, currency, **kwargs):  # noqa: E501
-        """Generate currency deposit address  # noqa: E501
+        """Get a currency deposit address  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -175,7 +175,7 @@ class WalletApi(object):
         return self.get_deposit_address_with_http_info(currency, **kwargs)  # noqa: E501
 
     def get_deposit_address_with_http_info(self, currency, **kwargs):  # noqa: E501
-        """Generate currency deposit address  # noqa: E501
+        """Get a currency deposit address  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1269,7 +1269,7 @@ class WalletApi(object):
             collection_formats=collection_formats)
 
     def list_withdraw_status(self, **kwargs):  # noqa: E501
-        """Query withdrawal status  # noqa: E501
+        """Get currency withdrawal fees and limits, optionally filtered by currency.  # noqa: E501
 
         API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1294,7 +1294,7 @@ class WalletApi(object):
         return self.list_withdraw_status_with_http_info(**kwargs)  # noqa: E501
 
     def list_withdraw_status_with_http_info(self, **kwargs):  # noqa: E501
-        """Query withdrawal status  # noqa: E501
+        """Get currency withdrawal fees and limits, optionally filtered by currency.  # noqa: E501
 
         API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2400,7 +2400,7 @@ class WalletApi(object):
             collection_formats=collection_formats)
 
     def list_small_balance_history(self, **kwargs):  # noqa: E501
-        """Get convertible small balance currency history  # noqa: E501
+        """Get small-balance conversion history  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2408,7 +2408,7 @@ class WalletApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Currency to convert
+        :param str currency: Filter by conversion currency.
         :param int page: Page number
         :param int limit: Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2426,7 +2426,7 @@ class WalletApi(object):
         return self.list_small_balance_history_with_http_info(**kwargs)  # noqa: E501
 
     def list_small_balance_history_with_http_info(self, **kwargs):  # noqa: E501
-        """Get convertible small balance currency history  # noqa: E501
+        """Get small-balance conversion history  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2434,7 +2434,7 @@ class WalletApi(object):
         >>> result = thread.get()
 
         :param bool async_req: execute request asynchronously
-        :param str currency: Currency to convert
+        :param str currency: Filter by conversion currency.
         :param int page: Page number
         :param int limit: Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
         :param _return_http_data_only: response data without head status code

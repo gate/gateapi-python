@@ -368,7 +368,7 @@ class FuturesOrder(object):
     def status(self):
         """Gets the status of this FuturesOrder.  # noqa: E501
 
-        Order status  - `open`: Pending - `finished`: Completed  # noqa: E501
+        Order status:  - `open`: pending - `finished`: the order has ended  # noqa: E501
 
         :return: The status of this FuturesOrder.  # noqa: E501
         :rtype: str
@@ -379,7 +379,7 @@ class FuturesOrder(object):
     def status(self, status):
         """Sets the status of this FuturesOrder.
 
-        Order status  - `open`: Pending - `finished`: Completed  # noqa: E501
+        Order status:  - `open`: pending - `finished`: the order has ended  # noqa: E501
 
         :param status: The status of this FuturesOrder.  # noqa: E501
         :type: str
@@ -422,7 +422,7 @@ class FuturesOrder(object):
     def size(self):
         """Gets the size of this FuturesOrder.  # noqa: E501
 
-        Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.  # noqa: E501
+        Required. Order size in contracts: positive to buy and negative to sell. Set to 0 for a closing order.  # noqa: E501
 
         :return: The size of this FuturesOrder.  # noqa: E501
         :rtype: str
@@ -433,7 +433,7 @@ class FuturesOrder(object):
     def size(self, size):
         """Sets the size of this FuturesOrder.
 
-        Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.  # noqa: E501
+        Required. Order size in contracts: positive to buy and negative to sell. Set to 0 for a closing order.  # noqa: E501
 
         :param size: The size of this FuturesOrder.  # noqa: E501
         :type: str
@@ -708,7 +708,7 @@ class FuturesOrder(object):
     def tkfr(self):
         """Gets the tkfr of this FuturesOrder.  # noqa: E501
 
-        Taker fee  # noqa: E501
+        Taker fee rate.  # noqa: E501
 
         :return: The tkfr of this FuturesOrder.  # noqa: E501
         :rtype: str
@@ -719,7 +719,7 @@ class FuturesOrder(object):
     def tkfr(self, tkfr):
         """Sets the tkfr of this FuturesOrder.
 
-        Taker fee  # noqa: E501
+        Taker fee rate.  # noqa: E501
 
         :param tkfr: The tkfr of this FuturesOrder.  # noqa: E501
         :type: str
@@ -731,7 +731,7 @@ class FuturesOrder(object):
     def mkfr(self):
         """Gets the mkfr of this FuturesOrder.  # noqa: E501
 
-        Maker fee  # noqa: E501
+        Maker fee rate.  # noqa: E501
 
         :return: The mkfr of this FuturesOrder.  # noqa: E501
         :rtype: str
@@ -742,7 +742,7 @@ class FuturesOrder(object):
     def mkfr(self, mkfr):
         """Sets the mkfr of this FuturesOrder.
 
-        Maker fee  # noqa: E501
+        Maker fee rate.  # noqa: E501
 
         :param mkfr: The mkfr of this FuturesOrder.  # noqa: E501
         :type: str

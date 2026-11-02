@@ -1109,7 +1109,7 @@ class Contract(object):
     def enable_credit(self):
         """Gets the enable_credit of this Contract.  # noqa: E501
 
-        Whether portfolio margin account is enabled  # noqa: E501
+        Whether this contract supports unified accounts.  # noqa: E501
 
         :return: The enable_credit of this Contract.  # noqa: E501
         :rtype: bool
@@ -1120,7 +1120,7 @@ class Contract(object):
     def enable_credit(self, enable_credit):
         """Sets the enable_credit of this Contract.
 
-        Whether portfolio margin account is enabled  # noqa: E501
+        Whether this contract supports unified accounts.  # noqa: E501
 
         :param enable_credit: The enable_credit of this Contract.  # noqa: E501
         :type: bool
@@ -1201,7 +1201,7 @@ class Contract(object):
     def launch_time(self):
         """Gets the launch_time of this Contract.  # noqa: E501
 
-        Contract expiry timestamp  # noqa: E501
+        Contract trading start time.  # noqa: E501
 
         :return: The launch_time of this Contract.  # noqa: E501
         :rtype: int
@@ -1212,7 +1212,7 @@ class Contract(object):
     def launch_time(self, launch_time):
         """Sets the launch_time of this Contract.
 
-        Contract expiry timestamp  # noqa: E501
+        Contract trading start time.  # noqa: E501
 
         :param launch_time: The launch_time of this Contract.  # noqa: E501
         :type: int

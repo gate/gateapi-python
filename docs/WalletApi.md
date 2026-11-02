@@ -5,7 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**list_currency_chains**](WalletApi.md#list_currency_chains) | **GET** /wallet/currency_chains | Query chains supported for specified currency
-[**get_deposit_address**](WalletApi.md#get_deposit_address) | **GET** /wallet/deposit_address | Generate currency deposit address
+[**get_deposit_address**](WalletApi.md#get_deposit_address) | **GET** /wallet/deposit_address | Get a currency deposit address
 [**list_withdrawals**](WalletApi.md#list_withdrawals) | **GET** /wallet/withdrawals | Get withdrawal records
 [**list_deposits**](WalletApi.md#list_deposits) | **GET** /wallet/deposits | Get deposit records
 [**get_transfer**](WalletApi.md#get_transfer) | **GET** /wallet/transfers | Get trading account transfer
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**transfer_with_sub_account**](WalletApi.md#transfer_with_sub_account) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**sub_account_to_sub_account**](WalletApi.md#sub_account_to_sub_account) | **POST** /wallet/sub_account_to_sub_account | Transfer between sub-accounts
 [**get_transfer_order_status**](WalletApi.md#get_transfer_order_status) | **GET** /wallet/order_status | Main-Sub Account Transfer Status Query
-[**list_withdraw_status**](WalletApi.md#list_withdraw_status) | **GET** /wallet/withdraw_status | Query withdrawal status
+[**list_withdraw_status**](WalletApi.md#list_withdraw_status) | **GET** /wallet/withdraw_status | Get currency withdrawal fees and limits, optionally filtered by currency.
 [**list_sub_account_balances**](WalletApi.md#list_sub_account_balances) | **GET** /wallet/sub_account_balances | Query sub-account balance information
 [**list_sub_account_margin_balances**](WalletApi.md#list_sub_account_margin_balances) | **GET** /wallet/sub_account_margin_balances | Query sub-account isolated margin account balance information
 [**list_sub_account_futures_balances**](WalletApi.md#list_sub_account_futures_balances) | **GET** /wallet/sub_account_futures_balances | Query sub-account perpetual futures account balance information
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**get_total_balance**](WalletApi.md#get_total_balance) | **GET** /wallet/total_balance | Query personal account totals
 [**list_small_balance**](WalletApi.md#list_small_balance) | **GET** /wallet/small_balance | Get list of convertible small balance currencies
 [**convert_small_balance**](WalletApi.md#convert_small_balance) | **POST** /wallet/small_balance | Convert small balance currency
-[**list_small_balance_history**](WalletApi.md#list_small_balance_history) | **GET** /wallet/small_balance_history | Get convertible small balance currency history
+[**list_small_balance_history**](WalletApi.md#list_small_balance_history) | **GET** /wallet/small_balance_history | Get small-balance conversion history
 [**list_push_orders**](WalletApi.md#list_push_orders) | **GET** /wallet/push | Get UID transfer history
 [**get_low_cap_exchange_list**](WalletApi.md#get_low_cap_exchange_list) | **GET** /wallet/getLowCapExchangeList | Retrieve the list of low-liquidity or low-cap tokens
 
@@ -92,7 +92,7 @@ No authorization required
 # **get_deposit_address**
 > DepositAddress get_deposit_address(currency)
 
-Generate currency deposit address
+Get a currency deposit address
 
 ### Example
 
@@ -121,7 +121,7 @@ api_instance = gate_api.WalletApi(api_client)
 currency = 'USDT' # str | Currency name
 
 try:
-    # Generate currency deposit address
+    # Get a currency deposit address
     api_response = api_instance.get_deposit_address(currency)
     print(api_response)
 except GateApiException as ex:
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 # **list_withdraw_status**
 > list[WithdrawStatus] list_withdraw_status(currency=currency)
 
-Query withdrawal status
+Get currency withdrawal fees and limits, optionally filtered by currency.
 
 API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
 
@@ -774,7 +774,7 @@ api_instance = gate_api.WalletApi(api_client)
 currency = 'BTC' # str | Query by specified currency name (optional)
 
 try:
-    # Query withdrawal status
+    # Get currency withdrawal fees and limits, optionally filtered by currency.
     api_response = api_instance.list_withdraw_status(currency=currency)
     print(api_response)
 except GateApiException as ex:
@@ -1428,7 +1428,7 @@ void (empty response body)
 # **list_small_balance_history**
 > list[SmallBalanceHistory] list_small_balance_history(currency=currency, page=page, limit=limit)
 
-Get convertible small balance currency history
+Get small-balance conversion history
 
 ### Example
 
@@ -1454,12 +1454,12 @@ configuration = gate_api.Configuration(
 api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.WalletApi(api_client)
-currency = 'currency_example' # str | Currency to convert (optional)
+currency = 'currency_example' # str | Filter by conversion currency. (optional)
 page = 1 # int | Page number (optional) (default to 1)
 limit = 100 # int | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 (optional) (default to 100)
 
 try:
-    # Get convertible small balance currency history
+    # Get small-balance conversion history
     api_response = api_instance.list_small_balance_history(currency=currency, page=page, limit=limit)
     print(api_response)
 except GateApiException as ex:
@@ -1472,7 +1472,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **str**| Currency to convert | [optional] 
+ **currency** | **str**| Filter by conversion currency. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **limit** | **int**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 

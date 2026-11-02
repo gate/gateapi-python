@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **update_time** | **float** | OrderUpdateTime | [optional] [readonly] 
 **finish_time** | **float** | Order finished time. Not returned if order is open | [optional] [readonly] 
 **finish_as** | **str** | How the order was finished:  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set - position_closed: cancelled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention | [optional] [readonly] 
-**status** | **str** | Order status  - &#x60;open&#x60;: Pending - &#x60;finished&#x60;: Completed | [optional] [readonly] 
+**status** | **str** | Order status:  - &#x60;open&#x60;: pending - &#x60;finished&#x60;: the order has ended | [optional] [readonly] 
 **contract** | **str** | Futures contract | 
-**size** | **str** | Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders. | 
+**size** | **str** | Required. Order size in contracts: positive to buy and negative to sell. Set to 0 for a closing order. | 
 **iceberg** | **str** | Display size for iceberg orders. 0 for non-iceberg orders. Note that hidden portions are charged taker fees. | [optional] 
 **price** | **str** | Required. Order Price; a price of 0 with &#x60;tif&#x60; as &#x60;ioc&#x60; represents a market order. | 
 **close** | **bool** | Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0 | [optional] [default to False]
@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **left** | **str** | Unfilled quantity | [optional] [readonly] 
 **fill_price** | **str** | Fill price | [optional] [readonly] 
 **text** | **str** | Custom order information. If not empty, must follow the rules below:  1. Prefixed with &#x60;t-&#x60; 2. No longer than 28 bytes without &#x60;t-&#x60; prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance - clear: Contract delisting withdrawal | [optional] 
-**tkfr** | **str** | Taker fee | [optional] [readonly] 
-**mkfr** | **str** | Maker fee | [optional] [readonly] 
+**tkfr** | **str** | Taker fee rate. | [optional] [readonly] 
+**mkfr** | **str** | Maker fee rate. | [optional] [readonly] 
 **refu** | **int** | Referrer user ID | [optional] [readonly] 
 **auto_size** | **str** | Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0 | [optional] 
 **stp_id** | **int** | Orders between users in the same &#x60;stp_id&#x60; group are not allowed to be self-traded  1. If the &#x60;stp_id&#x60; of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the &#x60;stp_act&#x60; of the taker. 2. &#x60;stp_id&#x60; returns &#x60;0&#x60; by default for orders that have not been set for &#x60;STP group&#x60; | [optional] [readonly] 

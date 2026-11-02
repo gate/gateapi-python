@@ -412,7 +412,7 @@ class Order(object):
     def status(self):
         """Gets the status of this Order.  # noqa: E501
 
-        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
+        Order status:  - `open`: pending - `closed`: ended - `cancelled`: cancelled  # noqa: E501
 
         :return: The status of this Order.  # noqa: E501
         :rtype: str
@@ -423,7 +423,7 @@ class Order(object):
     def status(self, status):
         """Sets the status of this Order.
 
-        Order status  - `open`: to be filled - `closed`: closed order - `cancelled`: cancelled  # noqa: E501
+        Order status:  - `open`: pending - `closed`: ended - `cancelled`: cancelled  # noqa: E501
 
         :param status: The status of this Order.  # noqa: E501
         :type: str
@@ -572,7 +572,7 @@ class Order(object):
     def amount(self):
         """Gets the amount of this Order.  # noqa: E501
 
-        Trade amount When `type` is `limit`, this is the base currency to trade (the currency being bought or sold), e.g. `BTC` in `BTC_USDT`. When `type` is `market`, the meaning depends on the side: - `side`: `buy` refers to the quote currency, e.g. `USDT` in `BTC_USDT` - `side`: `sell` refers to the base currency, e.g. `BTC` in `BTC_USDT`  # noqa: E501
+        Order amount.  - `type=limit`: measured in the base currency. - `type=market`: `side=buy` uses the quote currency; `side=sell` uses the base currency.  For `BTC_USDT`, the base currency is `BTC` and the quote currency is `USDT`.  # noqa: E501
 
         :return: The amount of this Order.  # noqa: E501
         :rtype: str
@@ -583,7 +583,7 @@ class Order(object):
     def amount(self, amount):
         """Sets the amount of this Order.
 
-        Trade amount When `type` is `limit`, this is the base currency to trade (the currency being bought or sold), e.g. `BTC` in `BTC_USDT`. When `type` is `market`, the meaning depends on the side: - `side`: `buy` refers to the quote currency, e.g. `USDT` in `BTC_USDT` - `side`: `sell` refers to the base currency, e.g. `BTC` in `BTC_USDT`  # noqa: E501
+        Order amount.  - `type=limit`: measured in the base currency. - `type=market`: `side=buy` uses the quote currency; `side=sell` uses the base currency.  For `BTC_USDT`, the base currency is `BTC` and the quote currency is `USDT`.  # noqa: E501
 
         :param amount: The amount of this Order.  # noqa: E501
         :type: str
@@ -620,7 +620,7 @@ class Order(object):
     def time_in_force(self):
         """Gets the time_in_force of this Order.  # noqa: E501
 
-        Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only `ioc` and `fok` are supported when `type`=`market`  # noqa: E501
+        Time in force:  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, immediate execution or cancellation, taker-only - poc: PendingOrCancelled, post-only, maker-only - fok: FillOrKill, fill in full or cancel in full  For `type=market`, only `ioc` and `fok` are supported.  # noqa: E501
 
         :return: The time_in_force of this Order.  # noqa: E501
         :rtype: str
@@ -631,7 +631,7 @@ class Order(object):
     def time_in_force(self, time_in_force):
         """Sets the time_in_force of this Order.
 
-        Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only `ioc` and `fok` are supported when `type`=`market`  # noqa: E501
+        Time in force:  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, immediate execution or cancellation, taker-only - poc: PendingOrCancelled, post-only, maker-only - fok: FillOrKill, fill in full or cancel in full  For `type=market`, only `ioc` and `fok` are supported.  # noqa: E501
 
         :param time_in_force: The time_in_force of this Order.  # noqa: E501
         :type: str
@@ -649,7 +649,7 @@ class Order(object):
     def iceberg(self):
         """Gets the iceberg of this Order.  # noqa: E501
 
-        Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported  # noqa: E501
+        Displayed amount of an iceberg order. Omit this field or pass \"0\" for a regular order. Fully hidden orders are not supported.  # noqa: E501
 
         :return: The iceberg of this Order.  # noqa: E501
         :rtype: str
@@ -660,7 +660,7 @@ class Order(object):
     def iceberg(self, iceberg):
         """Sets the iceberg of this Order.
 
-        Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported  # noqa: E501
+        Displayed amount of an iceberg order. Omit this field or pass \"0\" for a regular order. Fully hidden orders are not supported.  # noqa: E501
 
         :param iceberg: The iceberg of this Order.  # noqa: E501
         :type: str

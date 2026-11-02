@@ -3454,7 +3454,7 @@ class OptionsApi(object):
             collection_formats=collection_formats)
 
     def reset_options_mmp(self, options_mmp_reset, **kwargs):  # noqa: E501
-        """MMP Reset  # noqa: E501
+        """Reset MMP for the specified underlying.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3478,7 +3478,7 @@ class OptionsApi(object):
         return self.reset_options_mmp_with_http_info(options_mmp_reset, **kwargs)  # noqa: E501
 
     def reset_options_mmp_with_http_info(self, options_mmp_reset, **kwargs):  # noqa: E501
-        """MMP Reset  # noqa: E501
+        """Reset MMP for the specified underlying.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

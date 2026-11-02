@@ -2495,7 +2495,7 @@ Name | Type | Description  | Notes
 
 Query futures order list
 
-- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.
+- Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.
 
 ### Example
 
@@ -2574,7 +2574,7 @@ Name | Type | Description  | Notes
 
 Place futures order
 
-- When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In dual warehouse mode,   - Reduce position: reduce_only=true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size=0, set the direction of closing position according to auto_size, and set `reduce_only` to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`
+- When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`
 
 ### Example
 
@@ -2878,7 +2878,7 @@ Name | Type | Description  | Notes
 
 Query single order details
 
-- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
+- Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported. 
 
 ### Example
 
@@ -3283,7 +3283,7 @@ limit = 100 # int | Maximum number of records returned in a single list (optiona
 offset = 0 # int | List offset, starting from 0 (optional) (default to 0)
 _from = 1547706332 # int | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
 to = 1547706332 # int | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
-side = 'short' # str | Query side. long or shot (optional)
+side = 'short' # str | Direction filter: long or short. (optional)
 pnl = 'profit' # str | Query profit or loss (optional)
 
 try:
@@ -3306,7 +3306,7 @@ Name | Type | Description  | Notes
  **offset** | **int**| List offset, starting from 0 | [optional] [default to 0]
  **_from** | **int**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **int**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
- **side** | **str**| Query side. long or shot | [optional] 
+ **side** | **str**| Direction filter: long or short. | [optional] 
  **pnl** | **str**| Query profit or loss | [optional] 
 
 ### Return type
@@ -4116,7 +4116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trail_orders**
-> TrailOrderListResponse get_trail_orders(settle, contract=contract, is_finished=is_finished, start_at=start_at, end_at=end_at, page_num=page_num, page_size=page_size, sort_by=sort_by, hide_cancel=hide_cancel, related_position=related_position, sort_by_trigger=sort_by_trigger, reduce_only=reduce_only, side=side)
+> TrailOrderListResponseEnvelope get_trail_orders(settle, contract=contract, is_finished=is_finished, start_at=start_at, end_at=end_at, page_num=page_num, page_size=page_size, sort_by=sort_by, hide_cancel=hide_cancel, related_position=related_position, sort_by_trigger=sort_by_trigger, reduce_only=reduce_only, side=side)
 
 Get trail order list
 
@@ -4188,7 +4188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderListResponse**](TrailOrderListResponse.md)
+[**TrailOrderListResponseEnvelope**](TrailOrderListResponseEnvelope.md)
 
 ### Authorization
 
@@ -4654,7 +4654,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.FuturesApi(api_client)
 settle = 'usdt' # str | Perpetual futures settlement currency
-sort_by = 56 # int | Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0
+sort_by = 56 # int | Sort field: 1 for creation time; 2 for finish time. 0 is not accepted.
 contract = 'contract_example' # str | Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase (optional)
 is_finished = True # bool | true to query finished orders, false to query in-progress orders (optional)
 start_at = 56 # int | Lower time bound for the history list, paired with end_at. Required when is_finished is true (optional)
@@ -4680,7 +4680,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **str**| Perpetual futures settlement currency | 
- **sort_by** | **int**| Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 | 
+ **sort_by** | **int**| Sort field: 1 for creation time; 2 for finish time. 0 is not accepted. | 
  **contract** | **str**| Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase | [optional] 
  **is_finished** | **bool**| true to query finished orders, false to query in-progress orders | [optional] 
  **start_at** | **int**| Lower time bound for the history list, paired with end_at. Required when is_finished is true | [optional] 
@@ -5059,6 +5059,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Auto order details |  -  |
+**205** | Business error response when the price-triggered order does not exist (HTTP 205). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

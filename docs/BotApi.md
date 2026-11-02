@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**post_ai_hub_futures_grid_create**](BotApi.md#post_ai_hub_futures_grid_create) | **POST** /bot/futures-grid/create | Create a contract grid
 [**post_ai_hub_spot_martingale_create**](BotApi.md#post_ai_hub_spot_martingale_create) | **POST** /bot/spot-martingale/create | Create Spot Martin
 [**post_ai_hub_contract_martingale_create**](BotApi.md#post_ai_hub_contract_martingale_create) | **POST** /bot/contract-martingale/create | Create contract martin
-[**get_ai_hub_portfolio_running**](BotApi.md#get_ai_hub_portfolio_running) | **GET** /bot/portfolio/running | Query the list of running policies
+[**get_ai_hub_portfolio_running**](BotApi.md#get_ai_hub_portfolio_running) | **GET** /bot/portfolio/running | List running strategies.
 [**get_ai_hub_portfolio_detail**](BotApi.md#get_ai_hub_portfolio_detail) | **GET** /bot/portfolio/detail | Query order policy details
 [**post_ai_hub_portfolio_stop**](BotApi.md#post_ai_hub_portfolio_stop) | **POST** /bot/portfolio/stop | Terminate a single running policy
 [**post_ai_hub_smart_position_create**](BotApi.md#post_ai_hub_smart_position_create) | **POST** /bot/smart-position/create | Create rebalance bot
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 # **get_ai_hub_portfolio_running**
 > AIHubPortfolioRunningSuccessResponse get_ai_hub_portfolio_running(strategy_type=strategy_type, market=market, page=page, page_size=page_size, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
 
-Query the list of running policies
+List running strategies.
 
 Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.
 
@@ -616,7 +616,7 @@ x_request_id = 'x_request_id_example' # str | Request link ID; caller can transm
 x_trace_id = 'x_trace_id_example' # str | trace header; can be generated uniformly by APIv4 (optional)
 
 try:
-    # Query the list of running policies
+    # List running strategies.
     api_response = api_instance.get_ai_hub_portfolio_running(strategy_type=strategy_type, market=market, page=page, page_size=page_size, x_gate_service_id=x_gate_service_id, x_gate_app_lang=x_gate_app_lang, x_request_id=x_request_id, x_trace_id=x_trace_id)
     print(api_response)
 except GateApiException as ex:

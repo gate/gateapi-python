@@ -4681,7 +4681,7 @@ class FuturesApi(object):
     def list_futures_orders(self, settle, status, **kwargs):  # noqa: E501
         """Query futures order list  # noqa: E501
 
-        - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.  # noqa: E501
+        - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_orders(settle, status, async_req=True)
@@ -4711,7 +4711,7 @@ class FuturesApi(object):
     def list_futures_orders_with_http_info(self, settle, status, **kwargs):  # noqa: E501
         """Query futures order list  # noqa: E501
 
-        - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.  # noqa: E501
+        - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_orders_with_http_info(settle, status, async_req=True)
@@ -4830,7 +4830,7 @@ class FuturesApi(object):
     def create_futures_order(self, settle, futures_order, **kwargs):  # noqa: E501
         """Place futures order  # noqa: E501
 
-        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In dual warehouse mode,   - Reduce position: reduce_only=true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size=0, set the direction of closing position according to auto_size, and set `reduce_only` to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
+        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_futures_order(settle, futures_order, async_req=True)
@@ -4857,7 +4857,7 @@ class FuturesApi(object):
     def create_futures_order_with_http_info(self, settle, futures_order, **kwargs):  # noqa: E501
         """Place futures order  # noqa: E501
 
-        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In dual warehouse mode,   - Reduce position: reduce_only=true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size=0, set the direction of closing position according to auto_size, and set `reduce_only` to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
+        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_futures_order_with_http_info(settle, futures_order, async_req=True)
@@ -5381,7 +5381,7 @@ class FuturesApi(object):
     def get_futures_order(self, settle, order_id, **kwargs):  # noqa: E501
         """Query single order details  # noqa: E501
 
-        - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.    # noqa: E501
+        - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_futures_order(settle, order_id, async_req=True)
@@ -5407,7 +5407,7 @@ class FuturesApi(object):
     def get_futures_order_with_http_info(self, settle, order_id, **kwargs):  # noqa: E501
         """Query single order details  # noqa: E501
 
-        - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.    # noqa: E501
+        - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_futures_order_with_http_info(settle, order_id, async_req=True)
@@ -6079,7 +6079,7 @@ class FuturesApi(object):
         :param int offset: List offset, starting from 0
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        :param str side: Query side. long or shot
+        :param str side: Direction filter: long or short.
         :param str pnl: Query profit or loss
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6110,7 +6110,7 @@ class FuturesApi(object):
         :param int offset: List offset, starting from 0
         :param int _from: Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         :param int to: Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        :param str side: Query side. long or shot
+        :param str side: Direction filter: long or short.
         :param str pnl: Query profit or loss
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7680,7 +7680,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: gate_api.TrailOrderListResponse
+        :rtype: gate_api.TrailOrderListResponseEnvelope
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7718,7 +7718,7 @@ class FuturesApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :rtype: tuple(gate_api.TrailOrderListResponse, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(gate_api.TrailOrderListResponseEnvelope, status_code(int), headers(HTTPHeaderDict))
         :return: If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7815,7 +7815,7 @@ class FuturesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TrailOrderListResponse',  # noqa: E501
+            response_type='TrailOrderListResponseEnvelope',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8585,7 +8585,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Perpetual futures settlement currency (required)
-        :param int sort_by: Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
+        :param int sort_by: Sort field: 1 for creation time; 2 for finish time. 0 is not accepted. (required)
         :param str contract: Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
         :param bool is_finished: true to query finished orders, false to query in-progress orders
         :param int start_at: Lower time bound for the history list, paired with end_at. Required when is_finished is true
@@ -8619,7 +8619,7 @@ class FuturesApi(object):
 
         :param bool async_req: execute request asynchronously
         :param str settle: Perpetual futures settlement currency (required)
-        :param int sort_by: Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
+        :param int sort_by: Sort field: 1 for creation time; 2 for finish time. 0 is not accepted. (required)
         :param str contract: Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
         :param bool is_finished: true to query finished orders, false to query in-progress orders
         :param int start_at: Lower time bound for the history list, paired with end_at. Required when is_finished is true

@@ -550,7 +550,7 @@ class CurrencyPair(object):
     def delisting_time(self):
         """Gets the delisting_time of this CurrencyPair.  # noqa: E501
 
-        Expected time to remove the shelves, Unix timestamp in seconds  # noqa: E501
+        Expected delisting time as a Unix timestamp in seconds.  # noqa: E501
 
         :return: The delisting_time of this CurrencyPair.  # noqa: E501
         :rtype: int
@@ -561,7 +561,7 @@ class CurrencyPair(object):
     def delisting_time(self, delisting_time):
         """Sets the delisting_time of this CurrencyPair.
 
-        Expected time to remove the shelves, Unix timestamp in seconds  # noqa: E501
+        Expected delisting time as a Unix timestamp in seconds.  # noqa: E501
 
         :param delisting_time: The delisting_time of this CurrencyPair.  # noqa: E501
         :type: int

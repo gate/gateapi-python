@@ -293,7 +293,7 @@ class DualOrderRefundPreview(object):
     def req_id(self):
         """Gets the req_id of this DualOrderRefundPreview.  # noqa: E501
 
-        Request ID used for actual redemption  # noqa: E501
+        Request ID used for redemption, returned by GET /earn/dual/order-refund-preview. The request to POST /earn/dual/order-refund requires order_id and req_id.  # noqa: E501
 
         :return: The req_id of this DualOrderRefundPreview.  # noqa: E501
         :rtype: str
@@ -304,7 +304,7 @@ class DualOrderRefundPreview(object):
     def req_id(self, req_id):
         """Sets the req_id of this DualOrderRefundPreview.
 
-        Request ID used for actual redemption  # noqa: E501
+        Request ID used for redemption, returned by GET /earn/dual/order-refund-preview. The request to POST /earn/dual/order-refund requires order_id and req_id.  # noqa: E501
 
         :param req_id: The req_id of this DualOrderRefundPreview.  # noqa: E501
         :type: str

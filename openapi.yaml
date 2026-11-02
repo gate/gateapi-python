@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.173
+  version: v4.106.174
   x-betaNum: 1
   title: Gate API
   contact:
@@ -62,7 +62,7 @@ components:
         mode:
           type: integer
           format: int32
-          description: 'Mode: 1 - classic 2 - portfolio account'
+          description: 'Account mode: 1 for a classic account; 2 for a unified account.'
         name:
           type: string
           description: API Key Name
@@ -814,7 +814,7 @@ components:
           description: Whether bonus is enabled
         enable_credit:
           type: boolean
-          description: Whether portfolio margin account is enabled
+          description: Whether this contract supports unified accounts.
         create_time:
           type: number
           format: double
@@ -830,7 +830,7 @@ components:
         launch_time:
           type: integer
           format: int64
-          description: Contract expiry timestamp
+          description: Contract trading start time.
         delisting_time:
           type: integer
           format: int64
@@ -1058,7 +1058,7 @@ components:
         pid:
           type: integer
           format: int64
-          description: Sub-account position ID
+          description: Split-position ID.
           readOnly: true
         pos_margin_mode:
           type: string
@@ -1214,12 +1214,12 @@ components:
           readOnly: true
         status:
           type: string
-          description: 'Order status
+          description: 'Order status:
 
 
-            - `open`: Pending
+            - `open`: pending
 
-            - `finished`: Completed'
+            - `finished`: the order has ended'
           readOnly: true
           enum:
           - open
@@ -1229,8 +1229,8 @@ components:
           description: Futures contract
         size:
           type: string
-          description: Required. Trading quantity. Positive for buy, negative for
-            sell. Set to 0 for close position orders.
+          description: 'Required. Order size in contracts: positive to buy and negative
+            to sell. Set to 0 for a closing order.'
         iceberg:
           type: string
           description: Display size for iceberg orders. 0 for non-iceberg orders.
@@ -1338,11 +1338,11 @@ components:
             - clear: Contract delisting withdrawal'
         tkfr:
           type: string
-          description: Taker fee
+          description: Taker fee rate.
           readOnly: true
         mkfr:
           type: string
-          description: Maker fee
+          description: Maker fee rate.
           readOnly: true
         refu:
           type: integer
@@ -2129,7 +2129,7 @@ components:
                   readOnly: true
                 suborder_text:
                   type: string
-                  description: Sub-order text field
+                  description: The child order's text field.
                   readOnly: true
                 is_dual_mode:
                   type: boolean
@@ -2142,7 +2142,7 @@ components:
                 suborder_id:
                   type: integer
                   format: int64
-                  description: Sub-order ID
+                  description: Child order ID.
                   readOnly: true
                   x-is-bigint: true
                 side_label:
@@ -3685,7 +3685,7 @@ components:
           description: Currency name
         min_rate:
           type: string
-          description: Minimum interest rate
+          description: Minimum hourly interest rate.
     UniLendInterest:
       title: UniLendInterest
       type: object
@@ -6179,10 +6179,10 @@ components:
                 no.'
             txid:
               type: integer
-              description: Order ID
+              description: Order ID (txid).
             orderid:
               type: integer
-              description: Order ID
+              description: ID of the posted order (orderid).
             timest:
               type: integer
               description: Order creation timestamp
@@ -12232,15 +12232,15 @@ components:
                 description: Deposit address
               payment_id:
                 type: string
-                description: Notes that some currencies required(e.g., Tag, Memo)
-                  when depositing
+                description: A memo required when depositing certain currencies, such
+                  as a Tag or Memo.
               payment_name:
                 type: string
                 description: Note type, `Tag` or `Memo`
               obtain_failed:
                 type: integer
-                description: 'The obtain failed status- 0: address successfully obtained-
-                  1: failed to obtain address'
+                description: 'Whether address retrieval failed: 0 means success; 1
+                  means failure and retrieval may need to be retried.'
               min_confirms:
                 type: integer
                 description: Minimum Confirmation Count
@@ -13372,8 +13372,9 @@ components:
           description: Last refresh time
         locked:
           type: boolean
-          description: Whether the account is locked, valid in cross-currency margin/combined
-            margin mode, false in other modes such as single-currency margin mode
+          description: Whether the account is locked. Applicable in multi-currency
+            margin and portfolio margin modes; false in other modes, such as single-currency
+            margin mode.
         balances:
           type: object
           additionalProperties:
@@ -13860,8 +13861,8 @@ components:
           description: Currency name
         equity:
           type: string
-          description: Currency equity, where equity = balance - borrowed, represents
-            the net delta exposure of your spot positions
+          description: Currency equity = balance - borrowed amount. It represents
+            net spot delta exposure and may be negative.
     MockSpotOrder:
       type: object
       description: Spot orders
@@ -14260,12 +14261,14 @@ components:
           description: Order ID
         repaid_infos:
           type: array
-          description: Repaid currency details
+          description: 'Repayment currency details: currency is the currency name,
+            repaid is the amount repaid, and left is the remaining liability amount.'
           items:
             $ref: '#/components/schemas/UnifiedQuickRepayRepaidInfo'
         used_infos:
           type: array
-          description: Currencies used for repayment
+          description: 'Details of currencies used for repayment: currency is the
+            currency name, and used is the amount exchanged.'
           items:
             $ref: '#/components/schemas/UnifiedQuickRepayUsedInfo'
     UnifiedQuickRepayRepaidInfo:
@@ -14496,7 +14499,7 @@ components:
           description: The main chain corresponding to the coin
         chains:
           type: array
-          description: All links corresponding to coins
+          description: All blockchains associated with this currency.
           items:
             type: object
             title: SpotCurrencyChain
@@ -14614,7 +14617,7 @@ components:
         delisting_time:
           type: integer
           format: int64
-          description: Expected time to remove the shelves, Unix timestamp in seconds
+          description: Expected delisting time as a Unix timestamp in seconds.
         type:
           type: string
           description: 'Trading pair type, normal: normal, premarket: pre-market'
@@ -14775,7 +14778,7 @@ components:
           description: Trade amount
         price:
           type: string
-          description: Order price
+          description: Trade price.
         order_id:
           type: string
           description: Related order ID, not returned in public endpoints
@@ -14977,12 +14980,12 @@ components:
           readOnly: true
         status:
           type: string
-          description: 'Order status
+          description: 'Order status:
 
 
-            - `open`: to be filled
+            - `open`: pending
 
-            - `closed`: closed order
+            - `closed`: ended
 
             - `cancelled`: cancelled'
           readOnly: true
@@ -15017,34 +15020,34 @@ components:
           - sell
         amount:
           type: string
-          description: 'Trade amount
+          description: 'Order amount.
 
-            When `type` is `limit`, this is the base currency to trade (the currency
-            being bought or sold), e.g. `BTC` in `BTC_USDT`.
 
-            When `type` is `market`, the meaning depends on the side:
+            - `type=limit`: measured in the base currency.
 
-            - `side`: `buy` refers to the quote currency, e.g. `USDT` in `BTC_USDT`
+            - `type=market`: `side=buy` uses the quote currency; `side=sell` uses
+            the base currency.
 
-            - `side`: `sell` refers to the base currency, e.g. `BTC` in `BTC_USDT`'
+
+            For `BTC_USDT`, the base currency is `BTC` and the quote currency is `USDT`.'
         price:
           type: string
           description: Trading price, required when `type`=`limit`
         time_in_force:
           type: string
-          description: 'Time in force
+          description: 'Time in force:
 
 
             - gtc: GoodTillCancelled
 
-            - ioc: ImmediateOrCancelled, taker only
+            - ioc: ImmediateOrCancelled, immediate execution or cancellation, taker-only
 
-            - poc: PendingOrCancelled, makes a post-only order that always enjoys
-            a maker fee
+            - poc: PendingOrCancelled, post-only, maker-only
 
-            - fok: FillOrKill, fill either completely or none
+            - fok: FillOrKill, fill in full or cancel in full
 
-            Only `ioc` and `fok` are supported when `type`=`market`'
+
+            For `type=market`, only `ioc` and `fok` are supported.'
           default: gtc
           enum:
           - gtc
@@ -15053,8 +15056,8 @@ components:
           - fok
         iceberg:
           type: string
-          description: Amount to display for the iceberg order. Null or 0 for normal
-            orders. Hiding all amount is not supported
+          description: Displayed amount of an iceberg order. Omit this field or pass
+            "0" for a regular order. Fully hidden orders are not supported.
         auto_borrow:
           type: boolean
           description: Used in margin or cross margin trading to allow automatic loan
@@ -20745,9 +20748,9 @@ components:
           - 3
         unrealised_pnl:
           type: string
-          description: Unrealised PnL = (mark price - entry price) * position size.
-            For long postion, size is positive; for short positon, size is negative.This
-            value is for reference only.
+          description: Unrealized PnL, for reference only. Position unrealized PnL
+            = (mark price - average entry price) × position quantity. Position quantity
+            is measured in currency units, negative for shorts and positive for longs.
         init_margin:
           type: string
           description: Initial position margin
@@ -20802,6 +20805,8 @@ components:
             - prem: Trading premium
 
             - fee: Trading fee
+
+            - set: settlement
 
             - refr: Referrer rebate
 
@@ -22216,7 +22221,8 @@ components:
           description: Order ID
         req_id:
           type: string
-          description: Request ID used for actual redemption
+          description: Request ID used for redemption, returned by GET /earn/dual/order-refund-preview.
+            The request to POST /earn/dual/order-refund requires order_id and req_id.
         refund_service_charge:
           type: integer
           format: int64
@@ -22879,7 +22885,8 @@ components:
           description: Fund source
     AutoInvestPlanUpdate:
       type: object
-      description: Update auto invest plan request
+      description: Request to update an auto-invest plan. The current model contains
+        plan_id, fund_source, and fund_flow.
       required:
       - plan_id
       properties:
@@ -24908,7 +24915,7 @@ components:
             - `custom` : Custom mode, uses `slippage` parameter'
         slippage:
           type: string
-          description: Slippage tolerance (10 means 10% tolerance)
+          description: 'Slippage percentage: "10" means 10%.'
         quote_id:
           type: string
           description: Quote ID returned from quotation API
@@ -25272,7 +25279,7 @@ paths:
     get:
       tags:
       - wallet
-      summary: Generate currency deposit address
+      summary: Get a currency deposit address
       operationId: getDepositAddress
       parameters:
       - name: currency
@@ -25739,7 +25746,7 @@ paths:
     get:
       tags:
       - wallet
-      summary: Query withdrawal status
+      summary: Get currency withdrawal fees and limits, optionally filtered by currency.
       description: API operations are not supported for tokens with low liquidity
         or extremely low value. Please use the Web or App interface to query and process.
       operationId: listWithdrawStatus
@@ -26299,12 +26306,12 @@ paths:
     get:
       tags:
       - wallet
-      summary: Get convertible small balance currency history
+      summary: Get small-balance conversion history
       operationId: listSmallBalanceHistory
       parameters:
       - name: currency
         in: query
-        description: Currency to convert
+        description: Filter by conversion currency.
         required: false
         schema:
           type: string
@@ -26971,9 +26978,9 @@ paths:
     get:
       tags:
       - Unified
-      summary: Batch query maximum transferable amount for unified accounts. Each
-        currency shows the maximum value. After user withdrawal, the transferable
-        amount for all currencies will change
+      summary: Get maximum transferable amounts for multiple unified-account currencies
+      description: Each currency’s value is its maximum transferable amount. After
+        a user withdrawal, the transferable amounts for all currencies will change.
       operationId: getUnifiedTransferables
       parameters:
       - name: currencies
@@ -27315,7 +27322,8 @@ paths:
         \ switches under the corresponding account mode during the switch.\n- When\
         \ enabling the classic account mode, mode=classic\n```\n PUT /unified/unified_mode\n\
         \ {\n \"mode\": \"classic\"\n }\n```\n- When enabling the cross-currency margin\
-        \ \"multi_currency\",\n \"settings\": {\n \"usdt_futures\": true\n }\n }\n\
+        \ mode, mode=multi_currency\n```\n PUT /unified/unified_mode\n {\n \"mode\"\
+        : \"multi_currency\",\n \"settings\": {\n \"usdt_futures\": true\n }\n }\n\
         ```\n- When enabling the portfolio margin mode, mode=portfolio\n```\n PUT\
         \ /unified/unified_mode\n {\n \"mode\": \"portfolio\",\n \"settings\": {\n\
         \ \"spot_hedge\": true\n }\n }\n```\n- When enabling the single-currency margin\
@@ -27408,7 +27416,7 @@ paths:
       tags:
       - Unified
       security: []
-      summary: Query unified account tiered
+      summary: Get currency margin discount tiers for unified accounts
       operationId: listCurrencyDiscountTiers
       responses:
         200:
@@ -28828,9 +28836,9 @@ paths:
       - spot
       security: []
       summary: Query all currency information
-      description: When a currency corresponds to multiple chains, you can query the
-        information of multiple chains through the `chains` field, such as the charging
-        and recharge status, identification, etc. of the chain
+      description: When a currency is associated with multiple blockchains, use `chains`
+        to view information about each chain, such as deposit and withdrawal status
+        and chain identifiers.
       operationId: listCurrencies
       responses:
         200:
@@ -30056,7 +30064,8 @@ paths:
               use_earn: false
       responses:
         201:
-          description: Order created
+          description: Order created. The execution result depends on the time-in-force
+            policy specified when placing the order.
           content:
             application/json:
               schema:
@@ -30293,7 +30302,7 @@ paths:
     delete:
       tags:
       - spot
-      summary: Cancel all `open` orders in specified currency pair
+      summary: Cancel `open` orders in bulk, optionally filtered by currency pair
       description: 'When the `account` parameter is not specified, all pending orders
         including spot, unified account, and isolated margin will be cancelled.
 
@@ -30565,48 +30574,26 @@ paths:
       tags:
       - spot
       summary: Amend single order
-      description: 'Modify orders in spot, unified account and isolated margin account
-        by default.
+      description: 'By default, amend orders for spot, unified, and isolated-margin
+        accounts.
 
 
-        Currently both request body and query support currency_pair and account parameters,
-        but request body has higher priority.
+        Both the request body and query parameters support `currency_pair` and `account`;
+        the request body has higher precedence.
 
 
-        currency_pair must be filled in one of the request body or query parameters.
+        Provide `currency_pair` in either the request body or the query parameters,
+        choosing one location.
 
 
-        About rate limit: Order modification and order creation share the same rate
-        limit rules.
+        Amendments and order creation share rate limits.
 
 
-        About matching priority: Only reducing the quantity does not affect the matching
-        priority. Modifying the price or increasing the quantity will adjust the priority
-        to the end of the new price level.
+        Reducing quantity alone preserves matching priority. Changing the price or
+        increasing the quantity places the order at the end of the new price level.
 
 
-        Note: Modifying the quantity to be less than the filled quantity will trigger
-        a cancellation and isolated margin account by default.
-
-
-        Currently both request body and query support currency_pair and account parameters,
-        but request body has higher priority.
-
-
-        currency_pair must be filled in one of the request body or query parameters.
-
-
-        About rate limit: Order modification and order creation share the same rate
-        limit rules.
-
-
-        About matching priority: Only reducing the quantity does not affect the matching
-        priority. Modifying the price or increasing the quantity will adjust the priority
-        to the end of the new price level.
-
-
-        Note: Modifying the quantity to be less than the filled quantity will trigger
-        a cancellation operation.'
+        A new quantity below the filled quantity triggers cancellation.'
       operationId: amendOrder
       parameters:
       - name: order_id
@@ -30963,9 +30950,9 @@ paths:
         Usage example: Repeat this interface at 30s intervals, setting the countdown
         `timeout` to `30 (seconds)` each time.
 
-        If this interface is not called again within 30 seconds, all pending orders
-        on the `market` you specified will be automatically cancelled. If no `market`
-        is specified, all market cancelled.
+        If this interface is not called again within 30 seconds, all open orders for
+        the `currency_pair` you specified will be automatically cancelled. If no `currency_pair`
+        is specified, open orders for all currency pairs are cancelled automatically.
 
         If the `timeout` is set to 0 within 30 seconds, the countdown timer will be
         terminated and the automatic order cancellation function will be cancelled.'
@@ -34645,14 +34632,14 @@ paths:
         \ and the order will be mentioned that the order does not exist\n- Setting\
         \ `reduce_only` to `true` can prevent the position from being penetrated when\
         \ reducing the position\n- In single-position mode, if you need to close the\
-        \ position, you need to set `size` to 0 and `close` to `true`\n- In dual warehouse\
-        \ mode, \n - Reduce position: reduce_only=true, size is a positive number\
-        \ that indicates short position, negative number that indicates long position\n\
-        \ - Add number that indicates adding long positions, and negative numbers\
-        \ indicate adding short positions\n - Close position: size=0, set the direction\
-        \ of closing position according to auto_size, and set `reduce_only` to true\n\
-        \ at the same time - reduce_only: Make sure to only perform position reduction\
-        \ operations to prevent increased positions\n- Set `stp_act` to determine\
+        \ position, you need to set `size` to 0 and `close` to `true`\n- In hedge\
+        \ mode:\n  - Reduce a position: with `reduce_only=true`, a positive `size`\
+        \ reduces the short position and a negative `size` reduces the long position.\n\
+        \  - Increase a position: with `reduce_only=false`, a positive `size` increases\
+        \ the long position and a negative `size` increases the short position.\n\
+        \  - Close a position: set `size=0`, select the closing side with `auto_size`,\
+        \ and set `reduce_only=true`.\n  - `reduce_only` ensures position reduction\
+        \ only and prevents increasing the position.\n- Set `stp_act` to determine\
         \ the use of a strategy that restricts user transactions. For detailed usage,\
         \ refer to the body parameter `stp_act`"
       operationId: createFuturesOrder
@@ -34742,9 +34729,10 @@ paths:
       tags:
       - futures
       summary: Query futures order list
-      description: "- Zero-fill order cannot be retrieved for 10 minutes after cancellation\n\
-        - Historical orders, by default, only data within the past 6 months is supported.\
-        \ \nIf you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`."
+      description: "- Cancelled orders with no fills are no longer retrievable through\
+        \ this endpoint 10 minutes after cancellation.\n- Historical orders, by default,\
+        \ only data within the past 6 months is supported. \nIf you need to query\
+        \ data for a longer period, please use `GET /futures/{settle}/orders_timerange`."
       operationId: listFuturesOrders
       parameters:
       - name: contract
@@ -35219,9 +35207,10 @@ paths:
       tags:
       - futures
       summary: Query single order details
-      description: "- Zero-fill order cannot be retrieved for 10 minutes after cancellation\n\
-        - Historical orders, by default, only data within the past 6 months is supported.\
-        \ \n"
+      description: '- Cancelled orders with no fills are no longer retrievable through
+        this endpoint 10 minutes after cancellation.
+
+        - Historical orders, by default, only data within the past 6 months is supported. '
       operationId: getFuturesOrder
       responses:
         200:
@@ -35670,7 +35659,7 @@ paths:
         example: 1547706332
       - name: side
         in: query
-        description: Query side. long or shot
+        description: 'Direction filter: long or short.'
         required: false
         schema:
           type: string
@@ -36487,7 +36476,7 @@ paths:
                         readOnly: true
                       suborder_text:
                         type: string
-                        description: Sub-order text field
+                        description: The child order's text field.
                         readOnly: true
                       is_dual_mode:
                         type: boolean
@@ -36500,7 +36489,7 @@ paths:
                       suborder_id:
                         type: integer
                         format: int64
-                        description: Sub-order ID
+                        description: Child order ID.
                         readOnly: true
                         x-is-bigint: true
                       side_label:
@@ -36751,7 +36740,7 @@ paths:
                           readOnly: true
                         suborder_text:
                           type: string
-                          description: Sub-order text field
+                          description: The child order's text field.
                           readOnly: true
                         is_dual_mode:
                           type: boolean
@@ -36764,7 +36753,7 @@ paths:
                         suborder_id:
                           type: integer
                           format: int64
-                          description: Sub-order ID
+                          description: Child order ID.
                           readOnly: true
                           x-is-bigint: true
                         side_label:
@@ -37042,277 +37031,227 @@ paths:
           content:
             application/json:
               schema:
-                title: TrailOrderListResponse
+                title: TrailOrderListResponseEnvelope
+                description: Trail order list response. The order list is in data.orders.
                 type: object
                 properties:
-                  orders:
-                    type: array
-                    items:
-                      title: TrailOrder
-                      type: object
-                      description: Trail order details
-                      properties:
-                        id:
-                          type: integer
-                          format: int64
-                          description: Order ID
-                          readOnly: true
-                          x-is-bigint: true
-                        user_id:
-                          type: integer
-                          format: int64
-                          description: User ID
-                          readOnly: true
-                          x-is-bigint: true
-                        user:
-                          type: integer
-                          format: int64
-                          description: User ID
-                          readOnly: true
-                          x-is-bigint: true
-                        contract:
-                          type: string
-                          description: Contract name
-                        settle:
-                          type: string
-                          description: Settle currency
-                        amount:
-                          type: string
-                          description: Trading quantity in contracts, positive for
-                            buy, negative for sell
-                        is_gte:
-                          type: boolean
-                          description: 'true: activate when market price >= activation
-                            price, false: <= activation price'
-                        activation_price:
-                          type: string
-                          description: Activation price, 0 means trigger immediately
-                        price_type:
-                          type: integer
-                          format: int32
-                          description: 'Activation price type: 0-unknown, 1-latest
-                            price, 2-index price, 3-mark price'
-                          enum:
-                          - 0
-                          - 1
-                          - 2
-                          - 3
-                        price_offset:
-                          type: string
-                          description: Callback ratio or price distance, e.g., `0.1`
-                            or `0.1%`
-                        text:
-                          type: string
-                          description: Custom field
-                        reduce_only:
-                          type: boolean
-                          description: Reduce Position Only
-                        position_related:
-                          type: boolean
-                          description: Whether bound to position
-                        created_at:
-                          type: integer
-                          format: int64
-                          description: Created time
-                          readOnly: true
-                        activated_at:
-                          type: integer
-                          format: int64
-                          description: Activation time
-                          readOnly: true
-                        finished_at:
-                          type: integer
-                          format: int64
-                          description: End time
-                          readOnly: true
-                        create_time:
-                          type: integer
-                          format: int64
-                          description: Created time
-                          readOnly: true
-                        active_time:
-                          type: integer
-                          format: int64
-                          description: Activation time
-                          readOnly: true
-                        finish_time:
-                          type: integer
-                          format: int64
-                          description: End time
-                          readOnly: true
-                        reason:
-                          type: string
-                          description: End reason
-                          readOnly: true
-                        suborder_text:
-                          type: string
-                          description: Sub-order text field
-                          readOnly: true
-                        is_dual_mode:
-                          type: boolean
-                          description: Whether dual position mode when creating order
-                          readOnly: true
-                        trigger_price:
-                          type: string
-                          description: Trigger price
-                          readOnly: true
-                        suborder_id:
-                          type: integer
-                          format: int64
-                          description: Sub-order ID
-                          readOnly: true
-                          x-is-bigint: true
-                        side_label:
-                          type: string
-                          description: 'Order direction label: long/short/open long/open
-                            short/close long/close short'
-                          readOnly: true
-                        original_status:
-                          type: integer
-                          format: int32
-                          description: Order status
-                          readOnly: true
-                        status:
-                          type: string
-                          description: 'Simplified order status: open/finished'
-                          readOnly: true
-                          enum:
-                          - open
-                          - finished
-                        position_side_output:
-                          type: string
-                          description: Same as side_label, client requires consistency
-                            with other order types
-                          readOnly: true
-                        updated_at:
-                          type: integer
-                          format: int64
-                          description: Update time
-                          readOnly: true
-                        extremum_price:
-                          type: string
-                          description: Extremum price
-                          readOnly: true
-                        status_code:
-                          type: string
-                          description: Status code value
-                          readOnly: true
-                        created_at_precise:
-                          type: string
-                          description: Creation time (high precision, seconds.microseconds
-                            format)
-                          readOnly: true
-                        finished_at_precise:
-                          type: string
-                          description: End time (high precision, seconds.microseconds
-                            format)
-                          readOnly: true
-                        activated_at_precise:
-                          type: string
-                          description: Activation time (high precision, seconds.microseconds
-                            format)
-                          readOnly: true
-                        status_label:
-                          type: string
-                          description: Status internationalization label (translated
-                            status text)
-                          readOnly: true
-                        pos_margin_mode:
-                          type: string
-                          description: 'Position margin mode: isolated/cross'
-                          readOnly: true
-                        position_mode:
-                          type: string
-                          description: 'Position mode: single, dual, and dual_plus'
-                          readOnly: true
-                        error_label:
-                          type: string
-                          description: Error label
-                          readOnly: true
-                        leverage:
-                          type: string
-                          description: Leverage
-                          readOnly: true
+                  code:
+                    type: integer
+                    format: int32
+                    description: Status code, 0 means success
+                  message:
+                    type: string
+                    description: Response message
+                  data:
+                    title: TrailOrderListResponse
+                    type: object
+                    properties:
+                      orders:
+                        type: array
+                        items:
+                          title: TrailOrder
+                          type: object
+                          description: Trail order details
+                          properties:
+                            id:
+                              type: integer
+                              format: int64
+                              description: Order ID
+                              readOnly: true
+                              x-is-bigint: true
+                            user_id:
+                              type: integer
+                              format: int64
+                              description: User ID
+                              readOnly: true
+                              x-is-bigint: true
+                            user:
+                              type: integer
+                              format: int64
+                              description: User ID
+                              readOnly: true
+                              x-is-bigint: true
+                            contract:
+                              type: string
+                              description: Contract name
+                            settle:
+                              type: string
+                              description: Settle currency
+                            amount:
+                              type: string
+                              description: Trading quantity in contracts, positive
+                                for buy, negative for sell
+                            is_gte:
+                              type: boolean
+                              description: 'true: activate when market price >= activation
+                                price, false: <= activation price'
+                            activation_price:
+                              type: string
+                              description: Activation price, 0 means trigger immediately
+                            price_type:
+                              type: integer
+                              format: int32
+                              description: 'Activation price type: 0-unknown, 1-latest
+                                price, 2-index price, 3-mark price'
+                              enum:
+                              - 0
+                              - 1
+                              - 2
+                              - 3
+                            price_offset:
+                              type: string
+                              description: Callback ratio or price distance, e.g.,
+                                `0.1` or `0.1%`
+                            text:
+                              type: string
+                              description: Custom field
+                            reduce_only:
+                              type: boolean
+                              description: Reduce Position Only
+                            position_related:
+                              type: boolean
+                              description: Whether bound to position
+                            created_at:
+                              type: integer
+                              format: int64
+                              description: Created time
+                              readOnly: true
+                            activated_at:
+                              type: integer
+                              format: int64
+                              description: Activation time
+                              readOnly: true
+                            finished_at:
+                              type: integer
+                              format: int64
+                              description: End time
+                              readOnly: true
+                            create_time:
+                              type: integer
+                              format: int64
+                              description: Created time
+                              readOnly: true
+                            active_time:
+                              type: integer
+                              format: int64
+                              description: Activation time
+                              readOnly: true
+                            finish_time:
+                              type: integer
+                              format: int64
+                              description: End time
+                              readOnly: true
+                            reason:
+                              type: string
+                              description: End reason
+                              readOnly: true
+                            suborder_text:
+                              type: string
+                              description: The child order's text field.
+                              readOnly: true
+                            is_dual_mode:
+                              type: boolean
+                              description: Whether dual position mode when creating
+                                order
+                              readOnly: true
+                            trigger_price:
+                              type: string
+                              description: Trigger price
+                              readOnly: true
+                            suborder_id:
+                              type: integer
+                              format: int64
+                              description: Child order ID.
+                              readOnly: true
+                              x-is-bigint: true
+                            side_label:
+                              type: string
+                              description: 'Order direction label: long/short/open
+                                long/open short/close long/close short'
+                              readOnly: true
+                            original_status:
+                              type: integer
+                              format: int32
+                              description: Order status
+                              readOnly: true
+                            status:
+                              type: string
+                              description: 'Simplified order status: open/finished'
+                              readOnly: true
+                              enum:
+                              - open
+                              - finished
+                            position_side_output:
+                              type: string
+                              description: Same as side_label, client requires consistency
+                                with other order types
+                              readOnly: true
+                            updated_at:
+                              type: integer
+                              format: int64
+                              description: Update time
+                              readOnly: true
+                            extremum_price:
+                              type: string
+                              description: Extremum price
+                              readOnly: true
+                            status_code:
+                              type: string
+                              description: Status code value
+                              readOnly: true
+                            created_at_precise:
+                              type: string
+                              description: Creation time (high precision, seconds.microseconds
+                                format)
+                              readOnly: true
+                            finished_at_precise:
+                              type: string
+                              description: End time (high precision, seconds.microseconds
+                                format)
+                              readOnly: true
+                            activated_at_precise:
+                              type: string
+                              description: Activation time (high precision, seconds.microseconds
+                                format)
+                              readOnly: true
+                            status_label:
+                              type: string
+                              description: Status internationalization label (translated
+                                status text)
+                              readOnly: true
+                            pos_margin_mode:
+                              type: string
+                              description: 'Position margin mode: isolated/cross'
+                              readOnly: true
+                            position_mode:
+                              type: string
+                              description: 'Position mode: single, dual, and dual_plus'
+                              readOnly: true
+                            error_label:
+                              type: string
+                              description: Error label
+                              readOnly: true
+                            leverage:
+                              type: string
+                              description: Leverage
+                              readOnly: true
+                  timestamp:
+                    type: integer
+                    format: int64
+                    description: Response timestamp in microseconds.
               example:
-                orders:
-                - id: '123456789'
-                  user_id: '100000'
-                  user: '100000'
-                  contract: BTC_USDT
-                  settle: usdt
-                  amount: '10'
-                  is_gte: true
-                  activation_price: '50000'
-                  price_type: 1
-                  price_offset: 0.1%
-                  text: t-my-trail-order-1
-                  reduce_only: false
-                  position_related: false
-                  created_at: '1546569968'
-                  create_time: '1546569968'
-                  activated_at: '1546570000'
-                  active_time: '1546570000'
-                  finished_at: '0'
-                  finish_time: '0'
-                  reason: ''
-                  suborder_text: ''
-                  is_dual_mode: false
-                  trigger_price: '50000'
-                  suborder_id: '0'
-                  side_label: 开多
-                  position_side_output: 开多
-                  original_status: 1
-                  status: open
-                  updated_at: '1546569968'
-                  extremum_price: '50100'
-                  status_code: pending
-                  created_at_precise: '1546569968.123456'
-                  finished_at_precise: ''
-                  activated_at_precise: ''
-                  status_label: 待激活
-                  pos_margin_mode: isolated
-                  position_mode: single
-                  error_label: ''
-                  leverage: '10'
-                - id: '123456790'
-                  user_id: '100000'
-                  user: '100000'
-                  contract: ETH_USDT
-                  settle: usdt
-                  amount: '-5'
-                  is_gte: false
-                  activation_price: '3000'
-                  price_type: 2
-                  price_offset: 0.2%
-                  text: t-my-trail-order-2
-                  reduce_only: true
-                  position_related: true
-                  created_at: '1546569970'
-                  create_time: '1546569970'
-                  activated_at: '1546570100'
-                  active_time: '1546570100'
-                  finished_at: '1546571000'
-                  finish_time: '1546571000'
-                  reason: success
-                  suborder_text: t-suborder-1
-                  is_dual_mode: true
-                  trigger_price: '3000'
-                  suborder_id: '987654321'
-                  side_label: 平空
-                  position_side_output: 平空
-                  original_status: 4
-                  status: finished
-                  updated_at: '1546571000'
-                  extremum_price: '2990'
-                  status_code: success
-                  created_at_precise: '1546569970.654321'
-                  finished_at_precise: '1546571000.123456'
-                  activated_at_precise: '1546570100.789012'
-                  status_label: 完成全部委托量
-                  pos_margin_mode: cross
-                  position_mode: dual
-                  error_label: ''
-                  leverage: '20'
+                code: 0
+                message: ok
+                data:
+                  orders:
+                  - id: 9007199254740993
+                    contract: BTC_USDT
+                    settle: usdt
+                    amount: '1'
+                    activation_price: '100000'
+                    price_offset: 1%
+                    status: open
+                timestamp: 1793582374966743
       x-group-parameters: true
   /futures/{settle}/autoorder/v1/trail/detail:
     get:
@@ -37529,7 +37468,7 @@ paths:
                         readOnly: true
                       suborder_text:
                         type: string
-                        description: Sub-order text field
+                        description: The child order's text field.
                         readOnly: true
                       is_dual_mode:
                         type: boolean
@@ -37542,7 +37481,7 @@ paths:
                       suborder_id:
                         type: integer
                         format: int64
-                        description: Sub-order ID
+                        description: Child order ID.
                         readOnly: true
                         x-is-bigint: true
                       side_label:
@@ -37890,8 +37829,8 @@ paths:
           enum:
           - 1
           - 2
-        description: 'Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT;
-          cannot be 0'
+        description: 'Sort field: 1 for creation time; 2 for finish time. 0 is not
+          accepted.'
       - name: hide_cancel
         in: query
         schema:
@@ -38186,6 +38125,29 @@ paths:
                 reason: ''
                 order_type: close-long-order
                 pos_margin_mode: isolated
+        205:
+          description: Business error response when the price-triggered order does
+            not exist (HTTP 205).
+          content:
+            application/json:
+              schema:
+                title: FuturesPriceTriggeredOrderError
+                description: Price-triggered order business error.
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Business error code
+                  label:
+                    type: string
+                    description: Error label
+                  message:
+                    type: string
+                    description: Detailed error message
+              example:
+                code: '1034'
+                label: AUTO_ORDER_NOT_FOUND
+                message: no orderID match
       parameters: []
     delete:
       tags:
@@ -38357,8 +38319,8 @@ paths:
       - name: symbols
         in: query
         required: false
-        description: List of symbol codes (multiple codes separated by commas). At
-          least one of symbol and category_code is required
+        description: Comma-separated instrument symbols. Provide at least one of symbols
+          and category_code.
         schema:
           type: string
           example: AUDUSD,XAUUSD
@@ -39289,8 +39251,8 @@ paths:
         schema:
           type: integer
           format: int64
-        description: Start Time (Unix Timestamp, seconds). The earliest queryable
-          time is one month ago
+        description: Start time as a Unix timestamp in seconds. The earliest supported
+          start time is one month ago.
       - name: end_time
         in: query
         required: false
@@ -39458,13 +39420,13 @@ paths:
       - name: exchange
         in: query
         required: false
-        description: 'Exchange.
+        description: 'Trading market code.
 
           - us: US stocks.
 
           - hk: Hong Kong stocks.
 
-          - kr: Korean stocks.
+          - kr: South Korean stocks.
 
           - jp: Japanese stocks.'
         schema:
@@ -43896,7 +43858,7 @@ paths:
     post:
       tags:
       - options
-      summary: MMP Reset
+      summary: Reset MMP for the specified underlying.
       operationId: resetOptionsMMP
       requestBody:
         required: true
@@ -43984,18 +43946,16 @@ paths:
       tags:
       - EarnUni
       summary: Create lending or redemption
-      description: "Lending: When lending, a minimum lending rate must be set. After\
-        \ successful lending is determined on an hourly basis, earnings will be calculated\
-        \ based on the determined rate. \nEarnings for each hour will be settled at\
-        \ the top of the hour. If lending fails due to an excessively high interest\
-        \ rate, no interest will be earned for that hour. \nIf funds are redeemed\
-        \ before the hourly for that hour. \nPriority: Under the same interest rate,\
-        \ wealth management products created or modified earlier will be prioritized\
-        \ for lending. \nRedemption: For funds that failed to be lent, redemption\
-        \ will be credited immediately.\nFor funds successfully lent, they are entitled\
-        \ to the earnings for that hour, and redemption will be credited in the next\
-        \ hourly interval. \nNote: The two minutes before and after the hourly mark\
-        \ are the settlement period, during which lending and redemption are prohibited.\n"
+      description: Set a minimum lending rate when lending. Once lending is determined
+        to be successful at the top of the hour, earnings are calculated at the determined
+        rate and settled at each hourly mark. If lending fails because the rate is
+        too high, or funds are redeemed before the hourly assessment, no interest
+        is earned for that hour. At the same rate, subscriptions created or amended
+        earlier have lending priority. Redemption of funds that failed to be lent
+        can be credited immediately. Successfully lent funds earn that hour’s return
+        and are credited at the next hourly mark after redemption. The two minutes
+        before and after each hourly mark are the settlement period, during which
+        lending subscriptions and redemptions are prohibited.
       operationId: createUniLend
       requestBody:
         required: true
@@ -44502,8 +44462,8 @@ paths:
       - name: order_type
         in: query
         required: false
-        description: 'Order type: current - Query current orders, fixed - Query fixed
-          orders, defaults to current orders if not specified'
+        description: 'Order type: current for flexible-term orders; fixed for fixed-term
+          orders. If omitted, current is used.'
         schema:
           type: string
         example: current
@@ -51764,7 +51724,7 @@ paths:
   /crossex/position:
     post:
       operationId: closeCrossexPosition
-      summary: Full Close Position
+      summary: Close a position in full.
       deprecated: false
       description: 'Rate limit: 100 requests per day. Automatic position-closing rules.
         FUTURE and MARGIN positions are supported.
@@ -54512,7 +54472,7 @@ paths:
                 $ref: '#/components/schemas/AIHubCreateSuccessResponse'
   /bot/portfolio/running:
     get:
-      summary: Query the list of running policies
+      summary: List running strategies.
       description: Query the list of AIHub strategies currently running by the user,
         and support filtering by strategy type, trading pair and paging conditions.
       operationId: getAIHubPortfolioRunning
@@ -54799,7 +54759,10 @@ paths:
     post:
       tags:
       - spot
-      summary: Create a Spot POV order
+      summary: Create a spot percentage-of-volume (POV) strategy order
+      description: participation_rate specifies the target participation rate, and
+        ttl specifies the validity period. The response contains the order id, which
+        can be used with GET /spot/pov_orders/{order_id} to query details.
       operationId: createSpotPovOrder
       requestBody:
         required: true

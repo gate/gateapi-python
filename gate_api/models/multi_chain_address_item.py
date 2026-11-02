@@ -128,7 +128,7 @@ class MultiChainAddressItem(object):
     def payment_id(self):
         """Gets the payment_id of this MultiChainAddressItem.  # noqa: E501
 
-        Notes that some currencies required(e.g., Tag, Memo) when depositing  # noqa: E501
+        A memo required when depositing certain currencies, such as a Tag or Memo.  # noqa: E501
 
         :return: The payment_id of this MultiChainAddressItem.  # noqa: E501
         :rtype: str
@@ -139,7 +139,7 @@ class MultiChainAddressItem(object):
     def payment_id(self, payment_id):
         """Sets the payment_id of this MultiChainAddressItem.
 
-        Notes that some currencies required(e.g., Tag, Memo) when depositing  # noqa: E501
+        A memo required when depositing certain currencies, such as a Tag or Memo.  # noqa: E501
 
         :param payment_id: The payment_id of this MultiChainAddressItem.  # noqa: E501
         :type: str
@@ -174,7 +174,7 @@ class MultiChainAddressItem(object):
     def obtain_failed(self):
         """Gets the obtain_failed of this MultiChainAddressItem.  # noqa: E501
 
-        The obtain failed status- 0: address successfully obtained- 1: failed to obtain address  # noqa: E501
+        Whether address retrieval failed: 0 means success; 1 means failure and retrieval may need to be retried.  # noqa: E501
 
         :return: The obtain_failed of this MultiChainAddressItem.  # noqa: E501
         :rtype: int
@@ -185,7 +185,7 @@ class MultiChainAddressItem(object):
     def obtain_failed(self, obtain_failed):
         """Sets the obtain_failed of this MultiChainAddressItem.
 
-        The obtain failed status- 0: address successfully obtained- 1: failed to obtain address  # noqa: E501
+        Whether address retrieval failed: 0 means success; 1 means failure and retrieval may need to be retried.  # noqa: E501
 
         :param obtain_failed: The obtain_failed of this MultiChainAddressItem.  # noqa: E501
         :type: int

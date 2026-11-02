@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **trade_status** | **str** | Trading status  - untradable: cannot be traded - buyable: can be bought - sellable: can be sold - tradable: can be bought and sold | [optional] 
 **sell_start** | **int** | Sell start unix timestamp in seconds | [optional] 
 **buy_start** | **int** | Buy start unix timestamp in seconds | [optional] 
-**delisting_time** | **int** | Expected time to remove the shelves, Unix timestamp in seconds | [optional] 
+**delisting_time** | **int** | Expected delisting time as a Unix timestamp in seconds. | [optional] 
 **type** | **str** | Trading pair type, normal: normal, premarket: pre-market | [optional] 
 **trade_url** | **str** | Transaction link | [optional] 
 **st_tag** | **bool** | Whether the trading pair is in ST risk assessment, false - No, true - Yes | [optional] 

@@ -337,7 +337,7 @@ class OptionsAccount(object):
     def unrealised_pnl(self):
         """Gets the unrealised_pnl of this OptionsAccount.  # noqa: E501
 
-        Unrealised PnL = (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.  # noqa: E501
+        Unrealized PnL, for reference only. Position unrealized PnL = (mark price - average entry price) × position quantity. Position quantity is measured in currency units, negative for shorts and positive for longs.  # noqa: E501
 
         :return: The unrealised_pnl of this OptionsAccount.  # noqa: E501
         :rtype: str
@@ -348,7 +348,7 @@ class OptionsAccount(object):
     def unrealised_pnl(self, unrealised_pnl):
         """Sets the unrealised_pnl of this OptionsAccount.
 
-        Unrealised PnL = (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.  # noqa: E501
+        Unrealized PnL, for reference only. Position unrealized PnL = (mark price - average entry price) × position quantity. Position quantity is measured in currency units, negative for shorts and positive for longs.  # noqa: E501
 
         :param unrealised_pnl: The unrealised_pnl of this OptionsAccount.  # noqa: E501
         :type: str

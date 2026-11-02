@@ -1084,7 +1084,7 @@ class Position(object):
     def pid(self):
         """Gets the pid of this Position.  # noqa: E501
 
-        Sub-account position ID  # noqa: E501
+        Split-position ID.  # noqa: E501
 
         :return: The pid of this Position.  # noqa: E501
         :rtype: int
@@ -1095,7 +1095,7 @@ class Position(object):
     def pid(self, pid):
         """Sets the pid of this Position.
 
-        Sub-account position ID  # noqa: E501
+        Split-position ID.  # noqa: E501
 
         :param pid: The pid of this Position.  # noqa: E501
         :type: int

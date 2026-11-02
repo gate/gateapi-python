@@ -117,7 +117,7 @@ api_client = gate_api.ApiClient(configuration)
 # Create an instance of the API class
 api_instance = gate_api.StockApi(api_client)
 symbols = 'AAPL,TSLA' # str | Symbol list, multiple separated by commas (optional)
-exchange = 'us' # str | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
+exchange = 'us' # str | Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks. (optional)
 with_desc_i18n = true # bool | Whether to return multilingual symbol description (optional)
 page = 1 # int | Page number, defaults to 1 (optional)
 page_size = 100 # int | Page size, defaults to 10, max 500; server caps at 500 (optional)
@@ -137,7 +137,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **str**| Symbol list, multiple separated by commas | [optional] 
- **exchange** | **str**| Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] 
+ **exchange** | **str**| Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks. | [optional] 
  **with_desc_i18n** | **bool**| Whether to return multilingual symbol description | [optional] 
  **page** | **int**| Page number, defaults to 1 | [optional] 
  **page_size** | **int**| Page size, defaults to 10, max 500; server caps at 500 | [optional] 

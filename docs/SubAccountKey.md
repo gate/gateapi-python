@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_id** | **int** | User ID | [optional] [readonly] 
-**mode** | **int** | Mode: 1 - classic 2 - portfolio account | [optional] 
+**mode** | **int** | Account mode: 1 for a classic account; 2 for a unified account. | [optional] 
 **name** | **str** | API Key Name | [optional] 
 **perms** | [**list[SubAccountKeyPerms]**](SubAccountKeyPerms.md) |  | [optional] 
 **ip_whitelist** | **list[str]** | IP whitelist (list will be cleared if no value is passed) | [optional] 

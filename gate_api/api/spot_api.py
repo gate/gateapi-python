@@ -39,7 +39,7 @@ class SpotApi(object):
     def list_currencies(self, **kwargs):  # noqa: E501
         """Query all currency information  # noqa: E501
 
-        When a currency corresponds to multiple chains, you can query the information of multiple chains through the `chains` field, such as the charging and recharge status, identification, etc. of the chain  # noqa: E501
+        When a currency is associated with multiple blockchains, use `chains` to view information about each chain, such as deposit and withdrawal status and chain identifiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_currencies(async_req=True)
@@ -63,7 +63,7 @@ class SpotApi(object):
     def list_currencies_with_http_info(self, **kwargs):  # noqa: E501
         """Query all currency information  # noqa: E501
 
-        When a currency corresponds to multiple chains, you can query the information of multiple chains through the `chains` field, such as the charging and recharge status, identification, etc. of the chain  # noqa: E501
+        When a currency is associated with multiple blockchains, use `chains` to view information about each chain, such as deposit and withdrawal status and chain identifiers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_currencies_with_http_info(async_req=True)
@@ -2257,7 +2257,7 @@ class SpotApi(object):
             collection_formats=collection_formats)
 
     def cancel_orders(self, **kwargs):  # noqa: E501
-        """Cancel all `open` orders in specified currency pair  # noqa: E501
+        """Cancel `open` orders in bulk, optionally filtered by currency pair  # noqa: E501
 
         When the `account` parameter is not specified, all pending orders including spot, unified account, and isolated margin will be cancelled. When `currency_pair` is not specified, all trading pair pending orders will be cancelled. You can specify a particular account to cancel all pending orders under that account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2287,7 +2287,7 @@ class SpotApi(object):
         return self.cancel_orders_with_http_info(**kwargs)  # noqa: E501
 
     def cancel_orders_with_http_info(self, **kwargs):  # noqa: E501
-        """Cancel all `open` orders in specified currency pair  # noqa: E501
+        """Cancel `open` orders in bulk, optionally filtered by currency pair  # noqa: E501
 
         When the `account` parameter is not specified, all pending orders including spot, unified account, and isolated margin will be cancelled. When `currency_pair` is not specified, all trading pair pending orders will be cancelled. You can specify a particular account to cancel all pending orders under that account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2783,7 +2783,7 @@ class SpotApi(object):
     def amend_order(self, order_id, order_patch, **kwargs):  # noqa: E501
         """Amend single order  # noqa: E501
 
-        Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.  # noqa: E501
+        By default, amend orders for spot, unified, and isolated-margin accounts.  Both the request body and query parameters support `currency_pair` and `account`; the request body has higher precedence.  Provide `currency_pair` in either the request body or the query parameters, choosing one location.  Amendments and order creation share rate limits.  Reducing quantity alone preserves matching priority. Changing the price or increasing the quantity places the order at the end of the new price level.  A new quantity below the filled quantity triggers cancellation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.amend_order(order_id, order_patch, async_req=True)
@@ -2812,7 +2812,7 @@ class SpotApi(object):
     def amend_order_with_http_info(self, order_id, order_patch, **kwargs):  # noqa: E501
         """Amend single order  # noqa: E501
 
-        Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.  # noqa: E501
+        By default, amend orders for spot, unified, and isolated-margin accounts.  Both the request body and query parameters support `currency_pair` and `account`; the request body has higher precedence.  Provide `currency_pair` in either the request body or the query parameters, choosing one location.  Amendments and order creation share rate limits.  Reducing quantity alone preserves matching priority. Changing the price or increasing the quantity places the order at the end of the new price level.  A new quantity below the filled quantity triggers cancellation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.amend_order_with_http_info(order_id, order_patch, async_req=True)
@@ -3174,7 +3174,7 @@ class SpotApi(object):
     def countdown_cancel_all_spot(self, countdown_cancel_all_spot_task, **kwargs):  # noqa: E501
         """Countdown cancel orders  # noqa: E501
 
-        Spot order heartbeat detection. If there is no \"cancel existing countdown\" or \"set new countdown\" when the user-set `timeout` time is reached, the related `spot pending orders` will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown `timeout` to `30 (seconds)` each time. If this interface is not called again within 30 seconds, all pending orders on the `market` you specified will be automatically cancelled. If no `market` is specified, all market cancelled. If the `timeout` is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.  # noqa: E501
+        Spot order heartbeat detection. If there is no \"cancel existing countdown\" or \"set new countdown\" when the user-set `timeout` time is reached, the related `spot pending orders` will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown `timeout` to `30 (seconds)` each time. If this interface is not called again within 30 seconds, all open orders for the `currency_pair` you specified will be automatically cancelled. If no `currency_pair` is specified, open orders for all currency pairs are cancelled automatically. If the `timeout` is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.countdown_cancel_all_spot(countdown_cancel_all_spot_task, async_req=True)
@@ -3199,7 +3199,7 @@ class SpotApi(object):
     def countdown_cancel_all_spot_with_http_info(self, countdown_cancel_all_spot_task, **kwargs):  # noqa: E501
         """Countdown cancel orders  # noqa: E501
 
-        Spot order heartbeat detection. If there is no \"cancel existing countdown\" or \"set new countdown\" when the user-set `timeout` time is reached, the related `spot pending orders` will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown `timeout` to `30 (seconds)` each time. If this interface is not called again within 30 seconds, all pending orders on the `market` you specified will be automatically cancelled. If no `market` is specified, all market cancelled. If the `timeout` is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.  # noqa: E501
+        Spot order heartbeat detection. If there is no \"cancel existing countdown\" or \"set new countdown\" when the user-set `timeout` time is reached, the related `spot pending orders` will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown `timeout` to `30 (seconds)` each time. If this interface is not called again within 30 seconds, all open orders for the `currency_pair` you specified will be automatically cancelled. If no `currency_pair` is specified, open orders for all currency pairs are cancelled automatically. If the `timeout` is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.countdown_cancel_all_spot_with_http_info(countdown_cancel_all_spot_task, async_req=True)
@@ -4299,8 +4299,9 @@ class SpotApi(object):
             collection_formats=collection_formats)
 
     def create_spot_pov_order(self, spot_pov_order_creator, **kwargs):  # noqa: E501
-        """Create a Spot POV order  # noqa: E501
+        """Create a spot percentage-of-volume (POV) strategy order  # noqa: E501
 
+        participation_rate specifies the target participation rate, and ttl specifies the validity period. The response contains the order id, which can be used with GET /spot/pov_orders/{order_id} to query details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_spot_pov_order(spot_pov_order_creator, async_req=True)
@@ -4323,8 +4324,9 @@ class SpotApi(object):
         return self.create_spot_pov_order_with_http_info(spot_pov_order_creator, **kwargs)  # noqa: E501
 
     def create_spot_pov_order_with_http_info(self, spot_pov_order_creator, **kwargs):  # noqa: E501
-        """Create a Spot POV order  # noqa: E501
+        """Create a spot percentage-of-volume (POV) strategy order  # noqa: E501
 
+        participation_rate specifies the target participation rate, and ttl specifies the validity period. The response contains the order id, which can be used with GET /spot/pov_orders/{order_id} to query details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_spot_pov_order_with_http_info(spot_pov_order_creator, async_req=True)

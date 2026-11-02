@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**update_crossex_positions_leverage**](CrossExApi.md#update_crossex_positions_leverage) | **POST** /crossex/positions/leverage | Modify Contract Trading Pair Leverage Multiplier
 [**get_crossex_margin_positions_leverage**](CrossExApi.md#get_crossex_margin_positions_leverage) | **GET** /crossex/margin_positions/leverage | Query Leveraged Trading Pair Leverage Multiplier
 [**update_crossex_margin_positions_leverage**](CrossExApi.md#update_crossex_margin_positions_leverage) | **POST** /crossex/margin_positions/leverage | Modify Leveraged Trading Pair Leverage Multiplier
-[**close_crossex_position**](CrossExApi.md#close_crossex_position) | **POST** /crossex/position | Full Close Position
+[**close_crossex_position**](CrossExApi.md#close_crossex_position) | **POST** /crossex/position | Close a position in full.
 [**get_crossex_positions_margin_mode**](CrossExApi.md#get_crossex_positions_margin_mode) | **GET** /crossex/positions/margin_mode | Get futures position margin mode
 [**update_crossex_positions_margin_mode**](CrossExApi.md#update_crossex_positions_margin_mode) | **POST** /crossex/positions/margin_mode | Update futures position margin mode
 [**update_crossex_positions_margin**](CrossExApi.md#update_crossex_positions_margin) | **POST** /crossex/positions/margin | Increase or decrease isolated margin
@@ -1274,7 +1274,7 @@ Name | Type | Description  | Notes
 # **close_crossex_position**
 > CrossexOrderActionResponse close_crossex_position(crossex_close_position_request=crossex_close_position_request)
 
-Full Close Position
+Close a position in full.
 
 Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.
 
@@ -1305,7 +1305,7 @@ api_instance = gate_api.CrossExApi(api_client)
 crossex_close_position_request = gate_api.CrossexClosePositionRequest() # CrossexClosePositionRequest |  (optional)
 
 try:
-    # Full Close Position
+    # Close a position in full.
     api_response = api_instance.close_crossex_position(crossex_close_position_request=crossex_close_position_request)
     print(api_response)
 except GateApiException as ex:

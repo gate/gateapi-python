@@ -146,7 +146,7 @@ class OptionsAccountBook(object):
     def type(self):
         """Gets the type of this OptionsAccountBook.  # noqa: E501
 
-        Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate  # noqa: E501
+        Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - set: settlement - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate  # noqa: E501
 
         :return: The type of this OptionsAccountBook.  # noqa: E501
         :rtype: str
@@ -157,7 +157,7 @@ class OptionsAccountBook(object):
     def type(self, type):
         """Sets the type of this OptionsAccountBook.
 
-        Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate  # noqa: E501
+        Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - set: settlement - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate  # noqa: E501
 
         :param type: The type of this OptionsAccountBook.  # noqa: E501
         :type: str

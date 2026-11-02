@@ -324,7 +324,7 @@ class Currency(object):
     def chains(self):
         """Gets the chains of this Currency.  # noqa: E501
 
-        All links corresponding to coins  # noqa: E501
+        All blockchains associated with this currency.  # noqa: E501
 
         :return: The chains of this Currency.  # noqa: E501
         :rtype: list[SpotCurrencyChain]
@@ -335,7 +335,7 @@ class Currency(object):
     def chains(self, chains):
         """Sets the chains of this Currency.
 
-        All links corresponding to coins  # noqa: E501
+        All blockchains associated with this currency.  # noqa: E501
 
         :param chains: The chains of this Currency.  # noqa: E501
         :type: list[SpotCurrencyChain]
