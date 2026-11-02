@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.174
+  version: v4.106.176
   x-betaNum: 1
   title: Gate API
   contact:
@@ -38096,6 +38096,8 @@ paths:
       - futures
       summary: Query single auto order details
       operationId: getPriceTriggeredOrder
+      x-gate-error-statuses:
+      - 205
       responses:
         200:
           description: Auto order details

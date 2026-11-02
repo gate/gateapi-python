@@ -84,7 +84,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/7.2.174/python'
+        self.user_agent = 'OpenAPI-Generator/7.2.176/python'
         # Set default X-Gate-Size-Decimal header for futures API
         self.default_headers['X-Gate-Size-Decimal'] = '1'
         self.client_side_validation = configuration.client_side_validation
@@ -130,7 +130,7 @@ class ApiClient(object):
             query_params=None, header_params=None, body=None, post_params=None,
             files=None, response_type=None, auth_settings=None,
             _return_http_data_only=None, collection_formats=None,
-            _preload_content=True, _request_timeout=None, _host=None):
+            _preload_content=True, _request_timeout=None, _host=None, _error_statuses=()):
 
         config = self.configuration
 
@@ -199,13 +199,33 @@ class ApiClient(object):
                 post_params=post_params, body=body,
                 _preload_content=_preload_content,
                 _request_timeout=_request_timeout)
+            # Only the calling operation can declare additional error statuses.
+            if response_data.status in _error_statuses:
+                if not _preload_content:
+                    # Do not buffer a caller-requested stream merely to produce
+                    # an error; preserve status/headers and release the socket.
+                    failure = ApiException(status=response_data.status, reason=response_data.reason)
+                    failure.headers = response_data.getheaders()
+                    response_data.close()
+                    response_data.release_conn()
+                    raise failure
+                raise ApiException(http_resp=response_data)
         except ApiException as e:
-            e.body = e.body.decode('utf-8') if six.PY3 else e.body
+            if e.status in _error_statuses:
+                if not e.body:
+                    raise
+                if isinstance(e.body, bytes):
+                    e.body = e.body.decode('utf-8', errors='replace')
+            else:
+                # Preserve the existing error path for unmarked operations.
+                e.body = e.body.decode('utf-8') if six.PY3 else e.body
             try:
                 err = json.loads(e.body)
             except ValueError:
                 raise e
             else:
+                if e.status in _error_statuses and not isinstance(err, dict):
+                    raise e
                 if not err.get('label'):
                     raise e
                 raise GateApiException(err.get('label'), err.get('message'), err.get('detail'), e)
@@ -366,7 +386,7 @@ class ApiClient(object):
                  body=None, post_params=None, files=None,
                  response_type=None, auth_settings=None, async_req=None,
                  _return_http_data_only=None, collection_formats=None,
-                 _preload_content=True, _request_timeout=None, _host=None):
+                 _preload_content=True, _request_timeout=None, _host=None, _error_statuses=None):
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
         To make an async_req request, set the async_req parameter.
@@ -404,13 +424,15 @@ class ApiClient(object):
             If parameter async_req is False or missing,
             then the method will return the response directly.
         """
+        # Freeze per-call metadata before it crosses the async worker boundary.
+        _error_statuses = tuple(_error_statuses or ())
         if not async_req:
             return self.__call_api(resource_path, method,
                                    path_params, query_params, header_params,
                                    body, post_params, files,
                                    response_type, auth_settings,
                                    _return_http_data_only, collection_formats,
-                                   _preload_content, _request_timeout, _host)
+                                   _preload_content, _request_timeout, _host, _error_statuses)
 
         return self.pool.apply_async(self.__call_api, (resource_path,
                                                        method, path_params,
@@ -423,7 +445,7 @@ class ApiClient(object):
                                                        collection_formats,
                                                        _preload_content,
                                                        _request_timeout,
-                                                       _host))
+                                                       _host, _error_statuses))
 
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None, _preload_content=True,
