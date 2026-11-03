@@ -139,7 +139,7 @@ class TrailOrderListResponseEnvelope(object):
     def timestamp(self):
         """Gets the timestamp of this TrailOrderListResponseEnvelope.  # noqa: E501
 
-        Response timestamp in microseconds.  # noqa: E501
+        Response timestamp (milliseconds)  # noqa: E501
 
         :return: The timestamp of this TrailOrderListResponseEnvelope.  # noqa: E501
         :rtype: int
@@ -150,7 +150,7 @@ class TrailOrderListResponseEnvelope(object):
     def timestamp(self, timestamp):
         """Sets the timestamp of this TrailOrderListResponseEnvelope.
 
-        Response timestamp in microseconds.  # noqa: E501
+        Response timestamp (milliseconds)  # noqa: E501
 
         :param timestamp: The timestamp of this TrailOrderListResponseEnvelope.  # noqa: E501
         :type: int

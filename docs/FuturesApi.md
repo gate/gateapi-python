@@ -4047,7 +4047,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_all_trail_orders**
-> TrailOrderListResponse stop_all_trail_orders(settle, stop_all_trail_orders)
+> TrailOrderListResponseEnvelope stop_all_trail_orders(settle, stop_all_trail_orders)
 
 Batch terminate trail orders
 
@@ -4097,7 +4097,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderListResponse**](TrailOrderListResponse.md)
+[**TrailOrderListResponseEnvelope**](TrailOrderListResponseEnvelope.md)
 
 ### Authorization
 

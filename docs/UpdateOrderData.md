@@ -4,13 +4,13 @@ Response data
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**order_id** | **int** | Order ID | [optional] 
-**symbol** | **str** | Currency pair | [optional] 
-**state** | **str** | Order status code | [optional] 
-**volume** | **str** | Order quantity | [optional] 
-**price** | **str** | Current price | [optional] 
-**price_tp** | **str** | Current take profit price | [optional] 
-**price_sl** | **str** | Current stop loss price | [optional] 
+**order_id** | **int** | Order ID | 
+**symbol** | **str** | Currency pair | 
+**state** | **str** | Order status code | 
+**volume** | **str** | Order quantity | 
+**price** | **str** | Current price | 
+**price_tp** | **str** | Current take profit price | 
+**price_sl** | **str** | Current stop loss price | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

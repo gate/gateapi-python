@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.178
+  version: v4.106.179
   x-betaNum: 1
   title: Gate API
   contact:
@@ -154,6 +154,7 @@ components:
           type: string
           description: Max borrowable amount
     EstimateRate:
+      type: object
       description: Estimate current hourly lending rates, returned by currency
       additionalProperties:
         type: string
@@ -18050,14 +18051,14 @@ components:
               type: string
               description: Current stop loss price
               example: '4.800000'
-      required:
-      - order_id
-      - symbol
-      - state
-      - volume
-      - price
-      - price_tp
-      - price_sl
+          required:
+          - order_id
+          - symbol
+          - state
+          - volume
+          - price
+          - price_tp
+          - price_sl
     OrderHistoryList:
       type: object
       properties:
@@ -26440,8 +26441,6 @@ paths:
     get:
       tags:
       - wallet
-      security:
-      - apiv4: []
       summary: Retrieve the list of low-liquidity or low-cap tokens
       operationId: getLowCapExchangeList
       responses:
@@ -36458,266 +36457,222 @@ paths:
           content:
             application/json:
               schema:
-                title: TrailOrderListResponse
+                title: TrailOrderListResponseEnvelope
+                description: Trail order list response. The order list is in data.orders.
                 type: object
                 properties:
-                  orders:
-                    type: array
-                    items:
-                      title: TrailOrder
-                      type: object
-                      description: Trail order details
-                      properties:
-                        id:
-                          type: string
-                          description: Order ID
-                          readOnly: true
-                          x-is-bigint: true
-                        user_id:
-                          type: string
-                          description: User ID
-                          readOnly: true
-                          x-is-bigint: true
-                        user:
-                          type: string
-                          description: User ID
-                          readOnly: true
-                          x-is-bigint: true
-                        contract:
-                          type: string
-                          description: Contract name
-                        settle:
-                          type: string
-                          description: Settle currency
-                        amount:
-                          type: string
-                          description: Trading quantity in contracts, positive for
-                            buy, negative for sell
-                        is_gte:
-                          type: boolean
-                          description: 'true: activate when market price >= activation
-                            price, false: <= activation price'
-                        activation_price:
-                          type: string
-                          description: Activation price, 0 means trigger immediately
-                        price_type:
-                          type: integer
-                          format: int32
-                          description: 'Activation price type: 0-unknown, 1-latest
-                            price, 2-index price, 3-mark price'
-                          enum:
-                          - 0
-                          - 1
-                          - 2
-                          - 3
-                        price_offset:
-                          type: string
-                          description: Callback ratio or price distance, e.g., `0.1`
-                            or `0.1%`
-                        text:
-                          type: string
-                          description: Custom field
-                        reduce_only:
-                          type: boolean
-                          description: Reduce Position Only
-                        position_related:
-                          type: boolean
-                          description: Whether bound to position
-                        created_at:
-                          type: string
-                          description: Created time
-                          readOnly: true
-                        activated_at:
-                          type: string
-                          description: Activation time
-                          readOnly: true
-                        finished_at:
-                          type: string
-                          description: End time
-                          readOnly: true
-                        create_time:
-                          type: string
-                          description: Created time
-                          readOnly: true
-                        active_time:
-                          type: string
-                          description: Activation time
-                          readOnly: true
-                        finish_time:
-                          type: string
-                          description: End time
-                          readOnly: true
-                        reason:
-                          type: string
-                          description: End reason
-                          readOnly: true
-                        suborder_text:
-                          type: string
-                          description: The child order's text field.
-                          readOnly: true
-                        is_dual_mode:
-                          type: boolean
-                          description: Whether dual position mode when creating order
-                          readOnly: true
-                        trigger_price:
-                          type: string
-                          description: Trigger price
-                          readOnly: true
-                        suborder_id:
-                          type: string
-                          description: Child order ID.
-                          readOnly: true
-                          x-is-bigint: true
-                        side_label:
-                          type: string
-                          description: 'Order direction label: long/short/open long/open
-                            short/close long/close short'
-                          readOnly: true
-                        original_status:
-                          type: integer
-                          format: int32
-                          description: Order status
-                          readOnly: true
-                        status:
-                          type: string
-                          description: 'Simplified order status: open/finished'
-                          readOnly: true
-                          enum:
-                          - open
-                          - finished
-                        position_side_output:
-                          type: string
-                          description: Same as side_label, client requires consistency
-                            with other order types
-                          readOnly: true
-                        updated_at:
-                          type: string
-                          description: Update time
-                          readOnly: true
-                        extremum_price:
-                          type: string
-                          description: Extremum price
-                          readOnly: true
-                        status_code:
-                          type: string
-                          description: Status code value
-                          readOnly: true
-                        created_at_precise:
-                          type: string
-                          description: Creation time (high precision, seconds.microseconds
-                            format)
-                          readOnly: true
-                        finished_at_precise:
-                          type: string
-                          description: End time (high precision, seconds.microseconds
-                            format)
-                          readOnly: true
-                        activated_at_precise:
-                          type: string
-                          description: Activation time (high precision, seconds.microseconds
-                            format)
-                          readOnly: true
-                        status_label:
-                          type: string
-                          description: Status internationalization label (translated
-                            status text)
-                          readOnly: true
-                        pos_margin_mode:
-                          type: string
-                          description: 'Position margin mode: isolated/cross'
-                          readOnly: true
-                        position_mode:
-                          type: string
-                          description: 'Position mode: single, dual, and dual_plus'
-                          readOnly: true
-                        error_label:
-                          type: string
-                          description: Error label
-                          readOnly: true
-                        leverage:
-                          type: string
-                          description: Leverage
-                          readOnly: true
+                  code:
+                    type: integer
+                    format: int32
+                    description: Status code, 0 means success
+                  message:
+                    type: string
+                    description: Response message
+                  data:
+                    title: TrailOrderListResponse
+                    type: object
+                    properties:
+                      orders:
+                        type: array
+                        items:
+                          title: TrailOrder
+                          type: object
+                          description: Trail order details
+                          properties:
+                            id:
+                              type: string
+                              description: Order ID
+                              readOnly: true
+                              x-is-bigint: true
+                            user_id:
+                              type: string
+                              description: User ID
+                              readOnly: true
+                              x-is-bigint: true
+                            user:
+                              type: string
+                              description: User ID
+                              readOnly: true
+                              x-is-bigint: true
+                            contract:
+                              type: string
+                              description: Contract name
+                            settle:
+                              type: string
+                              description: Settle currency
+                            amount:
+                              type: string
+                              description: Trading quantity in contracts, positive
+                                for buy, negative for sell
+                            is_gte:
+                              type: boolean
+                              description: 'true: activate when market price >= activation
+                                price, false: <= activation price'
+                            activation_price:
+                              type: string
+                              description: Activation price, 0 means trigger immediately
+                            price_type:
+                              type: integer
+                              format: int32
+                              description: 'Activation price type: 0-unknown, 1-latest
+                                price, 2-index price, 3-mark price'
+                              enum:
+                              - 0
+                              - 1
+                              - 2
+                              - 3
+                            price_offset:
+                              type: string
+                              description: Callback ratio or price distance, e.g.,
+                                `0.1` or `0.1%`
+                            text:
+                              type: string
+                              description: Custom field
+                            reduce_only:
+                              type: boolean
+                              description: Reduce Position Only
+                            position_related:
+                              type: boolean
+                              description: Whether bound to position
+                            created_at:
+                              type: string
+                              description: Created time
+                              readOnly: true
+                            activated_at:
+                              type: string
+                              description: Activation time
+                              readOnly: true
+                            finished_at:
+                              type: string
+                              description: End time
+                              readOnly: true
+                            create_time:
+                              type: string
+                              description: Created time
+                              readOnly: true
+                            active_time:
+                              type: string
+                              description: Activation time
+                              readOnly: true
+                            finish_time:
+                              type: string
+                              description: End time
+                              readOnly: true
+                            reason:
+                              type: string
+                              description: End reason
+                              readOnly: true
+                            suborder_text:
+                              type: string
+                              description: The child order's text field.
+                              readOnly: true
+                            is_dual_mode:
+                              type: boolean
+                              description: Whether dual position mode when creating
+                                order
+                              readOnly: true
+                            trigger_price:
+                              type: string
+                              description: Trigger price
+                              readOnly: true
+                            suborder_id:
+                              type: string
+                              description: Child order ID.
+                              readOnly: true
+                              x-is-bigint: true
+                            side_label:
+                              type: string
+                              description: 'Order direction label: long/short/open
+                                long/open short/close long/close short'
+                              readOnly: true
+                            original_status:
+                              type: integer
+                              format: int32
+                              description: Order status
+                              readOnly: true
+                            status:
+                              type: string
+                              description: 'Simplified order status: open/finished'
+                              readOnly: true
+                              enum:
+                              - open
+                              - finished
+                            position_side_output:
+                              type: string
+                              description: Same as side_label, client requires consistency
+                                with other order types
+                              readOnly: true
+                            updated_at:
+                              type: string
+                              description: Update time
+                              readOnly: true
+                            extremum_price:
+                              type: string
+                              description: Extremum price
+                              readOnly: true
+                            status_code:
+                              type: string
+                              description: Status code value
+                              readOnly: true
+                            created_at_precise:
+                              type: string
+                              description: Creation time (high precision, seconds.microseconds
+                                format)
+                              readOnly: true
+                            finished_at_precise:
+                              type: string
+                              description: End time (high precision, seconds.microseconds
+                                format)
+                              readOnly: true
+                            activated_at_precise:
+                              type: string
+                              description: Activation time (high precision, seconds.microseconds
+                                format)
+                              readOnly: true
+                            status_label:
+                              type: string
+                              description: Status internationalization label (translated
+                                status text)
+                              readOnly: true
+                            pos_margin_mode:
+                              type: string
+                              description: 'Position margin mode: isolated/cross'
+                              readOnly: true
+                            position_mode:
+                              type: string
+                              description: 'Position mode: single, dual, and dual_plus'
+                              readOnly: true
+                            error_label:
+                              type: string
+                              description: Error label
+                              readOnly: true
+                            leverage:
+                              type: string
+                              description: Leverage
+                              readOnly: true
+                  timestamp:
+                    type: integer
+                    format: int64
+                    description: Response timestamp (milliseconds)
               example:
-                orders:
-                - id: '123456789'
-                  user_id: '100000'
-                  user: '100000'
-                  contract: BTC_USDT
-                  settle: usdt
-                  amount: '10'
-                  is_gte: true
-                  activation_price: '50000'
-                  price_type: 1
-                  price_offset: 0.1%
-                  text: t-my-trail-order-1
-                  reduce_only: false
-                  position_related: false
-                  created_at: '1546569968'
-                  create_time: '1546569968'
-                  activated_at: '1546570000'
-                  active_time: '1546570000'
-                  finished_at: '0'
-                  finish_time: '0'
-                  reason: ''
-                  suborder_text: ''
-                  is_dual_mode: false
-                  trigger_price: '50000'
-                  suborder_id: '0'
-                  side_label: 开多
-                  position_side_output: 开多
-                  original_status: 1
-                  status: open
-                  updated_at: '1546569968'
-                  extremum_price: '50100'
-                  status_code: pending
-                  created_at_precise: '1546569968.123456'
-                  finished_at_precise: ''
-                  activated_at_precise: ''
-                  status_label: 待激活
-                  pos_margin_mode: isolated
-                  position_mode: single
-                  error_label: ''
-                  leverage: '10'
-                - id: '123456790'
-                  user_id: '100000'
-                  user: '100000'
-                  contract: ETH_USDT
-                  settle: usdt
-                  amount: '-5'
-                  is_gte: false
-                  activation_price: '3000'
-                  price_type: 2
-                  price_offset: 0.2%
-                  text: t-my-trail-order-2
-                  reduce_only: true
-                  position_related: true
-                  created_at: '1546569970'
-                  create_time: '1546569970'
-                  activated_at: '1546570100'
-                  active_time: '1546570100'
-                  finished_at: '1546571000'
-                  finish_time: '1546571000'
-                  reason: success
-                  suborder_text: t-suborder-1
-                  is_dual_mode: true
-                  trigger_price: '3000'
-                  suborder_id: '987654321'
-                  side_label: 平空
-                  position_side_output: 平空
-                  original_status: 4
-                  status: finished
-                  updated_at: '1546571000'
-                  extremum_price: '2990'
-                  status_code: success
-                  created_at_precise: '1546569970.654321'
-                  finished_at_precise: '1546571000.123456'
-                  activated_at_precise: '1546570100.789012'
-                  status_label: 完成全部委托量
-                  pos_margin_mode: cross
-                  position_mode: dual
-                  error_label: ''
-                  leverage: '20'
+                code: 0
+                message: ok
+                data:
+                  orders:
+                  - id: '70948'
+                    contract: BTC_USDT
+                    settle: usdt
+                    amount: '0.01'
+                    activation_price: '7711'
+                    is_gte: false
+                    price_type: 1
+                    price_offset: 1%
+                    status: finished
+                    status_code: cancelled
+                    created_at: '1793671122'
+                    finished_at: '1793671123'
+                    updated_at: '1793671123'
+                timestamp: 1793671123827
       parameters: []
   /futures/{settle}/autoorder/v1/trail/list:
     get:
@@ -37038,7 +36993,7 @@ paths:
                   timestamp:
                     type: integer
                     format: int64
-                    description: Response timestamp in microseconds.
+                    description: Response timestamp (milliseconds)
               example:
                 code: 0
                 message: ok
@@ -37051,7 +37006,7 @@ paths:
                     activation_price: '100000'
                     price_offset: 1%
                     status: open
-                timestamp: 1793582374966743
+                timestamp: 1793582374966
       x-group-parameters: true
   /futures/{settle}/autoorder/v1/trail/detail:
     get:
@@ -47577,8 +47532,6 @@ paths:
       tags:
       - rebate
       summary: Get recent partner application records
-      security:
-      - apiv4: []
       description: Get the current user's recent partner application records. This
         endpoint returns application records within the last 30 days, including application
         status, review information, application materials, and other details.
@@ -47639,8 +47592,6 @@ paths:
       tags:
       - rebate
       summary: Check partner application eligibility
-      security:
-      - apiv4: []
       description: 'Check whether the current user is eligible to apply as a partner.
         This endpoint checks multiple conditions: account status (banned or not),
         whether it is a sub-account, whether already a partner, KYC verification status,

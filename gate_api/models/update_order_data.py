@@ -68,20 +68,13 @@ class UpdateOrderData(object):
         self._price_sl = None
         self.discriminator = None
 
-        if order_id is not None:
-            self.order_id = order_id
-        if symbol is not None:
-            self.symbol = symbol
-        if state is not None:
-            self.state = state
-        if volume is not None:
-            self.volume = volume
-        if price is not None:
-            self.price = price
-        if price_tp is not None:
-            self.price_tp = price_tp
-        if price_sl is not None:
-            self.price_sl = price_sl
+        self.order_id = order_id
+        self.symbol = symbol
+        self.state = state
+        self.volume = volume
+        self.price = price
+        self.price_tp = price_tp
+        self.price_sl = price_sl
 
     @property
     def order_id(self):
@@ -103,6 +96,8 @@ class UpdateOrderData(object):
         :param order_id: The order_id of this UpdateOrderData.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_id`, must not be `None`")  # noqa: E501
 
         self._order_id = order_id
 
@@ -126,6 +121,8 @@ class UpdateOrderData(object):
         :param symbol: The symbol of this UpdateOrderData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and symbol is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbol`, must not be `None`")  # noqa: E501
 
         self._symbol = symbol
 
@@ -149,6 +146,8 @@ class UpdateOrderData(object):
         :param state: The state of this UpdateOrderData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
+            raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -172,6 +171,8 @@ class UpdateOrderData(object):
         :param volume: The volume of this UpdateOrderData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and volume is None:  # noqa: E501
+            raise ValueError("Invalid value for `volume`, must not be `None`")  # noqa: E501
 
         self._volume = volume
 
@@ -195,6 +196,8 @@ class UpdateOrderData(object):
         :param price: The price of this UpdateOrderData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
+            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
 
@@ -218,6 +221,8 @@ class UpdateOrderData(object):
         :param price_tp: The price_tp of this UpdateOrderData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and price_tp is None:  # noqa: E501
+            raise ValueError("Invalid value for `price_tp`, must not be `None`")  # noqa: E501
 
         self._price_tp = price_tp
 
@@ -241,6 +246,8 @@ class UpdateOrderData(object):
         :param price_sl: The price_sl of this UpdateOrderData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and price_sl is None:  # noqa: E501
+            raise ValueError("Invalid value for `price_sl`, must not be `None`")  # noqa: E501
 
         self._price_sl = price_sl
 
