@@ -11,11 +11,13 @@
 
 
 import pprint
+from decimal import Decimal
 import re  # noqa: F401
 
 import six
 
 from gate_api.configuration import Configuration
+from gate_api import json_codec
 
 
 class UserAssetResp2Data(object):
@@ -36,30 +38,48 @@ class UserAssetResp2Data(object):
         'equity': 'str',
         'balance': 'str',
         'available': 'str',
+        'loan_amount': 'str',
+        'buy_power': 'str',
+        'leverage': 'str',
+        'leave_liquidity': 'str',
+        'leave_liquidity_rate': 'str',
+        'aee': 'str',
+        'options_margin': 'str',
         'position_market_value': 'str',
         'position_pnl': 'str',
         'today_pnl': 'str',
         'option_position_market_value': 'str',
         'option_position_pnl': 'str',
         'option_today_pnl': 'str',
-        'user_exists': 'bool'
+        'user_exists': 'bool',
+        'margin_enabled': 'bool',
+        'long_borrowing_rate': 'str'
     }
 
     attribute_map = {
         'equity': 'equity',
         'balance': 'balance',
         'available': 'available',
+        'loan_amount': 'loan_amount',
+        'buy_power': 'buy_power',
+        'leverage': 'leverage',
+        'leave_liquidity': 'leave_liquidity',
+        'leave_liquidity_rate': 'leave_liquidity_rate',
+        'aee': 'aee',
+        'options_margin': 'options_margin',
         'position_market_value': 'position_market_value',
         'position_pnl': 'position_pnl',
         'today_pnl': 'today_pnl',
         'option_position_market_value': 'option_position_market_value',
         'option_position_pnl': 'option_position_pnl',
         'option_today_pnl': 'option_today_pnl',
-        'user_exists': 'user_exists'
+        'user_exists': 'user_exists',
+        'margin_enabled': 'margin_enabled',
+        'long_borrowing_rate': 'long_borrowing_rate'
     }
 
-    def __init__(self, equity=None, balance=None, available=None, position_market_value=None, position_pnl=None, today_pnl=None, option_position_market_value=None, option_position_pnl=None, option_today_pnl=None, user_exists=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, str, str, str, str, str, bool, Configuration) -> None
+    def __init__(self, equity=None, balance=None, available=None, loan_amount=None, buy_power=None, leverage=None, leave_liquidity=None, leave_liquidity_rate=None, aee=None, options_margin=None, position_market_value=None, position_pnl=None, today_pnl=None, option_position_market_value=None, option_position_pnl=None, option_today_pnl=None, user_exists=None, margin_enabled=None, long_borrowing_rate=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, bool, bool, str, Configuration) -> None
         """UserAssetResp2Data - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +88,13 @@ class UserAssetResp2Data(object):
         self._equity = None
         self._balance = None
         self._available = None
+        self._loan_amount = None
+        self._buy_power = None
+        self._leverage = None
+        self._leave_liquidity = None
+        self._leave_liquidity_rate = None
+        self._aee = None
+        self._options_margin = None
         self._position_market_value = None
         self._position_pnl = None
         self._today_pnl = None
@@ -75,6 +102,8 @@ class UserAssetResp2Data(object):
         self._option_position_pnl = None
         self._option_today_pnl = None
         self._user_exists = None
+        self._margin_enabled = None
+        self._long_borrowing_rate = None
         self.discriminator = None
 
         if equity is not None:
@@ -83,6 +112,20 @@ class UserAssetResp2Data(object):
             self.balance = balance
         if available is not None:
             self.available = available
+        if loan_amount is not None:
+            self.loan_amount = loan_amount
+        if buy_power is not None:
+            self.buy_power = buy_power
+        if leverage is not None:
+            self.leverage = leverage
+        if leave_liquidity is not None:
+            self.leave_liquidity = leave_liquidity
+        if leave_liquidity_rate is not None:
+            self.leave_liquidity_rate = leave_liquidity_rate
+        if aee is not None:
+            self.aee = aee
+        if options_margin is not None:
+            self.options_margin = options_margin
         if position_market_value is not None:
             self.position_market_value = position_market_value
         if position_pnl is not None:
@@ -97,6 +140,10 @@ class UserAssetResp2Data(object):
             self.option_today_pnl = option_today_pnl
         if user_exists is not None:
             self.user_exists = user_exists
+        if margin_enabled is not None:
+            self.margin_enabled = margin_enabled
+        if long_borrowing_rate is not None:
+            self.long_borrowing_rate = long_borrowing_rate
 
     @property
     def equity(self):
@@ -166,6 +213,167 @@ class UserAssetResp2Data(object):
         """
 
         self._available = available
+
+    @property
+    def loan_amount(self):
+        """Gets the loan_amount of this UserAssetResp2Data.  # noqa: E501
+
+        Loan amount. Non-negative: the absolute value of the original available balance when it is negative, otherwise 0.  # noqa: E501
+
+        :return: The loan_amount of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._loan_amount
+
+    @loan_amount.setter
+    def loan_amount(self, loan_amount):
+        """Sets the loan_amount of this UserAssetResp2Data.
+
+        Loan amount. Non-negative: the absolute value of the original available balance when it is negative, otherwise 0.  # noqa: E501
+
+        :param loan_amount: The loan_amount of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._loan_amount = loan_amount
+
+    @property
+    def buy_power(self):
+        """Gets the buy_power of this UserAssetResp2Data.  # noqa: E501
+
+        Buying power  # noqa: E501
+
+        :return: The buy_power of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._buy_power
+
+    @buy_power.setter
+    def buy_power(self, buy_power):
+        """Sets the buy_power of this UserAssetResp2Data.
+
+        Buying power  # noqa: E501
+
+        :param buy_power: The buy_power of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._buy_power = buy_power
+
+    @property
+    def leverage(self):
+        """Gets the leverage of this UserAssetResp2Data.  # noqa: E501
+
+        Leverage  # noqa: E501
+
+        :return: The leverage of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._leverage
+
+    @leverage.setter
+    def leverage(self, leverage):
+        """Sets the leverage of this UserAssetResp2Data.
+
+        Leverage  # noqa: E501
+
+        :param leverage: The leverage of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._leverage = leverage
+
+    @property
+    def leave_liquidity(self):
+        """Gets the leave_liquidity of this UserAssetResp2Data.  # noqa: E501
+
+        Excess liquidity  # noqa: E501
+
+        :return: The leave_liquidity of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._leave_liquidity
+
+    @leave_liquidity.setter
+    def leave_liquidity(self, leave_liquidity):
+        """Sets the leave_liquidity of this UserAssetResp2Data.
+
+        Excess liquidity  # noqa: E501
+
+        :param leave_liquidity: The leave_liquidity of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._leave_liquidity = leave_liquidity
+
+    @property
+    def leave_liquidity_rate(self):
+        """Gets the leave_liquidity_rate of this UserAssetResp2Data.  # noqa: E501
+
+        Excess liquidity ratio  # noqa: E501
+
+        :return: The leave_liquidity_rate of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._leave_liquidity_rate
+
+    @leave_liquidity_rate.setter
+    def leave_liquidity_rate(self, leave_liquidity_rate):
+        """Sets the leave_liquidity_rate of this UserAssetResp2Data.
+
+        Excess liquidity ratio  # noqa: E501
+
+        :param leave_liquidity_rate: The leave_liquidity_rate of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._leave_liquidity_rate = leave_liquidity_rate
+
+    @property
+    def aee(self):
+        """Gets the aee of this UserAssetResp2Data.  # noqa: E501
+
+        Available Excess Equity (AEE)  # noqa: E501
+
+        :return: The aee of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._aee
+
+    @aee.setter
+    def aee(self, aee):
+        """Sets the aee of this UserAssetResp2Data.
+
+        Available Excess Equity (AEE)  # noqa: E501
+
+        :param aee: The aee of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._aee = aee
+
+    @property
+    def options_margin(self):
+        """Gets the options_margin of this UserAssetResp2Data.  # noqa: E501
+
+        Options margin  # noqa: E501
+
+        :return: The options_margin of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._options_margin
+
+    @options_margin.setter
+    def options_margin(self, options_margin):
+        """Sets the options_margin of this UserAssetResp2Data.
+
+        Options margin  # noqa: E501
+
+        :param options_margin: The options_margin of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._options_margin = options_margin
 
     @property
     def position_market_value(self):
@@ -327,6 +535,52 @@ class UserAssetResp2Data(object):
         """
 
         self._user_exists = user_exists
+
+    @property
+    def margin_enabled(self):
+        """Gets the margin_enabled of this UserAssetResp2Data.  # noqa: E501
+
+        Whether margin financing is enabled  # noqa: E501
+
+        :return: The margin_enabled of this UserAssetResp2Data.  # noqa: E501
+        :rtype: bool
+        """
+        return self._margin_enabled
+
+    @margin_enabled.setter
+    def margin_enabled(self, margin_enabled):
+        """Sets the margin_enabled of this UserAssetResp2Data.
+
+        Whether margin financing is enabled  # noqa: E501
+
+        :param margin_enabled: The margin_enabled of this UserAssetResp2Data.  # noqa: E501
+        :type: bool
+        """
+
+        self._margin_enabled = margin_enabled
+
+    @property
+    def long_borrowing_rate(self):
+        """Gets the long_borrowing_rate of this UserAssetResp2Data.  # noqa: E501
+
+        Annual margin financing interest rate. An empty string indicates that no valid rate is currently available.  # noqa: E501
+
+        :return: The long_borrowing_rate of this UserAssetResp2Data.  # noqa: E501
+        :rtype: str
+        """
+        return self._long_borrowing_rate
+
+    @long_borrowing_rate.setter
+    def long_borrowing_rate(self, long_borrowing_rate):
+        """Sets the long_borrowing_rate of this UserAssetResp2Data.
+
+        Annual margin financing interest rate. An empty string indicates that no valid rate is currently available.  # noqa: E501
+
+        :param long_borrowing_rate: The long_borrowing_rate of this UserAssetResp2Data.  # noqa: E501
+        :type: str
+        """
+
+        self._long_borrowing_rate = long_borrowing_rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

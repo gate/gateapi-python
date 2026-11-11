@@ -151,6 +151,124 @@ class StockApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def set_stock_margin_feature(self, trad_fi_spot_set_margin_feature_request, **kwargs):  # noqa: E501
+        """Set margin financing availability  # noqa: E501
+
+        Rate limit: 5 requests per second. Enable or disable margin financing for the user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_stock_margin_feature(trad_fi_spot_set_margin_feature_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param TradFiSpotSetMarginFeatureRequest trad_fi_spot_set_margin_feature_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.SetMarginFeature
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.set_stock_margin_feature_with_http_info(trad_fi_spot_set_margin_feature_request, **kwargs)  # noqa: E501
+
+    def set_stock_margin_feature_with_http_info(self, trad_fi_spot_set_margin_feature_request, **kwargs):  # noqa: E501
+        """Set margin financing availability  # noqa: E501
+
+        Rate limit: 5 requests per second. Enable or disable margin financing for the user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_stock_margin_feature_with_http_info(trad_fi_spot_set_margin_feature_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param TradFiSpotSetMarginFeatureRequest trad_fi_spot_set_margin_feature_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.SetMarginFeature, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'trad_fi_spot_set_margin_feature_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_stock_margin_feature" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'trad_fi_spot_set_margin_feature_request' is set
+        if self.api_client.client_side_validation and ('trad_fi_spot_set_margin_feature_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['trad_fi_spot_set_margin_feature_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `trad_fi_spot_set_margin_feature_request` when calling `set_stock_margin_feature`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'trad_fi_spot_set_margin_feature_request' in local_var_params:
+            body_params = local_var_params['trad_fi_spot_set_margin_feature_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/stock/users/margin-feature', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SetMarginFeature',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def query_stock_symbols(self, **kwargs):  # noqa: E501
         """Query symbol list  # noqa: E501
 
@@ -999,6 +1117,132 @@ class StockApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def query_stock_order_deals(self, order_id, **kwargs):  # noqa: E501
+        """Query order trade records  # noqa: E501
+
+        Rate limit: 5 requests per second. Query the current user's trade records by order ID. `price`, `value`, and `fee` are denominated in the instrument trading currency (for example, USD for US stocks, HKD for Hong Kong stocks, JPY for Japanese stocks, and KRW for Korean stocks). `role` returns `maker` or `taker`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_stock_order_deals(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int order_id: Order ID (required)
+        :param int page: Page number, defaults to 1
+        :param int page_size: Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.OrderDealList
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.query_stock_order_deals_with_http_info(order_id, **kwargs)  # noqa: E501
+
+    def query_stock_order_deals_with_http_info(self, order_id, **kwargs):  # noqa: E501
+        """Query order trade records  # noqa: E501
+
+        Rate limit: 5 requests per second. Query the current user's trade records by order ID. `price`, `value`, and `fee` are denominated in the instrument trading currency (for example, USD for US stocks, HKD for Hong Kong stocks, JPY for Japanese stocks, and KRW for Korean stocks). `role` returns `maker` or `taker`.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_stock_order_deals_with_http_info(order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param int order_id: Order ID (required)
+        :param int page: Page number, defaults to 1
+        :param int page_size: Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.OrderDealList, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'order_id',
+            'page',
+            'page_size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method query_stock_order_deals" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'order_id' is set
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `order_id` when calling `query_stock_order_deals`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `query_stock_order_deals`, must be a value less than or equal to `100`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'order_id' in local_var_params and local_var_params['order_id'] is not None:  # noqa: E501
+            query_params.append(('order_id', local_var_params['order_id']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/stock/orders/deals', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='OrderDealList',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_stock_order(self, order_id, trad_fi_spot_order_update_request, **kwargs):  # noqa: E501
         """Modify order  # noqa: E501
 
@@ -1731,6 +1975,163 @@ class StockApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CreateTransaction2',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def query_stock_balance_records(self, **kwargs):  # noqa: E501
+        """Query user balance records  # noqa: E501
+
+        Rate limit: 5 requests per second. Query the current user's raw balance records. User scope is derived from the request headers; a query parameter `user_id` is not supported. - `type` and `business` support multiple comma-separated values. - `begin_time` and `end_time` filter record creation time in seconds. When both are provided, `end_time` must be greater than `begin_time`. - Results are always sorted by primary key `id`; `sort_direction` accepts `asc` or `desc`. The default is `id desc`. With `start_id` and no `sort_direction`, the order is `id asc`, and only records with `id > start_id` are returned for incremental retrieval. - `detail` is omitted by default and returned only when `include_detail=true`. - `stock_change` is parsed from `detail.amount` for stock quantity records; `balance` is a cash balance snapshot, not a stock position balance.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_stock_balance_records(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str type: Record types, separated by commas
+        :param str business: Business identifiers, separated by commas
+        :param str symbol: Symbol
+        :param int begin_time: Start time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time.
+        :param int end_time: End time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time.
+        :param int start_id: Starting primary key ID for incremental queries. Only records with a greater id are returned.
+        :param str sort_direction: Sort direction by primary key id. - asc: Ascending. - desc: Descending. When omitted, defaults to desc without start_id, or asc with start_id.
+        :param bool include_detail: Whether to return the raw detail field; defaults to false when omitted
+        :param int page: Page number, defaults to 1
+        :param int page_size: Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.BalanceRecordList
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.query_stock_balance_records_with_http_info(**kwargs)  # noqa: E501
+
+    def query_stock_balance_records_with_http_info(self, **kwargs):  # noqa: E501
+        """Query user balance records  # noqa: E501
+
+        Rate limit: 5 requests per second. Query the current user's raw balance records. User scope is derived from the request headers; a query parameter `user_id` is not supported. - `type` and `business` support multiple comma-separated values. - `begin_time` and `end_time` filter record creation time in seconds. When both are provided, `end_time` must be greater than `begin_time`. - Results are always sorted by primary key `id`; `sort_direction` accepts `asc` or `desc`. The default is `id desc`. With `start_id` and no `sort_direction`, the order is `id asc`, and only records with `id > start_id` are returned for incremental retrieval. - `detail` is omitted by default and returned only when `include_detail=true`. - `stock_change` is parsed from `detail.amount` for stock quantity records; `balance` is a cash balance snapshot, not a stock position balance.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.query_stock_balance_records_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param str type: Record types, separated by commas
+        :param str business: Business identifiers, separated by commas
+        :param str symbol: Symbol
+        :param int begin_time: Start time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time.
+        :param int end_time: End time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time.
+        :param int start_id: Starting primary key ID for incremental queries. Only records with a greater id are returned.
+        :param str sort_direction: Sort direction by primary key id. - asc: Ascending. - desc: Descending. When omitted, defaults to desc without start_id, or asc with start_id.
+        :param bool include_detail: Whether to return the raw detail field; defaults to false when omitted
+        :param int page: Page number, defaults to 1
+        :param int page_size: Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.BalanceRecordList, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'type',
+            'business',
+            'symbol',
+            'begin_time',
+            'end_time',
+            'start_id',
+            'sort_direction',
+            'include_detail',
+            'page',
+            'page_size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method query_stock_balance_records" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 100:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `query_stock_balance_records`, must be a value less than or equal to `100`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'business' in local_var_params and local_var_params['business'] is not None:  # noqa: E501
+            query_params.append(('business', local_var_params['business']))  # noqa: E501
+        if 'symbol' in local_var_params and local_var_params['symbol'] is not None:  # noqa: E501
+            query_params.append(('symbol', local_var_params['symbol']))  # noqa: E501
+        if 'begin_time' in local_var_params and local_var_params['begin_time'] is not None:  # noqa: E501
+            query_params.append(('begin_time', local_var_params['begin_time']))  # noqa: E501
+        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
+            query_params.append(('end_time', local_var_params['end_time']))  # noqa: E501
+        if 'start_id' in local_var_params and local_var_params['start_id'] is not None:  # noqa: E501
+            query_params.append(('start_id', local_var_params['start_id']))  # noqa: E501
+        if 'sort_direction' in local_var_params and local_var_params['sort_direction'] is not None:  # noqa: E501
+            query_params.append(('sort_direction', local_var_params['sort_direction']))  # noqa: E501
+        if 'include_detail' in local_var_params and local_var_params['include_detail'] is not None:  # noqa: E501
+            query_params.append(('include_detail', local_var_params['include_detail']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/stock/users/balance-records', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BalanceRecordList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

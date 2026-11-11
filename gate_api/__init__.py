@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "7.2.179"
+__version__ = "7.2.181"
 
 # import apis into sdk package
 from gate_api.api.activity_api import ActivityApi
@@ -145,6 +145,9 @@ from gate_api.models.auto_invest_portfolio_item import AutoInvestPortfolioItem
 from gate_api.models.auto_repay_setting import AutoRepaySetting
 from gate_api.models.award_list_struct import AwardListStruct
 from gate_api.models.award_list_struct_list import AwardListStructList
+from gate_api.models.balance_record_item import BalanceRecordItem
+from gate_api.models.balance_record_list import BalanceRecordList
+from gate_api.models.balance_record_list_data import BalanceRecordListData
 from gate_api.models.base_response import BaseResponse
 from gate_api.models.batch_amend_item import BatchAmendItem
 from gate_api.models.batch_amend_order_req import BatchAmendOrderReq
@@ -253,6 +256,7 @@ from gate_api.models.crossex_margin_interest_record import CrossexMarginInterest
 from gate_api.models.crossex_margin_mode_request import CrossexMarginModeRequest
 from gate_api.models.crossex_margin_mode_response import CrossexMarginModeResponse
 from gate_api.models.crossex_margin_position import CrossexMarginPosition
+from gate_api.models.crossex_open_capacity import CrossexOpenCapacity
 from gate_api.models.crossex_order import CrossexOrder
 from gate_api.models.crossex_order_action_response import CrossexOrderActionResponse
 from gate_api.models.crossex_order_request import CrossexOrderRequest
@@ -352,6 +356,8 @@ from gate_api.models.flash_swap_order_preview_resp import FlashSwapOrderPreviewR
 from gate_api.models.flash_swap_order_preview_resp_data import FlashSwapOrderPreviewRespData
 from gate_api.models.flash_swap_order_request import FlashSwapOrderRequest
 from gate_api.models.flash_swap_preview_request import FlashSwapPreviewRequest
+from gate_api.models.flash_swap_v1_currency_pair import FlashSwapV1CurrencyPair
+from gate_api.models.flash_swap_v1_currency_pair_list_resp import FlashSwapV1CurrencyPairListResp
 from gate_api.models.funding_account import FundingAccount
 from gate_api.models.funding_rate_record import FundingRateRecord
 from gate_api.models.future_cancel_order_result import FutureCancelOrderResult
@@ -521,6 +527,9 @@ from gate_api.models.order_book_price import OrderBookPrice
 from gate_api.models.order_cancel import OrderCancel
 from gate_api.models.order_create_v1_req import OrderCreateV1Req
 from gate_api.models.order_create_v1_resp import OrderCreateV1Resp
+from gate_api.models.order_deal_item import OrderDealItem
+from gate_api.models.order_deal_list import OrderDealList
+from gate_api.models.order_deal_list_data import OrderDealListData
 from gate_api.models.order_history_list import OrderHistoryList
 from gate_api.models.order_history_list2 import OrderHistoryList2
 from gate_api.models.order_history_list2_data import OrderHistoryList2Data
@@ -680,6 +689,7 @@ from gate_api.models.repay_record_total_interest import RepayRecordTotalInterest
 from gate_api.models.risk_units import RiskUnits
 from gate_api.models.saved_address import SavedAddress
 from gate_api.models.send_chat_message_request import SendChatMessageRequest
+from gate_api.models.set_margin_feature import SetMarginFeature
 from gate_api.models.set_merchant_work_hours_request import SetMerchantWorkHoursRequest
 from gate_api.models.small_balance import SmallBalance
 from gate_api.models.small_balance_history import SmallBalanceHistory
@@ -749,6 +759,7 @@ from gate_api.models.trad_fi_spot_close_position_request import TradFiSpotCloseP
 from gate_api.models.trad_fi_spot_error import TradFiSpotError
 from gate_api.models.trad_fi_spot_order_request import TradFiSpotOrderRequest
 from gate_api.models.trad_fi_spot_order_update_request import TradFiSpotOrderUpdateRequest
+from gate_api.models.trad_fi_spot_set_margin_feature_request import TradFiSpotSetMarginFeatureRequest
 from gate_api.models.trad_fi_spot_transaction_request import TradFiSpotTransactionRequest
 from gate_api.models.trad_fi_ticker import TradFiTicker
 from gate_api.models.trad_fi_ticker_data import TradFiTickerData

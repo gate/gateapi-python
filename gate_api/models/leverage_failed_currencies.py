@@ -11,11 +11,13 @@
 
 
 import pprint
+from decimal import Decimal
 import re  # noqa: F401
 
 import six
 
 from gate_api.configuration import Configuration
+from gate_api import json_codec
 
 
 class LeverageFailedCurrencies(object):

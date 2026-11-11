@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**create_flash_swap_order**](FlashSwapApi.md#create_flash_swap_order) | **POST** /flash_swap/orders | Create a flash swap order
 [**get_flash_swap_order**](FlashSwapApi.md#get_flash_swap_order) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
 [**preview_flash_swap_order**](FlashSwapApi.md#preview_flash_swap_order) | **POST** /flash_swap/orders/preview | Flash swap order preview
+[**list_flash_swap_currency_pair_v1**](FlashSwapApi.md#list_flash_swap_currency_pair_v1) | **GET** /flash-swap/v1/currency-pair | List Flash Swap currency pairs
 [**create_flash_swap_multi_currency_many_to_one_order**](FlashSwapApi.md#create_flash_swap_multi_currency_many_to_one_order) | **POST** /flash_swap/multi-currency/many-to-one/order/create | Flash Swap - Multi-currency exchange - Place order (many-to-one)
 [**preview_flash_swap_multi_currency_many_to_one_order**](FlashSwapApi.md#preview_flash_swap_multi_currency_many_to_one_order) | **POST** /flash_swap/multi-currency/many-to-one/order/preview | Flash Swap - Multi-currency exchange - Preview (many-to-one)
 [**create_flash_swap_order_v1**](FlashSwapApi.md#create_flash_swap_order_v1) | **POST** /flash_swap/order/create | Flash Swap - Place order (one-to-one)
@@ -358,6 +359,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Flash swap order preview successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_flash_swap_currency_pair_v1**
+> FlashSwapV1CurrencyPairListResp list_flash_swap_currency_pair_v1(asset_name, side, x_gate_region=x_gate_region)
+
+List Flash Swap currency pairs
+
+List available Flash Swap currency pairs and buy/sell amount limits for the specified currency and trading side
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.FlashSwapApi(api_client)
+asset_name = 'BTC' # str | Currency name
+side = 1 # int | Trading side - `1`: Sell - `2`: Buy
+x_gate_region = 'x_gate_region_example' # str | User region (optional)
+
+try:
+    # List Flash Swap currency pairs
+    api_response = api_instance.list_flash_swap_currency_pair_v1(asset_name, side, x_gate_region=x_gate_region)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling FlashSwapApi->list_flash_swap_currency_pair_v1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset_name** | **str**| Currency name | 
+ **side** | **int**| Trading side - &#x60;1&#x60;: Sell - &#x60;2&#x60;: Buy | 
+ **x_gate_region** | **str**| User region | [optional] 
+
+### Return type
+
+[**FlashSwapV1CurrencyPairListResp**](FlashSwapV1CurrencyPairListResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

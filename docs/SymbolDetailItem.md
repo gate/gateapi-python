@@ -30,6 +30,13 @@ Name | Type | Description | Notes
 **order_fill_timing** | **int** | Order fill timing (1&#x3D;immediate, 2&#x3D;after pre-market opens, 3&#x3D;after regular session opens) | [optional] 
 **symbol_descs** | [**list[SymbolDetailItemSymbolDescs]**](SymbolDetailItemSymbolDescs.md) | Multilingual symbol description | [optional] 
 **icon_link** | **str** | Icon URL | [optional] 
+**margin_mode** | **int** | Margin trading mode. - 0: Neither margin financing nor securities borrowing is supported. - 1: Margin financing is supported. - 2: Securities borrowing is supported. - 3: Both margin financing and securities borrowing are supported. | [optional] 
+**long_im** | **str** | Initial margin ratio for long positions | [optional] 
+**long_mm** | **str** | Maintenance margin ratio for long positions | [optional] 
+**short_im** | **str** | Initial margin ratio for short positions | [optional] 
+**short_mm** | **str** | Maintenance margin ratio for short positions | [optional] 
+**long_borrowing_rate** | **str** | Annual margin financing interest rate. An empty string indicates that no valid rate is currently available. | [optional] 
+**short_borrowing_rate** | **str** | Annual securities borrowing interest rate. An empty string indicates that no valid rate is currently available. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

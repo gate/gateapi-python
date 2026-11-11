@@ -13,7 +13,8 @@
 from __future__ import absolute_import
 
 import io
-import json
+# Share exact Decimal JSON bytes with ApiClient signing; ordinary values retain stdlib behavior.
+from gate_api import json_codec as json
 import logging
 import re
 import ssl

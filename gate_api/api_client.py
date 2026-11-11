@@ -12,13 +12,13 @@ from __future__ import absolute_import
 
 import atexit
 import datetime
+from decimal import Decimal
 import hashlib
 import hmac
 import time
 from six.moves.urllib.parse import unquote_plus, urlencode, urlparse
 
 from dateutil.parser import parse
-import json
 import mimetypes
 from multiprocessing.pool import ThreadPool
 import os
@@ -33,6 +33,7 @@ from urllib3.filepost import encode_multipart_formdata
 from gate_api.configuration import Configuration
 import gate_api.models
 from gate_api import rest
+from gate_api import json_codec as json
 from gate_api.exceptions import ApiValueError, ApiException, GateApiException
 
 
@@ -58,11 +59,12 @@ class ApiClient(object):
         to the API. More threads means more concurrent API requests.
     """
 
-    PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
+    PRIMITIVE_TYPES = (Decimal, float, bool, bytes, six.text_type) + six.integer_types
     NATIVE_TYPES_MAPPING = {
         'int': int,
         'long': int if six.PY3 else long,  # noqa: F821
         'float': float,
+        'Decimal': Decimal,
         'str': str,
         'bool': bool,
         'date': datetime.date,
@@ -84,7 +86,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/7.2.179/python'
+        self.user_agent = 'OpenAPI-Generator/7.2.181/python'
         # Set default X-Gate-Size-Decimal header for futures API
         self.default_headers['X-Gate-Size-Decimal'] = '1'
         self.client_side_validation = configuration.client_side_validation
@@ -159,6 +161,7 @@ class ApiClient(object):
         # query parameters
         if query_params:
             query_params = self.sanitize_for_serialization(query_params)
+            query_params = self._serialize_query_booleans(query_params)
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
 
@@ -332,7 +335,9 @@ class ApiClient(object):
             data = payload
         else:
             try:
-                data = json.loads(payload)
+                # Only response graphs with an explicit decimal-format leaf opt
+                # in; existing float/object response contracts keep their types.
+                data = json.loads(payload, exact=json.uses_decimal(response_type, gate_api.models))
             except ValueError:
                 raise ApiException(status=response.status, reason='Invalid JSON response')
 
@@ -505,6 +510,23 @@ class ApiClient(object):
                 "http method must be `GET`, `HEAD`, `OPTIONS`,"
                 " `POST`, `PATCH`, `PUT` or `DELETE`."
             )
+
+    @staticmethod
+    def _serialize_query_booleans(value):
+        """Use lowercase HTTP boolean values before collection encoding.
+
+        Scope this conversion to query parameters: JSON bodies must retain
+        actual booleans, and explicit false must never be treated as omission.
+        """
+        if isinstance(value, bool):
+            return 'true' if value else 'false'
+        if isinstance(value, (list, tuple)):
+            return type(value)(ApiClient._serialize_query_booleans(item)
+                               for item in value)
+        if isinstance(value, dict):
+            return {key: ApiClient._serialize_query_booleans(item)
+                    for key, item in value.items()}
+        return value
 
     def parameters_to_tuples(self, params, collection_formats):
         """Get parameters as list of tuples, formatting collections.
@@ -679,6 +701,8 @@ class ApiClient(object):
 
         :return: int, long, float, str, bool.
         """
+        if klass is Decimal:
+            return json.decimal_value(data)
         try:
             return klass(data)
         except UnicodeEncodeError:
@@ -691,7 +715,7 @@ class ApiClient(object):
 
         :return: object.
         """
-        return value
+        return json.legacy_numbers(value)
 
     def __deserialize_date(self, string):
         """Deserializes string to date.

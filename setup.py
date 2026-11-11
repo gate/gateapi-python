@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "gate-api"
-VERSION = "7.2.179"
+VERSION = "7.2.181"
 # To install the library, run the following
 #
 # python setup.py install
@@ -21,7 +21,8 @@ VERSION = "7.2.179"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+# Match requirements.txt: one exact JSON encoder is shared by signing and transport.
+REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil", "simplejson==3.20.2"]
 
 setup(
     name=NAME,

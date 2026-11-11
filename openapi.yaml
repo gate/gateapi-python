@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.179
+  version: v4.106.181
   x-betaNum: 1
   title: Gate API
   contact:
@@ -1171,15 +1171,33 @@ components:
           format: double
           description: Creation time of order
           readOnly: true
+        create_time_us:
+          type: integer
+          format: int64
+          description: Order creation time as a Unix timestamp in microseconds; omitted
+            when unavailable
+          readOnly: true
         update_time:
           type: number
           format: double
           description: OrderUpdateTime
           readOnly: true
+        update_time_us:
+          type: integer
+          format: int64
+          description: Order update time as a Unix timestamp in microseconds; omitted
+            when unavailable
+          readOnly: true
         finish_time:
           type: number
           format: double
           description: Order finished time. Not returned if order is open
+          readOnly: true
+        finish_time_us:
+          type: integer
+          format: int64
+          description: Order finish time as a Unix timestamp in microseconds; omitted
+            if the order has not finished or the timestamp is unavailable
           readOnly: true
         finish_as:
           type: string
@@ -1465,6 +1483,12 @@ components:
           format: double
           description: Creation time of order
           readOnly: true
+        create_time_us:
+          type: integer
+          format: int64
+          description: Order creation time as a Unix timestamp in microseconds; omitted
+            when unavailable
+          readOnly: true
         update_time:
           type: string
           description: OrderUpdateTime
@@ -1472,6 +1496,12 @@ components:
         finish_time:
           type: string
           description: Order finished time. Not returned if order is open
+          readOnly: true
+        finish_time_us:
+          type: integer
+          format: int64
+          description: Order finish time as a Unix timestamp in microseconds; omitted
+            if the order has not finished or the timestamp is unavailable
           readOnly: true
         finish_as:
           type: string
@@ -2956,6 +2986,17 @@ components:
 
             - Ignored when close_type = 2'
           example: '1'
+    TradFiSpotSetMarginFeatureRequest:
+      type: object
+      description: Request parameters for enabling or disabling margin financing
+      required:
+      - margin_feature
+      properties:
+        margin_feature:
+          type: boolean
+          description: Whether to enable margin financing. true enables it; false
+            disables it.
+          example: true
     TradFiSpotOrderRequest:
       type: object
       description: Place order request parameters
@@ -10624,6 +10665,18 @@ components:
       - code
       - message
       - data
+    FlashSwapV1CurrencyPairListResp:
+      type: object
+      description: Flash Swap V1 currency pair list
+      properties:
+        currency_pair:
+          type: array
+          description: Available currency pairs for Flash Swap
+          items:
+            $ref: '#/components/schemas/FlashSwapV1CurrencyPair'
+      title: FlashSwapV1CurrencyPairListResp
+      required:
+      - currency_pair
     FlashSwapMultiCurrencyCreateParam:
       type: object
       properties:
@@ -10777,6 +10830,48 @@ components:
       required:
       - sell_asset
       - buy_asset
+    FlashSwapV1CurrencyPair:
+      type: object
+      description: Flash Swap V1 currency pair information
+      properties:
+        market:
+          type: string
+          description: Market identifier, e.g. `BTC_USDT` means selling BTC to buy
+            USDT
+          readOnly: true
+        sell_asset:
+          type: string
+          description: Currency to sell
+          readOnly: true
+        sell_min_amount:
+          type: string
+          description: Minimum sell quantity
+          readOnly: true
+        sell_max_amount:
+          type: string
+          description: Maximum sell quantity
+          readOnly: true
+        buy_asset:
+          type: string
+          description: Currency to buy
+          readOnly: true
+        buy_min_amount:
+          type: string
+          description: Minimum buy quantity
+          readOnly: true
+        buy_max_amount:
+          type: string
+          description: Maximum buy quantity
+          readOnly: true
+      title: FlashSwapV1CurrencyPair
+      required:
+      - market
+      - sell_asset
+      - sell_min_amount
+      - sell_max_amount
+      - buy_asset
+      - buy_min_amount
+      - buy_max_amount
     ErrCodeMsg:
       type: object
       properties:
@@ -16399,10 +16494,18 @@ components:
           type: number
           format: double
           description: Response data generation timestamp
+        current_us:
+          type: integer
+          format: int64
+          description: Response data timestamp in microseconds; omitted when unavailable
         update:
           type: number
           format: double
           description: Order book changed timestamp
+        update_us:
+          type: integer
+          format: int64
+          description: Order book update timestamp in microseconds; omitted when unavailable
         asks:
           type: array
           description: Ask Depth
@@ -16873,10 +16976,33 @@ components:
           format: double
           description: Creation time of order
           readOnly: true
+        create_time_us:
+          type: integer
+          format: int64
+          description: Order creation time as a Unix timestamp in microseconds; omitted
+            when unavailable
+          readOnly: true
+        update_time:
+          type: number
+          format: double
+          description: OrderUpdateTime
+          readOnly: true
+        update_time_us:
+          type: integer
+          format: int64
+          description: Order update time as a Unix timestamp in microseconds; omitted
+            when unavailable
+          readOnly: true
         finish_time:
           type: number
           format: double
           description: Order finished time. Not returned if order is open
+          readOnly: true
+        finish_time_us:
+          type: integer
+          format: int64
+          description: Order finish time as a Unix timestamp in microseconds; omitted
+            if the order has not finished or the timestamp is unavailable
           readOnly: true
         finish_as:
           type: string
@@ -18445,6 +18571,35 @@ components:
               type: string
               description: Available Balance
               example: '6500.5'
+            loan_amount:
+              type: string
+              description: 'Loan amount. Non-negative: the absolute value of the original
+                available balance when it is negative, otherwise 0.'
+              example: '0'
+            buy_power:
+              type: string
+              description: Buying power
+              example: '13000'
+            leverage:
+              type: string
+              description: Leverage
+              example: '2'
+            leave_liquidity:
+              type: string
+              description: Excess liquidity
+              example: '5000'
+            leave_liquidity_rate:
+              type: string
+              description: Excess liquidity ratio
+              example: '0.5'
+            aee:
+              type: string
+              description: Available Excess Equity (AEE)
+              example: '4800'
+            options_margin:
+              type: string
+              description: Options margin
+              example: '0'
             position_market_value:
               type: string
               description: Position market value
@@ -18473,6 +18628,15 @@ components:
               type: boolean
               description: Whether the user has activated the service
               example: true
+            margin_enabled:
+              type: boolean
+              description: Whether margin financing is enabled
+              example: true
+            long_borrowing_rate:
+              type: string
+              description: Annual margin financing interest rate. An empty string
+                indicates that no valid rate is currently available.
+              example: '0.03'
         timestamp:
           type: integer
           format: int64
@@ -18498,6 +18662,16 @@ components:
           format: int64
           description: Server timestamp (milliseconds)
           example: 1783411200000
+    SetMarginFeature:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Returns empty object on success
+          additionalProperties: false
+        timestamp:
+          type: integer
+          format: int64
     Symbols2:
       type: object
       properties:
@@ -18693,6 +18867,49 @@ components:
           description: Multilingual symbol description
           items:
             $ref: '#/components/schemas/I18nTxt'
+        margin_mode:
+          type: integer
+          description: 'Margin trading mode.
+
+            - 0: Neither margin financing nor securities borrowing is supported.
+
+            - 1: Margin financing is supported.
+
+            - 2: Securities borrowing is supported.
+
+            - 3: Both margin financing and securities borrowing are supported.'
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          example: 1
+        long_im:
+          type: string
+          description: Initial margin ratio for long positions
+          example: '0.25'
+        long_mm:
+          type: string
+          description: Maintenance margin ratio for long positions
+          example: '0.45'
+        short_im:
+          type: string
+          description: Initial margin ratio for short positions
+          example: '0.3'
+        short_mm:
+          type: string
+          description: Maintenance margin ratio for short positions
+          example: '0.5'
+        long_borrowing_rate:
+          type: string
+          description: Annual margin financing interest rate. An empty string indicates
+            that no valid rate is currently available.
+          example: '0.03'
+        short_borrowing_rate:
+          type: string
+          description: Annual securities borrowing interest rate. An empty string
+            indicates that no valid rate is currently available.
+          example: '0.005'
     I18nTxt:
       type: object
       properties:
@@ -18929,6 +19146,49 @@ components:
           type: string
           description: Icon URL
           example: https://static.gate.com/aapl.png
+        margin_mode:
+          type: integer
+          description: 'Margin trading mode.
+
+            - 0: Neither margin financing nor securities borrowing is supported.
+
+            - 1: Margin financing is supported.
+
+            - 2: Securities borrowing is supported.
+
+            - 3: Both margin financing and securities borrowing are supported.'
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          example: 1
+        long_im:
+          type: string
+          description: Initial margin ratio for long positions
+          example: '0.25'
+        long_mm:
+          type: string
+          description: Maintenance margin ratio for long positions
+          example: '0.45'
+        short_im:
+          type: string
+          description: Initial margin ratio for short positions
+          example: '0.3'
+        short_mm:
+          type: string
+          description: Maintenance margin ratio for short positions
+          example: '0.5'
+        long_borrowing_rate:
+          type: string
+          description: Annual margin financing interest rate. An empty string indicates
+            that no valid rate is currently available.
+          example: '0.03'
+        short_borrowing_rate:
+          type: string
+          description: Annual securities borrowing interest rate. An empty string
+            indicates that no valid rate is currently available.
+          example: '0.005'
     OrderBook2:
       type: object
       properties:
@@ -19386,6 +19646,124 @@ components:
           format: int64
           description: Order completion time (Unix timestamp in seconds)
           example: 1769378500
+    OrderDealList:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+              description: Total quantity
+            total_page:
+              type: integer
+              format: int64
+              description: Total pages
+            list:
+              type: array
+              description: Trade records
+              items:
+                $ref: '#/components/schemas/OrderDealItem'
+        timestamp:
+          type: integer
+          format: int64
+    OrderDealItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-is-bigint: true
+          description: Trade record primary key ID
+          example: 10001
+        deal_id:
+          type: integer
+          format: int64
+          x-is-bigint: true
+          description: Trade ID
+          example: 90001
+        order_id:
+          type: integer
+          format: int64
+          x-is-bigint: true
+          description: Order ID
+          example: 123456
+        client_order_id:
+          type: string
+          description: Client-defined order ID
+          example: client-202607070001
+        user_id:
+          type: integer
+          description: User ID
+          example: 100001
+        symbol:
+          type: string
+          description: Symbol
+          example: AAPL
+        exchange:
+          type: string
+          description: 'Exchange.
+
+            - us: US stocks.
+
+            - hk: Hong Kong stocks.
+
+            - kr: Korean stocks.
+
+            - jp: Japanese stocks.'
+          enum:
+          - us
+          - hk
+          - kr
+          - jp
+          example: us
+        side:
+          type: integer
+          description: Side (1=sell, 2=buy)
+          enum:
+          - 1
+          - 2
+          example: 2
+        role:
+          type: string
+          description: 'Liquidity role.
+
+            - maker: Maker.
+
+            - taker: Taker.'
+          enum:
+          - maker
+          - taker
+          example: taker
+        price:
+          type: string
+          description: Trade price in the instrument trading currency
+          example: '200.10'
+        quantity:
+          type: string
+          description: Trading size
+          example: '5'
+        position_qty:
+          type: string
+          description: Position quantity after the trade
+          example: '15'
+        avg_entry_price:
+          type: string
+          description: Average entry price
+          example: '198.50'
+        value:
+          type: string
+          description: Trade value in the instrument trading currency
+          example: '1000.50'
+        fx_rate:
+          type: string
+          description: Quote currency to USD exchange rate
+          example: '1'
+        fee:
+          type: string
+          description: Fee in the instrument trading currency
+          example: '1.001'
     UpdateOrder2:
       type: object
       properties:
@@ -19686,6 +20064,110 @@ components:
           type: object
           description: Business details
           additionalProperties: true
+    BalanceRecordList:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+              description: Total quantity
+            total_page:
+              type: integer
+              format: int64
+              description: Total pages
+            list:
+              type: array
+              description: Balance record details
+              items:
+                $ref: '#/components/schemas/BalanceRecordItem'
+        timestamp:
+          type: integer
+          format: int64
+    BalanceRecordItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-is-bigint: true
+          description: Balance record primary key ID
+          example: 1001
+        user_id:
+          type: integer
+          description: User ID
+          example: 100001
+        change:
+          type: string
+          description: Cash amount change. Positive values are credits; negative values
+            are debits.
+          example: '100'
+        balance:
+          type: string
+          description: Cash balance snapshot after the change
+          example: '1000'
+        stock_change:
+          type: string
+          description: Stock quantity change, parsed from detail.amount for stock
+            quantity records; may be an empty string for other records
+          example: '10'
+        type:
+          type: string
+          description: 'Raw record type. Common values include:
+
+            - deposit: Funds transferred in.
+
+            - withdraw: Funds transferred out.
+
+            - fee: Trading fee.
+
+            - dividend: Dividend payment.
+
+            - sell: Proceeds from selling stocks.
+
+            - buy: Payment for buying stocks.
+
+            - award: Airdrop reward.
+
+            - stock_transfer_in: Stocks transferred in.
+
+            - stock_transfer_out: Stocks transferred out.'
+          example: deposit
+        business:
+          type: string
+          description: Business identifier
+          example: transfer
+        business_id:
+          type: integer
+          format: int64
+          x-is-bigint: true
+          description: Related business ID
+          example: 2001
+        symbol:
+          type: string
+          description: Symbol
+          example: AAPL
+        detail:
+          type: string
+          description: Raw business details as a JSON string; returned only when include_detail=true
+            is requested
+          example: '{"amount":"10","source":"api"}'
+        version:
+          type: integer
+          description: Record version
+          example: 1
+        time_create:
+          type: integer
+          format: int64
+          description: Business event time (Unix timestamp in seconds)
+          example: 1769378400
+        create_time:
+          type: integer
+          format: int64
+          description: Record creation time (Unix timestamp in seconds)
+          example: 1769378400
     Exchanges:
       type: object
       properties:
@@ -32191,8 +32673,10 @@ paths:
                 $ref: '#/components/schemas/FuturesOrderBook'
               example:
                 id: 123456
-                current: 1623898993.123
-                update: 1623898993.121
+                current: 1623898993.123456
+                current_us: 1623898993123456
+                update: 1623898993.121456
+                update_us: 1623898993121456
                 asks:
                 - p: '1.52'
                   s: '100'
@@ -32269,8 +32753,10 @@ paths:
                 $ref: '#/components/schemas/FuturesOrderBook'
               example:
                 id: 123456
-                current: 1623898993.123
-                update: 1623898993.121
+                current: 1623898993.123456
+                current_us: 1623898993123456
+                update: 1623898993.121456
+                update_us: 1623898993121456
                 asks:
                 - p: '1.52'
                   s: '100'
@@ -34666,7 +35152,10 @@ paths:
               id: 15675394
               user: 100000
               contract: BTC_USDT
-              create_time: 1546569968
+              create_time: 1546569968.123456
+              create_time_us: 1546569968123456
+              update_time: 1546569970.456789
+              update_time_us: 1546569970456789
               size: '6024'
               iceberg: '0'
               left: '6024'
@@ -34681,7 +35170,8 @@ paths:
               is_liq: false
               text: t-my-custom-id
               status: finished
-              finish_time: 1514764900
+              finish_time: 1546569970.456789
+              finish_time_us: 1546569970456789
               finish_as: cancelled
               stp_id: 0
               stp_act: '-'
@@ -34703,7 +35193,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -34718,7 +35211,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -34809,7 +35303,10 @@ paths:
               - id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -34824,7 +35321,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -34912,7 +35410,10 @@ paths:
               - id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -34927,7 +35428,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35031,7 +35533,9 @@ paths:
               - id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: '1546569970.456789'
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35046,7 +35550,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: '1546569970.456789'
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35118,7 +35623,10 @@ paths:
             - id: 15675394
               user: 100000
               contract: BTC_USDT
-              create_time: 1546569968
+              create_time: 1546569968.123456
+              create_time_us: 1546569968123456
+              update_time: 1546569970.456789
+              update_time_us: 1546569970456789
               size: '6024'
               iceberg: '0'
               left: '6024'
@@ -35133,7 +35641,8 @@ paths:
               is_liq: false
               text: t-my-custom-id
               status: finished
-              finish_time: 1514764900
+              finish_time: 1546569970.456789
+              finish_time_us: 1546569970456789
               finish_as: cancelled
               stp_id: 0
               stp_act: '-'
@@ -35158,7 +35667,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35173,7 +35685,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35227,7 +35740,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35242,7 +35758,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35295,7 +35812,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35310,7 +35830,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35356,7 +35877,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35371,7 +35895,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -36115,7 +36640,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -36130,7 +36658,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -36273,7 +36802,10 @@ paths:
                 id: 15675394
                 user: 100000
                 contract: BTC_USDT
-                create_time: 1546569968
+                create_time: 1546569968.123456
+                create_time_us: 1546569968123456
+                update_time: 1546569970.456789
+                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -36288,7 +36820,8 @@ paths:
                 is_liq: false
                 text: t-my-custom-id
                 status: finished
-                finish_time: 1514764900
+                finish_time: 1546569970.456789
+                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -38959,6 +39492,13 @@ paths:
                   equity: '10000.12'
                   balance: '8000'
                   available: '6500.5'
+                  loan_amount: '0'
+                  buy_power: '13000'
+                  leverage: '2'
+                  leave_liquidity: '5000'
+                  leave_liquidity_rate: '0.5'
+                  aee: '4800'
+                  options_margin: '0'
                   position_market_value: '1500.25'
                   position_pnl: '12.5'
                   today_pnl: '3.2'
@@ -38966,6 +39506,8 @@ paths:
                   option_position_pnl: '0'
                   option_today_pnl: '0'
                   user_exists: true
+                  margin_enabled: true
+                  long_borrowing_rate: '0.03'
                 timestamp: 1783411200000
         400:
           description: Request failed
@@ -38979,6 +39521,43 @@ paths:
                 data: null
                 timestamp: 1783411200000
       x-group-parameters: true
+  /stock/users/margin-feature:
+    put:
+      tags:
+      - Stock
+      summary: Set margin financing availability
+      description: 'Rate limit: 5 requests per second.
+
+        Enable or disable margin financing for the user.'
+      operationId: setStockMarginFeature
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TradFiSpotSetMarginFeatureRequest'
+      responses:
+        200:
+          description: Request success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetMarginFeature'
+              example:
+                data: {}
+                timestamp: 1783411200000
+        400:
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradFiSpotError'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1783411200000
+      parameters: []
   /stock/symbols:
     get:
       tags:
@@ -39059,7 +39638,7 @@ paths:
                     category: CS
                     asset_type: STOCK
                     trade_status: open
-                    trade_mode: 3
+                    trade_mode: 4
                     order_fill_timing: 1
                     icon_link: https://static.gate.com/aapl.png
                     quote_currency_symbol: $
@@ -39071,6 +39650,13 @@ paths:
                     symbol_descs:
                     - lang: en
                       value: Apple Inc.
+                    margin_mode: 1
+                    long_im: '0.25'
+                    long_mm: '0.45'
+                    short_im: '0.3'
+                    short_mm: '0.5'
+                    long_borrowing_rate: '0.03'
+                    short_borrowing_rate: ''
                 timestamp: 1783411200000
         400:
           description: Request failed
@@ -39170,12 +39756,19 @@ paths:
                     slippage_rate: '0.001'
                     commission_rate: '0.001'
                     trade_status: open
-                    trade_mode: 3
+                    trade_mode: 4
                     order_fill_timing: 1
                     symbol_descs:
                     - lang: en
                       value: Apple Inc.
                     icon_link: https://static.gate.com/aapl.png
+                    margin_mode: 1
+                    long_im: '0.25'
+                    long_mm: '0.45'
+                    short_im: '0.3'
+                    short_mm: '0.5'
+                    long_borrowing_rate: '0.03'
+                    short_borrowing_rate: ''
                 timestamp: 1783411200000
         400:
           description: Request failed
@@ -39461,6 +40054,87 @@ paths:
                     commission: '2.001'
                     time_setup: 1769378400
                     time_done: 1769378500
+                timestamp: 1783411200000
+        400:
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradFiSpotError'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1783411200000
+      x-group-parameters: true
+  /stock/orders/deals:
+    get:
+      tags:
+      - Stock
+      summary: Query order trade records
+      description: 'Rate limit: 5 requests per second.
+
+        Query the current user''s trade records by order ID. `price`, `value`, and
+        `fee` are denominated in the instrument trading currency (for example, USD
+        for US stocks, HKD for Hong Kong stocks, JPY for Japanese stocks, and KRW
+        for Korean stocks).
+
+        `role` returns `maker` or `taker`.'
+      operationId: queryStockOrderDeals
+      parameters:
+      - name: order_id
+        in: query
+        required: true
+        x-is-bigint: true
+        description: Order ID
+        schema:
+          type: integer
+          format: int64
+          example: 123456
+      - name: page
+        in: query
+        required: false
+        description: Page number, defaults to 1
+        schema:
+          type: integer
+          example: 1
+      - name: page_size
+        in: query
+        required: false
+        description: Records per page. Defaults to 10, maximum 100. The server caps
+          values greater than 100 at 100.
+        schema:
+          type: integer
+          maximum: 100
+          example: 20
+      responses:
+        200:
+          description: Request success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderDealList'
+              example:
+                data:
+                  total: 1
+                  total_page: 1
+                  list:
+                  - id: 10001
+                    deal_id: 90001
+                    order_id: 123456
+                    client_order_id: client-202607070001
+                    user_id: 100001
+                    symbol: AAPL
+                    exchange: us
+                    side: 2
+                    role: taker
+                    price: '200.10'
+                    quantity: '5'
+                    position_qty: '15'
+                    avg_entry_price: '198.50'
+                    value: '1000.50'
+                    fx_rate: '1'
+                    fee: '1.001'
                 timestamp: 1783411200000
         400:
           description: Request failed
@@ -39849,6 +40523,159 @@ paths:
                     unit_text: USDT
                     detail:
                       source: api
+                timestamp: 1783411200000
+        400:
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradFiSpotError'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1783411200000
+      x-group-parameters: true
+  /stock/users/balance-records:
+    get:
+      tags:
+      - Stock
+      summary: Query user balance records
+      description: 'Rate limit: 5 requests per second.
+
+        Query the current user''s raw balance records. User scope is derived from
+        the request headers; a query parameter `user_id` is not supported.
+
+        - `type` and `business` support multiple comma-separated values.
+
+        - `begin_time` and `end_time` filter record creation time in seconds. When
+        both are provided, `end_time` must be greater than `begin_time`.
+
+        - Results are always sorted by primary key `id`; `sort_direction` accepts
+        `asc` or `desc`. The default is `id desc`. With `start_id` and no `sort_direction`,
+        the order is `id asc`, and only records with `id > start_id` are returned
+        for incremental retrieval.
+
+        - `detail` is omitted by default and returned only when `include_detail=true`.
+
+        - `stock_change` is parsed from `detail.amount` for stock quantity records;
+        `balance` is a cash balance snapshot, not a stock position balance.'
+      operationId: queryStockBalanceRecords
+      parameters:
+      - name: type
+        in: query
+        required: false
+        description: Record types, separated by commas
+        schema:
+          type: string
+          example: deposit,fee
+      - name: business
+        in: query
+        required: false
+        description: Business identifiers, separated by commas
+        schema:
+          type: string
+          example: transfer,trade
+      - name: symbol
+        in: query
+        required: false
+        description: Symbol
+        schema:
+          type: string
+          example: AAPL
+      - name: begin_time
+        in: query
+        required: false
+        description: Start time (Unix timestamp in seconds). When both begin_time
+          and end_time are provided, end_time must be greater than begin_time.
+        schema:
+          type: integer
+          format: int64
+          example: 1769378400
+      - name: end_time
+        in: query
+        required: false
+        description: End time (Unix timestamp in seconds). When both begin_time and
+          end_time are provided, end_time must be greater than begin_time.
+        schema:
+          type: integer
+          format: int64
+          example: 1769464800
+      - name: start_id
+        in: query
+        required: false
+        x-is-bigint: true
+        description: Starting primary key ID for incremental queries. Only records
+          with a greater id are returned.
+        schema:
+          type: integer
+          format: int64
+          example: 1000
+      - name: sort_direction
+        in: query
+        required: false
+        description: 'Sort direction by primary key id.
+
+          - asc: Ascending.
+
+          - desc: Descending.
+
+          When omitted, defaults to desc without start_id, or asc with start_id.'
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          example: desc
+      - name: include_detail
+        in: query
+        required: false
+        description: Whether to return the raw detail field; defaults to false when
+          omitted
+        schema:
+          type: boolean
+          example: false
+      - name: page
+        in: query
+        required: false
+        description: Page number, defaults to 1
+        schema:
+          type: integer
+          example: 1
+      - name: page_size
+        in: query
+        required: false
+        description: Records per page. Defaults to 10, maximum 100. The server caps
+          values greater than 100 at 100.
+        schema:
+          type: integer
+          maximum: 100
+          example: 20
+      responses:
+        200:
+          description: Request success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceRecordList'
+              example:
+                data:
+                  total: 1
+                  total_page: 1
+                  list:
+                  - id: 1001
+                    user_id: 100001
+                    change: '100'
+                    balance: '1000'
+                    stock_change: '10'
+                    type: deposit
+                    business: transfer
+                    business_id: 2001
+                    symbol: AAPL
+                    detail: '{"amount":"10","source":"api"}'
+                    version: 1
+                    time_create: 1769378400
+                    create_time: 1769378400
                 timestamp: 1783411200000
         400:
           description: Request failed
@@ -50042,6 +50869,64 @@ paths:
           headers: {}
       security: []
       x-group-parameters: true
+  /crossex/rule/open_capacity:
+    get:
+      operationId: listCrossexRuleOpenCapacity
+      summary: Query remaining platform opening capacity
+      deprecated: false
+      description: 'Query the current maximum remaining opening notional value for
+        each futures trading pair in the LONG and SHORT directions.
+
+        Only trading pairs and position sides with remaining opening capacity below
+        the threshold are returned; omission means the remaining capacity is at least
+        the threshold.
+
+        When `available_to_open_notional` is `0`, no position can currently be opened
+        for that trading pair and position side. Closing positions is not affected
+        by this rule.'
+      tags:
+      - CrossEx
+      parameters: []
+      responses:
+        '200':
+          description: Query successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: CrossexOpenCapacity
+                  type: object
+                  properties:
+                    symbol:
+                      type: string
+                      description: Futures trading pair
+                    position_side:
+                      type: string
+                      enum:
+                      - LONG
+                      - SHORT
+                      description: Position side (LONG for long positions / SHORT
+                        for short positions)
+                    available_to_open_notional:
+                      type: number
+                      format: decimal
+                      description: Current maximum remaining opening notional value
+                        for the position side; 0 means no position can currently be
+                        opened
+                  required:
+                  - symbol
+                  - position_side
+                  - available_to_open_notional
+              example:
+              - symbol: GATE_FUTURE_HIVE_USDT
+                position_side: LONG
+                available_to_open_notional: 390.625
+              - symbol: GATE_FUTURE_HIVE_USDT
+                position_side: SHORT
+                available_to_open_notional: 390.625
+          headers: {}
+      security: []
   /crossex/rule/risk_limits:
     get:
       operationId: listCrossexRuleRiskLimits
@@ -50241,10 +51126,11 @@ paths:
         - When transferring non-USDT assets, transfers between `CROSSEX_{exchange_type}`\
         \ accounts are supported, for example: from = `CROSSEX_BINANCE`, to = `CROSSEX_GATE`\n\
         - When either side of the transfer is `CROSSEX_KRAKEN`, only USDT is supported\
-        \ for now.\n- When either side of the transfer is `CROSSEX_HYPERLIQUID`, the\
-        \ other side must be `SPOT`, and only USDC is supported.\n- When either side\
-        \ of the transfer is `CROSSEX_LIGHTER`, the other side must be `SPOT`, and\
-        \ only USDC is supported."
+        \ for now.\n- When either side of the transfer is `CROSSEX_DERIBIT`, only\
+        \ USDC is currently supported.\n- When either side of the transfer is `CROSSEX_HYPERLIQUID`,\
+        \ the other side must be `SPOT`, and only USDC is supported.\n- When either\
+        \ side of the transfer is `CROSSEX_LIGHTER`, the other side must be `SPOT`,\
+        \ and only USDC is supported."
       tags:
       - CrossEx
       parameters: []
@@ -56723,6 +57609,72 @@ paths:
                 timestamp: 1773656946924
           headers: {}
       security: []
+  /flash-swap/v1/currency-pair:
+    get:
+      summary: List Flash Swap currency pairs
+      description: List available Flash Swap currency pairs and buy/sell amount limits
+        for the specified currency and trading side
+      operationId: listFlashSwapCurrencyPairV1
+      tags:
+      - flash_swap
+      parameters:
+      - name: asset_name
+        in: query
+        description: Currency name
+        required: true
+        schema:
+          type: string
+        example: BTC
+      - name: side
+        in: query
+        description: 'Trading side
+
+          - `1`: Sell
+
+          - `2`: Buy'
+        required: true
+        schema:
+          type: integer
+          format: int32
+          enum:
+          - 1
+          - 2
+        example: 1
+      - name: X-Gate-Region
+        in: header
+        description: User region
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlashSwapV1CurrencyPairListResp'
+              example:
+                currency_pair:
+                - market: BTC_USDT
+                  sell_asset: BTC
+                  sell_min_amount: '0.00001'
+                  sell_max_amount: '100'
+                  buy_asset: USDT
+                  buy_min_amount: '10'
+                  buy_max_amount: '10000000'
+        '400':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlashSwapErrorResponse'
+        '404':
+          description: Record does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlashSwapErrorResponse'
+      x-group-parameters: true
   /flash_swap/multi-currency/many-to-one/order/create:
     post:
       summary: Flash Swap - Multi-currency exchange - Place order (many-to-one)

@@ -11,11 +11,13 @@
 
 
 import pprint
+from decimal import Decimal
 import re  # noqa: F401
 
 import six
 
 from gate_api.configuration import Configuration
+from gate_api import json_codec
 
 
 class SymbolListItem(object):
@@ -53,7 +55,14 @@ class SymbolListItem(object):
         'ipo_price': 'str',
         'sell_price_protection': 'str',
         'buy_price_protection': 'str',
-        'symbol_descs': 'list[I18nTxt]'
+        'symbol_descs': 'list[I18nTxt]',
+        'margin_mode': 'int',
+        'long_im': 'str',
+        'long_mm': 'str',
+        'short_im': 'str',
+        'short_mm': 'str',
+        'long_borrowing_rate': 'str',
+        'short_borrowing_rate': 'str'
     }
 
     attribute_map = {
@@ -77,11 +86,18 @@ class SymbolListItem(object):
         'ipo_price': 'ipo_price',
         'sell_price_protection': 'sell_price_protection',
         'buy_price_protection': 'buy_price_protection',
-        'symbol_descs': 'symbol_descs'
+        'symbol_descs': 'symbol_descs',
+        'margin_mode': 'margin_mode',
+        'long_im': 'long_im',
+        'long_mm': 'long_mm',
+        'short_im': 'short_im',
+        'short_mm': 'short_mm',
+        'long_borrowing_rate': 'long_borrowing_rate',
+        'short_borrowing_rate': 'short_borrowing_rate'
     }
 
-    def __init__(self, symbol=None, exchange=None, exchange_desc=None, quote_currency=None, quote_currency_precision=None, fx_rate=None, symbol_desc=None, category=None, asset_type=None, trade_status=None, trade_mode=None, order_fill_timing=None, icon_link=None, quote_currency_symbol=None, price_precision=None, volume_precision=None, is_ipo=None, ipo_price=None, sell_price_protection=None, buy_price_protection=None, symbol_descs=None, local_vars_configuration=None):  # noqa: E501
-        # type: (str, str, str, str, int, str, str, str, str, str, int, int, str, str, int, int, bool, str, str, str, list[I18nTxt], Configuration) -> None
+    def __init__(self, symbol=None, exchange=None, exchange_desc=None, quote_currency=None, quote_currency_precision=None, fx_rate=None, symbol_desc=None, category=None, asset_type=None, trade_status=None, trade_mode=None, order_fill_timing=None, icon_link=None, quote_currency_symbol=None, price_precision=None, volume_precision=None, is_ipo=None, ipo_price=None, sell_price_protection=None, buy_price_protection=None, symbol_descs=None, margin_mode=None, long_im=None, long_mm=None, short_im=None, short_mm=None, long_borrowing_rate=None, short_borrowing_rate=None, local_vars_configuration=None):  # noqa: E501
+        # type: (str, str, str, str, int, str, str, str, str, str, int, int, str, str, int, int, bool, str, str, str, list[I18nTxt], int, str, str, str, str, str, str, Configuration) -> None
         """SymbolListItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,6 +124,13 @@ class SymbolListItem(object):
         self._sell_price_protection = None
         self._buy_price_protection = None
         self._symbol_descs = None
+        self._margin_mode = None
+        self._long_im = None
+        self._long_mm = None
+        self._short_im = None
+        self._short_mm = None
+        self._long_borrowing_rate = None
+        self._short_borrowing_rate = None
         self.discriminator = None
 
         if symbol is not None:
@@ -152,6 +175,20 @@ class SymbolListItem(object):
             self.buy_price_protection = buy_price_protection
         if symbol_descs is not None:
             self.symbol_descs = symbol_descs
+        if margin_mode is not None:
+            self.margin_mode = margin_mode
+        if long_im is not None:
+            self.long_im = long_im
+        if long_mm is not None:
+            self.long_mm = long_mm
+        if short_im is not None:
+            self.short_im = short_im
+        if short_mm is not None:
+            self.short_mm = short_mm
+        if long_borrowing_rate is not None:
+            self.long_borrowing_rate = long_borrowing_rate
+        if short_borrowing_rate is not None:
+            self.short_borrowing_rate = short_borrowing_rate
 
     @property
     def symbol(self):
@@ -671,6 +708,173 @@ class SymbolListItem(object):
         """
 
         self._symbol_descs = symbol_descs
+
+    @property
+    def margin_mode(self):
+        """Gets the margin_mode of this SymbolListItem.  # noqa: E501
+
+        Margin trading mode. - 0: Neither margin financing nor securities borrowing is supported. - 1: Margin financing is supported. - 2: Securities borrowing is supported. - 3: Both margin financing and securities borrowing are supported.  # noqa: E501
+
+        :return: The margin_mode of this SymbolListItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._margin_mode
+
+    @margin_mode.setter
+    def margin_mode(self, margin_mode):
+        """Sets the margin_mode of this SymbolListItem.
+
+        Margin trading mode. - 0: Neither margin financing nor securities borrowing is supported. - 1: Margin financing is supported. - 2: Securities borrowing is supported. - 3: Both margin financing and securities borrowing are supported.  # noqa: E501
+
+        :param margin_mode: The margin_mode of this SymbolListItem.  # noqa: E501
+        :type: int
+        """
+        allowed_values = [0, 1, 2, 3]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and margin_mode not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `margin_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(margin_mode, allowed_values)
+            )
+
+        self._margin_mode = margin_mode
+
+    @property
+    def long_im(self):
+        """Gets the long_im of this SymbolListItem.  # noqa: E501
+
+        Initial margin ratio for long positions  # noqa: E501
+
+        :return: The long_im of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._long_im
+
+    @long_im.setter
+    def long_im(self, long_im):
+        """Sets the long_im of this SymbolListItem.
+
+        Initial margin ratio for long positions  # noqa: E501
+
+        :param long_im: The long_im of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._long_im = long_im
+
+    @property
+    def long_mm(self):
+        """Gets the long_mm of this SymbolListItem.  # noqa: E501
+
+        Maintenance margin ratio for long positions  # noqa: E501
+
+        :return: The long_mm of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._long_mm
+
+    @long_mm.setter
+    def long_mm(self, long_mm):
+        """Sets the long_mm of this SymbolListItem.
+
+        Maintenance margin ratio for long positions  # noqa: E501
+
+        :param long_mm: The long_mm of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._long_mm = long_mm
+
+    @property
+    def short_im(self):
+        """Gets the short_im of this SymbolListItem.  # noqa: E501
+
+        Initial margin ratio for short positions  # noqa: E501
+
+        :return: The short_im of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._short_im
+
+    @short_im.setter
+    def short_im(self, short_im):
+        """Sets the short_im of this SymbolListItem.
+
+        Initial margin ratio for short positions  # noqa: E501
+
+        :param short_im: The short_im of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._short_im = short_im
+
+    @property
+    def short_mm(self):
+        """Gets the short_mm of this SymbolListItem.  # noqa: E501
+
+        Maintenance margin ratio for short positions  # noqa: E501
+
+        :return: The short_mm of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._short_mm
+
+    @short_mm.setter
+    def short_mm(self, short_mm):
+        """Sets the short_mm of this SymbolListItem.
+
+        Maintenance margin ratio for short positions  # noqa: E501
+
+        :param short_mm: The short_mm of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._short_mm = short_mm
+
+    @property
+    def long_borrowing_rate(self):
+        """Gets the long_borrowing_rate of this SymbolListItem.  # noqa: E501
+
+        Annual margin financing interest rate. An empty string indicates that no valid rate is currently available.  # noqa: E501
+
+        :return: The long_borrowing_rate of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._long_borrowing_rate
+
+    @long_borrowing_rate.setter
+    def long_borrowing_rate(self, long_borrowing_rate):
+        """Sets the long_borrowing_rate of this SymbolListItem.
+
+        Annual margin financing interest rate. An empty string indicates that no valid rate is currently available.  # noqa: E501
+
+        :param long_borrowing_rate: The long_borrowing_rate of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._long_borrowing_rate = long_borrowing_rate
+
+    @property
+    def short_borrowing_rate(self):
+        """Gets the short_borrowing_rate of this SymbolListItem.  # noqa: E501
+
+        Annual securities borrowing interest rate. An empty string indicates that no valid rate is currently available.  # noqa: E501
+
+        :return: The short_borrowing_rate of this SymbolListItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._short_borrowing_rate
+
+    @short_borrowing_rate.setter
+    def short_borrowing_rate(self, short_borrowing_rate):
+        """Sets the short_borrowing_rate of this SymbolListItem.
+
+        Annual securities borrowing interest rate. An empty string indicates that no valid rate is currently available.  # noqa: E501
+
+        :param short_borrowing_rate: The short_borrowing_rate of this SymbolListItem.  # noqa: E501
+        :type: str
+        """
+
+        self._short_borrowing_rate = short_borrowing_rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

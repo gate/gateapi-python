@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**query_stock_user_assets**](StockApi.md#query_stock_user_assets) | **GET** /stock/users/assets | Query user assets
+[**set_stock_margin_feature**](StockApi.md#set_stock_margin_feature) | **PUT** /stock/users/margin-feature | Set margin financing availability
 [**query_stock_symbols**](StockApi.md#query_stock_symbols) | **GET** /stock/symbols | Query symbol list
 [**query_stock_symbol_detail**](StockApi.md#query_stock_symbol_detail) | **GET** /stock/symbols/detail | Query symbol details
 [**query_stock_order_book**](StockApi.md#query_stock_order_book) | **GET** /stock/market/{symbol}/orderbook | Query market order book
@@ -12,12 +13,14 @@ Method | HTTP request | Description
 [**create_stock_order**](StockApi.md#create_stock_order) | **POST** /stock/orders | Create order
 [**delete_all_stock_orders**](StockApi.md#delete_all_stock_orders) | **DELETE** /stock/orders | Cancel all open orders
 [**query_stock_order_history**](StockApi.md#query_stock_order_history) | **GET** /stock/orders/history | Query historical order list
+[**query_stock_order_deals**](StockApi.md#query_stock_order_deals) | **GET** /stock/orders/deals | Query order trade records
 [**update_stock_order**](StockApi.md#update_stock_order) | **PUT** /stock/orders/{order_id} | Modify order
 [**delete_stock_order**](StockApi.md#delete_stock_order) | **DELETE** /stock/orders/{order_id} | Cancel order
 [**query_stock_positions**](StockApi.md#query_stock_positions) | **GET** /stock/positions | Query current position list
 [**close_stock_position**](StockApi.md#close_stock_position) | **POST** /stock/positions/close | Close position
 [**query_stock_transactions**](StockApi.md#query_stock_transactions) | **GET** /stock/transactions | Query transaction records
 [**create_stock_transaction**](StockApi.md#create_stock_transaction) | **POST** /stock/transactions | Fund transfer
+[**query_stock_balance_records**](StockApi.md#query_stock_balance_records) | **GET** /stock/users/balance-records | Query user balance records
 [**query_stock_exchanges**](StockApi.md#query_stock_exchanges) | **GET** /stock/exchanges | Query supported exchanges
 [**query_stock_fee_rate**](StockApi.md#query_stock_fee_rate) | **GET** /stock/fee-rate | Query fee rates for Japanese and Korean stocks
 
@@ -84,6 +87,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Request success |  -  |
+**400** | Request failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_stock_margin_feature**
+> SetMarginFeature set_stock_margin_feature(trad_fi_spot_set_margin_feature_request)
+
+Set margin financing availability
+
+Rate limit: 5 requests per second. Enable or disable margin financing for the user.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.StockApi(api_client)
+trad_fi_spot_set_margin_feature_request = gate_api.TradFiSpotSetMarginFeatureRequest() # TradFiSpotSetMarginFeatureRequest | 
+
+try:
+    # Set margin financing availability
+    api_response = api_instance.set_stock_margin_feature(trad_fi_spot_set_margin_feature_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling StockApi->set_stock_margin_feature: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trad_fi_spot_set_margin_feature_request** | [**TradFiSpotSetMarginFeatureRequest**](TradFiSpotSetMarginFeatureRequest.md)|  | 
+
+### Return type
+
+[**SetMarginFeature**](SetMarginFeature.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -579,6 +652,80 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **query_stock_order_deals**
+> OrderDealList query_stock_order_deals(order_id, page=page, page_size=page_size)
+
+Query order trade records
+
+Rate limit: 5 requests per second. Query the current user's trade records by order ID. `price`, `value`, and `fee` are denominated in the instrument trading currency (for example, USD for US stocks, HKD for Hong Kong stocks, JPY for Japanese stocks, and KRW for Korean stocks). `role` returns `maker` or `taker`.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.StockApi(api_client)
+order_id = 123456 # int | Order ID
+page = 1 # int | Page number, defaults to 1 (optional)
+page_size = 20 # int | Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100. (optional)
+
+try:
+    # Query order trade records
+    api_response = api_instance.query_stock_order_deals(order_id, page=page, page_size=page_size)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling StockApi->query_stock_order_deals: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **int**| Order ID | 
+ **page** | **int**| Page number, defaults to 1 | [optional] 
+ **page_size** | **int**| Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100. | [optional] 
+
+### Return type
+
+[**OrderDealList**](OrderDealList.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Request success |  -  |
+**400** | Request failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_stock_order**
 > UpdateOrder2 update_stock_order(order_id, trad_fi_spot_order_update_request)
 
@@ -1007,6 +1154,94 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Request success |  -  |
+**400** | Request failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **query_stock_balance_records**
+> BalanceRecordList query_stock_balance_records(type=type, business=business, symbol=symbol, begin_time=begin_time, end_time=end_time, start_id=start_id, sort_direction=sort_direction, include_detail=include_detail, page=page, page_size=page_size)
+
+Query user balance records
+
+Rate limit: 5 requests per second. Query the current user's raw balance records. User scope is derived from the request headers; a query parameter `user_id` is not supported. - `type` and `business` support multiple comma-separated values. - `begin_time` and `end_time` filter record creation time in seconds. When both are provided, `end_time` must be greater than `begin_time`. - Results are always sorted by primary key `id`; `sort_direction` accepts `asc` or `desc`. The default is `id desc`. With `start_id` and no `sort_direction`, the order is `id asc`, and only records with `id > start_id` are returned for incremental retrieval. - `detail` is omitted by default and returned only when `include_detail=true`. - `stock_change` is parsed from `detail.amount` for stock quantity records; `balance` is a cash balance snapshot, not a stock position balance.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.StockApi(api_client)
+type = 'deposit,fee' # str | Record types, separated by commas (optional)
+business = 'transfer,trade' # str | Business identifiers, separated by commas (optional)
+symbol = 'AAPL' # str | Symbol (optional)
+begin_time = 1769378400 # int | Start time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time. (optional)
+end_time = 1769464800 # int | End time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time. (optional)
+start_id = 1000 # int | Starting primary key ID for incremental queries. Only records with a greater id are returned. (optional)
+sort_direction = 'desc' # str | Sort direction by primary key id. - asc: Ascending. - desc: Descending. When omitted, defaults to desc without start_id, or asc with start_id. (optional)
+include_detail = false # bool | Whether to return the raw detail field; defaults to false when omitted (optional)
+page = 1 # int | Page number, defaults to 1 (optional)
+page_size = 20 # int | Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100. (optional)
+
+try:
+    # Query user balance records
+    api_response = api_instance.query_stock_balance_records(type=type, business=business, symbol=symbol, begin_time=begin_time, end_time=end_time, start_id=start_id, sort_direction=sort_direction, include_detail=include_detail, page=page, page_size=page_size)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling StockApi->query_stock_balance_records: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **str**| Record types, separated by commas | [optional] 
+ **business** | **str**| Business identifiers, separated by commas | [optional] 
+ **symbol** | **str**| Symbol | [optional] 
+ **begin_time** | **int**| Start time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time. | [optional] 
+ **end_time** | **int**| End time (Unix timestamp in seconds). When both begin_time and end_time are provided, end_time must be greater than begin_time. | [optional] 
+ **start_id** | **int**| Starting primary key ID for incremental queries. Only records with a greater id are returned. | [optional] 
+ **sort_direction** | **str**| Sort direction by primary key id. - asc: Ascending. - desc: Descending. When omitted, defaults to desc without start_id, or asc with start_id. | [optional] 
+ **include_detail** | **bool**| Whether to return the raw detail field; defaults to false when omitted | [optional] 
+ **page** | **int**| Page number, defaults to 1 | [optional] 
+ **page_size** | **int**| Records per page. Defaults to 10, maximum 100. The server caps values greater than 100 at 100. | [optional] 
+
+### Return type
+
+[**BalanceRecordList**](BalanceRecordList.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

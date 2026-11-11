@@ -11,11 +11,13 @@
 
 
 import pprint
+from decimal import Decimal
 import re  # noqa: F401
 
 import six
 
 from gate_api.configuration import Configuration
+from gate_api import json_codec
 
 
 class FuturesOrderBook(object):
@@ -35,7 +37,9 @@ class FuturesOrderBook(object):
     openapi_types = {
         'id': 'int',
         'current': 'float',
+        'current_us': 'int',
         'update': 'float',
+        'update_us': 'int',
         'asks': 'list[FuturesOrderBookItem]',
         'bids': 'list[FuturesOrderBookItem]'
     }
@@ -43,13 +47,15 @@ class FuturesOrderBook(object):
     attribute_map = {
         'id': 'id',
         'current': 'current',
+        'current_us': 'current_us',
         'update': 'update',
+        'update_us': 'update_us',
         'asks': 'asks',
         'bids': 'bids'
     }
 
-    def __init__(self, id=None, current=None, update=None, asks=None, bids=None, local_vars_configuration=None):  # noqa: E501
-        # type: (int, float, float, list[FuturesOrderBookItem], list[FuturesOrderBookItem], Configuration) -> None
+    def __init__(self, id=None, current=None, current_us=None, update=None, update_us=None, asks=None, bids=None, local_vars_configuration=None):  # noqa: E501
+        # type: (int, float, int, float, int, list[FuturesOrderBookItem], list[FuturesOrderBookItem], Configuration) -> None
         """FuturesOrderBook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,7 +63,9 @@ class FuturesOrderBook(object):
 
         self._id = None
         self._current = None
+        self._current_us = None
         self._update = None
+        self._update_us = None
         self._asks = None
         self._bids = None
         self.discriminator = None
@@ -66,8 +74,12 @@ class FuturesOrderBook(object):
             self.id = id
         if current is not None:
             self.current = current
+        if current_us is not None:
+            self.current_us = current_us
         if update is not None:
             self.update = update
+        if update_us is not None:
+            self.update_us = update_us
         self.asks = asks
         self.bids = bids
 
@@ -118,6 +130,29 @@ class FuturesOrderBook(object):
         self._current = current
 
     @property
+    def current_us(self):
+        """Gets the current_us of this FuturesOrderBook.  # noqa: E501
+
+        Response data timestamp in microseconds; omitted when unavailable  # noqa: E501
+
+        :return: The current_us of this FuturesOrderBook.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_us
+
+    @current_us.setter
+    def current_us(self, current_us):
+        """Sets the current_us of this FuturesOrderBook.
+
+        Response data timestamp in microseconds; omitted when unavailable  # noqa: E501
+
+        :param current_us: The current_us of this FuturesOrderBook.  # noqa: E501
+        :type: int
+        """
+
+        self._current_us = current_us
+
+    @property
     def update(self):
         """Gets the update of this FuturesOrderBook.  # noqa: E501
 
@@ -139,6 +174,29 @@ class FuturesOrderBook(object):
         """
 
         self._update = update
+
+    @property
+    def update_us(self):
+        """Gets the update_us of this FuturesOrderBook.  # noqa: E501
+
+        Order book update timestamp in microseconds; omitted when unavailable  # noqa: E501
+
+        :return: The update_us of this FuturesOrderBook.  # noqa: E501
+        :rtype: int
+        """
+        return self._update_us
+
+    @update_us.setter
+    def update_us(self, update_us):
+        """Sets the update_us of this FuturesOrderBook.
+
+        Order book update timestamp in microseconds; omitted when unavailable  # noqa: E501
+
+        :param update_us: The update_us of this FuturesOrderBook.  # noqa: E501
+        :type: int
+        """
+
+        self._update_us = update_us
 
     @property
     def asks(self):
