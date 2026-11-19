@@ -27,6 +27,9 @@ class OrderListItem(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     Attributes:
       openapi_types (dict): The key is attribute name
@@ -352,7 +355,7 @@ class OrderListItem(object):
     def trade_mode(self):
         """Gets the trade_mode of this OrderListItem.  # noqa: E501
 
-        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended.  # noqa: E501
+        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended.  # noqa: E501
 
         :return: The trade_mode of this OrderListItem.  # noqa: E501
         :rtype: int
@@ -363,12 +366,12 @@ class OrderListItem(object):
     def trade_mode(self, trade_mode):
         """Sets the trade_mode of this OrderListItem.
 
-        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended.  # noqa: E501
+        Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended.  # noqa: E501
 
         :param trade_mode: The trade_mode of this OrderListItem.  # noqa: E501
         :type: int
         """
-        allowed_values = [0, 1, 2, 4, 5, 6, 7, 8]  # noqa: E501
+        allowed_values = [0, 1, 2, 4, 5]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and trade_mode not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `trade_mode` ({0}), must be one of {1}"  # noqa: E501

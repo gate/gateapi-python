@@ -27,6 +27,9 @@ class OrderResp(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     Attributes:
       openapi_types (dict): The key is attribute name

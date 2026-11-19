@@ -11,7 +11,7 @@ from gate_api import (
     GetCounterpartyUserInfoRequest, GetMyselfPaymentRequest,
     GetPendingTransactionListRequest, GetTransactionDetailsRequest,
     MyAdsListRequest, PlaceBizPushOrder,
-    SendChatMessageRequest, SetMerchantWorkHoursRequest, UploadChatFile,
+    PreUploadChatFileRequest, SendChatMessageRequest, SetMerchantWorkHoursRequest,
 )
 from gate_api.exceptions import ApiException
 
@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 def p2p_merchant_demo(run_config):
     # type: (RunConfig) -> None
     """
-    P2P Merchant API demo. Covers all endpoints in p2p-merchant-api.yaml in business order:
+    P2P Merchant API demo. Covers current endpoints in p2p-merchant-api.yaml in business order:
     Account -> Ads -> Orders (list & detail) -> Order actions -> Chat.
     """
     config = Configuration(
@@ -229,11 +229,41 @@ def p2p_merchant_demo(run_config):
         #     )
         # )
 
-        # Upload chat file (image/video base64)
-        # api.p2p_merchant_chat_upload_chat_file(
-        #     UploadChatFile(
-        #         image_content_type="image/png",
-        #         base64_img="iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB...",
+        # Direct S3 upload and file message (write ops, requires a real txid).
+        # Install requests before enabling this example: pip install requests
+        # import requests
+        #
+        # content_type = "image/png"
+        # pre_upload = api.p2p_merchant_chat_pre_upload_chat_file(
+        #     PreUploadChatFileRequest(content_type=content_type)
+        # )
+        # if pre_upload.code != 0 or not pre_upload.data:
+        #     raise RuntimeError("Could not get chat file upload credentials")
+        # upload = pre_upload.data
+        # if not upload.url or not upload.fields or not upload.file_key:
+        #     raise RuntimeError("Incomplete chat file upload credentials")
+        #
+        # # Use credentials within 45 minutes; maximum file size is 100 MiB.
+        # # Preserve every returned form field, including casing and any STS token.
+        # # requests encodes data fields before files, placing the file field last.
+        # with open("receipt.png", "rb") as chat_file:
+        #     s3_response = requests.post(
+        #         upload.url,
+        #         data=upload.fields,
+        #         files={"file": ("receipt.png", chat_file, content_type)},
+        #         timeout=(5, 120),
+        #         allow_redirects=False,
+        #     )
+        # s3_response.raise_for_status()
+        # if s3_response.status_code != 204:
+        #     raise RuntimeError("Unexpected S3 upload response")
+        #
+        # # Send only after upload succeeds. file_key is already plain text.
+        # api.p2p_merchant_chat_send_chat_message(
+        #     SendChatMessageRequest(
+        #         txid=40000001,
+        #         message=upload.file_key,
+        #         type=1,
         #     )
         # )
 

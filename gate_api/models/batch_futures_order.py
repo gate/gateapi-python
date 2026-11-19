@@ -27,6 +27,9 @@ class BatchFuturesOrder(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     Attributes:
       openapi_types (dict): The key is attribute name
@@ -41,11 +44,8 @@ class BatchFuturesOrder(object):
         'id': 'int',
         'user': 'int',
         'create_time': 'float',
-        'create_time_us': 'int',
         'update_time': 'float',
-        'update_time_us': 'int',
         'finish_time': 'float',
-        'finish_time_us': 'int',
         'finish_as': 'str',
         'status': 'str',
         'contract': 'str',
@@ -77,11 +77,8 @@ class BatchFuturesOrder(object):
         'id': 'id',
         'user': 'user',
         'create_time': 'create_time',
-        'create_time_us': 'create_time_us',
         'update_time': 'update_time',
-        'update_time_us': 'update_time_us',
         'finish_time': 'finish_time',
-        'finish_time_us': 'finish_time_us',
         'finish_as': 'finish_as',
         'status': 'status',
         'contract': 'contract',
@@ -106,8 +103,8 @@ class BatchFuturesOrder(object):
         'market_order_slip_ratio': 'market_order_slip_ratio'
     }
 
-    def __init__(self, succeeded=None, label=None, detail=None, id=None, user=None, create_time=None, create_time_us=None, update_time=None, update_time_us=None, finish_time=None, finish_time_us=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_act=None, stp_id=None, market_order_slip_ratio=None, local_vars_configuration=None):  # noqa: E501
-        # type: (bool, str, str, int, int, float, int, float, int, float, int, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, str, int, str, Configuration) -> None
+    def __init__(self, succeeded=None, label=None, detail=None, id=None, user=None, create_time=None, update_time=None, finish_time=None, finish_as=None, status=None, contract=None, size=None, iceberg=None, price=None, close=False, is_close=None, reduce_only=False, is_reduce_only=None, is_liq=None, tif='gtc', left=None, fill_price=None, text=None, tkfr=None, mkfr=None, refu=None, auto_size=None, stp_act=None, stp_id=None, market_order_slip_ratio=None, local_vars_configuration=None):  # noqa: E501
+        # type: (bool, str, str, int, int, float, float, float, str, str, str, str, str, str, bool, bool, bool, bool, bool, str, str, str, str, str, str, int, str, str, int, str, Configuration) -> None
         """BatchFuturesOrder - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -119,11 +116,8 @@ class BatchFuturesOrder(object):
         self._id = None
         self._user = None
         self._create_time = None
-        self._create_time_us = None
         self._update_time = None
-        self._update_time_us = None
         self._finish_time = None
-        self._finish_time_us = None
         self._finish_as = None
         self._status = None
         self._contract = None
@@ -160,16 +154,10 @@ class BatchFuturesOrder(object):
             self.user = user
         if create_time is not None:
             self.create_time = create_time
-        if create_time_us is not None:
-            self.create_time_us = create_time_us
         if update_time is not None:
             self.update_time = update_time
-        if update_time_us is not None:
-            self.update_time_us = update_time_us
         if finish_time is not None:
             self.finish_time = finish_time
-        if finish_time_us is not None:
-            self.finish_time_us = finish_time_us
         if finish_as is not None:
             self.finish_as = finish_as
         if status is not None:
@@ -354,29 +342,6 @@ class BatchFuturesOrder(object):
         self._create_time = create_time
 
     @property
-    def create_time_us(self):
-        """Gets the create_time_us of this BatchFuturesOrder.  # noqa: E501
-
-        Order creation time as a Unix timestamp in microseconds; omitted when unavailable  # noqa: E501
-
-        :return: The create_time_us of this BatchFuturesOrder.  # noqa: E501
-        :rtype: int
-        """
-        return self._create_time_us
-
-    @create_time_us.setter
-    def create_time_us(self, create_time_us):
-        """Sets the create_time_us of this BatchFuturesOrder.
-
-        Order creation time as a Unix timestamp in microseconds; omitted when unavailable  # noqa: E501
-
-        :param create_time_us: The create_time_us of this BatchFuturesOrder.  # noqa: E501
-        :type: int
-        """
-
-        self._create_time_us = create_time_us
-
-    @property
     def update_time(self):
         """Gets the update_time of this BatchFuturesOrder.  # noqa: E501
 
@@ -400,29 +365,6 @@ class BatchFuturesOrder(object):
         self._update_time = update_time
 
     @property
-    def update_time_us(self):
-        """Gets the update_time_us of this BatchFuturesOrder.  # noqa: E501
-
-        Order update time as a Unix timestamp in microseconds; omitted when unavailable  # noqa: E501
-
-        :return: The update_time_us of this BatchFuturesOrder.  # noqa: E501
-        :rtype: int
-        """
-        return self._update_time_us
-
-    @update_time_us.setter
-    def update_time_us(self, update_time_us):
-        """Sets the update_time_us of this BatchFuturesOrder.
-
-        Order update time as a Unix timestamp in microseconds; omitted when unavailable  # noqa: E501
-
-        :param update_time_us: The update_time_us of this BatchFuturesOrder.  # noqa: E501
-        :type: int
-        """
-
-        self._update_time_us = update_time_us
-
-    @property
     def finish_time(self):
         """Gets the finish_time of this BatchFuturesOrder.  # noqa: E501
 
@@ -444,29 +386,6 @@ class BatchFuturesOrder(object):
         """
 
         self._finish_time = finish_time
-
-    @property
-    def finish_time_us(self):
-        """Gets the finish_time_us of this BatchFuturesOrder.  # noqa: E501
-
-        Order finish time as a Unix timestamp in microseconds; omitted if the order has not finished or the timestamp is unavailable  # noqa: E501
-
-        :return: The finish_time_us of this BatchFuturesOrder.  # noqa: E501
-        :rtype: int
-        """
-        return self._finish_time_us
-
-    @finish_time_us.setter
-    def finish_time_us(self, finish_time_us):
-        """Sets the finish_time_us of this BatchFuturesOrder.
-
-        Order finish time as a Unix timestamp in microseconds; omitted if the order has not finished or the timestamp is unavailable  # noqa: E501
-
-        :param finish_time_us: The finish_time_us of this BatchFuturesOrder.  # noqa: E501
-        :type: int
-        """
-
-        self._finish_time_us = finish_time_us
 
     @property
     def finish_as(self):

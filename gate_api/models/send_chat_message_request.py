@@ -27,6 +27,9 @@ class SendChatMessageRequest(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     Attributes:
       openapi_types (dict): The key is attribute name
@@ -92,7 +95,7 @@ class SendChatMessageRequest(object):
     def type(self):
         """Gets the type of this SendChatMessageRequest.  # noqa: E501
 
-        Message type: `0` text; `1` file (image or video); defaults to `0`.  # noqa: E501
+        Message type: 0 for text, 1 for files. Defaults to 0 when omitted.  # noqa: E501
 
         :return: The type of this SendChatMessageRequest.  # noqa: E501
         :rtype: int
@@ -103,7 +106,7 @@ class SendChatMessageRequest(object):
     def type(self, type):
         """Sets the type of this SendChatMessageRequest.
 
-        Message type: `0` text; `1` file (image or video); defaults to `0`.  # noqa: E501
+        Message type: 0 for text, 1 for files. Defaults to 0 when omitted.  # noqa: E501
 
         :param type: The type of this SendChatMessageRequest.  # noqa: E501
         :type: int
@@ -121,7 +124,7 @@ class SendChatMessageRequest(object):
     def message(self):
         """Gets the message of this SendChatMessageRequest.  # noqa: E501
 
-        Message content. When type=0, pass text up to 500 characters, which goes through off-platform traffic diversion risk control; when hit, the response contains risk_type=1 and toast_msg. When type=1, pass the file_key returned by upload_chat_file  # noqa: E501
+        Message content. For type=0, provide text up to 500 characters. Off-platform solicitation risk checks may return risk_type=1 and toast_msg. For type=1, after a successful S3 upload, provide the file_key returned by pre_upload_chat_file.  # noqa: E501
 
         :return: The message of this SendChatMessageRequest.  # noqa: E501
         :rtype: str
@@ -132,7 +135,7 @@ class SendChatMessageRequest(object):
     def message(self, message):
         """Sets the message of this SendChatMessageRequest.
 
-        Message content. When type=0, pass text up to 500 characters, which goes through off-platform traffic diversion risk control; when hit, the response contains risk_type=1 and toast_msg. When type=1, pass the file_key returned by upload_chat_file  # noqa: E501
+        Message content. For type=0, provide text up to 500 characters. Off-platform solicitation risk checks may return risk_type=1 and toast_msg. For type=1, after a successful S3 upload, provide the file_key returned by pre_upload_chat_file.  # noqa: E501
 
         :param message: The message of this SendChatMessageRequest.  # noqa: E501
         :type: str

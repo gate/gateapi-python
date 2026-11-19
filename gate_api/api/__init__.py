@@ -10,6 +10,7 @@ from gate_api.api.earn_uni_api import EarnUniApi
 from gate_api.api.margin_uni_api import MarginUniApi
 from gate_api.api.otc_api import OTCApi
 from gate_api.api.stock_api import StockApi
+from gate_api.api.stock_options_api import StockOptionsApi
 from gate_api.api.sub_account_api import SubAccountApi
 from gate_api.api.unified_api import UnifiedApi
 from gate_api.api.account_api import AccountApi

@@ -39,6 +39,7 @@ class FuturesApi(object):
     def list_futures_contracts(self, settle, **kwargs):  # noqa: E501
         """Query all futures contracts  # noqa: E501
 
+        Send `X-Gate-Size-Decimal: 1` to read the actual order size limits for contracts that support fractional sizes. Check `enable_decimal` for each contract.  For example, `ETH_USDT` returns its `order_size_min` as the string `\"0.1\"` with `X-Gate-Size-Decimal: 1`. Omitting the header or setting it to `0` returns the integer `0` after discarding the fractional part. The actual minimum order size remains `0.1` contracts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_contracts(settle, async_req=True)
@@ -65,6 +66,7 @@ class FuturesApi(object):
     def list_futures_contracts_with_http_info(self, settle, **kwargs):  # noqa: E501
         """Query all futures contracts  # noqa: E501
 
+        Send `X-Gate-Size-Decimal: 1` to read the actual order size limits for contracts that support fractional sizes. Check `enable_decimal` for each contract.  For example, `ETH_USDT` returns its `order_size_min` as the string `\"0.1\"` with `X-Gate-Size-Decimal: 1`. Omitting the header or setting it to `0` returns the integer `0` after discarding the fractional part. The actual minimum order size remains `0.1` contracts.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_futures_contracts_with_http_info(settle, async_req=True)
@@ -295,6 +297,7 @@ class FuturesApi(object):
     def get_futures_contract(self, settle, contract, **kwargs):  # noqa: E501
         """Query single contract information  # noqa: E501
 
+        Send `X-Gate-Size-Decimal: 1` to read the actual order size limits. For `ETH_USDT`, `order_size_min` is the string `\"0.1\"`. Omitting the header or setting it to `0` returns the integer `0`. The actual minimum order size remains `0.1` contracts.  Check the target contract's `enable_decimal` value for fractional size support. See the [API contract size compatibility rules](https://www.gate.com/announcements/article/48788) and the [market size precision adjustment announcement](https://www.gate.com/announcements/article/50325).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_futures_contract(settle, contract, async_req=True)
@@ -320,6 +323,7 @@ class FuturesApi(object):
     def get_futures_contract_with_http_info(self, settle, contract, **kwargs):  # noqa: E501
         """Query single contract information  # noqa: E501
 
+        Send `X-Gate-Size-Decimal: 1` to read the actual order size limits. For `ETH_USDT`, `order_size_min` is the string `\"0.1\"`. Omitting the header or setting it to `0` returns the integer `0`. The actual minimum order size remains `0.1` contracts.  Check the target contract's `enable_decimal` value for fractional size support. See the [API contract size compatibility rules](https://www.gate.com/announcements/article/48788) and the [market size precision adjustment announcement](https://www.gate.com/announcements/article/50325).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_futures_contract_with_http_info(settle, contract, async_req=True)
@@ -4830,7 +4834,7 @@ class FuturesApi(object):
     def create_futures_order(self, settle, futures_order, **kwargs):  # noqa: E501
         """Place futures order  # noqa: E501
 
-        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
+        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - To place an order with a fractional contract size, query the contract with `X-Gate-Size-Decimal: 1`, check that `enable_decimal` is `true`, and read `order_size_min` and `order_size_max`. Send the same header when placing the order and pass fractional `size` or fractional displayed iceberg size `iceberg` as a decimal string. - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_futures_order(settle, futures_order, async_req=True)
@@ -4857,7 +4861,7 @@ class FuturesApi(object):
     def create_futures_order_with_http_info(self, settle, futures_order, **kwargs):  # noqa: E501
         """Place futures order  # noqa: E501
 
-        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
+        - When placing an order, the number of contracts is specified `size`, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface `quanto_multiplier` - To place an order with a fractional contract size, query the contract with `X-Gate-Size-Decimal: 1`, check that `enable_decimal` is `true`, and read `order_size_min` and `order_size_max`. Send the same header when placing the order and pass fractional `size` or fractional displayed iceberg size `iceberg` as a decimal string. - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting `reduce_only` to `true` can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set `size` to 0 and `close` to `true` - In hedge mode:   - Reduce a position: with `reduce_only=true`, a positive `size` reduces the short position and a negative `size` reduces the long position.   - Increase a position: with `reduce_only=false`, a positive `size` increases the long position and a negative `size` increases the short position.   - Close a position: set `size=0`, select the closing side with `auto_size`, and set `reduce_only=true`.   - `reduce_only` ensures position reduction only and prevents increasing the position. - Set `stp_act` to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter `stp_act`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_futures_order_with_http_info(settle, futures_order, async_req=True)
@@ -5504,6 +5508,7 @@ class FuturesApi(object):
     def amend_futures_order(self, settle, order_id, futures_order_amendment, **kwargs):  # noqa: E501
         """Amend single order  # noqa: E501
 
+        To amend an order to a fractional size, query the original order contract with `X-Gate-Size-Decimal: 1`, check that `enable_decimal` is `true`, and read `order_size_min` and `order_size_max`. Send the same header when amending the order and pass the new `size` as a decimal string.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.amend_futures_order(settle, order_id, futures_order_amendment, async_req=True)
@@ -5531,6 +5536,7 @@ class FuturesApi(object):
     def amend_futures_order_with_http_info(self, settle, order_id, futures_order_amendment, **kwargs):  # noqa: E501
         """Amend single order  # noqa: E501
 
+        To amend an order to a fractional size, query the original order contract with `X-Gate-Size-Decimal: 1`, check that `enable_decimal` is `true`, and read `order_size_min` and `order_size_max`. Send the same header when amending the order and pass the new `size` as a decimal string.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.amend_futures_order_with_http_info(settle, order_id, futures_order_amendment, async_req=True)

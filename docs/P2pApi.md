@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**p2p_merchant_chat_get_chats_list**](P2pApi.md#p2p_merchant_chat_get_chats_list) | **POST** /p2p/merchant/chat/get_chats_list | Get chat history
 [**p2p_merchant_chat_send_chat_message**](P2pApi.md#p2p_merchant_chat_send_chat_message) | **POST** /p2p/merchant/chat/send_chat_message | Send text message
 [**p2p_merchant_chat_upload_chat_file**](P2pApi.md#p2p_merchant_chat_upload_chat_file) | **POST** /p2p/merchant/chat/upload_chat_file | Upload chat file
+[**p2p_merchant_chat_pre_upload_chat_file**](P2pApi.md#p2p_merchant_chat_pre_upload_chat_file) | **POST** /p2p/merchant/chat/pre_upload_chat_file | Pre-upload chat file
 
 
 # **p2p_merchant_account_get_user_info**
@@ -29,7 +30,7 @@ Method | HTTP request | Description
 
 Get account information
 
-To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).
+To query the spot account balance, use the Spot API [`GET /spot/accounts`](/apiv4/en/spot/#list-spot-trading-accounts).
 
 ### Example
 
@@ -1172,6 +1173,8 @@ Name | Type | Description  | Notes
 
 Upload chat file
 
+This endpoint is deprecated. Use [Pre-upload chat file](#pre-upload-chat-file) to obtain credentials for direct S3 uploads.
+
 ### Example
 
 * Api Key Authentication (apiv4):
@@ -1217,6 +1220,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**P2pUploadChatFileResponse**](P2pUploadChatFileResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **p2p_merchant_chat_pre_upload_chat_file**
+> P2pPreUploadChatFileResponse p2p_merchant_chat_pre_upload_chat_file(pre_upload_chat_file_request)
+
+Pre-upload chat file
+
+Get credentials for a direct S3 upload of a chat file. Credentials expire after 45 minutes. The maximum file size is 100 MiB.  Upload the file using the returned url and fields, placing the file field last in the form. After S3 returns HTTP 204, call [send_chat_message](#send-text-message) with type=1 and the returned file_key as message.
+
+### Example
+
+* Api Key Authentication (apiv4):
+```python
+from __future__ import print_function
+import gate_api
+from gate_api.exceptions import ApiException, GateApiException
+# Defining the host is optional and defaults to https://api.gateio.ws/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure APIv4 key authorization
+configuration = gate_api.Configuration(
+    host = "https://api.gateio.ws/api/v4",
+    key = "YOU_API_KEY",
+    secret = "YOUR_API_SECRET"
+)
+
+api_client = gate_api.ApiClient(configuration)
+# Create an instance of the API class
+api_instance = gate_api.P2pApi(api_client)
+pre_upload_chat_file_request = gate_api.PreUploadChatFileRequest() # PreUploadChatFileRequest | 
+
+try:
+    # Pre-upload chat file
+    api_response = api_instance.p2p_merchant_chat_pre_upload_chat_file(pre_upload_chat_file_request)
+    print(api_response)
+except GateApiException as ex:
+    print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+except ApiException as e:
+    print("Exception when calling P2pApi->p2p_merchant_chat_pre_upload_chat_file: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pre_upload_chat_file_request** | [**PreUploadChatFileRequest**](PreUploadChatFileRequest.md)|  | 
+
+### Return type
+
+[**P2pPreUploadChatFileResponse**](P2pPreUploadChatFileResponse.md)
 
 ### Authorization
 

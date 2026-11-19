@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **slippage_rate** | **str** | Slippage | [optional] 
 **commission_rate** | **str** | Fee Rate | [optional] 
 **trade_status** | **str** | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. | [optional] 
-**trade_mode** | **int** | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended. | [optional] 
+**trade_mode** | **int** | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. | [optional] 
 **order_fill_timing** | **int** | Order fill timing (1&#x3D;immediate, 2&#x3D;after pre-market opens, 3&#x3D;after regular session opens) | [optional] 
 **symbol_descs** | [**list[SymbolDetailItemSymbolDescs]**](SymbolDetailItemSymbolDescs.md) | Multilingual symbol description | [optional] 
 **icon_link** | **str** | Icon URL | [optional] 

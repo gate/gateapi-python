@@ -5,7 +5,7 @@ info:
     APIv4 provides operations related to spot, margin, and contract trading, including
     public interfaces for querying market data and authenticated private interfaces
     for implementing API-based automated trading.'
-  version: v4.106.181
+  version: v4.106.184
   x-betaNum: 1
   title: Gate API
   contact:
@@ -763,17 +763,21 @@ components:
             limits
         order_size_min:
           type: string
-          description: Minimum order quantity
+          description: 'Minimum order size in contracts. With `X-Gate-Size-Decimal:
+            1`, this field is a string that preserves the fractional part. With the
+            header set to `0` or omitted, it is an integer with the fractional part
+            discarded. A minimum below 1 is returned as 0 in this mode.'
         enable_decimal:
           type: boolean
-          description: Whether decimal string type is supported for contract lot size.
-            When this field is set to `true`, it indicates that the contract supports
-            decimal lot sizes (i.e., the `size` field can use a decimal string type);
-            when set to `false`, it indicates that the contract does not support decimal
-            lot sizes (i.e., the `size` field can only use an integer type).
+          description: 'Whether the contract supports fractional contract sizes. If
+            `true`, use `X-Gate-Size-Decimal: 1` to submit a fractional size. If `false`,
+            the contract supports whole contract sizes only.'
         order_size_max:
           type: string
-          description: Maximum order quantity
+          description: 'Maximum order size in contracts. With `X-Gate-Size-Decimal:
+            1`, this field is a string that preserves the fractional part. With the
+            header set to `0` or omitted, it is an integer with the fractional part
+            discarded.'
         order_price_deviate:
           type: string
           description: "Maximum allowed deviation between order price and current\
@@ -1171,33 +1175,15 @@ components:
           format: double
           description: Creation time of order
           readOnly: true
-        create_time_us:
-          type: integer
-          format: int64
-          description: Order creation time as a Unix timestamp in microseconds; omitted
-            when unavailable
-          readOnly: true
         update_time:
           type: number
           format: double
           description: OrderUpdateTime
           readOnly: true
-        update_time_us:
-          type: integer
-          format: int64
-          description: Order update time as a Unix timestamp in microseconds; omitted
-            when unavailable
-          readOnly: true
         finish_time:
           type: number
           format: double
           description: Order finished time. Not returned if order is open
-          readOnly: true
-        finish_time_us:
-          type: integer
-          format: int64
-          description: Order finish time as a Unix timestamp in microseconds; omitted
-            if the order has not finished or the timestamp is unavailable
           readOnly: true
         finish_as:
           type: string
@@ -1303,7 +1289,9 @@ components:
           - fok
         left:
           type: string
-          description: Unfilled quantity
+          description: 'Unfilled size in contracts. With `X-Gate-Size-Decimal: 1`,
+            this field is a string that preserves the fractional part. With the header
+            set to `0` or omitted, it is an integer with the fractional part discarded.'
           readOnly: true
         fill_price:
           type: string
@@ -1483,12 +1471,6 @@ components:
           format: double
           description: Creation time of order
           readOnly: true
-        create_time_us:
-          type: integer
-          format: int64
-          description: Order creation time as a Unix timestamp in microseconds; omitted
-            when unavailable
-          readOnly: true
         update_time:
           type: string
           description: OrderUpdateTime
@@ -1496,12 +1478,6 @@ components:
         finish_time:
           type: string
           description: Order finished time. Not returned if order is open
-          readOnly: true
-        finish_time_us:
-          type: integer
-          format: int64
-          description: Order finish time as a Unix timestamp in microseconds; omitted
-            if the order has not finished or the timestamp is unavailable
           readOnly: true
         finish_as:
           type: string
@@ -7140,6 +7116,39 @@ components:
               description: File key
         version:
           type: string
+    P2pPreUploadChatFileResponse:
+      title: P2pPreUploadChatFileResponse
+      type: object
+      properties:
+        timestamp:
+          type: number
+        method:
+          type: string
+        code:
+          type: integer
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/P2pPreUploadChatFileResult'
+        version:
+          type: string
+    P2pPreUploadChatFileResult:
+      title: P2pPreUploadChatFileResult
+      type: object
+      properties:
+        url:
+          type: string
+          description: S3 POST upload URL. Use it before the credentials expire.
+        fields:
+          type: object
+          additionalProperties:
+            type: string
+          description: Signed S3 form fields. Submit all keys and values unchanged
+            when uploading.
+        file_key:
+          type: string
+          description: Chat file identifier. After uploading, use it as message in
+            [send_chat_message](#send-text-message) with type=1.
     Symbol:
       type: object
       properties:
@@ -9131,6 +9140,73 @@ components:
             string for an unknown future enum.
         is_gte:
           type: boolean
+    FlashSwapErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+      required:
+      - code
+      - message
+      title: FlashSwapErrorResponse
+    FlashSwapV1CurrencyPairListResp:
+      type: object
+      description: Flash Swap V1 currency pair list
+      properties:
+        currency_pair:
+          type: array
+          description: Available currency pairs for Flash Swap
+          items:
+            $ref: '#/components/schemas/FlashSwapV1CurrencyPair'
+      title: FlashSwapV1CurrencyPairListResp
+      required:
+      - currency_pair
+    FlashSwapV1CurrencyPair:
+      type: object
+      description: Flash Swap V1 currency pair information
+      properties:
+        market:
+          type: string
+          description: Market identifier, e.g. `BTC_USDT` means selling BTC to buy
+            USDT
+          readOnly: true
+        sell_asset:
+          type: string
+          description: Currency to sell
+          readOnly: true
+        sell_min_amount:
+          type: string
+          description: Minimum sell quantity
+          readOnly: true
+        sell_max_amount:
+          type: string
+          description: Maximum sell quantity
+          readOnly: true
+        buy_asset:
+          type: string
+          description: Currency to buy
+          readOnly: true
+        buy_min_amount:
+          type: string
+          description: Minimum buy quantity
+          readOnly: true
+        buy_max_amount:
+          type: string
+          description: Maximum buy quantity
+          readOnly: true
+      title: FlashSwapV1CurrencyPair
+      required:
+      - market
+      - sell_asset
+      - sell_min_amount
+      - sell_max_amount
+      - buy_asset
+      - buy_min_amount
+      - buy_max_amount
     ListUserCouponsResponse:
       type: object
       properties:
@@ -10260,637 +10336,6 @@ components:
       - message
       - data
       - timestamp
-    FlashSwapErrorResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
-      required:
-      - code
-      - message
-      title: FlashSwapErrorResponse
-    FlashSwapOrderPreviewResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Response code, 0 means success
-        message:
-          type: string
-          description: Response message
-        data:
-          type: object
-          description: Business data
-          properties:
-            quote_id:
-              type: string
-              description: Quote ID, valid for one minute
-            hedge_type:
-              type: integer
-              format: int32
-              description: Hedge type
-            sell_asset:
-              type: string
-              description: Currency to sell
-            sell_amount:
-              type: string
-              description: Sell amount
-            sell_amount_show:
-              type: string
-              description: Sell amount display value
-            buy_asset:
-              type: string
-              description: Currency to buy
-            buy_amount:
-              type: string
-              description: Buy amount
-            buy_amount_show:
-              type: string
-              description: Buy amount display value
-            price:
-              type: string
-              description: Exchange price
-            price_diff:
-              type: string
-              description: Spread percentage
-            reverse_price:
-              type: string
-              description: Reverse price
-            valid_timestamp:
-              type: integer
-              format: int64
-              description: Quote expiration timestamp (in seconds)
-        timestamp:
-          type: integer
-          format: int64
-          description: Response timestamp (milliseconds)
-      title: FlashSwapOrderPreviewResp
-      required:
-      - code
-      - message
-      - data
-    FlashSwapOrderCreateReq:
-      type: object
-      properties:
-        quote_id:
-          type: string
-          description: Quote ID returned by the preview endpoint
-        hedge_type:
-          type: integer
-          format: int32
-          description: Hedge type
-        sell_asset:
-          type: string
-          description: Currency to sell
-        sell_amount:
-          type: string
-          description: Sell amount
-        buy_asset:
-          type: string
-          description: Currency to buy
-        buy_amount:
-          type: string
-          description: Buy amount
-        client_req_id:
-          type: string
-          description: Client request ID for idempotency check
-        request_time_ms:
-          type: integer
-          format: int64
-          description: Request timestamp (in milliseconds)
-      title: FlashSwapOrderCreateReq
-      required:
-      - sell_asset
-      - sell_amount
-      - buy_asset
-      - buy_amount
-    FlashSwapOrderCreateResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Response code, 0 means success
-        message:
-          type: string
-          description: Response message
-        data:
-          type: object
-          description: Business data
-          properties:
-            id:
-              type: integer
-              format: int64
-              description: Order ID
-            user_id:
-              type: integer
-              format: int32
-              description: User ID
-            source:
-              type: string
-              description: Request source
-            app_id:
-              type: string
-              description: Application ID
-            client_req_id:
-              type: string
-              description: Client request ID
-            sell_asset:
-              type: string
-              description: Currency to sell
-            sell_amount:
-              type: string
-              description: Sell amount
-            sell_amount_show:
-              type: string
-              description: Sell amount display value
-            buy_asset:
-              type: string
-              description: Currency to buy
-            buy_amount:
-              type: string
-              description: Buy amount
-            buy_amount_show:
-              type: string
-              description: Buy amount display value
-            price:
-              type: string
-              description: Exchange price
-            status:
-              type: integer
-              format: int32
-              description: Order status
-            quote_id:
-              type: string
-              description: Quote ID
-            failed_code:
-              type: integer
-              format: int32
-              description: Failure error code, 0 means success
-            failed_reason:
-              type: string
-              description: Failure Reason
-            create_time:
-              type: string
-              description: Created time
-            create_time_ms:
-              type: integer
-              format: int64
-              description: Creation timestamp (in milliseconds)
-            account_mode:
-              type: integer
-              format: int32
-              description: Account Mode
-          required:
-          - account_mode
-        timestamp:
-          type: integer
-          format: int64
-          description: Response timestamp (milliseconds)
-      title: FlashSwapOrderCreateResp
-      required:
-      - code
-      - message
-      - data
-    FlashSwapMultiCurrencyManyToOneOrderCreateReq:
-      type: object
-      properties:
-        params:
-          type: array
-          description: Multi-currency exchange parameter list
-          items:
-            $ref: '#/components/schemas/FlashSwapMultiCurrencyCreateParam'
-      title: FlashSwapMultiCurrencyManyToOneOrderCreateReq
-      required:
-      - params
-    FlashSwapMultiCurrencyManyToOneOrderCreateResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Response code, 0 means success
-        message:
-          type: string
-          description: Response message
-        data:
-          type: object
-          description: Business data
-          properties:
-            orders:
-              type: array
-              description: Order list
-              items:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyOrder'
-            account_mode:
-              type: integer
-              format: int32
-              description: Account Mode
-            exchange_time_ms:
-              type: integer
-              format: int64
-              description: Exchange timestamp (in milliseconds)
-            total_acquire_amount:
-              type: string
-              description: Total amount received
-          required:
-          - orders
-          - account_mode
-          - exchange_time_ms
-          - total_acquire_amount
-        timestamp:
-          type: integer
-          format: int64
-          description: Response timestamp (milliseconds)
-      title: FlashSwapMultiCurrencyManyToOneOrderCreateResp
-      required:
-      - code
-      - message
-      - data
-    FlashSwapMultiCurrencyManyToOneOrderPreviewReq:
-      type: object
-      properties:
-        params:
-          type: array
-          description: Multi-currency exchange preview parameter list
-          items:
-            $ref: '#/components/schemas/FlashSwapMultiCurrencyPreviewParam'
-      title: FlashSwapMultiCurrencyManyToOneOrderPreviewReq
-      required:
-      - params
-    FlashSwapMultiCurrencyManyToOneOrderPreviewResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Response code, 0 means success
-        message:
-          type: string
-          description: Response message
-        data:
-          type: object
-          description: Business data
-          properties:
-            orders:
-              type: array
-              description: Preview order list
-              items:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyPreviewOrder'
-            total_acquire_amount:
-              type: string
-              description: Total amount received
-          required:
-          - orders
-          - total_acquire_amount
-        timestamp:
-          type: integer
-          format: int64
-          description: Response timestamp (milliseconds)
-      title: FlashSwapMultiCurrencyManyToOneOrderPreviewResp
-      required:
-      - code
-      - message
-      - data
-    FlashSwapMultiCurrencyOneToManyOrderCreateReq:
-      type: object
-      properties:
-        params:
-          type: array
-          description: Multi-currency exchange parameter list
-          items:
-            $ref: '#/components/schemas/FlashSwapMultiCurrencyCreateParam'
-      title: FlashSwapMultiCurrencyOneToManyOrderCreateReq
-      required:
-      - params
-    FlashSwapMultiCurrencyOneToManyOrderCreateResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Response code, 0 means success
-        message:
-          type: string
-          description: Response message
-        data:
-          type: object
-          description: Business data
-          properties:
-            orders:
-              type: array
-              description: Order list
-              items:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyOrder'
-            account_mode:
-              type: integer
-              format: int32
-              description: Account Mode
-            exchange_time_ms:
-              type: integer
-              format: int64
-              description: Exchange timestamp (in milliseconds)
-            total_consume_amount:
-              type: string
-              description: Total consumed amount
-            total_acquire_amount:
-              type: string
-              description: Total amount received
-          required:
-          - orders
-          - account_mode
-          - exchange_time_ms
-          - total_consume_amount
-          - total_acquire_amount
-        timestamp:
-          type: integer
-          format: int64
-          description: Response timestamp (milliseconds)
-      title: FlashSwapMultiCurrencyOneToManyOrderCreateResp
-      required:
-      - code
-      - message
-      - data
-    FlashSwapMultiCurrencyOneToManyOrderPreviewReq:
-      type: object
-      properties:
-        params:
-          type: array
-          description: Multi-currency exchange preview parameter list
-          items:
-            $ref: '#/components/schemas/FlashSwapMultiCurrencyPreviewParam'
-      title: FlashSwapMultiCurrencyOneToManyOrderPreviewReq
-      required:
-      - params
-    FlashSwapMultiCurrencyOneToManyOrderPreviewResp:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Response code, 0 means success
-        message:
-          type: string
-          description: Response message
-        data:
-          type: object
-          description: Business data
-          properties:
-            orders:
-              type: array
-              description: Preview order list
-              items:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyPreviewOrder'
-            total_consume_amount:
-              type: string
-              description: Total consumed amount
-            total_acquire_amount:
-              type: string
-              description: Total amount received
-          required:
-          - orders
-          - total_consume_amount
-          - total_acquire_amount
-        timestamp:
-          type: integer
-          format: int64
-          description: Response timestamp (milliseconds)
-      title: FlashSwapMultiCurrencyOneToManyOrderPreviewResp
-      required:
-      - code
-      - message
-      - data
-    FlashSwapV1CurrencyPairListResp:
-      type: object
-      description: Flash Swap V1 currency pair list
-      properties:
-        currency_pair:
-          type: array
-          description: Available currency pairs for Flash Swap
-          items:
-            $ref: '#/components/schemas/FlashSwapV1CurrencyPair'
-      title: FlashSwapV1CurrencyPairListResp
-      required:
-      - currency_pair
-    FlashSwapMultiCurrencyCreateParam:
-      type: object
-      properties:
-        sell_asset:
-          type: string
-          description: Currency to sell
-        sell_amount:
-          type: string
-          description: Sell amount
-        buy_asset:
-          type: string
-          description: Currency to buy
-        buy_amount:
-          type: string
-          description: Buy amount
-      title: FlashSwapMultiCurrencyCreateParam
-      required:
-      - sell_asset
-      - sell_amount
-      - buy_asset
-      - buy_amount
-    FlashSwapMultiCurrencyOrder:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          description: Order ID
-        user_id:
-          type: integer
-          format: int32
-          description: User ID
-        source:
-          type: string
-          description: Request source
-        app_id:
-          type: string
-          description: Application ID
-        client_req_id:
-          type: string
-          description: Client request ID
-        sell_asset:
-          type: string
-          description: Currency to sell
-        sell_amount:
-          type: string
-          description: Sell amount
-        sell_amount_show:
-          type: string
-          description: Sell amount display value
-        buy_asset:
-          type: string
-          description: Currency to buy
-        buy_amount:
-          type: string
-          description: Buy amount
-        buy_amount_show:
-          type: string
-          description: Buy amount display value
-        price:
-          type: string
-          description: Exchange price
-        status:
-          type: integer
-          format: int32
-          description: Order status
-        quote_id:
-          type: string
-          description: Quote ID
-        failed_code:
-          type: integer
-          format: int32
-          description: Failure error code, 0 means success
-        failed_reason:
-          type: string
-          description: Failure Reason
-        create_time:
-          type: string
-          description: Created time
-        create_time_ms:
-          type: integer
-          format: int64
-          description: Creation timestamp (in milliseconds)
-        error:
-          $ref: '#/components/schemas/ErrCodeMsg'
-      title: FlashSwapMultiCurrencyOrder
-      required:
-      - error
-    FlashSwapMultiCurrencyPreviewOrder:
-      type: object
-      properties:
-        quote_id:
-          type: string
-          description: Quote ID
-        hedge_type:
-          type: integer
-          format: int32
-          description: Hedge type
-        sell_asset:
-          type: string
-          description: Currency to sell
-        sell_amount:
-          type: string
-          description: Sell amount
-        sell_amount_show:
-          type: string
-          description: Sell amount display value
-        buy_asset:
-          type: string
-          description: Currency to buy
-        buy_amount:
-          type: string
-          description: Buy amount
-        buy_amount_show:
-          type: string
-          description: Buy amount display value
-        price:
-          type: string
-          description: Exchange price
-        price_diff:
-          type: string
-          description: Spread percentage
-        reverse_price:
-          type: string
-          description: Reverse price
-        valid_timestamp:
-          type: integer
-          format: int64
-          description: Quote expiration timestamp (in seconds)
-        error:
-          $ref: '#/components/schemas/ErrCodeMsg'
-      title: FlashSwapMultiCurrencyPreviewOrder
-      required:
-      - error
-    FlashSwapMultiCurrencyPreviewParam:
-      type: object
-      properties:
-        sell_asset:
-          type: string
-          description: Currency to sell
-        sell_amount:
-          type: string
-          description: Sell amount
-        buy_asset:
-          type: string
-          description: Currency to buy
-        buy_amount:
-          type: string
-          description: Buy amount
-      title: FlashSwapMultiCurrencyPreviewParam
-      required:
-      - sell_asset
-      - buy_asset
-    FlashSwapV1CurrencyPair:
-      type: object
-      description: Flash Swap V1 currency pair information
-      properties:
-        market:
-          type: string
-          description: Market identifier, e.g. `BTC_USDT` means selling BTC to buy
-            USDT
-          readOnly: true
-        sell_asset:
-          type: string
-          description: Currency to sell
-          readOnly: true
-        sell_min_amount:
-          type: string
-          description: Minimum sell quantity
-          readOnly: true
-        sell_max_amount:
-          type: string
-          description: Maximum sell quantity
-          readOnly: true
-        buy_asset:
-          type: string
-          description: Currency to buy
-          readOnly: true
-        buy_min_amount:
-          type: string
-          description: Minimum buy quantity
-          readOnly: true
-        buy_max_amount:
-          type: string
-          description: Maximum buy quantity
-          readOnly: true
-      title: FlashSwapV1CurrencyPair
-      required:
-      - market
-      - sell_asset
-      - sell_min_amount
-      - sell_max_amount
-      - buy_asset
-      - buy_min_amount
-      - buy_max_amount
-    ErrCodeMsg:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-          description: Error code
-        message:
-          type: string
-          description: Error message
-        extra:
-          type: object
-          properties: {}
-          description: Additional information
-      title: ErrCodeMsg
-      required:
-      - code
-      - message
-      - extra
     OrderCreateV1Req:
       title: OrderCreateV1Req
       description: 'Asset allocation optimization order request. **The array elements
@@ -16494,18 +15939,10 @@ components:
           type: number
           format: double
           description: Response data generation timestamp
-        current_us:
-          type: integer
-          format: int64
-          description: Response data timestamp in microseconds; omitted when unavailable
         update:
           type: number
           format: double
           description: Order book changed timestamp
-        update_us:
-          type: integer
-          format: int64
-          description: Order book update timestamp in microseconds; omitted when unavailable
         asks:
           type: array
           description: Ask Depth
@@ -16976,33 +16413,15 @@ components:
           format: double
           description: Creation time of order
           readOnly: true
-        create_time_us:
-          type: integer
-          format: int64
-          description: Order creation time as a Unix timestamp in microseconds; omitted
-            when unavailable
-          readOnly: true
         update_time:
           type: number
           format: double
           description: OrderUpdateTime
           readOnly: true
-        update_time_us:
-          type: integer
-          format: int64
-          description: Order update time as a Unix timestamp in microseconds; omitted
-            when unavailable
-          readOnly: true
         finish_time:
           type: number
           format: double
           description: Order finished time. Not returned if order is open
-          readOnly: true
-        finish_time_us:
-          type: integer
-          format: int64
-          description: Order finish time as a Unix timestamp in microseconds; omitted
-            if the order has not finished or the timestamp is unavailable
           readOnly: true
         finish_as:
           type: string
@@ -18804,22 +18223,13 @@ components:
 
             - 4: Buy and sell supported.
 
-            - 5: Trading suspended.
-
-            - 6: Trading suspended.
-
-            - 7: Trading suspended.
-
-            - 8: Trading suspended.'
+            - 5: Trading suspended.'
           enum:
           - 0
           - 1
           - 2
           - 4
           - 5
-          - 6
-          - 7
-          - 8
           example: 4
         order_fill_timing:
           type: integer
@@ -19104,22 +18514,13 @@ components:
 
             - 4: Buy and sell supported.
 
-            - 5: Trading suspended.
-
-            - 6: Trading suspended.
-
-            - 7: Trading suspended.
-
-            - 8: Trading suspended.'
+            - 5: Trading suspended.'
           enum:
           - 0
           - 1
           - 2
           - 4
           - 5
-          - 6
-          - 7
-          - 8
           example: 4
         order_fill_timing:
           type: integer
@@ -19316,22 +18717,13 @@ components:
 
             - 4: Buy and sell supported.
 
-            - 5: Trading suspended.
-
-            - 6: Trading suspended.
-
-            - 7: Trading suspended.
-
-            - 8: Trading suspended.'
+            - 5: Trading suspended.'
           enum:
           - 0
           - 1
           - 2
           - 4
           - 5
-          - 6
-          - 7
-          - 8
           example: 4
         price_type:
           type: string
@@ -20235,6 +19627,1013 @@ components:
                     description: Taker fee rate for Japanese and Korean stocks
                     example: '0.001'
         timestamp:
+          type: integer
+          format: int64
+    StockOptionConfigResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionConfig'
+    StockOptionApiResponse:
+      type: object
+      required:
+      - label
+      - data
+      - timestamp
+      properties:
+        label:
+          type: string
+          description: Business error label. Empty on successful requests.
+          example: ''
+        message:
+          type: string
+          description: Error message. Omitted on successful requests.
+          example: invalid argument
+        data:
+          nullable: true
+          description: Business response data.
+        timestamp:
+          type: integer
+          format: int64
+          description: Server timestamp in milliseconds.
+          example: 1785919118845
+    StockOptionConfig:
+      type: object
+      properties:
+        sec:
+          type: string
+          description: SEC fee rate.
+          example: '0.0000206'
+        min_sec:
+          type: string
+          description: Minimum SEC fee.
+          example: '0.01'
+        max_sec:
+          type: string
+          description: Maximum SEC fee; empty means no limit.
+          example: ''
+        taf:
+          type: string
+          description: TAF fee rate.
+          example: '0.00279'
+        min_taf:
+          type: string
+          description: Minimum TAF fee.
+          example: '0.01'
+        max_taf:
+          type: string
+          description: Maximum TAF fee.
+          example: '9.79'
+        occ:
+          type: string
+          description: OCC fee.
+          example: '0.025'
+        orf:
+          type: string
+          description: ORF fee.
+          example: '0.012'
+        cat:
+          type: string
+          description: CAT fee.
+          example: '0.0003'
+    StockOptionSymbolListResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionSymbolList'
+    StockOptionSymbolList:
+      type: object
+      properties:
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionSymbolListItem'
+    StockOptionSymbolListItem:
+      type: object
+      properties:
+        underlying:
+          description: Option underlying symbol.
+          type: string
+          example: AAPL
+        description:
+          description: Underlying description.
+          type: string
+        descs:
+          description: Underlying descriptions in multiple languages.
+          type: array
+          items:
+            type: object
+            properties:
+              lang:
+                description: Language code.
+                type: string
+                example: zh
+              value:
+                description: Underlying description in this language.
+                type: string
+                example: SpaceX
+        icon_link:
+          description: Underlying icon URL.
+          type: string
+        price_precision:
+          description: Number of decimal places for prices.
+          type: integer
+        min_order_volume:
+          description: Minimum order quantity.
+          type: string
+        max_order_volume:
+          description: Maximum order quantity.
+          type: string
+        step_order_volume:
+          description: Order quantity increment.
+          type: string
+    StockOptionOptionType:
+      type: string
+      description: 'Option type.
+
+        - call: Call option.
+
+        - put: Put option.'
+      enum:
+      - call
+      - put
+      x-enum-varnames:
+      - StockOptionOptionTypeCall
+      - StockOptionOptionTypePut
+    StockOptionContractListResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionContractList'
+    StockOptionContractList:
+      type: object
+      properties:
+        total:
+          description: Total number of matching records.
+          type: integer
+          format: int64
+        total_page:
+          description: Total number of pages.
+          type: integer
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionContractListItem'
+    StockOptionContractListItem:
+      type: object
+      properties:
+        symbol:
+          description: Full option contract symbol.
+          type: string
+          example: AAPL260814P00130000
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+          example: AAPL-260814-130-P
+        underlying:
+          description: Option underlying symbol.
+          type: string
+          example: AAPL
+        exchange:
+          description: Trading market.
+          type: string
+          example: us
+        expiration_date:
+          description: Option expiration date in YYYY-MM-DD format.
+          type: string
+          format: date
+        settlement_date:
+          description: Option settlement date in YYYY-MM-DD format.
+          type: string
+          format: date
+        strike_price:
+          description: Strike price.
+          type: string
+        option_type:
+          $ref: '#/components/schemas/StockOptionOptionType'
+        multiplier:
+          description: Contract multiplier.
+          type: string
+          example: '100'
+        open_interest:
+          description: Open interest.
+          type: string
+        quote_currency:
+          description: Quote currency.
+          type: string
+          example: USD
+        settlement_type:
+          description: Settlement type.
+          type: string
+          example: physical
+        trade_status:
+          $ref: '#/components/schemas/StockOptionTradeStatus'
+        trade_mode:
+          $ref: '#/components/schemas/StockOptionTradeMode'
+        price_precision:
+          description: Number of decimal places for prices.
+          type: integer
+        min_order_volume:
+          description: Minimum order quantity.
+          type: string
+        max_order_volume:
+          description: Maximum order quantity.
+          type: string
+        step_order_volume:
+          description: Order quantity increment.
+          type: string
+    StockOptionTradeStatus:
+      type: string
+      description: 'Current contract trading status.
+
+        - open: Within trading hours, with both the contract and underlying tradable.
+
+        - closed: Not tradable, including outside trading hours, an inactive contract
+        or a disabled underlying.'
+      enum:
+      - open
+      - closed
+      x-enum-varnames:
+      - StockOptionTradeStatusOpen
+      - StockOptionTradeStatusClosed
+    StockOptionTradeMode:
+      type: integer
+      description: 'Current trading mode.
+
+        - 0: Trading disabled.
+
+        - 4: Buying and selling allowed; regular accounts still require sufficient
+        available long positions to sell.'
+      enum:
+      - 0
+      - 4
+      x-enum-varnames:
+      - StockOptionTradeModeDisabled
+      - StockOptionTradeModeBuyAndSell
+    StockOptionExpirationListResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionExpirationList'
+    StockOptionExpirationList:
+      type: object
+      properties:
+        underlying:
+          description: Option underlying symbol.
+          type: string
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionExpirationListItem'
+    StockOptionExpirationListItem:
+      type: object
+      properties:
+        expiration_date:
+          description: Option expiration date in YYYY-MM-DD format.
+          type: string
+          format: date
+        expiration_date_ts:
+          description: Unix timestamp of the expiration date.
+          type: integer
+          format: int64
+    StockOptionOptionChainResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionOptionChain'
+    StockOptionOptionChain:
+      type: object
+      properties:
+        underlying:
+          description: Option underlying symbol.
+          type: string
+        expiration_date:
+          description: Option expiration date in YYYY-MM-DD format.
+          type: string
+          format: date
+        expiration_date_ts:
+          description: Unix timestamp of the expiration date.
+          type: integer
+          format: int64
+        index_price:
+          type: string
+          description: Underlying index price; empty when no valid value is available.
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionOptionChainItem'
+    StockOptionOptionChainItem:
+      type: object
+      properties:
+        symbol:
+          description: Full option contract symbol.
+          type: string
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+        strike_price:
+          description: Strike price.
+          type: string
+        option_type:
+          $ref: '#/components/schemas/StockOptionOptionType'
+        bid:
+          description: Best bid price.
+          type: string
+        ask:
+          description: Best ask price.
+          type: string
+        mark_price:
+          description: Mark price.
+          type: string
+        mark_iv:
+          description: Mark implied volatility.
+          type: string
+        last:
+          description: Last traded price.
+          type: string
+        display_price:
+          description: Display price.
+          type: string
+        breakeven_price:
+          description: Breakeven price.
+          type: string
+        to_breakeven_pct:
+          description: Percentage distance to the breakeven price.
+          type: string
+        today_change_pct:
+          description: Price change percentage today.
+          type: string
+        open_interest:
+          description: Open interest.
+          type: string
+        position:
+          description: Position quantity.
+          type: string
+        delta:
+          description: Option delta.
+          type: string
+        gamma:
+          description: Option gamma.
+          type: string
+        theta:
+          description: Option theta.
+          type: string
+        vega:
+          description: Option vega.
+          type: string
+        rho:
+          description: Option rho.
+          type: string
+        trade_status:
+          $ref: '#/components/schemas/StockOptionTradeStatus'
+        trade_mode:
+          $ref: '#/components/schemas/StockOptionTradeMode'
+    StockOptionOrderBookResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionOrderBook'
+    StockOptionOrderBook:
+      type: object
+      properties:
+        symbol:
+          description: Full option contract symbol.
+          type: string
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+        bids:
+          description: Bid prices; at most one level, or an empty array when no quote
+            is available.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionOrderBookItem'
+        asks:
+          description: Ask prices; at most one level, or an empty array when no quote
+            is available.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionOrderBookItem'
+    StockOptionOrderBookItem:
+      type: object
+      properties:
+        price:
+          description: Quoted price.
+          type: string
+    StockOptionPositionPnlPriceType:
+      type: string
+      description: 'Price type for position PnL.
+
+        - latest: Last traded price; used when omitted or empty.
+
+        - mark: Mark price.'
+      enum:
+      - latest
+      - mark
+      default: latest
+      x-enum-varnames:
+      - StockOptionPositionPnlPriceTypeLatest
+      - StockOptionPositionPnlPriceTypeMark
+    StockOptionPositionListResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionPositionList'
+    StockOptionPositionList:
+      type: object
+      properties:
+        today_pnl:
+          type: string
+          description: 'Total daily option PnL = sum of today_pnl for current positions
+            + daily PnL for contracts fully closed today.
+
+            The valuation price for current positions is selected by the request parameter
+            `price_type`.'
+          example: '68.50'
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionPositionListItem'
+    StockOptionPositionListItem:
+      type: object
+      properties:
+        symbol:
+          description: Full option contract symbol.
+          type: string
+          example: AAPL260821C00210000
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+          example: AAPL-260821-210-C
+        underlying:
+          description: Option underlying symbol.
+          type: string
+          example: AAPL
+        side:
+          type: string
+          enum:
+          - long
+          - short
+          description: 'Position side.
+
+            - long: Long position.
+
+            - short: Short position.'
+        open_time:
+          type: integer
+          format: int64
+          description: Position opening time as a Unix timestamp in seconds; 0 when
+            unavailable.
+          example: 1785919118
+        quantity:
+          type: string
+          description: Position quantity.
+          example: '2'
+        available:
+          type: string
+          description: Available quantity; currently equal to quantity.
+          example: '2'
+        frozen:
+          type: string
+          description: Frozen quantity; may be empty when not calculated separately.
+          example: '0'
+        avg_entry_price:
+          type: string
+          description: Average entry price.
+          example: '10.95'
+        last_price:
+          type: string
+          description: Last traded price; 0 when no valid value is available.
+          example: '12.18'
+        mark_price:
+          type: string
+          description: Mark price; 0 when no valid value is available.
+          example: '12.05'
+        previous_close:
+          type: string
+          description: 'Previous closing price.
+
+            If no valid positive value exists, this field may be empty and daily PnL
+            calculation is skipped.'
+          example: '11.20'
+        market_value:
+          type: string
+          description: 'Market value = valuation price × signed position quantity
+            × contract multiplier.
+
+            The valuation price is selected by `price_type` (`latest` uses last_price;
+            `mark` uses mark_price).'
+          example: '2436.00'
+        unrealized_pnl:
+          type: string
+          description: 'Unrealized PnL = (valuation price - average entry price) ×
+            signed position quantity × contract multiplier.
+
+            Returns 0 if the average entry price or quantity is invalid. The valuation
+            price follows the same rules as market_value.'
+          example: '246.00'
+        today_pnl:
+          type: string
+          description: 'Daily PnL for this contract. Requires a valid previous_close;
+            0 if unavailable.
+
+            The valuation price follows the same rules as market_value.'
+          example: '54.00'
+        today_buy_qty:
+          type: string
+          description: Quantity bought today (user's daily trading totals).
+          example: '1'
+        today_sell_qty:
+          type: string
+          description: Quantity sold today (user's daily trading totals).
+          example: '0'
+        today_buy_value:
+          type: string
+          description: Amount bought today (user's daily trading totals).
+          example: '100.00'
+        today_sell_value:
+          type: string
+          description: Amount sold today (user's daily trading totals).
+          example: '0'
+        trade_status:
+          $ref: '#/components/schemas/StockOptionTradeStatus'
+        trade_mode:
+          $ref: '#/components/schemas/StockOptionTradeMode'
+        multiplier:
+          description: Contract multiplier.
+          type: string
+          example: '100'
+        price_precision:
+          description: Number of decimal places for prices.
+          type: integer
+        min_order_volume:
+          description: Minimum order quantity.
+          type: string
+        max_order_volume:
+          description: Maximum order quantity.
+          type: string
+        step_order_volume:
+          description: Order quantity increment.
+          type: string
+    StockOptionClosePositionRequest:
+      type: object
+      description: '`order_type` is optional. Omitted or empty values close at market;
+        only `market` and `limit` are supported.'
+      required:
+      - symbol
+      - quantity
+      properties:
+        symbol:
+          type: string
+          description: Option contract symbol to close, with an available position.
+        quantity:
+          type: string
+          description: Quantity to close as a positive decimal string. Must not exceed
+            the available position and must satisfy the contract's minimum, maximum
+            and quantity increment rules.
+        order_type:
+          $ref: '#/components/schemas/StockOptionOrderType'
+        price:
+          type: string
+          description: Positive limit closing price as a plain decimal string, up
+            to 64 characters, without scientific notation. Ignored for market closing
+            orders.
+          example: '1.00'
+        client_order_id:
+          type: string
+          description: Custom closing order identifier. Generated automatically when
+            omitted or whitespace-only.
+    StockOptionOrderType:
+      type: string
+      description: 'Order type.
+
+        - market: Market order, executed at available market prices.
+
+        - limit: Limit order, requiring price.'
+      enum:
+      - market
+      - limit
+      x-enum-varnames:
+      - StockOptionOrderTypeMarket
+      - StockOptionOrderTypeLimit
+    StockOptionClosePositionResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionClosePositionResult'
+    StockOptionClosePositionResult:
+      type: object
+      properties:
+        order_id:
+          description: Order ID.
+          type: string
+    StockOptionPutOrderRequest:
+      type: object
+      required:
+      - symbol
+      - side
+      - order_type
+      - time_in_force
+      - quantity
+      properties:
+        symbol:
+          type: string
+          description: Full option contract symbol to trade, obtained from the contract
+            list or option chain.
+          example: AAPL260814P00130000
+        side:
+          $ref: '#/components/schemas/StockOptionOrderSide'
+        order_type:
+          $ref: '#/components/schemas/StockOptionOrderType'
+        time_in_force:
+          $ref: '#/components/schemas/StockOptionTimeInForce'
+        price:
+          type: string
+          description: Limit order price as a positive plain decimal string, up to
+            64 characters, without scientific notation. Required for limit orders
+            and ignored for market orders.
+          example: '1.00'
+        quantity:
+          type: string
+          description: Order quantity as a positive decimal string within the contract's
+            minimum and maximum order quantities.
+          example: '1'
+        client_order_id:
+          type: string
+          description: Optional custom order identifier, up to 30 UTF-8 bytes. Generated
+            automatically when omitted or whitespace-only.
+          maxLength: 30
+    StockOptionOrderSide:
+      type: integer
+      description: 'Order side.
+
+        - 1: Sell.
+
+        - 2: Buy.'
+      enum:
+      - 1
+      - 2
+      x-enum-varnames:
+      - StockOptionOrderSideSell
+      - StockOptionOrderSideBuy
+    StockOptionTimeInForce:
+      type: string
+      description: 'Time in force. Limit orders support day and gtc; market orders
+        support only day.
+
+        - day: Valid for the day; the unfilled portion is cancelled when that day''s
+        validity period ends.
+
+        - gtc: Good until cancelled.
+
+        Closing orders always use day.'
+      enum:
+      - day
+      - gtc
+      x-enum-varnames:
+      - StockOptionTimeInForceDay
+      - StockOptionTimeInForceGtc
+    StockOptionPutOrderResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionPutOrderResult'
+    StockOptionPutOrderResult:
+      type: object
+      properties:
+        id:
+          description: Order ID.
+          type: string
+    StockOptionOrderListSide:
+      type: integer
+      description: 'Order side filter.
+
+        Omit to query both sides.
+
+        - 1: Sell orders only.
+
+        - 2: Buy orders only.'
+      enum:
+      - 1
+      - 2
+      x-enum-varnames:
+      - StockOptionOrderListSideSell
+      - StockOptionOrderListSideBuy
+    StockOptionOrderListResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionOrderList'
+    StockOptionOrderList:
+      type: object
+      properties:
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionOrderListItem'
+    StockOptionOrderListItem:
+      type: object
+      description: Current unfinished orders, excluding filled, cancelled and rejected
+        terminal orders.
+      properties:
+        order_id:
+          description: Order ID.
+          type: string
+        symbol:
+          description: Full option contract symbol.
+          type: string
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+        underlying:
+          description: Option underlying symbol.
+          type: string
+        side:
+          $ref: '#/components/schemas/StockOptionOrderSide'
+        order_type:
+          $ref: '#/components/schemas/StockOptionOrderType'
+        status:
+          type: integer
+          description: 'Current order status:
+
+            - 1: New, validated and awaiting processing.
+
+            - 2: Partially filled, with a remaining unfilled quantity.'
+          enum:
+          - 1
+          - 2
+        status_desc:
+          type: string
+          description: Human-readable order status description in the requested language.
+        time_in_force:
+          $ref: '#/components/schemas/StockOptionTimeInForce'
+        quantity:
+          description: Order quantity.
+          type: string
+        filled_quantity:
+          description: Filled quantity.
+          type: string
+        price:
+          description: Order price.
+          type: string
+        time_setup:
+          description: Order creation time.
+          type: integer
+          format: int64
+    StockOptionCancelAllOrdersRequest:
+      type: object
+      description: Filters for cancelling limit orders in bulk. side is 1 (sell) or
+        2 (buy); omit it to include both sides.
+      properties:
+        underlying:
+          type: string
+          description: Option underlying symbol. Empty or omitted values disable underlying
+            filtering.
+          example: AAPL
+        symbol:
+          type: string
+          description: Option contract symbol. Empty or omitted values disable contract
+            filtering.
+        side:
+          $ref: '#/components/schemas/StockOptionOrderListSide'
+    StockOptionCancelAllOrdersResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionCancelAllOrdersResult'
+    StockOptionCancelAllOrdersResult:
+      type: object
+      properties:
+        success:
+          description: Whether the cancellation request succeeded.
+          type: boolean
+          example: true
+    StockOptionOrderDetailResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionOrderDetail'
+    StockOptionOrderDetail:
+      type: object
+      description: Order details for a current or finished order.
+      properties:
+        order_id:
+          description: Order ID.
+          type: string
+        symbol:
+          description: Full option contract symbol.
+          type: string
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+        underlying:
+          description: Option underlying symbol.
+          type: string
+        side:
+          $ref: '#/components/schemas/StockOptionOrderSide'
+        order_type:
+          $ref: '#/components/schemas/StockOptionOrderType'
+        status:
+          $ref: '#/components/schemas/StockOptionOrderStatus'
+        status_desc:
+          type: string
+          description: Human-readable order status description in the requested language.
+        time_in_force:
+          $ref: '#/components/schemas/StockOptionTimeInForce'
+        quantity:
+          description: Order quantity.
+          type: string
+        filled_quantity:
+          description: Filled quantity.
+          type: string
+        price:
+          description: Order price.
+          type: string
+        time_setup:
+          description: Order creation time.
+          type: integer
+          format: int64
+        avg_fill_price:
+          description: Average fill price.
+          type: string
+        fee:
+          description: Trading fee.
+          type: string
+        time_done:
+          description: Order completion time.
+          type: integer
+          format: int64
+    StockOptionOrderStatus:
+      type: integer
+      description: 'Order status in order details. The details endpoint does not filter
+        by status.
+
+        - 1: New, validated and awaiting processing.
+
+        - 2: Partially filled, with a remaining unfilled quantity.
+
+        - 3: Filled, terminal.
+
+        - 4: Cancelled, terminal; the order may have been partially filled.
+
+        - 5: Rejected, terminal.
+
+        Current orders include only 1 and 2; order history includes only 3, 4 and
+        5.'
+    StockOptionUpdateOrderRequest:
+      type: object
+      required:
+      - price
+      - quantity
+      properties:
+        price:
+          type: string
+          description: New limit price, required, as a positive plain decimal string
+            up to 64 characters, without scientific notation.
+          example: '1.25'
+        quantity:
+          type: string
+          description: New total order quantity as a positive decimal string, not
+            the remaining unfilled quantity. Must be at least filled_quantity.
+          example: '2'
+    StockOptionUpdateOrderResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionUpdateOrderResult'
+    StockOptionUpdateOrderResult:
+      type: object
+      properties:
+        id:
+          description: Order ID.
+          type: string
+    StockOptionCancelOrderResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionCancelOrderResult'
+    StockOptionCancelOrderResult:
+      type: object
+      properties:
+        id:
+          description: Order ID.
+          type: string
+    StockOptionOrderHistoryResponse:
+      allOf:
+      - $ref: '#/components/schemas/StockOptionApiResponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/StockOptionOrderHistory'
+    StockOptionOrderHistory:
+      type: object
+      properties:
+        total:
+          description: Total number of matching records.
+          type: integer
+          format: int64
+        total_page:
+          description: Total number of pages.
+          type: integer
+        list:
+          description: List of query results.
+          type: array
+          items:
+            $ref: '#/components/schemas/StockOptionOrderHistoryListItem'
+    StockOptionOrderHistoryListItem:
+      type: object
+      description: Finished orders, including only filled, cancelled and rejected
+        terminal orders.
+      properties:
+        order_id:
+          description: Order ID.
+          type: string
+        symbol:
+          description: Full option contract symbol.
+          type: string
+        symbol_display:
+          description: Option contract name for display.
+          type: string
+        underlying:
+          description: Option underlying symbol.
+          type: string
+        side:
+          $ref: '#/components/schemas/StockOptionOrderSide'
+        order_type:
+          $ref: '#/components/schemas/StockOptionOrderType'
+        status:
+          type: integer
+          description: 'Historical order status:
+
+            - 3: Filled.
+
+            - 4: Cancelled; the order may have been partially filled.
+
+            - 5: Rejected.'
+          enum:
+          - 3
+          - 4
+          - 5
+        status_desc:
+          type: string
+          description: Human-readable order status description in the requested language.
+        time_in_force:
+          $ref: '#/components/schemas/StockOptionTimeInForce'
+        quantity:
+          description: Order quantity.
+          type: string
+        filled_quantity:
+          description: Filled quantity.
+          type: string
+        price:
+          description: Order price.
+          type: string
+        time_setup:
+          description: Order creation time.
+          type: integer
+          format: int64
+        avg_fill_price:
+          description: Average fill price.
+          type: string
+        fee:
+          description: Trading fee.
+          type: string
+        time_done:
+          description: Order completion time.
           type: integer
           format: int64
     DeliveryOrderBook:
@@ -25050,17 +25449,17 @@ components:
           example: 40000001
         type:
           type: integer
-          description: 'Message type: `0` text; `1` file (image or video); defaults
-            to `0`.'
+          description: 'Message type: 0 for text, 1 for files. Defaults to 0 when
+            omitted.'
           enum:
           - 0
           - 1
           example: 0
         message:
-          description: Message content. When type=0, pass text up to 500 characters,
-            which goes through off-platform traffic diversion risk control; when hit,
-            the response contains risk_type=1 and toast_msg. When type=1, pass the
-            file_key returned by upload_chat_file
+          description: Message content. For type=0, provide text up to 500 characters.
+            Off-platform solicitation risk checks may return risk_type=1 and toast_msg.
+            For type=1, after a successful S3 upload, provide the file_key returned
+            by pre_upload_chat_file.
           example: Payment completed, please check
           type: string
     UploadChatFile:
@@ -25081,9 +25480,25 @@ components:
           example: image/png
           type: string
         base64_img:
-          description: Base64 file content; max 20 MB.
+          description: Base64-encoded file content.
           example: iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB...
           type: string
+    PreUploadChatFileRequest:
+      type: object
+      description: Request credentials for a direct chat file upload
+      required:
+      - content_type
+      properties:
+        content_type:
+          type: string
+          description: File MIME type.
+          enum:
+          - image/jpeg
+          - image/jpg
+          - image/png
+          - image/webp
+          - video/mp4
+          example: image/png
     SpotPovOrderCreator:
       type: object
       description: Spot POV order creation request
@@ -32286,7 +32701,37 @@ paths:
       tags:
       - futures
       summary: Query all futures contracts
+      description: 'Send `X-Gate-Size-Decimal: 1` to read the actual order size limits
+        for contracts that support fractional sizes. Check `enable_decimal` for each
+        contract.
+
+
+        For example, `ETH_USDT` returns its `order_size_min` as the string `"0.1"`
+        with `X-Gate-Size-Decimal: 1`. Omitting the header or setting it to `0` returns
+        the integer `0` after discarding the fractional part. The actual minimum order
+        size remains `0.1` contracts.'
       operationId: listFuturesContracts
+      x-docs-request-headers:
+        X-Gate-Size-Decimal: '1'
+      x-code-samples:
+      - lang: python
+        source: 'import requests
+
+
+          url = "https://api.gateio.ws/api/v4/futures/usdt/contracts"
+
+          response = requests.get(url, headers={"X-Gate-Size-Decimal": "1"}, timeout=10)
+
+          response.raise_for_status()
+
+          print(response.json())
+
+          '
+      - lang: shell
+        source: 'curl ''https://api.gateio.ws/api/v4/futures/usdt/contracts'' -H ''X-Gate-Size-Decimal:
+          1''
+
+          '
       parameters:
       - name: settle
         in: path
@@ -32488,7 +32933,37 @@ paths:
       tags:
       - futures
       summary: Query single contract information
+      description: 'Send `X-Gate-Size-Decimal: 1` to read the actual order size limits.
+        For `ETH_USDT`, `order_size_min` is the string `"0.1"`. Omitting the header
+        or setting it to `0` returns the integer `0`. The actual minimum order size
+        remains `0.1` contracts.
+
+
+        Check the target contract''s `enable_decimal` value for fractional size support.
+        See the [API contract size compatibility rules](https://www.gate.com/announcements/article/48788)
+        and the [market size precision adjustment announcement](https://www.gate.com/announcements/article/50325).'
       operationId: getFuturesContract
+      x-docs-request-headers:
+        X-Gate-Size-Decimal: '1'
+      x-code-samples:
+      - lang: python
+        source: 'import requests
+
+
+          url = "https://api.gateio.ws/api/v4/futures/usdt/contracts/ETH_USDT"
+
+          response = requests.get(url, headers={"X-Gate-Size-Decimal": "1"}, timeout=10)
+
+          response.raise_for_status()
+
+          print(response.json())
+
+          '
+      - lang: shell
+        source: 'curl ''https://api.gateio.ws/api/v4/futures/usdt/contracts/ETH_USDT''
+          -H ''X-Gate-Size-Decimal: 1''
+
+          '
       parameters:
       - name: settle
         in: path
@@ -32507,7 +32982,7 @@ paths:
         required: true
         schema:
           type: string
-        example: BTC_USDT
+        example: ETH_USDT
       responses:
         200:
           description: Contract information
@@ -32516,58 +32991,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Contract'
               example:
-                name: BTC_USDT
-                type: direct
-                quanto_multiplier: '0.0001'
-                ref_discount_rate: '0'
-                order_price_deviate: '0.5'
-                maintenance_rate: '0.005'
-                mark_type: index
-                last_price: '38026'
-                mark_price: '37985.6'
-                index_price: '37954.92'
-                funding_rate_indicative: '0.000219'
-                mark_price_round: '0.01'
-                funding_offset: 0
-                in_delisting: false
-                risk_limit_base: '1000000'
-                interest_rate: '0.0003'
-                order_price_round: '0.1'
-                order_size_min: '1'
-                enable_decimal: false
-                ref_rebate_rate: '0.2'
-                funding_interval: 28800
-                risk_limit_step: '1000000'
-                leverage_min: '1'
-                leverage_max: '100'
-                risk_limit_max: '8000000'
-                maker_fee_rate: '-0.00025'
-                taker_fee_rate: '0.00075'
-                funding_rate: '0.002053'
-                order_size_max: '1000000'
-                funding_next_apply: 1610035200
-                short_users: 977
-                config_change_time: 1609899548
-                trade_size: '28530850594'
-                position_size: '5223816'
-                long_users: 455
-                funding_impact_value: '60000'
-                orders_limit: 50
-                trade_id: 10851092
-                orderbook_id: 2129638396
-                enable_bonus: true
-                enable_credit: true
-                create_time: 1669688556
-                funding_cap_ratio: '0.75'
-                status: trading
-                launch_time: 1609899548
-                delisting_time: 1609899548
-                delisted_time: 1609899548
-                market_order_slip_ratio: '0.05'
-                market_order_size_max: '0'
-                funding_rate_limit: '0.003'
-                contract_type: indices
-                enable_circuit_breaker: false
+                name: ETH_USDT
+                enable_decimal: true
+                order_size_min: '0.1'
+                order_size_max: '10000000'
   /futures/{settle}/adl_risk_states:
     get:
       security: []
@@ -32674,9 +33101,7 @@ paths:
               example:
                 id: 123456
                 current: 1623898993.123456
-                current_us: 1623898993123456
                 update: 1623898993.121456
-                update_us: 1623898993121456
                 asks:
                 - p: '1.52'
                   s: '100'
@@ -32754,9 +33179,7 @@ paths:
               example:
                 id: 123456
                 current: 1623898993.123456
-                current_us: 1623898993123456
                 update: 1623898993.121456
-                update_us: 1623898993121456
                 asks:
                 - p: '1.52'
                   s: '100'
@@ -35118,20 +35541,24 @@ paths:
       description: "- When placing an order, the number of contracts is specified\
         \ `size`, not the number of coins. The number of coins corresponding to each\
         \ contract is returned in the contract details interface\n`quanto_multiplier`\n\
-        - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal,\
-        \ and the order will be mentioned that the order does not exist\n- Setting\
-        \ `reduce_only` to `true` can prevent the position from being penetrated when\
-        \ reducing the position\n- In single-position mode, if you need to close the\
-        \ position, you need to set `size` to 0 and `close` to `true`\n- In hedge\
-        \ mode:\n  - Reduce a position: with `reduce_only=true`, a positive `size`\
-        \ reduces the short position and a negative `size` reduces the long position.\n\
-        \  - Increase a position: with `reduce_only=false`, a positive `size` increases\
-        \ the long position and a negative `size` increases the short position.\n\
-        \  - Close a position: set `size=0`, select the closing side with `auto_size`,\
-        \ and set `reduce_only=true`.\n  - `reduce_only` ensures position reduction\
-        \ only and prevents increasing the position.\n- Set `stp_act` to determine\
-        \ the use of a strategy that restricts user transactions. For detailed usage,\
-        \ refer to the body parameter `stp_act`"
+        - To place an order with a fractional contract size, query the contract with\
+        \ `X-Gate-Size-Decimal: 1`, check that `enable_decimal` is `true`, and read\
+        \ `order_size_min` and `order_size_max`. Send the same header when placing\
+        \ the order and pass fractional `size` or fractional displayed iceberg size\
+        \ `iceberg` as a decimal string.\n- 0 The order that was completed cannot\
+        \ be obtained after 10 minutes of withdrawal, and the order will be mentioned\
+        \ that the order does not exist\n- Setting `reduce_only` to `true` can prevent\
+        \ the position from being penetrated when reducing the position\n- In single-position\
+        \ mode, if you need to close the position, you need to set `size` to 0 and\
+        \ `close` to `true`\n- In hedge mode:\n  - Reduce a position: with `reduce_only=true`,\
+        \ a positive `size` reduces the short position and a negative `size` reduces\
+        \ the long position.\n  - Increase a position: with `reduce_only=false`, a\
+        \ positive `size` increases the long position and a negative `size` increases\
+        \ the short position.\n  - Close a position: set `size=0`, select the closing\
+        \ side with `auto_size`, and set `reduce_only=true`.\n  - `reduce_only` ensures\
+        \ position reduction only and prevents increasing the position.\n- Set `stp_act`\
+        \ to determine the use of a strategy that restricts user transactions. For\
+        \ detailed usage, refer to the body parameter `stp_act`"
       operationId: createFuturesOrder
       parameters:
       - name: x-gate-exptime
@@ -35153,9 +35580,7 @@ paths:
               user: 100000
               contract: BTC_USDT
               create_time: 1546569968.123456
-              create_time_us: 1546569968123456
               update_time: 1546569970.456789
-              update_time_us: 1546569970456789
               size: '6024'
               iceberg: '0'
               left: '6024'
@@ -35171,7 +35596,6 @@ paths:
               text: t-my-custom-id
               status: finished
               finish_time: 1546569970.456789
-              finish_time_us: 1546569970456789
               finish_as: cancelled
               stp_id: 0
               stp_act: '-'
@@ -35194,9 +35618,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35212,7 +35634,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35304,9 +35725,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35322,7 +35741,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35411,9 +35829,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35429,7 +35845,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35534,7 +35949,6 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: '1546569970.456789'
                 size: '6024'
                 iceberg: '0'
@@ -35551,7 +35965,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: '1546569970.456789'
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35624,9 +36037,7 @@ paths:
               user: 100000
               contract: BTC_USDT
               create_time: 1546569968.123456
-              create_time_us: 1546569968123456
               update_time: 1546569970.456789
-              update_time_us: 1546569970456789
               size: '6024'
               iceberg: '0'
               left: '6024'
@@ -35642,7 +36053,6 @@ paths:
               text: t-my-custom-id
               status: finished
               finish_time: 1546569970.456789
-              finish_time_us: 1546569970456789
               finish_as: cancelled
               stp_id: 0
               stp_act: '-'
@@ -35668,9 +36078,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35686,7 +36094,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35741,9 +36148,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35759,7 +36164,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35813,9 +36217,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35831,7 +36233,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -35846,6 +36247,10 @@ paths:
       tags:
       - futures
       summary: Amend single order
+      description: 'To amend an order to a fractional size, query the original order
+        contract with `X-Gate-Size-Decimal: 1`, check that `enable_decimal` is `true`,
+        and read `order_size_min` and `order_size_max`. Send the same header when
+        amending the order and pass the new `size` as a decimal string.'
       operationId: amendFuturesOrder
       parameters:
       - name: x-gate-exptime
@@ -35878,9 +36283,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -35896,7 +36299,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -36641,9 +37043,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -36659,7 +37059,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -36803,9 +37202,7 @@ paths:
                 user: 100000
                 contract: BTC_USDT
                 create_time: 1546569968.123456
-                create_time_us: 1546569968123456
                 update_time: 1546569970.456789
-                update_time_us: 1546569970456789
                 size: '6024'
                 iceberg: '0'
                 left: '6024'
@@ -36821,7 +37218,6 @@ paths:
                 text: t-my-custom-id
                 status: finished
                 finish_time: 1546569970.456789
-                finish_time_us: 1546569970456789
                 finish_as: cancelled
                 stp_id: 0
                 stp_act: '-'
@@ -40760,6 +41156,1011 @@ paths:
                 data: null
                 timestamp: 1783411200000
       parameters: []
+  /stock_options/fee-rate:
+    get:
+      tags:
+      - StockOptions
+      security: []
+      summary: Get option trading fee rates
+      operationId: queryOptionFeeRate
+      description: 'Query the fee configuration for options trading before placing
+        an order.
+
+        Returns the rates and applicable minimum and maximum fees for SEC, TAF, OCC,
+        ORF and CAT charges.'
+      responses:
+        '200':
+          description: Option trading fee configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionConfigResponse'
+              example:
+                label: ''
+                data:
+                  sec: '0.0000206'
+                  min_sec: '0.01'
+                  max_sec: ''
+                  taf: '0.00279'
+                  min_taf: '0.01'
+                  max_taf: '9.79'
+                  occ: '0.025'
+                  orf: '0.012'
+                  cat: '0.0003'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      parameters: []
+  /stock_options/underlyings:
+    get:
+      tags:
+      - StockOptions
+      security: []
+      summary: List option underlyings
+      operationId: queryOptionSymbols
+      description: 'Query available option underlyings before looking up contracts,
+        expiration dates and option chains.
+
+        Returns underlying symbols, names, multilingual descriptions, icons, price
+        precision and order quantity limits.
+
+        `underlyings` accepts multiple comma-separated symbols; omit it to query all
+        available underlyings.'
+      parameters:
+      - name: underlyings
+        in: query
+        schema:
+          type: string
+        description: Comma-separated option underlying symbols, for example AAPL,TSLA.
+          Omit to query all available underlyings.
+        example: AAPL,TSLA
+      responses:
+        '200':
+          description: Option underlying list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionSymbolListResponse'
+              example:
+                label: ''
+                data:
+                  list:
+                  - underlying: AAPL
+                    description: Apple Inc.
+                    descs:
+                    - lang: en
+                      value: Apple Inc.
+                    icon_link: https://example.com/aapl.png
+                    price_precision: 2
+                    min_order_volume: '1'
+                    max_order_volume: '1000'
+                    step_order_volume: '1'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      x-group-parameters: true
+  /stock_options/contracts:
+    get:
+      tags:
+      - StockOptions
+      security: []
+      summary: List option contracts
+      operationId: queryOptionContracts
+      description: 'Query option contracts for an underlying, including contract symbols,
+        strike prices, expiration dates and trading rules.
+
+        `underlying` is required. Filter by expiration date and call or put type;
+        only US market (`us`) contracts are currently available.
+
+        Results are paginated in ascending contract symbol order, with total records,
+        total pages and the current page. The default and maximum `page_size` are
+        both 1000.
+
+        Use price precision and minimum and maximum order quantities to check an order
+        before submission.'
+      parameters:
+      - name: underlying
+        in: query
+        required: true
+        description: Option underlying symbol, for example AAPL. This is one underlying
+          symbol, not an option contract symbol.
+        schema:
+          type: string
+        example: AAPL
+      - name: exchange
+        in: query
+        description: 'Trading market filter. Only US market (us) contracts are currently
+          available. Omitted or empty values use us.
+
+          - us: US market.'
+        schema:
+          type: string
+          enum:
+          - us
+        example: us
+      - name: expiration_date
+        in: query
+        description: Option expiration date in YYYY-MM-DD format. Omit to disable
+          expiration date filtering.
+        schema:
+          type: string
+          format: date
+        example: '2026-08-14'
+      - name: option_type
+        in: query
+        description: 'Option type filter for the contract list. Omit for both types.
+
+          - call: Call option.
+
+          - put: Put option.'
+        schema:
+          $ref: '#/components/schemas/StockOptionOptionType'
+      - name: page
+        in: query
+        description: Page number, starting from 1. Defaults to 1 when omitted.
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Contracts per page. Defaults to 1000 when omitted; values above
+          1000 are capped at 1000.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 1000
+      responses:
+        '200':
+          description: Option contract list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionContractListResponse'
+              example:
+                label: ''
+                data:
+                  total: 1
+                  total_page: 1
+                  list:
+                  - symbol: AAPL260814P00130000
+                    symbol_display: AAPL-260814-130-P
+                    underlying: AAPL
+                    exchange: us
+                    expiration_date: '2026-08-14'
+                    settlement_date: '2026-08-15'
+                    strike_price: '130'
+                    option_type: put
+                    multiplier: '100'
+                    open_interest: '100'
+                    quote_currency: USD
+                    settlement_type: physical
+                    trade_status: open
+                    trade_mode: 4
+                    price_precision: 2
+                    min_order_volume: '1'
+                    max_order_volume: '1000'
+                    step_order_volume: '1'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      x-group-parameters: true
+  /stock_options/market/expirations:
+    get:
+      tags:
+      - StockOptions
+      security: []
+      summary: List option expiration dates
+      operationId: queryOptionExpirations
+      description: 'Query expiration dates for an option underlying before selecting
+        a contract expiration.
+
+        `underlying` is required. Returns dates and their Unix timestamps; use the
+        selected date to query the option chain.'
+      parameters:
+      - name: underlying
+        in: query
+        required: true
+        description: Option underlying symbol, for example AAPL. This is one underlying
+          symbol, not an option contract symbol.
+        schema:
+          type: string
+        example: AAPL
+      responses:
+        '200':
+          description: Option expiration date list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionExpirationListResponse'
+              example:
+                label: ''
+                data:
+                  underlying: AAPL
+                  list:
+                  - expiration_date: '2026-08-14'
+                    expiration_date_ts: 1786665600
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+  /stock_options/market/chain:
+    get:
+      tags:
+      - StockOptions
+      security: []
+      summary: Get the option chain
+      operationId: queryOptionChain
+      description: 'Query option quotes at different strike prices for the same underlying
+        and expiration date to compare call and put contracts.
+
+        `underlying` and `expiration_date` are required. Set `option_type` to `call`
+        or `put` to filter; omit it or use `all` for both types.
+
+        Returns contract symbols, strike prices, bid and ask quotes, last prices,
+        mark prices, implied volatility and Greeks.'
+      parameters:
+      - name: underlying
+        in: query
+        required: true
+        description: Option underlying symbol, for example AAPL. This is one underlying
+          symbol, not an option contract symbol.
+        schema:
+          type: string
+        example: AAPL
+      - name: expiration_date
+        in: query
+        required: true
+        description: Required option expiration date in YYYY-MM-DD format, obtained
+          from the expiration date list.
+        schema:
+          type: string
+          format: date
+        example: '2026-08-14'
+      - name: option_type
+        in: query
+        description: 'Option type filter for the option chain.
+
+          - call: Call options only.
+
+          - put: Put options only.
+
+          - all: Both types, equivalent to omitting this parameter.'
+        schema:
+          type: string
+          enum:
+          - call
+          - put
+          - all
+      responses:
+        '200':
+          description: Option chain
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionOptionChainResponse'
+              example:
+                label: ''
+                data:
+                  underlying: AAPL
+                  expiration_date: '2026-08-14'
+                  expiration_date_ts: 1786665600
+                  index_price: '130.25'
+                  list:
+                  - symbol: AAPL260814P00130000
+                    symbol_display: AAPL-260814-130-P
+                    strike_price: '130'
+                    option_type: put
+                    bid: '1.10'
+                    ask: '1.20'
+                    mark_price: '1.15'
+                    mark_iv: '0.25'
+                    last: '1.18'
+                    display_price: '1.15'
+                    breakeven_price: '128.85'
+                    to_breakeven_pct: '-0.0108'
+                    today_change_pct: '0.05'
+                    open_interest: '100'
+                    position: '0'
+                    delta: '-0.45'
+                    gamma: '0.03'
+                    theta: '-0.02'
+                    vega: '0.10'
+                    rho: '-0.01'
+                    trade_status: open
+                    trade_mode: 4
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      x-group-parameters: true
+  /stock_options/market/{symbol}/orderbook:
+    get:
+      tags:
+      - StockOptions
+      security: []
+      summary: Get the option order book
+      operationId: queryOptionOrderBook
+      description: 'Query the best bid and ask for an option contract.
+
+        `symbol` is the option contract symbol. Each of `bids` and `asks` contains
+        at most one price level, without order quantities.
+
+        A side without an available quote is an empty array. Both sides are empty
+        arrays when the contract is not found.'
+      parameters:
+      - name: symbol
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Option contract symbol
+        example: AAPL260814P00130000
+      responses:
+        '200':
+          description: Option order book
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionOrderBookResponse'
+              example:
+                label: ''
+                data:
+                  symbol: AAPL260814P00130000
+                  symbol_display: AAPL-260814-130-P
+                  bids:
+                  - price: '1.10'
+                  asks:
+                  - price: '1.20'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+  /stock_options/positions:
+    get:
+      tags:
+      - StockOptions
+      summary: List current option positions
+      operationId: queryOptionPositions
+      description: 'Query the current user''s option positions, market values and
+        profit and loss.
+
+        Filter by `underlying` or `symbol`. A specified `symbol` must identify an
+        existing option contract; no position returns an empty list.
+
+        `price_type` selects the price for market value, unrealized PnL and today''s
+        PnL: `latest` (default) uses the last traded price; `mark` uses the mark price.
+
+        Aggregate `today_pnl` includes current positions and contracts fully closed
+        today. Results are sorted by `open_time` descending, then `symbol` ascending.'
+      parameters:
+      - name: underlying
+        in: query
+        description: Option underlying symbol, for example AAPL. Omit to disable underlying
+          filtering. Current orders support only one underlying.
+        schema:
+          type: string
+        example: AAPL
+      - name: symbol
+        in: query
+        description: Full option contract symbol, for example AAPL260814P00130000.
+          Omit to disable contract filtering.
+        schema:
+          type: string
+        example: AAPL260814P00130000
+      - name: price_type
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/StockOptionPositionPnlPriceType'
+        description: 'Valuation price type for position market value, unrealized PnL,
+          and daily PnL.
+
+          Options: `latest` (last traded price) or `mark` (mark price). Defaults to
+          `latest` when omitted or empty.'
+        example: latest
+      responses:
+        '200':
+          description: Current option position list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionPositionListResponse'
+              example:
+                label: ''
+                data:
+                  today_pnl: '68.50'
+                  list:
+                  - symbol: AAPL260821C00210000
+                    symbol_display: AAPL-260821-210-C
+                    underlying: AAPL
+                    side: long
+                    open_time: 1785919118
+                    quantity: '2'
+                    available: '2'
+                    frozen: '0'
+                    avg_entry_price: '10.95'
+                    last_price: '12.18'
+                    mark_price: '12.05'
+                    previous_close: '11.20'
+                    market_value: '2436.00'
+                    unrealized_pnl: '246.00'
+                    today_pnl: '54.00'
+                    today_buy_qty: '1'
+                    today_sell_qty: '0'
+                    today_buy_value: '100.00'
+                    today_sell_value: '0'
+                    trade_status: open
+                    trade_mode: 4
+                    multiplier: '100'
+                    price_precision: 2
+                    min_order_volume: '1'
+                    max_order_volume: '1000'
+                    step_order_volume: '1'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      x-group-parameters: true
+  /stock_options/positions/close:
+    post:
+      tags:
+      - StockOptions
+      summary: Close an option position
+      operationId: closeOptionPosition
+      description: 'Submit a closing order for part or all of an option position.
+
+        `symbol` and `quantity` are required. The positive quantity must not exceed
+        the available position and must satisfy the contract''s minimum, maximum and
+        quantity increment rules.
+
+        Omit `order_type` or pass an empty value for a `market` order. A `limit` order
+        requires a positive `price`; a market order ignores `price`.
+
+        The closing side is derived from the position and time in force is fixed to
+        `day`. The response returns the closing `order_id`; query the order for its
+        subsequent status.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StockOptionClosePositionRequest'
+      responses:
+        '200':
+          description: Position closing response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionClosePositionResponse'
+              example:
+                label: ''
+                data:
+                  order_id: '8000000001'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      parameters: []
+  /stock_options/orders:
+    post:
+      tags:
+      - StockOptions
+      summary: Create an option order
+      operationId: createOptionOrder
+      description: 'Submit a buy or sell order for an option contract and return the
+        order ID on success.
+
+        `symbol`, `side`, `order_type`, `time_in_force` and `quantity` are required.
+        `side` is 1 (sell) or 2 (buy).
+
+        Limit orders require a positive `price` and support `day` or `gtc`. Market
+        orders ignore `price` and support only `day`.
+
+        Quantity is a positive decimal string within the contract''s minimum and maximum
+        order quantities. Sell orders require sufficient available long positions.
+
+        `client_order_id` is optional and is generated automatically when omitted
+        or whitespace-only. Query current orders or order details to track the returned
+        order ID.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StockOptionPutOrderRequest'
+      responses:
+        '200':
+          description: Order creation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionPutOrderResponse'
+              example:
+                label: ''
+                data:
+                  id: '8000000001'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      parameters: []
+    get:
+      tags:
+      - StockOptions
+      summary: List current option orders
+      operationId: queryOptionOrderList
+      description: 'Query the current user''s unfinished option orders, including
+        open and partially filled orders.
+
+        Filter by `underlying`, `symbol` or `side`. `underlying` accepts only one
+        symbol, not a comma-separated list.
+
+        `status` includes only 1 (new) and 2 (partially filled). Query order history
+        for terminal orders.
+
+        Matching orders are sorted by creation time `time_setup` descending. This
+        endpoint has no pagination parameters.'
+      parameters:
+      - name: underlying
+        in: query
+        description: Option underlying symbol, for example AAPL. Omit to disable underlying
+          filtering. Current orders support only one underlying.
+        schema:
+          type: string
+        example: AAPL
+      - name: symbol
+        in: query
+        description: Full option contract symbol, for example AAPL260814P00130000.
+          Omit to disable contract filtering.
+        schema:
+          type: string
+        example: AAPL260814P00130000
+      - name: side
+        in: query
+        schema:
+          $ref: '#/components/schemas/StockOptionOrderListSide'
+        description: 'Order side filter.
+
+          Omit to query both sides.
+
+          - 1: Sell orders only.
+
+          - 2: Buy orders only.'
+      responses:
+        '200':
+          description: Current option order list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionOrderListResponse'
+              example:
+                label: ''
+                data:
+                  list:
+                  - order_id: '8000000001'
+                    symbol: AAPL260814P00130000
+                    symbol_display: AAPL-260814-130-P
+                    underlying: AAPL
+                    side: 2
+                    order_type: limit
+                    status: 1
+                    status_desc: new
+                    time_in_force: day
+                    quantity: '1'
+                    filled_quantity: '0'
+                    price: '1.20'
+                    time_setup: 1785919118
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      x-group-parameters: true
+    delete:
+      tags:
+      - StockOptions
+      summary: Cancel all option limit orders
+      operationId: cancelAllOptionOrders
+      description: 'Cancel all or a filtered set of the current user''s option limit
+        orders.
+
+        The request body may be omitted or an empty object. Without filters, all limit
+        orders are cancelled.
+
+        Filter by `underlying`, `symbol` or `side`. `side` supports 1 (sell) and 2
+        (buy); omit it to include both sides.
+
+        The response reports the cancellation request result. Query the orders to
+        confirm their subsequent status.'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StockOptionCancelAllOrdersRequest'
+      responses:
+        '200':
+          description: Bulk order cancellation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionCancelAllOrdersResponse'
+              example:
+                label: ''
+                data:
+                  success: true
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      parameters: []
+  /stock_options/orders/{order_id}:
+    get:
+      tags:
+      - StockOptions
+      summary: Get option order details
+      operationId: queryOptionOrderDetail
+      description: 'Query one of the current user''s orders by ID to track its status,
+        filled quantity and average fill price.
+
+        `order_id` is required and must be a positive integer represented as a string.
+        Both current and finished orders can be queried, without filtering by terminal
+        status.
+
+        Returns price, quantity, filled quantity, status description, average fill
+        price, fees and timestamps.'
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: Option order ID as a positive integer string, obtained from order
+          submission or query results.
+        schema:
+          type: string
+        example: '8000000001'
+      responses:
+        '200':
+          description: Option order details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionOrderDetailResponse'
+              example:
+                label: ''
+                data:
+                  order_id: '8000000001'
+                  symbol: AAPL260814P00130000
+                  symbol_display: AAPL-260814-130-P
+                  underlying: AAPL
+                  side: 2
+                  order_type: limit
+                  status: 3
+                  status_desc: filled
+                  time_in_force: day
+                  quantity: '1'
+                  filled_quantity: '1'
+                  price: '1.20'
+                  avg_fill_price: '1.20'
+                  fee: '0.025'
+                  time_setup: 1785919118
+                  time_done: 1785919120
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+    put:
+      tags:
+      - StockOptions
+      summary: Amend an option limit order
+      operationId: updateOptionOrder
+      description: 'Update the price and total quantity of one of the current user''s
+        option limit orders.
+
+        The path `order_id` and body `price` and `quantity` are required. Market orders
+        cannot be amended.
+
+        `quantity` is the new total order quantity, not the remaining unfilled quantity,
+        and must be at least `filled_quantity`.
+
+        Amending a sell order also requires sufficient available positions for the
+        new unfilled quantity. Returns the order ID; query the order for its subsequent
+        status.'
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: Option order ID as a positive integer string, obtained from order
+          submission or query results.
+        schema:
+          type: string
+        example: '72057594037983901'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StockOptionUpdateOrderRequest'
+      responses:
+        '200':
+          description: Order amendment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionUpdateOrderResponse'
+              example:
+                label: ''
+                data:
+                  id: '8000000001'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+    delete:
+      tags:
+      - StockOptions
+      summary: Cancel an option limit order
+      operationId: cancelOptionOrder
+      description: 'Cancel one of the current user''s option limit orders by ID.
+
+        `order_id` is required. Only limit orders can be cancelled; already filled
+        quantities are unaffected.
+
+        Returns the order ID. Query order details or order history for the final status.'
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: Option order ID as a positive integer string, obtained from order
+          submission or query results.
+        schema:
+          type: string
+        example: '72057594037983901'
+      responses:
+        '200':
+          description: Order cancellation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionCancelOrderResponse'
+              example:
+                label: ''
+                data:
+                  id: '8000000001'
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+  /stock_options/orders/history:
+    get:
+      tags:
+      - StockOptions
+      summary: List historical option orders
+      operationId: queryOptionOrderHistory
+      description: 'Query the current user''s finished option orders with pagination
+        to check orders, fills and fees.
+
+        `status` includes only 3 (filled), 4 (cancelled) and 5 (rejected).
+
+        Filter by underlying, contract, side or order creation time. `begin_time`
+        and `end_time` are Unix timestamps in seconds; when both are provided, the
+        start must not be later than the end.
+
+        Returns total records, total pages and the current page. The default and maximum
+        `page_size` are both 100.'
+      parameters:
+      - name: underlying
+        in: query
+        description: Option underlying symbol, for example AAPL. Omit to disable underlying
+          filtering. Current orders support only one underlying.
+        schema:
+          type: string
+        example: AAPL
+      - name: symbol
+        in: query
+        description: Full option contract symbol, for example AAPL260814P00130000.
+          Omit to disable contract filtering.
+        schema:
+          type: string
+        example: AAPL260814P00130000
+      - name: begin_time
+        in: query
+        description: Order creation time filter start, as a Unix timestamp in seconds.
+          Omit for no lower bound; must not exceed end_time when both are provided.
+        schema:
+          type: integer
+          format: int64
+      - name: end_time
+        in: query
+        description: Order creation time filter end, as a Unix timestamp in seconds.
+          Omit for no upper bound; must not precede begin_time when both are provided.
+        schema:
+          type: integer
+          format: int64
+      - name: side
+        in: query
+        schema:
+          $ref: '#/components/schemas/StockOptionOrderListSide'
+        description: 'Order side filter.
+
+          Omit to query both sides.
+
+          - 1: Sell orders only.
+
+          - 2: Buy orders only.'
+      - name: page
+        in: query
+        description: Page number, starting from 1. Defaults to 1 when omitted.
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Number of items per page, up to 100. Defaults to 100 when omitted;
+          values above 100 are capped at 100.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 100
+      responses:
+        '200':
+          description: Historical option order list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionOrderHistoryResponse'
+              example:
+                label: ''
+                data:
+                  total: 1
+                  total_page: 1
+                  list:
+                  - order_id: '8000000001'
+                    symbol: AAPL260814P00130000
+                    symbol_display: AAPL-260814-130-P
+                    underlying: AAPL
+                    side: 2
+                    order_type: limit
+                    status: 3
+                    status_desc: filled
+                    time_in_force: day
+                    quantity: '1'
+                    filled_quantity: '1'
+                    price: '1.20'
+                    avg_fill_price: '1.20'
+                    fee: '0.025'
+                    time_setup: 1785919118
+                    time_done: 1785919120
+                timestamp: 1785919118845
+        '400':
+          description: Request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockOptionApiResponse'
+              example:
+                label: INVALID_ARGUMENT
+                message: invalid argument
+                data: null
+                timestamp: 1785919118845
+      x-group-parameters: true
   /delivery/{settle}/contracts:
     get:
       security: []
@@ -49359,7 +50760,7 @@ paths:
   /p2p/merchant/account/get_user_info:
     post:
       summary: Get account information
-      description: To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).
+      description: To query the spot account balance, use the Spot API [`GET /spot/accounts`](/apiv4/en/spot/#list-spot-trading-accounts).
       operationId: p2pMerchantAccountGetUserInfo
       tags:
       - p2p
@@ -50708,10 +52109,12 @@ paths:
   /p2p/merchant/chat/upload_chat_file:
     post:
       summary: Upload chat file
+      description: This endpoint is deprecated. Use [Pre-upload chat file](#pre-upload-chat-file)
+        to obtain credentials for direct S3 uploads.
       operationId: p2pMerchantChatUploadChatFile
       tags:
       - p2p
-      deprecated: false
+      deprecated: true
       parameters: []
       requestBody:
         required: true
@@ -50757,6 +52160,77 @@ paths:
                 message: success
                 data:
                   file_key: c2cchat_image/c2ctrade-demo-receipt|s3-gateio-payments
+                version: 1.0.0
+          headers: {}
+  /p2p/merchant/chat/pre_upload_chat_file:
+    post:
+      summary: Pre-upload chat file
+      description: 'Get credentials for a direct S3 upload of a chat file. Credentials
+        expire after 45 minutes. The maximum file size is 100 MiB.
+
+
+        Upload the file using the returned url and fields, placing the file field
+        last in the form. After S3 returns HTTP 204, call [send_chat_message](#send-text-message)
+        with type=1 and the returned file_key as message.'
+      operationId: p2pMerchantChatPreUploadChatFile
+      tags:
+      - p2p
+      deprecated: false
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreUploadChatFileRequest'
+      responses:
+        '200':
+          description: 'Project-Id-Version: GateApiTools 1.0.0
+
+            Report-Msgid-Bugs-To: EMAIL@ADDRESS
+
+            POT-Creation-Date: 2025-11-12 18:14+0800
+
+            PO-Revision-Date: 2019-01-02 17:30+0800
+
+            Last-Translator: FULL NAME <EMAIL@ADDRESS>
+
+            Language: en
+
+            Language-Team: en <L@li.org>
+
+            Plural-Forms: nplurals=2; plural=(n !=1)
+
+            MIME-Version: 1.0
+
+            Content-Type: text/plain; charset=utf-8
+
+            Content-Transfer-Encoding: 8bit
+
+            Generated-By: Babel 2.8.0
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/P2pPreUploadChatFileResponse'
+              example:
+                timestamp: 1767009875.525072
+                method: --
+                code: 0
+                message: success
+                data:
+                  url: https://example-bucket.s3.ap-northeast-1.amazonaws.com/
+                  fields:
+                    key: c2cchat_image/example-receipt.png
+                    Content-Type: image/png
+                    X-Amz-Algorithm: AWS4-HMAC-SHA256
+                    X-Amz-Credential: EXAMPLE/20261117/ap-northeast-1/s3/aws4_request
+                    X-Amz-Date: 20261117T000000Z
+                    X-Amz-Security-Token: example-session-token
+                    Policy: example-policy
+                    X-Amz-Signature: example-signature
+                  file_key: c2cchat_image/example-receipt.png|s3-gateio-payments
                 version: 1.0.0
           headers: {}
   /crossex/rule/symbols:
@@ -55456,6 +56930,74 @@ paths:
                 expire_time_ms: 1784365405074
                 create_time_ms: 1784279005258
                 update_time_ms: 1784279005258
+  /flash-swap/v1/currency-pair:
+    get:
+      x-external: true
+      security: []
+      summary: List Flash Swap currency pairs
+      description: List available Flash Swap currency pairs and buy/sell amount limits
+        for the specified currency and trading side
+      operationId: listFlashSwapCurrencyPairV1
+      tags:
+      - flash_swap
+      parameters:
+      - name: asset_name
+        in: query
+        description: Currency name
+        required: true
+        schema:
+          type: string
+        example: BTC
+      - name: side
+        in: query
+        description: 'Trading side
+
+          - `1`: Sell
+
+          - `2`: Buy'
+        required: true
+        schema:
+          type: integer
+          format: int32
+          enum:
+          - 1
+          - 2
+        example: 1
+      - name: X-Gate-Region
+        in: header
+        description: User region
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlashSwapV1CurrencyPairListResp'
+              example:
+                currency_pair:
+                - market: BTC_USDT
+                  sell_asset: BTC
+                  sell_min_amount: '0.00001'
+                  sell_max_amount: '100'
+                  buy_asset: USDT
+                  buy_min_amount: '10'
+                  buy_max_amount: '10000000'
+        '400':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlashSwapErrorResponse'
+        '404':
+          description: Record does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlashSwapErrorResponse'
+      x-group-parameters: true
   /alpha/accounts:
     get:
       tags:
@@ -57609,493 +59151,6 @@ paths:
                 timestamp: 1773656946924
           headers: {}
       security: []
-  /flash-swap/v1/currency-pair:
-    get:
-      summary: List Flash Swap currency pairs
-      description: List available Flash Swap currency pairs and buy/sell amount limits
-        for the specified currency and trading side
-      operationId: listFlashSwapCurrencyPairV1
-      tags:
-      - flash_swap
-      parameters:
-      - name: asset_name
-        in: query
-        description: Currency name
-        required: true
-        schema:
-          type: string
-        example: BTC
-      - name: side
-        in: query
-        description: 'Trading side
-
-          - `1`: Sell
-
-          - `2`: Buy'
-        required: true
-        schema:
-          type: integer
-          format: int32
-          enum:
-          - 1
-          - 2
-        example: 1
-      - name: X-Gate-Region
-        in: header
-        description: User region
-        required: false
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapV1CurrencyPairListResp'
-              example:
-                currency_pair:
-                - market: BTC_USDT
-                  sell_asset: BTC
-                  sell_min_amount: '0.00001'
-                  sell_max_amount: '100'
-                  buy_asset: USDT
-                  buy_min_amount: '10'
-                  buy_max_amount: '10000000'
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      x-group-parameters: true
-  /flash_swap/multi-currency/many-to-one/order/create:
-    post:
-      summary: Flash Swap - Multi-currency exchange - Place order (many-to-one)
-      description: Create a multi-currency to single target currency exchange order
-      operationId: createFlashSwapMultiCurrencyManyToOneOrder
-      tags:
-      - flash_swap
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FlashSwapMultiCurrencyManyToOneOrderCreateReq'
-            example:
-              params:
-              - sell_asset: BTC
-                sell_amount: '1.5'
-                buy_asset: USDT
-                buy_amount: '50000'
-              - sell_asset: ETH
-                sell_amount: '10'
-                buy_asset: USDT
-                buy_amount: '30000'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyManyToOneOrderCreateResp'
-              example:
-                code: 0
-                message: success
-                data:
-                  orders:
-                  - id: 12345
-                    user_id: 11135567
-                    source: web
-                    app_id: apiv4
-                    client_req_id: req_001
-                    sell_asset: BTC
-                    sell_amount: '1.5'
-                    sell_amount_show: '1.5'
-                    buy_asset: USDT
-                    buy_amount: '50000'
-                    buy_amount_show: '50000'
-                    price: '30000.5'
-                    status: 1
-                    quote_id: abc123456
-                    failed_code: 0
-                    failed_reason: ''
-                    create_time: '2024-01-01 00:00:00'
-                    create_time_ms: 1700000000000
-                    error:
-                      code: 0
-                      message: ''
-                      extra: {}
-                  account_mode: 1
-                  exchange_time_ms: 1700000000000
-                  total_acquire_amount: '80000'
-                timestamp: 1700000000000
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      parameters: []
-  /flash_swap/multi-currency/many-to-one/order/preview:
-    post:
-      summary: Flash Swap - Multi-currency exchange - Preview (many-to-one)
-      description: Preview quote for multi-currency to single target currency exchange
-      operationId: previewFlashSwapMultiCurrencyManyToOneOrder
-      tags:
-      - flash_swap
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FlashSwapMultiCurrencyManyToOneOrderPreviewReq'
-            example:
-              params:
-              - sell_asset: BTC
-                sell_amount: '1.5'
-                buy_asset: USDT
-                buy_amount: '50000'
-              - sell_asset: ETH
-                sell_amount: '10'
-                buy_asset: USDT
-                buy_amount: '30000'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyManyToOneOrderPreviewResp'
-              example:
-                code: 0
-                message: success
-                data:
-                  orders:
-                  - quote_id: abc123456
-                    hedge_type: 1
-                    sell_asset: BTC
-                    sell_amount: '1.5'
-                    sell_amount_show: '1.5'
-                    buy_asset: USDT
-                    buy_amount: '50000'
-                    buy_amount_show: '50000'
-                    price: '30000.5'
-                    price_diff: '0.01'
-                    reverse_price: '0.0000333'
-                    valid_timestamp: 1700000060
-                    error:
-                      code: 0
-                      message: ''
-                      extra: {}
-                  total_acquire_amount: '80000'
-                timestamp: 1700000000000
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      parameters: []
-  /flash_swap/order/create:
-    post:
-      summary: Flash Swap - Place order (one-to-one)
-      description: Submit a one-to-one flash swap order. A quote_id must be obtained
-        from the preview endpoint first
-      operationId: createFlashSwapOrderV1
-      tags:
-      - flash_swap
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FlashSwapOrderCreateReq'
-            example:
-              quote_id: abc123456
-              hedge_type: 1
-              sell_asset: BTC
-              sell_amount: '1.5'
-              buy_asset: USDT
-              buy_amount: '50000'
-              client_req_id: req_001
-              request_time_ms: 1700000000000
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapOrderCreateResp'
-              example:
-                code: 0
-                message: success
-                data:
-                  id: 12345
-                  user_id: 11135567
-                  source: web
-                  app_id: apiv4
-                  client_req_id: req_001
-                  sell_asset: BTC
-                  sell_amount: '1.5'
-                  sell_amount_show: '1.5'
-                  buy_asset: USDT
-                  buy_amount: '50000'
-                  buy_amount_show: '50000'
-                  price: '30000.5'
-                  status: 1
-                  quote_id: abc123456
-                  failed_code: 0
-                  failed_reason: ''
-                  create_time: '2024-01-01 00:00:00'
-                  create_time_ms: 1700000000000
-                  account_mode: 1
-                timestamp: 1700000000000
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      parameters: []
-  /flash_swap/multi-currency/one-to-many/order/create:
-    post:
-      summary: Flash Swap - Multi-currency exchange - Place order (one-to-many)
-      description: Create a single currency to multiple target currencies exchange
-        order
-      operationId: createFlashSwapMultiCurrencyOneToManyOrder
-      tags:
-      - flash_swap
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FlashSwapMultiCurrencyOneToManyOrderCreateReq'
-            example:
-              params:
-              - sell_asset: USDT
-                sell_amount: '80000'
-                buy_asset: BTC
-                buy_amount: '1.5'
-              - sell_asset: USDT
-                sell_amount: '80000'
-                buy_asset: ETH
-                buy_amount: '10'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyOneToManyOrderCreateResp'
-              example:
-                code: 0
-                message: success
-                data:
-                  orders:
-                  - id: 12345
-                    user_id: 11135567
-                    source: web
-                    app_id: apiv4
-                    client_req_id: req_001
-                    sell_asset: USDT
-                    sell_amount: '80000'
-                    sell_amount_show: '80000'
-                    buy_asset: BTC
-                    buy_amount: '1.5'
-                    buy_amount_show: '1.5'
-                    price: '53333.33'
-                    status: 1
-                    quote_id: abc123456
-                    failed_code: 0
-                    failed_reason: ''
-                    create_time: '2024-01-01 00:00:00'
-                    create_time_ms: 1700000000000
-                    error:
-                      code: 0
-                      message: ''
-                      extra: {}
-                  account_mode: 1
-                  exchange_time_ms: 1700000000000
-                  total_consume_amount: '80000'
-                  total_acquire_amount: '1.5'
-                timestamp: 1700000000000
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      parameters: []
-  /flash_swap/multi-currency/one-to-many/order/preview:
-    post:
-      summary: Flash Swap - Multi-currency exchange - Preview (one-to-many)
-      description: Preview quote for single currency to multiple target currencies
-        exchange
-      operationId: previewFlashSwapMultiCurrencyOneToManyOrder
-      tags:
-      - flash_swap
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FlashSwapMultiCurrencyOneToManyOrderPreviewReq'
-            example:
-              params:
-              - sell_asset: USDT
-                sell_amount: '80000'
-                buy_asset: BTC
-                buy_amount: '1.5'
-              - sell_asset: USDT
-                sell_amount: '80000'
-                buy_asset: ETH
-                buy_amount: '10'
-        required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapMultiCurrencyOneToManyOrderPreviewResp'
-              example:
-                code: 0
-                message: success
-                data:
-                  orders:
-                  - quote_id: abc123456
-                    hedge_type: 1
-                    sell_asset: USDT
-                    sell_amount: '80000'
-                    sell_amount_show: '80000'
-                    buy_asset: BTC
-                    buy_amount: '1.5'
-                    buy_amount_show: '1.5'
-                    price: '53333.33'
-                    price_diff: '0.01'
-                    reverse_price: '0.00001875'
-                    valid_timestamp: 1700000060
-                    error:
-                      code: 0
-                      message: ''
-                      extra: {}
-                  total_consume_amount: '80000'
-                  total_acquire_amount: '1.5'
-                timestamp: 1700000000000
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      parameters: []
-  /flash_swap/order/preview:
-    get:
-      summary: Flash Swap - Preview (one-to-one)
-      description: Get one-to-one flash swap quote. Either sell_amount or buy_amount
-        must be specified
-      operationId: previewFlashSwapOrderV1
-      tags:
-      - flash_swap
-      parameters:
-      - name: sell_asset
-        in: query
-        description: Currency to sell
-        required: true
-        schema:
-          type: string
-      - name: sell_amount
-        in: query
-        description: Sell amount, either this or buy_amount must be specified
-        required: false
-        schema:
-          type: string
-      - name: buy_asset
-        in: query
-        description: Currency to buy
-        required: true
-        schema:
-          type: string
-      - name: buy_amount
-        in: query
-        description: Buy amount, either this or sell_amount must be specified
-        required: false
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapOrderPreviewResp'
-              example:
-                code: 0
-                message: success
-                data:
-                  quote_id: abc123456
-                  hedge_type: 1
-                  sell_asset: BTC
-                  sell_amount: '1.5'
-                  sell_amount_show: '1.5'
-                  buy_asset: USDT
-                  buy_amount: '50000'
-                  buy_amount_show: '50000'
-                  price: '30000.5'
-                  price_diff: '0.01'
-                  reverse_price: '0.0000333'
-                  valid_timestamp: 1700000060
-                timestamp: 1700000000000
-        '400':
-          description: Invalid parameters
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-        '404':
-          description: Record does not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlashSwapErrorResponse'
-      x-group-parameters: true
   /asset-swap/asset/list:
     get:
       summary: Portfolio optimization — currency list
@@ -59860,6 +60915,13 @@ tags:
     - For lead trading via APIv4, add the request header `x-gate-trader-copy-type:
     stock_copy` (fund transfers and transaction history endpoints are excluded from
     lead trading).'
+- name: StockOptions
+  description: 'Options trading provides underlying, contract, market data, position
+    and order management.
+
+    - Documentation route prefix: `/stock_options`
+
+    - Authentication, signing and the common error structure follow APIv4.'
 - name: delivery
   description: Delivery contract
 - name: options

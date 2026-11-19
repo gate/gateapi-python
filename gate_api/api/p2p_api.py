@@ -39,7 +39,7 @@ class P2pApi(object):
     def p2p_merchant_account_get_user_info(self, **kwargs):  # noqa: E501
         """Get account information  # noqa: E501
 
-        To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).  # noqa: E501
+        To query the spot account balance, use the Spot API [`GET /spot/accounts`](/apiv4/en/spot/#list-spot-trading-accounts).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_account_get_user_info(async_req=True)
@@ -63,7 +63,7 @@ class P2pApi(object):
     def p2p_merchant_account_get_user_info_with_http_info(self, **kwargs):  # noqa: E501
         """Get account information  # noqa: E501
 
-        To query the spot account balance, use the Spot API [`GET /spot/accounts`](/docs/developers/apiv4/en/spot/#list-spot-trading-accounts).  # noqa: E501
+        To query the spot account balance, use the Spot API [`GET /spot/accounts`](/apiv4/en/spot/#list-spot-trading-accounts).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_account_get_user_info_with_http_info(async_req=True)
@@ -1998,6 +1998,7 @@ class P2pApi(object):
     def p2p_merchant_chat_upload_chat_file(self, upload_chat_file, **kwargs):  # noqa: E501
         """Upload chat file  # noqa: E501
 
+        This endpoint is deprecated. Use [Pre-upload chat file](#pre-upload-chat-file) to obtain credentials for direct S3 uploads.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_chat_upload_chat_file(upload_chat_file, async_req=True)
@@ -2022,6 +2023,7 @@ class P2pApi(object):
     def p2p_merchant_chat_upload_chat_file_with_http_info(self, upload_chat_file, **kwargs):  # noqa: E501
         """Upload chat file  # noqa: E501
 
+        This endpoint is deprecated. Use [Pre-upload chat file](#pre-upload-chat-file) to obtain credentials for direct S3 uploads.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.p2p_merchant_chat_upload_chat_file_with_http_info(upload_chat_file, async_req=True)
@@ -2104,6 +2106,124 @@ class P2pApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='P2pUploadChatFileResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def p2p_merchant_chat_pre_upload_chat_file(self, pre_upload_chat_file_request, **kwargs):  # noqa: E501
+        """Pre-upload chat file  # noqa: E501
+
+        Get credentials for a direct S3 upload of a chat file. Credentials expire after 45 minutes. The maximum file size is 100 MiB.  Upload the file using the returned url and fields, placing the file field last in the form. After S3 returns HTTP 204, call [send_chat_message](#send-text-message) with type=1 and the returned file_key as message.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.p2p_merchant_chat_pre_upload_chat_file(pre_upload_chat_file_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param PreUploadChatFileRequest pre_upload_chat_file_request: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: gate_api.P2pPreUploadChatFileResponse
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.p2p_merchant_chat_pre_upload_chat_file_with_http_info(pre_upload_chat_file_request, **kwargs)  # noqa: E501
+
+    def p2p_merchant_chat_pre_upload_chat_file_with_http_info(self, pre_upload_chat_file_request, **kwargs):  # noqa: E501
+        """Pre-upload chat file  # noqa: E501
+
+        Get credentials for a direct S3 upload of a chat file. Credentials expire after 45 minutes. The maximum file size is 100 MiB.  Upload the file using the returned url and fields, placing the file field last in the form. After S3 returns HTTP 204, call [send_chat_message](#send-text-message) with type=1 and the returned file_key as message.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.p2p_merchant_chat_pre_upload_chat_file_with_http_info(pre_upload_chat_file_request, async_req=True)
+        >>> result = thread.get()
+
+        :param bool async_req: execute request asynchronously
+        :param PreUploadChatFileRequest pre_upload_chat_file_request: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :rtype: tuple(gate_api.P2pPreUploadChatFileResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'pre_upload_chat_file_request'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for k, v in six.iteritems(local_var_params['kwargs']):
+            if k not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method p2p_merchant_chat_pre_upload_chat_file" % k
+                )
+            local_var_params[k] = v
+        del local_var_params['kwargs']
+        # verify the required parameter 'pre_upload_chat_file_request' is set
+        if self.api_client.client_side_validation and ('pre_upload_chat_file_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pre_upload_chat_file_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pre_upload_chat_file_request` when calling `p2p_merchant_chat_pre_upload_chat_file`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'pre_upload_chat_file_request' in local_var_params:
+            body_params = local_var_params['pre_upload_chat_file_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apiv4']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/p2p/merchant/chat/pre_upload_chat_file', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='P2pPreUploadChatFileResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

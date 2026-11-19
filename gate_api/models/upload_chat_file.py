@@ -27,6 +27,9 @@ class UploadChatFile(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     Attributes:
       openapi_types (dict): The key is attribute name
@@ -93,7 +96,7 @@ class UploadChatFile(object):
     def base64_img(self):
         """Gets the base64_img of this UploadChatFile.  # noqa: E501
 
-        Base64 file content; max 20 MB.  # noqa: E501
+        Base64-encoded file content.  # noqa: E501
 
         :return: The base64_img of this UploadChatFile.  # noqa: E501
         :rtype: str
@@ -104,7 +107,7 @@ class UploadChatFile(object):
     def base64_img(self, base64_img):
         """Sets the base64_img of this UploadChatFile.
 
-        Base64 file content; max 20 MB.  # noqa: E501
+        Base64-encoded file content.  # noqa: E501
 
         :param base64_img: The base64_img of this UploadChatFile.  # noqa: E501
         :type: str

@@ -27,6 +27,9 @@ class ContractMartingaleDirection(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     allowed enum values
     """

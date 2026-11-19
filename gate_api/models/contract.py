@@ -27,6 +27,9 @@ class Contract(object):
     Do not edit the class manually.
     """
 
+
+
+
     """
     Attributes:
       openapi_types (dict): The key is attribute name
@@ -789,7 +792,7 @@ class Contract(object):
     def order_size_min(self):
         """Gets the order_size_min of this Contract.  # noqa: E501
 
-        Minimum order quantity  # noqa: E501
+        Minimum order size in contracts. With `X-Gate-Size-Decimal: 1`, this field is a string that preserves the fractional part. With the header set to `0` or omitted, it is an integer with the fractional part discarded. A minimum below 1 is returned as 0 in this mode.  # noqa: E501
 
         :return: The order_size_min of this Contract.  # noqa: E501
         :rtype: str
@@ -800,7 +803,7 @@ class Contract(object):
     def order_size_min(self, order_size_min):
         """Sets the order_size_min of this Contract.
 
-        Minimum order quantity  # noqa: E501
+        Minimum order size in contracts. With `X-Gate-Size-Decimal: 1`, this field is a string that preserves the fractional part. With the header set to `0` or omitted, it is an integer with the fractional part discarded. A minimum below 1 is returned as 0 in this mode.  # noqa: E501
 
         :param order_size_min: The order_size_min of this Contract.  # noqa: E501
         :type: str
@@ -812,7 +815,7 @@ class Contract(object):
     def enable_decimal(self):
         """Gets the enable_decimal of this Contract.  # noqa: E501
 
-        Whether decimal string type is supported for contract lot size. When this field is set to `true`, it indicates that the contract supports decimal lot sizes (i.e., the `size` field can use a decimal string type); when set to `false`, it indicates that the contract does not support decimal lot sizes (i.e., the `size` field can only use an integer type).  # noqa: E501
+        Whether the contract supports fractional contract sizes. If `true`, use `X-Gate-Size-Decimal: 1` to submit a fractional size. If `false`, the contract supports whole contract sizes only.  # noqa: E501
 
         :return: The enable_decimal of this Contract.  # noqa: E501
         :rtype: bool
@@ -823,7 +826,7 @@ class Contract(object):
     def enable_decimal(self, enable_decimal):
         """Sets the enable_decimal of this Contract.
 
-        Whether decimal string type is supported for contract lot size. When this field is set to `true`, it indicates that the contract supports decimal lot sizes (i.e., the `size` field can use a decimal string type); when set to `false`, it indicates that the contract does not support decimal lot sizes (i.e., the `size` field can only use an integer type).  # noqa: E501
+        Whether the contract supports fractional contract sizes. If `true`, use `X-Gate-Size-Decimal: 1` to submit a fractional size. If `false`, the contract supports whole contract sizes only.  # noqa: E501
 
         :param enable_decimal: The enable_decimal of this Contract.  # noqa: E501
         :type: bool
@@ -835,7 +838,7 @@ class Contract(object):
     def order_size_max(self):
         """Gets the order_size_max of this Contract.  # noqa: E501
 
-        Maximum order quantity  # noqa: E501
+        Maximum order size in contracts. With `X-Gate-Size-Decimal: 1`, this field is a string that preserves the fractional part. With the header set to `0` or omitted, it is an integer with the fractional part discarded.  # noqa: E501
 
         :return: The order_size_max of this Contract.  # noqa: E501
         :rtype: str
@@ -846,7 +849,7 @@ class Contract(object):
     def order_size_max(self, order_size_max):
         """Sets the order_size_max of this Contract.
 
-        Maximum order quantity  # noqa: E501
+        Maximum order size in contracts. With `X-Gate-Size-Decimal: 1`, this field is a string that preserves the fractional part. With the header set to `0` or omitted, it is an integer with the fractional part discarded.  # noqa: E501
 
         :param order_size_max: The order_size_max of this Contract.  # noqa: E501
         :type: str

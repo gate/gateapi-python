@@ -5,8 +5,8 @@ Send chat message request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **txid** | **int** | Order ID | 
-**type** | **int** | Message type: &#x60;0&#x60; text; &#x60;1&#x60; file (image or video); defaults to &#x60;0&#x60;. | [optional] 
-**message** | **str** | Message content. When type&#x3D;0, pass text up to 500 characters, which goes through off-platform traffic diversion risk control; when hit, the response contains risk_type&#x3D;1 and toast_msg. When type&#x3D;1, pass the file_key returned by upload_chat_file | 
+**type** | **int** | Message type: 0 for text, 1 for files. Defaults to 0 when omitted. | [optional] 
+**message** | **str** | Message content. For type&#x3D;0, provide text up to 500 characters. Off-platform solicitation risk checks may return risk_type&#x3D;1 and toast_msg. For type&#x3D;1, after a successful S3 upload, provide the file_key returned by pre_upload_chat_file. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
